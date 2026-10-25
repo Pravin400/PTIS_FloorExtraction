@@ -1,0 +1,29 @@
+{
+  "title": "Multilingual Translation Master",
+  "subtitle": "Manage and edit your application resources across multiple locales.",
+  "filters": {
+    "resourceFile": "Resource File",
+    "selectResource": "Select Resource",
+    "targetLocale": "Target Locale",
+    "filterLanguage": "Filter Language"
+  },
+  "languages": {
+    "hi": "Hindi (hi_IN)",
+    "mr": "Marathi (mr_IN)"
+  },
+  "table": {
+    "resource": "RESOURCE",
+    "key": "KEY",
+    "en_US": "English",
+    "hi_IN": "Hindi",
+    "mr_IN": "Marathi",
+    "needsTranslation": "Needs Translation"
+  },
+  "buttons": {
+    "updateAll": "Update All Changes"
+  },
+  "messages": {
+    "noChanges": "No changes to save",
+    "saveSuccess": "Translations updated successfully"
+  }
+}

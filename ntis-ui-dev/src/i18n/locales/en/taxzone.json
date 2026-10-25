@@ -1,0 +1,107 @@
+{
+  "taxZone": {
+    "aliasFallback": {
+      "taxZone": "Tax Zone",
+      "taxZones": "Tax Zones",
+      "ward": "Ward"
+    },
+    "list": {
+      "title": "{zone} Master",
+      "subtitle": "Manage {tax_zones} and their {ward_no}-wise configuration",
+      "tabs": {
+        "taxZone": "Tax Zone",
+        "taxZoning": "Tax Zoning"
+      },
+      "buttons": {
+        "add": "Add {zone}",
+        "edit": "Edit",
+        "delete": "Delete"
+      },
+      "filters": {
+        "show": "Show",
+        "search": "Search by {zone} No, {zone} Type, Remark...",
+        "searching": "Searching...",
+        "recordsFound": "Found {count} records"
+      },
+      "table": {
+        "zoneNo": "{zone} No",
+        "zoneType": "{zone} Type",
+        "remark": "{zone} Description",
+        "status": "Status",
+        "actions": "Actions"
+      }
+    },
+    "form": {
+      "addTitle": "Add {zone}",
+      "editTitle": "Edit {zone}",
+      "subtitle": "Create new {zone}",
+      "editSubtitle": "Update {zone} details",
+      "fields": {
+        "zoneNo": {
+          "label": "{zone} No",
+          "placeholder": "e.g. 1 or Z"
+        },
+        "zoneType": {
+          "label": "{zone} Type",
+          "placeholder": "e.g. Residential"
+        },
+        "remark": {
+          "label": "{zone} Description",
+          "placeholder": "Enter {zone} description"
+        }
+      },
+      "validation": {
+        "zoneNoRequired": "{zone} No is required",
+        "zoneNoAllZeros": "{zone} No cannot contain only zeros",
+        "zoneNoMax": "Maximum length is 10 characters",
+        "zoneNoFormat": "Only letters, numbers and underscore allowed (underscore only in between)",
+        "zoneNoExists": "Duplicate zone number is not allowed",
+        "zoneTypeRequired": "{zone} Type is required",
+        "zoneTypeAllZeros": "{zone} Type cannot contain only zeros",
+        "zoneTypeFormat": "Only letters, numbers and basic punctuation allowed (special characters only in between, single space only)",
+        "zoneTypeExists": "Duplicate zone type is not allowed",
+        "remarkRequired": "{zone} Description is required",
+        "remarkAllZeros": "Remark cannot contain only zeros",
+        "remarkFormat": "Only letters, numbers and basic punctuation allowed (special characters only in between, single space only)",
+        "fixErrors": "Please fix validation errors",
+        "duplicateError": "Please check {zone} No and {zone} Type - duplicates not allowed.",
+        "remarkMax": "Maximum length is 15 characters",
+        "zoneTypeMax": "Maximum length is 15 characters"
+      },
+      "status": {
+        "label": "Active Status",
+        "active": "{zone} is currently active",
+        "inactive": "{zone} is currently inactive"
+      },
+      "note": {
+        "mandatory": "Fields marked with * are mandatory"
+      },
+      "actions": {
+        "cancel": "Cancel",
+        "save": "Save",
+        "update": "Update"
+      },
+      "messages": {
+        "createSuccess": "{zone} created successfully",
+        "updateSuccess": "{zone} updated successfully",
+        "error": "Cannot delete/Deactivate {zone} because it is in use",
+        "invalidIdError": "Invalid ID format. ID must be a positive number."
+      }
+    },
+    "delete": {
+      "success": "{zone} deleted successfully",
+      "error": "Cannot delete {zone} because it is in use"
+    },
+    "error": {
+      "title": "Tax Zone Error",
+      "description": "An error occurred while loading the tax zone page. Please try again.",
+      "errorId": "Error ID: {id}",
+      "goHome": "Go Home",
+      "tryAgain": "Try Again"
+    },
+    "loading": {
+      "message": "Loading Tax Zone...",
+      "description": "Please wait while we fetch the tax zone data"
+    }
+  }
+}

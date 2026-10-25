@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<!-- All common properties are inherited from Directory.Build.props -->
+
+	<PropertyGroup>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <!-- Pre-existing exclusion: this file references PropertyMastOldEntity/PropertyRepository
+	       members (OldConstArea, PropertyId, GetOldDetailsAsync, UpdateOldDetailsAsync) that no
+	       longer exist, from before this PR. The PropertyRepository constructor call sites were
+	       fixed to the current (context, IFinanceYearProvider) signature regardless, but fully
+	       resurrecting this file needs its own separate pass. -->
+	  <Compile Remove="Application\PropertyOldDetailsTests.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="16.1.1" />
+		<PackageReference Include="coverlet.collector" Version="$(CoverletVersion)" />
+		<PackageReference Include="FluentAssertions" Version="8.8.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="$(MicrosoftPackageVersion)" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="$(MicrosoftPackageVersion)" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="$(MicrosoftTestSdkVersion)" />
+		<PackageReference Include="MockQueryable.EntityFrameworkCore" Version="10.0.0" />
+		<PackageReference Include="MockQueryable.Moq" Version="10.0.0" />
+		<PackageReference Include="Moq" Version="$(MoqVersion)" />
+		<PackageReference Include="PDFsharp" Version="6.2.4" />
+		<PackageReference Include="PDFsharp-MigraDoc" Version="6.2.4" />
+		<PackageReference Include="xunit" Version="$(XunitVersion)" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="$(XunitRunnerVersion)" />
+		<PackageReference Include="NetArchTest.Rules" Version="1.3.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Using Include="Xunit" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\Core\NtisPlatform.Core\NtisPlatform.Core.csproj" />
+		<ProjectReference Include="..\..\src\Application\NtisPlatform.Application\NtisPlatform.Application.csproj" />
+		<ProjectReference Include="..\..\src\Infrastructure\NtisPlatform.Infrastructure\NtisPlatform.Infrastructure.csproj" />
+		<ProjectReference Include="..\..\src\Presentation\NtisPlatform.Api\NtisPlatform.Api.csproj" />
+		<ProjectReference Include="..\..\src\Presentation\NtisPlatform.Worker\NtisPlatform.Worker.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Api\DTOs\" />
+	  <Folder Include="Api\Extensions\" />
+	  <Folder Include="Application\DTOs\Document\" />
+	  <Folder Include="Application\Examples\" />
+	  <Folder Include="Integration\" />
+	</ItemGroup>
+
+
+
+</Project>

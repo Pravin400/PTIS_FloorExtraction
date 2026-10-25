@@ -1,0 +1,2209 @@
+using Microsoft.EntityFrameworkCore;
+using NtisPlatform.Application.Enums;
+using NtisPlatform.Application.Extensions;
+using NtisPlatform.Application.Interfaces;
+using NtisPlatform.Core.Constants;
+using NtisPlatform.Core.Entities;
+using NtisPlatform.Core.Entities.Master;
+using NtisPlatform.Core.Enums;
+using NtisPlatform.Core.Interfaces.Property;
+using NtisPlatform.Core.Models;
+using NtisPlatform.Infrastructure.Caching;
+using NtisPlatform.Infrastructure.Data;
+
+namespace NtisPlatform.Infrastructure.Repositories.Property;
+
+/// <summary>
+/// Data-access implementation for the Property Search screen: the multi-criteria property
+/// search (Quick Search / KYC Search) and the dashboard count statistics.
+/// Pure querying only - no SaveChanges and no business messages. Uses the dedicated
+/// <see cref="ISearchSuggestionCache"/>, isolated from the shared app-wide IMemoryCache.
+/// </summary>
+public class PropertySearchRepository : IPropertySearchRepository
+{
+    private const string ApartmentCategoryName = "Apartment";
+    private const string TaxTotalCode = "TaxTotal";
+    private const string TaxTotalName = "TaxTotal";
+    private const string AssessedStatusName = "ASSESSED";
+    private const string UnassessedStatusName = "UNASSESSED";
+
+    private const int SuggestionCacheDurationMinutes = 5;
+
+    private readonly ApplicationDbContext _context;
+    private readonly ISearchSuggestionCache _cache;
+    private readonly IFinanceYearProvider _financeYearProvider;
+    private string[]? _cachedValuationMethods;
+    private int? _cachedCurrentFinanceYearId;
+
+    public PropertySearchRepository(ApplicationDbContext context, ISearchSuggestionCache cache, IFinanceYearProvider financeYearProvider)
+    {
+        _context = context;
+        _cache = cache;
+        _financeYearProvider = financeYearProvider;
+    }
+
+    /// <summary>
+    /// Resolves the YearMaster.Id for the current fiscal year (e.g. FinanceYearId 3002 for FY 2026-27).
+    /// RV/CV/Total Tax must be scoped to this specific year -- a property can have TransMast rows
+    /// for several past years, and picking Max(CalculationValue)/Sum(TaxAmount) across all of them
+    /// (the old behavior) silently returns a stale or inflated figure whenever a value decreased
+    /// year-over-year or a property carries multiple years of tax history.
+    /// Returns -1 (matches nothing) if no YearMaster row exists for the current year.
+    /// </summary>
+    private async Task<int> GetCurrentFinanceYearIdAsync(CancellationToken cancellationToken = default)
+    {
+        if (_cachedCurrentFinanceYearId.HasValue)
+            return _cachedCurrentFinanceYearId.Value;
+
+        var currentYear = _financeYearProvider.GetCurrentFinanceYear();
+        var yearId = await _context.YearMaster
+            .AsNoTracking()
+            .Where(y => y.Year == currentYear)
+            .Select(y => (int?)y.Id)
+            .FirstOrDefaultAsync(cancellationToken);
+
+        _cachedCurrentFinanceYearId = yearId ?? -1;
+        return _cachedCurrentFinanceYearId.Value;
+    }
+
+    /// <summary>
+    /// Gets valid valuation methods from PolicyConfiguration (RV, CV, and Total Tax).
+    /// Falls back to RV,CV,TOTAL TAX if not configured in database.
+    /// </summary>
+    private async Task<string[]> GetValidValuationMethodsAsync(CancellationToken cancellationToken = default)
+    {
+        // Return cached value if available
+        if (_cachedValuationMethods != null)
+            return _cachedValuationMethods;
+
+        try
+        {
+            var policy = await _context.PolicyConfiguration
+                .AsNoTracking()
+                .Where(p => p.IsActive && p.PolicyCode == "TaxCalculationMethod")
+                .FirstOrDefaultAsync(cancellationToken);
+
+            if (policy?.AllowedValues != null)
+            {
+                _cachedValuationMethods = policy.AllowedValues
+                    .Split(',')
+                    .Select(x => x.Trim().ToUpper())
+                    .ToArray();
+            }
+            else
+            {
+                // Fallback to RV, CV, and Total Tax
+                _cachedValuationMethods = new[] { "RV", "CV", "TOTAL TAX" };
+            }
+        }
+        catch
+        {
+            // If error reading from database, use default values (RV, CV, and Total Tax)
+            _cachedValuationMethods = new[] { "RV", "CV", "TOTAL TAX" };
+        }
+
+        return _cachedValuationMethods;
+    }
+
+    // ──────────────────────────────────────────────────────────────────────────
+    //  Public: grid search
+    // ──────────────────────────────────────────────────────────────────────────
+
+    public async Task<(int TotalCount, List<PropertySearchResponseDto> Items)> SearchPropertiesAsync(
+        PropertySearchRequestDto searchRequest,
+        int pageNumber,
+        int pageSize,
+        CancellationToken cancellationToken = default)
+    {
+        // RV/CV/Total Tax must be scoped to the current fiscal year (see GetCurrentFinanceYearIdAsync).
+        var currentFinanceYearId = await GetCurrentFinanceYearIdAsync(cancellationToken);
+
+        // Handle workflow stage filtering (via WorkflowStageId or DashboardFilter)
+        int? targetWorkflowStageId = searchRequest.WorkflowStageId;
+        if (!targetWorkflowStageId.HasValue && searchRequest.DashboardFilter.HasValue)
+        {
+            targetWorkflowStageId = (int)searchRequest.DashboardFilter.Value;
+        }
+
+        var query = from p in _context.PropertyMast.AsNoTracking()
+                    where p.IsActive && !p.MarkedForDeletion
+
+                    join w in _context.WardMaster.AsNoTracking() on p.WardId equals w.Id into wardJoin
+                    from w in wardJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+                    join z in _context.ZoneMaster.AsNoTracking() on (w != null ? w.ZoneId : (int?)null) equals z.Id into zoneJoin
+                    from z in zoneJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+                    join pc in _context.PropertyCategoryMaster.AsNoTracking() on p.CategoryId equals pc.Id into categoryJoin
+                    from pc in categoryJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+                    join pt in _context.PropertyTypeMasters.AsNoTracking() on p.PropertyTypeId equals pt.Id into propertyTypeJoin
+                    from pt in propertyTypeJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+                    join pmd in _context.PropertyMapDetails.AsNoTracking() on p.Id equals pmd.PropertyIdNew into pmdJoin
+                    from pmd in pmdJoin.Where(x => x.IsActive).DefaultIfEmpty()
+                    join pmo in _context.PropertyMastOld.AsNoTracking() on pmd.PropertyIdOld equals pmo.Id into oldJoin
+                    from pmo in oldJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+                    join sd in _context.SocietyDetailsMast.AsNoTracking() on p.Id equals sd.PropertyId into societyJoin
+                    from sd in societyJoin.Where(x => x.IsActive && !x.MarkedForDeletion).DefaultIfEmpty()
+
+                    select new
+                    {
+                        Property = p,
+                        Ward = w,
+                        Zone = z,
+                        Category = pc,
+                        PropertyType = pt,
+                        OldProperty = pmo,
+                        Society = sd
+                    };
+
+        // Filter by workflow stage when specified via WorkflowStageId or DashboardFilter
+        if (targetWorkflowStageId.HasValue && targetWorkflowStageId.Value > 0)
+        {
+            var stageId = targetWorkflowStageId.Value;
+            var propertyIdsInStage = _context.PropertyWorkflowDetails
+                .AsNoTracking()
+                .Where(d => d.IsActive && d.WorkflowStageId == stageId)
+                .Select(d => d.PropertyId)
+                .Distinct();
+
+            query = query.Where(x => propertyIdsInStage.Contains(x.Property.Id));
+        }
+
+        // A specific search (UPICId, PropertyNo, Address, Owner, Values & Dues, etc.) is asking for one
+        // known record, not browsing -- so it must never be defeated by the "hide incomplete rows"
+        // cleanup below. That cleanup is meant for the generic/browse grid only.
+        bool isSpecificSearch = !string.IsNullOrWhiteSpace(searchRequest.UPICId) ||
+                                !string.IsNullOrWhiteSpace(searchRequest.Address) ||
+                                !string.IsNullOrWhiteSpace(searchRequest.MobileNo) ||
+                                !string.IsNullOrWhiteSpace(searchRequest.OwnerName) ||
+                                !string.IsNullOrWhiteSpace(searchRequest.OccupierName) ||
+                                !string.IsNullOrWhiteSpace(searchRequest.FlatOrShopName) ||
+                                !string.IsNullOrWhiteSpace(searchRequest.SocietyName) ||
+                                !string.IsNullOrWhiteSpace(searchRequest.OldPropertyNo) ||
+                                !string.IsNullOrWhiteSpace(searchRequest.CSN) ||
+                                !string.IsNullOrWhiteSpace(searchRequest.PlotNo) ||
+                                !string.IsNullOrWhiteSpace(searchRequest.SubZoneNo) ||
+                                !string.IsNullOrWhiteSpace(searchRequest.PropertyNoFrom) ||
+                                !string.IsNullOrWhiteSpace(searchRequest.PropertyNoTo) ||
+                                (!string.IsNullOrWhiteSpace(searchRequest.ValuationMethod) && !string.IsNullOrWhiteSpace(searchRequest.FilterType));
+
+        // Exclude incomplete entries that have no Zone/Ward and no PropertyNo/OldPropertyNo.
+        // NOTE: "no Zone/Ward" here means the WardMaster/ZoneMaster join failed to resolve -- this
+        // catches both properties that were never assigned a ward AND properties whose WardId points
+        // to a ward that is missing/inactive in WardMaster (a master-data sync gap, not an incomplete
+        // property). Only apply this cleanup to generic/browse searches; an exact search must still
+        // find a real property even if its ward reference is orphaned.
+        if (!isSpecificSearch)
+        {
+            query = query.Where(x =>
+                (x.Ward != null || x.Zone != null) &&
+                (!string.IsNullOrEmpty(x.Property.PropertyNo) || (x.OldProperty != null && !string.IsNullOrEmpty(x.OldProperty.OldPropertyNo)))
+            );
+        }
+
+        // ── Common top-row filters ───────────────────────────────────────────
+        if (searchRequest.PropertyAssessmentStatusId.HasValue)
+            query = query.Where(x => x.Property.PropertyAssessmentStatusId == searchRequest.PropertyAssessmentStatusId.Value);
+
+        if (searchRequest.PropertyDescriptionId.HasValue)
+            query = query.Where(x => x.Property.PropertyTypeId == searchRequest.PropertyDescriptionId.Value);
+
+        if (searchRequest.ZoneId.HasValue)
+            query = query.Where(x => x.Zone != null && x.Zone.Id == searchRequest.ZoneId.Value);
+
+        if (searchRequest.WardId.HasValue)
+            query = query.Where(x => x.Property.WardId == searchRequest.WardId.Value);
+
+        // ── Quick Search filters ─────────────────────────────────────────────
+        if (searchRequest.PropertyTypeId.HasValue)
+            query = query.Where(x => x.Property.PropertyTypeId == searchRequest.PropertyTypeId.Value);
+
+        if (searchRequest.CategoryId.HasValue)
+            query = query.Where(x => x.Property.CategoryId == searchRequest.CategoryId.Value);
+
+        if (searchRequest.TypeOfUseId.HasValue)
+        {
+            var propertyIdsWithTypeOfUse = _context.PropertyDetails
+                .Where(pd => pd.IsActive && !pd.MarkedForDeletion && pd.TypeOfUseId == searchRequest.TypeOfUseId.Value)
+                .Select(pd => pd.PropertyId)
+                .Distinct();
+
+            query = query.Where(x => propertyIdsWithTypeOfUse.Contains(x.Property.Id));
+        }
+
+        if (!string.IsNullOrWhiteSpace(searchRequest.PropertyNoFrom) && !string.IsNullOrWhiteSpace(searchRequest.PropertyNoTo))
+        {
+            var fromStr = searchRequest.PropertyNoFrom.Trim();
+            var toStr = searchRequest.PropertyNoTo.Trim();
+            bool fromIsNum = long.TryParse(fromStr, out _);
+            bool toIsNum = long.TryParse(toStr, out _);
+
+            if (fromIsNum && toIsNum)
+            {
+                int fromLen = fromStr.Length;
+                int toLen = toStr.Length;
+
+                if (fromLen == toLen)
+                {
+                    query = query.Where(x => x.Property.PropertyNo != null &&
+                                             x.Property.PropertyNo.Length == fromLen &&
+                                             string.Compare(x.Property.PropertyNo, fromStr) >= 0 &&
+                                             string.Compare(x.Property.PropertyNo, toStr) <= 0);
+                }
+                else
+                {
+                    query = query.Where(x => x.Property.PropertyNo != null &&
+                                             x.Property.PropertyNo.Length >= fromLen &&
+                                             x.Property.PropertyNo.Length <= toLen &&
+                                             (x.Property.PropertyNo.Length > fromLen || string.Compare(x.Property.PropertyNo, fromStr) >= 0) &&
+                                             (x.Property.PropertyNo.Length < toLen || string.Compare(x.Property.PropertyNo, toStr) <= 0));
+                }
+            }
+            else
+            {
+                query = query.Where(x => x.Property.PropertyNo != null &&
+                                         string.Compare(x.Property.PropertyNo, fromStr) >= 0 &&
+                                         string.Compare(x.Property.PropertyNo, toStr) <= 0);
+            }
+        }
+        else if (!string.IsNullOrWhiteSpace(searchRequest.PropertyNoFrom))
+        {
+            var propNoFrom = searchRequest.PropertyNoFrom.Trim();
+            query = query.Where(x => x.Property.PropertyNo != null && x.Property.PropertyNo == propNoFrom);
+        }
+        else if (!string.IsNullOrWhiteSpace(searchRequest.PropertyNoTo))
+        {
+            var toStr = searchRequest.PropertyNoTo.Trim();
+            bool toIsNum = long.TryParse(toStr, out _);
+
+            if (toIsNum)
+            {
+                int toLen = toStr.Length;
+                query = query.Where(x => x.Property.PropertyNo != null &&
+                                         (x.Property.PropertyNo.Length < toLen ||
+                                          (x.Property.PropertyNo.Length == toLen && string.Compare(x.Property.PropertyNo, toStr) <= 0)));
+            }
+            else
+            {
+                query = query.Where(x => x.Property.PropertyNo != null &&
+                                         string.Compare(x.Property.PropertyNo, toStr) <= 0);
+            }
+        }
+
+        if (!string.IsNullOrWhiteSpace(searchRequest.OldPropertyNo))
+        {
+            var oldPropertyNo = searchRequest.OldPropertyNo.Trim();
+            query = query.Where(x => x.OldProperty != null &&
+                                     x.OldProperty.OldPropertyNo != null &&
+                                     x.OldProperty.OldPropertyNo == oldPropertyNo);
+        }
+
+        if (!string.IsNullOrWhiteSpace(searchRequest.UPICId))
+        {
+            var upicId = searchRequest.UPICId.Trim();
+            query = query.Where(x => x.Property.UPICId != null && x.Property.UPICId == upicId);
+        }
+
+        if (!string.IsNullOrWhiteSpace(searchRequest.CSN))
+            query = query.Where(x => x.Property.CSN != null && x.Property.CSN.Contains(searchRequest.CSN));
+
+        if (!string.IsNullOrWhiteSpace(searchRequest.SubZoneNo))
+            query = query.Where(x => x.Property.SubZoneNo != null && x.Property.SubZoneNo.Contains(searchRequest.SubZoneNo));
+
+        if (!string.IsNullOrWhiteSpace(searchRequest.PlotNo))
+            query = query.Where(x => x.Property.PlotNo != null && x.Property.PlotNo.Contains(searchRequest.PlotNo));
+
+        // ── KYC Search filters ────────────────────────────────────────────────
+        if (!string.IsNullOrWhiteSpace(searchRequest.MobileNo))
+        {
+            query = query.Where(x =>
+                (x.Property.MobileNo != null && x.Property.MobileNo.Contains(searchRequest.MobileNo)) ||
+                (x.Property.AlternateMobileNo != null && x.Property.AlternateMobileNo.Contains(searchRequest.MobileNo)) ||
+                (x.Property.OccupierMobileNo != null && x.Property.OccupierMobileNo.Contains(searchRequest.MobileNo)));
+        }
+
+        if (!string.IsNullOrWhiteSpace(searchRequest.OwnerName))
+        {
+            query = query.Where(x =>
+                (x.Property.OwnerName != null && x.Property.OwnerName.Contains(searchRequest.OwnerName)) ||
+                (x.Property.OwnerNameEnglish != null && x.Property.OwnerNameEnglish.Contains(searchRequest.OwnerName)));
+        }
+
+        if (!string.IsNullOrWhiteSpace(searchRequest.OccupierName))
+        {
+            query = query.Where(x =>
+                (x.Property.OccupierName != null && x.Property.OccupierName.Contains(searchRequest.OccupierName)) ||
+                (x.Property.OccupierNameEnglish != null && x.Property.OccupierNameEnglish.Contains(searchRequest.OccupierName)));
+        }
+
+        if (!string.IsNullOrWhiteSpace(searchRequest.FlatOrShopName))
+        {
+            query = query.Where(x =>
+                (x.Property.FlatOrShopName != null && x.Property.FlatOrShopName.Contains(searchRequest.FlatOrShopName)) ||
+                (x.Property.FlatOrShopNo != null && x.Property.FlatOrShopNo.Contains(searchRequest.FlatOrShopName)) ||
+                (x.Property.FlatOrShopNameEnglish != null && x.Property.FlatOrShopNameEnglish.Contains(searchRequest.FlatOrShopName)));
+        }
+
+        if (!string.IsNullOrWhiteSpace(searchRequest.SocietyName))
+        {
+            query = query.Where(x =>
+                (x.Society != null && x.Society.SocietyName != null && x.Society.SocietyName.Contains(searchRequest.SocietyName)) ||
+                (x.Society != null && x.Society.SocietyNameEnglish != null && x.Society.SocietyNameEnglish.Contains(searchRequest.SocietyName)));
+        }
+
+        if (!string.IsNullOrWhiteSpace(searchRequest.Address))
+        {
+            query = query.Where(x =>
+                (x.Property.Address != null && x.Property.Address.Contains(searchRequest.Address)) ||
+                (x.Property.AddressEnglish != null && x.Property.AddressEnglish.Contains(searchRequest.Address)));
+        }
+
+        // Values & Dues filters - filter by RV, CV, or Total Tax from PolicyConfiguration
+        if (!string.IsNullOrWhiteSpace(searchRequest.ValuationMethod) && !string.IsNullOrWhiteSpace(searchRequest.FilterType))
+        {
+            var valuationMethod = searchRequest.ValuationMethod.Trim().ToUpper();
+            var filterType = searchRequest.FilterType.Trim();
+            var validMethods = await GetValidValuationMethodsAsync(cancellationToken);
+
+            // Total Tax is always filterable regardless of the PolicyConfiguration-driven
+            // RV/CV list, since that policy only governs which valuation method computes tax.
+            if ((valuationMethod == "TOTAL TAX" || validMethods.Contains(valuationMethod)) && searchRequest.AmountValue.HasValue)
+            {
+                var amount = searchRequest.AmountValue.Value;
+
+                // Handle RV or CV filtering (from TransMast with CalculationType field)
+                if (valuationMethod == "RV" || valuationMethod == "CV")
+                {
+                    var rvOrCv = valuationMethod;
+
+                    // Get matching property IDs from TransMast, taking the latest active assessment
+                    var matchingPropertyIds = _context.TransMast
+                        .AsNoTracking()
+                        .Where(t => t.IsActive && !t.MarkedForDeletion && t.CalculationType == rvOrCv)
+                        .GroupBy(t => t.PropertyId)
+                        .Select(g => new { PropertyId = g.Key, Value = g.OrderByDescending(x => x.Id).Select(x => x.CalculationValue).FirstOrDefault() })
+                        .Where(x =>
+                            (filterType.Equals("Exact Value", StringComparison.OrdinalIgnoreCase) && x.Value == amount) ||
+                            (filterType.Equals("More Than", StringComparison.OrdinalIgnoreCase) && x.Value > amount) ||
+                            (filterType.Equals("Less Than", StringComparison.OrdinalIgnoreCase) && x.Value < amount) ||
+                            (filterType.Equals("Between", StringComparison.OrdinalIgnoreCase) && searchRequest.AmountTo.HasValue && x.Value >= amount && x.Value <= searchRequest.AmountTo.Value))
+                        .Select(x => x.PropertyId);
+
+                    query = query.Where(x => matchingPropertyIds.Contains(x.Property.Id));
+                }
+                // Handle Total Tax filtering (from TransMast joined with TaxMaster, TaxCode='TaxTotal', TaxName='TaxTotal')
+                else if (valuationMethod == "TOTAL TAX")
+                {
+                    var matchingPropertyIds = (
+                        from td in _context.PolicyTaxDetails.AsNoTracking()
+                        join tax in _context.TaxMaster.AsNoTracking() on td.TaxId equals tax.Id
+                        join pcm in _context.PolicyCodeMaster.AsNoTracking() on td.PolicyCodeId equals pcm.Id
+                        where td.IsActive && !td.MarkedForDeletion
+                              && tax.IsActive && tax.TaxCode != TaxTotalCode
+                              && pcm.IsActive && pcm.PolicyCode == "NETTAX"
+                        group td by td.PropertyId into g
+                        select new { PropertyId = g.Key, Value = g.Sum(x => x.TaxAmount ?? 0m) })
+                        .Where(x =>
+                            (filterType.Equals("Exact Value", StringComparison.OrdinalIgnoreCase) && x.Value == amount) ||
+                            (filterType.Equals("More Than", StringComparison.OrdinalIgnoreCase) && x.Value > amount) ||
+                            (filterType.Equals("Less Than", StringComparison.OrdinalIgnoreCase) && x.Value < amount) ||
+                            (filterType.Equals("Between", StringComparison.OrdinalIgnoreCase) && searchRequest.AmountTo.HasValue && x.Value >= amount && x.Value <= searchRequest.AmountTo.Value))
+                        .Select(x => x.PropertyId);
+
+                    query = query.Where(x => matchingPropertyIds.Contains(x.Property.Id));
+                }
+            }
+        }
+
+        // Exclude apartment units from grid results: show only structures/main properties,
+        // UNLESS the user is explicitly searching by specific text search criteria (UPICId, Address, Owner, etc.)
+        // or by a Values & Dues filter (RV/CV/Total Tax) -- an exact/range amount search is asking for
+        // whichever specific unit holds that value, so hiding apartment sub-units would silently drop
+        // legitimate matches (an amount that only exists on a flat's own TransMast row would never surface).
+        if (!isSpecificSearch)
+        {
+            query = query.Where(x => x.Category == null ||
+                                    x.Category.PropertyCategoryName != ApartmentCategoryName ||
+                                    (x.Category.PropertyCategoryName == ApartmentCategoryName &&
+                                     (string.IsNullOrEmpty(x.Property.PartitionNo))));
+        }
+
+        var isTopNFilter = !string.IsNullOrWhiteSpace(searchRequest.FilterType)
+            && searchRequest.FilterType.Trim().Equals("Top", StringComparison.OrdinalIgnoreCase)
+            && searchRequest.TopCount.HasValue
+            && searchRequest.TopCount.Value > 0;
+
+        // For Top N filter, we need valuation values before paging
+        Dictionary<int, decimal>? rvDictionary = null;
+        Dictionary<int, decimal>? cvDictionary = null;
+        Dictionary<int, decimal>? totalTaxDictionary = null;
+
+        if (isTopNFilter)
+        {
+            var allPropertyIds = await query.Select(x => x.Property.Id).ToListAsync(cancellationToken);
+
+            // RV (Rateable Value) from TransMast where CalculationType = 'RV'
+            var rvValues = await _context.TransMast
+                .AsNoTracking()
+                .Where(t =>
+                    allPropertyIds.Contains(t.PropertyId)
+                    && t.IsActive
+                    && !t.MarkedForDeletion
+                    && t.CalculationType == "RV")
+                .GroupBy(t => t.PropertyId)
+                .Select(g => new
+                {
+                    PropertyId = g.Key,
+                    RateableValue = g.OrderByDescending(x => x.Id).Select(x => x.CalculationValue).FirstOrDefault()
+                })
+                .ToListAsync(cancellationToken);
+
+            // CV (Capital Value) from TransMast where CalculationType = 'CV'
+            var cvValues = await _context.TransMast
+                .AsNoTracking()
+                .Where(t =>
+                    allPropertyIds.Contains(t.PropertyId)
+                    && t.IsActive
+                    && !t.MarkedForDeletion
+                    && t.CalculationType == "CV")
+                .GroupBy(t => t.PropertyId)
+                .Select(g => new
+                {
+                    PropertyId = g.Key,
+                    CapitalValue = g.OrderByDescending(x => x.Id).Select(x => x.CalculationValue).FirstOrDefault()
+                })
+                .ToListAsync(cancellationToken);
+
+            // Total Tax from active PolicyTaxDetails (excluding sentinel TaxTotal row)
+            var totalTaxAmounts = await (
+                from td in _context.PolicyTaxDetails.AsNoTracking()
+                join tax in _context.TaxMaster.AsNoTracking() on td.TaxId equals tax.Id
+                join pcm in _context.PolicyCodeMaster.AsNoTracking() on td.PolicyCodeId equals pcm.Id
+                where allPropertyIds.Contains(td.PropertyId)
+                      && td.IsActive
+                      && !td.MarkedForDeletion
+                      && tax.IsActive
+                      && tax.TaxCode != TaxTotalCode
+                      && pcm.IsActive
+                      && pcm.PolicyCode == "NETTAX"
+                group td by td.PropertyId into g
+                select new { PropertyId = g.Key, TotalTax = g.Sum(x => x.TaxAmount ?? 0m) }
+            ).ToListAsync(cancellationToken);
+
+            rvDictionary = rvValues.ToDictionary(x => x.PropertyId, x => x.RateableValue);
+            cvDictionary = cvValues.ToDictionary(x => x.PropertyId, x => x.CapitalValue);
+            totalTaxDictionary = totalTaxAmounts.ToDictionary(x => x.PropertyId, x => x.TotalTax);
+
+            // Apply Top N sorting BEFORE pagination
+            var valuationMethod = searchRequest.ValuationMethod?.Trim().ToUpper();
+            List<int> sortedIds;
+            if (valuationMethod == "RV")
+                sortedIds = rvDictionary.OrderByDescending(x => x.Value).Take(searchRequest.TopCount.Value).Select(x => x.Key).ToList();
+            else if (valuationMethod == "CV")
+                sortedIds = cvDictionary.OrderByDescending(x => x.Value).Take(searchRequest.TopCount.Value).Select(x => x.Key).ToList();
+            else if (valuationMethod == "TOTAL TAX")
+                sortedIds = totalTaxDictionary.OrderByDescending(x => x.Value).Take(searchRequest.TopCount.Value).Select(x => x.Key).ToList();
+            else
+                sortedIds = await query.Select(x => x.Property.Id).ToListAsync(cancellationToken);
+
+            query = query.Where(x => sortedIds.Contains(x.Property.Id));
+        }
+
+        var totalCount = await query.CountAsync(cancellationToken);
+
+        var orderedQuery = query.OrderBy(x => x.Property.Id);
+
+        var isUnpaged = pageSize == -1;
+        var skip = isUnpaged ? 0 : (pageNumber - 1) * pageSize;
+
+        var propertyResults = await (isUnpaged ? orderedQuery : orderedQuery.Skip(skip).Take(pageSize)).ToListAsync(cancellationToken);
+
+        if (!propertyResults.Any())
+            return (totalCount, new List<PropertySearchResponseDto>());
+
+        var propertyIds = propertyResults.Select(x => x.Property.Id).ToList();
+
+        // Load valuation values if not already loaded for Top N filter
+        if (!isTopNFilter)
+        {
+            // RV (Rateable Value) from TransMast where CalculationType = 'RV'
+            var rvValues = await _context.TransMast
+                .AsNoTracking()
+                .Where(t =>
+                    propertyIds.Contains(t.PropertyId)
+                    && t.IsActive
+                    && !t.MarkedForDeletion
+                    && t.CalculationType == "RV")
+                .GroupBy(t => t.PropertyId)
+                .Select(g => new
+                {
+                    PropertyId = g.Key,
+                    RateableValue = g.OrderByDescending(x => x.Id).Select(x => x.CalculationValue).FirstOrDefault()
+                })
+                .ToListAsync(cancellationToken);
+
+            // CV (Capital Value) from TransMast where CalculationType = 'CV'
+            var cvValues = await _context.TransMast
+                .AsNoTracking()
+                .Where(t =>
+                    propertyIds.Contains(t.PropertyId)
+                    && t.IsActive
+                    && !t.MarkedForDeletion
+                    && t.CalculationType == "CV")
+                .GroupBy(t => t.PropertyId)
+                .Select(g => new
+                {
+                    PropertyId = g.Key,
+                    CapitalValue = g.OrderByDescending(x => x.Id).Select(x => x.CalculationValue).FirstOrDefault()
+                })
+                .ToListAsync(cancellationToken);
+
+            // Total Tax from active PolicyTaxDetails (excluding sentinel TaxTotal row)
+            // Get the total tax based ONLY on the standard NETTAX policy (matches the green box in PTIS)
+            var totalTaxAmounts = await (
+                from td in _context.PolicyTaxDetails.AsNoTracking()
+                join tax in _context.TaxMaster.AsNoTracking() on td.TaxId equals tax.Id
+                join pcm in _context.PolicyCodeMaster.AsNoTracking() on td.PolicyCodeId equals pcm.Id
+                where propertyIds.Contains(td.PropertyId)
+                      && td.IsActive
+                      && !td.MarkedForDeletion
+                      && tax.IsActive
+                      && tax.TaxCode != TaxTotalCode
+                      && pcm.IsActive
+                      && pcm.PolicyCode == "NETTAX"
+                group td by td.PropertyId into g
+                select new { PropertyId = g.Key, TotalTax = g.Sum(x => x.TaxAmount ?? 0m) }
+            ).ToListAsync(cancellationToken);
+
+            rvDictionary = rvValues.ToDictionary(x => x.PropertyId, x => x.RateableValue);
+            cvDictionary = cvValues.ToDictionary(x => x.PropertyId, x => x.CapitalValue);
+            totalTaxDictionary = totalTaxAmounts.ToDictionary(x => x.PropertyId, x => x.TotalTax);
+        }
+
+        // Pre-calculate unit counts for apartment main properties (empty PartitionNo)
+        var apartmentMainProperties = propertyResults
+            .Where(x => x.Category?.PropertyCategoryName == ApartmentCategoryName &&
+                       string.IsNullOrEmpty(x.Property.PartitionNo))
+            .Select(x => new { x.Property.PropertyNo, x.Property.WardId })
+            .Distinct()
+            .ToList();
+
+        var mainPropNos = apartmentMainProperties.Select(a => a.PropertyNo).Distinct().ToList();
+        var mainWardIds = apartmentMainProperties.Select(a => a.WardId).Distinct().ToList();
+
+        var unitCountsList = await _context.PropertyMast
+            .AsNoTracking()
+            .Where(p => p.IsActive && !p.MarkedForDeletion &&
+                       mainPropNos.Contains(p.PropertyNo) &&
+                       mainWardIds.Contains(p.WardId) &&
+                       !string.IsNullOrEmpty(p.PartitionNo))
+            .GroupBy(p => new { p.PropertyNo, p.WardId })
+            .Select(g => new { g.Key.PropertyNo, g.Key.WardId, UnitCount = g.Count() })
+            .ToListAsync(cancellationToken);
+
+        var unitCountsDictionary = unitCountsList.ToDictionary(
+            x => $"{x.PropertyNo}_{x.WardId}",
+            x => x.UnitCount
+        );
+
+        var result = propertyResults.Select(pr =>
+        {
+            decimal? rv = null;
+            decimal? cv = null;
+            decimal? totalTax = null;
+            int? childUnitCount = null;
+
+            if (rvDictionary != null && rvDictionary.TryGetValue(pr.Property.Id, out var rvValue))
+                rv = rvValue;
+            if (cvDictionary != null && cvDictionary.TryGetValue(pr.Property.Id, out var cvValue))
+                cv = cvValue;
+            if (totalTaxDictionary != null && totalTaxDictionary.TryGetValue(pr.Property.Id, out var totalTaxValue))
+                totalTax = totalTaxValue;
+
+            // Add child unit count for apartment main properties
+            if (pr.Category?.PropertyCategoryName == ApartmentCategoryName &&
+                string.IsNullOrEmpty(pr.Property.PartitionNo))
+            {
+                var key = $"{pr.Property.PropertyNo}_{pr.Property.WardId}";
+                if (unitCountsDictionary.TryGetValue(key, out var unitCount))
+                {
+                    childUnitCount = unitCount;
+                }
+                else
+                {
+                    childUnitCount = 0;
+                }
+            }
+
+            return new PropertySearchResponseDto
+            {
+                PropertyId = pr.Property.Id,
+                UPICId = pr.Property.UPICId,
+                ZoneName = pr.Zone?.Description,
+                WardName = pr.Ward?.WardNo,
+                PropertyNo = pr.Property.PropertyNo,
+                PartitionNo = pr.Property.PartitionNo,
+                OldPropertyNo = pr.OldProperty?.OldPropertyNo,
+                CitySurveyNo = pr.Property.CSN,
+                PlotNo = pr.Property.PlotNo,
+                WingFlatNo = pr.Property.FlatOrShopNo,
+                CategoryName = pr.Category?.PropertyCategoryName,
+                PropertyDescription = pr.PropertyType?.PropertyDescription,
+                Mobile = pr.Property.MobileNo,
+                AlternateMobile = pr.Property.AlternateMobileNo,
+                PropertyHolderName = pr.Property.OwnerName ?? pr.Property.OwnerNameEnglish,
+                OccupierName = pr.Property.OccupierName ?? pr.Property.OccupierNameEnglish,
+                ShopBuildingName = pr.Property.FlatOrShopName ?? pr.Property.FlatOrShopNameEnglish,
+                SocietyName = pr.Society?.SocietyName ?? pr.Society?.SocietyNameEnglish,
+                Address = pr.Property.Address ?? pr.Property.AddressEnglish,
+                RV = rv,
+                CV = cv,
+                TotalTax = totalTax,
+                ChildUnitCount = childUnitCount
+            };
+        }).ToList();
+
+        return (totalCount, result);
+    }
+
+    // ──────────────────────────────────────────────────────────────────────────
+    //  Public: dashboard main cards
+    // ──────────────────────────────────────────────────────────────────────────
+
+    public async Task<(
+        (int PropertyCount, int StructureCount, int UnitCount, decimal Demand) PreviouslyRegistered,
+        (int PropertyCount, int StructureCount, int UnitCount, decimal Demand) Assessed,
+        (int PropertyCount, int StructureCount, int UnitCount, decimal Demand) Unassessed,
+        (int PropertyCount, int StructureCount, int UnitCount, decimal Demand) AdditionalRevenueGenerated)> GetMainCardsAsync(
+        PropertySearchRequestDto? searchRequest = null,
+        CancellationToken cancellationToken = default)
+    {
+        var baseQuery = _context.PropertyMast
+            .AsNoTracking()
+            .Where(p => p.IsActive && !p.MarkedForDeletion && p.PropertyNo != null && p.PropertyNo != "");
+
+        baseQuery = ApplyDashboardFilters(baseQuery, searchRequest);
+
+        var previouslyRegistered = await CalculatePreviouslyRegisteredAsync(baseQuery, cancellationToken);
+        var assessed = await CalculateByAssessmentStatusAsync(baseQuery, AssessedStatusName, true, cancellationToken);
+        var unassessed = await CalculateByAssessmentStatusAsync(baseQuery, UnassessedStatusName, false, cancellationToken);
+        var additionalRevenue = await CalculateAdditionalRevenueAsync(baseQuery, cancellationToken);
+
+        return (previouslyRegistered, assessed, unassessed, additionalRevenue);
+    }
+
+    // ──────────────────────────────────────────────────────────────────────────
+    //  Public: workflow cards
+    // ──────────────────────────────────────────────────────────────────────────
+
+    public async Task<List<WorkflowStageCardDto>> GetWorkflowCardsAsync(
+        PropertySearchRequestDto? searchRequest = null,
+        CancellationToken cancellationToken = default)
+    {
+        IQueryable<PropertyWorkflowStageMasterEntity> stagesBaseQuery = _context.PropertyWorkflowStageMaster
+            .AsNoTracking()
+            .Where(s => s.IsActive);
+
+        // When a specific stage is requested, restrict to that stage only
+        if (searchRequest?.WorkflowStageId.HasValue == true)
+            stagesBaseQuery = stagesBaseQuery.Where(s => s.Id == searchRequest.WorkflowStageId.Value);
+
+        var stages = await stagesBaseQuery
+            .OrderBy(s => s.DisplayOrder)
+            .ToListAsync(cancellationToken);
+
+        var cards = new List<WorkflowStageCardDto>(stages.Count);
+
+        foreach (var stage in stages)
+        {
+            var propertiesQuery = (
+                from d in _context.PropertyWorkflowDetails.AsNoTracking()
+                join p in _context.PropertyMast.AsNoTracking() on d.PropertyId equals p.Id
+                join w in _context.WardMaster.AsNoTracking() on p.WardId equals w.Id
+                join z in _context.ZoneMaster.AsNoTracking() on w.ZoneId equals z.Id
+                where d.IsActive
+                   && d.WorkflowStageId == stage.Id
+                   && p.IsActive
+                   && !p.MarkedForDeletion
+                   && w.IsActive
+                   && z.IsActive
+                   && p.PropertyNo != null
+                   && p.PropertyNo != ""
+                select p
+            ).Distinct();
+
+            propertiesQuery = ApplyDashboardFilters(propertiesQuery, searchRequest);
+
+            var (propertyCount, structureCount, unitCount) = await CountPropertiesAsync(propertiesQuery, cancellationToken);
+
+            cards.Add(new WorkflowStageCardDto
+            {
+                StageName = stage.StageName,
+                PropertyCount = propertyCount,
+                StructureCount = structureCount,
+                UnitCount = unitCount
+            });
+        }
+
+        return cards;
+    }
+
+    public async Task<ApartmentUnitListResponseDto> GetApartmentUnitListAsync(
+        int propertyId,
+        PropertySearchRequestDto? searchRequest = null,
+        CancellationToken cancellationToken = default)
+    {
+        PropertyEntity? parentProperty = null;
+
+        if (propertyId > 0)
+        {
+            parentProperty = await _context.PropertyMast
+                .AsNoTracking()
+                .FirstOrDefaultAsync(p => p.Id == propertyId && p.IsActive && !p.MarkedForDeletion, cancellationToken);
+        }
+        else if (searchRequest != null)
+        {
+            if (!string.IsNullOrWhiteSpace(searchRequest.UPICId))
+            {
+                parentProperty = await _context.PropertyMast
+                    .AsNoTracking()
+.FirstOrDefaultAsync(p => p.UPICId != null && p.UPICId == searchRequest.UPICId!.Trim() && p.IsActive && !p.MarkedForDeletion, cancellationToken);
+            }
+            else if (!string.IsNullOrWhiteSpace(searchRequest.PropertyNoFrom))
+            {
+                parentProperty = await _context.PropertyMast
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(p => p.PropertyNo == searchRequest.PropertyNoFrom && p.IsActive && !p.MarkedForDeletion, cancellationToken);
+            }
+            else if (!string.IsNullOrWhiteSpace(searchRequest.PropertyNoTo))
+            {
+                parentProperty = await _context.PropertyMast
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(p => p.PropertyNo == searchRequest.PropertyNoTo && p.IsActive && !p.MarkedForDeletion, cancellationToken);
+            }
+            else if (!string.IsNullOrWhiteSpace(searchRequest.OldPropertyNo))
+            {
+                var oldProp = await _context.PropertyMastOld
+                    .AsNoTracking()
+.FirstOrDefaultAsync(o => o.OldPropertyNo != null && o.OldPropertyNo == searchRequest.OldPropertyNo!.Trim() && o.IsActive && !o.MarkedForDeletion, cancellationToken);
+                if (oldProp != null)
+                {
+                    parentProperty = await (
+                        from p in _context.PropertyMast.AsNoTracking()
+                        join pmd in _context.PropertyMapDetails.AsNoTracking() on p.Id equals pmd.PropertyIdNew
+                        where pmd.PropertyIdOld == oldProp.Id && pmd.IsActive && p.IsActive && !p.MarkedForDeletion
+                        select p
+                    ).FirstOrDefaultAsync(cancellationToken);
+                }
+            }
+        }
+
+        if (parentProperty == null)
+            return new ApartmentUnitListResponseDto { Items = new List<PropertySearchResponseDto>(), TotalCount = 0 };
+
+        var childrenQuery = _context.PropertyMast
+            .AsNoTracking()
+            .Where(p => p.IsActive && !p.MarkedForDeletion && p.PropertyNo == parentProperty.PropertyNo && p.WardId == parentProperty.WardId && p.Id != parentProperty.Id);
+
+        if (string.IsNullOrEmpty(parentProperty.PartitionNo))
+        {
+            childrenQuery = childrenQuery.Where(p => p.PartitionNo != null && p.PartitionNo != "");
+        }
+        else
+        {
+            childrenQuery = childrenQuery.Where(p => p.PartitionNo == parentProperty.PartitionNo);
+        }
+
+        var query = from p in childrenQuery
+                    join w in _context.WardMaster.AsNoTracking() on p.WardId equals w.Id into wardJoin
+                    from w in wardJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+                    join z in _context.ZoneMaster.AsNoTracking() on (w != null ? w.ZoneId : (int?)null) equals z.Id into zoneJoin
+                    from z in zoneJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+                    join pc in _context.PropertyCategoryMaster.AsNoTracking() on p.CategoryId equals pc.Id into categoryJoin
+                    from pc in categoryJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+                    join pt in _context.PropertyTypeMasters.AsNoTracking() on p.PropertyTypeId equals pt.Id into propertyTypeJoin
+                    from pt in propertyTypeJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+                    join pmd in _context.PropertyMapDetails.AsNoTracking() on p.Id equals pmd.PropertyIdNew into pmdJoin
+                    from pmd in pmdJoin.Where(x => x.IsActive).DefaultIfEmpty()
+                    join pmo in _context.PropertyMastOld.AsNoTracking() on pmd.PropertyIdOld equals pmo.Id into oldJoin
+                    from pmo in oldJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+                    join sd in _context.SocietyDetailsMast.AsNoTracking() on p.Id equals sd.PropertyId into societyJoin
+                    from sd in societyJoin.Where(x => x.IsActive && !x.MarkedForDeletion).DefaultIfEmpty()
+
+                    select new
+                    {
+                        Property = p,
+                        Ward = w,
+                        Zone = z,
+                        Category = pc,
+                        PropertyType = pt,
+                        OldProperty = pmo,
+                        Society = sd
+                    };
+
+        // Apply all grid filters if searchRequest is provided
+        if (searchRequest != null)
+        {
+            // Property Type filter
+            if (searchRequest.PropertyTypeId.HasValue)
+            {
+                query = query.Where(x => x.Property.PropertyTypeId == searchRequest.PropertyTypeId);
+            }
+
+            // Type of Use filter
+            if (searchRequest.TypeOfUseId.HasValue)
+            {
+                var propertyIdsWithTypeOfUse = _context.PropertyDetails
+                    .Where(pd => pd.IsActive && !pd.MarkedForDeletion && pd.TypeOfUseId == searchRequest.TypeOfUseId.Value)
+                    .Select(pd => pd.PropertyId)
+                    .Distinct();
+
+                query = query.Where(x => propertyIdsWithTypeOfUse.Contains(x.Property.Id));
+            }
+
+            // Zone filter
+            if (searchRequest.ZoneId.HasValue)
+            {
+                query = query.Where(x => x.Zone != null && x.Zone.Id == searchRequest.ZoneId);
+            }
+
+            // Ward filter
+            if (searchRequest.WardId.HasValue)
+            {
+                query = query.Where(x => x.Ward != null && x.Ward.Id == searchRequest.WardId);
+            }
+
+            // Category filter
+            if (searchRequest.CategoryId.HasValue)
+            {
+                query = query.Where(x => x.Property.CategoryId == searchRequest.CategoryId);
+            }
+
+            // Property No range filter
+            if (!string.IsNullOrWhiteSpace(searchRequest.PropertyNoFrom) && !string.IsNullOrWhiteSpace(searchRequest.PropertyNoTo))
+            {
+                var fromStr = searchRequest.PropertyNoFrom.Trim();
+                var toStr = searchRequest.PropertyNoTo.Trim();
+                bool fromIsNum = long.TryParse(fromStr, out _);
+                bool toIsNum = long.TryParse(toStr, out _);
+
+                if (fromIsNum && toIsNum)
+                {
+                    int fromLen = fromStr.Length;
+                    int toLen = toStr.Length;
+
+                    if (fromLen == toLen)
+                    {
+                        query = query.Where(x => x.Property.PropertyNo != null &&
+                                                 x.Property.PropertyNo.Length == fromLen &&
+                                                 string.Compare(x.Property.PropertyNo, fromStr) >= 0 &&
+                                                 string.Compare(x.Property.PropertyNo, toStr) <= 0);
+                    }
+                    else
+                    {
+                        query = query.Where(x => x.Property.PropertyNo != null &&
+                                                 x.Property.PropertyNo.Length >= fromLen &&
+                                                 x.Property.PropertyNo.Length <= toLen &&
+                                                 (x.Property.PropertyNo.Length > fromLen || string.Compare(x.Property.PropertyNo, fromStr) >= 0) &&
+                                                 (x.Property.PropertyNo.Length < toLen || string.Compare(x.Property.PropertyNo, toStr) <= 0));
+                    }
+                }
+                else
+                {
+                    query = query.Where(x => x.Property.PropertyNo != null &&
+                                             string.Compare(x.Property.PropertyNo, fromStr) >= 0 &&
+                                             string.Compare(x.Property.PropertyNo, toStr) <= 0);
+                }
+            }
+            else if (!string.IsNullOrWhiteSpace(searchRequest.PropertyNoFrom))
+            {
+                var propNoFrom = searchRequest.PropertyNoFrom.Trim();
+                query = query.Where(x => x.Property.PropertyNo != null && x.Property.PropertyNo == propNoFrom);
+            }
+            else if (!string.IsNullOrWhiteSpace(searchRequest.PropertyNoTo))
+            {
+                var toStr = searchRequest.PropertyNoTo.Trim();
+                bool toIsNum = long.TryParse(toStr, out _);
+
+                if (toIsNum)
+                {
+                    int toLen = toStr.Length;
+                    query = query.Where(x => x.Property.PropertyNo != null &&
+                                             (x.Property.PropertyNo.Length < toLen ||
+                                              (x.Property.PropertyNo.Length == toLen && string.Compare(x.Property.PropertyNo, toStr) <= 0)));
+                }
+                else
+                {
+                    query = query.Where(x => x.Property.PropertyNo != null &&
+                                             string.Compare(x.Property.PropertyNo, toStr) <= 0);
+                }
+            }
+
+            // Old Property No filter
+            if (!string.IsNullOrWhiteSpace(searchRequest.OldPropertyNo))
+            {
+                var oldPropertyNo = searchRequest.OldPropertyNo.Trim();
+                query = query.Where(x => x.OldProperty != null && x.OldProperty.OldPropertyNo != null && x.OldProperty.OldPropertyNo == oldPropertyNo);
+            }
+
+            // UPIC Id filter
+            if (!string.IsNullOrWhiteSpace(searchRequest.UPICId))
+            {
+                var upicId = searchRequest.UPICId.Trim();
+                query = query.Where(x => x.Property.UPICId != null && x.Property.UPICId == upicId);
+            }
+
+            // CSN (City Survey No) filter
+            if (!string.IsNullOrWhiteSpace(searchRequest.CSN))
+            {
+                query = query.Where(x => x.Property.CSN != null && x.Property.CSN.Contains(searchRequest.CSN));
+            }
+
+            // SubZone No filter
+            if (!string.IsNullOrWhiteSpace(searchRequest.SubZoneNo))
+            {
+                query = query.Where(x => x.Property.SubZoneNo != null && x.Property.SubZoneNo.Contains(searchRequest.SubZoneNo));
+            }
+
+            // Plot No filter
+            if (!string.IsNullOrWhiteSpace(searchRequest.PlotNo))
+            {
+                query = query.Where(x => x.Property.PlotNo != null && x.Property.PlotNo.Contains(searchRequest.PlotNo));
+            }
+
+            // Property Assessment Status filter
+            if (searchRequest.PropertyAssessmentStatusId.HasValue)
+            {
+                query = query.Where(x => x.Property.PropertyAssessmentStatusId == searchRequest.PropertyAssessmentStatusId);
+            }
+
+            // Property Description filter
+            if (searchRequest.PropertyDescriptionId.HasValue)
+            {
+                query = query.Where(x => x.Property.PropertyTypeId == searchRequest.PropertyDescriptionId);
+            }
+
+            // Mobile No filter
+            if (!string.IsNullOrWhiteSpace(searchRequest.MobileNo))
+            {
+                query = query.Where(x => x.Property.MobileNo != null && x.Property.MobileNo.Contains(searchRequest.MobileNo));
+            }
+
+            // Owner Name filter
+            if (!string.IsNullOrWhiteSpace(searchRequest.OwnerName))
+            {
+                query = query.Where(x =>
+                    (x.Property.OwnerName != null && x.Property.OwnerName.Contains(searchRequest.OwnerName)) ||
+                    (x.Property.OwnerNameEnglish != null && x.Property.OwnerNameEnglish.Contains(searchRequest.OwnerName)));
+            }
+
+            // Occupier Name filter
+            if (!string.IsNullOrWhiteSpace(searchRequest.OccupierName))
+            {
+                query = query.Where(x =>
+                    (x.Property.OccupierName != null && x.Property.OccupierName.Contains(searchRequest.OccupierName)) ||
+                    (x.Property.OccupierNameEnglish != null && x.Property.OccupierNameEnglish.Contains(searchRequest.OccupierName)));
+            }
+
+            // Flat or Shop Name filter
+            if (!string.IsNullOrWhiteSpace(searchRequest.FlatOrShopName))
+            {
+                query = query.Where(x =>
+                    (x.Property.FlatOrShopName != null && x.Property.FlatOrShopName.Contains(searchRequest.FlatOrShopName)) ||
+                    (x.Property.FlatOrShopNameEnglish != null && x.Property.FlatOrShopNameEnglish.Contains(searchRequest.FlatOrShopName)));
+            }
+
+            // Society Name filter
+            if (!string.IsNullOrWhiteSpace(searchRequest.SocietyName))
+            {
+                query = query.Where(x =>
+                    (x.Society != null && x.Society.SocietyName != null && x.Society.SocietyName.Contains(searchRequest.SocietyName)) ||
+                    (x.Society != null && x.Society.SocietyNameEnglish != null && x.Society.SocietyNameEnglish.Contains(searchRequest.SocietyName)));
+            }
+
+            // Address filter
+            if (!string.IsNullOrWhiteSpace(searchRequest.Address))
+            {
+                query = query.Where(x =>
+                    (x.Property.Address != null && x.Property.Address.Contains(searchRequest.Address)) ||
+                    (x.Property.AddressEnglish != null && x.Property.AddressEnglish.Contains(searchRequest.Address)));
+            }
+
+            // Values & Dues filters - filter by RV, CV, or Total Tax from PolicyConfiguration
+        }
+
+        var propertyResults = await query.OrderBy(x => x.Property.PartitionNo).ToListAsync(cancellationToken);
+
+        if (!propertyResults.Any())
+            return new ApartmentUnitListResponseDto
+            {
+                Items = new List<PropertySearchResponseDto>(),
+                TotalCount = 0
+            };
+
+        var propertyIds = propertyResults.Select(x => x.Property.Id).ToList();
+
+        var rvValues = await _context.TransMast
+            .Where(t => propertyIds.Contains(t.PropertyId) && t.CalculationType == "RV" && t.IsActive && !t.MarkedForDeletion)
+            .GroupBy(t => t.PropertyId)
+            .Select(g => new
+            {
+                PropertyId = g.Key,
+                RateableValue = g.OrderByDescending(x => x.Id).Select(x => x.CalculationValue).FirstOrDefault()
+            })
+            .ToListAsync(cancellationToken);
+
+        var cvValues = await _context.TransMast
+            .Where(t => propertyIds.Contains(t.PropertyId) && t.IsActive && !t.MarkedForDeletion && t.CalculationType == "CV")
+            .GroupBy(t => t.PropertyId)
+            .Select(g => new
+            {
+                PropertyId = g.Key,
+                CapitalValue = g.OrderByDescending(x => x.Id).Select(x => x.CalculationValue).FirstOrDefault()
+            })
+            .ToListAsync(cancellationToken);
+
+        var totalTaxAmounts = await (
+            from td in _context.PolicyTaxDetails.AsNoTracking()
+            join tax in _context.TaxMaster.AsNoTracking() on td.TaxId equals tax.Id
+            where propertyIds.Contains(td.PropertyId) && td.IsActive && !td.MarkedForDeletion
+                  && tax.IsActive && tax.TaxCode != TaxTotalCode
+            group td by td.PropertyId into g
+            select new { PropertyId = g.Key, TotalTax = g.Sum(x => x.TaxAmount ?? 0m) }
+        ).ToListAsync(cancellationToken);
+
+        var rvDictionary = rvValues.ToDictionary(x => x.PropertyId, x => x.RateableValue);
+        var cvDictionary = cvValues.ToDictionary(x => x.PropertyId, x => x.CapitalValue);
+        var totalTaxDictionary = totalTaxAmounts.ToDictionary(x => x.PropertyId, x => x.TotalTax);
+
+        // Apply Values & Dues Top-N filtering if requested
+        if (!string.IsNullOrWhiteSpace(searchRequest?.ValuationMethod) &&
+            !string.IsNullOrWhiteSpace(searchRequest?.FilterType) &&
+            searchRequest.FilterType.Trim().Equals("Top", StringComparison.OrdinalIgnoreCase) &&
+            searchRequest.TopCount.HasValue && searchRequest.TopCount.Value > 0)
+        {
+            var valuationMethod = searchRequest.ValuationMethod.Trim().ToUpper();
+            var validMethods = await GetValidValuationMethodsAsync(cancellationToken);
+
+            if (validMethods.Contains(valuationMethod) && (valuationMethod == "RV" || valuationMethod == "CV"))
+            {
+                var topPropertyIds = valuationMethod == "RV"
+                    ? rvDictionary.OrderByDescending(x => x.Value).Take(searchRequest.TopCount.Value).Select(x => x.Key).ToList()
+                    : cvDictionary.OrderByDescending(x => x.Value).Take(searchRequest.TopCount.Value).Select(x => x.Key).ToList();
+                propertyResults = propertyResults.Where(x => topPropertyIds.Contains(x.Property.Id)).ToList();
+            }
+            else if (validMethods.Contains(valuationMethod) && valuationMethod == "TOTAL TAX")
+            {
+                var topPropertyIds = totalTaxDictionary.OrderByDescending(x => x.Value).Take(searchRequest.TopCount.Value).Select(x => x.Key).ToList();
+                propertyResults = propertyResults.Where(x => topPropertyIds.Contains(x.Property.Id)).ToList();
+            }
+        }
+
+        var items = propertyResults.Select(pr =>
+        {
+            rvDictionary.TryGetValue(pr.Property.Id, out var rv);
+            cvDictionary.TryGetValue(pr.Property.Id, out var cv);
+            totalTaxDictionary.TryGetValue(pr.Property.Id, out var totalTax);
+
+            return new PropertySearchResponseDto
+            {
+                PropertyId = pr.Property.Id,
+                UPICId = pr.Property.UPICId,
+                ZoneName = pr.Zone?.Description,
+                WardName = pr.Ward?.WardNo,
+                PropertyNo = pr.Property.PropertyNo,
+                PartitionNo = pr.Property.PartitionNo,
+                OldPropertyNo = pr.OldProperty?.OldPropertyNo,
+                CitySurveyNo = pr.Property.CSN,
+                PlotNo = pr.Property.PlotNo,
+                WingFlatNo = pr.Property.FlatOrShopNo,
+                CategoryName = pr.Category?.PropertyCategoryName,
+                PropertyDescription = pr.PropertyType?.PropertyDescription,
+                Mobile = pr.Property.MobileNo,
+                AlternateMobile = pr.Property.AlternateMobileNo,
+                PropertyHolderName = pr.Property.OwnerName ?? pr.Property.OwnerNameEnglish,
+                OccupierName = pr.Property.OccupierName ?? pr.Property.OccupierNameEnglish,
+                ShopBuildingName = pr.Property.FlatOrShopName ?? pr.Property.FlatOrShopNameEnglish,
+                SocietyName = pr.Society?.SocietyName ?? pr.Society?.SocietyNameEnglish,
+                Address = pr.Property.Address ?? pr.Property.AddressEnglish,
+                RV = rv,
+                CV = cv,
+                TotalTax = totalTax
+            };
+        }).ToList();
+
+        return new ApartmentUnitListResponseDto
+        {
+            Items = items,
+            TotalCount = items.Count  // All properties displayed as units
+        };
+    }
+
+    // ──────────────────────────────────────────────────────────────────────────
+    //  Public: search by category (Zone/Ward/Building/Property-range scoped search)
+    // ──────────────────────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// Row shape shared by <see cref="SearchByCategoryAsync"/> and <see cref="GetPropertyIdsByCategoryAsync"/> -
+    /// a named type (rather than an anonymous type) so the filtered query built by
+    /// <see cref="BuildCategoryFilteredQueryAsync"/> can be returned across method boundaries.
+    /// </summary>
+    private sealed class CategoryJoinRow
+    {
+        public PropertyEntity Property { get; init; } = null!;
+        public WardEntity? Ward { get; init; }
+        public ZoneEntity? Zone { get; init; }
+        public PropertyTypeMasterEntity? PropertyType { get; init; }
+        public PropertyCategoryEntity? Category { get; init; }
+    }
+
+    /// <summary>
+    /// Builds the joined, category-scoped, filtered (but unsorted/unpaged) query shared by
+    /// <see cref="SearchByCategoryAsync"/> (full response DTO, sorted, paged) and
+    /// <see cref="GetPropertyIdsByCategoryAsync"/> (bare PropertyIds, for bulk actions) - so the
+    /// SearchCategory switch and the PartType/PropertyCategoryName/PropertyAssessmentStatusId/
+    /// IsWing/SearchTerm filters are defined exactly once.
+    /// </summary>
+    private async Task<(IQueryable<CategoryJoinRow> Query, HashSet<string> WingNumbers)> BuildCategoryFilteredQueryAsync(
+        PropertySearchByCategoryRequestDto request,
+        CancellationToken cancellationToken)
+    {
+        var query = from p in _context.PropertyMast.AsNoTracking()
+                    where p.IsActive && !p.MarkedForDeletion
+
+                    join w in _context.WardMaster.AsNoTracking() on p.WardId equals w.Id into wardJoin
+                    from w in wardJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+                    join z in _context.ZoneMaster.AsNoTracking() on (w != null ? w.ZoneId : (int?)null) equals z.Id into zoneJoin
+                    from z in zoneJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+                    join pt in _context.PropertyTypeMasters.AsNoTracking() on p.PropertyTypeId equals pt.Id into propertyTypeJoin
+                    from pt in propertyTypeJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+                    join pc in _context.PropertyCategoryMaster.AsNoTracking() on p.CategoryId equals pc.Id into categoryJoin
+                    from pc in categoryJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+                    select new CategoryJoinRow
+                    {
+                        Property = p,
+                        Ward = w,
+                        Zone = z,
+                        PropertyType = pt,
+                        Category = pc
+                    };
+
+        // Category-specific scoping is applied server-side. FromToProperty's exact alpha/numeric
+        // partition-boundary comparison can't be translated to SQL (see the private helpers below)
+        // and is applied in-memory - but the PropertyNo bound itself CAN be pushed to SQL first
+        // (via the same length-then-string trick used for the natural sort below), so only the
+        // properties actually within [FromPropertyNo, ToPropertyNo] are ever materialized, instead
+        // of the whole ward. This coarse bound is inclusive/a superset of the true match set (it
+        // doesn't yet account for the partition tie-break at the boundary PropertyNo), which the
+        // in-memory filter below narrows down to the exact result.
+        switch (request.SearchCategory)
+        {
+            case PropertySearchCategory.ZoneWise:
+                query = query.Where(x => x.Zone != null && x.Zone.Id == request.ZoneId);
+                break;
+
+            case PropertySearchCategory.WardWise:
+                query = query.Where(x => x.Property.WardId == request.WardId);
+                break;
+
+            case PropertySearchCategory.BuildingWise:
+                query = query.Where(x => x.Property.WardId == request.WardId && x.Property.PropertyNo == request.PropertyNo);
+                if (!string.IsNullOrWhiteSpace(request.PartitionNo))
+                    query = query.Where(x => x.Property.PartitionNo == request.PartitionNo);
+                break;
+
+            case PropertySearchCategory.FromToProperty:
+                query = query.Where(x => x.Property.WardId == request.WardId);
+
+                var (coarseFromPropertyNo, _) = ParsePropertyToken(request.PropertyFrom);
+                if (coarseFromPropertyNo.HasValue)
+                {
+                    var fromPropertyNoStr = coarseFromPropertyNo.Value.ToString();
+                    query = query.Where(x => x.Property.PropertyNo != null &&
+                        (x.Property.PropertyNo.Length > fromPropertyNoStr.Length ||
+                         (x.Property.PropertyNo.Length == fromPropertyNoStr.Length && string.Compare(x.Property.PropertyNo, fromPropertyNoStr) >= 0)));
+                }
+
+                if (!string.IsNullOrWhiteSpace(request.PropertyTo))
+                {
+                    var (coarseToPropertyNo, _) = ParsePropertyToken(request.PropertyTo);
+                    if (coarseToPropertyNo.HasValue)
+                    {
+                        var toPropertyNoStr = coarseToPropertyNo.Value.ToString();
+                        query = query.Where(x => x.Property.PropertyNo != null &&
+                            (x.Property.PropertyNo.Length < toPropertyNoStr.Length ||
+                             (x.Property.PropertyNo.Length == toPropertyNoStr.Length && string.Compare(x.Property.PropertyNo, toPropertyNoStr) <= 0)));
+                    }
+                }
+                break;
+        }
+
+        // IsWing mirrors the source SQL's unfiltered EXISTS(SELECT 1 FROM PTIS.WingMaster ...) -
+        // no IsActive filter is applied here to stay faithful to that behavior. Loaded upfront so
+        // it can back both the IsWing filter below and the IsWing response column.
+        var wingNumbers = new HashSet<string>(await _context.WingEntity.Select(w => w.WingNo).ToListAsync(cancellationToken));
+
+        // Additional optional filters, independent of SearchCategory. Each accepts a
+        // comma-separated list of values (parsed via FilterExpressionBuilder.Csv) and matches
+        // any of them (SQL IN).
+        var partTypes = FilterExpressionBuilder.Csv(request.PartType);
+        if (partTypes.Count > 0)
+            query = query.Where(x => x.PropertyType != null && x.PropertyType.PartType != null && partTypes.Contains(x.PropertyType.PartType));
+
+        var categoryNames = FilterExpressionBuilder.Csv(request.PropertyCategoryName);
+        if (categoryNames.Count > 0)
+            query = query.Where(x => x.Category != null && x.Category.PropertyCategoryName != null && categoryNames.Contains(x.Category.PropertyCategoryName));
+
+        var statusIds = FilterExpressionBuilder.Csv(request.PropertyAssessmentStatusId)
+            .Select(s => int.TryParse(s, out var id) ? (int?)id : null)
+            .Where(id => id.HasValue)
+            .Select(id => id!.Value)
+            .ToList();
+        if (statusIds.Count > 0)
+            query = query.Where(x => x.Property.PropertyAssessmentStatusId.HasValue && statusIds.Contains(x.Property.PropertyAssessmentStatusId.Value));
+
+        if (request.IsWing.HasValue)
+        {
+            query = request.IsWing.Value
+                ? query.Where(x => x.Property.PartitionNo != null && wingNumbers.Contains(x.Property.PartitionNo))
+                : query.Where(x => x.Property.PartitionNo == null || !wingNumbers.Contains(x.Property.PartitionNo));
+        }
+
+        if (!string.IsNullOrWhiteSpace(request.SearchTerm))
+        {
+            var searchTerm = request.SearchTerm.Trim();
+            query = query.Where(x =>
+                (x.Ward != null && x.Ward.WardNo != null && x.Ward.WardNo.Contains(searchTerm)) ||
+                (x.Property.PropertyNo != null && x.Property.PropertyNo.Contains(searchTerm)) ||
+                (x.Property.PartitionNo != null && x.Property.PartitionNo.Contains(searchTerm)) ||
+                (x.Ward != null && x.Ward.WardNo != null && x.Property.PropertyNo != null &&
+                    (string.IsNullOrEmpty(x.Property.PartitionNo)
+                        ? (x.Ward.WardNo + "-" + x.Property.PropertyNo).Contains(searchTerm)
+                        : (x.Ward.WardNo + "-" + x.Property.PropertyNo + "-" + x.Property.PartitionNo).Contains(searchTerm))));
+        }
+
+        return (query, wingNumbers);
+    }
+
+    public async Task<(int TotalCount, List<PropertySearchByCategoryResponseDto> Items)> SearchByCategoryAsync(
+        PropertySearchByCategoryRequestDto request,
+        int pageNumber,
+        int pageSize,
+        CancellationToken cancellationToken = default)
+    {
+        var (query, wingNumbers) = await BuildCategoryFilteredQueryAsync(request, cancellationToken);
+
+        var isUnpaged = pageSize == -1;
+
+        if (request.SearchCategory == PropertySearchCategory.FromToProperty)
+        {
+            // Ward-bounded candidate set only (never a whole zone/table) - filtered, sorted and
+            // paged in memory because the partition-range comparison isn't SQL-translatable.
+            var rows = await query.ToListAsync(cancellationToken);
+
+            var (fromPropertyNo, fromPartition, toPropertyNo, toPartition, hasPropertyTo) =
+                ParseFromToPropertyBounds(request.PropertyFrom, request.PropertyTo);
+
+            rows = rows.Where(x =>
+            {
+                if (!int.TryParse(x.Property.PropertyNo, out var propertyNoInt))
+                    return false;
+
+                var (alpha, numeric) = SplitPartition(x.Property.PartitionNo);
+
+                var lowerBoundMet = propertyNoInt > fromPropertyNo ||
+                    (propertyNoInt == fromPropertyNo && MeetsLowerPartitionBound(alpha, numeric, fromPartition));
+
+                var upperBoundMet = !hasPropertyTo ||
+                    propertyNoInt < toPropertyNo ||
+                    (propertyNoInt == toPropertyNo && (string.IsNullOrEmpty(toPartition) || MeetsUpperPartitionBound(alpha, numeric, toPartition)));
+
+                return lowerBoundMet && upperBoundMet;
+            }).ToList();
+
+            var mapped = rows
+                .Select(x => MapToResponseDto(x.Property, x.Ward, x.Zone, x.PropertyType, x.Category, wingNumbers))
+                .ToList();
+
+            var ordered = mapped
+                .OrderBy(x => TryParseInt(x.PropertyNo))
+                .ThenBy(x => x.PropertyNo, StringComparer.Ordinal)
+                .ThenBy(x => string.IsNullOrEmpty(x.PartitionNo) ? 0 : 1)
+                .ThenBy(x => SplitPartition(x.PartitionNo).AlphaPart, StringComparer.Ordinal)
+                .ThenBy(x => SplitPartition(x.PartitionNo).NumericPart)
+                .ToList();
+
+            var totalCount = ordered.Count;
+            var skip = isUnpaged ? 0 : (pageNumber - 1) * pageSize;
+            var items = isUnpaged ? ordered : ordered.Skip(skip).Take(pageSize).ToList();
+
+            return (totalCount, items);
+        }
+        else
+        {
+            // ZoneWise/WardWise/BuildingWise scopes can span many properties (a zone can hold
+            // thousands), so sorting and paging happen in SQL Server via OrderByNatural/ThenByNatural
+            // (PATINDEX-backed, see AlphanumericSortExtensions) - only the requested page is ever
+            // materialized, instead of loading and sorting the entire matching set in memory.
+            var totalCount = await query.CountAsync(cancellationToken);
+
+            var orderedQuery = query
+                .OrderBy(x => x.Property.PropertyNo == null ? 0 : x.Property.PropertyNo.Length)
+                .ThenBy(x => x.Property.PropertyNo)
+                .ThenBy(x => string.IsNullOrEmpty(x.Property.PartitionNo) ? 0 : 1)
+                .ThenByNatural(x => x.Property.PartitionNo);
+
+            var pageQuery = isUnpaged ? orderedQuery : orderedQuery.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+
+            var pageRows = await pageQuery.ToListAsync(cancellationToken);
+
+            var items = pageRows
+                .Select(x => MapToResponseDto(x.Property, x.Ward, x.Zone, x.PropertyType, x.Category, wingNumbers))
+                .ToList();
+
+            return (totalCount, items);
+        }
+    }
+
+    /// <summary>
+    /// Resolves the bare PropertyIds matching a SearchCategory scope - for bulk actions (e.g.
+    /// bulk lock/unlock) that need "every property matching this scope" without the response-DTO
+    /// mapping, wing lookup, or natural-sort ordering that <see cref="SearchByCategoryAsync"/> pays
+    /// for on every row. Reuses the exact same category-switch and optional filters via
+    /// <see cref="BuildCategoryFilteredQueryAsync"/>, so results are always consistent between the
+    /// two methods.
+    /// </summary>
+    public async Task<List<int>> GetPropertyIdsByCategoryAsync(
+        PropertySearchByCategoryRequestDto request,
+        CancellationToken cancellationToken = default)
+    {
+        var (query, _) = await BuildCategoryFilteredQueryAsync(request, cancellationToken);
+
+        if (request.SearchCategory == PropertySearchCategory.FromToProperty)
+        {
+            // Ward-and-PropertyNo-bounded candidate set only (see BuildCategoryFilteredQueryAsync) -
+            // the exact partition-boundary comparison still isn't SQL-translatable, so it's applied
+            // in-memory here, same as SearchByCategoryAsync.
+            var rows = await query
+                .Select(x => new { x.Property.Id, x.Property.PropertyNo, x.Property.PartitionNo })
+                .ToListAsync(cancellationToken);
+
+            var (fromPropertyNo, fromPartition, toPropertyNo, toPartition, hasPropertyTo) =
+                ParseFromToPropertyBounds(request.PropertyFrom, request.PropertyTo);
+
+            return rows.Where(x =>
+            {
+                if (!int.TryParse(x.PropertyNo, out var propertyNoInt))
+                    return false;
+
+                var (alpha, numeric) = SplitPartition(x.PartitionNo);
+
+                var lowerBoundMet = propertyNoInt > fromPropertyNo ||
+                    (propertyNoInt == fromPropertyNo && MeetsLowerPartitionBound(alpha, numeric, fromPartition));
+
+                var upperBoundMet = !hasPropertyTo ||
+                    propertyNoInt < toPropertyNo ||
+                    (propertyNoInt == toPropertyNo && (string.IsNullOrEmpty(toPartition) || MeetsUpperPartitionBound(alpha, numeric, toPartition)));
+
+                return lowerBoundMet && upperBoundMet;
+            }).Select(x => x.Id).ToList();
+        }
+
+        return await query.Select(x => x.Property.Id).ToListAsync(cancellationToken);
+    }
+
+    /// <summary>
+    /// The full active-property candidate set for one ward, cached so the LIKE-style suggestion
+    /// filtering below never re-queries the database while its cache entry is warm. This is the
+    /// only DB round trip <see cref="GetPropertySuggestionsAsync"/> makes; every filtered keystroke
+    /// against an already-cached ward is answered entirely in memory.
+    /// </summary>
+    private async Task<List<PropertySuggestionDto>> GetWardPropertyLookupAsync(int wardId, CancellationToken cancellationToken)
+    {
+        var cacheKey = $"PropWiseSuggest_Ward_{wardId}";
+
+        if (_cache.TryGetValue(cacheKey, out List<PropertySuggestionDto>? cached) && cached != null)
+            return cached;
+
+        // ZoneId/ZoneNo/WardNo are the same for every row (one ward), so they're resolved once here
+        // instead of joining WardMaster/ZoneMaster per property row below.
+        var ward = await _context.WardMaster.AsNoTracking()
+            .Where(w => w.Id == wardId)
+            .Select(w => new { w.WardNo, w.ZoneId, ZoneNo = w.Zone != null ? w.Zone.ZoneNo : null })
+            .FirstOrDefaultAsync(cancellationToken);
+
+        var joined = await (
+            from p in _context.PropertyMast.AsNoTracking()
+            where p.WardId == wardId && p.IsActive && !p.MarkedForDeletion
+            join cat in _context.PropertyCategoryMaster.AsNoTracking() on p.CategoryId equals cat.Id into catJoin
+            from category in catJoin.DefaultIfEmpty()
+            join ptm in _context.PropertyTypeMasters.AsNoTracking() on p.PropertyTypeId equals (int?)ptm.Id into ptmJoin
+            from propertyType in ptmJoin.DefaultIfEmpty()
+            join s in _context.SocietyDetailsMast.AsNoTracking().Where(s => s.IsActive && !s.MarkedForDeletion)
+                on p.Id equals s.PropertyId into societyJoin
+            from society in societyJoin.DefaultIfEmpty()
+            select new
+            {
+                p.Id,
+                p.PropertyNo,
+                p.PartitionNo,
+                p.UPICId,
+                p.WingDetailId,
+                CategoryName = category != null ? category.PropertyCategoryName : null,
+                PropertyTypePartType = propertyType != null ? propertyType.PartType : null,
+                RepresentativeSocietyDetailId = society != null ? (int?)society.Id : null,
+                RepresentativeSocietyName = society != null ? society.SocietyName : null
+            }
+        ).ToListAsync(cancellationToken);
+
+        bool IsApartmentCategory(string? categoryName) =>
+            categoryName != null && PropertyCategoryConstants.ApartmentCategoryNames.Contains(categoryName);
+
+        var unitWingIds = joined
+            .Where(x => x.WingDetailId.HasValue)
+            .Select(x => x.WingDetailId!.Value)
+            .Distinct()
+            .ToList();
+
+        var societyByWingId = unitWingIds.Count == 0
+            ? new Dictionary<int, (int SocietyDetailId, string? SocietyName)>()
+            : await (
+                from w in _context.WingDetailsMast.AsNoTracking()
+                where unitWingIds.Contains(w.Id) && w.IsActive && !w.MarkedForDeletion
+                join s in _context.SocietyDetailsMast.AsNoTracking().Where(s => s.IsActive && !s.MarkedForDeletion)
+                    on w.SocietyDetailsMastId equals s.Id
+                select new { WingId = w.Id, SocietyDetailId = s.Id, SocietyName = (string?)s.SocietyName }
+            ).ToDictionaryAsync(x => x.WingId, x => (x.SocietyDetailId, x.SocietyName), cancellationToken);
+
+        var societyByPropertyNo = joined
+            .Where(x => x.RepresentativeSocietyDetailId.HasValue && !string.IsNullOrWhiteSpace(x.PropertyNo))
+            .GroupBy(x => x.PropertyNo!)
+            .ToDictionary(
+                g => g.Key,
+                g => (SocietyDetailId: g.First().RepresentativeSocietyDetailId!.Value, SocietyName: g.First().RepresentativeSocietyName)
+            );
+
+        var rows = joined.Select(x =>
+        {
+            var isApartment = IsApartmentCategory(x.CategoryName);
+            int? catVal = !isApartment
+                ? 2
+                : string.IsNullOrWhiteSpace(x.PartitionNo)
+                    ? 0
+                    : string.Equals(x.PropertyTypePartType, "Amenity", StringComparison.OrdinalIgnoreCase)
+                        ? 3
+                        : 1;
+
+            string catLabel = catVal switch
+            {
+                0 => "apartment society property",
+                1 => "apartment society unit property",
+                3 => "apartment society amenity property",
+                _ => "individual property"
+            };
+
+            var societyDetailId = x.RepresentativeSocietyDetailId;
+            var societyName = x.RepresentativeSocietyName;
+
+            if (x.WingDetailId.HasValue && societyByWingId.TryGetValue(x.WingDetailId.Value, out var owningSocietyByWing))
+            {
+                societyDetailId = owningSocietyByWing.SocietyDetailId;
+                societyName = owningSocietyByWing.SocietyName;
+            }
+
+            if (!societyDetailId.HasValue && !string.IsNullOrWhiteSpace(x.PropertyNo) && societyByPropertyNo.TryGetValue(x.PropertyNo, out var owningSocietyByProp))
+            {
+                societyDetailId = owningSocietyByProp.SocietyDetailId;
+                societyName = owningSocietyByProp.SocietyName;
+            }
+
+            return new PropertySuggestionDto
+            {
+                PropertyId = x.Id,
+                ZoneId = ward != null ? ward.ZoneId : 0,
+                ZoneNo = ward != null ? ward.ZoneNo : null,
+                WardId = wardId,
+                WardNo = ward != null ? ward.WardNo : null,
+                PropertyNo = x.PropertyNo,
+                PartitionNo = x.PartitionNo,
+                UpicId = x.UPICId,
+                DisplayLabel = string.IsNullOrEmpty(x.PartitionNo)
+                    ? (x.PropertyNo ?? string.Empty)
+                    : $"{x.PropertyNo}-{x.PartitionNo}",
+                Category = catVal,
+                CategoryLabel = catLabel,
+                SocietyDetailId = catVal == 2 ? null : societyDetailId,
+                SocietyName = catVal == 2 ? null : societyName,
+                WingDetailId = (catVal == 1 || catVal == 3) ? x.WingDetailId : null
+            };
+        }).ToList();
+
+        _cache.SetSuggestion(cacheKey, rows, TimeSpan.FromMinutes(SuggestionCacheDurationMinutes));
+
+        return rows;
+    }
+
+    public async Task<List<PropertySuggestionDto>> GetPropertySuggestionsAsync(
+        int wardId, string? propertyNo, string? partitionNo, int maxResults, CancellationToken cancellationToken = default)
+    {
+        var candidates = await GetWardPropertyLookupAsync(wardId, cancellationToken);
+
+        IEnumerable<PropertySuggestionDto> results = candidates;
+
+        if (!string.IsNullOrWhiteSpace(propertyNo))
+            results = results.Where(x => x.PropertyNo != null && x.PropertyNo.Contains(propertyNo, StringComparison.OrdinalIgnoreCase));
+
+        if (!string.IsNullOrWhiteSpace(partitionNo))
+            results = results.Where(x => x.PartitionNo != null && x.PartitionNo.Contains(partitionNo, StringComparison.OrdinalIgnoreCase));
+
+        return results.Take(maxResults).ToList();
+    }
+
+    /// <summary>
+    /// Splits a "PropertyNo[-PartitionNo]" token (e.g. "1-A9") on the first '-', mirroring the
+    /// source SQL's <c>CHARINDEX('-', @token+'-')</c> trick.
+    /// </summary>
+    private static (int? PropertyNo, string? Partition) ParsePropertyToken(string? token)
+    {
+        if (string.IsNullOrEmpty(token))
+            return (null, null);
+
+        var dashIndex = token.IndexOf('-');
+        string propertyPart;
+        string? partitionPart;
+
+        if (dashIndex < 0)
+        {
+            propertyPart = token;
+            partitionPart = null;
+        }
+        else
+        {
+            propertyPart = token.Substring(0, dashIndex);
+            partitionPart = dashIndex + 1 < token.Length ? token.Substring(dashIndex + 1) : null;
+        }
+
+        var propertyNo = int.TryParse(propertyPart, out var parsed) ? (int?)parsed : null;
+        return (propertyNo, partitionPart);
+    }
+
+    /// <summary>
+    /// Parses the FromToProperty range bounds and coerces them to non-null ints before any
+    /// caller compares them against a row's PropertyNo - PropertyFrom/PropertyTo are validated
+    /// upstream (<see cref="Application.Services.Property.PropertySearchService"/>) to always
+    /// resolve to a numeric PropertyNo, but comparing a bare int against an int? lifts to a
+    /// nullable comparison that silently evaluates to false instead of surfacing a bug, so that
+    /// invariant is enforced here instead of relied upon implicitly. ToPropertyNo defaults to 0
+    /// when PropertyTo is absent; callers must guard its use with HasPropertyTo.
+    /// </summary>
+    private static (int FromPropertyNo, string? FromPartition, int ToPropertyNo, string? ToPartition, bool HasPropertyTo)
+        ParseFromToPropertyBounds(string? propertyFrom, string? propertyTo)
+    {
+        var (fromPropertyNo, fromPartition) = ParsePropertyToken(propertyFrom);
+        var (toPropertyNo, toPartition) = ParsePropertyToken(propertyTo);
+        var hasPropertyTo = !string.IsNullOrWhiteSpace(propertyTo);
+
+        if (fromPropertyNo is null)
+            throw new InvalidOperationException($"PropertyFrom '{propertyFrom}' must resolve to a numeric property number.");
+        if (hasPropertyTo && toPropertyNo is null)
+            throw new InvalidOperationException($"PropertyTo '{propertyTo}' must resolve to a numeric property number.");
+
+        return (fromPropertyNo.Value, fromPartition, toPropertyNo ?? 0, toPartition, hasPropertyTo);
+    }
+
+    /// <summary>
+    /// Splits a PartitionNo into its leading alpha prefix and trailing numeric suffix
+    /// (e.g. "A9" -> ("A", 9)), mirroring the source SQL's
+    /// <c>PATINDEX('%[0-9]%', PartitionNo+'0')</c> first-digit-index trick.
+    /// </summary>
+    private static (string AlphaPart, int NumericPart) SplitPartition(string? partitionNo)
+    {
+        var value = partitionNo ?? string.Empty;
+        var digitIndex = -1;
+
+        for (var i = 0; i < value.Length; i++)
+        {
+            if (char.IsDigit(value[i]))
+            {
+                digitIndex = i;
+                break;
+            }
+        }
+
+        if (digitIndex < 0)
+            return (value, 0);
+
+        var alpha = value.Substring(0, digitIndex);
+        var numeric = int.TryParse(value.Substring(digitIndex), out var n) ? n : 0;
+        return (alpha, numeric);
+    }
+
+    /// <summary>
+    /// Row's (alpha, numeric) partition is at or above the From boundary: alpha prefix sorts
+    /// after the From partition's alpha prefix, or matches it with an equal-or-higher numeric part.
+    /// </summary>
+    private static bool MeetsLowerPartitionBound(string alpha, int numeric, string? fromPartition)
+    {
+        var (fromAlpha, fromNumeric) = SplitPartition(fromPartition);
+        var alphaCompare = string.CompareOrdinal(alpha, fromAlpha);
+        return alphaCompare > 0 || (alphaCompare == 0 && numeric >= fromNumeric);
+    }
+
+    /// <summary>
+    /// Row's (alpha, numeric) partition is at or below the To boundary - the mirror of
+    /// <see cref="MeetsLowerPartitionBound"/>.
+    /// </summary>
+    private static bool MeetsUpperPartitionBound(string alpha, int numeric, string? toPartition)
+    {
+        var (toAlpha, toNumeric) = SplitPartition(toPartition);
+        var alphaCompare = string.CompareOrdinal(alpha, toAlpha);
+        return alphaCompare < 0 || (alphaCompare == 0 && numeric <= toNumeric);
+    }
+
+    private static int? TryParseInt(string? value) => int.TryParse(value, out var n) ? n : null;
+
+    private static PropertySearchByCategoryResponseDto MapToResponseDto(
+        PropertyEntity property,
+        WardEntity? ward,
+        ZoneEntity? zone,
+        PropertyTypeMasterEntity? propertyType,
+        PropertyCategoryEntity? category,
+        HashSet<string> wingNumbers)
+    {
+        return new PropertySearchByCategoryResponseDto
+        {
+            PropertyId = property.Id,
+            TaxZoneId = property.TaxZoneId,
+            ZoneId = zone?.Id,
+            ZoneNo = zone?.ZoneNo,
+            WardId = property.WardId,
+            WardNo = ward?.WardNo,
+            PropertyNo = property.PropertyNo,
+            PartitionNo = property.PartitionNo ?? string.Empty,
+            Property = string.IsNullOrEmpty(property.PartitionNo)
+                ? $"{ward?.WardNo}-{property.PropertyNo}"
+                : $"{ward?.WardNo}-{property.PropertyNo}-{property.PartitionNo}",
+            MobileNo = property.MobileNo,
+            UPICId = property.UPICId,
+            PropertyTypeId = property.PropertyTypeId,
+            PartType = propertyType?.PartType,
+            CategoryId = property.CategoryId,
+            PropertyCategoryName = category?.PropertyCategoryName,
+            IsWing = !string.IsNullOrEmpty(property.PartitionNo) && wingNumbers.Contains(property.PartitionNo),
+            PropertyAssessmentStatusId = property.PropertyAssessmentStatusId ?? 0
+        };
+    }
+
+    // ──────────────────────────────────────────────────────────────────────────
+    //  Public: legacy dashboard stats
+    // ──────────────────────────────────────────────────────────────────────────
+
+    public async Task<PropertyDashboardStatsDto> GetPropertyDashboardStatsAsync(CancellationToken cancellationToken = default)
+    {
+        var allProperties = _context.PropertyMast
+            .AsNoTracking()
+            .Where(p => p.IsActive && !p.MarkedForDeletion);
+
+        var registeredCount = await allProperties.CountAsync(cancellationToken);
+        var geoSequencingCount = await allProperties.Where(p => !string.IsNullOrEmpty(p.PropertyNo)).CountAsync(cancellationToken);
+
+        return new PropertyDashboardStatsDto
+        {
+            RegisteredPropertyCount = registeredCount,
+            GeoSequencingPropertyCount = geoSequencingCount,
+            SurveyPropertyCount = 0,
+            DataProcessingPropertyCount = 0,
+            QualityAnalysisPropertyCount = 0,
+            AssessmentCompletedPropertyCount = 0
+        };
+    }
+
+    // ──────────────────────────────────────────────────────────────────────────
+    //  Private: filter helpers
+    // ──────────────────────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// Applies common dashboard filter parameters to a PropertyMast query.
+    /// Centralised so every card and workflow-stage query uses the same predicates.
+    /// </summary>
+    private static IQueryable<PropertyEntity> ApplyDashboardFilters(
+        IQueryable<PropertyEntity> query,
+        PropertySearchRequestDto? request)
+    {
+        if (request is null) return query;
+
+        if (request.PropertyAssessmentStatusId.HasValue)
+            query = query.Where(p => p.PropertyAssessmentStatusId == request.PropertyAssessmentStatusId.Value);
+
+        if (request.PropertyDescriptionId.HasValue)
+            query = query.Where(p => p.PropertyTypeId == request.PropertyDescriptionId.Value);
+
+        if (request.PropertyTypeId.HasValue)
+            query = query.Where(p => p.PropertyTypeId == request.PropertyTypeId.Value);
+
+        if (request.ZoneId.HasValue)
+            query = query.Where(p => p.TaxZoneId == request.ZoneId.Value);
+
+        if (request.WardId.HasValue)
+            query = query.Where(p => p.WardId == request.WardId.Value);
+
+        if (request.CategoryId.HasValue)
+            query = query.Where(p => p.CategoryId == request.CategoryId.Value);
+
+        return query;
+    }
+
+    // ──────────────────────────────────────────────────────────────────────────
+    //  Private: count helpers (DB-side, no in-memory materialisation)
+    // ──────────────────────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// Counts total, structure, and unit properties from a query entirely in the DB.
+    /// Structure: category != 'Apartment' OR (Apartment AND PartitionNo is null/empty).
+    /// Unit:      category == 'Apartment' AND PartitionNo is not null/empty.
+    /// </summary>
+    private async Task<(int PropertyCount, int StructureCount, int UnitCount)> CountPropertiesAsync(
+        IQueryable<PropertyEntity> query,
+        CancellationToken cancellationToken)
+    {
+        var stats = await (
+            from p in query
+            join pc in _context.PropertyCategoryMaster.AsNoTracking() on p.CategoryId equals pc.Id into categoryJoin
+            from pc in categoryJoin.Where(x => x.IsActive).DefaultIfEmpty()
+            group new { p, pc } by 1 into g
+            select new
+            {
+                Total = g.Count(),
+                UnitsOnly = g.Count(x => x.pc != null && x.pc.PropertyCategoryName == ApartmentCategoryName && x.p.PartitionNo != null && x.p.PartitionNo != "")
+            }
+        ).FirstOrDefaultAsync(cancellationToken);
+
+        var propertyCount = stats?.Total ?? 0;
+        var unitsOnlyCount = stats?.UnitsOnly ?? 0;
+        var structureCount = propertyCount - unitsOnlyCount;
+        var unitCount = propertyCount;
+
+        return (propertyCount, structureCount, unitCount);
+    }
+
+    // ──────────────────────────────────────────────────────────────────────────
+    //  Private: demand helpers (DB-side)
+    // ──────────────────────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// Sum of TaxTotal demand from PTIS.TransMast + PTIS.TaxMaster for the given property-id set.
+    /// Only rows where TaxMaster.TaxCode='TaxTotal' AND TaxMaster.TaxName='TaxTotal' are included.
+    /// </summary>
+    private async Task<decimal> GetNewTaxTotalDemandAsync(
+        IQueryable<int> propertyIdQuery,
+        CancellationToken cancellationToken)
+    {
+        var sum = await (
+            from pid in propertyIdQuery
+            join t in _context.TransMast.AsNoTracking() on pid equals t.PropertyId
+            join tax in _context.TaxMaster.AsNoTracking() on t.TaxId equals tax.Id
+            where t.IsActive && !t.MarkedForDeletion
+                  && tax.IsActive && tax.TaxCode == TaxTotalCode && tax.TaxName == TaxTotalName
+            select (decimal?)t.TaxAmount
+        ).SumAsync(cancellationToken);
+
+        return sum ?? 0m;
+    }
+
+    /// <summary>
+    /// Sum of TaxTotal demand from PTIS.TransMastOld + PTIS.TaxMaster (or fallback PropertyMastOld.OldTotalTax)
+    /// for properties that are mapped via PropertyMapDetail.
+    /// </summary>
+    private async Task<decimal> GetOldTaxTotalDemandAsync(
+        IQueryable<PropertyEntity> query,
+        CancellationToken cancellationToken)
+    {
+        var oldPropertyIdsQuery = from p in query
+                                 join pmd in _context.PropertyMapDetails.AsNoTracking() on p.Id equals pmd.PropertyIdNew
+                                 where pmd.IsActive && pmd.PropertyIdOld != null
+                                 select pmd.PropertyIdOld!.Value;
+
+        var transSum = await (
+            from tmo in _context.TransMastOld.AsNoTracking()
+            join tax in _context.TaxMaster.AsNoTracking() on tmo.TaxId equals tax.Id
+            where oldPropertyIdsQuery.Contains(tmo.PropertyMastOldId)
+                  && tmo.IsActive && !tmo.MarkedForDeletion
+                  && tax.IsActive && (tax.TaxCode == "TaxTotal" || tax.TaxCode == "TAXTOTAL" || tax.TaxName == "TaxTotal" || tax.TaxCode == "TOTAL" || tax.TaxCode == "totaltax")
+            select (decimal?)tmo.TaxAmount
+        ).SumAsync(cancellationToken);
+
+        if (transSum.HasValue)
+        {
+            return transSum.Value;
+        }
+
+        var mastOldSum = await _context.PropertyMastOld.AsNoTracking()
+            .Where(pmo => oldPropertyIdsQuery.Contains(pmo.Id) && pmo.IsActive && !pmo.MarkedForDeletion)
+            .SumAsync(pmo => (decimal?)(pmo.OldTotalTax ?? 0), cancellationToken);
+
+        return mastOldSum ?? 0m;
+    }
+
+    // ──────────────────────────────────────────────────────────────────────────
+    //  Private: card calculation methods
+    // ──────────────────────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// Previously Registered = active properties that have a mapped old record via PropertyMapDetail.
+    /// </summary>
+    private async Task<(int PropertyCount, int StructureCount, int UnitCount, decimal Demand)> CalculatePreviouslyRegisteredAsync(
+        IQueryable<PropertyEntity> query,
+        CancellationToken cancellationToken)
+    {
+        var prevQuery = query.Where(p =>
+            _context.PropertyMapDetails.Any(pmd => pmd.PropertyIdNew == p.Id && pmd.IsActive && pmd.PropertyIdOld != null)
+        );
+
+        var (propertyCount, structureCount, unitCount) = await CountPropertiesAsync(prevQuery, cancellationToken);
+        var demand = await GetOldTaxTotalDemandAsync(prevQuery, cancellationToken);
+
+        return (propertyCount, structureCount, unitCount, demand);
+    }
+
+    /// <summary>
+    /// Calculates counts and demand for properties whose assessment status name matches
+    /// the given <paramref name="statusName"/>.
+    /// When <paramref name="includeDemand"/> is true, sums TaxTotal from PTIS.TransMast.
+    /// </summary>
+    private async Task<(int PropertyCount, int StructureCount, int UnitCount, decimal Demand)> CalculateByAssessmentStatusAsync(
+        IQueryable<PropertyEntity> query,
+        string statusName,
+        bool includeDemand,
+        CancellationToken cancellationToken)
+    {
+        var statusIds = await _context.PropertyAssessmentStatuses
+            .AsNoTracking()
+            .Where(s => s.IsActive && s.StatusName.ToUpper() == statusName.ToUpper())
+            .Select(s => s.Id)
+            .ToListAsync(cancellationToken);
+
+        var filteredQuery = statusIds.Count > 0
+            ? query.Where(p => p.PropertyAssessmentStatusId.HasValue &&
+                               statusIds.Contains(p.PropertyAssessmentStatusId.Value))
+            : query.Where(_ => false);
+
+        var (propertyCount, structureCount, unitCount) = await CountPropertiesAsync(filteredQuery, cancellationToken);
+
+        var demand = 0m;
+        if (includeDemand && propertyCount > 0)
+            demand = await GetNewTaxTotalDemandAsync(filteredQuery.Select(p => p.Id), cancellationToken);
+
+        return (propertyCount, structureCount, unitCount, demand);
+    }
+
+    /// <summary>
+    /// Additional Revenue = NewTaxTotal (TransMast) minus OldTaxTotal (TransMastOld or PropertyMastOld.OldTotalTax).
+    /// </summary>
+    private async Task<(int PropertyCount, int StructureCount, int UnitCount, decimal Demand)> CalculateAdditionalRevenueAsync(
+        IQueryable<PropertyEntity> query,
+        CancellationToken cancellationToken)
+    {
+        var revenueQuery = query.Where(p =>
+            _context.PropertyMapDetails.Any(pmd => pmd.PropertyIdNew == p.Id && pmd.IsActive && pmd.PropertyIdOld != null)
+        );
+
+        var (propertyCount, structureCount, unitCount) = await CountPropertiesAsync(revenueQuery, cancellationToken);
+
+        var newDemand = await GetNewTaxTotalDemandAsync(revenueQuery.Select(p => p.Id), cancellationToken);
+        var oldDemand = await GetOldTaxTotalDemandAsync(revenueQuery, cancellationToken);
+
+        var additionalRevenue = newDemand - oldDemand;
+
+        return (propertyCount, structureCount, unitCount, additionalRevenue > 0 ? additionalRevenue : 0m);
+    }
+
+    public async Task<(int TotalCount, List<PropertySearchResponseDto> Items)> UnifiedSearchPropertiesAsync(
+        string query,
+        int pageNumber,
+        int pageSize,
+        CancellationToken cancellationToken = default)
+    {
+        if (string.IsNullOrWhiteSpace(query))
+        {
+            return (0, new List<PropertySearchResponseDto>());
+        }
+
+        var normalizedQuery = query.Trim();
+        var cacheKey = $"unified_search_{normalizedQuery.ToLowerInvariant()}_{pageNumber}_{pageSize}";
+        if (_cache.TryGetValue(cacheKey, out (int TotalCount, List<PropertySearchResponseDto> Items) cachedResult))
+        {
+            return cachedResult;
+        }
+
+        var skip = (pageNumber - 1) * pageSize;
+
+        // Fast-Path Step 1: Direct Primary Identifier Index Seek Lookups (UPIC, PropertyNo, CSN, MobileNo)
+        // Avoids scanning all text columns when searching for codes, numbers, or UPIC IDs
+        var fastMatchQuery = _context.PropertyMast.AsNoTracking()
+            .Where(p => p.IsActive && !p.MarkedForDeletion &&
+                ((p.UPICId != null && (p.UPICId == normalizedQuery || p.UPICId.StartsWith(normalizedQuery))) ||
+                 (p.PropertyNo != null && p.PropertyNo == normalizedQuery) ||
+                 (p.CSN != null && (p.CSN == normalizedQuery || p.CSN.StartsWith(normalizedQuery))) ||
+                 (p.MobileNo != null && p.MobileNo == normalizedQuery)));
+
+        var fastCount = await fastMatchQuery.CountAsync(cancellationToken);
+        if (fastCount > 0)
+        {
+            var fastPagedIds = await fastMatchQuery
+                .OrderBy(p => p.Id)
+                .Select(p => p.Id)
+                .Skip(skip)
+                .Take(pageSize)
+                .ToListAsync(cancellationToken);
+
+            var fastResult = await HydratePropertyDetailsAsync(fastPagedIds, fastCount, cancellationToken);
+            _cache.SetSuggestion(cacheKey, fastResult, TimeSpan.FromMinutes(5));
+            return fastResult;
+        }
+
+        // Tier 1: Heuristic Classifier Fallback
+        var classifiedRequest = UnifiedQueryClassifier.Classify(normalizedQuery);
+        if (classifiedRequest != null)
+        {
+            var classifiedResult = await SearchPropertiesAsync(classifiedRequest, pageNumber, pageSize, cancellationToken);
+            _cache.SetSuggestion(cacheKey, classifiedResult, TimeSpan.FromMinutes(5));
+            return classifiedResult;
+        }
+
+        // Tier 2: General Text Search (Multi-Word Contains All terms)
+        var terms = normalizedQuery.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        if (terms.Length == 0)
+        {
+            return (0, new List<PropertySearchResponseDto>());
+        }
+
+        // ID-First Search Phase - Join ONLY PropertyMastOld and SocietyDetailsMast needed for search terms.
+        var searchBase = from p in _context.PropertyMast.AsNoTracking()
+                         where p.IsActive && !p.MarkedForDeletion
+
+                         join pmd in _context.PropertyMapDetails.AsNoTracking() on p.Id equals pmd.PropertyIdNew into pmdJoin
+                         from pmd in pmdJoin.Where(x => x.IsActive).DefaultIfEmpty()
+                         join pmo in _context.PropertyMastOld.AsNoTracking() on pmd.PropertyIdOld equals pmo.Id into oldJoin
+                         from pmo in oldJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+                         join sd in _context.SocietyDetailsMast.AsNoTracking() on p.Id equals sd.PropertyId into societyJoin
+                         from sd in societyJoin.Where(x => x.IsActive && !x.MarkedForDeletion).DefaultIfEmpty()
+
+                         select new
+                         {
+                             Property = p,
+                             OldProperty = pmo,
+                             Society = sd
+                         };
+
+        // Exclude incomplete entries
+        searchBase = searchBase.Where(x =>
+            (!string.IsNullOrEmpty(x.Property.PropertyNo) || (x.OldProperty != null && !string.IsNullOrEmpty(x.OldProperty.OldPropertyNo)))
+        );
+
+        // Apply keyword filters dynamically
+        foreach (var term in terms)
+        {
+            var t = term.Trim().ToLower();
+            searchBase = searchBase.Where(x =>
+                (x.Property.OwnerName != null && x.Property.OwnerName.ToLower().Contains(t)) ||
+                (x.Property.OwnerNameEnglish != null && x.Property.OwnerNameEnglish.ToLower().Contains(t)) ||
+                (x.Property.OccupierName != null && x.Property.OccupierName.ToLower().Contains(t)) ||
+                (x.Property.OccupierNameEnglish != null && x.Property.OccupierNameEnglish.ToLower().Contains(t)) ||
+                (x.Property.FlatOrShopName != null && x.Property.FlatOrShopName.ToLower().Contains(t)) ||
+                (x.Property.FlatOrShopNameEnglish != null && x.Property.FlatOrShopNameEnglish.ToLower().Contains(t)) ||
+                (x.Property.FlatOrShopNo != null && x.Property.FlatOrShopNo.ToLower().Contains(t)) ||
+                (x.Property.Address != null && x.Property.Address.ToLower().Contains(t)) ||
+                (x.Property.AddressEnglish != null && x.Property.AddressEnglish.ToLower().Contains(t)) ||
+                (x.Society != null && x.Society.SocietyName != null && x.Society.SocietyName.ToLower().Contains(t)) ||
+                (x.Society != null && x.Society.SocietyNameEnglish != null && x.Society.SocietyNameEnglish.ToLower().Contains(t)) ||
+                (x.Property.PropertyNo != null && x.Property.PropertyNo.ToLower().Contains(t)) ||
+                (x.OldProperty != null && x.OldProperty.OldPropertyNo != null && x.OldProperty.OldPropertyNo.ToLower().Contains(t)) ||
+                (x.Property.UPICId != null && x.Property.UPICId.ToLower().Contains(t)) ||
+                (x.Property.CSN != null && x.Property.CSN.ToLower().Contains(t))
+            );
+        }
+
+        var totalCount = await searchBase.CountAsync(cancellationToken);
+
+        var pagedPropertyIds = await searchBase.OrderBy(x => x.Property.Id).Select(x => x.Property.Id).Skip(skip).Take(pageSize).ToListAsync(cancellationToken);
+
+        if (!pagedPropertyIds.Any())
+        {
+            var emptyResult = (totalCount, new List<PropertySearchResponseDto>());
+            _cache.SetSuggestion(cacheKey, emptyResult, TimeSpan.FromMinutes(5));
+            return emptyResult;
+        }
+
+        var result = await HydratePropertyDetailsAsync(pagedPropertyIds, totalCount, cancellationToken);
+        _cache.SetSuggestion(cacheKey, result, TimeSpan.FromMinutes(5));
+        return result;
+    }
+
+    private async Task<(int TotalCount, List<PropertySearchResponseDto> Items)> HydratePropertyDetailsAsync(
+        List<int> propertyIds,
+        int totalCount,
+        CancellationToken cancellationToken)
+    {
+        if (!propertyIds.Any())
+            return (totalCount, new List<PropertySearchResponseDto>());
+
+        var propertyResults = await (
+            from p in _context.PropertyMast.AsNoTracking()
+            where propertyIds.Contains(p.Id)
+
+            join w in _context.WardMaster.AsNoTracking() on p.WardId equals w.Id into wardJoin
+            from w in wardJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+            join z in _context.ZoneMaster.AsNoTracking() on (w != null ? w.ZoneId : (int?)null) equals z.Id into zoneJoin
+            from z in zoneJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+            join pc in _context.PropertyCategoryMaster.AsNoTracking() on p.CategoryId equals pc.Id into categoryJoin
+            from pc in categoryJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+            join pt in _context.PropertyTypeMasters.AsNoTracking() on p.PropertyTypeId equals pt.Id into propertyTypeJoin
+            from pt in propertyTypeJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+            join pmd in _context.PropertyMapDetails.AsNoTracking() on p.Id equals pmd.PropertyIdNew into pmdJoin
+            from pmd in pmdJoin.Where(x => x.IsActive).DefaultIfEmpty()
+            join pmo in _context.PropertyMastOld.AsNoTracking() on pmd.PropertyIdOld equals pmo.Id into oldJoin
+            from pmo in oldJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+            join sd in _context.SocietyDetailsMast.AsNoTracking() on p.Id equals sd.PropertyId into societyJoin
+            from sd in societyJoin.Where(x => x.IsActive && !x.MarkedForDeletion).DefaultIfEmpty()
+
+            select new
+            {
+                Property = p,
+                Ward = w,
+                Zone = z,
+                Category = pc,
+                PropertyType = pt,
+                OldProperty = pmo,
+                Society = sd
+            }
+        ).ToListAsync(cancellationToken);
+
+        // Single consolidated query for TransMast (RV, CV, and Total Tax)
+        var valuationResults = await (
+            from t in _context.TransMast.AsNoTracking()
+            join tax in _context.TaxMaster.AsNoTracking() on t.TaxId equals tax.Id into taxJoin
+            from tax in taxJoin.DefaultIfEmpty()
+            where propertyIds.Contains(t.PropertyId)
+                  && t.IsActive
+                  && !t.MarkedForDeletion
+            group new { t, tax } by t.PropertyId into g
+            select new
+            {
+                PropertyId = g.Key,
+                RV = g.Where(x => x.t.CalculationType == "RV").Max(x => (decimal?)x.t.CalculationValue),
+                CV = g.Where(x => x.t.CalculationType == "CV").Max(x => (decimal?)x.t.CalculationValue),
+                TotalTax = g.Where(x => x.tax != null && x.tax.IsActive && x.tax.TaxCode == TaxTotalCode && x.tax.TaxName == TaxTotalName).Sum(x => (decimal?)x.t.TaxAmount)
+            }
+        ).ToListAsync(cancellationToken);
+
+        var rvDictionary = valuationResults.Where(x => x.RV.HasValue).ToDictionary(x => x.PropertyId, x => x.RV!.Value);
+        var cvDictionary = valuationResults.Where(x => x.CV.HasValue).ToDictionary(x => x.PropertyId, x => x.CV!.Value);
+        var totalTaxDictionary = valuationResults.Where(x => x.TotalTax.HasValue && x.TotalTax.Value > 0).ToDictionary(x => x.PropertyId, x => x.TotalTax!.Value);
+
+        // Pre-calculate unit counts for apartment main properties (empty PartitionNo)
+        var apartmentMainProperties = propertyResults
+            .Where(x => x.Category?.PropertyCategoryName == ApartmentCategoryName &&
+                       string.IsNullOrEmpty(x.Property.PartitionNo))
+            .Select(x => new { x.Property.PropertyNo, x.Property.WardId })
+            .Distinct()
+            .ToList();
+
+        var mainPropNos = apartmentMainProperties.Select(a => a.PropertyNo).Distinct().ToList();
+        var mainWardIds = apartmentMainProperties.Select(a => a.WardId).Distinct().ToList();
+
+        Dictionary<string, int> unitCountsDictionary = new();
+        if (mainPropNos.Any() && mainWardIds.Any())
+        {
+            var unitCountsList = await _context.PropertyMast
+                .AsNoTracking()
+                .Where(p => p.IsActive && !p.MarkedForDeletion &&
+                           mainPropNos.Contains(p.PropertyNo) &&
+                           mainWardIds.Contains(p.WardId) &&
+                           !string.IsNullOrEmpty(p.PartitionNo))
+                .GroupBy(p => new { p.PropertyNo, p.WardId })
+                .Select(g => new { g.Key.PropertyNo, g.Key.WardId, UnitCount = g.Count() })
+                .ToListAsync(cancellationToken);
+
+            unitCountsDictionary = unitCountsList.ToDictionary(
+                x => $"{x.PropertyNo}_{x.WardId}",
+                x => x.UnitCount
+            );
+        }
+
+        var items = propertyResults.Select(pr =>
+        {
+            decimal? rv = null;
+            decimal? cv = null;
+            decimal? totalTax = null;
+            int? childUnitCount = null;
+
+            if (rvDictionary.TryGetValue(pr.Property.Id, out var rvValue))
+                rv = rvValue;
+            if (cvDictionary.TryGetValue(pr.Property.Id, out var cvValue))
+                cv = cvValue;
+            if (totalTaxDictionary.TryGetValue(pr.Property.Id, out var totalTaxValue))
+                totalTax = totalTaxValue;
+
+            if (pr.Category?.PropertyCategoryName == ApartmentCategoryName &&
+                string.IsNullOrEmpty(pr.Property.PartitionNo))
+            {
+                var key = $"{pr.Property.PropertyNo}_{pr.Property.WardId}";
+                if (unitCountsDictionary.TryGetValue(key, out var unitCount))
+                {
+                    childUnitCount = unitCount;
+                }
+                else
+                {
+                    childUnitCount = 0;
+                }
+            }
+
+            return new PropertySearchResponseDto
+            {
+                PropertyId = pr.Property.Id,
+                UPICId = pr.Property.UPICId,
+                ZoneName = pr.Zone?.Description,
+                WardName = pr.Ward?.WardNo,
+                PropertyNo = pr.Property.PropertyNo,
+                PartitionNo = pr.Property.PartitionNo,
+                OldPropertyNo = pr.OldProperty?.OldPropertyNo,
+                CitySurveyNo = pr.Property.CSN,
+                PlotNo = pr.Property.PlotNo,
+                WingFlatNo = pr.Property.FlatOrShopNo,
+                CategoryName = pr.Category?.PropertyCategoryName,
+                PropertyDescription = pr.PropertyType?.PropertyDescription,
+                Mobile = pr.Property.MobileNo,
+                AlternateMobile = pr.Property.AlternateMobileNo,
+                PropertyHolderName = pr.Property.OwnerName ?? pr.Property.OwnerNameEnglish,
+                OccupierName = pr.Property.OccupierName ?? pr.Property.OccupierNameEnglish,
+                ShopBuildingName = pr.Property.FlatOrShopName ?? pr.Property.FlatOrShopNameEnglish,
+                SocietyName = pr.Society?.SocietyName ?? pr.Society?.SocietyNameEnglish,
+                Address = pr.Property.Address ?? pr.Property.AddressEnglish,
+                RV = rv,
+                CV = cv,
+                TotalTax = totalTax,
+                ChildUnitCount = childUnitCount
+            };
+        }).ToList();
+
+        return (totalCount, items);
+    }
+}

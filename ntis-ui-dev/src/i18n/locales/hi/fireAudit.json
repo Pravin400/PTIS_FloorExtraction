@@ -1,0 +1,949 @@
+{
+  "shell": {
+    "departmentName": "Fire Audit",
+    "systemName": "Fire Audit System",
+    "titleShort": "Fire Audit",
+    "titleFull": "Fire Audit",
+    "cell": "Safer buildings. Connected services.",
+    "staffWorkspace": "Municipal workspace",
+    "citizenServices": "Citizen services",
+    "openNav": "Open navigation",
+    "closeNav": "Close navigation",
+    "navHeader": "This portal",
+    "staffNavHeader": "Workspace",
+    "copyright": "All rights reserved",
+    "footerStaff": "Fire Audit · Municipal workspace",
+    "footerCitizen": "Fire Audit · Citizen services",
+    "footerNote": "Requirements and legal wording resolve from the selected municipality."
+  },
+  "masters": {
+    "kicker": "Configure Masters",
+    "add": "Add",
+    "viewOnly": "This catalog is view only.",
+    "jurisdiction": {
+      "title": "Jurisdiction",
+      "subtitle": "Set the legal wording, issuing authority and validity used by each municipality.",
+      "search": "Search name, code or reference",
+      "searchLabel": "Search records",
+      "empty": "No jurisdiction rules yet",
+      "emptyHint": "Add the rule this council should print on certificates.",
+      "addRule": "Add jurisdiction rule",
+      "contextLabel": "Municipality context",
+      "contextValue": "This council",
+      "scopeLabel": "Scope",
+      "allScopes": "All scopes",
+      "notSet": "Not set",
+      "notDated": "Not dated",
+      "ongoing": "ongoing",
+      "needsAuthority": "Needs authority",
+      "resolvedTitle": "Resolved jurisdiction",
+      "resolvedNote": "The selected rule is the one this council cites.",
+      "showing": "{start}-{end} of {total}",
+      "previous": "Previous",
+      "next": "Next",
+      "filters": {
+        "all": "All",
+        "active": "Active",
+        "inactive": "Inactive",
+        "reset": "Reset"
+      },
+      "status": {
+        "active": "Active",
+        "inactive": "Inactive",
+        "needsSetup": "Needs setup"
+      },
+      "actions": {
+        "view": "View",
+        "edit": "Edit",
+        "deactivate": "Deactivate",
+        "activate": "Activate"
+      },
+      "fields": {
+        "authority": "Issuing authority",
+        "legalBasis": "Legal basis",
+        "auditForm": "Audit report form",
+        "certificateForm": "Certificate form",
+        "validity": "Validity",
+        "effective": "Effective dates",
+        "months": "{count} months"
+      },
+      "form": {
+        "addTitle": "Add municipality jurisdiction rule",
+        "editTitle": "Edit jurisdiction rule",
+        "requiredNote": "Fields marked * are required for this demo.",
+        "scope": "Applies to",
+        "scopePriority": "Municipality rules take priority, followed by state and national rules.",
+        "municipality": "Municipality",
+        "councilNote": "Applies to the council you are signed in to.",
+        "errors": {
+          "authority": "Enter the issuing authority.",
+          "validity": "Enter validity in months.",
+          "stateName": "Enter the state name.",
+          "load": "The jurisdiction rules could not be loaded.",
+          "save": "The jurisdiction rule could not be saved.",
+          "council": "Sign in to a council before saving a municipality rule.",
+          "session": "Your session has expired. Sign in again."
+        },
+        "stateCode": "State code",
+        "stateName": "State name",
+        "actTitle": "Applicable fire services Act",
+        "rulesTitle": "Fire service rules",
+        "municipalActTitle": "Municipal Act",
+        "byeLawTitle": "Municipal bye-law",
+        "sectionRefs": "Legal sections",
+        "authority": "Issuing authority",
+        "legalBasis": "Legal basis",
+        "auditForm": "Audit report form code",
+        "auditFormHint": "Printed on the audit report. It is data, not a universal form name.",
+        "certificateForm": "Certificate form code",
+        "hasOwnFireBrigade": "Municipality has its own fire brigade",
+        "validity": "Certificate validity (months)",
+        "reminderOffsets": "Reminder days before expiry",
+        "reminderHint": "For example: 60, 30, 7 days.",
+        "from": "Valid from",
+        "to": "Valid until",
+        "active": "Active",
+        "save": "Save rule",
+        "summaryTitle": "Rule summary",
+        "sections": {
+          "applies": "Where this rule applies",
+          "legal": "Legal basis",
+          "authority": "Authority and document wording",
+          "validity": "Validity and reminders"
+        }
+      },
+      "columns": {
+        "scope": "Scope",
+        "authority": "Issuing authority",
+        "legalBasis": "Legal basis",
+        "auditForm": "Audit form",
+        "validity": "Validity months",
+        "effective": "Effective",
+        "active": "Status"
+      },
+      "scopes": {
+        "ULB": "This municipality",
+        "State": "State",
+        "National": "National"
+      }
+    },
+    "occupancy": {
+      "title": "Occupancy",
+      "subtitle": "Building use types used by the requirement matrix",
+      "search": "Search occupancy",
+      "empty": "No occupancy rows yet",
+      "columns": {
+        "code": "Code",
+        "name": "Name",
+        "detail": "Parent",
+        "active": "Active"
+      }
+    },
+    "bands": {
+      "title": "Requirement bands",
+      "subtitle": "Height, area, and occupant-load bands for this council",
+      "search": "Search bands",
+      "empty": "No requirement bands yet",
+      "columns": {
+        "code": "Code",
+        "name": "Name",
+        "detail": "Ranges",
+        "active": "Active"
+      }
+    },
+    "checklistItems": {
+      "title": "Checklist catalog",
+      "subtitle": "Fire systems and life-safety items used on one visit",
+      "search": "Search checklist",
+      "empty": "No checklist items yet",
+      "columns": {
+        "code": "Code",
+        "name": "Name",
+        "detail": "Domain",
+        "active": "Active"
+      }
+    },
+    "matrix": {
+      "title": "Requirement matrix",
+      "subtitle": "Which checklist items apply to an occupancy and band",
+      "search": "Search matrix",
+      "empty": "No matrix rows yet",
+      "columns": {
+        "code": "Code",
+        "name": "Occupancy",
+        "detail": "Band",
+        "active": "Active"
+      }
+    },
+    "applicationTypes": {
+      "title": "Application types",
+      "subtitle": "Enabled application kinds for this council",
+      "search": "Search application types",
+      "empty": "No application types yet",
+      "columns": {
+        "code": "Code",
+        "name": "Name",
+        "detail": "Inspection",
+        "active": "Active"
+      }
+    },
+    "documentTypes": {
+      "title": "Document types",
+      "subtitle": "Papers asked for on an application",
+      "search": "Search document types",
+      "empty": "No document types yet",
+      "columns": {
+        "code": "Code",
+        "name": "Name",
+        "detail": "When required",
+        "active": "Active"
+      }
+    },
+    "stations": {
+      "title": "Fire stations",
+      "subtitle": "Stations that can be named on a visit",
+      "search": "Search stations",
+      "empty": "No fire stations yet",
+      "columns": {
+        "code": "Code",
+        "name": "Name",
+        "detail": "Ward",
+        "active": "Active"
+      }
+    },
+    "feeHeads": {
+      "title": "Fee heads",
+      "subtitle": "Named fee obligations shown on the assessment",
+      "search": "Search fee heads",
+      "empty": "No fee heads yet",
+      "columns": {
+        "code": "Code",
+        "name": "Name",
+        "detail": "Obligation",
+        "active": "Active"
+      }
+    },
+    "feeRules": {
+      "title": "Fee rules",
+      "subtitle": "How a fee head is calculated for a given scope",
+      "search": "Search fee rules",
+      "empty": "No fee rules yet",
+      "columns": {
+        "code": "Code",
+        "name": "Head",
+        "detail": "Scope",
+        "active": "Active"
+      }
+    },
+    "statuses": {
+      "title": "Status catalog",
+      "subtitle": "Application statuses in display order",
+      "search": "Search statuses",
+      "empty": "No statuses yet",
+      "columns": {
+        "code": "Code",
+        "name": "Name",
+        "detail": "Terminal",
+        "active": "Active"
+      }
+    }
+  },
+  "error": {
+    "title": "यह फायर ऑडिट स्क्रीन खोली नहीं जा सकी",
+    "message": "कृपया पुनः प्रयास करें, या फायर ऑडिट मुख्य पृष्ठ पर वापस जाएं।",
+    "digest": "संदर्भ {digest}",
+    "tryAgain": "पुनः प्रयास करें",
+    "home": "फायर ऑडिट मुख्य पृष्ठ"
+  },
+  "home": {
+    "kicker": "Department",
+    "title": "Fire Audit",
+    "subtitle": "Compliance certificate and audit for this municipality. Staff use the council login. Citizens use the public portal.",
+    "staffHeading": "Staff work",
+    "citizenHeading": "Citizen portal",
+    "mastersHeading": "Configure masters",
+    "openMasters": "Open jurisdiction"
+  },
+  "citizenNav": {
+    "home": "Home",
+    "applications": "Applications",
+    "newApplication": "New application",
+    "signIn": "Sign in",
+    "register": "Register"
+  },
+  "routes": {
+    "clerk": {
+      "title": "Clerk queue",
+      "purpose": "Initial scrutiny, surveyor assignment, and review of the locked inspection report."
+    },
+    "clerkApplication": {
+      "title": "Application {id}",
+      "purpose": "Scrutiny, assignment, and report handoff for this application."
+    },
+    "auditor": {
+      "title": "अधिकारी सत्यापन डैशबोर्ड",
+      "purpose": "अधिकारी सत्यापन, अनुपालन निर्णय, और प्रमाणपत्र जारी करना।"
+    },
+    "auditorApplication": {
+      "title": "Decision {id}",
+      "purpose": "Compliance decision and certificate issue for this application."
+    },
+    "surveyor": {
+      "title": "Assigned inspections",
+      "purpose": "Visits assigned to the signed-in surveyor."
+    },
+    "surveyorVisit": {
+      "title": "Inspection {id}",
+      "purpose": "Checklist, photos, and location for this visit. Manual entry stays available when the camera or location is missing."
+    },
+    "certificates": {
+      "title": "Certificates",
+      "purpose": "Issued certificates for this municipality."
+    },
+    "verify": {
+      "title": "Certificate check",
+      "purpose": "Public check for certificate {token}."
+    },
+    "citizenHome": {
+      "title": "Your buildings",
+      "purpose": "Premises and applications for the signed-in citizen."
+    },
+    "citizenLogin": {
+      "title": "Citizen sign in",
+      "purpose": "Mobile number and one-time password. This uses the same council account system as staff."
+    },
+    "citizenRegister": {
+      "title": "Citizen registration",
+      "purpose": "Create a citizen account with a mobile number."
+    },
+    "citizenApplications": {
+      "title": "Your applications",
+      "purpose": "Applications filed for your premises."
+    },
+    "citizenNew": {
+      "title": "New application",
+      "purpose": "Premises, occupancy, documents, and the fee assessment. Payment is not collected here."
+    },
+    "citizenApplication": {
+      "title": "Application {id}",
+      "purpose": "Status, timeline, and certificate for this application."
+    }
+  },
+  "auditorDashboard": {
+    "title": "अग्नि लेखापरीक्षा - अधिकारी सत्यापन डैशबोर्ड",
+    "recentActivity": "हाल की गतिविधि",
+    "activity": {
+      "title": "हाल की गतिविधि",
+      "liveFeed": "लाइव फ़ीड",
+      "tabAll": "सभी ({count})",
+      "tabToday": "आज ({count})",
+      "tabThisWeek": "इस सप्ताह ({count})",
+      "noActivity": "अभी तक कोई कार्रवाई दर्ज नहीं की गई",
+      "noActivityDesc": "आवेदन जमा करने, जांच, सर्वेक्षण और अग्रेषण जैसी सभी लेखापरीक्षक गतिविधियां यहां दिखाई देंगी।",
+      "viewAllActivity": "सभी गतिविधियां देखें",
+      "refresh": "ताज़ा करें",
+      "close": "बंद करें"
+    },
+    "keyOperations": "मुख्य ऑपरेशन्स",
+    "applicationsRegistry": "आवेदन पंजी",
+    "applicationPerformanceCharts": "आवेदन प्रदर्शन चार्ट",
+    "allApplicationsTab": "सभी आवेदन ({count})",
+    "todaysApplicationsTab": "आज के आवेदन ({count})",
+    "stats": {
+      "title": "मीट्रिक कार्ड",
+      "submitted": "प्रस्तुत",
+      "submittedLabel": "प्रस्तुत रिपोर्ट",
+      "pending": "लंबित",
+      "pendingLabel": "सत्यापन लंबित",
+      "returned": "वापस भेजा गया",
+      "returnedLabel": "सुधार हेतु वापस",
+      "reinspect": "पुनः निरीक्षण",
+      "reinspectLabel": "पुनः निरीक्षण लंबित",
+      "approved": "स्वीकृत",
+      "approvedLabel": "स्वीकृत रिपोर्ट",
+      "issued": "जारी किया गया",
+      "issuedLabel": "जारी प्रमाणपत्र"
+    },
+    "statuses": {
+      "auditorReportSubmitted": "लेखापरीक्षा रिपोर्ट प्रस्तुत",
+      "officerVerificationPending": "अधिकारी सत्यापन लंबित",
+      "returnedForRectification": "सुधार हेतु वापस",
+      "reInspectionPending": "पुनः निरीक्षण लंबित",
+      "approved": "स्वीकृत",
+      "certificateIssued": "प्रमाणपत्र जारी किया गया"
+    },
+    "search": {
+      "title": "आवेदन खोजें और फ़िल्टर करें",
+      "filters": "फ़िल्टर",
+      "placeholder": "आवेदन सं., भवन का नाम, आवेदक, स्थान, प्रमाणपत्र सं. खोजें...",
+      "filterButton": "फ़िल्टर",
+      "showResults": "परिणाम दिखाएं",
+      "showResultsCount": "परिणाम दिखाएं ({count})",
+      "resetButton": "रीसेट",
+      "resetAll": "सभी रीसेट करें",
+      "close": "बंद करें"
+    },
+    "filterFields": {
+      "appType": "आवेदन प्रकार",
+      "allTypes": "सभी प्रकार",
+      "newAudit": "नई लेखापरीक्षा",
+      "newFsc": "नया FSC",
+      "renewalAudit": "नवीनीकरण लेखापरीक्षा",
+      "renewal": "नवीनीकरण",
+      "periodicAudit": "आवधिक लेखापरीक्षा",
+      "occupancyType": "उपयोग प्रकार",
+      "allOccupancy": "सभी उपयोग प्रकार",
+      "business": "व्यावसायिक",
+      "institutional": "संस्थागत",
+      "mercantile": "व्यापारिक",
+      "commercial": "वाणिज्यिक",
+      "residential": "आवासीय",
+      "healthcare": "स्वास्थ्य सेवा / अस्पताल",
+      "educational": "शैक्षणिक",
+      "assembly": "सभा / सार्वजनिक",
+      "industrial": "औद्योगिक",
+      "storage": "भंडारण",
+      "hazardous": "खतरनाक",
+      "node": "नोड",
+      "allNodes": "सभी नोड",
+      "sector": "सेक्टर",
+      "sectorLabel": "सेक्टर {number}",
+      "allSectors": "सभी सेक्टर",
+      "ward": "वार्ड सं.",
+      "wardLabel": "वार्ड {number}",
+      "allWards": "सभी वार्ड",
+      "appDate": "आवेदन तिथि",
+      "anyDate": "कोई भी तिथि",
+      "riskCategory": "जोखिम श्रेणी",
+      "allRisk": "सभी जोखिम",
+      "riskHigh": "उच्च जोखिम",
+      "riskMedium": "मध्यम जोखिम",
+      "riskLow": "कम जोखिम",
+      "riskUnknown": "अज्ञात जोखिम",
+      "nodePanvel": "पनवेल",
+      "nodeNewPanvel": "नवीन पनवेल",
+      "nodeKalamboli": "कलंबोली",
+      "nodeKharghar": "खारघर",
+      "nodeTaloja": "तलोज़ा",
+      "nodeKamothe": "कामोठे",
+      "sector4": "सेक्टर 4",
+      "sector8": "सेक्टर 8",
+      "sector12": "सेक्टर 12",
+      "sector15": "सेक्टर 15",
+      "sector20": "सेक्टर 20",
+      "sector45": "सेक्टर 45",
+      "ward01": "वार्ड 01",
+      "ward02": "वार्ड 02",
+      "ward03": "वार्ड 03",
+      "ward04": "वार्ड 04",
+      "ward05": "वार्ड 05",
+      "ward06": "वार्ड 06",
+      "dateToday": "आज",
+      "dateThisWeek": "इस सप्ताह",
+      "dateLast7": "पिछले 7 दिन",
+      "dateLast30": "पिछले 30 दिन",
+      "dateThisMonth": "इस महीने"
+    },
+    "table": {
+      "title": "अग्नि लेखापरीक्षा सत्यापन आवेदन",
+      "showingRecords": "{count} रिकॉर्ड दिखाए जा रहे हैं",
+      "btnExport": "सीएसवी निर्यात करें",
+      "colDocs": "दस्तावेज़",
+      "colAction": "कार्रवाई",
+      "btnDocs": "दस्तावेज़",
+      "btnStartScrutiny": "जांच शुरू करें",
+      "btnHistory": "इतिहास",
+      "empty": "चयनित मानदंडों से मेल खाने वाले कोई आवेदन नहीं मिले।",
+      "error": "आवेदन लोड करने में विफल। कृपया पुनः प्रयास करें।",
+      "retry": "पुनः प्रयास करें",
+      "defaultSla": "10 का.दि.",
+      "notAvailable": "-",
+      "columns": {
+        "appNo": "आवेदन सं.",
+        "appDate": "आवेदन तिथि",
+        "sla": "एसएलए (SLA)",
+        "buildingName": "भवन का नाम",
+        "applicant": "आवेदक / मालिक",
+        "occupancyType": "उपयोग श्रेणी",
+        "typeOfUse": "उपयोग का प्रकार",
+        "scoreRisk": "स्कोर / जोखिम",
+        "surveyor": "सर्वेयर",
+        "inspDate": "निरीक्षण तिथि",
+        "dueDate": "नियत तिथि",
+        "deficiencies": "कमियां",
+        "status": "स्थिति"
+      },
+      "status": {
+        "auditorReportSubmitted": "लेखापरीक्षा रिपोर्ट प्रस्तुत",
+        "officerVerificationPending": "अधिकारी सत्यापन लंबित",
+        "returnedForRectification": "सुधार हेतु वापस",
+        "reInspectionPending": "पुनः निरीक्षण लंबित",
+        "approved": "स्वीकृत",
+        "certificateIssued": "प्रमाणपत्र जारी किया गया"
+      },
+      "risk": {
+        "high": "उच्च",
+        "medium": "मध्यम",
+        "low": "कम",
+        "unknown": "अज्ञात"
+      },
+      "appTypes": {
+        "newFsc": "नया FSC",
+        "newAudit": "नई लेखापरीक्षा",
+        "renewal": "नवीनीकरण",
+        "renewalAudit": "नवीनीकरण लेखापरीक्षा",
+        "periodicAudit": "आवधिक लेखापरीक्षा",
+        "unknown": "अज्ञात"
+      },
+      "buildingTypes": {
+        "business": "व्यावसायिक",
+        "institutional": "संस्थागत",
+        "mercantile": "व्यापारिक",
+        "commercial": "वाणिज्यिक",
+        "residential": "आवासीय",
+        "healthcare": "स्वास्थ्य सेवा / अस्पताल",
+        "educational": "शैक्षणिक",
+        "assembly": "सभा / सार्वजनिक",
+        "industrial": "औद्योगिक",
+        "storage": "भंडारण",
+        "hazardous": "खतरनाक"
+      },
+      "deficienciesCount": "{count} कमियां",
+      "fullyCompliant": "पूर्ण अनुपालन"
+    },
+
+    "charts": {
+      "statusOverviewTitle": "आवेदन स्थिति अवलोकन",
+      "applicationsTrendTitle": "आवेदन रुझान",
+      "filterPeriod": "अवधि चुनें",
+      "total": "कुल",
+      "periods": {
+        "thisMonth": "इस महीने",
+        "lastMonth": "पिछले महीने",
+        "thisQuarter": "इस तिमाही",
+        "thisYear": "इस वर्ष"
+      },
+      "statuses": {
+        "pendingVerification": "सत्यापन लंबित",
+        "inspectionCompleted": "निरीक्षण पूर्ण",
+        "readyForDecision": "निर्णय के लिए तैयार",
+        "returned": "वापस लौटाया गया",
+        "issuedCertificates": "जारी प्रमाण पत्र",
+        "reInspection": "पुनः निरीक्षण"
+      },
+      "trend": {
+        "yAxisLabel": "आवेदनों की संख्या",
+        "assigned": "आवंटित",
+        "verified": "सत्यापित",
+        "issued": "जारी",
+        "months": {
+          "aug": "अगस्त",
+          "sep": "सितंबर",
+          "oct": "अक्टूबर",
+          "nov": "नवंबर",
+          "dec": "दिसंबर",
+          "jan": "जनवरी"
+        }
+      }
+    }
+  },
+  "clerk": {
+    "title": "Clerk Operations Desk",
+    "subtitle": "Intake queue, baseline document verification, fee reconciliation & surveyor scheduling",
+    "metrics": {
+      "allApplications": "All Applications",
+      "scrutinyPending": "Scrutiny Pending",
+      "surveyScheduled": "Survey Scheduled",
+      "reviewForward": "Review & Forward",
+      "compliancePending": "Compliance Pending",
+      "reinspectionCases": "Re-inspection Cases",
+      "certifiedCleared": "Certified & Cleared",
+      "rejectedApplications": "Rejected Applications",
+      "viewAll": "View all",
+      "tagAll": "ALL",
+      "tagPending": "PENDING",
+      "tagScheduled": "SCHEDULED",
+      "tagReview": "REVIEW",
+      "tagCompliance": "COMPLIANCE",
+      "tagReinspect": "RE-INSPECT",
+      "tagCertified": "CERTIFIED",
+      "tagRejected": "REJECTED"
+    },
+    "keyOperations": "मुख्य कार्य",
+    "activity": {
+      "title": "हाल की गतिविधि",
+      "liveFeed": "लाइव फीड",
+      "noActivity": "अभी तक कोई लिपिकीय कार्रवाई दर्ज नहीं की गई है",
+      "noActivityDesc": "आवेदन जमा, छानबीन, सर्वेक्षण, अग्रेषण जैसी सभी लिपिक गतिविधियां यहां दिखाई देंगी।",
+      "viewAllActivity": "सभी गतिविधि देखें",
+      "tabAll": "सभी ({count})",
+      "tabToday": "आज ({count})",
+      "tabThisWeek": "इस सप्ताह ({count})",
+      "refresh": "ताज़ा करें",
+      "close": "बंद करें"
+    },
+    "registry": {
+      "heading": "कुल आवेदन पंजी",
+      "tabAll": "सभी आवेदन ({count})",
+      "tabToday": "आज के आवेदन ({count})",
+      "searchPlaceholder": "आवेदन खोजें...",
+      "allOccupancies": "सभी अधिभोग",
+      "btnFilter": "फ़िल्टर",
+      "advanced": {
+        "filtersTitle": "फ़िल्टर्स",
+        "resetAll": "सभी रीसेट करें",
+        "searchLabel": "आवेदन खोजें और फ़िल्टर करें",
+        "searchPlaceholder": "आवेदन क्र., इमारत का नाम, आवेदक, स्थान, प्रमाणपत्र क्र. खोजें...",
+        "appType": "आवेदन का प्रकार",
+        "occupancyType": "अधिभोग प्रकार",
+        "node": "नोड",
+        "sector": "सेक्टर",
+        "wardNo": "वार्ड क्र.",
+        "appDate": "आवेदन दिनांक",
+        "riskCategory": "जोखिम श्रेणी",
+        "btnReset": "रीसेट",
+        "btnShowResults": "परिणाम देखें",
+        "close": "बंद करें",
+        "options": {
+          "appType": {
+            "all": "सभी प्रकार",
+            "new": "नया अनुपालन",
+            "renewal": "नवीनीकरण",
+            "reinspection": "पुनः निरीक्षण"
+          },
+          "occupancyType": {
+            "all": "सभी अधिभोग प्रकार",
+            "groupA": "आवासीय (ग्रुप A)",
+            "groupE": "व्यावसायिक/आईटी (ग्रुप E)",
+            "groupF": "वाणिज्यिक (ग्रुप F)",
+            "groupG": "औद्योगिक (ग्रुप G)"
+          },
+          "node": {
+            "all": "सभी नोड",
+            "central": "सेंट्रल नोड",
+            "north": "उत्तर नोड",
+            "south": "दक्षिण नोड",
+            "east": "पूर्व नोड",
+            "west": "पश्चिम नोड"
+          },
+          "sector": {
+            "all": "सभी सेक्टर",
+            "sec_1": "सेक्टर 1 - 10",
+            "sec_2": "सेक्टर 11 - 20"
+          },
+          "wardNo": {
+            "all": "सभी वार्ड",
+            "ward_1": "वार्ड 01",
+            "ward_2": "वार्ड 02",
+            "ward_3": "वार्ड 03"
+          },
+          "appDate": {
+            "all": "कोई भी दिनांक",
+            "today": "आज",
+            "week": "इस सप्ताह",
+            "month": "इस माह"
+          },
+          "riskCategory": {
+            "all": "सभी जोखिम",
+            "high": "उच्च जोखिम",
+            "medium": "मध्यम जोखिम",
+            "low": "कम जोखिम"
+          },
+          "calendar": {
+            "prevMonth": "पिछला महीना",
+            "nextMonth": "अगला महीना",
+            "months": {
+              "jan": "जनवरी",
+              "feb": "फ़रवरी",
+              "mar": "मार्च",
+              "apr": "अप्रैल",
+              "may": "मई",
+              "jun": "जून",
+              "jul": "जुलाई",
+              "aug": "अगस्त",
+              "sep": "सितंबर",
+              "oct": "अक्टूबर",
+              "nov": "नवंबर",
+              "dec": "दिसंबर"
+            },
+            "weekdays": {
+              "mo": "सोम",
+              "tu": "मंगल",
+              "we": "बुध",
+              "th": "गुरु",
+              "fr": "शुक्र",
+              "sa": "शनि",
+              "su": "रवि"
+            }
+          }
+        }
+      }
+    },
+    "table": {
+      "title": "आवेदन",
+      "subtitle": "नागरिकों द्वारा प्रस्तुत अग्नि लेखा परीक्षा आवेदनों की सूची",
+      "btnExport": "निर्यात",
+      "colAppNo": "आवेदन क्र.",
+      "colBuilding": "भवन और आवेदन",
+      "colCouncilCode": "परिषद कोड",
+      "colSubmission": "जमा करने की तिथि",
+      "colSubmissionTime": "जमा करने का समय",
+      "colSla": "SLA",
+      "colOccupancy": "अधिभोग प्रकार",
+      "colApplicant": "आवेदक का नाम",
+      "colStatus": "स्थिति",
+      "colDocs": "दस्तावेज़",
+      "colAction": "कार्रवाई",
+      "btnHistory": "इतिहास",
+      "btnDocs": "दस्तावेज़",
+      "btnStartScrutiny": "छानबीन शुरू करें",
+      "noRecordsFound": "कतार में कोई आवेदन नहीं मिला",
+      "tryDifferentFilter": "नागरिकों द्वारा प्रस्तुत आवेदन यहां दिखाई देंगे।"
+    }
+  },
+  "clerk": {
+    "title": "Clerk Operations Desk",
+    "metrics": {
+      "allApplications": "All Applications",
+      "scrutinyPending": "Scrutiny Pending",
+      "surveyScheduled": "Survey Scheduled",
+      "reviewForward": "Review & Forward",
+      "compliancePending": "Compliance Pending",
+      "reinspectionCases": "Re-inspection Cases",
+      "certifiedCleared": "Certified & Cleared",
+      "rejectedApplications": "Rejected Applications",
+      "viewAll": "View all",
+      "tagAll": "ALL",
+      "tagPending": "PENDING",
+      "tagScheduled": "SCHEDULED",
+      "tagReview": "REVIEW",
+      "tagCompliance": "COMPLIANCE",
+      "tagReinspect": "RE-INSPECT",
+      "tagCertified": "CERTIFIED",
+      "tagRejected": "REJECTED"
+    },
+    "keyOperations": "मुख्य कार्य",
+    "activity": {
+      "title": "हाल की गतिविधि",
+      "liveFeed": "लाइव फीड",
+      "noActivity": "अभी तक कोई लिपिकीय कार्रवाई दर्ज नहीं की गई है",
+      "noActivityDesc": "आवेदन जमा, छानबीन, सर्वेक्षण, अग्रेषण जैसी सभी लिपिक गतिविधियां यहां दिखाई देंगी।",
+      "viewAllActivity": "सभी गतिविधि देखें",
+      "tabAll": "सभी ({count})",
+      "tabToday": "आज ({count})",
+      "tabThisWeek": "इस सप्ताह ({count})",
+      "refresh": "ताज़ा करें",
+      "close": "बंद करें"
+    },
+    "registry": {
+      "heading": "कुल आवेदन पंजी",
+      "tabAll": "सभी आवेदन ({count})",
+      "tabToday": "आज के आवेदन ({count})",
+      "searchPlaceholder": "आवेदन खोजें...",
+      "allOccupancies": "सभी अधिभोग",
+      "btnFilter": "फ़िल्टर",
+      "clearStatusFilter": "स्थिति फ़िल्टर हटाएं",
+      "advanced": {
+        "filtersTitle": "फ़िल्टर्स",
+        "resetAll": "सभी रीसेट करें",
+        "searchLabel": "आवेदन खोजें और फ़िल्टर करें",
+        "searchPlaceholder": "आवेदन क्र., इमारत का नाम, आवेदक, स्थान, प्रमाणपत्र क्र. खोजें...",
+        "appType": "आवेदन का प्रकार",
+        "occupancyType": "अधिभोग प्रकार",
+        "node": "नोड",
+        "sector": "सेक्टर",
+        "wardNo": "वार्ड क्र.",
+        "appDate": "आवेदन दिनांक",
+        "riskCategory": "जोखिम श्रेणी",
+        "btnReset": "रीसेट",
+        "btnShowResults": "परिणाम देखें",
+        "close": "बंद करें",
+        "options": {
+          "appType": {
+            "all": "सभी प्रकार",
+            "new": "नया अनुपालन",
+            "renewal": "नवीनीकरण",
+            "reinspection": "पुनः निरीक्षण"
+          },
+          "occupancyType": {
+            "all": "सभी अधिभोग प्रकार",
+            "groupA": "आवासीय (ग्रुप A)",
+            "groupE": "व्यावसायिक/आईटी (ग्रुप E)",
+            "groupF": "वाणिज्यिक (ग्रुप F)",
+            "groupG": "औद्योगिक (ग्रुप G)"
+          },
+          "node": {
+            "all": "सभी नोड",
+            "central": "सेंट्रल नोड",
+            "north": "उत्तर नोड",
+            "south": "दक्षिण नोड",
+            "east": "पूर्व नोड",
+            "west": "पश्चिम नोड"
+          },
+          "sector": {
+            "all": "सभी सेक्टर",
+            "sec_1": "सेक्टर 1 - 10",
+            "sec_2": "सेक्टर 11 - 20"
+          },
+          "wardNo": {
+            "all": "सभी वार्ड",
+            "ward_1": "वार्ड 01",
+            "ward_2": "वार्ड 02",
+            "ward_3": "वार्ड 03"
+          },
+          "appDate": {
+            "all": "कोई भी दिनांक",
+            "today": "आज",
+            "week": "इस सप्ताह",
+            "month": "इस माह"
+          },
+          "riskCategory": {
+            "all": "सभी जोखिम",
+            "high": "उच्च जोखिम",
+            "medium": "मध्यम जोखिम",
+            "low": "कम जोखिम"
+          },
+          "calendar": {
+            "prevMonth": "पिछला महीना",
+            "nextMonth": "अगला महीना",
+            "months": {
+              "jan": "जनवरी",
+              "feb": "फ़रवरी",
+              "mar": "मार्च",
+              "apr": "अप्रैल",
+              "may": "मई",
+              "jun": "जून",
+              "jul": "जुलाई",
+              "aug": "अगस्त",
+              "sep": "सितंबर",
+              "oct": "अक्टूबर",
+              "nov": "नवंबर",
+              "dec": "दिसंबर"
+            },
+            "weekdays": {
+              "mo": "सोम",
+              "tu": "मंगल",
+              "we": "बुध",
+              "th": "गुरु",
+              "fr": "शुक्र",
+              "sa": "शनि",
+              "su": "रवि"
+            }
+          }
+        }
+      }
+    },
+    "table": {
+      "title": "आवेदन",
+      "subtitle": "नागरिकों द्वारा प्रस्तुत अग्नि लेखा परीक्षा आवेदनों की सूची",
+      "btnExport": "निर्यात",
+      "colAppNo": "आवेदन क्र.",
+      "colBuilding": "भवन और आवेदन",
+      "colCouncilCode": "परिषद कोड",
+      "colSubmission": "जमा करने की तिथि",
+      "colSubmissionTime": "जमा करने का समय",
+      "colSla": "SLA",
+      "colOccupancy": "अधिभोग प्रकार",
+      "colApplicant": "आवेदक का नाम",
+      "colStatus": "स्थिति",
+      "colDocs": "दस्तावेज़",
+      "colAction": "कार्रवाई",
+      "btnHistory": "इतिहास",
+      "btnDocs": "दस्तावेज़",
+      "btnStartScrutiny": "छानबीन शुरू करें",
+      "noRecordsFound": "कतार में कोई आवेदन नहीं मिला",
+      "tryDifferentFilter": "नागरिकों द्वारा प्रस्तुत आवेदन यहां दिखाई देंगे।",
+      "showingEntries": "कुल {total} में से {count} प्रविष्टियां प्रदर्शित",
+      "slaCompleted": "पूर्ण"
+    },
+    "actions": {
+      "expedite": "त्वरित और असाइन करें",
+      "viewRejection": "अस्वीकृति देखें",
+      "viewSchedule": "शेड्यूल देखें",
+      "verifyReport": "रिपोर्ट सत्यापित करें",
+      "viewNotice": "नोटिस देखें",
+      "trackCfo": "CFO स्वीकृति ट्रैक करें",
+      "startScrutiny": "छानबीन शुरू करें"
+    },
+    "modal": {
+      "title": "आवेदन आगे बढ़ाएं",
+      "cancel": "रद्द करें",
+      "detailsTitle": "आवेदन विवरण (संक्षेप में)",
+      "journeyTitle": "आवेदन यात्रा",
+      "journeySub": "चरण-दर-चरण प्रक्रिया ट्रैकिंग",
+      "btnExpedite": "त्वरित और असाइन करें →",
+      "btnViewRejection": "अस्वीकृति नोटिस देखें →",
+      "btnViewSchedule": "शेड्यूल देखें →",
+      "btnVerifyReport": "रिपोर्ट सत्यापित करें →",
+      "btnViewNotice": "15-दिवसीय नोटिस देखें →",
+      "btnTrackCfo": "CFO स्वीकृति ट्रैक करें →",
+      "btnStartScrutiny": "छानबीन शुरू करें →",
+      "labels": {
+        "appNoDate": "आवेदन क्र. और तारीख",
+        "applicantOwner": "आवेदक / स्वामी",
+        "buildingName": "इमारत का नाम",
+        "addressLocation": "पता और स्थान",
+        "occupancyType": "इमारत और उपयोग का प्रकार",
+        "complianceRisk": "अनुपालन स्कोर और जोखिम",
+        "assignedOfficer": "असाइन किया गया लेखापरीक्षक / अधिकारी",
+        "deficienciesStatus": "कमियों की स्थिति"
+      },
+      "steps": {
+        "submitted": "जमा किया गया",
+        "scrutinyPending": "छानबीन लंबित",
+        "slaOverdue": "SLA समय समाप्त",
+        "withClerk": "लिपिक के पास",
+        "surveyInspection": "सर्वेक्षण निरीक्षण",
+        "fieldAudit": "फील्ड ऑडिट",
+        "rejected": "अस्वीकृत",
+        "deficienciesFound": "कमियां पाई गईं",
+        "cfoApproval": "CFO स्वीकृति",
+        "pendingSignoff": "हस्ताक्षर लंबित",
+        "finalClearance": "अंतिम मंजूरी"
+      }
+    }
+  },
+  "citizen": {
+    "auth": {
+      "signInTitle": "नागरिक साइन इन",
+      "registerTitle": "नागरिक पंजीकरण",
+      "signInSubtitle": "अपने मोबाइल नंबर का उपयोग करके अपने अग्नि अनुपालन खाते तक पहुंचें।",
+      "registerSubtitle": "अपने मोबाइल नंबर का उपयोग करके अपना अग्नि अनुपालन खाता बनाएं।",
+      "otpSubtitle": "+91 {mobileNumber} पर भेजा गया 6-अंकीय सत्यापन कोड दर्ज करें",
+      "digitAriaLabel": "अंक {index}",
+      "fullNameLabel": "पूरा नाम",
+      "fullNamePlaceholder": "अपना पूरा नाम दर्ज करें",
+      "mobileNumberLabel": "मोबाइल नंबर",
+      "mobileNumberPlaceholder": "10-अंकीय मोबाइल नंबर दर्ज करें",
+      "btnSendOtp": "ओटीपी भेजें",
+      "btnSendingOtp": "ओटीपी भेजा जा रहा है...",
+      "btnVerifySignIn": "सत्यापित करें और साइन इन करें",
+      "btnResendOtp": "ओटीपी पुनः भेजें",
+      "resendCountdown": "{seconds} सेकंड में पुनः भेजें",
+      "changeMobile": "मोबाइल नंबर बदलें",
+      "newCitizenPrompt": "नए नागरिक या भवन?",
+      "createAccountLink": "नया खाता बनाएं →",
+      "createAccountNowLink": "अब नया खाता बनाएं →",
+      "alreadyRegisteredPrompt": "पहले से पंजीकृत हैं?",
+      "signInMobileLink": "मोबाइल से साइन इन करें →",
+      "signInNumberLink": "इस नंबर के साथ साइन इन करें →",
+      "signedInSuccessTitle": "सफलतापूर्वक साइन इन किया गया",
+      "signedInSuccessDesc": "आपके नागरिक अग्नि अनुपालन खाते पर पुनर्निर्देशित किया जा रहा है...",
+      "registeredSuccessTitle": "पंजीकरण पूरा हुआ",
+      "registeredSuccessDesc": "आपका अग्नि अनुपालन खाता बना दिया गया है। नागरिक डैशबोर्ड पर पुनर्निर्देशित किया जा रहा है...",
+      "errFullName": "कृपया अपना पूरा नाम दर्ज करें",
+      "errValidMobile": "कृपया एक मान्य 10-अंकीय मोबाइल नंबर दर्ज करें",
+      "errMobilePrefix": "मोबाइल नंबर 6, 7, 8 या 9 से शुरू होना चाहिए",
+      "errNotRegistered": "यह मोबाइल नंबर पंजीकृत नहीं है। कृपया नया खाता बनाएं।",
+      "errAlreadyRegistered": "यह मोबाइल नंबर पहले से पंजीकृत है। कृपया इसके बजाय साइन इन करें।",
+      "errOtpIncomplete": "कृपया पूरा 6-अंकीय सत्यापन कोड दर्ज करें",
+      "errOtpInvalid": "अमान्य सत्यापन कोड। कृपया सही ओटीपी दर्ज करें।",
+      "errOtpInvalidRetry": "अमान्य सत्यापन कोड। कृपया पुनः प्रयास करें।",
+      "errOtpSendFailed": "ओटीपी भेजने में विफल। कृपया पुनः प्रयास करें।",
+      "errOtpResendFailed": "ओटीपी पुनः भेजने में विफल",
+      "errOtpVerifyFailed": "ओटीपी सत्यापन विफल। कृपया पुनः प्रयास करें।",
+      "errGenericSend": "सत्यापन कोड भेजने में विफल।",
+      "otpVerifySuccess": "सत्यापन सफल रहा!"
+    }
+  }
+}

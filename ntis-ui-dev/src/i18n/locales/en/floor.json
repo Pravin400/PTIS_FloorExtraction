@@ -1,0 +1,285 @@
+{
+  "floor": {
+    "loading": {
+      "message": "Loading floor data...",
+      "description": "Please wait while we load the floor information"
+    },
+    "error": {
+      "title": "Failed to load floor data",
+      "description": "We encountered an error while loading floor information. Please try again.",
+      "errorId": "Error ID: {id}",
+      "goHome": "Go Home",
+      "tryAgain": "Try Again"
+    },
+    "floor": "Floor",
+    "aliasFallback": {
+      "floor": "Floor",
+      "floors": "Floors"
+    },
+    "title": "{floor} Master Management",
+    "delete": {
+      "confirmTitle": "Delete Floor",
+      "confirmDescription": "Are you sure you want to delete this {floor}? This action cannot be undone."
+    },
+    "subtitle": "Add, edit, and manage {floor} information",
+    "tableTitle": "Floor List",
+    "search": {
+      "placeholder": "Search by {floor} code or description..."
+    },
+    "buttons": {
+      "add": "Add {floor}"
+    },
+    "tabs": {
+      "floor": "Floor",
+      "subfloor": "Sub-{floor}"
+    },
+    "form": {
+      "title": "Floor Details",
+      "addTitle": "Add {floor}",
+      "addSubtitle": "Create new {floor} with custom details",
+      "editTitle": "Edit {floor}",
+      "editSubtitle": "Update {floor} information",
+      "entryMode": "Select {floor} Creation Mode",
+      "singleFloor": "Single {floor}",
+      "singleFloorDesc": "Add one floor with custom details",
+      "floorRange": "{floor} Range",
+      "floorRangeDesc": "Add multiple floors at once",
+      "floorId": "Floor ID",
+      "floorCode": "{floor} Code",
+      "floorCodePlaceholder": "e.g., GF, 1F, 2F",
+      "floorIdPlaceholder": "e.g., GF, 1F, 2F",
+      "floorName": "Floor Name",
+      "floorNamePlaceholder": "e.g., Ground Floor, First Floor, Basement",
+      "floorNameEnglish": "English Description",
+      "floorNameEnglishPlaceholder": "Enter English description",
+      "descriptionEnglish": "English Description",
+      "descriptionEnglishPlaceholder": "Enter English description",
+      "regionalName": "Regional Description",
+      "regionalNamePlaceholder": "Enter regional description",
+      "floorNumber": "Floor Number",
+      "floorNumberPlaceholder": "e.g., 0, 1, 2, -1",
+      "sequenceNo": "Sequence No",
+      "sequenceNoPlaceholder": "Enter sequence number",
+      "description": "Regional Description",
+      "descriptionPlaceholder": "Enter regional description",
+      "searchPlaceholder": "Search by {floor} code or description...",
+      "status": "Status",
+      "isActive": "Active",
+      "activeStatusTitle": "{floor} Status",
+      "activeStatusOn": "Active",
+      "activeStatusOff": "Inactive",
+      "range": {
+        "title": "Floor Range",
+        "start": "Start",
+        "end": "End",
+        "startPlaceholder": "1",
+        "endPlaceholder": "10"
+      },
+      "englishName": {
+        "title": "English Name",
+        "prefix": "Prefix",
+        "prefixPlaceholder": "Floor",
+        "suffix": "Suffix",
+        "suffixPlaceholder": "Floor"
+      },
+      "autoGenerateSubFloor": "Auto-Generate SubFloor",
+      "autoGenerateSubFloorDesc": "Creates a subfloor for every floor in the range",
+      "rangeExample": "Example: Range 1-5 creates 1F, 2F, 3F, 4F, 5F",
+      "validation": {
+        "codeRequired": "Code is required",
+        "codeFormat": "Code can only contain letters, numbers, and underscores (not at start/end)",
+        "codeMaxLength": "Code cannot exceed {count} characters",
+        "descriptionRequired": "Regional description is required",
+        "descriptionEnglishRequired": "English description is required",
+        "descriptionEnglishAllZeros": "English description cannot be all zeros",
+        "descriptionFormat": "Description contains invalid characters or formatting",
+        "descriptionMaxLength": "Description cannot exceed {count} characters",
+        "englishOnly": "Only English characters are allowed",
+        "sequenceNoRequired": "Sequence No is required",
+        "mustBeActive": "New floor must be active",
+        "rangeStartRequired": "Start value is required",
+        "rangeEndRequired": "End value is required",
+        "rangeStartMinValue": "Start value must be at least 1",
+        "rangeEndMinValue": "End value must be at least 1",
+        "rangeStartLessThanEnd": "Start must be less than or equal to End",
+        "rangeMaxValue": "Value cannot exceed {count}",
+        "rangeMaxCount": "Cannot add more than {count} floors at a time",
+        "flatGenerationGroupRequired": "Flat Generation Type is required",
+        "flatGenerationSeqRequired": "Flat Generation Sequence is required"
+      },
+      "flatGenerationGroup": "Flat Generation Type",
+      "flatGenerationGroupPlaceholder": "Select Flat Generation Type",
+      "flatGenerationSeq": "Flat Generation Sequence",
+      "flatGenerationSeqPlaceholder": "Enter sequence"
+    },
+    "table": {
+      "columns": {
+        "srNo": "Sr. No.",
+        "floorID": "Floor",
+        "floorName": "Floor Name",
+        "floorCode": "{floor} Code",
+        "descriptionEnglish": "English Description",
+        "descriptionRegional": "Regional Description",
+        "floorNumber": "Floor Number",
+        "description": "Regional Description",
+        "sequenceNo": "Sequence No",
+        "status": "Status",
+        "actions": "Actions"
+      },
+      "pagination": {
+        "showing": "Showing",
+        "entries": "of {total} entries"
+      }
+    },
+    "messages": {
+      "addSuccess": "Floor added successfully",
+      "createSuccess": "{floor} created successfully",
+      "createRangeSuccess": "{count} {floors} created successfully",
+      "updateSuccess": "{floor} updated successfully",
+      "deleteSuccess": "{floor} deleted successfully",
+      "deleteFailed": "Failed to delete floor. Please try again.",
+      "deleteInUse": "Cannot deactivate/delete this Floor because it is referenced in:\nWeightage Master, Property Details.\n\nPlease remove the dependent records first.",
+      "deleteConfirm": "Are you sure you want to delete this floor?",
+      "noFloors": "No floors available. Add a new floor to get started.",
+      "validFloorIdRequired": "Valid Floor ID is required"
+    },
+    "validation": {
+      "floorIdPattern": "Only letters, numbers, /, _, - allowed",
+      "duplicateFloorCode": "Floor Code already exists",
+      "maxFloorGteSequence": "Max Floor must be >= Sequence No",
+      "maxChars": "Maximum {count} characters allowed",
+      "mustBeNumber": "Must be a valid number",
+      "duplicateSequenceNo": "Sequence number already exists",
+      "floorCodePattern": "Only letters, numbers, /, _, - allowed in floor code",
+      "duplicateCode": "Duplicate floor code not allowed",
+      "required": "This field is required"
+    },
+    "apiErrors": {
+      "duplicateRecord": "Duplicate record already exists",
+      "invalidData": "Invalid data provided",
+      "notFound": "Record not found",
+      "operationFailed": "Operation failed",
+      "inUse": "Cannot deactivate/delete this {floor} because it is referenced in:\nWeightage Master, Property Details."
+    },
+    "note": {
+      "mandatory": "Fields marked with * are mandatory"
+    }
+  },
+  "subfloor": {
+    "loading": {
+      "message": "Loading sub-floor data...",
+      "description": "Please wait while we load the sub-floor information"
+    },
+    "error": {
+      "title": "Failed to load sub-floor data",
+      "description": "We encountered an error while loading sub-floor information. Please try again.",
+      "errorId": "Error ID: {id}",
+      "goHome": "Go Home",
+      "tryAgain": "Try Again"
+    },
+    "aliasFallback": {
+      "floor": "Floor"
+    },
+    "delete": {
+      "confirmTitle": "Delete Sub-{floor}",
+      "confirmDescription": "Are you sure you want to delete this sub-{floor}? This action cannot be undone."
+    },
+    "title": "Sub-Floor Master Management",
+    "subtitle": "Add, edit, and manage sub-floor categories",
+    "tableTitle": "Sub-Floor List",
+    "search": {
+      "placeholder": "Search by code or description..."
+    },
+    "buttons": {
+      "add": "Add Sub-{floor}"
+    },
+    "tabs": {
+      "floor": "Floor",
+      "subfloor": "Sub-{floor}"
+    },
+    "form": {
+      "title": "Sub-Floor Details",
+      "addTitle": "Add Sub-{floor}",
+      "addSubtitle": "Create new sub-{floor} with custom details",
+      "editTitle": "Edit Sub-{floor}",
+      "editSubtitle": "Update sub-{floor} details",
+      "subFloorId": "Sub-Floor ID",
+      "subFloorIdPlaceholder": "e.g., SF01, SF02",
+      "descriptionEnglish": "English Description",
+      "descriptionEnglishPlaceholder": "Enter English description",
+      "descriptionRegional": "Regional Description",
+      "descriptionRegionalPlaceholder": "Enter regional description",
+      "searchPlaceholder": "Search by code or description...",
+      "activeStatusTitle": "Active Status",
+      "activeStatusOn": "Currently enabled",
+      "activeStatusOff": "Currently disabled",
+      "code": "Sub-{floor} Code",
+      "codePlaceholder": "e.g., SF01, SF02",
+      "description": "Regional Description",
+      "descriptionPlaceholder": "Enter regional description",
+      "sequenceNo": "Sequence No",
+      "sequenceNoPlaceholder": "Enter sequence number",
+      "validation": {
+        "codeRequired": "Code is required",
+        "codeFormat": "Code can only contain letters, numbers, and underscores (not at start/end)",
+        "codeMaxLength": "Code cannot exceed {count} characters",
+        "descriptionRequired": "Regional description is required",
+        "descriptionEnglishRequired": "English description is required",
+        "descriptionEnglishAllZeros": "English description cannot be all zeros",
+        "descriptionFormat": "Description contains invalid characters or formatting",
+        "descriptionMaxLength": "Description cannot exceed {count} characters",
+        "englishOnly": "Only English characters are allowed",
+        "sequenceNoRequired": "Sequence No is required",
+        "mustBeActive": "New sub-floor must be active"
+      }
+    },
+    "table": {
+      "columns": {
+        "srNo": "Sr. No.",
+        "subFloorId": "Sub-{floor} Code",
+        "descriptionEnglish": "English Description",
+        "descriptionRegional": "Regional Description",
+        "status": "Status",
+        "actions": "Actions",
+        "subFloorCode": "Sub-{floor} Code",
+        "subFloorDescription": "Regional Description",
+        "sequenceNo": "Sequence No"
+      },
+      "pagination": {
+        "showing": "Showing",
+        "entries": "of {total} entries"
+      }
+    },
+    "messages": {
+      "addSuccess": "Sub-Floor added successfully",
+      "createSuccess": "Sub-{floor} created successfully",
+      "updateSuccess": "Sub-{floor} updated successfully",
+      "deleteSuccess": "Sub-{floor} deleted successfully",
+      "deleteFailed": "Failed to delete sub-{floor}. Please try again.",
+      "deleteInUse": "You can't delete this sub-{floor} because it is in use.",
+      "deleteConfirm": "Are you sure you want to delete this sub-floor?",
+      "noSubFloors": "No sub-floors available. Add a new sub-floor to get started.",
+      "validSubFloorIdRequired": "Valid SubFloor ID is required"
+    },
+    "validation": {
+      "subFloorIdPattern": "Only letters, numbers, /, _, - allowed",
+      "duplicateCode": "Duplicate Sub-Floor Code not allowed",
+      "required": "This field is required"
+    },
+    "apiErrors": {
+      "duplicateRecord": "Duplicate record already exists",
+      "invalidData": "Invalid data provided",
+      "notFound": "Record not found",
+      "operationFailed": "Operation failed",
+      "referencedIn": "Cannot deactivate or delete this Sub-{floor} because it is referenced in: {tables}."
+    },
+    "note": {
+      "mandatory": "Fields marked with * are mandatory"
+    },
+    "sequenceWarningTitle": "Floor Sequence Warning",
+    "doYouWantToProceed": "Do you want to proceed anyway?",
+    "proceedAnyway": "Proceed Anyway",
+    "sequenceGapDetected": "Floor sequence gap detected: {currLabel} is out of sequence. Missing floor number ({missingNo}) after {prevLabel}.",
+    "sequenceMustStartGround": "Floor sequence must start with Ground Floor (0). Missing Ground Floor before {firstLabel}."
+  }
+}

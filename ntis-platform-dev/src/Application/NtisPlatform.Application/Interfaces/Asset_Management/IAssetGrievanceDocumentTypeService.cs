@@ -1,0 +1,8 @@
+using NtisPlatform.Application.DTOs.Asset_Management.AssetGrievanceDocumentType;
+using NtisPlatform.Core.Entities.Asset_Management;
+
+namespace NtisPlatform.Application.Interfaces.Asset_Management;
+
+public interface IAssetGrievanceDocumentTypeService : ICommonCrudService<AssetGrievanceDocumentTypeEntity, AssetGrievanceDocumentTypeDto, CreateAssetGrievanceDocumentTypeDto, UpdateAssetGrievanceDocumentTypeDto, AssetGrievanceDocumentTypeQueryParameters, int>
+{
+}

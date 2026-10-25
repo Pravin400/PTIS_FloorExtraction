@@ -1,0 +1,173 @@
+{
+  "title": "संपत्ति लॉक करें",
+  "subtitle": "चयनित सीमाओं के भीतर संपत्तियों के समूहों को लॉक या अनलॉक करने के लिए प्रशासनिक नियंत्रण उपयोगिता।",
+  "common": {
+    "loading": "लोड हो रहा है..."
+  },
+  "defaults": {
+    "zone": "जोन / नोड",
+    "ward": "वार्ड / सेक्टर",
+    "propertyNo": "संपत्ति क्र.",
+    "partition": "विभाजन"
+  },
+  "scopeSelectionCard": {
+    "title": "1. स्कोप चयन",
+    "subtitle": "स्कोप चुनें। केवल प्रासंगिक फ़ील्ड नीचे दिखाई देंगे।",
+    "options": {
+      "zone": {
+        "label": "{zone}",
+        "sublabel": "{zone} के अनुसार चयन"
+      },
+      "ward": {
+        "label": "{ward}",
+        "sublabel": "मल्टी {ward} चयन"
+      },
+      "building": {
+        "label": "इमारत के अनुसार",
+        "sublabel": "इमारत स्तर"
+      },
+      "propertyRange": {
+        "label": "संपत्ति सीमा",
+        "sublabel": "संपत्ति सीमा (से-तक)"
+      },
+      "excelUpload": {
+        "label": "एक्सेल अपलोड",
+        "sublabel": "एक्सेल से खोजें"
+      }
+    }
+  },
+  "selectPropertyCard": {
+    "title": "संपत्ति चुनें",
+    "zone": "{zone}",
+    "selectZone": "{zone} चुनें",
+    "propertyNo": "{propertyNo}",
+    "selectProperties": "संपत्ति चुनें",
+    "wardNo": "{ward} क्र.",
+    "selectWard": "{ward} चुनें",
+    "fromProperty": "संपत्ति क्र. से",
+    "selectStartRange": "प्रारंभिक सीमा चुनें",
+    "toProperty": "संपत्ति क्र. तक",
+    "selectEndRange": "अंतिम सीमा चुनें",
+    "showButton": "दिखाएं",
+    "clearButton": "साफ करें",
+    "mandatoryBanner": "* से चिह्नित फ़ील्ड अनिवार्य हैं",
+    "uploadExcel": "एक्सेल अपलोड करें",
+    "downloadTemplate": "टम्प्लेट डाउनलोड करें",
+    "searchDataByExcel": "एक्सेल द्वारा डेटा खोजें",
+    "dragDropText": "यहां एक्सेल फ़ाइल (.xlsx, .xls) ड्रैग और ड्रॉप करें, या ब्राउज़ करने के लिए क्लिक करें",
+    "rowsParsed": "फ़ाइल से {count} पंक्तियाँ पार्स की गईं",
+    "invalidFile": "अमान्य फ़ाइल। कृपया .xlsx या .xls फ़ाइल अपलोड करें।",
+    "wrongExcelUploaded": "गलत एक्सेल फ़ाइल अपलोड की गई।",
+    "missingColumns": "एक्सेल में ZoneNo, WardNo, और PropertyNo कॉलम होने आवश्यक हैं।",
+    "noDataInFile": "अपलोड की गई फ़ाइल में कोई डेटा नहीं मिला।",
+    "tooManyRows": "एक्सेल में अत्यधिक पंक्तियाँ हैं। अधिकतम सीमा {max} है.",
+    "duplicatesRemoved": "{count} डुप्लिकेट पंक्तियाँ हटाई गईं।",
+    "excelUploadRequired": "कृपया पहले एक्सेल फ़ाइल अपलोड करें।",
+    "fileSelected": "{name} चयनित",
+    "removeFile": "फ़ाइल हटाएं"
+  },
+  "screenSelectionCard": {
+    "title": "स्क्रीन चयन",
+    "selectedCount": "{count} चयनित",
+    "noScreens": "चयन के लिए कोई स्क्रीन उपलब्ध नहीं है।",
+    "searchPlaceholder": "कोड या विवरण से खोजें",
+    "typeOfUse": "सभी प्रकार",
+    "selectAll": "सभी चुनें",
+    "clearAll": "सभी साफ़ करें",
+    "helperText": "लॉक/अनलॉक करने के लिए लागू स्क्रीन कोड चुनें",
+    "allTypes": "सभी प्रकार"
+  },
+  "resultsTable": {
+    "title": "बल्क ऑपरेशन्स ({count} संपत्ति चुनी गईं)",
+    "propertyMasterTitle": "",
+    "lockButton": "चयनित स्क्रीन लॉक करें",
+    "unlockButton": "चयनित स्क्रीन अनलॉक करें",
+    "searchPropertyPlaceholder": "{propertyNo} या {partition} संख्या द्वारा खोजें...",
+    "searchButton": "खोजें",
+    "placeholderText": "कृपया {ward} और संपत्ति सीमा चुनें, फिर संपत्ति देखने के लिए \"दिखाएं\" पर क्लिक करें.",
+    "noResultsFound": "कोई संपत्ति नहीं मिली।",
+    "columns": {
+      "propertyDetail": "{propertyNo}",
+      "screenNames": "स्क्रीन के नाम",
+      "status": "स्थिति",
+      "lockUnlock": "लॉक/अनलॉक",
+      "actions": "कार्रवाई"
+    },
+    "status": {
+      "locked": "लॉक किया गया",
+      "unlocked": "अनलॉक किया गया",
+      "none": "कोई नहीं"
+    },
+    "actions": {
+      "manage": "प्रबंधित करें"
+    }
+  },
+  "manageModal": {
+    "title": "लॉक्स प्रबंधित करें: {propertyNo}",
+    "description": "चुनें कि इस संपत्ति के लिए कौन से मॉड्यूल या स्क्रीन लॉक होने चाहिए। चेक की गई स्क्रीन उपयोगकर्ताओं को संपादन या सबमिशन करने से रोकेंगी।",
+    "cancel": "रद्द करें",
+    "saveChanges": "बदलाव सहेजें"
+  },
+  "messages": {
+    "screenRequired": "कृपया स्क्रीन चयन कार्ड से कम से कम एक स्क्रीन चुनें।",
+    "lockConfirmTitle": "संपत्ति लॉक करें",
+    "unlockConfirmTitle": "संपत्ति अनलॉक करें",
+    "lockConfirmDescription": "क्या आप सुनिश्चित हैं कि आप संपत्ति {propertyNo} के लिए चयनित स्क्रीन लॉक करना चाहते हैं?",
+    "unlockConfirmDescription": "क्या आप संपत्ति {propertyNo} के लिए चयनित स्क्रीन अनलॉक करना चाहते हैं?",
+    "lockButtonText": "लॉक करें",
+    "unlockButtonText": "अनलॉक करें",
+    "lockText": "लॉक",
+    "unlockText": "अनलॉक",
+    "propertySuccess": "संपत्ति सफलतापूर्वक {action} की गई।",
+    "operationFailed": "कार्रवाई विफल रही।",
+    "unexpectedError": "एक त्रुटि हुई।",
+    "saveSuccess": "लॉक सेटिंग्स सफलतापूर्वक अपडेट की गईं।",
+    "savePartialFailed": "कुछ लॉक कॉन्फ़िगरेशन को अपडेट करने में विफल।",
+    "saveFailed": "लॉक्स को अपडेट करने में विफल।",
+    "selectPropertyRequired": "कृपया टेबल में से कम से कम एक संपत्ति चुनें।",
+    "selectScreenRequired": "लॉक/अनलॉक करने के लिए कृपया कम से कम एक स्क्रीन चुनें।",
+    "selectZoneRequired": "कृपया एक {zone} चुनें",
+    "selectWardRequired": "कृपया एक {ward} चुनें",
+    "selectWardAndPropertyRequired": "कृपया एक {ward} और कम से कम एक संपत्ति चुनें",
+    "selectPropertyDropdownRequired": "कृपया कम से कम एक संपत्ति चुनें",
+    "selectFromToPropertyRequired": "कृपया संपत्ति क्र. से और संपत्ति क्र. तक चुनें",
+    "bulkLockTitle": "संपत्ति बल्क लॉक करें",
+    "bulkUnlockTitle": "संपत्ति बल्क अनलॉक करें",
+    "bulkConfirmDescription": "क्या आप सुनिश्चित हैं कि आप चयनित {propertyCount, plural, =1 {1 संपत्ति} other {# संपत्तियों}} के लिए चयनित स्क्रीन {action} करना चाहते हैं?",
+    "bulkConfirmDescriptionRange": "क्या आप सुनिश्चित हैं कि आप संपत्ति {fromProperty} से {toProperty} तक की {propertyCount} संपत्तियों के लिए चयनित स्क्रीन {action} करना चाहते हैं?",
+    "alreadyLockedIgnored": "(जो संपत्ति पहले से लॉक हैं उन्हें अनदेखा कर दिया जाएगा)",
+    "alreadyUnlockedIgnored": "(जो संपत्ति पहले से अनलॉक हैं उन्हें अनदेखा कर दिया जाएगा)",
+    "exactLockedIgnored": "({ignoredCount} पहले से लॉक की गई {ignoredCount, plural, =1 {संपत्ति} other {संपत्तियों}} को अनदेखा कर दिया जाएगा)",
+    "exactUnlockedIgnored": "({ignoredCount} पहले से अनलॉक की गई {ignoredCount, plural, =1 {संपत्ति} other {संपत्तियों}} को अनदेखा कर दिया जाएगा)",
+    "bulkConfirmDescriptionScope": "क्या आप सुनिश्चित हैं कि आप चयनित स्कोप (लगभग <highlight>{propertyCount}</highlight> संपत्तियों) के लिए चयनित {screenCount} स्क्रीन <warning>{action}</warning> करना चाहते हैं? इस बल्क अपडेट ऑपरेशन में बड़ी संख्या में रिकॉर्ड संशोधित होते हैं और इसे पूरा होने में कई मिनट लग सकते हैं। कृपया विंडो बंद न करें।",
+    "bulkLockUnlockConfirmation": "आप <highlight>{propertyCount}</highlight> संपत्तियों को <warning>{action}</warning> करने वाले हैं। इस प्रक्रिया में कुछ मिनट लग सकते हैं।\nकृपया प्रक्रिया पूरी होने तक यह पेज खुला रखें।\nआगे बढ़ने के लिए, <warning>{action}</warning> पर क्लिक करें। रद्द करने के लिए, <highlight>रद्द</highlight> पर क्लिक करें।",
+    "bulkSuccessmsg": "थोक ऑपरेशन पूरा हुआ।",
+    "bulkSuccessLock": "सफलतापूर्वक {count, plural, =1 {1 संपत्ति} other {# संपत्तियों}} को लॉक किया गया।",
+    "bulkSuccessUnlock": "सफलतापूर्वक {count, plural, =1 {1 संपत्ति} other {# संपत्तियों}} को अनलॉक किया गया।",
+    "wrongScreenSelectedLock": "चयनित स्क्रीन इस संपत्ति के लिए पहले से ही लॉक हैं।",
+    "wrongScreenSelectedUnlock": "चयनित स्क्रीन इस संपत्ति के लिए लॉक नहीं हैं।",
+    "bulkFailed": "थोक ऑपरेशन विफल रहा.",
+    "unexpectedErrorBulk": "थोक ऑपरेशन के दौरान एक अप्रत्याशित त्रुटि हुई।",
+    "noPropertiesFoundFilters": "कोई संपत्ति नहीं मिली।",
+    "noPropertiesSelectedExclusions": "बहिष्करण लागू करने के बाद कोई संपत्ति नहीं चुनी गई।",
+    "atLeastOnePropertyRequired": "कम से कम एक संपत्ति का चयन किया जाना चाहिए।",
+    "processingTitle": "अनुरोध संसाधित किया जा रहा है",
+    "processingMessage": "कृपया प्रतीक्षा करें जबकि संपत्तियों को अद्यतन किया जा रहा है। इसमें कुछ क्षण लग सकते हैं...",
+    "clearedFilters": "सभी फ़िल्टर साफ़ कर दिए गए।",
+    "validationError": "कृपया सभी आवश्यक फ़ील्ड भरें ({ward} क्र., संपत्ति क्र. से और संपत्ति क्र. तक)।",
+    "fetchSuccess": "संपत्ति सफलतापूर्वक प्राप्त की गईं।",
+    "fetchNoResults": "कोई संपत्ति नहीं मिली।",
+    "fetchFailed": "संपत्ति लोड करने में विफल।",
+    "fetchWardsError": "{wards} प्राप्त करने में त्रुटि:",
+    "excelDuplicatesNotice": "एक्सेल फ़ाइल में {count} डुप्लिकेट {count, plural, =1 {प्रविष्टि पाई गई} other {प्रविष्टियाँ पाई गईं}}। प्रत्येक संपत्ति केवल एक बार दिखाई जा रही है।",
+    "searchValidationError": "कृपया खोजने के लिए कोई मान दर्ज करें।",
+    "validationGreaterProperty": "संपत्ति क्र. तक, संपत्ति क्र. से से बड़ा होना चाहिए।"
+  },
+  "error": {
+    "title": "सर्वर से कनेक्ट करने में विफल। कृपया बाद में पुनः प्रयास करें।",
+    "description": "लॉक और अनलॉक संपत्ति पृष्ठ लोड करते समय हमें एक त्रुटि का सामना करना पड़ा। कृपया पुनः प्रयास करें।",
+    "errorId": "त्रुटि आईडी: {id}",
+    "goHome": "होम पर जाएं",
+    "tryAgain": "पुनः प्रयास करें"
+  }
+}

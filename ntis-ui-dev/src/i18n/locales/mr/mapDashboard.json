@@ -1,0 +1,54 @@
+{
+  "title": "यूएलबी इस्टेट व्यवस्थापन डॅशबोर्ड",
+  "ulbListTitle": "शहरी स्थानिक स्वराज्य संस्था",
+  "clearFilterTooltip": "सर्व जिल्हे दाखवा",
+  "comingSoonToast": "{city} साठी मालमत्ता व्यवस्थापन प्रणाली लवकरच येत आहे!",
+  "tabs": {
+    "municipalCorporations": "महानगरपालिका",
+    "municipalCouncils": "नगरपालिका",
+    "nagarPanchayats": "नगर पंचायती"
+  },
+  "table": {
+    "columns": {
+      "name": "नाव",
+      "totalAssets": "एकूण मालमत्ता",
+      "buildings": "इमारती",
+      "land": "जमीन",
+      "infra": "पायाभूत सुविधा",
+      "movable": "जंगम मालमत्ता",
+      "valueCr": "मूल्य (कोटी)",
+      "action": "पोर्टल"
+    },
+    "openButton": "उघडा",
+    "totalCount": "एकूण: {count}",
+    "allDistricts": "सर्व जिल्हे",
+    "noULBs": "या जिल्ह्यात कोणतेही {type} नाहीत"
+  },
+  "cards": {
+    "totalUlbs": "एकूण यूएलबी",
+    "totalAssets": "एकूण मालमत्ता",
+    "buildingAssets": "इमारत मालमत्ता",
+    "landAssets": "जमीन मालमत्ता",
+    "infrastructureAssets": "पायाभूत सुविधा मालमत्ता",
+    "movableAssets": "जंगम मालमत्ता",
+    "assetValuation": "मालमत्ता मूल्यमापन",
+    "revenueAnnual": "महसूल (वार्षिक)",
+    "monetization": "मुद्रीकरण",
+    "encroachment": "अतिक्रमण"
+  },
+  "map": {
+    "backToStateMap": "राज्य नकाशावर परत जा",
+    "visitMunicipalPortal": "नगरपालिका मालमत्ता पोर्टलला भेट द्या"
+  },
+  "loading": {
+    "message": "डॅशबोर्ड डेटा लोड होत आहे...",
+    "description": "कृपया थांबा, आम्ही नकाशा डॅशबोर्ड माहिती लोड करत आहोत"
+  },
+  "error": {
+    "title": "डॅशबोर्ड डेटा लोड करण्यात अयशस्वी",
+    "description": "नकाशा डॅशबोर्ड लोड करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+    "errorId": "त्रुटी आयडी: {id}",
+    "goHome": "मुख्यपृष्ठावर जा",
+    "tryAgain": "पुन्हा प्रयत्न करा"
+  }
+}

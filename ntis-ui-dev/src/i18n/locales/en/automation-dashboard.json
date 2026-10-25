@@ -1,0 +1,641 @@
+{
+  "wip": "Work in Progress",
+  "featureWip": "This feature is currently Work in Progress.",
+  "success": {
+    "updatePropertySign": "Property approved successfully.",
+    "title": "Success"
+  },
+  "errors": {
+    "updatePropertySign": "Failed to update property sign.",
+    "fetchPendingSigns": "Failed to fetch pending signs",
+    "exportPendingData": "Failed to export pending data.",
+    "fetchMainCards": "Failed to fetch main cards data.",
+    "fetchWorkflowCards": "Failed to fetch workflow cards data.",
+    "fetchGeoSequencingGrid": "Failed to fetch geo sequencing grid data.",
+    "fetchGeoSequencingPropertyDetails": "Failed to fetch geo sequencing property details data.",
+    "fetchDataEntryGrid": "Failed to fetch data entry grid data.",
+    "fetchDataEntryWardWiseSummary": "Failed to fetch data entry ward-wise summary data.",
+    "fetchInternalSurveyGrid": "Failed to fetch internal survey grid data.",
+    "fetchGeoSequencingWardWiseSummary": "Failed to fetch geo sequencing ward-wise summary data.",
+    "fetchInternalSurveyWardWiseSummary": "Failed to fetch internal survey ward-wise summary data.",
+    "fetchAssessmentGrid": "Failed to fetch assessment grid data.",
+    "fetchPendingAssessmentProps": "Failed to fetch pending assessment properties.",
+    "fetchPropertyTypeMaster": "Failed to fetch property type master details.",
+    "fetchApprovalByUlbDetails": "Failed to fetch approval by ULB details.",
+    "fetchBuildingWiseData": "Failed to fetch building-wise data.",
+    "fetchPropertyWiseData": "Failed to fetch property-wise data.",
+    "fetchPropertyAssessmentStatus": "Failed to fetch property assessment status details.",
+    "fetchZones": "Failed to fetch zones.",
+    "fetchPropertyTrackingStatus": "Failed to fetch property tracking status.",
+    "sendToApprove": "Failed to send for approval.",
+    "fetchMissingMobileNo": "Failed to fetch missing mobile number data.",
+    "fetchMissingPhotoPlan": "Failed to fetch missing photo plan data.",
+    "fetchMissingOwnerName": "Failed to fetch missing owner name data.",
+    "fetchMissingAddress": "Failed to fetch missing address data.",
+    "fetchMissingOccupierName": "Failed to fetch missing occupier name data.",
+    "fetchMissingShopName": "Failed to fetch missing shop name data.",
+    "fetchMissingRegisteredProperty": "Failed to fetch missing registered property data."
+  },
+  "summaryCards": {
+    "metrics": {
+      "structure": "Structure",
+      "unit": "Unit",
+      "units": "Units",
+      "demand": "Demand"
+    },
+    "titles": {
+      "previouslyRegistered": "Previously Registered Properties & Demand",
+      "assessmentApproved": "Assessment Approved",
+      "additionalRevenue": "Additional Revenue Generated",
+      "assessed": "Assessed",
+      "unassessed": "Unassessed"
+    },
+    "noData": "No data"
+  },
+  "geoSequencing": {
+    "searchPlaceholder": "Search Ward No with Property No, Owner Name",
+    "total": "Total",
+    "wardWiseSummary": "Ward-wise Summary",
+    "wardWiseTable": "WARD-WISE TABLE",
+    "stage": "Stage:",
+    "generatedOn": "Generated on:",
+    "cards": {
+      "totalStructure": "TOTAL STRUCTURE",
+      "totalUnits": "TOTAL UNITS",
+      "assessed": "ASSESSED",
+      "unassessed": "UNASSESSED"
+    },
+    "columns": {
+      "sr": "SR",
+      "division": "DIVISION",
+      "wardNo": "WARD NO.",
+      "registeredProperties": "REGISTERED PROPERTIES",
+      "geoSequencingProperties": "Geo-Sequencing Properties",
+      "propertyType": "Property Type",
+      "assessed": "Assessed",
+      "unassessed": "Unassessed",
+      "properties": "Properties",
+      "newlyAssessedFound": "Newly Assessed Found",
+      "assessmentInprocess": "Assessment Inprocess",
+      "structure": "Structure",
+      "unit": "Unit",
+      "units": "Units",
+      "residential": "Residential",
+      "nonResidential": "Non-Residential",
+      "mixed": "Mixed",
+      "publicUtility": "Public Utility",
+      "underConstruction": "Under Construction"
+    },
+    "buttons": {
+      "search": "Search",
+      "export": "Export",
+      "exportExcel": "Export to Excel",
+      "exportPdf": "Export to PDF",
+      "backToDivisions": "Back to Divisions"
+    }
+  },
+  "propertyDetailsDashboard": {
+    "header": {
+      "backToDivisions": "Back to Divisions",
+      "mainProperties": "Main Properties (Excluding Apartments)",
+      "stage": "Stage:",
+      "subtitle": "मालमत्ता यादी - संपूर्ण माहिती",
+      "export": "Export",
+      "searchPlaceholder": "Search across all columns...",
+      "filter": "Filter"
+    },
+    "filters": {
+      "zone": "ZONE",
+      "selectZone": "Select Zone",
+      "ward": "WARD",
+      "selectWard": "Select Ward",
+      "propertyDescriptions": "PROPERTY DESCRIPTIONS",
+      "selectDescription": "Select Description",
+      "propertyType": "PROPERTY TYPE",
+      "selectPropertyType": "Select Property Type",
+      "assessmentType": "ASSESSMENT TYPE",
+      "selectAssessmentType": "Select Assessment Type",
+      "Descriptionforproperty": "Description",
+      "CategoryProperty": "Category",
+      "Filters": "Filters"
+    },
+    "labels": {
+      "na": "N/A",
+      "area": "Area",
+      "use": "Use",
+      "rv": "RV",
+      "cTax": "C.Tax",
+      "rTax": "R.Tax",
+      "totalTax": "Total Tax",
+      "zero": "0",
+      "owner": "Owner:",
+      "occupier": "Occupier:",
+      "shopName": "Shop Name:",
+      "floors": "Floors",
+      "units": "Units",
+      "wings": "Wings"
+    },
+    "propertyTypes": {
+      "unassessed": "Unassessed",
+      "assessed": "Assessed"
+    },
+    "columns": {
+      "address": "ADDRESS",
+      "additionalRevenue": "ADDITIONAL REVENUE",
+      "newOldPropertyNo": "New Property No. | Old Property No.",
+      "srNo": "SR",
+      "propertyType": "PROPERTY TYPE",
+      "newRecord": "NEW RECORD",
+      "oldWardNoConstructionYear": "Old Ward No. | Construction Year",
+      "propertyDetailsNewVsOld": "PROPERTY DETAILS (NEW VS OLD)",
+      "propertyDetails": "PROPERTY DETAILS",
+      "oldRecord": "OLD RECORD",
+      "actions": "ACTIONS",
+      "categoryAndDesc": "CATEGORY & DESC",
+      "image": "Image",
+      "ownerAndOccupier": "OWNER, OCCUPIER & SHOP",
+      "documents": "DOCUMENTS",
+      "mobile": "MOBILE"
+    },
+    "actions": {
+      "report": "Report",
+      "tracking": "Tracking"
+    },
+    "report": {
+      "propertyDetails": "Property Details",
+      "municipalCorporation": "Municipal Corporation",
+      "propertyAssessmentRecord": "PROPERTY ASSESSMENT RECORD (KARAKARNI)",
+      "documentId": "DOCUMENT ID",
+      "verified": "VERIFIED",
+      "newPropertyNumber": "New Property Number",
+      "oldPropertyNumber": "Old Property Number",
+      "wardNumber": "Ward Number",
+      "constructionYear": "Construction Year",
+      "assessmentTaxSummary": "Assessment & Tax Summary",
+      "recordType": "Record Type",
+      "usage": "Usage",
+      "arv": "ARV (₹)",
+      "totalTax": "Total Tax (₹)",
+      "oldRecord": "Old Record",
+      "newRecord": "New Record",
+      "ownershipInfo": "Ownership Information",
+      "primaryOwner": "Primary Owner",
+      "occupier": "Occupier",
+      "additionalRevenue": "Additional Revenue",
+      "netIncrease": "Net Increase in Revenue",
+      "propertyTypeStatus": "Property Type Status",
+      "revenueSurveyOffice": "Revenue & Survey Office",
+      "additionalCertificate": "ADDITIONAL LAND AND AREA CERTIFICATE",
+      "certificateNo": "CERTIFICATE NO",
+      "official": "OFFICIAL",
+      "verificationText": "This document serves as verification of the structural configuration and site dimensions surveyed at the subject property address:",
+      "verificationSubtext": "The assessment was performed under the active automation guidelines for property taxation registers.",
+      "technicalSpecifications": "Technical Specifications",
+      "structuralCategory": "Structural Category",
+      "regionalCategory": "Regional Category Description",
+      "totalFloorsListed": "Total Floors Listed",
+      "totalUnitsEvaluated": "Total Units Evaluated",
+      "floors": "Floors",
+      "units": "Units",
+      "noticeDeclaration": "Notice & Declaration:",
+      "noticeText": "All parameters indicated are derived from the latest geospatial and ward-level field surveys. Discrepancies may be reported to the Chief Assessor for verification.",
+      "authorizedSignature": "Authorized signature is digitally encrypted.",
+      "digitalStampId": "DIGITAL STAMP ID:",
+      "noDocument": "No Document Available",
+      "noDocumentText": "There is no electronic document mapped to this property yet. Please contact the administrator to upload the required files.",
+      "documentViews": "DOCUMENT VIEWS",
+      "karakarni": "Karakarni",
+      "additionalDocument": "Additional Document",
+      "systemName": "Property Document Management System"
+    },
+    "common": {
+      "download": "Download",
+      "newTab": "New Tab",
+      "maximize": "Maximize",
+      "close": "Close"
+    }
+  },
+  "internalSurvey": {
+    "total": "Total",
+    "searchPlaceholder": "Search Ward No with Property No, Owner Name",
+    "emptyMessage": "No internal survey data available",
+    "buttons": {
+      "search": "Search",
+      "export": "Export",
+      "backToDivisions": "Back to Divisions"
+    },
+    "wardWiseSummary": "Ward-wise Summary",
+    "wardWiseTable": "WARD-WISE TABLE",
+    "stage": "Stage:",
+    "generatedOn": "Generated on:",
+    "cards": {
+      "totalStructure": "TOTAL STRUCTURE",
+      "totalUnits": "TOTAL UNITS",
+      "assessed": "ASSESSED",
+      "unassessed": "UNASSESSED",
+      "photos": "PHOTOS"
+    },
+    "columns": {
+      "sr": "SR",
+      "division": "DIVISION",
+      "geoSequencingProperties": "Geo-Sequencing Properties",
+      "surveyProperties": "Survey Properties",
+      "propertyType": "Property Type",
+      "assessed": "Assessed",
+      "unassessed": "Unassessed",
+      "properties": "Properties",
+      "assessedProperties": "Assessed Properties",
+      "unassessedProperties": "Unassessed Properties",
+      "newlyAssessed": "Newly Assessed",
+      "found": "Found",
+      "newlyAssessedFound": "Newly Assessed Found",
+      "assessment": "Assessment",
+      "inprocess": "Inprocess",
+      "assessmentInprocess": "Assessment Inprocess",
+      "photoCount": "Photo Count",
+      "structure": "Structure",
+      "unit": "Unit",
+      "units": "Units",
+      "residential": "Residential",
+      "nonResidential": "Non-Residential",
+      "mixedProperty": "Mixed Property",
+      "publicUtility": "Public Utility",
+      "underConstruction": "Under Construction"
+    }
+  },
+  "dataEntryQualityCheck": {
+    "emptyMessage": "No data entry quality check data available",
+    "searchPlaceholder": "Search Ward No with Property No, Owner Name",
+    "total": "Total",
+    "wardWiseSummary": "Ward-wise Summary",
+    "stage": "Stage:",
+    "qualityAnalyst": "Quality Analyst",
+    "generatedOn": "Generated on:",
+    "qualityAnalystWardWiseTable": "Quality Analyst - Ward-wise Table",
+    "cards": {
+      "totalStructure": "TOTAL STRUCTURE",
+      "totalUnits": "TOTAL UNITS",
+      "assessed": "ASSESSED",
+      "unassessed": "UNASSESSED",
+      "photos": "PHOTOS"
+    },
+    "buttons": {
+      "updateCommonDetails": "Update common details",
+      "backToDivisions": "Back to Divisions",
+      "export": "Export"
+    },
+    "columns": {
+      "sr": "SR",
+      "division": "Division",
+      "wardNo": "Ward No",
+      "internalSurvey": "Internal Survey",
+      "dataEntry": "Data Entry",
+      "photo": "Photo",
+      "plan": "Plan",
+      "qualityAnalyst": "Quality Analyst",
+      "propertyType": "Property Type",
+      "assessed": "Assessed",
+      "unassessed": "Unassessed",
+      "properties": "Properties",
+      "assessedProperties": "Assessed Properties",
+      "unassessedProperties": "Unassessed Properties",
+      "newlyAssessed": "Newly Assessed",
+      "found": "Found",
+      "newlyAssessedFound": "Newly Assessed Found",
+      "assessment": "Assessment",
+      "inprocess": "Inprocess",
+      "assessmentInprocess": "Assessment Inprocess",
+      "structure": "Structure",
+      "unit": "Unit",
+      "units": "Units",
+      "completedStructure": "Completed Structure",
+      "completedUnit": "Completed Unit",
+      "pendingStructure": "Pending Structure",
+      "pendingUnit": "Pending Unit",
+      "complete": "Complete",
+      "pending": "Pending",
+      "typeWise": "Type Wise",
+      "residential": "Residential",
+      "nonResidential": "Non-Residential",
+      "mixed": "Mixed",
+      "publicUtility": "Public Utility",
+      "underConstruction": "Under Construction"
+    }
+  },
+  "approvalByULB": {
+    "title": "Approval by ULB",
+    "titleWithWard": "Approval by ULB - {wardId}",
+    "searchPlaceholder": "Search notice no...",
+    "backToWardWise": "Back to Ward-wise",
+    "backToDivisions": "Back to Divisions",
+    "totalStructures": "Total Structures",
+    "totalUnitsSubmitted": "Total Units Submitted",
+    "totalDemandCr": "Total Demand (Cr)",
+    "total": "Total",
+    "updatePending": "Update Pending",
+    "export": "Export",
+    "signed": "Signed",
+    "pending": "Pending",
+    "buildings": "Buildings",
+    "structures": "Structures",
+    "unit": "Unit",
+    "units": "Units",
+    "columns": {
+      "sr": "SR",
+      "zoneWard": "Zone / Ward",
+      "division": "Division",
+      "divisionOffice": "Division Office",
+      "ward": "Ward",
+      "totalStructures": "Total Structures",
+      "totalUnits": "Total Units",
+      "demandCr": "Demand (Cr)",
+      "buildingNo": "Building No",
+      "noticeNo": "Notice No",
+      "units": "Units"
+    },
+    "buildingWiseProperty": {
+      "backToStructureDetails": "Back to Structure Details",
+      "title": "Approval by ULB - {propertyNo}",
+      "searchPlaceholder": "Search property no...",
+      "oldLabel": "Old: ",
+      "newLabel": "New",
+      "ownerLabel": "Owner: ",
+      "occupierLabel": "Occupier: ",
+      "societyLabel": "Society: ",
+      "builderLabel": "Builder: ",
+      "wingLabel": "Wing: ",
+      "flatLabel": "Flat: ",
+      "areaLabel": "Area: ",
+      "useLabel": "Use: ",
+      "yearLabel": "Year: ",
+      "rvLabel": "RV: ",
+      "taxLabel": "Tax: ",
+      "na": "N/A",
+      "notAvailable": "Not Available",
+      "currencySymbol": "₹",
+      "unassessed": "Unassessed",
+      "report": "Report",
+      "tracking": "Tracking",
+      "headers": {
+        "wardNo": "Ward No",
+        "newOldPropertyNo": "New Property No\n& Old Property No",
+        "description": "Description",
+        "ownerOccupierName": "Owner Name\n& Occupier Name",
+        "address": "Address",
+        "societyBuilderName": "Society Name\n& Builder Name",
+        "wingFlatNo": "Wing No\n& Flat No",
+        "propertyDetails": "PROPERTY DETAILS (NEW VS OLD)",
+        "propertyType": "Property Type",
+        "totalDemand": "Total Demand",
+        "documentsImage": "DOCUMENTS\nImage",
+        "actions": "ACTIONS",
+        "clerkSign": "Clerk Sign",
+        "taxInsp": "Tax Insp.",
+        "asstComm": "Asst. Comm.",
+        "dyCommTax": "Dy. Comm.\n(Tax)",
+        "addlComm": "Addl. Comm.",
+        "oldRecord": "Old Record",
+        "newRecord": "New Record"
+      }
+    }
+  },
+  "ulbPendingSigns": {
+    "title": "Update Pending",
+    "officerName": "Officer Name",
+    "pendingBuildings": "Pending Buildings",
+    "total": "Total",
+    "searchPlaceholder": "Search by SR Notice No...",
+    "showing": "Showing",
+    "of": "of",
+    "columns": {
+      "structureName": "Structure Name",
+      "srNoticeNo": "SR Notice No",
+      "noOfUnits": "No of Units",
+      "demand": "Demand",
+      "approve": "Approve"
+    },
+    "confirmApproveTitle": "Confirm Approval",
+    "confirmApproveMessage": "Are you sure you want to approve this property?",
+    "actions": {
+      "approve": "Approve"
+    }
+  },
+  "sendToApprove": {
+    "warningIncomplete": "Warning: {count} property has incomplete QC checklist items.",
+    "successComplete": "All selected properties have complete QC checklists.",
+    "confirmTitle": "Confirm Action",
+    "confirmDescription": "Are you sure you want to send the selected properties for approval?",
+    "confirmButton": "Confirm",
+    "successTitle": "Success",
+    "successDescription": "Properties sent for approval successfully",
+    "errorTitle": "Error",
+    "title": "Send to Approve",
+    "subtitle": "Select properties from the Assessment stage to send for approval",
+    "backToAssessment": "Back to Assessment",
+    "selected": "selected",
+    "updateNoticeNo": "Update SR Notice No",
+    "sendToApprove": "Send to Approve",
+    "searchPlaceholder": "Property No, Owner, Address...",
+    "filters": {
+      "search": "Search",
+      "surveyType": "Survey Type",
+      "zoneName": "Zone Name",
+      "wardNumber": "Ward Number",
+      "propertyType": "Property Type",
+      "billType": "Bill Type",
+      "propertyDescription": "Property Description"
+    },
+    "columns": {
+      "zoneWardPropNo": "Zone / Ward / Property No.",
+      "oldWardNo": "Old Ward No.",
+      "additional": "ADDITIONAL",
+      "revenueVal": "REVENUE (₹)",
+      "property": "PROPERTY",
+      "type": "TYPE",
+      "imagePlan": "Image | Plan",
+      "checklistSub": "Click items to toggle - Select row to edit",
+      "qcChecklist": "QC CHECKLIST",
+      "siteQc": "Site QC",
+      "applyTaxes": "Apply taxes",
+      "officeQc": "Office QC",
+      "dataUpdated": "Data updated",
+      "addTaxes": "Add taxes",
+      "qcCcBill": "QC/CC/Bill",
+      "report": "Report",
+      "location": "Location"
+    }
+  },
+  "tracking": {
+    "title": "Property Tracking",
+    "completed": "Completed",
+    "current": "Current",
+    "progress": "PROGRESS",
+    "loading": "Loading...",
+    "noTrackingData": "No tracking data found.",
+    "internalSurvey": "Internal Survey",
+    "completedStatus": "COMPLETED",
+    "inProgressStatus": "IN PROGRESS",
+    "pendingStatus": "PENDING",
+    "approvedBy": "Approved By:",
+    "submittedBy": "Submitted By:"
+  },
+  "assessment": {
+    "searchPlaceholder": "Search Ward No with Property No, Owner Name",
+    "summary": "Summary",
+    "sendToApprove": "Send to Approve",
+    "tabs": {
+      "total": "Total",
+      "assessed": "Assessed",
+      "unassessed": "Unassessed",
+      "rented": "Rented"
+    },
+    "columns": {
+      "sr": "SR",
+      "zoneNo": "ZONE NO",
+      "totalStructure": "TOTAL STRUCTURE",
+      "totalUnit": "TOTAL UNIT",
+      "propertyClassification": "PROPERTY CLASSIFICATION",
+      "type": "TYPE",
+      "structure": "STRUCTURE",
+      "unit": "UNIT",
+      "oldDemand": "OLD DEMAND (₹)",
+      "currentDemand": "CURRENT DEMAND (₹)",
+      "retroDemand": "RETRO DEMAND (₹)",
+      "totalDemand": "TOTAL DEMAND (₹)",
+      "additionalRevenue": "ADDITIONAL REVENUE GENERATED (₹)"
+    }
+  },
+  "missingPhotoPlan": {
+    "totalGapFields": "TOTAL GAP FIELDS",
+    "photoMissing": "PHOTO MISSING",
+    "planMissing": "PLAN MISSING",
+    "activeZones": "ACTIVE ZONES",
+    "searchZonePlaceholder": "Search zone name...",
+    "exportAll": "EXPORT ALL",
+    "noActiveZones": "No active zone records found",
+    "columns": {
+      "municipalZone": "MUNICIPAL ZONE",
+      "photoMissing": "PHOTO MISSING",
+      "planMissing": "PLAN MISSING",
+      "totalMissing": "TOTAL MISSING",
+      "action": "ACTION"
+    },
+    "actions": {
+      "downloadReport": "Download Zone Report",
+      "viewDetails": "View Details"
+    }
+  },
+  "missingMobileNo": {
+    "mobileNoMissing": "MOBILE NO MISSING",
+    "activeZones": "ACTIVE ZONES",
+    "searchZonePlaceholder": "Search zone name...",
+    "exportAll": "EXPORT ALL",
+    "noActiveZones": "No active zone records found",
+    "columns": {
+      "municipalZone": "MUNICIPAL ZONE",
+      "mobileNoMissing": "MOBILE NO MISSING",
+      "action": "ACTION"
+    },
+    "actions": {
+      "downloadReport": "Download Zone Report",
+      "viewDetails": "View Details"
+    }
+  },
+  "missingOwnerName": {
+    "ownerNameMissing": "OWNER NAME MISSING",
+    "activeZones": "ACTIVE ZONES",
+    "searchZonePlaceholder": "Search zone name...",
+    "exportAll": "EXPORT ALL",
+    "noActiveZones": "No active zone records found",
+    "columns": {
+      "municipalZone": "MUNICIPAL ZONE",
+      "ownerNameMissing": "OWNER NAME MISSING",
+      "action": "ACTION"
+    },
+    "actions": {
+      "downloadReport": "Download Zone Report",
+      "viewDetails": "View Details"
+    }
+  },
+  "missingAddress": {
+    "addressMissing": "ADDRESS MISSING",
+    "activeZones": "ACTIVE ZONES",
+    "searchZonePlaceholder": "Search zone name...",
+    "exportAll": "EXPORT ALL",
+    "noActiveZones": "No active zone records found",
+    "columns": {
+      "municipalZone": "MUNICIPAL ZONE",
+      "addressMissing": "ADDRESS MISSING",
+      "action": "ACTION"
+    },
+    "actions": {
+      "downloadReport": "Download Zone Report",
+      "viewDetails": "View Details"
+    }
+  },
+  "missingOccupierName": {
+    "occupierNameMissing": "OCCUPIER NAME MISSING",
+    "activeZones": "ACTIVE ZONES",
+    "searchZonePlaceholder": "Search zone name...",
+    "exportAll": "EXPORT ALL",
+    "noActiveZones": "No active zone records found",
+    "columns": {
+      "municipalZone": "MUNICIPAL ZONE",
+      "occupierNameMissing": "OCCUPIER NAME MISSING",
+      "action": "ACTION"
+    },
+    "actions": {
+      "downloadReport": "Download Zone Report",
+      "viewDetails": "View Details"
+    }
+  },
+  "missingShopName": {
+    "shopNameMissing": "SHOP NAME MISSING",
+    "activeZones": "ACTIVE ZONES",
+    "searchZonePlaceholder": "Search zone name...",
+    "exportAll": "EXPORT ALL",
+    "noActiveZones": "No active zone records found",
+    "columns": {
+      "municipalZone": "MUNICIPAL ZONE",
+      "shopNameMissing": "SHOP NAME MISSING",
+      "action": "ACTION"
+    },
+    "actions": {
+      "downloadReport": "Download Zone Report",
+      "viewDetails": "View Details"
+    }
+  },
+  "registeredProperty": {
+    "totalOldPropertyCount": "TOTAL OLD PROPERTY COUNT",
+    "mergeOldPropertyCount": "MERGE OLD PROPERTY COUNT",
+    "missingOldPropertyCount": "MISSING OLD PROPERTY COUNT",
+    "activeZones": "ACTIVE ZONES",
+    "searchZonePlaceholder": "Search zone name...",
+    "exportAll": "EXPORT ALL",
+    "noActiveZones": "No active zone records found",
+    "columns": {
+      "municipalZone": "MUNICIPAL ZONE",
+      "totalOldPropertyCount": "TOTAL OLD PROPERTY COUNT",
+      "mergeOldPropertyCount": "MERGE OLD PROPERTY COUNT",
+      "missingOldPropertyCount": "MISSING OLD PROPERTY COUNT",
+      "action": "ACTION"
+    },
+    "actions": {
+      "downloadReport": "Download Zone Report",
+      "viewDetails": "View Details"
+    }
+  },
+  "missingDataAnalysis": {
+    "title": "MISSING DATA ANALYSIS",
+    "subtitle": "REAL-TIME SYNCHRONIZATION GAP SUMMARY FOR SURVEYOR TRACKING",
+    "tabs": {
+      "photoPlan": "Photo / Plan",
+      "ownerName": "Owner Name",
+      "mobileNo": "Mobile No.",
+      "occupierName": "Occupier Name",
+      "address": "Address",
+      "shopName": "Shop Name",
+      "registeredPropertyData": "Registered Property Data"
+    }
+  }
+}

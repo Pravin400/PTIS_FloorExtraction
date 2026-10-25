@@ -1,0 +1,538 @@
+{
+  "columns": {
+    "srNo": "Sr. No.",
+    "propertyNo": "Property No.",
+    "oldPropertyNo": "Old Property No.",
+    "wingName": "Wing",
+    "shopNo": "Flat/Shop No.",
+    "flatNo": "Flat/Shop No.",
+    "ownerName": "Owner Name",
+    "occupierName": "Occupier Name",
+    "shopName": "Shop Name",
+    "rent": "Rent",
+    "renterName": "Renter Name",
+    "description": "Description",
+    "type": "Type",
+    "records": "Records",
+    "apartmentType": " Type",
+    "floor": "Floor",
+    "assessmentYear": "Assessment Year",
+    "asstYear": "Asst Year",
+    "constructionYear": "Construction Year",
+    "OldConstructionYear": "Old Construction Year",
+    "surveyConstructionYear": "Construction Year",
+    "conYear": "Con Year",
+    "constructionType": "Con Type",
+    "conType": "Con Type",
+    "toiletCount": "Toilet Count",
+    "bhk": "BHK",
+    "use": "Use",
+    "carpetAreaSqFt": "Carpet Area (sqFt)",
+    "carpetAreaSqMtr": "Carpet Area (sqMtr)",
+    "carpetASqFt": "Carpet A (sqFt)",
+    "carpetASqMtr": "Carpet A (sqMtr)",
+    "builtupAreaSqFt": "Builtup Area (sqFt)",
+    "builtupAreaSqMtr": "Builtup Area (sqMtr)",
+    "builtupASqFt": "Builtup A (sqFt)",
+    "builtupASqMtr": "Builtup A (sqMtr)",
+    "carpetAreaSqFtMtr": "Carpet A (sqFt/sqMtr)",
+    "builtupAreaSqFtMtr": "Builtup A (sqFt/sqMtr)",
+    "oldConstArea": "Con Area",
+    "constructionArea": "Con Area",
+    "oldConA": "Con A",
+    "rv": "RV",
+    "oldRV": "RV",
+    "oldRVCV": "Old RV (CV)",
+    "oldTax": "Tax",
+    "tax": "Tax",
+    "newRV": "New RV",
+    "newTaxRV": "New Tax(RV)",
+    "capitalValue": "CV",
+    "totalTaxCV": "Total Tax(CV)",
+    "newCV": "CV",
+    "newTax": "New Tax",
+    "cv": "CV",
+    "totalTax": "Total Tax",
+    "mobileNo": "Mobile No.",
+    "emailId": "Email ID",
+    "ocDate": "OC Date",
+    "kyc": "KYC"
+  },
+  "taxDetails": {
+    "taxDetailsTab": "Tax Details ({type})",
+    "arrearsTab": "Arrears",
+    "title": "Property Tax Details Summary",
+    "subtitle": "Aggregated tax details by Method",
+    "propertyType": "Property Type",
+    "methodLabel": "Method",
+    "total": "Total",
+    "columnTotal": "Column Total",
+    "noData": "No tax details available",
+    "loadingDetails": "Loading demand details...",
+    "noBreakdown": "No breakdown details available",
+    "taxes": "Taxes",
+    "taxTypes": "Tax Types",
+    "years": "Years",
+    "method": "Method",
+    "generalTax": "General Tax",
+    "stateEducationTax": "State Education Tax",
+    "stateEmploymentTax": "State Employment Tax",
+    "treeCess": "Tree Cess",
+    "specialWaterCess": "Special Water Cess",
+    "roadCess": "Road Cess",
+    "fireCess": "Fire Cess",
+    "lightCess": "Light Cess",
+    "waterBenefitCess": "Water Benefit Cess",
+    "sewageDisposalCess": "Sewage Disposal Cess",
+    "specialEducationTax": "Special Education Tax",
+    "sanitationCess": "Sanitation Cess",
+    "drainCess": "Drain Cess",
+    "waterBill": "Water Bill",
+    "bigBuilding": "Big Building",
+    "illegalConstructionPenalty": "Illegal Construction Penalty",
+    "illegalConPenalty": "Illegal Con. Penalty",
+    "userCharges": "User Charges",
+    "serviceTax": "Service Tax",
+    "oldPenaltyULB": "Old Penalty of ULB",
+    "oldPenaltyULBShort": "Old Penalty ULB",
+    "runTimePenalty": "Run Time Penalty",
+    "totalTax": "Total Tax",
+    "propertyCount": "Property Count",
+    "rvPropertyCount": "RV Property Count",
+    "cvPropertyCount": "CV Property Count"
+  },
+  "apartmentTabs": {
+    "amenitiesTitle": "Property Tax Amenities",
+    "commercialTitle": "Property Tax Commercial Units",
+    "residentialTitle": "Property Tax Residential Units",
+    "rateable": "Rateable",
+    "capital": "Capital",
+    "dual": "Dual Method",
+    "showingData": "Showing {tab} data"
+  },
+  "actions": {
+    "startAutoScroll": "Start auto-scroll",
+    "stopAutoScroll": "Stop auto-scroll",
+    "exportExcel": "Export to Excel"
+  },
+  "export": {
+    "downloading": "Downloading Excel file...",
+    "success": "Excel file downloaded successfully!",
+    "error": "Failed to download Excel file",
+    "missingParams": "Missing ward ID or property number"
+  },
+  "filter": {
+    "filterColumn": "Filter column",
+    "filterBy": "Filter by",
+    "noOptions": "No options available",
+    "clearAll": "Clear All",
+    "apply": "Apply"
+  },
+  "drawer": {
+    "apartmentQCHeading": "Apartment QC",
+    "title": "Property Details",
+    "noPropertyData": "No property data found.",
+    "goBack": "Go Back",
+    "cancel": "Cancel",
+    "update": "Update",
+    "basicInformation": "Basic Information",
+    "floorQC": "Floor QC",
+    "basicProperty": "Basic Property",
+    "taxDetails": "Tax Details",
+    "oldPropertyDetails": "Old Property Details",
+    "photoPlan": "Photo Plan",
+    "apartmentQCLoading": "Loading...",
+    "roomWiseSubmission": "Room Wise Submission",
+    "loadingRoomData": "Loading room data...",
+    "viewImage": "View Image",
+    "propertyPhotos": "Property Photos",
+    "loadingPhotos": "Loading photos...",
+    "noPhotos": "No photos available",
+    "photoLoadError": "Failed to load property photos",
+    "tabs": {
+      "rateable": "Rateable Value",
+      "capital": "Capital Value"
+    },
+    "units": {
+      "sqM": "sq.m",
+      "sqFt": "sq.ft"
+    }
+  },
+  "tooltips": {
+    "srNo": "Serial Number",
+    "propertyNo": "Property Number",
+    "oldPropertyNo": "Old Property Number",
+    "wing": "Wing Name",
+    "flatOrShopNo": "Flat/Shop Number",
+    "ownerName": "Owner Name",
+    "occupierName": "Occupier Name",
+    "ocDate": "Occupancy Certificate Date",
+    "assessmentYear": "Assessment Year",
+    "constructionYear": "Construction Year",
+    "carpetArea": "Carpet Area (Square Feet / Square Meter)",
+    "builtupArea": "Built-up Area (Square Feet / Square Meter)",
+    "typeOfUse": "use",
+    "apartmentType": "Apartment Type",
+    "oldRV": "Old Rental Value",
+    "newRV": "New Rental Value",
+    "oldConstArea": "Construction Area",
+    "totalTax": "Total Tax",
+    "flatOrShopName": "Flat/Shop Name",
+    "renterName": "Renter Name",
+    "description": "Property Description",
+    "constructionType": "Construction Type",
+    "toiletCount": "Toilet Count",
+    "oldconstructionArea": " Construction Area",
+    "oldtax": "Old Tax",
+    "newtax": "New Tax",
+    "mobileNo": "Mobile Number",
+    "emailId": "Email ID",
+    "bhk": "BHK",
+    "rentMonthly": "Rent Monthly",
+    "propertyTypeName": "Description of the property type",
+    "oldTotalTax": "Old Total Tax",
+    "newTotalTax": "New Total Tax",
+    "newTaxTotalCV": "New Tax Total (CV)",
+    "totalTaxCV": "Total Tax (CV)",
+    "newTaxTotalRV": "New Tax Total (RV)",
+    "rateableValue": "Rateable Value",
+    "capitalValue": "Capital Value",
+    "cv": "Capital Value",
+    "kyc": "Know Your Customer",
+    "viewKycDetails": "View KYC Details",
+    "hideKycDetails": "Hide KYC Details",
+    "expandTable": "Expand Table",
+    "collapseTable": "Collapse Table"
+  },
+  "pageTitle": "Edit Property Details",
+  "badges": {
+    "ward": "Ward",
+    "zone": "Zone",
+    "prop": "Prop",
+    "type": "Type"
+  },
+  "buttons": {
+    "back": "Back",
+    "save": "Save Changes",
+    "saving": "Saving..."
+  },
+  "messages": {
+    "propertyIdMissing": "Property ID is missing",
+    "validationErrors": "Please fix validation errors before saving",
+    "floorQCValidationError": "Floor QC validation error",
+    "basicDetailsUpdateFailed": "Failed to update basic details",
+    "floorQCUpdateFailed": "Failed to update floor QC details",
+    "allChangesSaved": "All changes saved successfully",
+    "basicDetailsUpdated": "Basic details updated successfully",
+    "roomDataUpdated": "Room data updated - area refreshed",
+    "failedToLoadRooms": "Failed to load existing rooms",
+    "cannotOpenRoomSubmission": "Cannot open room submission - no detail ID",
+    "fetchFloorQCDetailsSuccess": "Successfully fetched floor QC details",
+    "fetchFloorQCDetailsFailed": "Failed to fetch floor QC details",
+    "fetchFloorsFailed": "Failed to fetch floors",
+    "fetchConTypesFailed": "Failed to fetch construction types",
+    "fetchUseTypesFailed": "Failed to fetch use types",
+    "fetchSubTypesFailed": "Failed to fetch sub-use types"
+  },
+  "basicInfo": {
+    "title": "Basic Information",
+    "fields": {
+      "ownerName": {
+        "label": "Owner Name",
+        "placeholder": "Enter owner name"
+      },
+      "occupierName": {
+        "label": "Occupier Name",
+        "placeholder": "Enter occupier name"
+      },
+      "renterName": {
+        "label": "Renter Name",
+        "placeholder": "Enter renter name"
+      },
+      "propertyDescription": {
+        "label": "Property Description",
+        "placeholder": "Select Property Type"
+      },
+      "bhk": {
+        "label": "BHK",
+        "placeholder": "Enter BHK"
+      },
+      "mobileNo": {
+        "label": "Mobile",
+        "placeholder": "Enter mobile number"
+      },
+      "emailId": {
+        "label": "Email ID",
+        "placeholder": "Enter email"
+      },
+      "flatOrShopName": {
+        "label": "Shop Name",
+        "placeholder": "Enter shop name"
+      },
+      "wingName": {
+        "label": "Wing",
+        "placeholder": "Enter wing"
+      },
+      "flatOrShopNo": {
+        "label": "Flat/Shop No.",
+        "placeholder": "Enter flat/shop no."
+      },
+      "oldPropertyNo": {
+        "label": "Old Property No.",
+        "placeholder": "Enter old property no."
+      },
+      "remark": {
+        "label": "Remark"
+      },
+      "oldRV": {
+        "label": "Old RV"
+      },
+      "newRV": {
+        "label": "New RV"
+      },
+      "oldTax": {
+        "label": "Old Tax"
+      },
+      "newTax": {
+        "label": "New Tax"
+      },
+      "oldArea": {
+        "label": "Old Area (sq.mtr)"
+      },
+      "newArea": {
+        "label": "New Area (sq.mtr)"
+      },
+      "oldUseType": {
+        "label": "Old Use Type"
+      },
+      "oldConstructionType": {
+        "label": "Old Construction Type"
+      },
+      "oldCSN": {
+        "label": "Old CSN"
+      },
+      "oldConstructionYear": {
+        "label": "Old Construction Year"
+      }
+    },
+    "validation": {
+      "ownerNameRequired": "Owner name is required",
+      "occupierNameRequired": "Occupier name is required",
+      "invalidNameFormat": "Invalid name format",
+      "invalidMobile": "Enter valid 10-digit mobile",
+      "invalidEmail": "Enter valid email",
+      "flatOrShopNoRequired": "Flat/Shop No. is required",
+      "invalidWingFormat": "Invalid wing format",
+      "invalidPropertyNoFormat": "Invalid property no. format"
+    }
+  },
+  "floorQC": {
+    "title": "Floor QC",
+    "form": {
+      "loading": "Loading...",
+      "selectFloor": "Select Floor",
+      "selectConType": "Select Type",
+      "selectUse": "Select Use",
+      "selectSubType": "Select Sub Type",
+      "yearPlaceholder": "YYYY",
+      "roomsPlaceholder": "e.g. 2",
+      "auto": "Auto",
+      "autoCalculated": "AUTO-CALCULATED",
+      "sqFt": "SQ FT"
+    },
+    "columns": {
+      "floor": "Floor",
+      "conYear": "Con Year",
+      "asstYear": "Asst Year",
+      "conType": "Con Type",
+      "use": "Use",
+      "subTypeOfUse": "Sub Type Of Use",
+      "noOfRooms": "No. of Rooms",
+      "taxable": "Taxable",
+      "subFloor": "Sub Floor",
+      "renter": "Renter",
+      "areaSqFt": "Area (Sq Ft)",
+      "areaSqMtr": "Area (Sq M)",
+      "buildupAreaSqFt": "Builtup Area (Sq Ft)",
+      "buildupAreaSqMtr": "Builtup Area (Sq M)",
+      "area": "Area",
+      "rentMY": "Rent M/Y",
+      "rateMY": "Rate M/Y",
+      "rentalValue": "Rental Value",
+      "depreciation": "Depreciation",
+      "alv": "ALV",
+      "mr": "M.R.",
+      "rv": "RV",
+      "sdrr": "SDRR",
+      "baseValue": "Base Value",
+      "floorFactor": "Floor Factor",
+      "ageFactor": "Age Factor",
+      "ntbFactor": "NTB Factor",
+      "useFactor": "Use Factor",
+      "capitalValue": "Capital Value",
+      "action": "Action",
+      "editFloorQC": "Edit Floor Details"
+    },
+    "toolTipFloorQC": {
+      "tooltips": {
+        "floor": "Floor",
+        "conYear": "Construction Year",
+        "asstYear": "Assessment Year",
+        "conType": "Construction Type",
+        "use": "Type of Use",
+        "subTypeOfUse": "Sub Type of Use",
+        "noOfRooms": "Number of Rooms",
+        "area": "Area",
+        "rentMY": "Rent Monthly / Yearly",
+        "rateMY": "Rate Monthly / Yearly",
+        "rentalValue": "Rental Value",
+        "depreciation": "Depreciation",
+        "alv": "Annual Letting Value",
+        "mr": "Maintenance",
+        "rv": "Rateable Value",
+        "sdrr": "SDRR",
+        "baseValue": "Base Value",
+        "floorFactor": "Floor Factor",
+        "ageFactor": "Age Factor",
+        "ntbFactor": "NTB Factor",
+        "useFactor": "Use Factor",
+        "capitalValue": "Capital Value",
+        "action": "Action",
+        "editFloorQC": "Edit Floor Details"
+      }
+    },
+    "tabs": {
+      "rateable": "Rateable",
+      "capital": "Capital"
+    },
+    "validation": {
+      "invalidYear": "Enter 4-digit year",
+      "yearOutOfRange": "Year out of range",
+      "floorRequired": "Floor is required",
+      "conYearRequired": "Construction year is required",
+      "conYearInvalid": "Construction year must be 4 digits",
+      "asstYearRequired": "Assessment year is required",
+      "asstYearInvalid": "Assessment year must be 4 digits",
+      "conTypeRequired": "Construction type is required",
+      "useRequired": "Use type is required"
+    },
+    "tooltips": {
+      "viewRoomDetails": "View/Edit Room Details",
+      "noDetailId": "No detail ID available",
+      "editFloorQC": "Edit Floor QC"
+    }
+  },
+  "list": {
+    "title": "Apartment QC",
+    "tabs": {
+      "residential": "Residential",
+      "commercial": "Commercial",
+      "amenities": "Amenities"
+    },
+    "search": {
+      "placeholder": "Search by property no., owner name...",
+      "noResults": "No properties found"
+    },
+    "table": {
+      "ward": "Ward",
+      "zone": "Zone",
+      "propertyNo": "Property No.",
+      "flatShopNo": "Flat/Shop No.",
+      "ownerName": "Owner Name",
+      "occupierName": "Occupier Name",
+      "type": "Type",
+      "oldArea": "Old Area ",
+      "newArea": "New Area",
+      "oldRV": "Old RV",
+      "newRV": "New RV",
+      "actions": "Actions"
+    },
+    "actions": {
+      "edit": "Edit",
+      "view": "View"
+    }
+  },
+  "header": {
+    "propertyNo": "PROPERTY NO.:",
+    "upicId": "UPIC ID:",
+    "copyUpic": "Copy UPIC",
+    "societyName": "SOCIETY NAME:",
+    "editSociety": "Edit Society",
+    "hideSection": "Hide Section",
+    "reopenSection": "Reopen Section",
+    "hideMiddleSection": "Hide Middle Section",
+    "showMiddleSection": "Show Middle Section",
+    "hideManagementDetails": "Hide Management Details",
+    "showManagementDetails": "Show Management Details",
+    "hideManagement": "Hide Management",
+    "showManagement": "Show Management"
+  },
+  "actions": {
+    "hide": "Hide",
+    "show": "Show"
+  },
+  "grid": {
+    "generalInfo": "Location & Info",
+    "management": "Management",
+    "managementDetails": "Management Details",
+    "metrics": "Address & Area",
+    "division": "Division:",
+    "wardNo": "Ward No.:",
+    "category": "Category:",
+    "taxZoneAndName": "Tax Zone & Name:",
+    "subZoneCsn": "Sub Zone & CSN:",
+    "plotNo": "Plot No.:",
+    "landOwnerName": "Land Owner Name:",
+    "builderName": "Builder Name:",
+    "managerNameEnglish": "Manager Name:",
+    "societyEmail": "Society Email:",
+    "secretaryName": "Secretary Name:",
+    "secretaryMobile": "Secretary Mobile:",
+    "secretaryEmail": "Secretary Email:",
+    "address": "Address:",
+    "plotArea": "Plot Area:",
+    "carpetBuiltUp": "Carpet / Built-up:",
+    "oldCarpetBuiltUp": "Old Carpet / Built-up:",
+    "totalWings": "Total Wings:",
+    "totalFloors": "Total Floors:",
+    "totalUnits": "Total Units:",
+    "totalProperties": "Total Units:",
+    "res": "Res:-",
+    "comm": "Comm:-",
+    "amen": "Amen:-",
+    "residential": "Residential",
+    "commercial": "Commercial",
+    "amenity": "Amenity",
+    "resCommAmen": "(Res/Comm/Amen)",
+    "carpet": "Carpet:",
+    "builtUp": "Built-up:",
+    "oldCarpet": "Old Carpet:",
+    "oldBuiltUp": "Old Built-up:",
+    "carpetArea": "Carpet Area:",
+    "builtUpArea": "Built-up Area:",
+    "current": "Current:",
+    "old": "Old:"
+  },
+  "revenueCard": {
+    "addRevenue": "ADD. REVENUE",
+    "desc": "DESC:",
+    "oldCurrentTax": "Old Current Tax"
+  },
+  "stats": {
+    "oldCurrentTax": "Old Current Tax",
+    "currentTax": "Current Tax",
+    "retroTax": "Retro Tax",
+    "retroTaxTooltip": "Retro Tax (Arrears)",
+    "totalTax": "Total Tax",
+    "totalDemand": "Total Demand",
+    "current": "Current",
+    "pending": "Pending",
+    "demandDetails": "Demand Details",
+    "total": "Total",
+    "currentDemand": "Current Demand",
+    "pendingDemand": "Pending Demand",
+    "collection": "Collection",
+    "totalBalance": "Total Balance"
+  }
+}
+

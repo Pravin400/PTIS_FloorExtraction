@@ -1,0 +1,188 @@
+using NtisPlatform.Application.DTOs.Master;
+using NtisPlatform.Application.DTOs.RateableValue;
+using NtisPlatform.Core.Entities;
+using NtisPlatform.Core.Entities.Master;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using NtisPlatform.Application.Interfaces;
+using NtisPlatform.Application.Services.Rules;
+using NtisPlatform.Application.Services.TaxEngine.DynamicTax;
+
+namespace NtisPlatform.Application.Services.TaxEngine
+{
+    public static class RateableValueResponseMapper
+    {
+        public static RateableValueResponseDto Map(
+            int propertyId,
+            int financeYear,
+            IReadOnlyList<PropertyDetailsEntity> details,
+            List<RVCalculationResultsEntity> resultRows,
+            List<RVCalculationTaxDetailsEntity> taxDetailRows,
+            List<PolicyTaxDetailsEntity> policyRows,
+            IReadOnlyList<FloorEntity> floors,
+            IReadOnlyList<ConstructionTypeEntity> constructionTypes,
+            IReadOnlyList<TypeOfUseEntity> typeOfUses,
+            IReadOnlyList<SubTypeOfUseEntity> subTypeOfUses,
+            IReadOnlyList<SubFloorEntity> subFloors,
+            IReadOnlyList<RenterMastEntity> renters,
+            IReadOnlyList<PropertyCertificateEntity> certificates,
+            TaxGetterCache<TaxMasterEntity> taxMasterCache,
+            DynamicTaxConfigSnapshot? dynamicTaxConfig = null,
+            HashSet<int>? policyOnlyTaxIds = null)
+        {
+            var resolvedPolicyOnlyTaxIds = policyOnlyTaxIds ?? (dynamicTaxConfig != null
+                ? new HashSet<int>(dynamicTaxConfig.ConditionRulesByTax
+                    .Where(kvp => kvp.Value.Any(r =>
+                        !string.IsNullOrWhiteSpace(r.ConditionsJson) &&
+                        (string.Equals(ConditionRuleEvaluator.ParseConditionEvaluationScope(r.ConditionsJson), "ALL_FLOORS_AGGREGATED", StringComparison.OrdinalIgnoreCase) ||
+                         r.ConditionsJson.Contains("ALL_FLOORS_AGGREGATED", StringComparison.OrdinalIgnoreCase))))
+                    .Select(kvp => kvp.Key))
+                : new HashSet<int>());
+
+            var floorMap = floors.ToDictionary(x => x.Id, x => x.FloorCode ?? x.Description ?? string.Empty);
+            var constructionTypeMap = constructionTypes.ToDictionary(
+                x => x.Id,
+                x => !string.IsNullOrWhiteSpace(x.ConstructionCode)
+                    ? x.ConstructionCode!
+                    : (x.Description ?? string.Empty));
+
+            var typeOfUseMap = typeOfUses.ToDictionary(x => x.Id, x => x.TypeOfUseCode ?? x.Description ?? string.Empty);
+            var subTypeOfUseMap = subTypeOfUses.ToDictionary(x => x.Id, x => x.Description ?? string.Empty);
+            var subFloorMap = subFloors.ToDictionary(x => x.Id, x => x.SubFloorCode ?? x.Description ?? string.Empty);
+            var detailMap = details.ToDictionary(x => x.Id, x => x);
+
+            var renterMap = renters
+                .Where(x => x.IsActive && !x.MarkedForDeletion)
+                .GroupBy(x => x.PropertyDetailsId)
+                .ToDictionary(g => g.Key, g => g.OrderByDescending(x => x.CreatedDate).FirstOrDefault());
+
+
+            var certificateMap = certificates
+                .Where(x => x.PropertyDetailsId.HasValue && x.IsActive && !x.MarkedForDeletion)
+                .GroupBy(x => x.PropertyDetailsId!.Value)
+                .ToDictionary(g => g.Key, g => g.OrderByDescending(x => x.IssueDate ?? DateTime.MinValue).FirstOrDefault());
+
+
+            // Include ALL details, even those with no tax rows (when detailYearRangeRVId == 0)
+            var resultsByDetail = resultRows.GroupBy(x => x.PropertyDetailsId).ToDictionary(g => g.Key, g => g.ToList());
+
+            // Group tax details by results ID for easier lookup
+            var taxDetailsByResultsId = taxDetailRows
+                .Where(x => x.IsActive && !x.MarkedForDeletion)
+                .GroupBy(x => x.RVCalculationResultsId)
+                .ToDictionary(g => g.Key, g => g.ToList());
+
+            var detailDtos = details
+                .Select(detail =>
+                {
+                    var resultsForDetail = resultsByDetail.TryGetValue(detail.Id, out var rows) ? rows : new List<RVCalculationResultsEntity>();
+                    var first = resultsForDetail.FirstOrDefault();
+
+                    var renter = renterMap.TryGetValue(detail.Id, out var r) ? r : null;
+                    var certificate = certificateMap.TryGetValue(detail.Id, out var cert) ? cert : null;
+
+                    // Get all tax details for this detail's results rows
+                    var allTaxDetails = resultsForDetail
+                        .SelectMany(r => taxDetailsByResultsId.TryGetValue(r.Id, out var taxDetails) ? taxDetails : Enumerable.Empty<RVCalculationTaxDetailsEntity>())
+                        .ToList();
+
+                    // Exclude Education (EDU) and Employment (EMP) taxes, as well as property-level aggregated taxes (configured with ALL_FLOORS_AGGREGATED in JSON) from details response
+                    var taxes = allTaxDetails
+                        .Where(x =>
+                        {
+                            var categoryCode = taxMasterCache.GetTaxCategoryCode(x.TaxId);
+                            // Exclude if category code is EDU or EMP
+                            if (categoryCode == "EDU" || categoryCode == "EMP")
+                                return false;
+
+                            // Exclude property-level aggregated taxes configured via Dynamic Tax Register ConditionsJson
+                            if (resolvedPolicyOnlyTaxIds.Contains(x.TaxId))
+                                return false;
+
+                            return true;
+                        })
+                        .OrderBy(x => x.TaxId)
+                        .GroupBy(x => taxMasterCache.GetTaxName(x.TaxId), StringComparer.OrdinalIgnoreCase)
+                        .ToDictionary(
+                            x => x.Key,
+                            x => Math.Round(x.Sum(v => v.TaxAmount ?? 0m), 0, MidpointRounding.AwayFromZero),
+                            StringComparer.OrdinalIgnoreCase);
+
+                    return new RateableValueDetailDto
+                    {
+                        PropertyDetailsId = detail.Id,
+                        Taxable = detail.IsTaxable ?? true,
+                        Floor = floorMap.TryGetValue(detail.FloorId ?? 0, out var floorName) ? floorName : string.Empty,
+                        SubFloor = detail.SubFloorId.HasValue && subFloorMap.TryGetValue(detail.SubFloorId.Value, out var subFloorName) ? subFloorName : string.Empty,
+                        ConstructionYear = detail.ConstructionYear ?? string.Empty,
+                        AssessmentYear = detail.AssessmentYear ?? string.Empty,
+                        ConstructionType = constructionTypeMap.TryGetValue(detail.ConstructionTypeId??0, out var conType) ? conType : string.Empty,
+                        Use = typeOfUseMap.TryGetValue(detail.TypeOfUseId, out var useName) ? useName : string.Empty,
+                        SubTypeOfUse = detail.SubTypeOfUseId.HasValue && subTypeOfUseMap.TryGetValue(detail.SubTypeOfUseId.Value, out var subUse)
+                            ? subUse
+                            : string.Empty,
+                        NoOfRooms = detail.NoOfRooms ?? 0,
+                        CarpetAreaSqFeet = detail.CarpetAreaSqFeet ?? 0d,
+                        CarpetAreaSqMeter = detail.CarpetAreaSqMeter ?? 0d,
+                        BuiltupAreaSqFeet = detail.BuiltupAreaSqFeet ?? 0d,
+                        BuiltupAreaSqMeter = detail.BuiltupAreaSqMeter ?? 0d,
+                        OccupancyNumber = certificate?.CertificateNo ?? string.Empty,
+                        OccupancyDate = certificate?.IssueDate,
+                        RenterName = !string.IsNullOrWhiteSpace(renter?.RenterNameEnglish)
+                            ? renter.RenterNameEnglish!
+                            : (renter?.RenterName ?? string.Empty),
+                        RentMonthly = ToDecimal(renter?.RentMonthly),
+                        RentYearly = ToDecimal(renter?.FinalYearlyRent > 0 ? renter.FinalYearlyRent : ((renter?.RentMonthly ?? 0d) * 12d)),
+                        MonthlyRate = Math.Round(ToDecimal(first?.MonthlyRate), 2, MidpointRounding.AwayFromZero),
+                        YearlyRate = Math.Round(ToDecimal(first?.YearlyRate), 2, MidpointRounding.AwayFromZero),
+                        YearlyRent = Math.Round(ToDecimal(first?.YearlyRent), 2, MidpointRounding.AwayFromZero),
+                        Depreciation = first?.Depreciation ?? 0m,
+                        DepreciationPer = Math.Round(first?.DepreciationPer ?? 0m, 2),
+                        AppliedOn = first?.AppliedOn ?? string.Empty,
+                        AnnualRentalValue = ToDecimal(first?.AnnualRentalValue),
+                        Maintenance = first?.Maintenance ?? 0m,
+                        RateableValue = first?.RateableValue ?? 0m,
+                        TaxTotal = taxes.Values.Sum(),
+                        Taxes = taxes
+                    };
+                })
+                .OrderBy(x => x.PropertyDetailsId)
+                .ToList();
+
+            PolicyTaxDto? policyDto = null;
+
+            if (policyRows != null && policyRows.Count > 0)
+            {
+                var firstPolicy = policyRows.First();
+
+                policyDto = new PolicyTaxDto
+                {
+                    PolicyCode = firstPolicy.PolicyCodeMaster?.PolicyCode ?? string.Empty,
+                    PolicyRVorCValue = firstPolicy.CalculationValue ?? 0m,
+                    Taxes = policyRows
+                        .OrderBy(x => x.TaxId)
+                        .GroupBy(x => taxMasterCache.GetTaxName(x.TaxId), StringComparer.OrdinalIgnoreCase)
+                        .ToDictionary(
+                            x => x.Key,
+                            x => x.Sum(v => v.TaxAmount ?? 0m),
+                            StringComparer.OrdinalIgnoreCase)
+                };
+            }
+
+            return new RateableValueResponseDto
+            {
+                PropertyId = propertyId,
+                FinanceYear = financeYear,
+                TotalRateableValue = detailDtos.Sum(x => x.RateableValue),
+                Policy = policyDto,
+                Details = detailDtos
+            };
+        }
+
+        private static decimal ToDecimal(double? value)
+        {
+            return Convert.ToDecimal(value ?? 0d);
+        }
+    }
+}

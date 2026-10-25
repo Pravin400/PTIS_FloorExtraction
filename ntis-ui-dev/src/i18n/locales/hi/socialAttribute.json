@@ -1,0 +1,170 @@
+{
+  "socialAttribute": {
+    "list": {
+      "title": "सामाजिक विशेषता मास्टर",
+      "subtitle": "पैरेंट-चाइल्ड निर्भरता के साथ सामाजिक विशेषताओं को प्रबंधित करें",
+      "buttons": {
+        "add": "सामाजिक विशेषता जोड़ें",
+        "edit": "संपादित करें",
+        "delete": "हटाएं",
+        "reset": "रीसेट करें"
+      },
+      "filters": {
+        "show": "दिखाएं",
+        "search": "कोड या नाम से खोजें",
+        "noResults": "फ़िल्टर मानदंडों से मेल खाने वाली कोई सामाजिक विशेषता नहीं मिली।",
+        "dataType": {
+          "placeholder": "सभी डेटा प्रकार",
+          "ariaLabel": "डेटा प्रकार द्वारा फ़िल्टर करें"
+        },
+        "attributeType": {
+          "placeholder": "सभी विशेषताएँ",
+          "parentOnly": "केवल मूल (पैरेंट)",
+          "childOnly": "केवल उप (चाइल्ड)",
+          "discount": "छूट लागू",
+          "ariaLabel": "विशेषता प्रकार द्वारा फ़िल्टर करें"
+        }
+      },
+      "table": {
+        "socialAttributeCode": "विशेषता कोड",
+        "socialAttributeName": "विशेषता का नाम",
+        "dataType": "डेटा प्रकार",
+        "unit": "इकाई",
+        "displayOrder": "प्रदर्शन क्रम",
+        "parentAttributeId": "मूल विशेषता",
+        "status": "स्थिति",
+        "actions": "क्रियाएं"
+      },
+      "status": {
+        "active": "सक्रिय",
+        "inactive": "निष्क्रिय"
+      },
+      "discount": "छूट",
+      "parentAttribute": "मूल विशेषता",
+      "subAttributeIndicator": "↳",
+      "parentInfo": "मूल: {code}",
+      "parentInfoWithRequired": "मूल: {code} | मूल सक्रिय होने पर आवश्यक: हाँ",
+      "pagination": {
+        "showing": "दिखा रहा है",
+        "entries": "प्रविष्टियाँ"
+      }
+    },
+    "form": {
+      "addTitle": "सामाजिक विशेषता जोड़ें",
+      "editTitle": "सामाजिक विशेषता संपादित करें",
+      "subtitle": "नई सामाजिक विशेषता बनाएं",
+      "editSubtitle": "सामाजिक विशेषता विवरण अपडेट करें",
+      "fields": {
+        "socialAttributeCode": {
+          "label": "सामाजिक विशेषता कोड",
+          "placeholder": "उदा. ROAD_WIDTH"
+        },
+        "socialAttributeName": {
+          "label": "सामाजिक विशेषता का नाम",
+          "placeholder": "उदा. Road Width"
+        },
+        "dataType": {
+          "label": "डेटा प्रकार",
+          "placeholder": "डेटा प्रकार चुनें",
+          "options": {
+            "decimal": "DECIMAL (उदा. 10.5)",
+            "bit": "BIT (सत्य/असत्य)",
+            "integer": "INTEGER (उदा. 10)",
+            "text": "TEXT (उदा. पाठ्य)",
+            "date": "DATE (उदा. 15-08-2026)"
+          }
+        },
+        "unit": {
+          "label": "इकाई",
+          "placeholder": "इकाई चुनें"
+        },
+        "displayOrder": {
+          "label": "प्रदर्शन क्रम",
+          "placeholder": "उदा. 1"
+        },
+        "parentAttribute": {
+          "label": "मूल विशेषता",
+          "placeholder": "मूल विशेषता चुनें"
+        },
+        "isRequiredWhenParentTrue": {
+          "label": "मूल सक्रिय होने पर आवश्यक"
+        },
+        "isDiscountApplicable": {
+          "label": "छूट लागू"
+        },
+        "isPhotoRequired": {
+          "label": "फोटो आवश्यक"
+        },
+        "isDocumentRequired": {
+          "label": "दस्तावेज़ आवश्यक"
+        },
+        "isChild": {
+          "label": "क्या यह उप-विशेषता है?"
+        }
+      },
+      "validation": {
+        "codeRequired": "विशेषता कोड आवश्यक है",
+        "codeMinLength": "विशेषता कोड कम से कम ३ अक्षरों का होना चाहिए",
+        "codeMaxLength": "अधिकतम लंबाई {count} वर्ण है",
+        "codeFormat": "अमान्य प्रारूप। केवल अंग्रेजी बड़े अक्षर और अंडरस्कोर अनुमत हैं।",
+        "nameRequired": "विशेषता का नाम आवश्यक है",
+        "nameMaxLength": "अधिकतम लंबाई 100 वर्ण है",
+        "nameMinLength": "विशेषता का नाम कम से कम 3 वर्णों का होना चाहिए",
+        "nameFormat": "केवल अक्षर, रिक्त स्थान, डैश (-) और कोष्ठक () अनुमत हैं.",
+        "dataTypeRequired": "डेटा प्रकार आवश्यक है",
+        "unitFormat": "केवल अक्षर और संख्याएं अनुमत हैं।",
+        "displayOrderInvalid": "प्रदर्शन क्रम 0 या अधिक होना चाहिए",
+        "mustBeActive": "सहेजने के लिए सामाजिक विशेषता सक्रिय होनी चाहिए",
+        "codeExists": "Social Attribute Code पहले से ही मौजूद है",
+        "nameExists": "Social Attribute Name पहले से ही मौजूद है",
+        "parentRequired": "उप-विशेषता होने पर मुख्य विशेषता (Parent Attribute) आवश्यक है"
+      },
+      "status": {
+        "label": "सक्रिय स्थिति",
+        "description": "सामाजिक विशेषता वर्तमान में"
+      },
+      "actions": {
+        "cancel": "रद्द करें",
+        "save": "सहेजें",
+        "update": "अपडेट करें"
+      }
+    },
+    "delete": {
+      "confirmTitle": "सामाजिक विशेषता ({id}) हटाएं?",
+      "confirmDescription": "क्या आप वाकई इस सामाजिक विशेषता रिकॉर्ड को हटाना चाहते हैं?",
+      "successMessage": "सामाजिक विशेषता ({id}) सफलतापूर्वक हटाई गई",
+      "errorMessage": "सामाजिक विशेषता ({id}) को हटाया नहीं जा सकता क्योंकि यह अन्य रिकॉर्ड से जुड़ी हुई है।"
+    },
+    "apiErrors": {
+      "duplicateRecord": "कृपया सामाजिक विशेषता कोड और नाम जांचें - डुप्लिकेट अनुमत नहीं हैं।",
+      "validationError": "अमान्य डेटा प्रदान किया गया। कृपया सभी फ़ील्ड जांचें।",
+      "invalidData": "अमान्य डेटा प्रदान किया गया। कृपया सभी फ़ील्ड जांचें।",
+      "notFound": "सामाजिक विशेषता नहीं मिली।",
+      "inUse": "इस सामाजिक विशेषता को निष्क्रिय/हटाया नहीं जा सकता क्योंकि यह अन्य रिकॉर्ड में संदर्भित है।",
+      "hasChildren": "इस मूल विशेषता को हटाया नहीं जा सकता क्योंकि इसके अंतर्गत उप-विशेषताएं हैं। कृपया पहले उप-विशेषताओं को हटाएं।",
+      "operationFailed": "ऑपरेशन विफल। कृपया बाद में पुनः प्रयास करें।"
+    },
+    "success": {
+      "created": "नई सामाजिक विशेषता सफलतापूर्वक कोड के साथ बनाई गई: {code}",
+      "updated": "सामाजिक विशेषता सफलतापूर्वक कोड के साथ अपडेट की गई: {code}",
+      "deleted": "सामाजिक विशेषता सफलतापूर्वक कोड के साथ हटाई गई: {code}"
+    },
+    "error": {
+      "title": "सर्वर से कनेक्ट करने में विफल। कृपया बाद में पुनः प्रयास करें।",
+      "description": "सामाजिक विशेषता पृष्ठ लोड करते समय एक त्रुटि आई। कृपया पुनः प्रयास करें।",
+      "tryAgain": "पुनः प्रयास करें",
+      "goHome": "होम पर जाएं",
+      "errorId": "त्रुटि आईडी: {id}"
+    },
+    "loading": {
+      "message": "सामाजिक विशेषता लोड हो रहा है...",
+      "description": "कृपया प्रतीक्षा करें जब तक हम डेटा लोड करते हैं"
+    },
+    "confirmClose": {
+      "title": "अपरिवर्तित बदलाव हटाएँ",
+      "description": "फ़ॉर्म में आपके पास असहेजे गए परिवर्तन हैं। क्या आप वाकई उन्हें छोड़ना चाहते हैं?",
+      "confirmText": "बदलाव हटाएँ",
+      "cancelText": "संपादन जारी रखें"
+    }
+  }
+}

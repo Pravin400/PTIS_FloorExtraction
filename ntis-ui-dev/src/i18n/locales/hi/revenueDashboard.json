@@ -1,0 +1,91 @@
+{
+  "currency": {
+    "crore": "{val} करोड़",
+    "lakh": "{val} लाख",
+    "thousand": "{val} हजार",
+    "symbol": "₹ "
+  },
+  "title": "राजस्व प्रबंधन डैशबोर्ड",
+  "subtitle": "संपत्ति वितरण और राजस्व अवलोकन - {year}",
+  "loading": {
+    "message": "राजस्व डैशबोर्ड लोड हो रहा है",
+    "description": "मांग और संग्रह के आंकड़े प्राप्त किए जा रहे हैं..."
+  },
+  "errors": {
+    "loadFailed": "राजस्व डेटा लोड नहीं हो सका। कृपया पुनः प्रयास करें।"
+  },
+  "summary": {
+    "leasedAssets": "कुल पट्टे पर दी गई संपत्तियाँ",
+    "leasedAssetsSub": "पट्टे/किराए पर दी गई संपत्तियाँ",
+    "totalDemand": "कुल मांग",
+    "totalDemandSub": "मासिक राजस्व लक्ष्य",
+    "totalCollection": "कुल संग्रह",
+    "collectionRate": "{rate} संग्रह दर"
+  },
+  "distribution": {
+    "title": "श्रेणी अनुसार संपत्ति वितरण",
+    "empty": "कोई श्रेणी डेटा उपलब्ध नहीं है।"
+  },
+  "cards": {
+    "demand": "कुल मांग",
+    "collected": "संग्रहित",
+    "lease": "पट्टा",
+    "rent": "किराया",
+    "paid": "भुगतान किया",
+    "unpaid": "अभुगतान"
+  },
+  "trend": {
+    "title": "मासिक राजस्व संग्रह प्रवृत्ति",
+    "collected": "संग्रहित",
+    "pending": "लंबित"
+  },
+  "zones": {
+    "title": "क्षेत्र अनुसार मांग और संग्रह",
+    "totalDemand": "कुल मांग"
+  },
+  "filters": {
+    "label": "फ़िल्टर",
+    "allZones": "सभी क्षेत्र",
+    "allWards": "सभी वार्ड",
+    "zone": "क्षेत्र",
+    "ward": "वार्ड",
+    "type": "प्रकार",
+    "status": "स्थिति",
+    "allTypes": "सभी प्रकार",
+    "allStatuses": "सभी स्थिति"
+  },
+  "records": {
+    "allCategories": "सभी श्रेणियाँ",
+    "allCategoriesCount": "{count} संपत्तियाँ",
+    "backToDashboard": "डैशबोर्ड पर वापस जाएँ",
+    "totalLeasedAssets": "कुल पट्टे पर दी गई संपत्तियाँ",
+    "assetCategories": "संपत्ति श्रेणियाँ",
+    "subtitle": "{name} में सभी संपत्तियाँ देखें",
+    "searchPlaceholder": "संपत्ति, किरायेदार से खोजें...",
+    "total": "कुल संपत्तियाँ",
+    "collected": "कुल संग्रह",
+    "pending": "कुल बकाया",
+    "statusPaid": "भुगतान किया",
+    "statusUnpaid": "अभुगतान",
+    "empty": "आपके फ़िल्टर से मेल खाती कोई संपत्ति नहीं मिली",
+    "showing": "{total} में से {from}-{to} संपत्तियाँ दिखाई जा रही हैं",
+    "previous": "पिछला",
+    "next": "अगला",
+    "cols": {
+      "srNo": "क्र. सं.",
+      "assetId": "संपत्ति आईडी",
+      "assetName": "संपत्ति का नाम",
+      "zone": "क्षेत्र",
+      "ward": "वार्ड",
+      "leaseType": "पट्टा प्रकार",
+      "tenant": "किरायेदार",
+      "status": "स्थिति",
+      "rent": "किराया"
+    }
+  },
+  "format": {
+    "currencyPrefix": "₹",
+    "lakhsSuffix": " लाख",
+    "croresSuffix": " करोड़"
+  }
+}

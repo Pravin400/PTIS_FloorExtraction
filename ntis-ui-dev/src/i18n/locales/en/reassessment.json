@@ -1,0 +1,133 @@
+{
+  "emptyState": {
+    "title": "Select Property",
+    "description": "Please select a ward and property number to view reassessment details"
+  },
+  "photoLabels": {
+    "oldPropertyPhoto": "Old Property Photo",
+    "oldPlanPhoto": "Old Plan Photo",
+    "newPropertyPhoto": "New Property Photo",
+    "newPlanPhoto": "New Plan Photo",
+    "photoAsPerOld": "Photograph as per Municipal Registration",
+    "photoAsPerNew": "Photograph as per New Survey",
+    "clickToView": "Click to view"
+  },
+  "sectionHeaders": {
+    "municipalRegistration": "Details as per Municipal Corp. Registration",
+    "newSurvey": "Details as per New Survey",
+    "taxDetails": "Tax Details & Reassessment Summary"
+  },
+  "floorDetails": {
+    "oldTitle": "Old Floor Details",
+    "newTitle": "New Floor Details",
+    "columns": {
+      "floor": "Floor",
+      "type": "Type",
+      "conYear": "Con Year",
+      "asstYear": "Asst Year",
+      "constType": "Const Type",
+      "use": "Use",
+      "carpetArea": "Carpet Area",
+      "carpetAreaSqFt": "Carpet Area (sq ft)",
+      "carpetAreaSqM": "Carpet Area (sq m)",
+      "carpetAreaSqFtM": "Carpet Area (sq ft / sq m)",
+      "builtUpArea": "Built-up Area",
+      "builtUpAreaSqFt": "Built-up Area (sq ft)",
+      "builtUpAreaSqM": "Built-up Area (sq m)",
+      "builtUpAreaSqFtM": "Built-up Area (sq ft / sq m)",
+      "rate": "Rate",
+      "yearlyRate": "Yearly Rate",
+      "rateYearlyRate": "Rate (Monthly/Yearly)",
+      "financialYear": "Fin Year",
+      "renter": "Renter",
+      "isRenter": "Rented",
+      "renterName": "Renter Name",
+      "taxLiability": "Tax Liability",
+      "rentMy": "Rent M/Y",
+      "rentMonthly": "Monthly Rent",
+      "finalYearlyRent": "Final Yearly Rent",
+      "rentalValue": "Rental Value",
+      "depreciation": "Depreciation",
+      "alv": "ALV",
+      "mr": "M&R",
+      "maintenance": "Maintenance",
+      "rv": "RV",
+      "ocCertificateNo": "OC No",
+      "ocCertificateIssueDate": "OC Date",
+      "ccCertificateNo": "CC No",
+      "ccCertificateIssueDate": "CC Date",
+      "yearlyRent": "Yearly Rent",
+      "status": "Status"
+    },
+    "statuses": {
+      "unchanged": "Unchanged",
+      "added": "Added",
+      "removed": "Removed"
+    },
+    "values": {
+      "yes": "Yes",
+      "no": "No",
+      "selfOccupied": "Self Occupied"
+    }
+  },
+  "buttons": {
+    "retrospectiveDetails": "Retrospective Details",
+    "section129": "Section 129 Progressive Calc",
+    "startAutoScroll": "Start Auto Scroll",
+    "stopAutoScroll": "Stop Auto Scroll",
+    "close": "Close"
+  },
+  "taxDetails": {
+    "taxes": "Taxes",
+    "totalTax": "Total Tax"
+  },
+  "summaryCards": {
+    "oldLabel": "Old",
+    "newLabel": "New",
+    "carpetAreaLabel": "Built-up Area",
+    "typeOfUseLabel": "Change of Use",
+    "rateableValueLabel": "RV",
+    "totalTaxLabel": "Tax",
+    "units": {
+      "sqM": "m²",
+      "type": "Type",
+      "rupees": "₹"
+    },
+    "changedStatus": "CHANGED",
+    "sameStatus": "-"
+  },
+  "retrospectiveModal": {
+    "title": "Retrospective Tax Details",
+    "subtitle": "Historical tax assessment data",
+    "columns": {
+      "financeYear": "Finance Year",
+      "days": "Days",
+      "total": "Total"
+    },
+    "noData": "No retrospective tax data available."
+  },
+  "section129Modal": {
+    "title": "Section 129 Year Wise Progressive Tax Calculation",
+    "subtitle": "Tax progression by financial year",
+    "note": "Year-wise progressive tax calculation as per Section 129",
+    "columns": {
+      "year": "Year",
+      "applicablePct": "Applicable %",
+      "generalTax": "General Tax",
+      "waterTax": "Water Tax",
+      "educationTax": "Education Tax",
+      "fireTax": "Fire Tax",
+      "totalTax": "Total Tax",
+      "remark": "Remark"
+    },
+    "remarks": {
+      "noChange": "No Change",
+      "regular": "Regular Municipal Tax",
+      "municipalTaxApplied": "% Municipal Tax Applied"
+    },
+    "applicablePct": {
+      "asPerGramPanchayat": "As Per Gram Panchayat"
+    }
+  },
+  "noDataAvailable": "No reassessment data available"
+}

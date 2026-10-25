@@ -1,0 +1,112 @@
+{
+  "list": {
+    "title": "Geography Unit Master",
+    "subtitle": "Manage geography units and their hierarchy (zones, wards, localities)",
+    "buttons": {
+      "add": "Add Geography Unit",
+      "edit": "Edit",
+      "delete": "Delete",
+      "viewTree": "View Tree"
+    },
+    "filters": {
+      "show": "Show",
+      "search": "Search by Unit Code or Unit Name..."
+    },
+    "table": {
+      "unitCode": "Geography Unit Code",
+      "unitName": "Geography Unit Name",
+      "geographyType": "Geography Type",
+      "parentUnit": "Parent Geography Unit",
+      "searchSequence": "Search Sequence",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "pagination": {
+      "showing": "Showing",
+      "entries": "entries"
+    }
+  },
+  "form": {
+    "addTitle": "Add Geography Unit",
+    "editTitle": "Edit Geography Unit",
+    "subtitle": "Create new geography unit",
+    "editSubtitle": "Update geography unit details",
+    "fields": {
+      "geographyType": {
+        "label": "Geography Type",
+        "placeholder": "Select geography type"
+      },
+      "parentUnit": {
+        "label": "Parent Geography Unit",
+        "placeholder": "Select parent unit (optional)"
+      },
+      "unitCode": {
+        "label": "Geography Unit Code",
+        "placeholder": "e.g. ZONE-1"
+      },
+      "unitName": {
+        "label": "Geography Unit Name",
+        "placeholder": "e.g. Zone 1"
+      },
+      "searchSequence": {
+        "label": "Search Sequence"
+      }
+    },
+    "validation": {
+      "geographyTypeRequired": "Geography type is required",
+      "unitCodeRequired": "Geography unit code is required",
+      "unitCodeMaxLength": "Maximum length is 20 characters",
+      "unitCodeFormat": "Use only English letters, numbers, and underscores (_). The code cannot start or end with an underscore.",
+      "unitNameRequired": "Geography unit name is required",
+      "unitNameMaxLength": "Maximum length is 100 characters",
+      "unitNameFormat": "Only letters (any language), numbers, spaces, and basic punctuation allowed (,./-()).",
+      "sequenceInvalid": "Search sequence must be 0 or greater",
+      "mustBeActive": "Geography unit must be active to save",
+      "unitCodeNumbersOnlyNotAllowed": "Please enter a valid unit code containing at least one alphabet.",
+      "unitNameNumbersOnlyNotAllowed": "Please enter a valid unit name containing at least one alphabet."
+    },
+    "status": {
+      "label": "Active Status",
+      "description": "Geography unit is currently"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "save": "Save",
+      "update": "Update"
+    }
+  },
+  "delete": {
+    "confirmTitle": "Delete Geography Unit?",
+    "confirmDescription": "Are you sure you want to delete this geography unit record?",
+    "successMessage": "Geography unit deleted successfully",
+    "errorMessage": "Cannot delete geography unit because it is linked to other records."
+  },
+  "apiErrors": {
+    "duplicateRecord": "Please check Unit Code and Unit Name - duplicates not allowed.",
+    "validationError": "Invalid data provided. Please check all fields.",
+    "invalidData": "Invalid data provided. Please check all fields.",
+    "notFound": "Geography unit not found.",
+    "inUse": "Cannot deactivate/delete this geography unit because it is referenced in other records.",
+    "operationFailed": "Operation failed. Please try again later."
+  },
+  "success": {
+    "created": "New geography unit created successfully with code: {code}",
+    "updated": "Geography unit updated successfully with code: {code}",
+    "deleted": "Geography unit deleted successfully with code: {code}"
+  },
+  "error": {
+    "title": "Failed to connect server. Please try again later.",
+    "description": "We encountered an error while loading the geography unit page. Please try again.",
+    "tryAgain": "Try Again",
+    "goHome": "Go to Home",
+    "errorId": "Error ID: {id}"
+  },
+  "loading": {
+    "message": "Loading Geography Unit...",
+    "description": "Please wait while we fetch the geography unit data"
+  }
+}

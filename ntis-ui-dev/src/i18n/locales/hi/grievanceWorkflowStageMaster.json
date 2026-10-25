@@ -1,0 +1,133 @@
+{
+  "title": "शिकायत कार्यप्रवाह चरण",
+  "subtitle": "ULB प्रकार के अनुसार शिकायत कार्यप्रवाह चरणों को प्रबंधित करें",
+  "searchPlaceholder": "शिकायत कार्यप्रवाह चरण रिकॉर्ड खोजें...",
+  "add": "कार्यप्रवाह चरण जोड़ें",
+  "edit": "चरण संपादित करें",
+  "delete": "चरण हटाएं",
+  "actions": "कार्रवाई",
+  "ulbTypeId": "ULB प्रकार आईडी",
+  "ulbTypeName": "ULB प्रकार",
+  "stageCode": "चरण कोड",
+  "stageName": "चरण नाम",
+  "stageNameLocal": "चरण नाम (स्थानीय)",
+  "stageOrder": "चरण क्रम",
+  "workflowStatus": "कार्यप्रवाह स्थिति",
+  "activeStatus": "सक्रिय स्थिति",
+  "description": "विवरण",
+  "form": {
+    "addTitle": "नया कार्यप्रवाह चरण जोड़ें",
+    "editTitle": "कार्यप्रवाह चरण संपादित करें",
+    "addSubtitle": "नया शिकायत कार्यप्रवाह चरण कॉन्फ़िगर करें",
+    "editSubtitle": "शिकायत कार्यप्रवाह चरण कॉन्फ़िगरेशन अद्यतन करें",
+    "subtitle": "नया शिकायत कार्यप्रवाह चरण कॉन्फ़िगर करें",
+    "actions": {
+      "save": "चरण बनाएं",
+      "update": "चरण अद्यतन करें",
+      "cancel": "रद्द करें"
+    },
+    "fields": {
+      "ulbTypeId": {
+        "label": "ULB प्रकार",
+        "placeholder": "ULB प्रकार चुनें"
+      },
+      "stageCode": {
+        "label": "चरण कोड",
+        "placeholder": "उदा. CORRECTION / VERIFICATION"
+      },
+      "stageName": {
+        "label": "चरण नाम",
+        "placeholder": "उदा. Verification Stage"
+      },
+      "stageNameLocal": {
+        "label": "चरण नाम (स्थानीय)",
+        "placeholder": "उदा. सत्यापन चरण"
+      },
+      "stageOrder": {
+        "label": "चरण क्रम",
+        "placeholder": "उदा. 1"
+      },
+      "status": {
+        "label": "कार्यप्रवाह स्थिति",
+        "placeholder": "उदा. IN REVIEW या SUBMITTED"
+      },
+      "description": {
+        "label": "विवरण",
+        "placeholder": "इस कार्यप्रवाह चरण का विवरण"
+      }
+    },
+    "status": {
+      "label": "सक्रिय स्थिति",
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय",
+      "description": "कार्यप्रवाह चरण वर्तमान में"
+    },
+    "validation": {
+      "ulbTypeIdRequired": "ULB प्रकार आवश्यक है",
+      "stageCodeRequired": "चरण कोड आवश्यक है",
+      "stageCodeFormat": "चरण कोड में केवल अक्षर, संख्याएं और अंडरस्कोर हो सकते हैं",
+      "stageCodeMaxLength": "चरण कोड {count} वर्णों से अधिक नहीं हो सकता",
+      "stageNameRequired": "चरण नाम आवश्यक है",
+      "stageNameMaxLength": "चरण नाम {count} वर्णों से अधिक नहीं हो सकता",
+      "stageNameFormat": "चरण नाम में केवल अक्षर और रिक्त स्थान हो सकते हैं",
+      "stageNameLocalMaxLength": "स्थानीय चरण नाम {count} वर्णों से अधिक नहीं हो सकता",
+      "stageNameLocalFormat": "स्थानीय चरण नाम में केवल अक्षर और रिक्त स्थान हो सकते हैं",
+      "stageOrderRequired": "चरण क्रम आवश्यक है",
+      "stageOrderInvalid": "चरण क्रम एक धनात्मक संख्या होनी चाहिए",
+      "stageOrderMax": "चरण क्रम {count} से अधिक नहीं हो सकता",
+      "statusRequired": "स्थिति आवश्यक है",
+      "statusFormat": "स्थिति में केवल अक्षर और रिक्त स्थान हो सकते हैं",
+      "statusMaxLength": "स्थिति {count} वर्णों से अधिक नहीं हो सकती",
+      "descriptionMaxLength": "विवरण {count} वर्णों से अधिक नहीं हो सकता",
+      "descriptionFormat": "विवरण के लिए अमान्य प्रारूप",
+      "invalidFormat": "अमान्य प्रारूप",
+      "fixErrors": "कृपया सत्यापन त्रुटियों को ठीक करें",
+      "mandatoryNotice": "<b>*</b> से चिन्हित फ़ील्ड अनिवार्य हैं",
+      "mandatoryNoticePlain": "* से चिन्हित फ़ील्ड अनिवार्य हैं",
+      "stageCodeDuplicate": "चरण कोड पहले से मौजूद है",
+      "stageNameDuplicate": "चरण नाम पहले से मौजूद है",
+      "stageOrderDuplicate": "चरण क्रम पहले से मौजूद है",
+      "stageCodeAndStageOrderDuplicate": "चरण कोड और चरण क्रम पहले से मौजूद हैं",
+      "stageCodeAndStageNameDuplicate": "चरण कोड और चरण नाम पहले से मौजूद हैं",
+      "stageNameAndStageOrderDuplicate": "चरण नाम और चरण क्रम पहले से मौजूद हैं",
+      "stageAllDuplicate": "चरण कोड, चरण नाम और चरण क्रम पहले से मौजूद हैं",
+      "duplicate": "चरण कोड पहले से मौजूद है"
+    },
+    "messages": {
+      "createSuccess": "शिकायत कार्यप्रवाह चरण सफलतापूर्वक बनाया गया",
+      "updateSuccess": "शिकायत कार्यप्रवाह चरण सफलतापूर्वक अद्यतन किया गया",
+      "deleteSuccess": "शिकायत कार्यप्रवाह चरण सफलतापूर्वक हटाया गया",
+      "error": "शिकायत कार्यप्रवाह चरण सहेजने में असमर्थ",
+      "duplicate": "यह कार्यप्रवाह चरण पहले से मौजूद है"
+    }
+  },
+  "apiErrors": {
+    "GrievanceWorkflowStage_StageCode_Duplicate": "चरण कोड पहले से मौजूद है",
+    "GrievanceWorkflowStage_StageName_Duplicate": "चरण नाम पहले से मौजूद है",
+    "GrievanceWorkflowStage_StageOrder_Duplicate": "चरण क्रम पहले से मौजूद है",
+    "GrievanceWorkflowStage_InvalidUlbTypeId": "अमान्य ULB प्रकार चुना गया",
+    "GrievanceWorkflowStage_Status_MaxLen_50": "स्थिति 50 वर्णों से अधिक नहीं हो सकती",
+    "deleteBlockedInUse": "यह कार्यप्रवाह चरण उपयोग में है, इसलिए इसे हटाया नहीं जा सकता।",
+    "deactivateBlockedInUse": "यह कार्यप्रवाह चरण उपयोग में है, इसलिए इसे निष्क्रिय नहीं किया जा सकता।",
+    "referenceBlocked": {
+      "workflowStage": {
+        "deleteInUse": "यह शिकायत कार्यप्रवाह चरण उपयोग में है, इसलिए इसे हटाया नहीं जा सकता।",
+        "deactivateInUse": "यह शिकायत कार्यप्रवाह चरण उपयोग में है, इसलिए इसे निष्क्रिय नहीं किया जा सकता।",
+        "deleteHasMasters": "इस शिकायत कार्यप्रवाह चरण में {masters} है, इसलिए इसे हटाया नहीं जा सकता। कृपया पहले इस शिकायत कार्यप्रवाह चरण के सभी {masters} हटाएं।",
+        "deactivateHasMasters": "इस शिकायत कार्यप्रवाह चरण में {masters} है, इसलिए इसे निष्क्रिय नहीं किया जा सकता। कृपया पहले इस शिकायत कार्यप्रवाह चरण के सभी {masters} हटाएं।"
+      }
+    },
+    "referenceMasters": {
+      "stageAccessControl": "चरण पहुँच नियंत्रण",
+      "and": "और"
+    }
+  },
+  "deleteConfirm": "क्या आप निश्चित रूप से इस कार्यप्रवाह चरण रिकॉर्ड को हटाना चाहते हैं?",
+  "error": {
+    "title": "सर्वर से कनेक्ट करने में विफल। कृपया बाद में पुनः प्रयास करें।",
+    "description": "शिकायत कार्यप्रवाह चरण पृष्ठ लोड करते समय हमें एक त्रुटि का सामना करना पड़ा। कृपया पुनः प्रयास करें।",
+    "tryAgain": "पुनः प्रयास करें",
+    "goHome": "होम पर जाएं",
+    "errorId": "त्रुटि आईडी: {id}"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "weightageMaster": {
+    "defaults": {
+      "floor": "मजला",
+      "assessment": "मूल्यांकन"
+    },
+    "title": "भारांकन मास्टर",
+    "subtitle": "CV गणना भारांकन घटक कॉन्फिगर करा",
+    "tabs": {
+      "floor": "{floor} भारांकन",
+      "nature": "इमारतीचा प्रकार आणि स्वरूप",
+      "subType": "वापर श्रेणी",
+      "age": "इमारतीचे वय"
+    },
+    "common": {
+      "buttons": {
+        "create": "तयार करा",
+        "update": "अद्यतनित करा",
+        "apply": "लागू करा",
+        "clear": "साफ करा",
+        "generateAll": "सर्व तयार करा",
+        "generating": "तयार होत आहे...",
+        "updating": "अद्यतनित होत आहे...",
+        "cancel": "रद्द करा",
+        "add": "जोडा"
+      },
+      "labels": {
+        "active": "सक्रिय",
+        "inactive": "निष्क्रिय",
+        "assessmentYear": "{assessment} वर्ष",
+        "status": "स्थिती",
+        "statusCurrently": "{name} सध्या {status} आहे",
+        "pendingRecordCreates": "{count} प्रलंबित नोंदी तयार करणे"
+      },
+      "placeholders": {
+        "selectAssessmentYear": "{assessment} वर्ष निवडा"
+      },
+      "messages": {
+        "createRecordFirst": "संपादन किंवा हटवण्यापूर्वी कृपया प्रथम नोंद तयार करा.",
+        "pendingRecordsWarning": "प्रलंबित नोंदी आहेत. कृपया सर्व तयार करा बटणावर क्लिक करा.",
+        "negativeValuesNotAllowed": "ऋण मूल्यांना परवानगी नाही",
+        "valueExceedsMax": "मूल्य 999.99 पेक्षा जास्त असू शकत नाही",
+        "factorPercentageExceedsMax": "फॅक्टर/टक्केवारी मूल्य 0 ते 100 दरम्यान असणे आवश्यक आहे",
+        "noChangesToUpdate": "या ओळीसाठी अद्यतनित करण्यासाठी कोणतेही बदल नाहीत",
+        "noChangesDetected": "या ओळीसाठी कोणतेही बदल आढळले नाहीत",
+        "recordCreatedSuccess": "नोंद यशस्वीरित्या तयार केली",
+        "recordUpdatedSuccess": "नोंद यशस्वीरित्या अद्यतनित केली",
+        "createFailed": "तयार करणे अयशस्वी",
+        "updateFailed": "अद्यतनित करणे अयशस्वी",
+        "failedToSaveRow": "ओळ अद्यतनित करण्यात अयशस्वी. कृपया पुन्हा प्रयत्न करा.",
+        "changesDiscarded": "या ओळीसाठी बदल रद्द केले",
+        "assessmentYearRequired": "मोठ्या प्रमाणात घटक लागू करण्यापूर्वी कृपया {assessment} वर्ष निवडा",
+        "validFactorRequired": "कृपया 0.1 ते 100 दरम्यान वैध घटक मूल्य प्रविष्ट करा",
+        "inactiveRecordNotEditable": "ही नोंद निष्क्रिय आहे. फॅक्टर संपादित करण्यासाठी ते सक्रिय वर सेट करा.",
+        "negativeFactorsNotAllowed": "ऋण घटकांना परवानगी नाही",
+        "factorApplied": "{count} नोंदी(नोंदींना) घटक {factor} लागू केला",
+        "noRecordsMatch": "निवडलेल्या निकषांशी कोणतीही नोंद जुळत नाही",
+        "noRecordsToUpdate": "अद्यतनित करण्यासाठी कोणत्याही नोंदी नाहीत",
+        "bulkOperationSuccess": "यशस्वीरित्या {message}",
+        "bulkOperationPartialSuccess": "{message}",
+        "bulkOperationFailed": "नोंदी प्रक्रिया करण्यात अयशस्वी. तपासा.",
+        "noChangesDetectedBulk": "कोणतेही बदल आढळले नाहीत",
+        "bulkActionFailed": "मोठ्या प्रमाणात कृती अयशस्वी. कृपया पुन्हा प्रयत्न करा.",
+        "recordsGeneratedSuccess": "यशस्वीरित्या {count} नोंदी तयार केल्या",
+        "generationFailed": "नोंदी तयार करण्यात अयशस्वी",
+        "generateAllFailed": "सर्व तयार करणे अयशस्वी. कृपया पुन्हा प्रयत्न करा.",
+        "allClearedInfo": "सर्व बदल आणि फिल्टर साफ केले",
+        "allRecordsExist": "सध्याच्या निवडींसाठी सर्व नोंदी आधीच अस्तित्वात आहेत",
+        "created": "तयार केले",
+        "updated": "अद्यतनित केले",
+        "failed": "अयशस्वी"
+      }
+    },
+    "error": {
+      "title": "सर्व्हरशी कनेक्ट करता आले नाही. कृपया नंतर पुन्हा प्रयत्न करा.",
+      "description": "भारांकन मास्टर पेज लोड करताना आम्हाला त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+      "tryAgain": "पुन्हा प्रयत्न करा",
+      "goHome": "होमवर जा",
+      "errorId": "त्रुटी आयडी: {id}"
+    },
+    "loading": {
+      "message": "भारांकन मास्टर लोड होत आहे...",
+      "description": "आम्ही भारांकन घटक डेटा मिळवत असताना कृपया प्रतीक्षा करा"
+    }
+  }
+}

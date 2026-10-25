@@ -1,0 +1,19 @@
+using NtisPlatform.Application.DTOs.Queries;
+
+namespace NtisPlatform.Application.DTOs.Property;
+
+/// <summary>
+/// Query parameters for GET /api/property/get-properties endpoint
+/// </summary>
+public class GetPropertiesQueryParameters : BaseQueryParameters
+{
+    public string WardNo { get; set; } = string.Empty;
+    public string? FromPropertyNo { get; set; }
+    public string? ToPropertyNo { get; set; }
+    public string? PartitionNo { get; set; }
+    public string Flag { get; set; } = string.Empty;
+    public int UserId { get; set; }
+    public bool Apartment { get; set; } = false;
+    public string? SearchText { get; set; }
+    public bool? IsVirtualProperty { get; set; }
+}

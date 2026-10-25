@@ -1,0 +1,91 @@
+{
+  "currency": {
+    "crore": "{val} Cr",
+    "lakh": "{val} Lakh",
+    "thousand": "{val} K",
+    "symbol": "₹ "
+  },
+  "title": "Revenue Management Dashboard",
+  "subtitle": "Asset Distribution & Revenue Overview - {year}",
+  "loading": {
+    "message": "Loading revenue dashboard",
+    "description": "Fetching demand and collection figures..."
+  },
+  "errors": {
+    "loadFailed": "Unable to load revenue data. Please try again."
+  },
+  "summary": {
+    "leasedAssets": "Total Leased Assets",
+    "leasedAssetsSub": "Properties under lease/rent",
+    "totalDemand": "Total Demand",
+    "totalDemandSub": "Monthly revenue target",
+    "totalCollection": "Total Collection",
+    "collectionRate": "{rate} collection rate"
+  },
+  "distribution": {
+    "title": "Asset Distribution by Category",
+    "empty": "No category data available."
+  },
+  "cards": {
+    "demand": "Total Demand",
+    "collected": "Collected",
+    "lease": "Lease",
+    "rent": "Rent",
+    "paid": "Paid",
+    "unpaid": "Unpaid"
+  },
+  "trend": {
+    "title": "Monthly Revenue Collection Trend",
+    "collected": "Collected",
+    "pending": "Pending"
+  },
+  "zones": {
+    "title": "Zone-wise Demand & Collection",
+    "totalDemand": "Total Demand"
+  },
+  "filters": {
+    "label": "Filters",
+    "allZones": "All Zones",
+    "allWards": "All Wards",
+    "zone": "Zone",
+    "ward": "Ward",
+    "type": "Type",
+    "status": "Status",
+    "allTypes": "All Types",
+    "allStatuses": "All Status"
+  },
+  "records": {
+    "allCategories": "All Categories",
+    "allCategoriesCount": "{count} assets",
+    "backToDashboard": "Back to Dashboard",
+    "totalLeasedAssets": "Total Leased Assets",
+    "assetCategories": "Asset Categories",
+    "subtitle": "View all assets in {name}",
+    "searchPlaceholder": "Search by asset, tenant...",
+    "total": "Total Assets",
+    "collected": "Total Collection",
+    "pending": "Total Pending",
+    "statusPaid": "Paid",
+    "statusUnpaid": "Unpaid",
+    "empty": "No assets found matching your filters",
+    "showing": "Showing {from}-{to} of {total} assets",
+    "previous": "Previous",
+    "next": "Next",
+    "cols": {
+      "srNo": "Sr. No",
+      "assetId": "Asset ID",
+      "assetName": "Asset Name",
+      "zone": "Zone",
+      "ward": "Ward",
+      "leaseType": "Lease Type",
+      "tenant": "Tenant",
+      "status": "Status",
+      "rent": "Rent"
+    }
+  },
+  "format": {
+    "currencyPrefix": "₹",
+    "lakhsSuffix": "L",
+    "croresSuffix": "Cr"
+  }
+}

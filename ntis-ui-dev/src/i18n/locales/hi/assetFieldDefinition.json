@@ -1,0 +1,178 @@
+{
+  "list": {
+    "title": "एसेट फ़ील्ड परिभाषा मास्टर",
+    "subtitle": "एसेट श्रेणियों और प्रकारों के लिए फ़ील्ड परिभाषाएं प्रबंधित करें",
+    "buttons": {
+      "add": "फ़ील्ड परिभाषा जोड़ें",
+      "edit": "संपादित करें",
+      "delete": "हटाएं"
+    },
+    "filters": {
+      "show": "दिखाएं",
+      "search": "फ़ील्ड कोड, नाम या लेबल से खोजें..."
+    },
+    "table": {
+      "fieldCode": "फ़ील्ड कोड",
+      "fieldName": "फ़ील्ड नाम",
+      "fieldLabel": "फ़ील्ड लेबल",
+      "fieldType": "फ़ील्ड प्रकार",
+      "fieldGroup": "फ़ील्ड समूह",
+      "assetCategoryAndType": "संपत्ति श्रेणी / प्रकार",
+      "isRequired": "आवश्यक है क्या",
+      "displayOrder": "प्रदर्शन क्रम",
+      "viewOptions": "विकल्प देखें",
+      "status": "स्थिति",
+      "actions": "कार्रवाई"
+    },
+    "status": {
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय"
+    }
+  },
+  "errors": {
+    "duplicateFieldCode": "इस संपत्ति श्रेणी और प्रकार के लिए फ़ील्ड कोड पहले से मौजूद है",
+    "duplicateFieldName": "इस संपत्ति श्रेणी और प्रकार के लिए फ़ील्ड नाम पहले से मौजूद है",
+    "duplicate": "इस संपत्ति श्रेणी और प्रकार के लिए फ़ील्ड परिभाषा पहले से मौजूद है"
+  },
+  "optionsDrawer": {
+    "title": "फ़ील्ड विकल्प",
+    "subtitle": "इस फ़ील्ड के लिए कॉन्फ़िगर किए गए विकल्प",
+    "seqNo": "क्र.",
+    "optionValue": "विकल्प मान",
+    "totalOptions": "कुल विकल्प",
+    "noOptions": "इस फ़ील्ड के लिए कोई विकल्प उपलब्ध नहीं है"
+  },
+  "form": {
+    "addTitle": "एसेट फ़ील्ड परिभाषा जोड़ें",
+    "editTitle": "एसेट फ़ील्ड परिभाषा संपादित करें",
+    "subtitle": "नया डायनेमिक फ़ील्ड गुण परिभाषित करें",
+    "editSubtitle": "फ़ील्ड परिभाषा विवरण अपडेट करें",
+    "sections": {
+      "generalConfig": "सामान्य कॉन्फ़िगरेशन",
+      "scopeAndCategory": "दायरा और श्रेणी"
+    },
+    "fields": {
+      "fieldCode": {
+        "label": "फ़ील्ड कोड",
+        "placeholder": "उदा. TOTAL_FLOORS"
+      },
+      "fieldName": {
+        "label": "फ़ील्ड नाम",
+        "placeholder": "उदा. कुल मंजिलें"
+      },
+      "fieldLabel": {
+        "label": "फ़ील्ड लेबल",
+        "placeholder": "उदा. मंजिलों की संख्या"
+      },
+      "fieldType": {
+        "label": "फ़ील्ड प्रकार",
+        "placeholder": "फ़ील्ड प्रकार चुनें"
+      },
+      "fieldTypeOptions": {
+        "text": "टेक्स्ट इनपुट",
+        "textarea": "टेक्स्ट एरिया",
+        "number": "नंबर इनपुट",
+        "date": "दिनांक चयनकर्ता",
+        "radio": "रेडियो बटन",
+        "checkbox": "चेकबॉक्स",
+        "select": "चुनें / ड्रॉपडाउन"
+      },
+      "fieldOptions": {
+        "label": "विकल्प (कॉमा द्वारा अलग किए गए)",
+        "placeholder": "उदा. हाँ, नहीं, शायद",
+        "description": "अपने इच्छित प्रदर्शन क्रम में कॉमा द्वारा अलग किए गए विकल्प दर्ज करें"
+      },
+      "fieldGroup": {
+        "label": "फ़ील्ड समूह",
+        "placeholder": "उदा. भवन विनिर्देश"
+      },
+      "fieldGroupSelectLabel": "समूह चुनें",
+      "fieldGroupSelectPlaceholder": "मौजूदा समूह चुनें...",
+      "displayOrder": {
+        "label": "प्रदर्शन क्रम"
+      },
+      "assetCategoryId": {
+        "label": "संपत्ति श्रेणी",
+        "placeholder": "संपत्ति श्रेणी चुनें"
+      },
+      "assetTypeId": {
+        "label": "संपत्ति प्रकार",
+        "placeholder": "संपत्ति प्रकार चुनें"
+      },
+      "isRequired": {
+        "label": "फ़ील्ड आवश्यक है क्या",
+        "description": "डेटा प्रविष्टि के दौरान यह फ़ील्ड अनिवार्य होने पर चुनें"
+      }
+    },
+    "validation": {
+      "fieldCodeRequired": "फ़ील्ड कोड आवश्यक है",
+      "fieldCodeMaxLength": "अधिकतम लंबाई {count} वर्ण है",
+      "fieldCodeAllZeros": "फ़ील्ड कोड पूरी तरह से शून्य नहीं हो सकता",
+      "fieldCodeFormat": "केवल अक्षरांकी वर्ण और अंडरस्कोर की अनुमति है",
+      "fieldNameRequired": "फ़ील्ड नाम आवश्यक है",
+      "fieldNameMaxLength": "अधिकतम लंबाई 100 वर्ण है",
+      "fieldNameAllZeros": "फ़ील्ड नाम पूरी तरह से शून्य नहीं हो सकता",
+      "fieldNameFormat": "फ़ील्ड नाम में केवल अक्षर और स्थान ही होने चाहिए",
+      "fieldLabelRequired": "फ़ील्ड लेबल आवश्यक है",
+      "fieldLabelMaxLength": "अधिकतम लंबाई 100 वर्ण है",
+      "fieldLabelAllZeros": "फ़ील्ड लेबल पूरी तरह से शून्य नहीं हो सकता",
+      "fieldLabelFormat": "फ़ील्ड लेबल में केवल अक्षर और स्थान ही होने चाहिए",
+      "fieldGroupRequired": "फ़ील्ड समूह आवश्यक है",
+      "fieldGroupMaxLength": "अधिकतम लंबाई 100 वर्ण है",
+      "fieldGroupAllZeros": "फ़ील्ड समूह पूरी तरह से शून्य नहीं हो सकता",
+      "fieldGroupFormat": "फ़ील्ड समूह में केवल अक्षर और स्थान ही होने चाहिए",
+      "fieldTypeRequired": "फ़ील्ड प्रकार आवश्यक है",
+      "optionsJsonRequired": "चेकबॉक्स, रेडियो और चयन फ़ील्ड प्रकारों के लिए विकल्प आवश्यक हैं",
+      "optionsJsonMaxLength": "विकल्पों के लिए अधिकतम लंबाई {count} वर्ण है",
+      "optionsJsonFormat": "विकल्प कॉमा द्वारा अलग किए गए अक्षर या संख्याएं होने चाहिए (उदा. Male, Female)",
+      "displayOrderInvalid": "प्रदर्शन क्रम 0 से अधिक होना चाहिए",
+      "displayOrderRequired": "प्रदर्शन क्रम आवश्यक है",
+      "mustBeActive": "सहेजने के लिए फ़ील्ड परिभाषा सक्रिय होनी चाहिए",
+      "assetCategoryRequired": "संपत्ति श्रेणी आवश्यक है",
+      "assetTypeRequired": "संपत्ति प्रकार आवश्यक है"
+    },
+    "status": {
+      "label": "सक्रिय स्थिति",
+      "description": "फ़ील्ड परिभाषा वर्तमान में है"
+    },
+    "actions": {
+      "cancel": "रद्द करें",
+      "save": "सहेजें",
+      "update": "अपडेट करें"
+    }
+  },
+  "delete": {
+    "confirmDescription": "क्या आप वाकई इस फ़ील्ड परिभाषा को हटाना चाहते हैं?"
+  },
+  "apiErrors": {
+    "duplicateRecord": "कृपया फ़ील्ड कोड की जांच करें - डुप्लिकेट की अनुमति नहीं है।",
+    "AssetFieldDefinition_FieldCode_Duplicate": "फ़ील्ड कोड पहले से मौजूद है",
+    "AssetFieldDefinition_FieldCode_Invalid": "फ़ील्ड कोड में अमान्य वर्ण हैं",
+    "notFound": "फ़ील्ड परिभाषा नहीं मिली।",
+    "operationFailed": "ऑपरेशन विफल रहा। कृपया बाद में पुनः प्रयास करें।",
+    "referenceBlocked": {
+      "assetFieldDefinition": {
+        "deleteInUse": "इस एसेट फ़ील्ड परिभाषा को हटाया नहीं जा सकता क्योंकि यह उपयोग में है।",
+        "deactivateInUse": "इस एसेट फ़ील्ड परिभाषा को निष्क्रिय नहीं किया जा सकता क्योंकि यह उपयोग में है।"
+      }
+    }
+  },
+  "success": {
+    "created": "नई फ़ील्ड परिभाषा सफलतापूर्वक बनाई गई: {code}",
+    "updated": "फ़ील्ड परिभाषा सफलतापूर्वक अपडेट की गई: {code}",
+    "deleted": "फ़ील्ड परिभाषा सफलतापूर्वक हटा दी गई: {code}"
+  },
+  "loading": {
+    "message": "फ़ील्ड परिभाषा डेटा लोड हो रहा है...",
+    "description": "कृपया विवरण लोड होने तक प्रतीक्षा करें"
+  },
+  "error": {
+    "title": "फ़ील्ड परिभाषा डेटा लोड करने में विफल",
+    "description": "विवरण लोड करते समय त्रुटि आई। कृपया पुनः प्रयास करें।",
+    "errorId": "त्रुटि आईडी: {id}",
+    "goHome": "होम पर जाएं",
+    "tryAgain": "पुनः प्रयास करें"
+  },
+  "yes": "हाँ",
+  "no": "नहीं"
+}

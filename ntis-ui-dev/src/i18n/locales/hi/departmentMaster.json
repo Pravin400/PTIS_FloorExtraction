@@ -1,0 +1,70 @@
+{
+  "title": "विभाग मास्टर",
+  "subtitle": "अनुप्रयोग विभागों और उनके पदानुक्रमित कॉन्फ़िगरेशन को प्रबंधित करें",
+  "list": {
+    "title": "विभाग मास्टर",
+    "subtitle": "अनुप्रयोग विभागों और उनके पदानुक्रमित कॉन्फ़िगरेशन को प्रबंधित करें",
+    "buttons": {
+      "add": "विभाग जोड़ें",
+      "edit": "संपादित करें",
+      "delete": "हटाएं"
+    },
+    "filters": {
+      "show": "दिखाएं",
+      "searchPlaceholder": "विभाग कोड या नाम से खोजें...",
+      "allStatus": "सभी स्थिति",
+      "status": "स्थिति चुनें"
+    },
+    "table": {
+      "departmentCode": "विभाग कोड",
+      "departmentName": "विभाग का नाम",
+      "departmentNameLocal": "स्थानीय नाम",
+      "departmentDescription": "विवरण",
+      "status": "स्थिति",
+      "actions": "कार्य"
+    }
+  },
+  "form": {
+    "title": {
+      "add": "नया विभाग जोड़ें",
+      "edit": "विभाग संपादित करें"
+    },
+    "subtitle": {
+      "add": "नए विभाग का विवरण कॉन्फ़िगर करें",
+      "edit": "मौजूदा विभाग कॉन्फ़िगरेशन अपडेट करें"
+    },
+    "fields": {
+      "departmentCode": "विभाग कोड",
+      "departmentCodePlaceholder": "विभाग कोड दर्ज करें",
+      "departmentName": "विभाग का नाम",
+      "departmentNamePlaceholder": "विभाग का नाम दर्ज करें",
+      "departmentNameLocal": "स्थानीय नाम",
+      "departmentNameLocalPlaceholder": "स्थानीय नाम दर्ज करें",
+      "departmentIcon": "आइकन वर्ग",
+      "departmentIconPlaceholder": "जैसे briefcase, home",
+      "departmentDescription": "विवरण",
+      "departmentDescriptionPlaceholder": "विभाग विवरण दर्ज करें",
+      "isActive": "सक्रिय है",
+      "statusText": "विभाग वर्तमान में {status} है"
+    },
+    "buttons": {
+      "add": "विभाग जोड़ें",
+      "save": "विभाग बनाएं",
+      "cancel": "रद्द करें",
+      "update": "विभाग अपडेट करें"
+    }
+  },
+  "delete": {
+    "confirmDescription": "क्या आप वाकई इस विभाग को हटाना चाहते हैं? इस कार्रवाई को पूर्ववत नहीं किया जा सकता।"
+  },
+  "stats": {
+    "total": "कुल विभाग",
+    "active": "सक्रिय",
+    "inactive": "निष्क्रिय"
+  },
+  "success": {
+    "created": "विभाग सफलतापूर्वक बनाया गया",
+    "updated": "विभाग सफलतापूर्वक अपडेट किया गया",
+    "deleted": "विभाग सफलतापूर्वक हटा दिया गया"
+  }
+}

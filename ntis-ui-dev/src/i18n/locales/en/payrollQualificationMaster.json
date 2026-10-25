@@ -1,0 +1,99 @@
+{
+  "title": "Qualification Master",
+  "subtitle": "Configure approved educational, technical, and professional credentials",
+  "list": {
+    "title": "Qualification Master",
+    "subtitle": "Configure approved educational, technical, and professional credentials",
+    "buttons": {
+      "add": "Add Qualification",
+      "edit": "Edit",
+      "delete": "Delete",
+      "editTitle": "Edit Qualification",
+      "deleteTitle": "Delete Qualification"
+    },
+    "filters": {
+      "show": "Show",
+      "searchPlaceholder": "Search qualifications...",
+      "allStatus": "All Status",
+      "status": "Select Status"
+    },
+    "table": {
+      "qualificationCode": "Qualification Code",
+      "qualificationName": "Qualification Name",
+      "qualificationNameLocal": "Qualification Name (Regional)",
+      "qualificationDescription": "Description",
+      "status": "Status",
+      "actions": "Actions"
+    }
+  },
+  "form": {
+    "title": {
+      "add": "Add New Qualification",
+      "edit": "Edit Qualification"
+    },
+    "subtitle": {
+      "add": "Create a new qualification standard record",
+      "edit": "Update qualification details and credential requirements"
+    },
+    "mandatoryFields": "* Mandatory Fields",
+    "fields": {
+      "qualificationCode": "Qualification Code",
+      "qualificationCodePlaceholder": "e.g. BCOM, BE, SSC",
+      "qualificationName": "Qualification Name",
+      "qualificationNamePlaceholder": "e.g. Bachelor of Commerce (B.Com.)",
+      "qualificationNameLocal": "Qualification Name (Regional)",
+      "qualificationNameLocalPlaceholder": "उदा. वाणिज्य पदवी (बी.कॉम.)",
+      "qualificationDescription": "Description",
+      "qualificationDescriptionPlaceholder": "Brief description of the qualification scope, academic level, and credential requirements...",
+      "status": "Status",
+      "isActive": "Is Active",
+      "statusText": "Qualification is currently {status}"
+    },
+    "buttons": {
+      "add": "Add Qualification",
+      "save": "Create Qualification",
+      "cancel": "Cancel",
+      "update": "Update Qualification"
+    },
+    "validation": {
+      "qualificationCodeRequired": "Qualification Code is required.",
+      "qualificationCodeMaxLength": "Qualification code must not exceed 30 characters",
+      "qualificationCodeFormat": "Code must contain only letters, numbers, underscores, and hyphens",
+      "qualificationNameRequired": "Qualification Name is required.",
+      "qualificationNameMinLength": "Qualification name must be at least 2 characters",
+      "qualificationNameMaxLength": "Qualification name must not exceed 100 characters",
+      "qualificationNameFormat": "Qualification Name can only contain letters, numbers, spaces, and valid punctuation (. , - / & () +)",
+      "qualificationNameMarathiRequired": "Qualification Name (Regional) is required.",
+      "qualificationNameMarathiMinLength": "Qualification name (Regional) must be at least 2 characters",
+      "qualificationNameMarathiMaxLength": "Qualification name (Regional) must not exceed 150 characters",
+      "qualificationNameMarathiFormat": "Qualification Name (Regional) can only contain valid characters and punctuation (. - / & ())",
+      "descriptionMaxLength": "Description must not exceed 250 characters",
+      "codeUnique": "This Qualification Code already exists. Codes must be unique.",
+      "qualificationNameRegionalRequired": "Qualification Name (Regional) is required.",
+      "qualificationNameRegionalMinLength": "Qualification name (Regional) must be at least 2 characters",
+      "qualificationNameRegionalMaxLength": "Qualification name (Regional) must not exceed 150 characters",
+      "qualificationNameRegionalFormat": "Qualification Name (Regional) can only contain valid characters, numbers, and punctuation (. , - / & () +)"
+    }
+  },
+  "delete": {
+    "confirmTitle": "Delete Qualification",
+    "confirmDescription": "Are you sure you want to delete \"{name}\"? This action cannot be undone.",
+    "deleteInUse": "\"{name}\" is currently linked to employee records and cannot be deleted.",
+    "success": "\"{name}\" removed successfully."
+  },
+  "stats": {
+    "total": "Total Qualifications",
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "success": {
+    "created": "Qualification created successfully",
+    "updated": "Qualification updated successfully",
+    "deleted": "Qualification deleted successfully"
+  },
+  "errors": {
+    "createFailed": "Failed to create qualification master",
+    "updateFailed": "Failed to update qualification master",
+    "deleteFailed": "Failed to delete qualification master"
+  }
+}

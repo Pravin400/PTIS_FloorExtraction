@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Warning Octagon -->
+  <polygon points="34,16 66,16 84,34 84,66 66,84 34,84 16,66 16,34" fill="#FFF1F2" stroke="#E11D48" stroke-width="3"/>
+  <circle cx="50" cy="50" r="24" fill="#FFE4E6"/>
+  <!-- Cross / X icon -->
+  <path d="M38 38l24 24m0-24L38 62" stroke="#E11D48" stroke-width="5" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,214 @@
+{
+  "configuration": {
+    "header": {
+      "title": "Configuration Master",
+      "subtitle": "केंद्रीकृत मास्टर डेटा प्रबंधन प्रणाली",
+      "totalMasters": "Total Masters"
+    },
+    "tabs": {
+      "masterData": "Master Data",
+      "screenMaster": "Screen Master",
+      "screenFieldsMaster": "Screen Fields Master"
+    },
+    "masterData": {
+      "title": "Master Data",
+      "records": "Master Records",
+      "addNew": "नया {name} जोड़ें",
+      "searchPlaceholder": "मास्टर रिकॉर्ड खोजें...",
+      "stats": {
+        "master": "Master Types",
+        "shown": "Shown",
+        "active": "Active"
+      },
+      "groupFilter": {
+        "categoriesTitle": "Categories",
+        "itemNamesTitle": "Item Names"
+      },
+      "form": {
+        "addTitle": "नया {name} जोड़ें",
+        "editTitle": "{name} संपादित करें",
+        "createSubtitle": "नया रिकॉर्ड बनाएं",
+        "updateSubtitle": "मौजूदा रिकॉर्ड अपडेट करें",
+        "labels": {
+          "code": "कोड",
+          "name": "नाम",
+          "category": "इन्वेंटरी श्रेणी",
+          "assetCategory": "संपत्ति श्रेणी",
+          "itemName": "आइटम का नाम",
+          "description": "विवरण",
+          "depreciationRate": "मूल्यह्रास दर",
+          "displayOrder": "प्रदर्शन क्रम",
+          "status": "स्थिति",
+          "active": "सक्रिय",
+          "inactive": "निष्क्रिय"
+        },
+        "placeholders": {
+          "code": "कोड दर्ज करें",
+          "name": "नाम दर्ज करें",
+          "category": "श्रेणी चुनें",
+          "itemName": "आइटम का नाम चुनें",
+          "description": "विवरण दर्ज करें",
+          "depreciationRate": "मूल्यह्रास दर दर्ज करें",
+          "displayOrder": "प्रदर्शन क्रम दर्ज करें"
+        },
+        "buttons": {
+          "save": "सहेजें",
+          "update": "अद्यतन करें",
+          "cancel": "रद्द करें"
+        },
+        "errors": {
+          "duplicateRecord": "इन्वेंटरी श्रेणी पहले से मौजूद है। डुप्लिकेट की अनुमति नहीं है।",
+          "fillRequired": "कृपया सभी आवश्यक फ़ील्ड भरें।",
+          "codeRequired": "कोड आवश्यक है।",
+          "codeFormat": "कोड में केवल अक्षर, संख्याएं और हाइफ़न (-) हो सकते हैं।",
+          "duplicateCode": "इन्वेंटरी श्रेणी कोड पहले से मौजूद है।",
+          "nameRequired": "नाम आवश्यक है।",
+          "duplicateName": "इन्वेंटरी श्रेणी नाम पहले से मौजूद है।",
+          "englishOnly": "कृपया केवल अंग्रेजी में दर्ज करें।",
+          "noSpecialCharacters": "कृपया केवल अक्षर, संख्याएं और रिक्त स्थान का उपयोग करें।",
+          "descriptionRequired": "विवरण आवश्यक है।",
+          "maxLength": "कृपया अनुमत अक्षरों की सीमा से अधिक न डालें।",
+          "depreciationRateRequired": "मूल्यह्रास दर आवश्यक है।",
+          "depreciationRateInvalid": "मूल्यह्रास दर एक वैध संख्या होनी चाहिए।",
+          "depreciationRateRange": "मूल्यह्रास दर 0 और 1 के बीच होनी चाहिए।",
+          "displayOrderRequired": "प्रदर्शन क्रम आवश्यक है।",
+          "apiActionsNotConfigured": "API क्रियाएं कॉन्फ़िगर नहीं की गई हैं।",
+          "saveFailed": "रिकॉर्ड सहेजना विफल रहा।",
+          "deleteFailed": "रिकॉर्ड हटाना विफल रहा।",
+          "unexpected": "एक अप्रत्याशित त्रुटि हुई।",
+          "codeAllZeros": "कोड शून्य नहीं हो सकता",
+          "codeMax": "कोड अधिकतम लंबाई से अधिक है",
+          "codeTooLong15": "कोड 15 वर्णों से अधिक नहीं हो सकता",
+          "codeInvalidChars": "कोड में अमान्य वर्ण हैं",
+          "codeDuplicate": "इन्वेंटरी श्रेणी कोड पहले से मौजूद है।",
+          "nameAllZeros": "नाम शून्य नहीं हो सकता",
+          "nameMax": "नाम अधिकतम लंबाई से अधिक है",
+          "nameFormat": "नाम के लिए अमान्य प्रारूप",
+          "nameTooLong50": "नाम 50 वर्णों से अधिक नहीं हो सकता",
+          "nameInvalidChars": "नाम में अमान्य वर्ण हैं",
+          "nameDuplicate": "इन्वेंटरी श्रेणी नाम पहले से मौजूद है।",
+          "descriptionAllZeros": "विवरण शून्य नहीं हो सकता",
+          "descriptionFormat": "विवरण के लिए अमान्य प्रारूप",
+          "descriptionTooLong": "विवरण 500 वर्णों से अधिक नहीं हो सकता",
+          "descInvalidChars": "विवरण में अमान्य वर्ण हैं",
+          "group": "एसेट श्रेणी आवश्यक है।"
+        },
+        "messages": {
+          "createSuccess": "रिकॉर्ड सफलतापूर्वक बनाया गया",
+          "updateSuccess": "रिकॉर्ड सफलतापूर्वक अपडेट किया गया",
+          "invalidIdError": "अमान्य रिकॉर्ड आईडी",
+          "error": "एक अप्रत्याशित त्रुटि हुई"
+        },
+        "apiErrors": {
+          "referenceBlocked": {
+            "inventoryCategory": {
+              "deleteInUse": "यह इन्वेंटरी श्रेणी उपयोग में है, इसलिए इसे हटाया नहीं जा सकता।",
+              "deactivateInUse": "यह इन्वेंटरी श्रेणी उपयोग में है, इसलिए इसे निष्क्रिय नहीं किया जा सकता।",
+              "deleteHasMasters": "इस इन्वेंटरी श्रेणी से जुड़े {masters} मौजूद हैं, इसलिए इसे हटाया नहीं जा सकता। कृपया पहले इस इन्वेंटरी श्रेणी के सभी {masters} हटाएं।",
+              "deactivateHasMasters": "इस इन्वेंटरी श्रेणी से जुड़े {masters} मौजूद हैं, इसलिए इसे निष्क्रिय नहीं किया जा सकता। कृपया पहले इस इन्वेंटरी श्रेणी के सभी {masters} हटाएं।"
+            }
+          },
+          "referenceMasters": {
+            "inventoryNames": "इन्वेंटरी आइटम के नाम",
+            "inventoryConditions": "इन्वेंटरी स्थितियाँ",
+            "and": "और"
+          }
+        },
+        "validation": {
+          "groupRequired": "एसेट श्रेणी आवश्यक है",
+          "codeRequired": "कोड आवश्यक है",
+          "codeAllZeros": "कोड शून्य नहीं हो सकता",
+          "codeMax": "कोड अधिकतम लंबाई से अधिक है",
+          "codeFormat": "कोड में केवल अक्षर, संख्याएं और हाइफ़न (-) हो सकते हैं",
+          "nameRequired": "नाम आवश्यक है",
+          "nameAllZeros": "नाम शून्य नहीं हो सकता",
+          "nameMax": "नाम अधिकतम लंबाई से अधिक है",
+          "nameFormat": "नाम के लिए अमान्य प्रारूप",
+          "descriptionAllZeros": "विवरण शून्य नहीं हो सकता",
+          "descriptionFormat": "विवरण के लिए अमान्य प्रारूप",
+          "fixErrors": "कृपया सबमिट करने से पहले सभी सत्यापन त्रुटियों को ठीक करें",
+          "duplicateRecord": "इन्वेंटरी श्रेणी पहले से मौजूद है। डुप्लिकेट की अनुमति नहीं है।",
+          "duplicateError": "एक डुप्लिकेट रिकॉर्ड मिला"
+        }
+      },
+      "error": {
+        "title": "डेटा लोड करने में विफल",
+        "description": "मास्टर डेटा रिकॉर्ड लोड करते समय एक त्रुटि हुई। कृपया अपना कनेक्शन जांचें या पुनः प्रयास करें।",
+        "categoryTitle": "श्रेणी लोड करने में विफल",
+        "categoryDescription": "एसेट श्रेणियों को लोड करते समय एक त्रुटि हुई। कृपया अपना कनेक्शन जांचें या पुनः प्रयास करें।",
+        "typeTitle": "प्रकार लोड करने में विफल",
+        "typeDescription": "एसेट प्रकारों को लोड करते समय एक त्रुटि हुई। कृपया पुनः प्रयास करें।",
+        "reload": "पृष्ठ पुनः लोड करें",
+        "tryAgain": "पुनः प्रयास करें",
+        "goHome": "होम पर जाएं"
+      }
+    }
+  },
+  "masterNames": {
+    "asset-category-master": "एसेट श्रेणी",
+    "asset-type-master": "एसेट प्रकार",
+    "inventory-category-master": "इन्वेंटरी श्रेणी",
+    "inventory-model-master": "इन्वेंटरी मॉडल",
+    "inventory-name-master": "इन्वेंटरी आइटम का नाम",
+    "inventory-condition-master": "इन्वेंटरी स्थिति"
+  },
+  "apiErrors": {
+    "referenceBlocked": {
+      "inventoryCategory": {
+        "deleteInUse": "यह इन्वेंटरी श्रेणी उपयोग में है, इसलिए इसे हटाया नहीं जा सकता।",
+        "deactivateInUse": "यह इन्वेंटरी श्रेणी उपयोग में है, इसलिए इसे निष्क्रिय नहीं किया जा सकता।",
+        "deleteHasMasters": "इस इन्वेंटरी श्रेणी से जुड़े {masters} मौजूद हैं, इसलिए इसे हटाया नहीं जा सकता। कृपया पहले इस इन्वेंटरी श्रेणी के सभी {masters} हटाएं।",
+        "deactivateHasMasters": "इस इन्वेंटरी श्रेणी से जुड़े {masters} मौजूद हैं, इसलिए इसे निष्क्रिय नहीं किया जा सकता। कृपया पहले इस इन्वेंटरी श्रेणी के सभी {masters} हटाएं।"
+      }
+    },
+    "referenceMasters": {
+      "inventoryNames": "इन्वेंटरी आइटम के नाम",
+      "inventoryConditions": "इन्वेंटरी स्थितियाँ",
+      "and": "और"
+    }
+  },
+  "pageTitle": "इन्वेंटरी श्रेणी",
+  "pageSubtitle": "इन्वेंटरी श्रेणियों को प्रबंधित और व्यवस्थित करें",
+  "addInventoryCategory": "इन्वेंटरी श्रेणी जोड़ें",
+  "stats": {
+    "totalCategory": "कुल इन्वेंटरी श्रेणी",
+    "allCategorySubtext": "सभी इन्वेंटरी श्रेणियां",
+    "totalAssetCategory": "कुल एसेट श्रेणी",
+    "assetCategoryLinked": "लिंक की गई एसेट श्रेणियां",
+    "activeCategories": "सक्रिय श्रेणियां",
+    "currentlyActive": "वर्तमान में सक्रिय",
+    "depreciationRate": "मूल्यह्रास दर",
+    "avgDepreciationRate": "औसत मूल्यह्रास दर"
+  },
+  "filters": {
+    "title": "फ़िल्टर",
+    "inventoryCategoryAll": "इन्वेंटरी श्रेणी: सभी",
+    "assetCategoryAll": "एसेट श्रेणी: सभी",
+    "statusAll": "स्थिति: सभी",
+    "active": "सक्रिय",
+    "inactive": "निष्क्रिय",
+    "searchPlaceholder": "कोड या नाम से खोजें...",
+    "reset": "रीसेट करें",
+    "export": "निर्यात करें"
+  },
+  "columns": {
+    "code": "कोड",
+    "inventoryCategory": "इन्वेंटरी श्रेणी",
+    "assetCategory": "एसेट श्रेणी",
+    "depreciationRate": "मूल्यह्रास दर",
+    "status": "स्थिति"
+  },
+  "excel": {
+    "srNo": "क्र.सं.",
+    "exportSuccess": "इन्वेंटरी श्रेणियां सफलतापूर्वक एक्सेल में निर्यात की गईं!",
+    "exportError": "इन्वेंटरी श्रेणियों को निर्यात करने में विफल",
+    "noData": "निर्यात के लिए कोई डेटा नहीं है",
+    "resetSuccess": "फ़िल्टर रीसेट किए गए"
+  },
+  "categories": {
+    "buildings": "इमारतें",
+    "landAndPlots": "भूमि और भूखंड",
+    "movableAssets": "चल संपत्तियां",
+    "infrastructure": "बुनियादी ढांचा"
+  }
+}

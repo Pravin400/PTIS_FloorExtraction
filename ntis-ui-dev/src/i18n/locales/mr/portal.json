@@ -1,0 +1,47 @@
+{
+  "portal": {
+    "header": {
+      "openMenu": "मेनू उघडा",
+      "closeMenu": "मेनू बंद करा",
+      "navigationMenu": "नेव्हिगेशन मेनू",
+      "menu": "मेनू",
+      "email": "ईमेल",
+      "helpline": "हेल्पलाइन",
+      "switchLanguage": "भाषा बदला",
+      "english": "English",
+      "marathi": "मराठी"
+    },
+    "nav": {
+      "collapseSubmenu": "{title} उपमेनू संकुचित करा",
+      "expandSubmenu": "{title} उपमेनू विस्तृत करा"
+    },
+    "ticker": {
+      "play": "सुरू करा",
+      "pause": "थांबवा",
+      "previous": "मागील",
+      "next": "पुढील"
+    },
+    "citizenServices": {
+      "goToSlide": "स्लाइड {n} वर जा"
+    },
+    "announcements": {
+      "new": "नवीन",
+      "showLess": "कमी दाखवा",
+      "viewAll": "सर्व पहा ({count})"
+    },
+    "importantLinks": {
+      "showLess": "कमी दाखवा",
+      "viewAll": "सर्व पहा ({count})"
+    },
+    "footer": {
+      "quickLinks": "जलद दुवे",
+      "contact": "संपर्क"
+    },
+    "banner": {
+      "everyDropMatters": "थेंब थेंब अमृत",
+      "waterConservation": "जलसंवर्धन",
+      "saveWaterTitle": "पाणी वाचवा",
+      "saveWaterDescription": "पनवेल समृद्ध करा. शाश्वत उद्यासाठी आज पाण्याचा जपून वापर करा."
+    }
+  }
+}

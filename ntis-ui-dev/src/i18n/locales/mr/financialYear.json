@@ -1,0 +1,98 @@
+{
+  "days": "{count} दिवस",
+  "title": "आर्थिक वर्ष मास्टर",
+  "subtitle": "आर्थिक वर्षाचा कालावधी आणि स्थिती व्यवस्थापित आणि कॉन्फिगर करा",
+  "stats": {
+    "totalYears": "एकूण वर्षे",
+    "active": "सक्रिय",
+    "draft": "ड्राफ्ट",
+    "closed": "बंद"
+  },
+  "table": {
+    "searchPlaceholder": "आर्थिक वर्षे शोधा...",
+    "addButton": "आर्थिक वर्ष जोडा",
+    "filterByStatus": "स्थितीनुसार फिल्टर करा",
+    "allStatuses": "सर्व स्थिती",
+    "clearFilters": "फिल्टर काढा",
+    "columns": {
+      "code": "कोड",
+      "financialYear": "आर्थिक वर्ष",
+      "period": "कालावधी",
+      "duration": "कालावधी (दिवस)",
+      "current": "वर्तमान",
+      "status": "स्थिती",
+      "actions": "कृती"
+    },
+    "actions": {
+      "setCurrent": "वर्तमान सेट करा",
+      "close": "बंद करा"
+    },
+    "messages": {
+      "confirmDelete": "तुम्हाला खात्री आहे की तुम्ही हे आर्थिक वर्ष हटवू इच्छिता?",
+      "confirmDeleteTitle": "आर्थिक वर्ष हटवा",
+      "confirmClose": "तुम्हाला खात्री आहे की तुम्ही हे आर्थिक वर्ष बंद करू इच्छिता? ही कृती पूर्ववत केली जाऊ शकत नाही.",
+      "confirmCloseTitle": "आर्थिक वर्ष बंद करा",
+      "deleteSuccess": "आर्थिक वर्ष हटवले",
+      "setCurrentSuccess": "वर्तमान आर्थिक वर्ष अपडेट केले",
+      "closeSuccess": "आर्थिक वर्ष बंद केले",
+      "cannotDeleteCurrent": "वर्तमान आर्थिक वर्ष हटवता येत नाही"
+    }
+  },
+  "form": {
+    "addTitle": "नवीन आर्थिक वर्ष जोडा",
+    "editTitle": "आर्थिक वर्ष संपादित करा",
+    "description": "आर्थिक वर्षाचा कालावधी आणि सेटिंग्ज कॉन्फिगर करा",
+    "fields": {
+      "yearCode": "वर्ष कोड",
+      "yearCodePlaceholder": "उदा. FY2024-25",
+      "status": "स्थिती",
+      "year": "वर्ष (संख्या)",
+      "yearPlaceholder": "उदा. 2024",
+      "periodDetails": "कालावधी तपशील",
+      "startDate": "सुरू होण्याची तारीख",
+      "endDate": "संपण्याची तारीख",
+      "duration": "कालावधी",
+      "description": "वर्णन",
+      "descriptionPlaceholder": "थोडक्यात वर्णन",
+      "markAsCurrent": "वर्तमान आर्थिक वर्ष म्हणून चिन्हांकित करा"
+    },
+    "buttons": {
+      "cancel": "रद्द करा",
+      "create": "वर्ष तयार करा",
+      "update": "वर्ष अपडेट करा"
+    },
+    "validation": {
+      "codeRequired": "वर्ष कोड आवश्यक आहे",
+      "codeMaxLength": "वर्ष कोड जास्तीत जास्त {count} अक्षरांचा असावा",
+      "codeFormat": "वर्ष कोडमध्ये अवैध अक्षरे आहेत",
+      "statusRequired": "स्थिती आवश्यक आहे",
+      "yearRequired": "वर्ष आवश्यक आहे",
+      "yearInvalid": "वर्ष १९०० ते २१०० दरम्यान असावे",
+      "startDateRequired": "सुरू होण्याची तारीख आवश्यक आहे",
+      "endDateRequired": "संपण्याची तारीख आवश्यक आहे",
+      "endDateMustBeAfterStartDate": "संपण्याची तारीख सुरू होण्याच्या तारखेपेक्षा नंतरची असावी",
+      "startDateRange": "सुरू होण्याची तारीख आर्थिक वर्षाच्या (१ एप्रिल ते ३१ मार्च) दरम्यान असावी",
+      "endDateRange": "संपण्याची तारीख आर्थिक वर्षाच्या (१ एप्रिल ते ३१ मार्च) दरम्यान असावी",
+      "descriptionMaxLength": "वर्णन जास्तीत जास्त {count} अक्षरांचे असावे",
+      "descriptionFormat": "वर्णनामध्ये अवैध अक्षरे असू शकत नाहीत",
+      "yearMinValue": "वर्ष १९०० किंवा नंतरचे असावे",
+      "yearMaxValue": "वर्ष २१०० किंवा त्यापूर्वीचे असावे",
+      "yearMustBePositive": "वर्ष सकारात्मक संख्या असणे आवश्यक आहे",
+      "codeAllZeros": "वर्ष कोड सर्व शून्य असू शकत नाही",
+      "statusInvalid": "स्थिती ड्राफ्ट, सक्रिय किंवा बंद असावी",
+      "backendError": "एक त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+      "codeDuplicate": "आर्थिक वर्ष कोड आधीपासून अस्तित्वात आहे",
+      "yearDuplicate": "आर्थिक वर्ष आधीपासून अस्तित्वात आहे"
+    },
+    "confirmStatusUpdate": {
+      "title": "स्थिती बदलाची पुष्टी करा",
+      "description": "तुम्हाला खात्री आहे की तुम्ही स्थिती {status} मध्ये बदलू इच्छिता?",
+      "confirmText": "होय, अपडेट करा",
+      "cancelText": "रद्द करा"
+    },
+    "messages": {
+      "createSuccess": "आर्थिक वर्ष तयार केले",
+      "updateSuccess": "आर्थिक वर्ष अपडेट केले"
+    }
+  }
+}

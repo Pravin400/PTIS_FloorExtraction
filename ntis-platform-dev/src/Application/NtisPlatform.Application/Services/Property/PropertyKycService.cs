@@ -1,0 +1,771 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using NtisPlatform.Application.Constants;
+using NtisPlatform.Application.DTOs.PropertyKyc;
+using NtisPlatform.Application.Exceptions;
+using NtisPlatform.Application.Interfaces.Property;
+using NtisPlatform.Core.Entities;
+using NtisPlatform.Core.Entities.Master;
+using NtisPlatform.Core.Interfaces;
+using NtisPlatform.Core.Interfaces.Property;
+using NtisPlatform.Core.Models;
+
+namespace NtisPlatform.Application.Services.Property;
+
+/// <summary>
+/// Implementation of the "Owner and Occupier Registration" use-case for the Property aggregate.
+/// Owns existence handling, the upsert decision for the assessment row and the transaction boundary;
+/// persistence is delegated to <see cref="IPropertyKycRepository"/>, saving to <see cref="IUnitOfWork"/>,
+/// and aggregate invariants to <see cref="IPropertyMutationInvariantPolicy"/>.
+/// </summary>
+public class PropertyKycService : IPropertyKycService
+{
+    private readonly IPropertyKycRepository _repository;
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IPropertyMutationInvariantPolicy _invariantPolicy;
+    private readonly IRepository<PropertyEntity, int> _propertyRepository;
+    private readonly IRepository<PropertyAssessmentEntity, int> _assessmentRepository;
+    private readonly IRepository<OwnerTypeMasterEntity, int> _ownerTypeRepository;
+    private readonly IRepository<SocietyDetailsEntity, int> _societyRepository;
+    private readonly IRepository<WingEntity, int> _wingRepository;
+    private readonly IRepository<RoomWiseSubmissionDetailsEntity, int> _roomWiseRepository;
+    private readonly IRepository<CommunicationDetailsEntity, int> _communicationRepository;
+    private readonly IRepository<PropertyMapDetailEntity, int> _propertyMapDetailRepository;
+    private readonly IRepository<PropertyMastOldEntity, int> _propertyOldRepository;
+    private readonly ILogger<PropertyKycService> _logger;
+    private readonly IRepository<WingDetailsMastEntity, int> _wingDetailsMastRepository;
+    private readonly IRepository<PropertyDetailsEntity, int> _propertyDetailsRepository;
+    private readonly IRepository<VirtualPropertyTransferHistoryEntity, int> _virtualPropertyTransferHistoryRepository;
+    private readonly IRepository<UserEntity, int> _userRepository;
+    private readonly IRepository<PropertyPhotoEntity, int>? _propertyPhotoRepository;
+
+    public PropertyKycService(
+        IPropertyKycRepository repository,
+        IUnitOfWork unitOfWork,
+        IPropertyMutationInvariantPolicy invariantPolicy,
+        IRepository<PropertyEntity, int> propertyRepository,
+        IRepository<PropertyAssessmentEntity, int> assessmentRepository,
+        IRepository<OwnerTypeMasterEntity, int> ownerTypeRepository,
+        IRepository<SocietyDetailsEntity, int> societyRepository,
+        IRepository<WingEntity, int> wingRepository,
+        IRepository<RoomWiseSubmissionDetailsEntity, int> roomWiseRepository,
+        IRepository<CommunicationDetailsEntity, int> communicationRepository,
+        IRepository<PropertyMapDetailEntity, int> propertyMapDetailRepository,
+        IRepository<PropertyMastOldEntity, int> propertyOldRepository,
+        ILogger<PropertyKycService> logger,
+        IRepository<WingDetailsMastEntity, int> wingDetailsMastRepository,
+        IRepository<PropertyDetailsEntity, int> propertyDetailsRepository,
+        IRepository<VirtualPropertyTransferHistoryEntity, int> virtualPropertyTransferHistoryRepository,
+        IRepository<UserEntity, int> userRepository,
+        IRepository<PropertyPhotoEntity, int>? propertyPhotoRepository = null)
+    {
+        _repository = repository;
+        _unitOfWork = unitOfWork;
+        _invariantPolicy = invariantPolicy;
+        _propertyRepository = propertyRepository;
+        _assessmentRepository = assessmentRepository;
+        _ownerTypeRepository = ownerTypeRepository;
+        _societyRepository = societyRepository;
+        _wingRepository = wingRepository;
+        _roomWiseRepository = roomWiseRepository;
+        _communicationRepository = communicationRepository;
+        _propertyMapDetailRepository = propertyMapDetailRepository;
+        _propertyOldRepository = propertyOldRepository;
+        _logger = logger;
+        _wingDetailsMastRepository = wingDetailsMastRepository;
+        _propertyDetailsRepository = propertyDetailsRepository;
+        _virtualPropertyTransferHistoryRepository = virtualPropertyTransferHistoryRepository;
+        _userRepository = userRepository;
+        _propertyPhotoRepository = propertyPhotoRepository;
+    }
+
+    public async Task<PropertyKycDetailsCommonDto?> GetKycDetailsCommon(
+        PropertyKycDetailsQueryParameters queryParameters,
+        CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(queryParameters);
+
+        var propertyNo = queryParameters.PropertyNo.Trim();
+
+        var partitionNo = string.IsNullOrWhiteSpace(queryParameters.PartitionNo)
+            ? null
+            : queryParameters.PartitionNo.Trim();
+
+        // Step 1: Fetch only required Property fields.
+        // Projection avoids selecting PropertyMastOldId.
+        var property = await _propertyRepository
+            .GetQueryable()
+            .AsNoTracking()
+            .Where(x =>
+                x.WardId == queryParameters.WardId &&
+                x.PropertyNo == propertyNo &&
+                x.IsActive &&
+                !x.MarkedForDeletion &&
+                (
+                    partitionNo == null
+                        ? string.IsNullOrEmpty(x.PartitionNo)
+                        : x.PartitionNo == partitionNo
+                ))
+            .Select(x => new
+            {
+                x.Id,
+                x.PropertyNo,
+                x.PartitionNo,
+                x.PropertyTypeId,
+                x.CategoryId,
+                x.PlotNo,
+                x.CSN,
+                x.WingDetailId,
+                x.IsVirtualProperty,
+
+                x.OwnerTitle,
+                x.OwnerName,
+                x.OwnerTitleEnglish,
+                x.OwnerNameEnglish,
+
+                x.OccupierTypeId,
+                x.OccupierTitle,
+                x.OccupierName,
+                x.OccupierTitleEnglish,
+                x.OccupierNameEnglish,
+
+                x.Address,
+                x.Location,
+                x.AddressEnglish,
+                x.LocationEnglish,
+
+                x.FlatOrShopName,
+                x.FlatOrShopNameEnglish,
+                x.FlatOrShopNo,
+                x.FlatOrShopNoEnglish,
+
+                x.MobileNo,
+                x.MobileNoRemarkId,
+                x.AlternateMobileNo,
+                x.OccupierMobileNo,
+                x.OccupierMobileNoRemarkId,
+                x.EmailId,
+                x.PinCode,
+                x.CreatedBy,
+                x.CreatedDate
+            })
+            .FirstOrDefaultAsync(cancellationToken);
+
+        if (property == null)
+        {
+            _logger.LogWarning(
+                "Property not found for WardId: {WardId}, PropertyNo: {PropertyNo}, PartitionNo: {PartitionNo}",
+                queryParameters.WardId,
+                propertyNo,
+                partitionNo);
+
+            return null;
+        }
+
+        var propertyId = property.Id;
+
+        // Step 2: Assessment details
+        var assessment = await _assessmentRepository
+            .GetQueryable()
+            .AsNoTracking()
+            .Where(x =>
+                x.PropertyId == propertyId &&
+                x.IsActive &&
+                !x.MarkedForDeletion)
+            .OrderByDescending(x => x.AdharCardNo != null && x.AdharCardNo != "")
+            .ThenBy(x => x.Id)
+            .Select(x => new
+            {
+                x.OwnerTypeId,
+                x.AdharCardNo,
+                x.BlockNo,
+                x.SurveyRemark,
+                x.BHKId,
+                BHK = x.BHKMaster != null ? x.BHKMaster.BHKName : null
+            })
+            .FirstOrDefaultAsync(cancellationToken);
+
+        // Step 3: Owner type
+        string? ownerType = null;
+
+        if (assessment?.OwnerTypeId.HasValue == true)
+        {
+            ownerType = await _ownerTypeRepository
+                .GetQueryable()
+                .AsNoTracking()
+                .Where(x =>
+                    x.Id == assessment.OwnerTypeId.Value &&
+                    x.IsActive)
+                .Select(x => x.OwnerType)
+                .FirstOrDefaultAsync(cancellationToken);
+        }
+
+        // Step 4: Society and wing
+        int? wingId = null;
+        string? wingName = null;
+        int? wingDetailsId = null;
+        int? societyDetailIdFromWing = null;
+
+        // If Property has WingDetailId, look up WingDetailsMast to get wing info and SocietyDetailsMastId
+        if (property.WingDetailId.HasValue)
+        {
+            var wingDetail = await _wingDetailsMastRepository
+                .GetQueryable()
+                .AsNoTracking()
+                .Where(w => w.Id == property.WingDetailId.Value && w.IsActive && !w.MarkedForDeletion)
+                .Select(w => new { w.Id, WingMasterId = (int?)w.WingMasterId, w.WingName, w.SocietyDetailsMastId })
+                .FirstOrDefaultAsync(cancellationToken);
+
+            if (wingDetail != null)
+            {
+                wingDetailsId = wingDetail.Id;
+                wingId = wingDetail.WingMasterId;
+                wingName = wingDetail.WingName;
+                societyDetailIdFromWing = wingDetail.SocietyDetailsMastId;
+            }
+        }
+
+        bool isPartitionProperty = !string.IsNullOrWhiteSpace(property.PartitionNo);
+
+        // Society resolution:
+        // Case 1: Main Apartment Property (PartitionNo is null, empty, or whitespace)
+        // Match PTIS.SocietyDetailsMast.PropertyId = PTIS.PropertyMast.Id.
+        // Consider only active, non-deleted society records. Do not prioritize or take society through WingDetailsMast.
+        //
+        // Case 2: Partition Property (PartitionNo has a value)
+        // Must resolve society via PropertyMast.WingDetailId -> WingDetailsMast.SocietyDetailsMastId.
+        // Do not match or prioritize PTIS.SocietyDetailsMast by partition PropertyId.
+        // If wing or linked society is missing or inactive, return society = null (no silent fallback).
+        var society = isPartitionProperty
+            ? ((societyDetailIdFromWing.HasValue && societyDetailIdFromWing.Value > 0)
+                ? await _societyRepository
+                    .GetQueryable()
+                    .AsNoTracking()
+                    .Where(x =>
+                        x.Id == societyDetailIdFromWing.Value &&
+                        x.IsActive &&
+                        !x.MarkedForDeletion)
+                    .Select(x => new
+                    {
+                        x.Id,
+                        x.PropertyId,
+                        x.SocietyName,
+                        x.SocietyAddress,
+                        x.SocietyNameEnglish,
+                        x.SocietyAddressEnglish,
+                        x.SocietyEmailId,
+
+                        x.ManagerName,
+                        x.ManagerNameEnglish,
+                        x.ManagerMobileNo,
+                        x.ManagerMobileNoRemarkId,
+                        x.ManagerEmailId,
+
+                        x.SecretaryName,
+                        x.SecretaryNameEnglish,
+                        x.SecretaryMobileNo,
+                        x.SecretaryMobileNoRemarkId,
+                        x.SecretaryEmailId,
+
+                        x.LandOwnerName,
+                        x.LandOwnerNameEnglish,
+
+                        x.BuilderName,
+                        x.BuilderNameEnglish,
+                        x.BuilderMobileNo,
+                        x.BuilderMobileNoRemarkId
+                    })
+                    .FirstOrDefaultAsync(cancellationToken)
+                : null)
+            : await _societyRepository
+                .GetQueryable()
+                .AsNoTracking()
+                .Where(x =>
+                    x.PropertyId == property.Id &&
+                    x.IsActive &&
+                    !x.MarkedForDeletion)
+                .Select(x => new
+                {
+                    x.Id,
+                    x.PropertyId,
+                    x.SocietyName,
+                    x.SocietyAddress,
+                    x.SocietyNameEnglish,
+                    x.SocietyAddressEnglish,
+                    x.SocietyEmailId,
+
+                    x.ManagerName,
+                    x.ManagerNameEnglish,
+                    x.ManagerMobileNo,
+                    x.ManagerMobileNoRemarkId,
+                    x.ManagerEmailId,
+
+                    x.SecretaryName,
+                    x.SecretaryNameEnglish,
+                    x.SecretaryMobileNo,
+                    x.SecretaryMobileNoRemarkId,
+                    x.SecretaryEmailId,
+
+                    x.LandOwnerName,
+                    x.LandOwnerNameEnglish,
+
+                    x.BuilderName,
+                    x.BuilderNameEnglish,
+                    x.BuilderMobileNo,
+                    x.BuilderMobileNoRemarkId
+                })
+                .FirstOrDefaultAsync(cancellationToken);
+
+        // If wing was not resolved via Property.WingDetailId for a main apartment, resolve it via Society
+        if (!isPartitionProperty && wingDetailsId == null && society != null)
+        {
+            var wingDetail = await _wingDetailsMastRepository
+                .GetQueryable()
+                .AsNoTracking()
+                .Where(w => w.SocietyDetailsMastId == society.Id && w.IsActive && !w.MarkedForDeletion)
+                .Select(w => new { w.Id, WingMasterId = (int?)w.WingMasterId, w.WingName })
+                .FirstOrDefaultAsync(cancellationToken);
+
+            if (wingDetail != null)
+            {
+                wingDetailsId = wingDetail.Id;
+                wingId = wingDetail.WingMasterId;
+                wingName = wingDetail.WingName;
+            }
+        }
+
+        string? wingNo = null;
+
+        if (wingId != null)
+        {
+            wingNo = await _wingRepository
+                .GetQueryable()
+                .AsNoTracking()
+                .Where(x =>
+                    x.Id == wingId.Value &&
+                    x.IsActive)
+                .Select(x => x.WingNo)
+                .FirstOrDefaultAsync(cancellationToken);
+        }
+
+        // Step 5: Plot-area details
+        var roomWiseDetails = await _roomWiseRepository
+            .GetQueryable()
+            .AsNoTracking()
+            .Where(x =>
+                x.PropertyId == propertyId &&
+                x.IsActive &&
+                !x.MarkedForDeletion)
+            .OrderBy(x => x.Id)
+            .Select(x => new
+            {
+                x.LengthMtr,
+                x.WidthMtr,
+                x.TotalAreaSqMtr
+            })
+            .FirstOrDefaultAsync(cancellationToken);
+
+        // Step 6: Communication details
+        var issuedBy = await _communicationRepository
+            .GetQueryable()
+            .AsNoTracking()
+            .Where(x => x.IsActive)
+            .OrderByDescending(x => x.CreatedDate)
+            .Select(x => x.IssuedBy)
+            .FirstOrDefaultAsync(cancellationToken);
+
+        // Step 7: Find PropertyMastOld through PropertyMapDetail
+        var propertyMapDetails = await _propertyMapDetailRepository
+            .GetQueryable()
+            .AsNoTracking()
+            .Where(x =>
+                x.PropertyIdNew == propertyId &&
+                x.IsActive &&
+                x.IsCurrent)
+            .OrderBy(x => x.Id)
+            .Select(x => new
+            {
+                x.PropertyIdOld,
+                x.PropertyNoOld
+            })
+            .ToListAsync(cancellationToken);
+
+        var oldPropertyIds = propertyMapDetails
+            .Where(x => x.PropertyIdOld.HasValue && x.PropertyIdOld.Value > 0)
+            .Select(x => x.PropertyIdOld!.Value)
+            .Distinct()
+            .ToList();
+
+        var oldPropertyId = oldPropertyIds.LastOrDefault();
+
+        var oldPropertyNos = propertyMapDetails
+            .Select(x => x.PropertyNoOld?.Trim())
+            .Where(x => !string.IsNullOrEmpty(x))
+            .Distinct()
+            .ToList();
+
+        var oldProperty = oldPropertyId > 0
+            ? await _propertyOldRepository
+                .GetQueryable()
+                .AsNoTracking()
+                .Where(x => x.Id == oldPropertyId)
+                .Select(x => new
+                {
+                    x.OldWardNo,
+                    x.OldCSN,
+                    x.OldSocietyName,
+                    x.OldMobileNo,
+                    x.OldPropertyNo
+                })
+                .FirstOrDefaultAsync(cancellationToken)
+            : null;
+
+        var oldPropertyNo = oldPropertyNos.Count > 0
+            ? string.Join(", ", oldPropertyNos)
+            : oldProperty?.OldPropertyNo;
+
+        var oldPropertyIdFormatted = oldPropertyIds.Count > 0
+            ? string.Join(", ", oldPropertyIds)
+            : null;
+
+        // Step 8: Type of use
+        int? typeOfUseId = null;
+
+        var propertyDetails = await _propertyDetailsRepository
+            .GetQueryable()
+            .AsNoTracking()
+            .Where(x =>
+                x.PropertyId == propertyId &&
+                x.IsActive &&
+                !x.MarkedForDeletion)
+            .OrderBy(x => x.Id)
+            .Select(x => new { x.TypeOfUseId })
+            .FirstOrDefaultAsync(cancellationToken);
+
+        if (propertyDetails != null)
+        {
+            typeOfUseId = propertyDetails.TypeOfUseId;
+        }
+
+        // Step 9: VirtualPropertyTransferHistory active records for PropertyId or transferred/source match
+        var virtualPropertyTransferHistory = await _virtualPropertyTransferHistoryRepository
+            .GetQueryable()
+            .AsNoTracking()
+            .Where(x =>
+                x.IsActive &&
+                (
+                    x.PropertyId == propertyId ||
+                    (x.TransferredWardId == queryParameters.WardId && x.TransferredPropertyNo == propertyNo) ||
+                    (x.WardId == queryParameters.WardId && x.PropertyNo == propertyNo)
+                ))
+            .OrderByDescending(x => x.CreatedDate)
+            .Select(x => new PropertyKycVirtualPropertyTransferHistoryDto
+            {
+                Id = x.Id,
+                PropertyId = x.PropertyId,
+                WardId = x.WardId,
+                PropertyNo = x.PropertyNo,
+                PartitionNo = x.PartitionNo,
+                TransferredWardId = x.TransferredWardId,
+                TransferredPropertyNo = x.TransferredPropertyNo,
+                IsActive = x.IsActive,
+                CreatedBy = x.CreatedBy,
+                CreatedDate = x.CreatedDate,
+                UpdatedBy = x.UpdatedBy,
+                UpdatedDate = x.UpdatedDate
+            })
+            .ToListAsync(cancellationToken);
+
+        // Step 10: Count of active records from PropertyMapDetail
+        var mapCount = await _propertyMapDetailRepository
+            .GetQueryable()
+            .AsNoTracking()
+            .CountAsync(x => x.PropertyIdNew == propertyId && x.IsActive && x.Status == PropertyMapStatus.Active, cancellationToken);
+
+        // Society administrative details (address, manager, builder, etc.) are shown when a valid society is resolved
+        bool hasValidSociety = society != null;
+
+        // Step 11: CreatedBy user name from CORE.UserMaster
+        string? createdByUserName = null;
+        if (property.CreatedBy.HasValue)
+        {
+            createdByUserName = await _userRepository
+                .GetQueryable()
+                .AsNoTracking()
+                .Where(u => u.Id == property.CreatedBy.Value && u.IsActive && !u.MarkedForDeletion)
+                .Select(u => u.UserName)
+                .FirstOrDefaultAsync(cancellationToken);
+        }
+
+        // Step 12: Photo verification flag and counts (isVerified is true when Wing Properties have Photos)
+        bool isVerified = false;
+        int verifiedWingPropertiesCount = 0;
+        int unverifiedWingPropertiesCount = 0;
+
+        var targetWingDetailId = property.WingDetailId ?? wingDetailsId;
+        if (targetWingDetailId.HasValue)
+        {
+            var wingPropertyIds = await _propertyRepository
+                .GetQueryable()
+                .AsNoTracking()
+                .Where(x => x.WingDetailId == targetWingDetailId.Value && x.IsActive && !x.MarkedForDeletion)
+                .Select(x => x.Id)
+                .ToListAsync(cancellationToken);
+
+            if (_propertyPhotoRepository != null)
+            {
+                var verifiedProps = await _propertyPhotoRepository
+                    .GetQueryable()
+                    .AsNoTracking()
+                    .Where(p =>
+                        p.PropertyId.HasValue &&
+                        wingPropertyIds.Contains(p.PropertyId.Value) &&
+                        p.IsActive &&
+                        !p.MarkedForDeletion)
+                    .Select(p => p.PropertyId!.Value)
+                    .Distinct()
+                    .ToListAsync(cancellationToken);
+
+                var hasWingPhoto = await _propertyPhotoRepository
+                    .GetQueryable()
+                    .AsNoTracking()
+                    .AnyAsync(p =>
+                        p.WingDetailId.HasValue &&
+                        p.WingDetailId == targetWingDetailId.Value &&
+                        p.IsActive &&
+                        !p.MarkedForDeletion,
+                        cancellationToken);
+
+                var hasPropertyPhoto = await _propertyPhotoRepository
+                    .GetQueryable()
+                    .AsNoTracking()
+                    .AnyAsync(p =>
+                        p.PropertyId.HasValue &&
+                        p.PropertyId == property.Id &&
+                        p.IsActive &&
+                        !p.MarkedForDeletion,
+                        cancellationToken);
+
+                isVerified = hasPropertyPhoto || hasWingPhoto;
+                verifiedWingPropertiesCount = verifiedProps.Count;
+                unverifiedWingPropertiesCount = Math.Max(0, wingPropertyIds.Count - verifiedWingPropertiesCount);
+            }
+            else
+            {
+                unverifiedWingPropertiesCount = wingPropertyIds.Count;
+            }
+        }
+        else
+        {
+            if (_propertyPhotoRepository != null)
+            {
+                isVerified = await _propertyPhotoRepository
+                    .GetQueryable()
+                    .AsNoTracking()
+                    .AnyAsync(p =>
+                        p.PropertyId == property.Id &&
+                        p.IsActive && !p.MarkedForDeletion,
+                        cancellationToken);
+            }
+        }
+
+        // Step 13: Return response
+        return new PropertyKycDetailsCommonDto
+        {
+            PropertyId = property.Id,
+            PropertyNo = property.PropertyNo,
+            PartitionNo = property.PartitionNo,
+            PropertyTypeId = property.PropertyTypeId,
+            CategoryId = property.CategoryId,
+            PlotNo = property.PlotNo,
+            CSN = property.CSN,
+            OwnerTypeId = assessment?.OwnerTypeId,
+            AdharCardNo = assessment?.AdharCardNo,
+            BlockNo = assessment?.BlockNo,
+            SurveyRemark = assessment?.SurveyRemark,
+            TypeOfUseId = typeOfUseId,
+            OwnerType = ownerType,
+            BHKId = assessment?.BHKId,
+            BHK = assessment?.BHK,
+            OldCSN = oldProperty?.OldCSN,
+            OwnerTitle = property.OwnerTitle,
+            OwnerName = property.OwnerName,
+            OwnerTitleEnglish = property.OwnerTitleEnglish,
+            OwnerNameEnglish = property.OwnerNameEnglish,
+            OccupierTypeId = property.OccupierTypeId,
+            OccupierTitle = property.OccupierTitle,
+            OccupierName = property.OccupierName,
+            OccupierTitleEnglish = property.OccupierTitleEnglish,
+            OccupierNameEnglish = property.OccupierNameEnglish,
+            Address = property.Address,
+            Location = property.Location,
+            AddressEnglish = property.AddressEnglish,
+            LocationEnglish = property.LocationEnglish,
+            FlatOrShopName = property.FlatOrShopName,
+            FlatOrShopNameEnglish = property.FlatOrShopNameEnglish,
+            FlatOrShopNo = property.FlatOrShopNo,
+            FlatOrShopNoEnglish = property.FlatOrShopNoEnglish,
+            MobileNo = property.MobileNo,
+            MobileNoRemarkId = property.MobileNoRemarkId,
+            AlternateMobileNo = property.AlternateMobileNo,
+            OccupierMobileNo = property.OccupierMobileNo,
+            OccupierMobileNoRemarkId = property.OccupierMobileNoRemarkId,
+            EmailId = property.EmailId,
+            PinCode = property.PinCode,
+            SocietyName = society?.SocietyName,
+            SocietyAddress = hasValidSociety ? society?.SocietyAddress : null,
+            SocietyNameEnglish = society?.SocietyNameEnglish,
+            SocietyAddressEnglish = hasValidSociety ? society?.SocietyAddressEnglish : null,
+            SocietyEmailId = hasValidSociety ? society?.SocietyEmailId : null,
+            WingDetailsId = wingDetailsId ?? property.WingDetailId,
+            WingId = wingId,
+            WingNo = wingNo,
+            WingName = wingName,
+            ManagerName = hasValidSociety ? society?.ManagerName : null,
+            ManagerNameEnglish = hasValidSociety ? society?.ManagerNameEnglish : null,
+            ManagerMobileNo = hasValidSociety ? society?.ManagerMobileNo : null,
+            ManagerMobileNoId = hasValidSociety ? society?.ManagerMobileNoRemarkId : null,
+            ManagerEmailId = hasValidSociety ? society?.ManagerEmailId : null,
+            SecretaryName = hasValidSociety ? society?.SecretaryName : null,
+            SecretaryNameEnglish = hasValidSociety ? society?.SecretaryNameEnglish : null,
+            SecretaryMobileNo = hasValidSociety ? society?.SecretaryMobileNo : null,
+            SecretaryMobileNoId = hasValidSociety ? society?.SecretaryMobileNoRemarkId : null,
+            SecretaryEmailId = hasValidSociety ? society?.SecretaryEmailId : null,
+            LandOwnerName = hasValidSociety ? society?.LandOwnerName : null,
+            LandOwnerNameEnglish = hasValidSociety ? society?.LandOwnerNameEnglish : null,
+            BuilderName = hasValidSociety ? society?.BuilderName : null,
+            BuilderNameEnglish = hasValidSociety ? society?.BuilderNameEnglish : null,
+            BuilderMobileNo = hasValidSociety ? society?.BuilderMobileNo : null,
+            BuilderMobileNoId = hasValidSociety ? society?.BuilderMobileNoRemarkId : null,
+            SocietyDetailId = society?.Id,
+            PlotLength = roomWiseDetails?.LengthMtr != null
+                ? (double?)roomWiseDetails.LengthMtr
+                : null,
+            PlotWidth = roomWiseDetails?.WidthMtr != null
+                ? (double?)roomWiseDetails.WidthMtr
+                : null,
+            TotalArea = roomWiseDetails?.TotalAreaSqMtr != null
+                ? (double?)roomWiseDetails.TotalAreaSqMtr
+                : null,
+            IssuedBy = issuedBy?.ToString(),
+            OldWardNo = oldProperty?.OldWardNo,
+            OldPropertyNo = oldPropertyNo,
+            OldSocietyName = oldProperty?.OldSocietyName,
+            OldMobileNo = oldProperty?.OldMobileNo,
+            VirtualPropertyTransferHistory = virtualPropertyTransferHistory,
+            MapCount = mapCount,
+            PropertyIdOld = oldPropertyIdFormatted,
+            CreatedBy = createdByUserName,
+            CreatedDate = property.CreatedDate,
+            IsVerified = isVerified,
+            IsVirtualProperty = property.IsVirtualProperty == true || virtualPropertyTransferHistory.Count > 0,
+            VerifiedWingPropertiesCount = verifiedWingPropertiesCount,
+            UnverifiedWingPropertiesCount = unverifiedWingPropertiesCount
+        };
+    }
+
+    public Task<PropertyKycDetailsDto?> GetKycDetailsAsync(int propertyId, CancellationToken cancellationToken = default)
+        => _repository.GetKycDetailsAsync(propertyId, cancellationToken);
+
+    public async Task<PropertyKycDetailsDto?> UpdateKycDetailsAsync(
+        int propertyId,
+        UpdatePropertyKycDetailsDto dto,
+        CancellationToken cancellationToken = default)
+    {
+        // A missing property is reported as null (→ 404).
+        var property = await _repository.GetActivePropertyAsync(propertyId, cancellationToken);
+        if (property == null) return null;
+
+        // Enforce all Property aggregate write invariants before any state change.
+        await _invariantPolicy.EnforceAsync(property, cancellationToken);
+
+        // Single timestamp: consistent across all entity fields in this operation.
+        var now = DateTime.Now;
+
+        // Wrap in a transaction: PropertyMast and potentially a new assessment row both save
+        // in this operation; both must succeed or roll back atomically (Critical #4 — aggregate invariants).
+        await _unitOfWork.BeginTransactionAsync(cancellationToken);
+        try
+        {
+            ApplyKycFields(property, dto, now);
+            await UpsertAssessmentAsync(propertyId, dto, now, cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.CommitTransactionAsync(cancellationToken);
+        }
+        catch
+        {
+            await _unitOfWork.RollbackTransactionAsync(cancellationToken);
+            throw;
+        }
+
+        return await _repository.GetKycDetailsAsync(propertyId, cancellationToken);
+    }
+
+    // ── Private helpers ──────────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// Copies every editable KYC field from the DTO onto the entity in a single place.
+    /// Using one <paramref name="now"/> value ensures a consistent timestamp.
+    /// </summary>
+    private static void ApplyKycFields(
+        PropertyEntity property,
+        UpdatePropertyKycDetailsDto dto,
+        DateTime now)
+    {
+        property.OwnerTitle = dto.OwnerTitle;
+        property.OwnerName = dto.OwnerName;
+        property.OwnerTitleEnglish = dto.OwnerTitleEnglish;
+        property.OwnerNameEnglish = dto.OwnerNameEnglish;
+        property.OccupierTitle = dto.OccupierTitle;
+        property.OccupierName = dto.OccupierName;
+        property.OccupierTitleEnglish = dto.OccupierTitleEnglish;
+        property.OccupierNameEnglish = dto.OccupierNameEnglish;
+        property.Address = dto.Address;
+        property.Location = dto.Location;
+        property.AddressEnglish = dto.AddressEnglish;
+        property.LocationEnglish = dto.LocationEnglish;
+        property.FlatOrShopName = dto.FlatOrShopName;
+        property.FlatOrShopNameEnglish = dto.FlatOrShopNameEnglish;
+        property.FlatOrShopNo = dto.FlatOrShopNo;
+        property.FlatOrShopNoEnglish = dto.FlatOrShopNoEnglish;
+        property.MobileNo = dto.MobileNo;
+        property.AlternateMobileNo = dto.AlternateMobileNo;
+        property.EmailId = dto.EmailId;
+        property.PinCode = dto.PinCode;
+        property.UpdatedDate = now;
+    }
+
+    /// <summary>Updates the assessment row's owner-type/aadhar in place, or inserts one only when that data is supplied.</summary>
+    private async Task UpsertAssessmentAsync(
+        int propertyId,
+        UpdatePropertyKycDetailsDto dto,
+        DateTime now,
+        CancellationToken cancellationToken)
+    {
+        var assessmentId = await _repository.GetFirstAssessmentIdAsync(propertyId, cancellationToken);
+        bool hasAssessmentData = dto.OwnerTypeId.HasValue || dto.AdharCardNo != null;
+
+        if (assessmentId > 0)
+        {
+            var assessment = await _repository.GetAssessmentByIdAsync(assessmentId, cancellationToken);
+            if (assessment != null)
+            {
+                assessment.OwnerTypeId = dto.OwnerTypeId;
+                assessment.AdharCardNo = dto.AdharCardNo;
+                assessment.UpdatedDate = now;
+            }
+        }
+        else if (hasAssessmentData)
+        {
+            await _repository.AddAssessmentAsync(new PropertyAssessmentEntity
+            {
+                PropertyId = propertyId,
+                OwnerTypeId = dto.OwnerTypeId,
+                AdharCardNo = dto.AdharCardNo,
+                IsActive = true,
+                MarkedForDeletion = false,
+                CreatedDate = now
+            }, cancellationToken);
+        }
+    }
+}

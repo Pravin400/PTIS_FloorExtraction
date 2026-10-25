@@ -1,0 +1,96 @@
+{
+  "title": "GST Master",
+  "subtitle": "Manage GST tax codes, names, percentage rates, and effective dates",
+  "searchPlaceholder": "Search GST records...",
+  "add": "Add GST",
+  "edit": "Edit GST",
+  "delete": "Delete GST",
+  "actions": "Actions",
+  "taxCode": "Tax Code",
+  "taxName": "Tax Name",
+  "taxPercent": "Tax %",
+  "status": "Status",
+  "showing": "Showing",
+  "to": "to",
+  "of": "of",
+  "entries": "entries",
+  "active": "Active",
+  "form": {
+    "addTitle": "Add New GST",
+    "editTitle": "Edit GST",
+    "addSubtitle": "Create a new GST tax configuration",
+    "editSubtitle": "Update an existing GST tax configuration",
+    "subtitle": "Create a new GST tax configuration",
+    "actions": {
+      "save": "Create GST",
+      "update": "Update GST",
+      "cancel": "Cancel"
+    },
+    "fields": {
+      "code": {
+        "label": "Tax Code",
+        "placeholder": "e.g. GST_18"
+      },
+      "description": {
+        "label": "Tax Name",
+        "placeholder": "e.g. GST 18 Percent"
+      },
+      "percent": {
+        "label": "Tax Percentage",
+        "placeholder": "e.g. 18"
+      },
+      "effectiveFrom": {
+        "label": "Effective From Date"
+      },
+      "effectiveTo": {
+        "label": "Effective To Date"
+      }
+    },
+    "status": {
+      "label": "Status",
+      "active": "Active",
+      "inactive": "Inactive",
+      "description": "GST is currently"
+    },
+    "validation": {
+      "codeRequired": "Tax code is required",
+      "codeFormat": "Tax code can only contain letters, numbers, and underscores (not at start/end)",
+      "codeMaxLength": "Tax code cannot exceed {count} characters",
+      "descriptionRequired": "Tax name is required",
+      "descriptionFormat": "Tax name contains invalid characters",
+      "descriptionMaxLength": "Tax name cannot exceed {count} characters",
+      "percentRequired": "Tax percentage is required",
+      "percentInvalid": "Tax percentage must be a valid non-negative number and cannot exceed 100",
+      "effectiveFromRequired": "Effective from date is required",
+      "effectiveToRequired": "Effective to date is required",
+      "effectiveToInvalid": "Effective to date cannot be earlier than effective from date",
+      "fixErrors": "Please fix validation errors",
+      "mandatoryNotice": "Fields marked with <b>*</b> are mandatory",
+      "invalidFormat": "Invalid format",
+      "dateYearRange": "Year must be between 1700 and 2100",
+      "taxCodeDuplicate": "Tax code already exists",
+      "taxNameDuplicate": "Tax name already exists"
+    },
+    "messages": {
+      "createSuccess": "GST created successfully",
+      "updateSuccess": "GST updated successfully",
+      "deleteSuccess": "GST deleted successfully",
+      "error": "Unable to save GST",
+      "duplicate": "This record already exists"
+    }
+  },
+  "apiErrors": {
+    "GST_TaxCode_Duplicate": "GST Tax Code already exists",
+    "duplicateRecord": "This record already exists",
+    "deleteBlockedInUse": "This GST cannot be deleted because it is in use.",
+    "deactivateBlockedInUse": "This GST cannot be deactivated because it is in use."
+  },
+  "deleteConfirm": "Are you sure you want to delete this GST record?",
+  "error": {
+    "title": "Failed to load GST data",
+    "description": "We encountered an error while loading GST information. Please try again.",
+    "errorId": "Error ID: {id}",
+    "goHome": "Go Home",
+    "tryAgain": "Try Again"
+  }
+}

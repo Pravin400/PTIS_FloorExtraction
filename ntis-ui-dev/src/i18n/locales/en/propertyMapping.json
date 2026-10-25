@@ -1,0 +1,343 @@
+{
+  "propertyMapping": {
+    "pageTitle": "Property Mapping",
+    "stepLabel": "STEP {step}",
+    "loadingTitle": "Fetching Legacy Property Records",
+    "loadingSubtitle": "Loading mapped candidate list from Thane Municipal Corporation API...",
+    "pendingCount": "Pending",
+
+    "error": {
+      "title": "Property Mapping Error",
+      "description": "An error occurred while processing property mapping data.",
+      "goHome": "Back to Home",
+      "tryAgain": "Try Again"
+    },
+
+    "tabs": {
+      "workspace": "Verify Properties",
+      "confirmed": "Confirmed Mappings",
+      "history": "Verification History Log"
+    },
+
+    "header": {
+      "back": "Back",
+      "title": "Property Mapping"
+    },
+
+    "sidebar": {
+      "sectionLabel": "New Survey Property",
+      "autoDetectedLink": "Auto-detected Link",
+      "fields": {
+        "newPropertyNo": "New Property No",
+        "ctsNo": "CTS / Survey Number",
+        "ownerName": "Owner Name",
+        "address": "Property Address",
+        "mobile": "Mobile Number",
+        "plotBuiltArea": "Plot / Built-up Area",
+        "carpetArea": "Carpet Area",
+        "floors": "New Floors",
+        "useCategory": "Use Category",
+        "rateableValue": "Rateable Value",
+        "capitalValue": "Capital Value",
+        "totalTax": "Total Tax"
+      },
+      "areaUnit": "sqft",
+      "navigation": {
+        "prev": "Previous",
+        "next": "Next",
+        "recordOf": "Record {current} of {total}"
+      },
+      "status": {
+        "mapped": "Mapped",
+        "unmapped": "Unmapped",
+        "needsVerification": "Needs verification"
+      }
+    },
+
+    "searchBar": {
+      "label": "Search property, owner or address",
+      "placeholder": "Property no., owner, CTS, address, mobile...",
+      "searchButton": "Search",
+      "searchingButton": "Searching...",
+      "resetButton": "Reset",
+      "verificationStatusLabel": "Verification Status",
+      "filterOptions": {
+        "all": "All",
+        "needVerification": "Need verification",
+        "mapped": "Mapped",
+        "unmapped": "Unmapped"
+      }
+    },
+
+    "candidatesTable": {
+      "step1": {
+        "label": "STEP 1",
+        "title": "Linked Old Properties ({count})",
+        "description": "These old property records are currently linked to the new survey property.",
+        "emptyText": "No historical properties are currently linked."
+      },
+      "step2": {
+        "label": "STEP 2",
+        "title": "Search & Select Old Properties ({count})",
+        "descriptionAuto": "Auto-detected matching candidates for the new survey property.",
+        "descriptionManual": "Search and select from manual search results to link them to the new survey property.",
+        "badgeAutoDetected": "Auto-Detected",
+        "badgeSearchResults": "Search Results",
+        "emptyText": "No candidate properties found for this survey location."
+      },
+      "step3": {
+        "label": "STEP 3",
+        "title": "Manual Search Results ({count})",
+        "description": "Results from manual search bar queries.",
+        "badgeManual": "Manual Search",
+        "emptyText": "No candidate properties found for this search query."
+      },
+      "columns": {
+        "selectMatch": "Select Match",
+        "status": "Status",
+        "oldPropertyNo": "Old Property No.",
+        "ownerAddress": "Owner / Address",
+        "builtUpArea": "Built-up Area",
+        "carpetArea": "Carpet Area",
+        "tax": "Tax",
+        "floors": "Floors",
+        "evidenceDetails": "Evidence Details",
+        "matchPercent": "Match %",
+        "action": "Action"
+      },
+      "statusBadge": {
+        "mappedTo": "Mapped to PROPNo :- {propNo}",
+        "mapped": "Mapped",
+        "unmapped": "Unmapped",
+        "blocked": "Blocked"
+      },
+      "areaUnit": "sq. ft.",
+      "compareButton": "Compare",
+      "compareButtonBlocked": "View comparison (Blocked)"
+    },
+
+    "comparisonCards": {
+      "step4": {
+        "label": "STEP 4",
+        "title": "Compare Area & Total Tax applied"
+      },
+      "areaCard": {
+        "title": "Area Reconciliation",
+        "builtUpAreaSection": "Built-up Area",
+        "newBuiltUp": "New Built-up Area",
+        "oldBuiltUp": "Old Built-up Area",
+        "difference": "Difference",
+        "carpetAreaSection": "Carpet Area",
+        "newCarpet": "New Carpet Area",
+        "oldCarpet": "Old Carpet Area",
+        "toleranceStatus": "Tolerance status"
+      },
+      "floorCard": {
+        "title": "Floor Match Check",
+        "newFloorCount": "New Floor Count",
+        "oldFloorCount": "Old Floor Count",
+        "floorRecordsAvailable": "Floor Records Available",
+        "floorMatchResult": "Floor Match Result",
+        "yes": "Yes",
+        "no": "No",
+        "floorStatus": {
+          "matched": "Matched",
+          "oldIsLess": "Old is Less",
+          "oldIsMore": "Old is More",
+          "noMatchingLayout": "No matching layout"
+        }
+      },
+      "taxCard": {
+        "title": "Total Tax applied",
+        "newAnnualTax": "New Annual Tax",
+        "oldAnnualTax": "Old Annual Tax",
+        "difference": "Difference",
+        "differenceStatus": "Difference status"
+      },
+      "toleranceBadge": {
+        "within": "Within tolerance",
+        "exceeded": "Exceeded",
+        "equal": "Equal",
+        "oldIsLess": "Old is Less",
+        "oldIsMore": "Old is More"
+      },
+      "areaUnit": "sq. ft.",
+      "records": "records"
+    },
+
+    "floorVisualizer": {
+      "step5": {
+        "label": "STEP 5",
+        "title": "Review Detailed Floor-wise Construction",
+        "description": "Select an old property tab below to review its vertical construction levels against tax records."
+      },
+      "emptyState": "Select linked legacy matching properties in STEP 1 to generate the building visualizer.",
+      "gridLabel": "Construction & Tax Parameters Grid",
+      "tabLabel": {
+        "new": "NEW",
+        "old": "OLD"
+      },
+      "columns": {
+        "floor": "Floor",
+        "useCategory": "Use Category",
+        "construction": "Construction",
+        "carpetArea": "Carpet Area",
+        "builtUpArea": "Built-up Area",
+        "constructionYear": "Const. Year",
+        "assessmentYear": "Assess. Year"
+      },
+      "areaUnit": "sq. ft."
+    },
+
+    "confirmFooter": {
+      "readyMessage": "All verification metrics match municipal tolerance levels. Ready to confirm.",
+      "confirmMergeButton": "Confirmed Merge",
+      "saveUnmappedButton": "Save as Unmapped Property"
+    },
+
+    "validation": {
+      "hardConflict": "Verification blocked: Hard match conflict detected in selected old candidate.",
+      "remarkRequired": "Audit remarks required to save survey property as unmapped.",
+      "areaVariance": "Warning: Combined Area variance exceeds 10% tolerance ({value}%).",
+      "taxVariance": "Warning: Tax value discrepancy exceeds 10% ({value}%)."
+    },
+
+    "dialogs": {
+      "remarkPrompt": "Enter remarks explaining the mapping check:",
+      "confirmMerge": {
+        "title": "Confirm Property Merge?",
+        "description": "Are you sure you want to merge survey property {newPropNo} with old property records: {oldPropNos}?",
+        "confirmText": "Confirm Merge",
+        "cancelText": "Cancel"
+      },
+      "markUnmapped": {
+        "title": "Verify as Unmapped Property?",
+        "description": "Are you sure you want to mark new survey property {newPropNo} as Unmapped? No old property record will be linked.",
+        "confirmText": "Mark Unmapped",
+        "cancelText": "Cancel"
+      },
+      "unmapProperty": {
+        "title": "Unmap Property?",
+        "description": "Are you sure you want to unmap property link {mId} for survey property {newPropNo}? This will disconnect the mapped old property records.",
+        "confirmText": "Unmap Property",
+        "cancelText": "Cancel"
+      },
+      "unmapSelection": {
+        "title": "Select Properties to Unmap",
+        "surveyProperty": "Survey Property:",
+        "multipleDesc": "This survey property is mapped to {count} old properties. Select which old property record(s) you wish to unmap:",
+        "singleDesc": "Are you sure you want to unmap property link {mId} for survey property {newPropNo}? This will disconnect the mapped old property record.",
+        "recordsHeader": "Old Property Records ({selected}/{total} selected)",
+        "selectAll": "Select All",
+        "deselectAll": "Deselect All",
+        "toUnmap": "To Unmap",
+        "keep": "Keep",
+        "cancel": "Cancel",
+        "unmapping": "Unmapping...",
+        "unmapSelected": "Unmap Selected ({count})"
+      }
+    },
+
+    "toasts": {
+      "filtersReset": "Filters reset successfully",
+      "searchFailed": "Server search failed",
+      "markedUnmapped": "Property {propNo} verified as Unmapped.",
+      "mappingConfirmed": "Property mapping successfully verified for {propNo}.",
+      "unmapped": "Property link for {propNo} has been unmapped.",
+      "mergeFailed": "Failed to merge property records.",
+      "unmergeFailed": "Failed to unmerge property records.",
+      "unlinkFailed": "Failed to unlink property record.",
+      "invalidPropertyId": "Invalid property record identifier."
+    },
+
+    "mappingType": {
+      "unmapped": "Unmapped (Confirm as new survey)",
+      "oneToOne": "1 \u2192 1 (One-to-One)",
+      "split": "Split (1 New \u2192 {count} Old Records)"
+    },
+
+    "confirmedMappingsTab": {
+      "title": "Active Mappings Register",
+      "emptyText": "No active mappings saved yet.",
+      "columns": {
+        "mappingLinkId": "Mapping Link ID",
+        "newSurveyProperty": "New Survey Property",
+        "legacyOldProperties": "Old Property Records",
+        "relationshipType": "Relationship Type",
+        "confidence": "Confidence",
+        "verifiedBy": "Verified By",
+        "verifiedDate": "Verified Date",
+        "action": "Action"
+      },
+      "unmappedLabel": "Unmapped",
+      "unmapButton": "Unmap Property"
+    },
+
+    "historyTab": {
+      "title": "Audit Trail",
+      "emptyText": "No actions logged in the history yet.",
+      "naValue": "N/A",
+      "columns": {
+        "timestamp": "Timestamp",
+        "action": "Action",
+        "newPropertyNo": "New Property No.",
+        "linkedLegacyRecords": "Linked Old Property Records",
+        "officer": "Officer",
+        "auditRemarks": "Reconciliation Audit Remarks"
+      }
+    },
+
+    "diffModal": {
+      "title": "Parameters Comparison",
+      "subtitle": "Compare new GIS survey parameters against existing Corporation record.",
+      "closeButton": "Close Comparison",
+      "columns": {
+        "parameters": "Parameters",
+        "newPropertyRecord": "New Property Record",
+        "oldPropertyRecord": "Old Property Record",
+        "status": "Status"
+      },
+      "matchStatus": {
+        "matched": "Matched",
+        "unmatch": "Unmatch",
+        "noData": "No Data"
+      },
+      "fields": {
+        "propertyNo": "Property No.",
+        "ownerName": "Owner Name",
+        "address": "Address",
+        "builtUpArea": "Built-up Area",
+        "carpetArea": "Carpet Area",
+        "floors": "Floors",
+        "rateableValue": "Rateable Value",
+        "annualTax": "Total Tax",
+        "ctsSurvey": "CTS / Survey",
+        "useCategory": "Use Category",
+        "zoneWard": "Zone / Ward",
+        "plotNumber": "Plot Number",
+        "constructionYear": "Construction Year",
+        "mobileNumber": "Mobile Number"
+      },
+      "naValue": "N/A",
+      "areaUnit": "sq. ft."
+    },
+
+    "evidence": {
+      "ward": "Ward {wardNo}",
+      "zone": "Zone {zoneNo}",
+      "searchResult": "Search Result",
+      "category": "Category {category}"
+    },
+
+    "auditDefaultRemarks": {
+      "newSurvey": "Confirmed as new survey property (Unmapped).",
+      "mappingConfirmed": "Mapping relationship confirmed.",
+      "unmapManual": "Unmap manual verification link from active mappings register."
+    },
+
+    "waitingWindow": {
+      "title": "Searching Properties",
+      "message": "Finding corporation property records..."
+    }
+  }
+}

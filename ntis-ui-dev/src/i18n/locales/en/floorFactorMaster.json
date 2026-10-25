@@ -1,0 +1,51 @@
+{
+  "floorFactorMaster": {
+    "defaults": {
+      "floor": "Floor",
+      "floors": "Floors",
+      "assessment": "Assessment"
+    },
+    "title": "{floor} Factor Master",
+    "columns": {
+      "floorCode": "{floor} Code",
+      "description": "Description",
+      "factorWithLift": "Factor (With Lift)",
+      "factorWithoutLift": "Factor (Without Lift)",
+      "assessmentYear": "{assessment} Year",
+      "status": "Status",
+      "action": "Action"
+    },
+    "filters": {
+      "assessmentYear": "{assessment} Year",
+      "fromFloor": "From {floor}",
+      "toFloor": "To {floor}",
+      "liftStatus": "Lift Status",
+      "factor": "Factor"
+    },
+    "liftStatusOptions": {
+      "both": "Both",
+      "withLift": "With Lift",
+      "withoutLift": "Without Lift"
+    },
+    "placeholders": {
+      "select": "Select..."
+    },
+    "messages": {
+      "fromFloorGreaterError": "From {floor} cannot be greater than To {floor}",
+      "noRecordsFound": "No records found",
+      "mandatoryFields": "Fields marked with * are mandatory"
+    },
+    "apiErrors": {
+      "notFound": "Floor Weightage record not found.",
+      "validationError": "Invalid request. Please check the entered values and try again.",
+      "referredInAutoWardEntry": "This {floor} Weightage cannot be deleted because it is already used in Capital Value tax calculations. Please remove the dependent records first."
+    },
+      "deleteConfirmation": {
+      "title": "Type Of {floor}",
+      "description": "Are you sure you want to delete this record?.",
+      "confirmButton": "Delete",
+      "cancelButton": "Cancel",
+      "successMessage": "Record deleted successfully"
+    }
+  }
+}

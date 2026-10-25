@@ -1,0 +1,182 @@
+{
+  "loading": {
+    "message": "Loading asset grievance category data...",
+    "description": "Please wait while we load the category information"
+  },
+  "master": {
+    "title": "Asset Grievance Category Master",
+    "description": "Manage and configure asset grievance categories and their properties",
+    "tableTitle": "Asset Grievance Categories",
+    "tableSubtitle": "View and manage all asset grievance categories",
+    "add": "Add Category",
+    "edit": "Edit",
+    "delete": "Delete",
+    "stats": {
+      "total": "Total Categories",
+      "critical": "Active Categories",
+      "sla": "Avg SLA (Days)",
+      "active": "Active Categories"
+    },
+    "deleteConfirm": "Are you sure you want to delete this category?",
+    "toast": {
+      "deleteError": "Failed to delete category",
+      "deleteSuccess": "Category deleted successfully",
+      "updateSuccess": "Category updated successfully",
+      "createSuccess": "Category created successfully"
+    }
+  },
+  "list": {
+    "loading": "Refreshing data...",
+    "headers": {
+      "typeCode": "Grievance Type Code",
+      "name": "Category Name",
+      "nameLocal": "Local Name",
+      "codeFormat": "Code Format",
+      "sla": "SLA (Days)",
+      "displaySequence": "Sequence",
+      "targetTableName": "Target Table",
+      "status": "Status",
+      "description": "Description",
+      "actions": "Actions"
+    },
+    "fallback": {
+      "unknown": "Unknown"
+    },
+    "days": "Days",
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "empty": "No asset grievance categories found. Try adjusting filters or adding a new one.",
+    "pagination": {
+      "showing": "Showing",
+      "to": "to",
+      "of": "of",
+      "entries": "entries",
+      "pageSize": "Page size",
+      "pageSizeAria": "Items per page",
+      "rowsPerPage": "Rows per page",
+      "itemsPerPage": "Items per page"
+    }
+  },
+  "filters": {
+    "searchPlaceholder": "Search by category name, code, or description...",
+    "filterBy": "Filter By",
+    "allStatus": "All Statuses",
+    "active": "Active",
+    "inactive": "Inactive",
+    "filterByStatus": "Filter by Status"
+  },
+  "form": {
+    "editTitle": "Edit Category",
+    "addTitle": "Add New Category",
+    "editDesc": "Update category details below",
+    "addDesc": "Fill in the details for the new category",
+    "buttons": {
+      "cancel": "Cancel",
+      "save": "Save Changes",
+      "update": "Update Category",
+      "add": "Add Category"
+    },
+    "fields": {
+      "typeCode": "Grievance Type Code",
+      "typeCodePlaceholder": "e.g., GRV_WATER_LEAK",
+      "name": "Category Name",
+      "namePlaceholder": "Enter category name",
+      "nameLocal": "Local Name",
+      "nameLocalPlaceholder": "Enter local category name",
+      "codeFormat": "Code Format",
+      "codeFormatPlaceholder": "e.g., WTR-{YYYY}-{MM}-{DD}-{SEQ}",
+      "sla": "Resolution SLA (Days)",
+      "slaPlaceholder": "e.g., 3",
+      "displaySequence": "Display Sequence",
+      "displaySequencePlaceholder": "e.g., 1",
+      "targetTableName": "Target Table Name",
+      "targetTableNamePlaceholder": "e.g., tbl_water_supply_grievances",
+      "requiresFieldCorrection": "Requires Field Correction",
+      "requiresFieldCorrectionDesc": "Check if complaint requires field verification and correction",
+      "description": "Description",
+      "descPlaceholder": "Enter detailed description",
+      "active": "Active Status",
+      "activeDesc": "Toggle to enable or disable this category"
+    },
+    "errors": {
+      "typeCodeReq": "Grievance type code is required",
+      "typeCodeMaxLength": "Type code cannot exceed 50 characters",
+      "typeCodeInvalidFormat": "Type code must only contain letters, numbers, underscores, and hyphens",
+      "typeNameReq": "Category name is required",
+      "typeNameMaxLength": "Name cannot exceed 200 characters",
+      "typeNameLocalReq": "Local name is required",
+      "typeNameLocalMaxLength": "Local name cannot exceed 200 characters",
+      "codeFormatReq": "Code format is required",
+      "codeFormatMaxLength": "Code format cannot exceed 100 characters",
+      "codeFormatInvalidFormat": "Invalid code format pattern",
+      "targetTableNameReq": "Target table name is required",
+      "targetTableNameMaxLength": "Target table name cannot exceed 200 characters",
+      "targetTableNameInvalidFormat": "Invalid target table name format",
+      "requiresFieldCorrectionReq": "Requires field correction is required",
+      "displaySequenceReq": "Display sequence is required",
+      "displaySequenceInvalid": "Display sequence must be a non-negative number",
+      "descReq": "Description is required",
+      "descMinLength": "Description must be at least 3 characters",
+      "descMaxLength": "Description cannot exceed 500 characters",
+      "slaMaxLength": "Resolution SLA cannot exceed 4 digits",
+      "slaReq": "Resolution SLA is required",
+      "slaPositiveInteger": "Resolution SLA must be a number",
+      "slaMustBeNonNegative": "Resolution SLA must be 0 or greater",
+      "slaMaxDays": "Resolution SLA cannot exceed 365 days",
+      "invalidFormat": "Invalid format",
+      "operationFailed": "Operation failed",
+      "unexpected": "Unexpected error occurred",
+      "createError": "Failed to create grievance category",
+      "updateError": "Failed to update grievance category",
+      "unauthorized": "Session expired. Please log in.",
+      "duplicateName": "Category name already exists. Please use a unique name.",
+      "duplicateRecord": "Asset grievance category already exists.",
+      "recordNotFound": "Asset grievance category not found.",
+      "dependencyExists": "Cannot delete/modify because associated remarks or records exist.",
+      "mustBeActive": "New category must be active."
+    }
+  },
+  "error": {
+    "title": "Asset Grievance Category Master Error",
+    "description": "An unexpected error occurred while loading the categories. Please try again or contact support if the issue persists.",
+    "errorId": "Error ID: {id}",
+    "goHome": "Back to Home",
+    "tryAgain": "Retry"
+  },
+  "addError": {
+    "title": "Asset Grievance Category Creation Error",
+    "description": "Unable to load the category creation form. This may be due to missing configuration or a server error.",
+    "errorId": "Error ID: {id}",
+    "goHome": "Back to Home",
+    "tryAgain": "Retry"
+  },
+  "editError": {
+    "title": "Asset Grievance Category Edit Error",
+    "description": "Failed to load the requested category for editing. Please verify the category exists and try again.",
+    "errorId": "Error ID: {id}",
+    "goHome": "Back to Home",
+    "tryAgain": "Retry"
+  },
+  "apiErrors": {
+    "duplicateRecord": "Asset Grievance Category already exists. Duplicates not allowed.",
+    "AssetGrievanceCategory_CategoryName_Duplicate": "Category Name already exists.",
+    "AssetGrievanceCategory_GrievanceTypeCode_Duplicate": "Grievance Type Code already exists.",
+    "validationError": "Invalid data provided. Please check all fields.",
+    "invalidData": "Invalid data provided. Please check all fields.",
+    "notFound": "Asset grievance category not found.",
+    "inUse": "Cannot deactivate/delete this Asset Grievance Category because it is referenced by other records.",
+    "operationFailed": "Operation failed. Please try again later.",
+    "referenceBlocked": {
+      "grievanceCategory": {
+        "deleteHasMasters": "This Grievance Category cannot be deleted because it has {masters}. Please delete all {masters} for this Grievance Category first.",
+        "deactivateHasMasters": "This Grievance Category cannot be deactivated because it has {masters}. Please delete all {masters} for this Grievance Category first."
+      }
+    },
+    "referenceMasters": {
+      "grievanceRemarks": "Grievance Remarks",
+      "and": "and"
+    }
+  }
+}

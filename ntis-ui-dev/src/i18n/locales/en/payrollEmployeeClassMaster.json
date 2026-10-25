@@ -1,0 +1,86 @@
+{
+  "title": "Employee Class Master",
+  "subtitle": "Manage employee cadres, classifications, and service group hierarchies",
+  "buttons": {
+    "add": "Add Employee Class"
+  },
+  "filters": {
+    "searchPlaceholder": "Search employee classes...",
+    "status": "Filter by status"
+  },
+  "table": {
+    "columns": {
+      "classCode": "Class Code",
+      "className": "Employee Class",
+      "description": "Description",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "actions": {
+      "editAria": "Edit {name}",
+      "deleteAria": "Delete {name}"
+    }
+  },
+  "drawer": {
+    "addTitle": "Add New Employee Class",
+    "editTitle": "Edit Employee Class",
+    "addSubtitle": "Configure new service classification details",
+    "editSubtitle": "Update existing service classification details",
+    "sectionTitle": "Employee Class Information",
+    "mandatoryFields": "* Mandatory Fields",
+    "labels": {
+      "classCode": "Class Code",
+      "className": "Employee Class",
+      "classNameLocal": "Employee Class (Regional)",
+      "description": "Description",
+      "status": "Status"
+    },
+    "placeholders": {
+      "classCode": "e.g. CLASS-I",
+      "className": "e.g. Class I (Group A)",
+      "classNameMarathi": "उदा. वर्ग अ (गट अ)",
+      "description": "Brief description of the employee class scope and cadres..."
+    },
+    "buttons": {
+      "create": "Create Class",
+      "update": "Update Class",
+      "cancel": "Cancel"
+    },
+    "validation": {
+      "classCodeRequired": "Class Code is required.",
+      "classCodeMinLength": "Employee Class Code must be at least 3 characters",
+      "classCodeMaxLength": "Employee Class Code must not exceed 20 characters",
+      "classCodeFormat": "Code must contain only letters, numbers, underscores, and hyphens",
+      "classNameRequired": "Employee Class is required.",
+      "classNameMaxLength": "Employee Class must not exceed 100 characters",
+      "classNameMarathiRequired": "Employee Class (Regional) is required.",
+      "classNameMarathiMaxLength": "Employee Class (Regional) must not exceed 100 characters",
+      "descriptionMaxLength": "Description must not exceed 250 characters.",
+      "codeUnique": "This Class Code already exists. Codes must be unique.",
+      "classNameDuplicate": "This Employee Class name already exists."
+    }
+  },
+  "deleteModal": {
+    "title": "Delete Employee Class",
+    "description": "Are you sure you want to delete \"{name}\"? This action cannot be undone.",
+    "inUse": "\"{name}\" is currently linked to employee records and cannot be deleted.",
+    "confirm": "Delete",
+    "cancel": "Cancel"
+  },
+  "messages": {
+    "createSuccess": "Employee Class created successfully",
+    "createFailed": "Failed to create employee class",
+    "updateSuccess": "Employee Class updated successfully",
+    "updateFailed": "Failed to update employee class",
+    "deleteSuccess": "Employee Class deleted successfully",
+    "deleteFailed": "Failed to delete employee class",
+    "invalidId": "Invalid ID"
+  },
+  "apiErrors": {
+    "duplicate": "Employee Class with this code or name already exists.",
+    "notFound": "Employee Class record was not found.",
+    "inUse": "\"{name}\" is currently linked to employee records and cannot be deleted.",
+    "invalidData": "Invalid employee class data provided.",
+    "serverError": "Internal server error. Please try again later."
+  }
+}

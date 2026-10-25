@@ -1,0 +1,160 @@
+{
+  "configuration": {
+    "header": {
+      "title": "Configuration Master",
+      "subtitle": "केंद्रीकृत मास्टर डेटा प्रबंधन प्रणाली",
+      "totalMasters": "Total Masters"
+    },
+    "tabs": {
+      "masterData": "Master Data",
+      "screenMaster": "Screen Master",
+      "screenFieldsMaster": "Screen Fields Master"
+    },
+    "masterData": {
+      "title": "Master Data",
+      "records": "Master Records",
+      "addNew": "नया {name} जोड़ें",
+      "searchPlaceholder": "मास्टर रिकॉर्ड खोजें...",
+      "stats": {
+        "master": "Master Types",
+        "shown": "Shown",
+        "active": "Active"
+      },
+      "groupFilter": {
+        "categoriesTitle": "श्रेणियाँ",
+        "itemNamesTitle": "श्रेणियाँ"
+      },
+      "form": {
+        "addTitle": "नया {name} जोड़ें",
+        "editTitle": "{name} संपादित करें",
+        "createSubtitle": "नया रिकॉर्ड बनाएं",
+        "updateSubtitle": "मौजूदा रिकॉर्ड अपडेट करें",
+        "labels": {
+          "code": "कोड",
+          "name": "नाम",
+          "description": "विवरण",
+          "displayOrder": "प्रदर्शन क्रम",
+          "status": "स्थिति",
+          "active": "सक्रिय",
+          "inactive": "निष्क्रिय",
+          "category": "श्रेणी"
+        },
+        "placeholders": {
+          "code": "कोड दर्ज करें",
+          "name": "नाम दर्ज करें",
+          "description": "विवरण दर्ज करें",
+          "displayOrder": "प्रदर्शन क्रम दर्ज करें",
+          "category": "श्रेणी चुनें"
+        },
+        "buttons": {
+          "save": "सहेजें",
+          "update": "अद्यतन करें",
+          "cancel": "रद्द करें"
+        },
+        "validation": {
+          "duplicateRecord": "यह रिकॉर्ड पहले से मौजूद है। कृपया जांच करें और पुनः प्रयास करें।"
+        },
+        "errors": {
+          "fillRequired": "कृपया सभी आवश्यक फ़ील्ड भरें।",
+          "codeRequired": "कोड आवश्यक है।",
+          "nameRequired": "नाम आवश्यक है।",
+          "categoryRequired": "श्रेणी आवश्यक है।",
+          "englishOnly": "कृपया केवल अंग्रेजी में दर्ज करें।",
+          "noSpecialCharacters": "कृपया केवल अक्षर, संख्याएं और रिक्त स्थान का उपयोग करें।",
+          "maxLength": "कृपया अनुमत अक्षरों की सीमा से अधिक न डालें।",
+          "displayOrderRequired": "प्रदर्शन क्रम आवश्यक है।",
+          "apiActionsNotConfigured": "API क्रियाएं कॉन्फ़िगर नहीं की गई हैं।",
+          "saveFailed": "रिकॉर्ड सहेजना विफल रहा।",
+          "deleteFailed": "रिकॉर्ड हटाना विफल रहा।",
+          "unexpected": "एक अप्रत्याशित त्रुटि हुई।",
+          "codeTooLong15": "कोड 15 वर्णों से अधिक नहीं हो सकता",
+          "codeInvalidChars": "कोड में अमान्य वर्ण हैं",
+          "codeDuplicate": "यह कोड पहले से मौजूद है",
+          "nameTooLong50": "नाम 50 वर्णों से अधिक नहीं हो सकता",
+          "nameInvalidChars": "नाम में अमान्य वर्ण हैं",
+          "nameDuplicate": "यह नाम पहले से मौजूद है",
+          "descriptionTooLong": "विवरण 500 वर्णों से अधिक नहीं हो सकता",
+          "descInvalidChars": "विवरण में अमान्य वर्ण हैं",
+          "codeFormat": "कोड में केवल अक्षर, संख्याएं और हाइफ़न (-) हो सकते हैं।",
+          "duplicateCode": "कोड अद्वितीय होना चाहिए।",
+          "duplicateName": "नाम अद्वितीय होना चाहिए।",
+          "group": "श्रेणी आवश्यक है।"
+        },
+        "messages": {
+          "createSuccess": "रिकॉर्ड सफलतापूर्वक बनाया गया",
+          "updateSuccess": "रिकॉर्ड सफलतापूर्वक अपडेट किया गया",
+          "invalidIdError": "अमान्य रिकॉर्ड आईडी",
+          "error": "एक अप्रत्याशित त्रुटि हुई"
+        }
+      },
+      "error": {
+        "title": "डेटा लोड करने में विफल",
+        "description": "मास्टर डेटा रिकॉर्ड लोड करते समय एक त्रुटि हुई। कृपया अपना कनेक्शन जांचें या पुनः प्रयास करें।",
+        "categoryTitle": "श्रेणी लोड करने में विफल",
+        "categoryDescription": "एसेट श्रेणियों को लोड करते समय एक त्रुटि हुई। कृपया अपना कनेक्शन जांचें या पुनः प्रयास करें।",
+        "typeTitle": "प्रकार लोड करने में विफल",
+        "typeDescription": "एसेट प्रकारों को लोड करते समय एक त्रुटि हुई। कृपया पुनः प्रयास करें।",
+        "reload": "पृष्ठ पुनः लोड करें",
+        "tryAgain": "पुनः प्रयास करें",
+        "goHome": "होम पर जाएं"
+      }
+    }
+  },
+  "masterNames": {
+    "asset-type-master": "एसेट प्रकार",
+    "asset-category-master": "एसेट श्रेणी",
+    "inventory-category-master": "इन्वेंटरी श्रेणी",
+    "inventory-model-master": "इन्वेंटरी मॉडल",
+    "inventory-name-master": "इन्वेंटरी आइटम का नाम",
+    "inventory-condition-master": "इन्वेंटरी स्थिति"
+  },
+  "apiErrors": {
+    "referenceBlocked": {
+      "inventoryName": {
+        "deleteInUse": "यह इन्वेंटरी आइटम नाम उपयोग में है, इसलिए इसे हटाया नहीं जा सकता।",
+        "deactivateInUse": "यह इन्वेंटरी आइटम नाम उपयोग में है, इसलिए इसे निष्क्रिय नहीं किया जा सकता।",
+        "deleteHasMasters": "इस इन्वेंटरी आइटम नाम से जुड़े {masters} मौजूद हैं, इसलिए इसे हटाया नहीं जा सकता। कृपया पहले इस इन्वेंटरी आइटम नाम के सभी {masters} हटाएं।",
+        "deactivateHasMasters": "इस इन्वेंटरी आइटम नाम से जुड़े {masters} मौजूद हैं, इसलिए इसे निष्क्रिय नहीं किया जा सकता। कृपया पहले इस इन्वेंटरी आइटम नाम के सभी {masters} हटाएं।"
+      }
+    },
+    "referenceMasters": {
+      "inventoryModels": "इन्वेंटरी मॉडल",
+      "and": "और"
+    }
+  },
+  "pageTitle": "इन्वेंटरी आइटम का नाम",
+  "pageSubtitle": "केंद्रीकृत मास्टर डेटा प्रबंधन प्रणाली",
+  "addInventoryName": "नया इन्वेंटरी आइटम नाम जोड़ें",
+  "filters": {
+    "title": "फ़िल्टर",
+    "name": "नाम",
+    "namePlaceholder": "नाम दर्ज करें",
+    "category": "श्रेणी",
+    "categoryAll": "सभी",
+    "status": "स्थिति",
+    "statusAll": "सभी",
+    "active": "सक्रिय",
+    "inactive": "निष्क्रिय",
+    "searchPlaceholder": "मास्टर रिकॉर्ड खोजें...",
+    "reset": "रीसेट",
+    "export": "निर्यात"
+  },
+  "columns": {
+    "code": "कोड",
+    "name": "नाम",
+    "description": "विवरण",
+    "category": "श्रेणी",
+    "status": "स्थिति"
+  },
+  "excel": {
+    "srNo": "क्र.सं.",
+    "code": "कोड",
+    "name": "नाम",
+    "description": "विवरण",
+    "category": "श्रेणी",
+    "status": "स्थिति",
+    "exportSuccess": "इन्वेंटरी आइटम के नाम सफलतापूर्वक एक्सेल में निर्यात किए गए!",
+    "exportError": "इन्वेंटरी आइटम के नाम निर्यात करने में विफल",
+    "noData": "निर्यात के लिए कोई रिकॉर्ड उपलब्ध नहीं है"
+  }
+}

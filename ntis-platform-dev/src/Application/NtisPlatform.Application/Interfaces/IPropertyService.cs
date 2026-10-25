@@ -1,0 +1,120 @@
+using NtisPlatform.Application.DTOs.Bulk;
+using NtisPlatform.Application.DTOs.PropertyKyc;
+using NtisPlatform.Application.DTOs.Property;
+using NtisPlatform.Application.DTOs.PropertyDetails;
+
+using NtisPlatform.Application.DTOs.Property;
+using NtisPlatform.Application.DTOs.OldSociety;
+using NtisPlatform.Application.DTOs.PropertyBuildingInformation;
+using NtisPlatform.Application.DTOs.PropertySurveySearch;
+using NtisPlatform.Application.DTOs.Range;
+using NtisPlatform.Application.Models;
+using NtisPlatform.Core.Entities;
+using NtisPlatform.Core.Models;
+namespace NtisPlatform.Application.Interfaces;
+
+public interface IPropertyService
+    : ICommonCrudService<PropertyEntity, PropertyDto, CreatePropertyDto, UpdatePropertyDto, PropertyQueryParameters, int>
+{
+    // Basic Details, KYC, Society, Discount and Old Details tabs moved to per-tab services
+    // (per-tab Clean Architecture split). What remains here are cross-cutting/aggregate operations.
+    Task<PropertyTaxDetailsDto?> GetTaxDetailsAsync(int propertyId, CancellationToken cancellationToken = default);
+    Task<PropertyTaxDetailsCVDto?> GetTaxDetailsCVAsync(int propertyId, CancellationToken cancellationToken = default);
+    Task<List<BuildingGenerateStructureDto>?> GetGenerateBuildingStructureAsync(BuildingGenerateDetailsDto dto, CancellationToken cancellationToken = default);
+    Task<MaxPartitionNoDto?> GetMaxPartition(int wardId, string propertyNo, CancellationToken cancellationToken = default);
+    Task<List<SocietyAminityDetailsDto>?> GetSocietyAmenityDetailsAsync(int SocietyDetailId, bool isAmenity, CancellationToken cancellationToken = default);
+    Task<List<PropertySocietyDetailsDto>?> GetSocietyWingListAsync(int propertyId, CancellationToken cancellationToken = default);
+    Task<List<BuildingListDto>?> GetBuildingListAsync(int WardId, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets the aggregated property tax details for the specified apartment tax request.
+    /// </summary>
+    /// <param name="dto">The apartment tax request parameters.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>A task representing the asynchronous operation, containing the aggregated property tax details if found.</returns>
+    Task<PropertyTaxApartmentDetailsDto?> GetAggregatedPropertyTaxDetailsAsync(PropertyApartmentTaxRequestDto dto, CancellationToken cancellationToken = default);
+    /// <summary>
+    /// Gets the aggregated property tax CV details for the specified apartment tax request.
+    /// </summary>
+    /// <param name="dto">The apartment tax request parameters.</param>
+	/// <param name="cancellationToken">The cancellation token.</param>
+	/// <returns>A task representing the asynchronous operation, containing the aggregated property tax CV details if found.</returns>
+	Task<PropertyTaxApartmentDetailsCVDto?> GetAggregatedPropertyTaxDetailsCVAsync(PropertyApartmentTaxRequestDto dto, CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Creates multiple properties based on a range request.
+	/// </summary>
+	/// <param name="request">The range creation parameters.</param>
+	/// <param name="ct">The cancellation token.</param>
+	/// <returns>A task representing the asynchronous operation.</returns>
+	Task<RangeResult<CreateNewPropertyResponseDto>> CreatePropertiesFromRangeAsync(RangeCreateRequest<CreateNewPropertyDto> request, CancellationToken ct);
+
+    // Property search and dashboard statistics have been split out into the PropertySearch feature
+    // (IPropertySearchService) per the per-feature Clean Architecture split.
+
+    Task<BulkResult<CreateBulkPropertyResponseDto>?> BulkCreateAsync(CreateBulkPropertyDto[] items, CancellationToken ct);
+
+    /// <summary>
+    /// Updates all property details (PropertyMast, SocietyDetailsMast, PropertyMastDetails,
+    /// PropertyDetails, RoomWiseSubmissionDetails) within a single transaction.
+    /// Business logic lives in Application layer per CLAUDE.md guidelines.
+    /// </summary>
+    Task<UpdateAllPropertyDetailsResponseDto> UpdatePropertyAsync(int propertyId, UpdateAllPropertyDetailsDto dto, CancellationToken ct);
+
+
+    Task<PropertySplitResultDto> SplitProperty(PropertySplitCreateDto dto, CancellationToken cancellationToken = default);
+
+    Task<ApiResponse<PropertySurveySearchPaginatedResponseDto>>
+    SearchSurveyPropertiesAsync(
+        PropertySurveySearchQueryParameters request,
+        CancellationToken cancellationToken = default);
+
+		
+    Task<List<PropertyBuildingInformationDto>> SearchBuildingInformationAsync(
+        List<SearchBuildingInformationDto> dtos,
+        CancellationToken cancellationToken = default);
+
+    Task<OldSocietyResponseDto?> GetOldSocietiesAsync(
+        SearchOldSocietyDto dto,
+        CancellationToken cancellationToken = default);
+
+    Task<PagedResult<GetPropertiesItemDto>> GetPropertiesAsync(
+        GetPropertiesQueryParameters queryParameters,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Retrieves all mapped old properties for a merged property.
+    /// </summary>
+    Task<PagedResult<MappedOldPropertyMastDto>?> GetMappedOldPropertyDetailsAsync(MappedOldPropertyQueryParameters queryParameters, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Generates missing partition properties for the given main property within the specified range.
+    /// Existing partition properties are skipped, and only missing partition numbers are created.
+    /// </summary>
+    /// <param name="request">Missing partition generation request details.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>Generated missing partition response with created and skipped property lists.</returns>
+    Task<ApiResponse<GenerateMissingPartitionResponseDto>> GenerateMissingPartition(GenerateMissingPartitionRequestDto request, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Creates a specified count of new sequential partition properties for a given main property,
+    /// sequentially appending partition numbers after the highest existing partition index.
+    /// </summary>
+    /// <param name="request">New partition creation request details including WardId, MainPropertyNo, UserId, and Nopartition count.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>Created new partition response with details and generated UPIC IDs for all created properties.</returns>
+    Task<ApiResponse<CreateNewPartitionResponseDto>> CreateNewPartitionPropertysAsync(CreateNewPartitionRequestDto request, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Retrieves nearest properties relative to the surveyor's coordinates within a given radius (default 2 km).
+    /// </summary>
+    /// <param name="parameters">Query parameters including surveyor's Latitude, Longitude, RadiusInKm, and Limit.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>List of nearby properties sorted by distance ascending.</returns>
+    Task<List<NearestPropertyDto>> GetNearestPropertiesAsync(NearestPropertiesQueryParameters parameters, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Retrieves a list of properties or partitions that were generated by splitting the specified base property/partition.
+    /// </summary>
+    Task<List<PropertyHierarchyResponseDto>> GetPropertyListAsync(PropertyLookupRequestDto request, CancellationToken cancellationToken = default);
+}

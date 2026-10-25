@@ -1,0 +1,136 @@
+{
+  "list": {
+    "title": "एसेट फोटो प्रकार मास्टर",
+    "subtitle": "एसेट के लिए फोटो प्रकार प्रबंधित करें",
+    "buttons": {
+      "add": "फोटो प्रकार जोड़ें",
+      "edit": "संपादित करें",
+      "delete": "हटाएं"
+    },
+    "filters": {
+      "show": "दिखाएं",
+      "search": "फोटो प्रकार कोड या नाम से खोजें..."
+    },
+    "table": {
+      "photoTypeCode": "फोटो प्रकार कोड",
+      "photoTypeName": "फोटो प्रकार नाम",
+      "assetCategoryAndType": "संपत्ति श्रेणी / प्रकार",
+      "description": "विवरण",
+      "displayOrder": "प्रदर्शन क्रम",
+      "status": "स्थिति",
+      "isSubUnit": "उप इकाई है क्या",
+      "isRequired": "आवश्यक है क्या",
+      "actions": "कार्रवाई"
+    },
+    "status": {
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय"
+    }
+  },
+  "form": {
+    "addTitle": "एसेट फोटो प्रकार जोड़ें",
+    "editTitle": "एसेट फोटो प्रकार संपादित करें",
+    "subtitle": "नया एसेट फोटो प्रकार बनाएं",
+    "editSubtitle": "एसेट फोटो प्रकार विवरण अपडेट करें",
+    "fields": {
+      "photoTypeCode": {
+        "label": "फोटो प्रकार कोड",
+        "placeholder": "उदा. ASSET_FRONT"
+      },
+      "photoTypeName": {
+        "label": "फोटो प्रकार नाम",
+        "placeholder": "उदा. एसेट फ्रंट व्यू"
+      },
+      "description": {
+        "label": "विवरण",
+        "placeholder": "उदा. एसेट का फ्रंट फोटो"
+      },
+      "displayOrder": {
+        "label": "प्रदर्शन क्रम"
+      },
+      "assetCategoryId": {
+        "label": "संपत्ति श्रेणी",
+        "placeholder": "संपत्ति श्रेणी चुनें"
+      },
+      "assetTypeId": {
+        "label": "संपत्ति प्रकार",
+        "placeholder": "संपत्ति प्रकार चुनें"
+      },
+      "isRequired": {
+        "label": "दस्तावेज़ आवश्यक है क्या",
+        "description": "संपत्ति के लिए यह फोटो प्रकार अनिवार्य होने पर चुनें"
+      },
+      "isSubUnit": {
+        "label": "उप इकाई है क्या",
+        "description": "यदि यह फोटो प्रकार उप-इकाइयों के लिए है तो चुनें"
+      }
+    },
+    "validation": {
+      "photoTypeCodeRequired": "फोटो प्रकार कोड आवश्यक है",
+      "photoTypeCodeMaxLength": "अधिकतम लंबाई {count} वर्ण है",
+      "photoTypeCodeFormat": "केवल अक्षरांकीय बड़े अक्षर और अंडरस्कोर की अनुमति है",
+      "photoTypeNameRequired": "फोटो प्रकार नाम आवश्यक है",
+      "photoTypeNameMaxLength": "अधिकतम लंबाई 100 वर्ण है",
+      "photoTypeNameFormat": "अमान्य नाम प्रारूप",
+      "descriptionRequired": "विवरण आवश्यक है",
+      "descriptionMaxLength": "अधिकतम लंबाई {count} वर्ण है",
+      "descriptionFormat": "अमान्य विवरण प्रारूप",
+      "displayOrderInvalid": "प्रदर्शन क्रम 0 से अधिक होना चाहिए",
+      "displayOrderMaxLimit": "प्रदर्शन क्रम 99999 से अधिक नहीं होना चाहिए",
+      "displayOrderRequired": "प्रदर्शन क्रम आवश्यक है",
+      "mustBeActive": "सहेजने के लिए एसेट फोटो प्रकार सक्रिय होना चाहिए",
+      "assetCategoryRequired": "संपत्ति श्रेणी आवश्यक है",
+      "assetTypeRequired": "संपत्ति प्रकार आवश्यक है",
+      "invalidFormat": "अमान्य प्रारूप"
+    },
+    "status": {
+      "label": "सक्रिय स्थिति",
+      "description": "एसेट फोटो प्रकार वर्तमान में है"
+    },
+    "actions": {
+      "cancel": "रद्द करें",
+      "save": "सहेजें",
+      "update": "अपडेट करें"
+    }
+  },
+  "delete": {
+    "confirmDescription": "क्या आप वाकई इस एसेट फोटो प्रकार रिकॉर्ड को हटाना चाहते हैं?"
+  },
+  "apiErrors": {
+    "duplicateRecord": "कृपया फोटो प्रकार कोड की जांच करें - डुप्लिकेट की अनुमति नहीं है।",
+    "AssetPhotoType_PhotoTypeCode_Duplicate": "एसेट फोटो प्रकार कोड पहले से मौजूद है",
+    "AssetPhotoType_PhotoTypeName_Duplicate": "एसेट फोटो प्रकार नाम पहले से मौजूद है",
+    "AssetPhotoType_AssetCategoryId_Invalid": "अमान्य मालमत्ता श्रेणी का चयन किया गया है",
+    "AssetPhotoType_AssetTypeId_Invalid": "अमान्य मालमत्ता प्रकार का चयन किया गया है",
+    "A record with the same details already exists": "समान विवरण वाला रिकॉर्ड पहले से मौजूद है।",
+    "validationError": "अमान्य डेटा प्रदान किया गया। कृपया सभी फ़ील्ड जांचें।",
+    "invalidData": "अमान्य डेटा प्रदान किया गया। कृपया सभी फ़ील्ड जांचें।",
+    "notFound": "एसेट फोटो प्रकार नहीं मिला।",
+    "inUse": "इस एसेट फोटो प्रकार को निष्क्रिय/हटाया नहीं जा सकता क्योंकि यह अन्य एसेट रिकॉर्ड द्वारा संदर्भित है।",
+    "operationFailed": "ऑपरेशन विफल रहा। कृपया बाद में पुनः प्रयास करें।",
+    "referenceBlocked": {
+      "assetPhotoType": {
+        "deleteInUse": "इस एसेट फोटो प्रकार को हटाया नहीं जा सकता क्योंकि यह उपयोग में है।",
+        "deactivateInUse": "इस एसेट फोटो प्रकार को निष्क्रिय नहीं किया जा सकता क्योंकि यह उपयोग में है।"
+      }
+    }
+  },
+  "success": {
+    "created": "नया एसेट फोटो प्रकार सफलतापूर्वक बनाया गया: {code}",
+    "updated": "एसेट फोटो प्रकार सफलतापूर्वक अपडेट किया गया: {code}",
+    "deleted": "एसेट फोटो प्रकार सफलतापूर्वक हटा दिया गया: {code}"
+  },
+  "loading": {
+    "message": "एसेट फोटो प्रकार डेटा लोड हो रहा है...",
+    "description": "कृपया प्रतीक्षा करें जब तक हम एसेट फोटो प्रकार की जानकारी लोड करते हैं"
+  },
+  "error": {
+    "title": "एसेट फोटो प्रकार डेटा लोड करने में विफल",
+    "description": "एसेट फोटो प्रकार की जानकारी लोड करते समय हमें एक त्रुटि का सामना करना पड़ा। कृपया पुनः प्रयास करें।",
+    "errorId": "त्रुटि आईडी: {id}",
+    "goHome": "होम पर जाएं",
+    "tryAgain": "पुनः प्रयास करें"
+  },
+  "yes": "हाँ",
+  "no": "नहीं"
+}

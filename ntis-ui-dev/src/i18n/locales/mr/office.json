@@ -1,0 +1,145 @@
+{
+  "list": {
+    "title": "कार्यालय मास्टर",
+    "subtitle": "कार्यालय यादी आणि तपशील व्यवस्थापित करा",
+    "buttons": {
+      "add": "कार्यालय जोडा",
+      "edit": "संपादित करा",
+      "delete": "हटवा"
+    },
+    "filters": {
+      "show": "दाखवा",
+      "search": "कार्यालय कोड किंवा नावाद्वारे शोधा...",
+      "allTypes": "सर्व प्रकार",
+      "type": "प्रकार निवडा",
+      "allStatus": "सर्व स्थिती",
+      "status": "स्थिती निवडा"
+    },
+    "table": {
+      "officeCode": "कार्यालय कोड",
+      "officeName": "कार्यालयाचे नाव",
+      "type": "प्रकार",
+      "status": "स्थिती",
+      "actions": "क्रिया"
+    },
+    "status": {
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय"
+    },
+    "pagination": {
+      "showing": "दाखवत आहे",
+      "entries": "नोंदी"
+    }
+  },
+  "form": {
+    "addTitle": "कार्यालय जोडा",
+    "editTitle": "कार्यालय संपादित करा",
+    "subtitle": "नवीन कार्यालय तयार करा",
+    "editSubtitle": "कार्यालय तपशील अद्यतनित करा",
+    "fields": {
+      "officeCode": {
+        "label": "कार्यालय कोड",
+        "placeholder": "उदा. O1"
+      },
+      "officeName": {
+        "label": "कार्यालयाचे नाव",
+        "placeholder": "उदा. मुख्य शाखा"
+      },
+      "type": {
+        "label": "प्रकार",
+        "placeholder": "प्रकार निवडा",
+        "options": {
+          "mainOffice": "मुख्य कार्यालय",
+          "zonalOffice": "क्षेत्रीय कार्यालय",
+          "departmentOffice": "विभाग कार्यालय",
+          "wardOffice": "प्रभाग कार्यालय",
+          "subOffice": "उप कार्यालय",
+          "headOffice": "प्रधान कार्यालय",
+          "regionalOffice": "क्षेत्रीय कार्यालय",
+          "branchOffice": "शाखा कार्यालय"
+        }
+      },
+      "emailId": {
+        "label": "ईमेल आयडी",
+        "placeholder": "test@example.com"
+      },
+      "phone": {
+        "label": "फोन",
+        "placeholder": "फोन नंबर"
+      },
+      "city": {
+        "label": "शहर",
+        "placeholder": "शहर प्रविष्ट करा"
+      },
+      "pincode": {
+        "label": "पिनकोड",
+        "placeholder": "६-अंकी पिनकोड"
+      },
+      "establishedDate": {
+        "label": "स्थापना तारीख"
+      },
+      "officeIncharge": {
+        "label": "कार्यालय प्रभारी",
+        "placeholder": "प्रभारी आयडी प्रविष्ट करा"
+      },
+      "designationMasterId": {
+        "label": "पदनाम",
+        "placeholder": "पदनाम आयडी प्रविष्ट करा"
+      },
+      "address": {
+        "label": "पत्ता",
+        "placeholder": "कार्यालयाचा पूर्ण पत्ता..."
+      }
+    },
+    "detailsSection": "कार्यालय तपशील",
+    "contactSection": "संपर्क तपशील",
+    "additionalSection": "अतिरिक्त तपशील",
+    "validation": {
+      "officeCodeRequired": "कार्यालय कोड आवश्यक आहे",
+      "officeNameRequired": "कार्यालयाचे नाव आवश्यक आहे",
+      "officeNameNumeric": "कार्यालयाचे नाव फक्त संख्यात्मक असू शकत नाही",
+      "typeRequired": "कार्यालय प्रकार आवश्यक आहे",
+      "invalidEmail": "अवैध ईमेल आयडी",
+      "invalidPincode": "अवैध पिनकोड",
+      "codeMaxLength": "कोड जास्तीत जास्त {count} अक्षरांचा असावा",
+      "nameMaxLength": "नाव जास्तीत जास्त {count} अक्षरांचा असावे",
+      "codeFormat": "कोडमध्ये फक्त अक्षरे, अंक आणि अंडरस्कोर असू शकतात"
+    },
+    "status": {
+      "label": "सक्रिय स्थिती",
+      "description": "कार्यालय सध्या आहे"
+    },
+    "actions": {
+      "cancel": "रद्द करा",
+      "save": "जतन करा",
+      "update": "अपडेट करा"
+    }
+  },
+  "delete": {
+    "confirmTitle": "कार्यालय ({id}) हटवायचे?",
+    "confirmDescription": "तुम्हाला खात्री आहे की तुम्हाला रेकॉर्ड हटवायचा आहे?",
+    "successMessage": "कार्यालय यशस्वीरित्या हटवले गेले",
+    "errorMessage": "कार्यालय हटवता आले नाही."
+  },
+  "apiErrors": {
+    "duplicateCode": "कार्यालय कोड आधीच अस्तित्वात आहे.",
+    "validationError": "अवैध डेटा प्रदान केला.",
+    "notFound": "कार्यालय आढळले नाही.",
+    "inUse": "हा रेकॉर्ड वापरात असल्याने तो काढता येणार नाही."
+  },
+  "stats": {
+    "total": "एकूण कार्यालये",
+    "headOffices": "प्रधान कार्यालये",
+    "activeOffices": "सक्रिय कार्यालये",
+    "regionalOffices": "क्षेत्रीय कार्यालये",
+    "inactiveOffices": "निष्क्रिय कार्यालये",
+    "active": "सक्रिय",
+    "inactive": "निष्क्रिय",
+    "records": "एकूण रेकॉर्ड"
+  },
+  "success": {
+    "created": "नवीन कार्यालय यशस्वीपणे तयार केले.",
+    "updated": "कार्यालय यशस्वीपणे अपडेट केले.",
+    "deleted": "कार्यालय यशस्वीपणे हटवले."
+  }
+}

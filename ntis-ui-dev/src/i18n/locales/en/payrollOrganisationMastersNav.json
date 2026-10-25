@@ -1,0 +1,44 @@
+{
+  "header": "Establishment Masters",
+  "comingSoon": "Coming Soon",
+  "Departments": {
+    "title": "Department Master",
+    "subtitle": "Departments & Structure"
+  },
+  "Designations": {
+    "title": "Designation Master",
+    "subtitle": "Posts & Hierarchy"
+  },
+  "EmpClasses": {
+    "title": "Employee Class Master",
+    "subtitle": "Cadres & Classification"
+  },
+  "EmpStatuses": {
+    "title": "Employee Status Master",
+    "subtitle": "Employment Statuses"
+  },
+  "EmpTypes": {
+    "title": "Employee Type Master",
+    "subtitle": "Service Terms & Types"
+  },
+  "Qualifications": {
+    "title": "Qualification Master",
+    "subtitle": "Education & Credentials"
+  },
+  "ZoneDivisions": {
+    "title": "Zone / Office Master",
+    "subtitle": "Offices & Locations"
+  },
+  "Years": {
+    "title": "Year Master",
+    "subtitle": "Payroll Financial Years"
+  },
+  "Banks": {
+    "title": "Bank Master",
+    "subtitle": "Bank Records & Information"
+  },
+  "GRs": {
+    "title": "GR Master",
+    "subtitle": "Resolutions & Orders"
+  }
+}

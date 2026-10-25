@@ -1,0 +1,33 @@
+{
+  "userManual": {
+    "title": "Geography Master — How It Works",
+    "intro": "Geography Type Master and Geography Unit Master work together to define your ULB's location hierarchy, used across water-bill connections and billing.",
+    "diagram": {
+      "typeLabel": "Geography Type",
+      "typeExample": "e.g. Zone, Ward, Locality",
+      "unitLabel": "Geography Unit",
+      "unitExample": "e.g. Zone 1, Ward 1, Locality 1"
+    },
+    "steps": {
+      "step1": "Geography Type Master defines the levels of your hierarchy (Zone, Ward, Locality) along with their order (Level No).",
+      "step2": "Geography Unit Master defines the actual units (e.g. \"Zone 1\", \"Ward 1\") and assigns each one a Geography Type.",
+      "step3": "Each unit can optionally have a Parent Unit from a higher level — for example, \"Ward 1\" can be linked under \"Zone 1\", and \"Locality 1\" under \"Ward 1\" — building the full hierarchy."
+    },
+    "note": "Always create Geography Types first, then add Geography Units that reference them — units cannot be created for a type that doesn't exist yet."
+  },
+  "hierarchyTree": {
+    "title": "Geography Hierarchy Tree",
+    "subtitle": "Full breakdown of geography units from zone down to the smallest unit",
+    "loading": "Loading hierarchy tree...",
+    "empty": "No geography units found.",
+    "administrativeUnits": "Geography Units",
+    "expandAll": "Expand All",
+    "collapseAll": "Collapse All",
+    "legend": {
+      "zone": "Zone",
+      "ward": "Ward",
+      "mouja": "Mouja",
+      "citySurveyNo": "City Survey No"
+    }
+  }
+}

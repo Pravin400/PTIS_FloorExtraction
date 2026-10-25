@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="210" viewBox="0 0 1600 210" fill="none">
+<title>Modern Abstract KPI Background</title>
+<desc>Pure vector graphics: layered translucent ribbons, fine contour lines, geometric planes and soft gradients. No illustrations or pictorial icons. Main card region is kept quiet.</desc>
+<defs>
+ <linearGradient id="surface" x1="0" y1="0" x2="1600" y2="210" gradientUnits="userSpaceOnUse"><stop stop-color="#FCFEFF"/><stop offset=".5" stop-color="#F3F7FD"/><stop offset="1" stop-color="#ECF3FF"/></linearGradient>
+ <radialGradient id="aura" cx="0" cy="0" r="1" gradientTransform="translate(1120 -80) rotate(90) scale(260 660)" gradientUnits="userSpaceOnUse"><stop stop-color="#B6C8FF" stop-opacity=".75"/><stop offset="1" stop-color="#D6E7FF" stop-opacity="0"/></radialGradient>
+ <linearGradient id="ribbon" x1="820" y1="-20" x2="1310" y2="85" gradientUnits="userSpaceOnUse"><stop stop-color="#9AB4F3" stop-opacity=".03"/><stop offset=".5" stop-color="#91B2F0" stop-opacity=".28"/><stop offset="1" stop-color="#BFD5FF" stop-opacity=".04"/></linearGradient>
+ <linearGradient id="violet" x1="1000" y1="-100" x2="1390" y2="90" gradientUnits="userSpaceOnUse"><stop stop-color="#A9B1F3" stop-opacity=".06"/><stop offset=".55" stop-color="#A3A9EA" stop-opacity=".25"/><stop offset="1" stop-color="#BDCEED" stop-opacity=".07"/></linearGradient>
+ <linearGradient id="outline" x1="650" y1="75" x2="1390" y2="-20" gradientUnits="userSpaceOnUse"><stop stop-color="#87A2D0" stop-opacity="0"/><stop offset=".5" stop-color="#769ACE" stop-opacity=".5"/><stop offset="1" stop-color="#B2C4E6" stop-opacity=".15"/></linearGradient>
+ <linearGradient id="edge" x1="0" y1="0" x2="1600" y2="210" gradientUnits="userSpaceOnUse"><stop stop-color="#C9D9EE"/><stop offset=".5" stop-color="#E4ECF8"/><stop offset="1" stop-color="#B6CEED"/></linearGradient>
+ <linearGradient id="accent" x1="800" y1="0" x2="980" y2="70" gradientUnits="userSpaceOnUse"><stop stop-color="#ECB79D" stop-opacity="0"/><stop offset=".5" stop-color="#DAA38B" stop-opacity=".8"/><stop offset="1" stop-color="#DAA38B" stop-opacity="0"/></linearGradient>
+ <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".7" fill="#7C9CCA" opacity=".24"/></pattern>
+ <clipPath id="clip"><rect x=".5" y=".5" width="1599" height="209" rx="22"/></clipPath>
+ <clipPath id="header"><rect x="360" y="0" width="1050" height="65"/></clipPath>
+</defs>
+<g clip-path="url(#clip)">
+ <rect width="1600" height="210" fill="url(#surface)"/>
+ <rect width="1600" height="210" fill="url(#aura)"/>
+ <!-- Sculptural ribbon composition in the exposed top strip. -->
+ <g clip-path="url(#header)">
+  <path d="M658 61C805 68 834-25 959-25H1084C1175-25 1215 63 1338 57L1428 54V-80H655Z" fill="url(#ribbon)"/>
+  <path d="M824-42C916-57 954 57 1073 57H1130C1260 57 1268-42 1408-42V-95H824Z" fill="url(#violet)"/>
+  <path d="M643 62C815 74 836-15 961-15H1072C1165-15 1193 55 1316 55H1433" stroke="url(#outline)" stroke-width="1.1"/>
+  <path d="M663 69C817 79 847-5 963-5H1069C1158-5 1193 62 1316 62H1433" stroke="white" stroke-opacity=".92" stroke-width="1.6"/>
+  <path d="M700 74C832 76 862 5 965 5H1065C1152 5 1188 69 1316 69H1433" stroke="url(#outline)" stroke-width=".8"/>
+  <path d="M766 64C859 61 883 15 970 15H1060C1147 15 1184 77 1306 77" stroke="url(#outline)" stroke-width=".75"/>
+  <path d="M831 42C879 23 910 6 962 6" stroke="url(#accent)" stroke-width="1.6"/>
+  <!-- Offset rounded planes create depth without pictorial content. -->
+  <rect x="1140" y="-89" width="138" height="138" rx="30" transform="rotate(28 1209 -20)" fill="white" fill-opacity=".18" stroke="white" stroke-opacity=".72" stroke-width="1"/>
+  <rect x="1154" y="-85" width="138" height="138" rx="30" transform="rotate(28 1223 -16)" stroke="#93B0DE" stroke-opacity=".27" stroke-width=".8"/>
+  <rect x="512" y="9" width="94" height="49" fill="url(#dots)"/>
+  <circle cx="1034" cy="-24" r="64" stroke="#9BB4DC" stroke-opacity=".3" stroke-width=".8"/>
+  <circle cx="1034" cy="-24" r="54" stroke="white" stroke-opacity=".65" stroke-width="1"/>
+  <circle cx="1034" cy="-24" r="44" stroke="#9BB4DC" stroke-opacity=".24" stroke-width=".8"/>
+  <circle cx="769" cy="35" r="3" fill="#A5BFE4"/>
+  <circle cx="769" cy="35" r="8" stroke="#C1D3EC" stroke-width=".7"/>
+  <circle cx="1342" cy="24" r="2.5" fill="#DEA98E" fill-opacity=".8"/>
+  <path d="M636 25H644 M640 21V29 M1093 48H1101 M1097 44V52 M1382 44H1388 M1385 41V47" stroke="#8EABD3" stroke-opacity=".6" stroke-width="1"/>
+ </g>
+ <!-- Modern edge geometry remains visible around the cards. -->
+ <path d="M1513-21L1467 48Q1452 70 1471 91L1620 243H1673V-22Z" fill="#A5BFE7" fill-opacity=".13"/>
+ <path d="M1554-15L1503 62Q1490 80 1506 98L1620 219" stroke="white" stroke-opacity=".75" stroke-width="1.1"/>
+ <path d="M1567-15L1515 63Q1502 81 1517 97L1630 218" stroke="#9DBBE2" stroke-opacity=".35" stroke-width=".8"/>
+ <path d="M-30 126C16 126 19 175 52 197C65 205 91 209 120 210" stroke="#B9CFE9" stroke-width=".8"/>
+ <path d="M-30 141C8 141 12 183 44 205" stroke="#D4A88F" stroke-opacity=".5" stroke-width=".9"/>
+ <path d="M84 202H273 M1332 202H1512" stroke="#C2D5ED" stroke-width=".7"/>
+ <path d="M84 202H117 M1476 202H1512" stroke="#D4A58A" stroke-opacity=".6" stroke-width="1.2"/>
+ <path d="M28 .75H151" stroke="#8EADD6" stroke-width="1.6"/>
+ <path d="M151 .75H177" stroke="#DFA78B" stroke-width="1.6"/>
+ <rect x="0" y="27" width="3" height="27" rx="1.5" fill="#416A9A"/>
+ <path d="M1599 147V177" stroke="#92AFD6" stroke-width="1.5" stroke-linecap="round"/>
+</g>
+<rect x=".5" y=".5" width="1599" height="209" rx="22" stroke="url(#edge)"/>
+</svg>

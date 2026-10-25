@@ -1,0 +1,70 @@
+{
+  "title": "Department Master",
+  "subtitle": "Manage application departments and their hierarchical configuration",
+  "list": {
+    "title": "Department Master",
+    "subtitle": "Manage application departments and their hierarchical configuration",
+    "buttons": {
+      "add": "Add Department",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "filters": {
+      "show": "Show",
+      "searchPlaceholder": "Search by Department Code or Name...",
+      "allStatus": "All Status",
+      "status": "Select Status"
+    },
+    "table": {
+      "departmentCode": "Department Code",
+      "departmentName": "Department Name",
+      "departmentNameLocal": "Local Name",
+      "departmentDescription": "Description",
+      "status": "Status",
+      "actions": "Actions"
+    }
+  },
+  "form": {
+    "title": {
+      "add": "Add New Department",
+      "edit": "Edit Department"
+    },
+    "subtitle": {
+      "add": "Configure new department details",
+      "edit": "Update existing department configuration"
+    },
+    "fields": {
+      "departmentCode": "Department Code",
+      "departmentCodePlaceholder": "Enter department code",
+      "departmentName": "Department Name",
+      "departmentNamePlaceholder": "Enter department name",
+      "departmentNameLocal": "Local Name",
+      "departmentNameLocalPlaceholder": "Enter local name",
+      "departmentIcon": "Icon Class",
+      "departmentIconPlaceholder": "e.g. briefcase, home",
+      "departmentDescription": "Description",
+      "departmentDescriptionPlaceholder": "Enter department description",
+      "isActive": "Is Active",
+      "statusText": "Department is currently {status}"
+    },
+    "buttons": {
+      "add": "Add Department",
+      "save": "Create Department",
+      "cancel": "Cancel",
+      "update": "Update Department"
+    }
+  },
+  "delete": {
+    "confirmDescription": "Are you sure you want to delete this department? This action cannot be undone."
+  },
+  "stats": {
+    "total": "Total Departments",
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "success": {
+    "created": "Department created successfully",
+    "updated": "Department updated successfully",
+    "deleted": "Department deleted successfully"
+  }
+}

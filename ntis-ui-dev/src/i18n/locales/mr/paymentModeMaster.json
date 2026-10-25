@@ -1,0 +1,121 @@
+{
+    "title": "पेमेंट मोड मास्टर",
+    "subtitle": "पेमेंट पद्धती, व्यवहार सेटिंग्ज आणि गेटवे कॉन्फिगरेशन व्यवस्थापित करा",
+    "addLabel": "पेमेंट मोड जोडा",
+    "searchPlaceholder": "पेमेंट मोड शोधा...",
+    "stats": {
+        "totalModes": "एकूण मोड",
+        "online": "ऑनलाइन मोड",
+        "offline": "ऑफलाइन मोड",
+        "both": "दोन्ही मोड",
+        "active": "सक्रिय मोड"
+    },
+    "pagination": {
+        "showing": "दाखवत आहे",
+        "to": "पासून",
+        "of": "चे",
+        "entries": "नोंदी",
+        "show": "दाखवा"
+    },
+    "status": {
+        "active": "सक्रिय",
+        "inactive": "निष्क्रिय"
+    },
+    "actions": "क्रिया",
+    "actionsTooltip": {
+        "edit": "पेमेंट मोड संपादित करा",
+        "delete": "पेमेंट मोड हटवा"
+    },
+    "noDataFound": "कोणताही पेमेंट मोड सापडला नाही",
+    "table": {
+        "code": "कोड",
+        "name": "पेमेंट मोड",
+        "type": "प्रकार",
+        "category": "श्रेणी",
+        "charge": "व्यवहार शुल्क",
+        "status": "स्थिती",
+        "actions": "क्रिया",
+        "deleteConfirmTitle": "पेमेंट मोड हटवायचा?",
+        "deleteConfirmSubtitle": "तुम्हाला खात्री आहे की तुम्ही हा पेमेंट मोड हटवू इच्छिता? ही क्रिया पूर्ववत केली जाऊ शकत नाही.",
+        "deleteConfirmButton": "हटवा",
+        "deleteCancelButton": "रद्द करा"
+    },
+    "form": {
+        "title": {
+            "add": "नवीन पेमेंट मोड जोडा",
+            "edit": "पेमेंट मोड संपादित करा"
+        },
+        "subtitle": {
+            "add": "नवीन पेमेंट मोड तपशील आणि व्यवहार शुल्क कॉन्फिगर करा",
+            "edit": "विद्यमान पेमेंट मोड कॉन्फिगरेशन अपडेट करा"
+        },
+        "fields": {
+            "code": "मोड कोड",
+            "codePlaceholder": "उदा., CASH, ONLINE",
+            "paymentModeName": "मोडचे नाव",
+            "paymentModeNamePlaceholder": "उदा., रोख पेमेंट, क्रेडिट कार्ड",
+            "type": "प्रकार",
+            "category": "श्रेणी",
+            "description": "वर्णन",
+            "descriptionPlaceholder": "पेमेंट मोड वर्णन...",
+            "transactionCharge": "व्यवहार शुल्क",
+            "transactionChargePlaceholder": "0.00",
+            "chargeType": "शुल्काचा प्रकार",
+            "isActive": "सक्रिय आहे",
+            "statusText": "मोड सध्या {status} आहे",
+            "paymentTypes": {
+                "online": "ऑनलाइन",
+                "offline": "ऑफलाइन",
+                "both": "दोन्ही"
+            },
+            "categories": {
+                "cash": "रोख",
+                "banktransfer": "बँक ट्रान्सफर",
+                "card": "कार्ड",
+                "digitalwallet": "डिजिटल वॉलेट",
+                "other": "इतर"
+            },
+            "chargeTypes": {
+                "fixed": "निश्चित",
+                "percentage": "टक्केवारी",
+                "none": "काही नाही"
+            }
+        },
+        "mandatory": "<b>*</b> ने चिन्हांकित फील्ड अनिवार्य आहेत",
+        "buttons": {
+            "save": "मोड तयार करा",
+            "cancel": "रद्द करा",
+            "update": "मोड अपडेट करा"
+        },
+        "validation": {
+            "codeRequired": "मोड कोड आवश्यक आहे",
+            "codeMaxLength": "कमाल लांबी 20 वर्ण आहे",
+            "codeInvalidResult": "फक्त अक्षरे आणि संख्या ला परवानगी आहे (विशेष वर्ण नाहीत)",
+            "nameRequired": "मोडचे नाव आवश्यक आहे",
+            "nameMaxLength": "कमाल लांबी 50 वर्ण आहे",
+            "descriptionMaxLength": "कमाल लांबी 200 वर्ण आहे",
+            "chargeNegative": "व्यवहार शुल्क नकारात्मक असू शकत नाही",
+            "chargePercentageRange": "टक्केवारी शुल्क 0% ते 100% दरम्यान असणे आवश्यक आहे",
+            "chargeNoneInvalid": "शुल्काचा प्रकार 'काही नाही' असल्यास व्यवहार शुल्क 0 असणे आवश्यक आहे"
+        }
+    },
+    "toast": {
+        "validationError": "कृपया प्रमाणीकरण त्रुटी दुरुस्त करा",
+        "saveFailed": "पेमेंट मोड जतन करण्यात अयशस्वी",
+        "unexpectedError": "एक अनपेक्षित त्रुटी आली",
+        "deleteSuccess": "पेमेंट मोड यशस्वीरित्या हटवला",
+        "createSuccess": "पेमेंट मोड यशस्वीरित्या तयार झाला",
+        "updateSuccess": "पेमेंट मोड यशस्वीरित्या अपडेट झाला"
+    },
+    "loading": {
+        "message": "पेमेंट मोड लोड होत आहेत...",
+        "description": "कृपया पेमेंट पद्धती आणि गेटवे कॉन्फिगरेशन मिळेपर्यंत प्रतीक्षा करा."
+    },
+    "error": {
+        "title": "पेमेंट मोड लोड करणे अयशस्वी",
+        "description": "पेमेंट मोड सेटिंग्ज मिळवताना एक त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+        "errorId": "त्रुटी आयडी: {id}",
+        "goHome": "होमवर जा",
+        "tryAgain": "पुन्हा प्रयत्न करा"
+    }
+}

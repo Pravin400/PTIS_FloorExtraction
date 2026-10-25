@@ -1,0 +1,343 @@
+{
+  "propertyMapping": {
+    "pageTitle": "मालमत्ता मॅपिंग",
+    "stepLabel": "पायरी {step}",
+    "loadingTitle": "जुन्या मालमत्ता नोंदी मिळवत आहे",
+    "loadingSubtitle": "ठाणे महानगरपालिका API वरून मॅप केलेल्या उमेदवारांची यादी लोड करत आहे...",
+    "pendingCount": "प्रलंबित",
+
+    "error": {
+      "title": "मालमत्ता मॅपिंग त्रुटी",
+      "description": "मालमत्ता मॅपिंग डेटा प्रक्रिया करताना त्रुटी आली.",
+      "goHome": "मुख्य पानावर जा",
+      "tryAgain": "पुन्हा प्रयत्न करा"
+    },
+
+    "tabs": {
+      "workspace": "मालमत्ता पडताळा",
+      "confirmed": "पुष्टी केलेले मॅपिंग",
+      "history": "पडताळणी इतिहास नोंद"
+    },
+
+    "header": {
+      "back": "मागे",
+      "title": "मालमत्ता मॅपिंग"
+    },
+
+    "sidebar": {
+      "sectionLabel": "नवीन सर्वेक्षण मालमत्ता",
+      "autoDetectedLink": "स्वयं-शोधलेली लिंक",
+      "fields": {
+        "newPropertyNo": "नवीन मालमत्ता क्रमांक",
+        "ctsNo": "सीटीएस / सर्वेक्षण क्रमांक",
+        "ownerName": "मालकाचे नाव",
+        "address": "मालमत्तेचा पत्ता",
+        "mobile": "मोबाईल क्रमांक",
+        "plotBuiltArea": "प्लॉट / बांधलेले क्षेत्र",
+        "carpetArea": "कार्पेट क्षेत्र",
+        "floors": "नवीन मजले",
+        "useCategory": "वापर श्रेणी",
+        "rateableValue": "मूल्यांकनीय मूल्य",
+        "capitalValue": "भांडवल मूल्य",
+        "totalTax": "एकूण कर"
+      },
+      "areaUnit": "चौ.फू.",
+      "navigation": {
+        "prev": "मागील",
+        "next": "पुढील",
+        "recordOf": "{total} पैकी {current} नोंद"
+      },
+      "status": {
+        "mapped": "मॅप केलेले",
+        "unmapped": "मॅप न केलेले",
+        "needsVerification": "पडताळणी आवश्यक"
+      }
+    },
+
+    "searchBar": {
+      "label": "मालमत्ता, मालक किंवा पत्ता शोधा",
+      "placeholder": "मालमत्ता क्र., मालक, सीटीएस, पत्ता, मोबाईल...",
+      "searchButton": "शोधा",
+      "searchingButton": "शोधत आहे...",
+      "resetButton": "रीसेट",
+      "verificationStatusLabel": "पडताळणी स्थिती",
+      "filterOptions": {
+        "all": "सर्व",
+        "needVerification": "पडताळणी आवश्यक",
+        "mapped": "मॅप केलेले",
+        "unmapped": "मॅप न केलेले"
+      }
+    },
+
+    "candidatesTable": {
+      "step1": {
+        "label": "पायरी १",
+        "title": "जोडलेल्या जुन्या मालमत्ता ({count})",
+        "description": "या जुन्या मालमत्ता नोंदी सध्या नवीन सर्वेक्षण मालमत्तेशी जोडलेल्या आहेत.",
+        "emptyText": "सध्या कोणत्याही ऐतिहासिक मालमत्ता जोडलेल्या नाहीत."
+      },
+      "step2": {
+        "label": "पायरी २",
+        "title": "जुन्या मालमत्ता शोधा व निवडा ({count})",
+        "descriptionAuto": "नवीन सर्वेक्षण मालमत्तेसाठी स्वयं-शोधलेले जुळणारे उमेदवार.",
+        "descriptionManual": "नवीन सर्वेक्षण मालमत्तेशी जोडण्यासाठी हस्तचलित शोध निकालांमधून शोधा व निवडा.",
+        "badgeAutoDetected": "स्वयं-शोधलेले",
+        "badgeSearchResults": "शोध निकाल",
+        "emptyText": "या सर्वेक्षण स्थानासाठी कोणतीही उमेदवार मालमत्ता आढळली नाही."
+      },
+      "step3": {
+        "label": "पायरी ३",
+        "title": "हस्तचलित शोध निकाल ({count})",
+        "description": "हस्तचलित शोध बारच्या प्रश्नांचे निकाल.",
+        "badgeManual": "हस्तचलित शोध",
+        "emptyText": "या शोध प्रश्नासाठी कोणतीही उमेदवार मालमत्ता आढळली नाही."
+      },
+      "columns": {
+        "selectMatch": "जुळणारे निवडा",
+        "status": "स्थिती",
+        "oldPropertyNo": "जुना मालमत्ता क्रमांक",
+        "ownerAddress": "मालक / पत्ता",
+        "builtUpArea": "बांधलेले क्षेत्र",
+        "carpetArea": "कार्पेट क्षेत्र",
+        "tax": "कर",
+        "floors": "मजले",
+        "evidenceDetails": "पुरावा तपशील",
+        "matchPercent": "जुळणी %",
+        "action": "क्रिया"
+      },
+      "statusBadge": {
+        "mappedTo": "मालमत्ता क्र.:- {propNo} शी मॅप केलेले",
+        "mapped": "मॅप केलेले",
+        "unmapped": "मॅप न केलेले",
+        "blocked": "अवरोधित"
+      },
+      "areaUnit": "चौ.फू.",
+      "compareButton": "तुलना करा",
+      "compareButtonBlocked": "तुलना पहा (अवरोधित)"
+    },
+
+    "comparisonCards": {
+      "step4": {
+        "label": "पायरी ४",
+        "title": "क्षेत्र आणि एकूण कर यांची तुलना करा"
+      },
+      "areaCard": {
+        "title": "क्षेत्र समेट",
+        "builtUpAreaSection": "बांधलेले क्षेत्र",
+        "newBuiltUp": "नवीन बांधलेले क्षेत्र",
+        "oldBuiltUp": "जुने बांधलेले क्षेत्र",
+        "difference": "फरक",
+        "carpetAreaSection": "कार्पेट क्षेत्र",
+        "newCarpet": "नवीन कार्पेट क्षेत्र",
+        "oldCarpet": "जुने कार्पेट क्षेत्र",
+        "toleranceStatus": "सहनशीलता स्थिती"
+      },
+      "floorCard": {
+        "title": "मजला जुळणी तपासणी",
+        "newFloorCount": "नवीन मजल्यांची संख्या",
+        "oldFloorCount": "जुन्या मजल्यांची संख्या",
+        "floorRecordsAvailable": "मजला नोंदी उपलब्ध",
+        "floorMatchResult": "मजला जुळणीचा निकाल",
+        "yes": "होय",
+        "no": "नाही",
+        "floorStatus": {
+          "matched": "जुळलेले",
+          "oldIsLess": "जुने कमी आहे",
+          "oldIsMore": "जुने जास्त आहे",
+          "noMatchingLayout": "जुळणारी रचना नाही"
+        }
+      },
+      "taxCard": {
+        "title": "एकूण कर लागू",
+        "newAnnualTax": "नवीन वार्षिक कर",
+        "oldAnnualTax": "जुना वार्षिक कर",
+        "difference": "फरक",
+        "differenceStatus": "फरकाची स्थिती"
+      },
+      "toleranceBadge": {
+        "within": "सहनशीलतेत",
+        "exceeded": "ओलांडले",
+        "equal": "समान",
+        "oldIsLess": "जुने कमी आहे",
+        "oldIsMore": "जुने जास्त आहे"
+      },
+      "areaUnit": "चौ.फू.",
+      "records": "नोंदी"
+    },
+
+    "floorVisualizer": {
+      "step5": {
+        "label": "पायरी ५",
+        "title": "मजलावार बांधकामाचे सविस्तर पुनरावलोकन करा",
+        "description": "कर नोंदींच्या विरुद्ध उभ्या बांधकाम स्तरांचे पुनरावलोकन करण्यासाठी खाली जुनी मालमत्ता टॅब निवडा."
+      },
+      "emptyState": "बिल्डिंग व्हिज्युअलायझर तयार करण्यासाठी पायरी १ मध्ये जोडलेल्या जुन्या मालमत्ता निवडा.",
+      "gridLabel": "बांधकाम आणि कर मापदंड ग्रिड",
+      "tabLabel": {
+        "new": "नवीन",
+        "old": "जुने"
+      },
+      "columns": {
+        "floor": "मजला",
+        "useCategory": "वापर श्रेणी",
+        "construction": "बांधकाम",
+        "carpetArea": "कार्पेट क्षेत्र",
+        "builtUpArea": "बांधलेले क्षेत्र",
+        "constructionYear": "बांधकाम वर्ष",
+        "assessmentYear": "मूल्यांकन वर्ष"
+      },
+      "areaUnit": "चौ.फू."
+    },
+
+    "confirmFooter": {
+      "readyMessage": "सर्व पडताळणी निकष महानगरपालिका सहनशीलता पातळीशी जुळतात. पुष्टी करण्यासाठी तयार.",
+      "confirmMergeButton": "विलीनीकरण पुष्टी करा",
+      "saveUnmappedButton": "मॅप न केलेली मालमत्ता म्हणून जतन करा"
+    },
+
+    "validation": {
+      "hardConflict": "पडताळणी अवरोधित: निवडलेल्या जुन्या उमेदवारात कठोर जुळणी संघर्ष आढळला.",
+      "remarkRequired": "सर्वेक्षण मालमत्ता मॅप न केलेली म्हणून जतन करण्यासाठी लेखापरीक्षण शेरे आवश्यक आहेत.",
+      "areaVariance": "सावधान: एकत्रित क्षेत्र फरक १०% सहनशीलता ओलांडला ({value}%).",
+      "taxVariance": "सावधान: कर मूल्य विसंगती १०% पेक्षा जास्त ({value}%)."
+    },
+
+    "dialogs": {
+      "remarkPrompt": "मॅपिंग तपासणीचे स्पष्टीकरण देणारे शेरे प्रविष्ट करा:",
+      "confirmMerge": {
+        "title": "मालमत्ता विलीनीकरण पुष्टी करायची?",
+        "description": "तुम्हाला खात्री आहे का की तुम्ही सर्वेक्षण मालमत्ता {newPropNo} ला ऐतिहासिक नोंदींशी विलीन करायचे आहे: {oldPropNos}?",
+        "confirmText": "विलीनीकरण पुष्टी करा",
+        "cancelText": "रद्द करा"
+      },
+      "markUnmapped": {
+        "title": "मॅप न केलेली मालमत्ता म्हणून पडताळायची?",
+        "description": "तुम्हाला खात्री आहे का की तुम्ही नवीन सर्वेक्षण मालमत्ता {newPropNo} मॅप न केलेली म्हणून चिन्हांकित करायची आहे? कोणतीही जुनी नोंद जोडली जाणार नाही.",
+        "confirmText": "मॅप न केलेली म्हणून चिन्हांकित करा",
+        "cancelText": "रद्द करा"
+      },
+      "unmapProperty": {
+        "title": "मालमत्ता अनमॅप करायची?",
+        "description": "तुम्हाला खात्री आहे का की तुम्ही सर्वेक्षण मालमत्ता {newPropNo} साठी मालमत्ता लिंक {mId} अनमॅप करायची आहे? हे मॅप केलेल्या जुन्या नोंदी डिस्कनेक्ट करेल.",
+        "confirmText": "मालमत्ता अनमॅप करा",
+        "cancelText": "रद्द करा"
+      },
+      "unmapSelection": {
+        "title": "अनमॅप करण्यासाठी मालमत्ता निवडा",
+        "surveyProperty": "सर्वेक्षण मालमत्ता:",
+        "multipleDesc": "ही सर्वेक्षण मालमत्ता {count} जुन्या मालमत्तांशी जोडलेली आहे. अनमॅप करण्यासाठी नोंदी निवडा:",
+        "singleDesc": "तुम्हाला खात्री आहे का की तुम्ही सर्वेक्षण मालमत्ता {newPropNo} साठी मालमत्ता लिंक {mId} अनमॅप करायची आहे? हे जुनी नोंद डिस्कनेक्ट करेल.",
+        "recordsHeader": "जुन्या मालमत्ता नोंदी ({selected}/{total} निवडलेले)",
+        "selectAll": "सर्व निवडा",
+        "deselectAll": "सर्व निवड रद्द करा",
+        "toUnmap": "अनमॅप करा",
+        "keep": "ठेवा",
+        "cancel": "रद्द करा",
+        "unmapping": "अनमॅप करत आहे...",
+        "unmapSelected": "निवडलेले अनमॅप करा ({count})"
+      }
+    },
+
+    "toasts": {
+      "filtersReset": "फिल्टर यशस्वीरित्या रीसेट केले",
+      "searchFailed": "सर्व्हर शोध अयशस्वी",
+      "markedUnmapped": "मालमत्ता {propNo} मॅप न केलेली म्हणून पडताळली.",
+      "mappingConfirmed": "मालमत्ता मॅपिंग यशस्वीरित्या पडताळले: {propNo}.",
+      "unmapped": "{propNo} साठी मालमत्ता लिंक अनमॅप केली गेली आहे.",
+      "mergeFailed": "मालमत्ता नोंदी विलीन करण्यात अयशस्वी.",
+      "unmergeFailed": "मालमत्ता नोंदी अनमर्ज करण्यात अयशस्वी.",
+      "unlinkFailed": "मालमत्ता नोंद अनलिंक करण्यात अयशस्वी.",
+      "invalidPropertyId": "अवैध मालमत्ता ओळखकर्ता."
+    },
+
+    "mappingType": {
+      "unmapped": "मॅप न केलेले (नवीन सर्वेक्षण म्हणून पुष्टी करा)",
+      "oneToOne": "१ \u2192 १ (एक-ते-एक)",
+      "split": "विभाजित (१ नवीन \u2192 {count} जुन्या नोंदी)"
+    },
+
+    "confirmedMappingsTab": {
+      "title": "सक्रिय मॅपिंग नोंदणी",
+      "emptyText": "अद्याप कोणतेही सक्रिय मॅपिंग जतन केले नाही.",
+      "columns": {
+        "mappingLinkId": "मॅपिंग लिंक आयडी",
+        "newSurveyProperty": "नवीन सर्वेक्षण मालमत्ता",
+        "legacyOldProperties": "जुन्या वारसा मालमत्ता",
+        "relationshipType": "संबंध प्रकार",
+        "confidence": "विश्वासार्हता",
+        "verifiedBy": "पडताळणी केली",
+        "verifiedDate": "पडताळणी दिनांक",
+        "action": "क्रिया"
+      },
+      "unmappedLabel": "मॅप न केलेले",
+      "unmapButton": "मालमत्ता अनमॅप करा"
+    },
+
+    "historyTab": {
+      "title": "लेखापरीक्षण मार्ग",
+      "emptyText": "अद्याप इतिहासात कोणतीही क्रिया नोंदवलेली नाही.",
+      "naValue": "लागू नाही",
+      "columns": {
+        "timestamp": "वेळ-मुद्रांक",
+        "action": "क्रिया",
+        "newPropertyNo": "नवीन मालमत्ता क्र.",
+        "linkedLegacyRecords": "जोडलेल्या जुन्या वारसा नोंदी",
+        "officer": "अधिकारी",
+        "auditRemarks": "समेट लेखापरीक्षण शेरे"
+      }
+    },
+
+    "diffModal": {
+      "title": "मापदंड तुलना",
+      "subtitle": "नवीन जीआयएस सर्वेक्षण मापदंडांची जुन्या महानगरपालिका नोंदींशी तुलना करा.",
+      "closeButton": "तुलना बंद करा",
+      "columns": {
+        "parameters": "मापदंड",
+        "newPropertyRecord": "नवीन मालमत्ता नोंद",
+        "oldPropertyRecord": "जुनी मालमत्ता नोंद",
+        "status": "स्थिती"
+      },
+      "matchStatus": {
+        "matched": "जुळलेले",
+        "unmatch": "जुळत नाही",
+        "noData": "माहिती नाही"
+      },
+      "fields": {
+        "propertyNo": "मालमत्ता क्रमांक",
+        "ownerName": "मालकाचे नाव",
+        "address": "पत्ता",
+        "builtUpArea": "बांधलेले क्षेत्र",
+        "carpetArea": "कार्पेट क्षेत्र",
+        "floors": "मजले",
+        "rateableValue": "मूल्यांकनीय मूल्य",
+        "annualTax": "एकूण कर",
+        "ctsSurvey": "सीटीएस / सर्वेक्षण",
+        "useCategory": "वापर श्रेणी",
+        "zoneWard": "क्षेत्र / वार्ड",
+        "plotNumber": "भूखंड क्रमांक",
+        "constructionYear": "बांधकाम वर्ष",
+        "mobileNumber": "मोबाईल क्रमांक"
+      },
+      "naValue": "लागू नाही",
+      "areaUnit": "चौ.फू."
+    },
+
+    "evidence": {
+      "ward": "वार्ड {wardNo}",
+      "zone": "क्षेत्र {zoneNo}",
+      "searchResult": "शोध निकाल",
+      "category": "श्रेणी {category}"
+    },
+
+    "auditDefaultRemarks": {
+      "newSurvey": "नवीन सर्वेक्षण मालमत्ता म्हणून पुष्टी केली (मॅप न केलेली).",
+      "mappingConfirmed": "मॅपिंग संबंध पुष्टी केला.",
+      "unmapManual": "सक्रिय मॅपिंग नोंदणीतून हस्तचलित पडताळणी लिंक अनमॅप करा."
+    },
+
+    "waitingWindow": {
+      "title": "मालमत्ता शोधत आहे",
+      "message": "ऐतिहासिक महानगरपालिका नोंदी शोधत आहे..."
+    }
+  }
+}

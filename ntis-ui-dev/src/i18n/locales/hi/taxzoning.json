@@ -1,0 +1,133 @@
+{
+  "taxZoning": {
+    "title": "कर क्षेत्र",
+    "subtitle": "संपत्ति श्रेणी मैपिंग और बुद्धिमान ऑटो-वृद्धि के साथ वार्ड-वार ज़ोनिंग कॉन्फ़िगर करें",
+    "aliasFallback": {
+      "ward": "वार्ड",
+      "taxZone": "कर क्षेत्र"
+    },
+    "form": {
+      "taxZone": "{taxZone}",
+      "selectTaxZone": "{taxZone} चुनें",
+      "ward": "{ward}",
+      "selectWard": "{ward} चुनें",
+      "fromProperty": "संपत्ति से",
+      "toProperty": "संपत्ति तक",
+      "selectFromProperty": "संपत्ति से चुनें",
+      "selectToProperty": "संपत्ति तक चुनें",
+      "submit": "जमा करें",
+      "saving": "सहेजा जा रहा है...",
+      "update": "अपडेट करें",
+      "bulkUpdate": "थोक अपडेट",
+      "updating": "अपडेट हो रहा है...",
+      "clearImported": "साफ़ करें"
+    },
+    "columns": {
+      "wardNo": "{ward} नंबर",
+      "fromProperty": "संपत्ति से",
+      "toProperty": "संपत्ति तक",
+      "taxZoneNo": "{taxZone} नंबर",
+      "oldTaxZoneNo": "पुराना {taxZone}",
+      "newTaxZoneNo": "नया {taxZone} नंबर",
+      "propertyNo": "संपत्ति नंबर",
+      "status": "स्थिति"
+    },
+    "preview": {
+      "title": "पूर्वावलोकन",
+      "showing": "दिखाया जा रहा है",
+      "of": "का",
+      "records": "रिकॉर्ड",
+      "previous": "पिछला",
+      "next": "अगला",
+      "noPropertiesToPreview": "पूर्वावलोकन के लिए कोई संपत्ति नहीं",
+      "selectZoneWardProperty": "{taxZone}, {ward} और संपत्ति श्रेणी चुनें",
+      "multipleWardsSelected": "एकाधिक {ward} चयनित",
+      "multipleWardsMessage": "कई {ward} चयनित होने पर संपत्ति श्रेणी फ़ील्ड अक्षम हैं। संपत्ति श्रेणी कॉन्फ़िगर करने के लिए एक {ward} चुनें।",
+      "notSpecified": "निर्दिष्ट नहीं"
+    },
+    "buttons": {
+      "exportCSV": "CSV निर्यात करें",
+      "importFile": "फ़ाइल आयात करें"
+    },
+    "messages": {
+      "fillAllFields": "कृपया सभी आवश्यक फ़ील्ड भरें",
+      "taxZoneRequired": "{taxZone} आवश्यक है",
+      "wardRequired": "कम से कम एक {ward} आवश्यक है",
+      "propertyRequired": "एकल वार्ड चयन के लिए संपत्ति श्रेणी आवश्यक है",
+      "fromPropertyMustBeSmallerThanToProperty": "संपत्ति से संपत्ति तक से छोटी होनी चाहिए",
+      "updateSuccess": "कर ज़ोनिंग सफलतापूर्वक अपडेट किया गया",
+      "updateFailed": "कर ज़ोनिंग अपडेट करने में विफल",
+      "createSuccess": "कर ज़ोनिंग सफलतापूर्वक बनाया गया",
+      "createFailed": "कर ज़ोनिंग बनाने में विफल",
+      "somethingWrong": "कर ज़ोनिंग अपडेट करते समय कुछ गलत हुआ",
+      "noRecordsToExport": "निर्यात करने के लिए कोई रिकॉर्ड नहीं",
+      "csvExportSuccess": "CSV सफलतापूर्वक निर्यात किया गया",
+      "invalidFileType": "केवल CSV और Excel फ़ाइलों की अनुमति है",
+      "invalidFile": "अमान्य फ़ाइल प्रारूप",
+      "fileHasNoData": "फ़ाइल में कोई डेटा नहीं है",
+      "fileProcessingError": "फ़ाइल को प्रोसेस करते समय एक त्रुटि हुई",
+      "fileReadError": "फ़ाइल को पढ़ने में विफल",
+      "fetchTaxZonesFailed": "कर क्षेत्र लोड करने में असमर्थ",
+      "fetchWardsFailed": "वार्ड लोड करने में असमर्थ",
+      "fetchZoningDataFailed": "कर ज़ोनिंग डेटा लाने में विफल",
+      "fetchPropertyNoFailed": "कर ज़ोनिंग संपत्ति संख्या डेटा लाने में विफल",
+      "fetchByWardFailed": "वार्ड द्वारा कर ज़ोनिंग लाने में विफल",
+      "fetchAllFailed": "सभी कर ज़ोनिंग डेटा लाने में विफल",
+      "invalidFileFormat": "अमान्य फ़ाइल प्रारूप। आवश्यक कॉलम क्रम: {ward} नंबर, संपत्ति से, संपत्ति तक, {taxZone} नंबर",
+      "noNewOrChangedRecords": "कोई नए या परिवर्तित रिकॉर्ड नहीं मिले",
+      "newRecordsReadyToImport": "नए रिकॉर्ड आयात के लिए तैयार",
+      "updatesReadyToImport": "अपडेट आयात के लिए तैयार",
+      "newRecordsAndUpdatesReady": "नए रिकॉर्ड और",
+      "andUpdatesReady": "अपडेट आयात के लिए तैयार",
+      "headersMissing": "आवश्यक हेडर गायब हैं",
+      "noChanges": "अपडेट करने के लिए कोई परिवर्तन नहीं",
+      "importedDataCleared": "आयातित डेटा साफ़ किया गया",
+      "bulkUpdateSuccess": "थोक अपडेट सफलतापूर्वक पूर्ण हुआ!",
+      "newRecordsAdded": "नए रिकॉर्ड जोड़े गए",
+      "recordsUpdated": "रिकॉर्ड अपडेट किए गए",
+      "errorDetails": "अपडेट के दौरान त्रुटियां हुईं",
+      "criticalError": "थोक अपडेट के दौरान गंभीर त्रुटि हुई। कृपया पुनः प्रयास करें।",
+      "noRecordsFound": "फ़ाइल में कोई वैध रिकॉर्ड नहीं मिला",
+      "invalidDataFormat": "फ़ाइल में अमान्य डेटा प्रारूप",
+      "dbOperationCompleted": "डेटा आयात ऑपरेशन पूर्ण:",
+      "newRecordsCreated": "नए रिकॉर्ड सफलतापूर्वक बनाए गए",
+      "recordsUpdatedSuccessfully": "रिकॉर्ड सफलतापूर्वक अपडेट किए गए",
+      "newRecordsCreatedAnd": "नए रिकॉर्ड बनाए गए और",
+      "recordsFailed": "रिकॉर्ड प्रोसेस करने में विफल।",
+      "noRecordsProcessed": "कोई रिकॉर्ड सफलतापूर्वक प्रोसेस नहीं किया गया। कृपया डेटा जांचें और पुनः प्रयास करें।",
+      "failedToCreate": "बनाने में विफल",
+      "failedToUpdate": "अपडेट करने में विफल",
+      "ward": "वार्ड",
+      "zone": "क्षेत्र",
+      "exceptionProcessing": "प्रोसेसिंग अपवाद",
+      "wardsUpdatedSuccessfully": "{ward} सफलतापूर्वक अपडेट किये गए",
+      "wardsFailed": "{ward} अपडेट करने में विफल रहे",
+      "wardNotFound": "वार्ड ज़ोनिंग रिकॉर्ड में नहीं मिला",
+      "wardsNotFound": "निम्नलिखित वार्ड ज़ोनिंग रिकॉर्ड में नहीं मिले",
+      "wardNotFoundDetail": "कृपया अपडेट करने से पहले इस वार्ड को संपत्ति रिकॉर्ड में बनाएं"
+    },
+    "status": {
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय",
+      "new": "नया",
+      "updated": "अपडेट किया गया"
+    },
+    "table": {
+      "zoningRecords": "ज़ोनिंग रिकॉर्ड",
+      "show": "दिखाएं",
+      "entries": "प्रविष्टियां",
+      "recordCount": "रिकॉर्ड"
+    },
+    "loading": {
+      "message": "कर ज़ोनिंग लोड हो रहा है...",
+      "description": "कृपया प्रतीक्षा करें जब तक हम डेटा लोड करते हैं"
+    },
+    "error": {
+      "title": "सर्वर से कनेक्ट करने में विफल। कृपया बाद में पुनः प्रयास करें।",
+      "description": "कर ज़ोनिंग पेज लोड करते समय हमें एक त्रुटि मिली। कृपया ताज़ा करने का प्रयास करें या होम पेज पर वापस जाएं।",
+      "errorId": "त्रुटि ID: {id}",
+      "goHome": "होम जाएं",
+      "tryAgain": "पुनः प्रयास करें"
+    }
+  }
+}

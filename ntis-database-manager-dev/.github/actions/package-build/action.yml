@@ -1,0 +1,155 @@
+﻿name: NTIS Database Manager Package Build
+description: Build, package, and upload the NTIS Database Manager artifact.
+
+inputs:
+  version:
+    description: Release version in x.y.z.w format.
+    required: true
+  branch:
+    description: Branch being built.
+    required: false
+    default: main
+  path-mode:
+    description: Upload path mode. Use standalone for repo-local runs and orchestrated for ntis-devops runs.
+    required: false
+    default: standalone
+  branch-env-map:
+    description: JSON mapping of branch names to environment names.
+    required: true
+  package-container-name:
+    description: Azure Blob container name for package uploads.
+    required: true
+  package-connection-string:
+    description: Azure Storage connection string.
+    required: true
+  dotnet-version:
+    description: .NET SDK version to use.
+    required: false
+    default: 10.x
+
+outputs:
+  version:
+    description: Validated version.
+    value: ${{ steps.version_setup.outputs.version }}
+  artifact-name:
+    description: Generated artifact name.
+    value: ${{ steps.version_setup.outputs.artifact-name }}
+  environment:
+    description: Target environment derived from branch.
+    value: ${{ steps.version_setup.outputs.environment }}
+  branch:
+    description: Branch used for the build.
+    value: ${{ steps.version_setup.outputs.branch }}
+
+runs:
+  using: composite
+  steps:
+    - name: Setup version and validation
+      id: version_setup
+      shell: pwsh
+      run: |
+        $version = '${{ inputs.version }}'
+        $branch = '${{ inputs.branch }}'
+        $branchEnvMap = '${{ inputs.branch-env-map }}' | ConvertFrom-Json
+        $environment = if ($branchEnvMap.PSObject.Properties[$branch]) {
+          $branchEnvMap.$branch
+        } else {
+          'production'
+        }
+
+        if ($version -notmatch '^\d+\.\d+\.\d+\.\d+$') {
+          Write-Error "Invalid version format: $version. Expected: x.y.z.w"
+          exit 1
+        }
+
+        $artifactName = "ntis-database-manager-$environment-v$version"
+
+        "version=$version" >> $env:GITHUB_OUTPUT
+        "artifact-name=$artifactName" >> $env:GITHUB_OUTPUT
+        "environment=$environment" >> $env:GITHUB_OUTPUT
+        "branch=$branch" >> $env:GITHUB_OUTPUT
+
+        Write-Output "Building NTIS Database Manager v$version for $environment"
+        Write-Output "Artifact name: $artifactName"
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v5
+      with:
+        dotnet-version: ${{ inputs.dotnet-version }}
+
+    - name: Restore dependencies
+      shell: pwsh
+      working-directory: src
+      run: |
+        Write-Output "Restoring NuGet packages..."
+        dotnet restore
+        Write-Output "Dependencies restored successfully"
+
+    - name: Build project with version
+      shell: pwsh
+      working-directory: src
+      run: |
+        $version = '${{ steps.version_setup.outputs.version }}'
+
+        Write-Output "Building Database Manager v$version in Release configuration..."
+
+        dotnet build `
+          --configuration Release `
+          --no-restore `
+          -p:Version=$version `
+          -p:AssemblyVersion=$version `
+          -p:FileVersion=$version `
+          -p:InformationalVersion=$version
+
+        Write-Output "Build completed successfully"
+
+    - name: Create zip archive
+      shell: pwsh
+      run: |
+        $version = '${{ steps.version_setup.outputs.version }}'
+        $zipName = "DatabaseManager-v$version.zip"
+        $zipPath = Join-Path (Get-Location) $zipName
+        $buildPath = Join-Path (Get-Location) "src/bin/Release/net10.0"
+
+        Write-Output "Creating zip archive..."
+        Push-Location $buildPath
+        Compress-Archive -Path './*' -DestinationPath $zipPath -Force
+        Pop-Location
+
+        $zipSize = [math]::Round((Get-Item $zipPath).Length / 1MB, 2)
+        Write-Output "Created $zipName ($zipSize MB)"
+
+    - name: Upload to Azure Blob Storage
+      shell: pwsh
+      run: |
+        $version = '${{ steps.version_setup.outputs.version }}'
+        $environment = '${{ steps.version_setup.outputs.environment }}'
+        $pathMode = '${{ inputs.path-mode }}'
+        $containerName = '${{ inputs.package-container-name }}'
+        $connectionString = '${{ inputs.package-connection-string }}'
+        $basePath = if ($pathMode -eq 'orchestrated') { "$environment/$version/database-manager" } else { "database-manager/$version" }
+        $zipName = "DatabaseManager-v$version.zip"
+
+        Write-Output "Uploading to Azure Blob Storage..."
+        Write-Output "Container: $containerName"
+        Write-Output "Path: $basePath"
+
+        az storage blob upload `
+          --connection-string "$connectionString" `
+          --container-name "$containerName" `
+          --file $zipName `
+          --name "$basePath/$zipName" `
+          --overwrite
+
+        Write-Output "Uploaded: $basePath/$zipName"
+
+    - name: Cleanup zip files
+      if: ${{ always() }}
+      shell: pwsh
+      run: |
+        $version = '${{ steps.version_setup.outputs.version }}'
+        $zipName = "DatabaseManager-v$version.zip"
+
+        Write-Output "Cleaning up zip files..."
+        Remove-Item -Path $zipName -Force -ErrorAction SilentlyContinue
+        Write-Output "Cleanup complete"

@@ -1,0 +1,128 @@
+{
+  "policyConfiguration": {
+    "aliasFallback": {
+      "category": "श्रेणी",
+      "entity": "पॉलिसी कॉन्फ़िगरेशन"
+    },
+    "list": {
+      "title": "पॉलिसी कॉन्फ़िगरेशन मास्टर",
+      "subtitle": "सिस्टम कॉन्फ़िगरेशन और पॉलिसी मानों को प्रबंधित करें",
+      "buttons": {
+        "add": "पॉलिसी जोड़ें",
+        "edit": "संपादित करें"
+      },
+      "filters": {
+        "show": "दिखाएं",
+        "search": "कोड, {category}, प्रदर्शन नाम द्वारा खोजें...",
+        "searching": "खोज रहे हैं...",
+        "recordsFound": "{count} रिकॉर्ड मिले"
+      },
+      "table": {
+        "policyCode": "पॉलिसी कोड",
+        "category": "{category}",
+        "displayName": "प्रदर्शन नाम",
+        "description": "विवरण",
+        "dataType": "डेटा प्रकार",
+        "policyValue": "पॉलिसी मान",
+        "defaultValue": "डिफ़ॉल्ट मान",
+        "unit": "इकाई",
+        "status": "स्थिति",
+        "actions": "कार्रवाई"
+      }
+    },
+    "form": {
+      "addTitle": "पॉलिसी कॉन्फ़िगरेशन जोड़ें",
+      "editTitle": "पॉलिसी कॉन्फ़िगरेशन संपादित करें",
+      "subtitle": "नया पॉलिसी कॉन्फ़िगरेशन बनाएं",
+      "editSubtitle": "पॉलिसी कॉन्फ़िगरेशन विवरण अपडेट करें",
+      "fields": {
+        "policyCode": {
+          "label": "पॉलिसी कोड",
+          "placeholder": "जैसे PT_TAX_RATE"
+        },
+        "category": {
+          "label": "{category}",
+          "placeholder": "जैसे TAX"
+        },
+        "displayName": {
+          "label": "प्रदर्शन नाम",
+          "placeholder": "जैसे Property Tax Rate"
+        },
+        "description": {
+          "label": "विवरण",
+          "placeholder": "पॉलिसी विवरण दर्ज करें"
+        },
+        "dataType": {
+          "label": "डेटा प्रकार",
+          "placeholder": "जैसे Number"
+        },
+        "policyValue": {
+          "label": "पॉलिसी मान",
+          "placeholder": "जैसे 15"
+        },
+        "defaultValue": {
+          "label": "डिफ़ॉल्ट मान",
+          "placeholder": "जैसे 10"
+        },
+        "unit": {
+          "label": "इकाई",
+          "placeholder": "जैसे %"
+        },
+        "effectiveFrom": {
+          "label": "प्रभावी तिथि से"
+        },
+        "effectiveTo": {
+          "label": "प्रभावी तिथि तक"
+        }
+      },
+      "validation": {
+        "policyCodeRequired": "पॉलिसी कोड आवश्यक है",
+        "categoryRequired": "{category} आवश्यक है",
+        "displayNameRequired": "प्रदर्शन नाम आवश्यक है",
+        "descriptionRequired": "विवरण आवश्यक है",
+        "dataTypeRequired": "डेटा प्रकार आवश्यक है",
+        "policyValueRequired": "पॉलिसी मान आवश्यक है",
+        "defaultValueRequired": "डिफ़ॉल्ट मान आवश्यक है",
+        "unitRequired": "इकाई आवश्यक है",
+        "effectiveFromRequired": "प्रभावी तिथि आवश्यक है",
+        "fixErrors": "कृपया सत्यापन त्रुटियों को ठीक करें",
+        "duplicateRecord": "यह पॉलिसी कोड पहले से मौजूद है",
+        "duplicateError": "यह पॉलिसी कोड पहले से मौजूद है। कृपया पॉलिसी कोड की जांच करें - डुप्लिकेट की अनुमति नहीं है.",
+        "bitInvalid": "मान केवल 0 या 1 होना चाहिए",
+        "intInvalid": "मान अधिकतम 6 अंकों वाली पूर्ण संख्या होनी चाहिए (जैसे, 123456)",
+        "decimalInvalid": "मान दशमलव से पहले अधिकतम 6 अंक और दशमलव के बाद 2 अंक वाली संख्या होनी चाहिए (जैसे, 123456.12)",
+        "varcharMaxLength": "मान 40 वर्णों से अधिक नहीं होना चाहिए",
+        "dateInvalid": "मान YYYY-MM-DD प्रारूप में एक मान्य तिथि होनी चाहिए",
+        "timeInvalid": "मान HH:mm या HH:mm:ss प्रारूप में एक मान्य समय होना चाहिए",
+        "urlInvalid": "मान एक मान्य URL होना चाहिए (जैसे, https://example.com)"
+      },
+      "status": {
+        "label": "सक्रिय स्थिति",
+        "active": "पॉलिसी वर्तमान में सक्रिय है",
+        "inactive": "पॉलिसी वर्तमान में निष्क्रिय है"
+      },
+      "actions": {
+        "cancel": "रद्द करें",
+        "save": "सहेजें",
+        "update": "अपडेट करें"
+      },
+      "messages": {
+        "createSuccess": "पॉलिसी कॉन्फ़िगरेशन सफलतापूर्वक बनाया गया",
+        "updateSuccess": "पॉलिसी कॉन्फ़िगरेशन सफलतापूर्वक अपडेट किया गया",
+        "error": "पॉलिसी कॉन्फ़िगरेशन सहेजने में असमर्थ। कृपया पुन: प्रयास करें।",
+        "invalidIdError": "अमान्य आईडी प्रारूप। आईडी एक सकारात्मक संख्या होनी चाहिए।"
+      }
+    },
+    "error": {
+      "title": "पॉलिसी कॉन्फ़िगरेशन त्रुटि",
+      "description": "पॉलिसी कॉन्फ़िगरेशन पेज लोड करते समय एक त्रुटि हुई। कृपया पुन: प्रयास करें।",
+      "errorId": "त्रुटि आईडी: {id}",
+      "goHome": "होम पर जाएं",
+      "tryAgain": "पुन: प्रयास करें"
+    },
+    "loading": {
+      "message": "पॉलिसी कॉन्फ़िगरेशन लोड हो रहा है...",
+      "description": "कृपया प्रतीक्षा करें जब तक हम कॉन्फ़िगरेशन डेटा प्राप्त करते हैं"
+    }
+  }
+}

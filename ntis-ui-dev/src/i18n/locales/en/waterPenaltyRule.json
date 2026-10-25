@@ -1,0 +1,112 @@
+{
+  "title": "Penalty Rules",
+  "subtitle": "Effective-dated current/pending bill penalty rules by category, geography and charge head.",
+  "department": "Water Department",
+  "section": "Connection & Tariff",
+  "add": "Add Penalty Rule",
+  "edit": "Edit Penalty Rule",
+  "export": "Export",
+  "userManual": "User Manual",
+  "searchPlaceholder": "Search penalty rules...",
+  "summary": {
+    "records": "Records",
+    "recordsSub": "loaded from backend",
+    "active": "Active",
+    "relationships": "DB Relationships",
+    "relationshipsSub": "4 references • dependent on FY/Category",
+    "designPattern": "Design Pattern",
+    "designPatternVal": "Controlled master",
+    "designPatternSub": "Effective-dated penalty engine"
+  },
+  "implementationNote": "Penalty calculation applies tiered percentage or flat fines based on overdue bill age and bill cycle type.",
+  "columns": {
+    "financialYear": "Financial Year",
+    "connectionCategory": "Connection Category",
+    "geography": "Geography Unit",
+    "chargeHead": "Charge Head",
+    "penaltyType": "Penalty Type",
+    "fromDay": "From Day",
+    "toDay": "To Day",
+    "percentageRate": "Rate (%)",
+    "flatAmount": "Flat Amount (₹)",
+    "maximumAmount": "Max Cap (₹)",
+    "effectiveFrom": "Effective From",
+    "effectiveTo": "Effective To",
+    "isCurrentBill": "Current Bill",
+    "isPendingBill": "Pending Bill",
+    "status": "Status",
+    "actions": "Actions"
+  },
+  "form": {
+    "addTitle": "Add Penalty Rule",
+    "editTitle": "Edit Penalty Rule",
+    "description": "Configure late fee and penalty parameters across categories and financial years.",
+    "financialYear": "Financial Year",
+    "financialYearPlaceholder": "Select Financial Year",
+    "connectionCategory": "Connection Category",
+    "connectionCategoryPlaceholder": "Select Connection Category",
+    "geography": "Geography Unit",
+    "geographyPlaceholder": "All / Select Geography",
+    "chargeHead": "Charge Head",
+    "chargeHeadPlaceholder": "Select Charge Head",
+    "penaltyType": "Penalty Calculation Type",
+    "penaltyTypePlaceholder": "Select Penalty Type",
+    "fromDay": "From Overdue Day",
+    "toDay": "To Overdue Day",
+    "percentageRate": "Percentage Rate (%)",
+    "flatAmount": "Flat Amount (₹)",
+    "maximumAmount": "Maximum Penalty Cap (₹)",
+    "effectiveFrom": "Effective From Date",
+    "effectiveTo": "Effective To Date",
+    "billTypeFlags": "Applicable Bill Types (select at least one)",
+    "isCurrentBill": "Current Bill Penalty",
+    "isPendingBill": "Pending / Arrears Bill Penalty",
+    "isActive": "Active Status",
+    "status": {
+      "label": "Active Status",
+      "description": "Penalty Rule is currently"
+    },
+    "cancel": "Cancel",
+    "save": "Save Penalty Rule",
+    "saving": "Saving..."
+  },
+  "validation": {
+    "yearRequired": "Financial Year is required",
+    "categoryRequired": "Connection Category is required",
+    "chargeHeadRequired": "Charge Head is required",
+    "penaltyTypeRequired": "Penalty Type is required",
+    "fromDayInvalid": "From Overdue Day is required and must be 0 or greater",
+    "effectiveFromRequired": "Effective From Date is required",
+    "effectiveToRequired": "Effective To Date is required",
+    "billTypeRequired": "At least one of Current Bill or Pending Bill must be selected",
+    "dayRangeInvalid": "To Day must be greater than From Day",
+    "rateRequired": "Percentage Rate is required for percentage-based penalties",
+    "flatRequired": "Flat Amount is required for flat penalties",
+    "dateRangeInvalid": "Effective To Date must be on or after Effective From Date",
+    "overlap": "A penalty rule already overlaps with this day range and effective period",
+    "failed": "Please correct the highlighted errors."
+  },
+  "confirm": {
+    "deleteTitle": "Delete Penalty Rule",
+    "deleteDesc": "Are you sure you want to permanently delete this penalty rule? This action cannot be undone.",
+    "toggleTitle": "Change Status",
+    "toggleDesc": "Are you sure you want to change the status of this penalty rule?"
+  },
+  "messages": {
+    "createSuccess": "Penalty rule created successfully.",
+    "updateSuccess": "Penalty rule updated successfully.",
+    "deleteSuccess": "Penalty rule deleted successfully.",
+    "statusSuccess": "Penalty rule status updated successfully."
+  },
+  "loading": {
+    "message": "Loading Penalty Rules...",
+    "description": "Please wait while we load the penalty rule data"
+  },
+  "error": {
+    "title": "Failed to load penalty rule data",
+    "description": "We encountered an error while loading penalty rule information. Please try again.",
+    "errorId": "Error ID: {id}",
+    "goHome": "Go Home",
+    "tryAgain": "Try Again"
+  }
+}

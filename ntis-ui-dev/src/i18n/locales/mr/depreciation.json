@@ -1,0 +1,82 @@
+{
+  "depreciationMaster": {
+    "aliasFallback": {
+      "assessment": "मूल्यांकन",
+      "constructionType": "बांधकाम प्रकार",
+      "entity": "मूल्यांकन"
+    },
+    "title": "घसारा",
+    "subtitle": "मालमत्ता कर {assessment} प्रणाली",
+    "assessmentYear": "{assessment} वर्ष",
+    "createRange": "रेंज तयार करा",
+    "min": "किमान वय",
+    "max": "कमाल वय",
+    "addRange": "रेंज जोडा",
+    "rangesAllYears": "सर्व वर्षांची रेंज",
+    "noRangesFound": "कोणतीही रेंज सापडली नाही",
+    "deleteRange": "रेंज हटवा",
+    "deleteRangeConfirmTitle": "रेंज हटवायची !!",
+    "deleteRangeConfirmDesc": "तुम्हाला खात्री आहे? तुम्हाला ही रेंज {min}-{max} हटवायची आहे का?",
+    "cancel": "रद्द करा",
+    "updateRates": "दर अपडेट करा",
+    "changesReverted": "बदल मागे घेतले",
+    "createDepChart": "दर जोडण्यासाठी घसारा तयार करा",
+    "ageRange": "वय रेंज",
+    "yearRange": "वर्ष रेंज",
+    "action": "क्रिया",
+    "active": "सक्रिय",
+    "processing": "प्रोसेसिंग...",
+    "currencySymbol": "₹",
+    "deleteRow": "ओळ हटवा",
+    "minPlaceholder": "किमान वय प्रविष्ट करा",
+    "maxPlaceholder": "कमाल वय प्रविष्ट करा",
+    "deleteRangeConfirm": "रेंज हटवा",
+    "noRanges": "कोणतीही रेंज सापडली नाही",
+    "success": {
+      "deleted": "रेंज यशस्वीरित्या हटवली.",
+      "updated": "दर यशस्वीरित्या अद्ययावत केले.",
+      "added": "रेंज यशस्वीरित्या तयार केली."
+    },
+    "messages": {
+      "noChanges": "अपडेट करण्यासाठी कोणते बदल नाहीत.",
+      "updating": "{count} रेकॉर्ड अपडेट होत आहेत...",
+      "creatingRange": "सर्व {constructionType}ांसाठी रेंज तयार होत आहे..."
+    },
+    "errors": {
+      "load": "घसारा डेटा लोड करण्यात अयशस्वी.",
+      "add": "रेंज जोडण्यात अयशस्वी.",
+      "update": "दर अद्ययावत करण्यात अयशस्वी.",
+      "delete": "रेंज हटवण्यात अयशस्वी.",
+      "exists": "ही रेंज आधीच अस्तित्वात आहे.",
+      "minMax": "कृपया किमान आणि कमाल वय दोन्ही प्रविष्ट करा.",
+      "invalidRange": "किमान वय कमाल वयापेक्षा कमी असावे.",
+      "overlap": "ही श्रेणी आधीपासून अस्तित्वात आहे. {range}",
+      "mustBeNumber": "वैध संख्या असणे आवश्यक आहे",
+      "cannotBeNegative": "नकारात्मक असू शकत नाही",
+      "mustBe9999OrLess": "9999 किंवा त्यापेक्षा कमी असणे आवश्यक आहे",
+      "mustBe100OrLess": "100 किंवा त्यापेक्षा कमी असणे आवश्यक आहे",
+      "mustBe999OrLess": "999 किंवा त्यापेक्षा कमी असणे आवश्यक आहे",
+      "mustBe99OrLess": "99 किंवा त्यापेक्षा कमी असणे आवश्यक आहे",
+      "gapMin": "वय श्रेणीत अंतर आहे. अपेक्षित किमान वय {expectedMin} आहे.",
+      "gapMax": "वय श्रेणीत अंतर आहे. अपेक्षित कमाल वय {expectedMax} आहे."
+    },
+    "error": {
+      "title": "काहीतरी चुकले",
+      "description": "घटती किंमत मास्टर पृष्ठ लोड करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+      "tryAgain": "पुन्हा प्रयत्न करा",
+      "goHome": "होम वर जा",
+      "errorId": "त्रुटी आयडी: {id}"
+    },
+    "loading": {
+      "message": "घटती किंमत मास्टर लोड होत आहे...",
+      "description": "कृपया प्रतीक्षा करा, घटती किंमत डेटा मिळवत आहे"
+    },
+    "pagination": {
+      "showing": "पृष्ठ {page} मध्ये {totalPages} पैकी {ranges} श्रेणी दाखवत आहे",
+      "total": "एकूण: {count} श्रेणी",
+      "constructionTypes": "{constructionType}",
+      "showingTypes": "या पृष्ठावर {total} पैकी {shown} प्रकार दाखवत आहे",
+      "typesMayBeOnOtherPages": "काही {constructionType} इतर पृष्ठांवर असू शकतात. सर्व डेटा पाहण्यासाठी नेव्हिगेट करा."
+    }
+  }
+}

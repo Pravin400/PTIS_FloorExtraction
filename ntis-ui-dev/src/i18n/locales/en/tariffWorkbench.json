@@ -1,0 +1,276 @@
+{
+  "tariffWorkbench": {
+    "moduleTitle": "Tariff Workbench",
+    "title": "Tariff Workbench",
+    "subtitle": "Versioned tariff header by financial year, connection type, category and billing method.",
+    "searchPlaceholder": "Search records...",
+    "addTitle": "Add Tariff Workbench",
+    "addSlabTitle": "Add Slab Details",
+    "editSlabTitle": "Edit Slab Detail",
+    "addChargeDetailTitle": "Add Charge Details",
+    "editChargeDetailTitle": "Edit Charge Detail",
+    "editTitle": "Edit Tariff Workbench",
+    "addSubtitle": "Create a new water tariff configuration",
+    "editSubtitle": "Update tariff configuration details",
+    "stats": {
+      "records": "Records",
+      "recordsSub": "Loaded from server database",
+      "active": "Active",
+      "activeSub": "100% enabled",
+      "dbRelationships": "DB Relationships",
+      "dbSub": "3 referenced by · 3 depends on",
+      "designPattern": "Design Pattern",
+      "designSub": "Audit-friendly municipal setup",
+      "versionedRates": "Versioned rates"
+    },
+    "tabs": {
+      "master": "Tariff Master",
+      "slabs": "Tariff Slabs Details",
+      "chargeDetails": "Tariff Charge Details"
+    },
+    "note": "Tariff headers should be immutable after publication. Create a new version/effective period instead of editing a tariff already used in demand generation.",
+    "table": {
+      "tariffCode": "Tariff Code",
+      "tariffName": "Tariff Name",
+      "financialYear": "Financial Year",
+      "connectionType": "Connection Type",
+      "connectionCategory": "Connection Category",
+      "tapSize": "Tap Size",
+      "billingMethod": "Billing Method",
+      "description": "Description",
+      "effectiveFrom": "Effective From",
+      "effectiveTo": "Effective To",
+      "versionNo": "Version No",
+      "statusHeader": "Status",
+      "status": "Status",
+      "isActive": "Status",
+      "rateSlabs": "Rate Slabs",
+      "view": "View",
+      "yes": "Yes",
+      "no": "No",
+      "geographyUnit": "Geography Unit",
+      "fromUnit": "From Unit",
+      "toUnit": "To Unit",
+      "unitRate": "Unit Rate",
+      "fixedCharge": "Fixed Charge",
+      "minimumCharge": "Min Charge",
+      "maximumCharge": "Max Charge",
+      "perConnectionAmount": "Per Connection Amount",
+      "formulaCode": "Formula Code",
+      "chargeHeadName": "Charge Head",
+      "amount": "Amount",
+      "isDynamic": "Dynamic",
+      "isMandatory": "Mandatory",
+      "sequenceNo": "Sequence"
+    },
+    "filters": {
+      "all": "All records",
+      "active": "Active only",
+      "inactive": "Inactive only",
+      "tariffId": "Tariff ID"
+    },
+    "form": {
+      "enabled": "Enabled",
+      "disabled": "Disabled",
+      "saveRecord": "Save record",
+      "formulaCodes": {
+        "unitRate": "Unit Rate",
+        "unitRateFixed": "Unit Rate Plus Fixed Charge",
+        "flatRate": "Flat Rate",
+        "slabRate": "Slab Rate",
+        "perConnection": "Per Connection",
+        "minimumCharge": "Minimum Charge"
+      },
+      "tariffCode": {
+        "label": "Tariff Code",
+        "placeholder": "e.g., RES-MTR-2026"
+      },
+      "tariffName": {
+        "label": "Tariff Name",
+        "placeholder": "e.g., Residential Metered Tariff"
+      },
+      "financialYear": {
+        "label": "Financial Year",
+        "placeholder": "Select or enter Financial Year"
+      },
+      "connectionType": {
+        "label": "Connection Type",
+        "placeholder": "Select Connection Type",
+        "residential": "Residential",
+        "commercial": "Commercial",
+        "industrial": "Industrial",
+        "government": "Government",
+        "institutional": "Institutional"
+      },
+      "connectionCategory": {
+        "label": "Connection Category",
+        "placeholder": "Select Connection Category",
+        "regular": "Regular",
+        "annual": "Annual",
+        "flatRate": "Flat Rate",
+        "slabMetered": "Slab Metered"
+      },
+      "tapSize": {
+        "label": "Tap Size",
+        "placeholder": "Select Tap Size"
+      },
+      "billingMethod": {
+        "label": "Billing Method",
+        "placeholder": "e.g., Metered, Flat, Slab",
+        "metered": "Metered",
+        "flat": "Flat",
+        "slab": "Slab",
+        "flatRate": "Flat Rate",
+        "slabMetered": "Slab Metered",
+        "annual": "Annual"
+      },
+      "effectiveFrom": {
+        "label": "Effective From",
+        "placeholder": "mm/dd/yyyy"
+      },
+      "effectiveTo": {
+        "label": "Effective To",
+        "placeholder": "mm/dd/yyyy"
+      },
+      "versionNo": {
+        "label": "Version No",
+        "placeholder": "e.g., 1"
+      },
+      "status": {
+        "label": "Status",
+        "placeholder": "e.g., Draft / Published",
+        "draft": "Draft",
+        "published": "Published"
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "Enter detailed description or notes for this tariff..."
+      },
+      "activeStatusTitle": "Status",
+      "activeStatusOn": "Active - Tariff configuration is enabled",
+      "activeStatusOff": "Inactive - Tariff configuration is disabled"
+    },
+    "validation": {
+      "tariffCodeRequired": "Tariff Code is required",
+      "tariffCodeLength": "Tariff Code cannot exceed {count} characters",
+      "tariffNameRequired": "Tariff Name is required",
+      "tariffNameLength": "Tariff Name cannot exceed {count} characters",
+      "financialYearIdRequired": "Financial Year is required",
+      "connectionTypeIdRequired": "Connection Type is required",
+      "connectionCategoryIdRequired": "Connection Category is required",
+      "tapSizeIdRequired": "Tap Size is required",
+      "effectiveFromRequired": "Effective From date is required",
+      "effectiveFromInvalid": "Effective From is not a valid date",
+      "effectiveToInvalid": "Effective To is not a valid date",
+      "effectiveToAfterFrom": "Effective To must be on or after Effective From",
+      "formulaCodeRequired": "Formula code is required",
+      "formulaCodeInvalid": "Invalid formula code",
+      "tariffIdRequired": "Tariff ID is required",
+      "chargeHeadIdRequired": "Charge Head is required",
+      "amountRequired": "Amount is required",
+      "amountInvalid": "Amount must be >= 0",
+      "isDynamicRequired": "Dynamic selection is required",
+      "isMandatoryRequired": "Mandatory selection is required",
+      "validationFailed": "Validation failed. Please correct the errors"
+    },
+    "errors": {
+      "noMutationAction": "No mutation action provided",
+      "noDeleteAction": "Delete action not available",
+      "tariffNameRequired": "Tariff Name is required",
+      "chargeHeadRequired": "Charge Head is required",
+      "amountRequired": "Amount is required",
+      "fromUnitInvalid": "From unit must be >= 0",
+      "toUnitInvalid": "To unit must be > 0",
+      "toUnitGtFromUnit": "To unit must be greater than from unit",
+      "unitRateInvalid": "Unit rate must be >= 0",
+      "formulaCodeRequired": "Formula code is required",
+      "formulaCodeInvalid": "Invalid formula code",
+      "amountInvalid": "Amount must be >= 0",
+      "sequenceNoInvalid": "Sequence must be >= 1",
+      "dynamicAmountNonZero": "Amount must be 0 when Dynamic is Yes",
+      "forbidden": "Access denied: You do not have permission to perform this action",
+      "unexpectedError": "An unexpected error occurred",
+      "fetchListFailed": "Failed to fetch tariffs",
+      "fetchItemFailed": "Failed to fetch tariff",
+      "notFound": "Tariff not found",
+      "createFailed": "Failed to create tariff",
+      "updateFailed": "Failed to update tariff",
+      "deleteFailed": "Failed to delete tariff"
+    },
+    "error": {
+      "title": "Unable to Load Page",
+      "description": "We encountered an error while loading the tariff workbench page. Please try again.",
+      "tryAgain": "Try Again",
+      "goHome": "Go to Home",
+      "errorId": "Error ID: {id}"
+    },
+    "loading": {
+      "message": "Loading Tariff Workbench...",
+      "description": "Please wait while we fetch the tariff workbench data"
+    },
+    "confirm": {
+      "deleteTitle": "Delete Tariff",
+      "deleteDescription": "Are you sure you want to permanently delete this tariff? This action cannot be undone.",
+      "deleteSlabTitle": "Delete Slab Detail",
+      "deleteSlabDescription": "Are you sure you want to delete this slab detail? This action cannot be undone.",
+      "deleteChargeDetailTitle": "Delete Charge Detail",
+      "deleteChargeDetailDescription": "Are you sure you want to delete this charge detail? This action cannot be undone."
+    },
+    "messages": {
+      "createSuccess": "Tariff created successfully",
+      "updateSuccess": "Tariff updated successfully",
+      "deleteSuccess": "Tariff deleted successfully",
+      "createFailed": "Failed to create tariff",
+      "updateFailed": "Failed to update tariff",
+      "deleteFailed": "Failed to delete tariff",
+      "sequenceLoading": "Determining next sequence number..."
+    },
+    "userManual": {
+      "button": "User Manual",
+      "title": "Tariff Workbench — How It Works",
+      "intro": "Tariff Workbench defines versioned water supply tariff headers by financial year, connection type, category, and billing method for water demand calculation.",
+      "tariffConfigTitle": "Tariff Configuration",
+      "tariffConfigSub": "Code, Name, FY, Type, Category, Method, Dates",
+      "publishedTitle": "Published Tariff",
+      "publishedSub": "Draft → Validation/Review → Published (Versioned)",
+      "point1Title": "Tariff Header Details",
+      "point1Desc": " – Defines Tariff Code, Name, Financial Year, Connection Type (Residential/Commercial), Connection Category (Regular/Flat/Annual), Billing Method (Metered/Slab/Flat), Effective From & To dates, and Active status.",
+      "point2Title": "Versioning & Audit Safety",
+      "point2Desc": " – Version No tracks tariff iterations over time. New versions can be created for subsequent effective periods without overwriting historical tariff records.",
+      "point3Title": "Status Lifecycle & Protection",
+      "point3Desc": " – Tracks Draft or Published status. Published tariffs used in active billing demand generation are protected from destructive overwrites to ensure billing integrity.",
+      "noteTitle": "Always create a new version or effective period",
+      "noteDesc": ", then update parameters that reference them — published tariffs cannot be directly edited if used in demand generation."
+    },
+    "rateSlabsView": {
+      "backToMaster": "Back to Tariff Master",
+      "active": "Active",
+      "inactive": "Inactive",
+      "editTariff": "Edit Tariff",
+      "overviewTitle": "Tariff Configuration Overview",
+      "category": "Category",
+      "tapSizeArea": "Tap Size / Area",
+      "from": "From",
+      "to": "To",
+      "minimum": "Minimum",
+      "formula": "Formula",
+      "standard": "Standard"
+    },
+    "detailView": {
+      "publishedTariffConfig": "PUBLISHED TARIFF CONFIGURATION",
+      "draftTariffConfig": "DRAFT TARIFF CONFIGURATION",
+      "statusPublished": "Published",
+      "statusDraft": "Draft",
+      "financialYear": "FINANCIAL YEAR",
+      "connectionType": "CONNECTION TYPE",
+      "category": "CATEGORY",
+      "billingMethod": "BILLING METHOD",
+      "effectiveFrom": "EFFECTIVE FROM",
+      "effectiveTo": "EFFECTIVE TO",
+      "version": "VERSION",
+      "slabs": "SLABS",
+      "safePublishingTitle": "Safe publishing pattern",
+      "safePublishingDesc": "Draft → Validate overlapping dates/slabs → Preview sample bill → Publish → Lock. Once a demand references a rate snapshot, preserve historical tariff and publish a new version for future periods."
+    }
+  }
+}

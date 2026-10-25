@@ -1,0 +1,100 @@
+{
+  "configuration": {
+    "header": {
+      "title": "कॉन्फिगरेशन मास्टर",
+      "subtitle": "केंद्रीकृत मास्टर डेटा प्रबंधन प्रणाली",
+      "totalMasters": "कुल मास्टर्स"
+    },
+    "tabs": {
+      "masterData": "मास्टर डेटा",
+      "screenMaster": "स्क्रीन मास्टर",
+      "screenFieldsMaster": "स्क्रीन फील्ड मास्टर"
+    },
+    "masterData": {
+      "title": "मास्टर डेटा",
+      "records": "मास्टर रिकॉर्ड्स",
+      "addNew": "नया {name} जोड़ें",
+      "searchPlaceholder": "मास्टर रिकॉर्ड्स खोजें...",
+      "stats": {
+        "master": "मास्टर प्रकार",
+        "shown": "दिखाया गया",
+        "active": "सक्रिय"
+      },
+      "groupFilter": {
+        "categoriesTitle": "श्रेणियाँ",
+        "itemNamesTitle": "आइटम नाम"
+      },
+      "form": {
+        "addTitle": "नया {name} जोड़ें",
+        "editTitle": "{name} संपादित करें",
+        "createSubtitle": "नया रिकॉर्ड बनाएं",
+        "updateSubtitle": "मौजूदा रिकॉर्ड अपडेट करें",
+        "labels": {
+          "code": "कोड",
+          "name": "नाम",
+          "category": "संपत्ति श्रेणी",
+          "itemName": "आइटम नाम",
+          "description": "विवरण",
+          "displayOrder": "प्रदर्शन क्रम",
+          "status": "स्थिति",
+          "active": "सक्रिय",
+          "inactive": "निष्क्रिय"
+        },
+        "placeholders": {
+          "code": "कोड दर्ज करें",
+          "name": "नाम दर्ज करें",
+          "category": "श्रेणी चुनें",
+          "itemName": "आइटम नाम चुनें",
+          "description": "विवरण दर्ज करें",
+          "displayOrder": "प्रदर्शन क्रम दर्ज करें"
+        },
+        "buttons": {
+          "save": "सहेजें",
+          "update": "अपडेट करें",
+          "cancel": "रद्द करें"
+        },
+        "errors": {
+          "fillRequired": "कृपया सभी आवश्यक फील्ड भरें।",
+          "nameRequired": "नाम आवश्यक है।",
+          "nameInvalid": "नाम में केवल अक्षर और स्थान हो सकते हैं (अधिकतम ५० अक्षर)। सभी भारतीय भाषाएँ समर्थित।",
+          "descriptionRequired": "विवरण आवश्यक है।",
+          "descriptionInvalid": "विवरण में अमान्य वर्ण हैं। अनुमत: अक्षर, संख्या और मूल विराम चिह्न (सभी भारतीय भाषाएँ समर्थित)।",
+          "duplicateCode": "इस कोड के साथ एक रिकॉर्ड पहले से मौजूद है।",
+          "invalidData": "अमान्य डेटा प्रदान किया गया।",
+          "unexpected": "एक अप्रत्याशित त्रुटि हुई।",
+          "codeRequired": "कोड आवश्यक है",
+          "codeTooLong15": "कोड 15 वर्णों से अधिक नहीं हो सकता",
+          "codeInvalidChars": "कोड में अमान्य वर्ण हैं",
+          "codeDuplicate": "यह कोड पहले से मौजूद है",
+          "nameTooLong50": "नाम 50 वर्णों से अधिक नहीं हो सकता",
+          "nameInvalidChars": "नाम में अमान्य वर्ण हैं",
+          "nameDuplicate": "यह नाम पहले से मौजूद है",
+          "descriptionTooLong": "विवरण 100 वर्णों से अधिक नहीं हो सकता",
+          "descInvalidChars": "विवरण में अमान्य वर्ण हैं"
+        }
+      },
+      "error": {
+        "title": "डेटा लोड करना विफल",
+        "description": "मास्टर डेटा रिकॉर्ड्स लोड करते समय एक त्रुटि हुई। कृपया अपना कनेक्शन जांचें या पुनः प्रयास करें।",
+        "categoryTitle": "श्रेणी लोड करना विफल",
+        "categoryDescription": "संपत्ति श्रेणियां लोड करते समय एक त्रुटि हुई। कृपया अपना कनेक्शन जांचें या पुनः प्रयास करें।",
+        "typeTitle": "प्रकार लोड करना विफल",
+        "typeDescription": "संपत्ति प्रकार लोड करते समय एक त्रुटि हुई। कृपया पुनः प्रयास करें।",
+        "reload": "पृष्ठ रीलोड करें",
+        "tryAgain": "पुनः प्रयास करें",
+        "goHome": "होम पर जाएं"
+      }
+    }
+  },
+  "masterNames": {
+    "ownership-type-master": "स्वामित्व प्रकार"
+  },
+  "apiErrors": {
+    "referenceBlocked": {
+      "ownershipType": {
+        "deleteInUse": "यह स्वामित्व प्रकार उपयोग में है, इसलिए इसे हटाया नहीं जा सकता।",
+        "deactivateInUse": "यह स्वामित्व प्रकार उपयोग में है, इसलिए इसे निष्क्रिय नहीं किया जा सकता।"
+      }
+    }
+  }
+}

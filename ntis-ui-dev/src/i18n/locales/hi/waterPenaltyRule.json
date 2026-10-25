@@ -1,0 +1,112 @@
+{
+  "title": "दंड नियम",
+  "subtitle": "श्रेणी, भूगोल और शुल्क मद द्वारा प्रभावी-दिनांकित चालू/लंबित बिल दंड नियम।",
+  "department": "जल विभाग",
+  "section": "कनेक्शन और टैरिफ",
+  "add": "नया जुर्माना नियम जोड़ें",
+  "edit": "जुर्माना नियम संपादित करें",
+  "export": "निर्यात",
+  "userManual": "उपयोगकर्ता पुस्तिका",
+  "searchPlaceholder": "दंड नियम खोजें...",
+  "summary": {
+    "records": "कुल रिकॉर्ड",
+    "recordsSub": "बैकएंड से लोड किया गया",
+    "active": "सक्रिय",
+    "relationships": "डीबी संबंध",
+    "relationshipsSub": "4 संदर्भ • वित्तीय वर्ष/श्रेणी पर निर्भर",
+    "designPattern": "डिज़ाइन पैटर्न",
+    "designPatternVal": "नियंत्रित मास्टर",
+    "designPatternSub": "प्रभावी-दिनांकित दंड इंजन"
+  },
+  "implementationNote": "दंड गणना बकाया बिल आयु और बिल चक्र प्रकार के आधार पर प्रतिशत या फ्लैट जुर्माना लागू करती है।",
+  "columns": {
+    "financialYear": "वित्तीय वर्ष",
+    "connectionCategory": "कनेक्शन श्रेणी",
+    "geography": "भौगोलिक इकाई",
+    "chargeHead": "शुल्क मद",
+    "penaltyType": "दंड प्रकार",
+    "fromDay": "प्रारंभिक दिन",
+    "toDay": "अंतिम दिन",
+    "percentageRate": "दर (%)",
+    "flatAmount": "नियत राशि (₹)",
+    "maximumAmount": "अधिकतम सीमा (₹)",
+    "effectiveFrom": "प्रभावी प्रारंभ",
+    "effectiveTo": "प्रभावी समाप्ति",
+    "isCurrentBill": "चालू बिल",
+    "isPendingBill": "लंबित बिल",
+    "status": "स्थिति",
+    "actions": "कार्रवाई"
+  },
+  "form": {
+    "addTitle": "दंड नियम जोड़ें",
+    "editTitle": "दंड नियम संपादित करें",
+    "description": "विलंब शुल्क और दंड मापदंडों को कॉन्फ़िगर करें।",
+    "financialYear": "वित्तीय वर्ष",
+    "financialYearPlaceholder": "वित्तीय वर्ष चुनें",
+    "connectionCategory": "कनेक्शन श्रेणी",
+    "connectionCategoryPlaceholder": "श्रेणी चुनें",
+    "geography": "भौगोलिक इकाई",
+    "geographyPlaceholder": "सभी / इकाई चुनें",
+    "chargeHead": "शुल्क मद",
+    "chargeHeadPlaceholder": "शुल्क मद चुनें",
+    "penaltyType": "दंड गणना प्रकार",
+    "penaltyTypePlaceholder": "दंड प्रकार चुनें",
+    "fromDay": "प्रारंभिक अतिदेय दिन",
+    "toDay": "अंतिम अतिदेय दिन",
+    "percentageRate": "प्रतिशत दर (%)",
+    "flatAmount": "नियत राशि (₹)",
+    "maximumAmount": "अधिकतम दंड सीमा (₹)",
+    "effectiveFrom": "प्रभावी प्रारंभ तिथि",
+    "effectiveTo": "प्रभावी समाप्ति तिथि",
+    "billTypeFlags": "लागू बिल प्रकार (कम से कम एक चुनें)",
+    "isCurrentBill": "चालू बिल दंड",
+    "isPendingBill": "लंबित / बकाया बिल दंड",
+    "isActive": "सक्रिय स्थिति",
+    "status": {
+      "label": "सक्रिय स्थिति",
+      "description": "दंड नियम वर्तमान में है"
+    },
+    "cancel": "रद्द करें",
+    "save": "दंड नियम सहेजें",
+    "saving": "सहेजा जा रहा है..."
+  },
+  "validation": {
+    "yearRequired": "वित्तीय वर्ष आवश्यक है",
+    "categoryRequired": "कनेक्शन श्रेणी आवश्यक है",
+    "chargeHeadRequired": "शुल्क मद आवश्यक है",
+    "penaltyTypeRequired": "दंड प्रकार आवश्यक है",
+    "fromDayInvalid": "प्रारंभिक अतिदेय दिन 0 या अधिक होना चाहिए",
+    "effectiveFromRequired": "प्रभावी प्रारंभ तिथि आवश्यक है",
+    "effectiveToRequired": "प्रभावी समाप्ति तिथि आवश्यक है",
+    "billTypeRequired": "चालू बिल या लंबित बिल में से कम से कम एक चुना जाना चाहिए",
+    "dayRangeInvalid": "अंतिम दिन प्रारंभिक दिन से अधिक होना चाहिए",
+    "rateRequired": "प्रतिशत आधारित दंड के लिए दर आवश्यक है",
+    "flatRequired": "नियत दंड के लिए राशि आवश्यक है",
+    "dateRangeInvalid": "समाप्ति तिथि प्रारंभ तिथि के बाद होनी चाहिए",
+    "overlap": "एक दंड नियम पहले से ही इस दिन सीमा और प्रभावी अवधि से ओवरलैप होता है",
+    "failed": "कृपया त्रुटियों को सुधारें।"
+  },
+  "confirm": {
+    "deleteTitle": "दंड नियम हटाएं",
+    "deleteDesc": "क्या आप वाकई इस दंड नियम को हटाना चाहते हैं?",
+    "toggleTitle": "स्थिति बदलें",
+    "toggleDesc": "क्या आप इस दंड नियम की स्थिति बदलना चाहते हैं?"
+  },
+  "messages": {
+    "createSuccess": "दंड नियम सफलतापूर्वक बनाया गया।",
+    "updateSuccess": "दंड नियम सफलतापूर्वक अपडेट किया गया।",
+    "deleteSuccess": "दंड नियम सफलतापूर्वक हटाया गया।",
+    "statusSuccess": "दंड नियम की स्थिति अपडेट की गई।"
+  },
+  "loading": {
+    "message": "पेनल्टी नियम लोड हो रहा है...",
+    "description": "कृपया पेनल्टी नियम डेटा लोड होने तक प्रतीक्षा करें"
+  },
+  "error": {
+    "title": "जुर्माना नियम डेटा लोड करने में विफल",
+    "description": "जुर्माना नियम की जानकारी लोड करते समय एक त्रुटि हुई। कृपया पुन: प्रयास करें।",
+    "errorId": "त्रुटि आईडी: {id}",
+    "goHome": "मुख्यपृष्ठ पर जाएं",
+    "tryAgain": "पुनः प्रयास करें"
+  }
+}

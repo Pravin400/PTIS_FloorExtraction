@@ -1,0 +1,17 @@
+﻿;WITH GroupMap AS
+(
+    SELECT
+        g.Id AS TypeOfUseGroupId,      
+        g.TypeOfUseGroupCode              
+    FROM PTIS.TypeOfUseGroupMaster g
+),
+GroupMapCV AS
+(
+    SELECT
+        gcv.Id AS TypeOfUseGroupCVId,      
+        gcv.TypeOfUseGroupCVCode              
+    FROM PTIS.TypeOfUseGroupMasterCV gcv
+),
+TypeSeed AS
+(
+    SELECT * FROM (VALUES

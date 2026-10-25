@@ -1,0 +1,47 @@
+{
+  "portal": {
+    "header": {
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "navigationMenu": "Navigation menu",
+      "menu": "Menu",
+      "email": "Email",
+      "helpline": "Helpline",
+      "switchLanguage": "Switch language",
+      "english": "English",
+      "marathi": "मराठी"
+    },
+    "nav": {
+      "collapseSubmenu": "Collapse {title} submenu",
+      "expandSubmenu": "Expand {title} submenu"
+    },
+    "ticker": {
+      "play": "Play",
+      "pause": "Pause",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "citizenServices": {
+      "goToSlide": "Go to slide {n}"
+    },
+    "announcements": {
+      "new": "New",
+      "showLess": "Show Less",
+      "viewAll": "View All ({count})"
+    },
+    "importantLinks": {
+      "showLess": "Show Less",
+      "viewAll": "View All ({count})"
+    },
+    "footer": {
+      "quickLinks": "Quick Links",
+      "contact": "Contact"
+    },
+    "banner": {
+      "everyDropMatters": "Every drop matters",
+      "waterConservation": "Water conservation",
+      "saveWaterTitle": "Save Water",
+      "saveWaterDescription": "Save Panvel. Use water wisely today to secure a sustainable tomorrow."
+    }
+  }
+}

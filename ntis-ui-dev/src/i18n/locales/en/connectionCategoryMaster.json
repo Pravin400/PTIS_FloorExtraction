@@ -1,0 +1,131 @@
+{
+  "connectionCategory": {
+    "title": "Connection Category Master",
+    "description": "Manage connection categories, billing frequencies, and billing methods",
+    "searchPlaceholder": "Search connection categories...",
+    "addButton": "Add Connection Category",
+    "userManualBtn": "User Manual",
+    "userManual": {
+      "title": "Connection Category Master — How It Works",
+      "desc1": "Connection Category Master defines the billing categories, metered classifications, and frequency rules for water connections.",
+      "desc2": "1. Add connection categories (e.g. Regular, Slab Metered, Commercial Flat) along with their unique codes.",
+      "desc3": "2. Assign an appropriate billing frequency (e.g. Monthly, Quarterly, Annual) and billing method (e.g. Metered, Slab, Flat, Fixed).",
+      "desc4": "3. Set the metered status and active status of each connection category. Edit or delete existing categories as needed.",
+      "warning": "Always ensure the connection category is Active if it is currently assigned to consumer water connections."
+    },
+    "filters": {
+      "all": "All records",
+      "active": "Active",
+      "inactive": "Inactive",
+      "allMetered": "All Meter Types",
+      "metered": "Metered",
+      "nonMetered": "Non-Metered"
+    },
+    "table": {
+      "code": "Category Type Code",
+      "connectionCategoryCode": "Category Type Code",
+      "connectionCategory": "Connection Category",
+      "billingFrequency": "Billing Frequency",
+      "isMetered": "Metered Type",
+      "metered": "Metered",
+      "unmetered": "Non-Metered",
+      "billingMethod": "Billing Method",
+      "description": "Description",
+      "statusName": "Status"
+    },
+    "form": {
+      "connectionCategoryCode": {
+        "label": "Connection Category Code",
+        "placeholder": "e.g., REGULAR"
+      },
+      "connectionCategory": {
+        "label": "Connection Category",
+        "placeholder": "e.g., Regular Metered"
+      },
+      "billingFrequencyId": {
+        "label": "Billing Frequency",
+        "placeholder": "Select Billing Frequency..."
+      },
+      "isMetered": {
+        "label": "Metered Connection"
+      },
+      "meteredStatusTitle": "Metered Status",
+      "meteredStatusOn": "Metered - Connection has a meter installed",
+      "meteredStatusOff": "Non-Metered - Flat or fixed rate connection",
+      "billingMethod": {
+        "label": "Billing Method",
+        "placeholder": "Select Billing Method..."
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "e.g., Standard quarterly metered billing category"
+      },
+      "isActive": {
+        "label": "Active Status"
+      },
+      "activeStatusTitle": "Category Status",
+      "activeStatusOn": "Active - Category is enabled",
+      "activeStatusOff": "Inactive - Category is disabled"
+    },
+    "billingMethods": {
+      "Metered": "Metered",
+      "Slab": "Slab",
+      "Telescopic": "Telescopic",
+      "Hybrid": "Hybrid",
+      "Flat": "Flat",
+      "Fixed": "Fixed",
+      "Annual": "Annual"
+    },
+    "validation": {
+      "connectionCategoryCodeRequired": "Connection Category Code is required",
+      "connectionCategoryCodeLength": "Code cannot exceed 20 characters",
+      "connectionCategoryRequired": "Connection Category is required",
+      "connectionCategoryLength": "Category name cannot exceed 50 characters",
+      "billingFrequencyRequired": "Please select a billing frequency",
+      "billingMethodRequired": "Billing Method is required",
+      "billingMethodInvalid": "Selected billing method is inconsistent with metered status",
+      "descriptionRequired": "Description is required",
+      "descriptionLength": "Description cannot exceed 300 characters",
+      "descriptionFormat": "Only letters, numbers, spaces, and basic punctuation allowed (,./-()).",
+      "codeFormat": "Use only English letters, numbers, and underscores (_). The code cannot start or end with an underscore.",
+      "connectionCategoryFormat": "Only letters and a single space between words are allowed.",
+      "codeNumbersOnlyNotAllowed": "Please enter a valid code containing at least one alphabet.",
+      "connectionCategoryNumbersOnlyNotAllowed": "Please enter a valid connection category containing at least one alphabet."
+    },
+    "confirm": {
+      "deleteTitle": "Delete Connection Category",
+      "deleteDescription": "Are you sure you want to permanently delete this connection category? This action cannot be undone."
+    },
+    "messages": {
+      "createSuccess": "Connection Category created successfully",
+      "updateSuccess": "Connection Category updated successfully",
+      "deleteSuccess": "Connection Category deleted successfully",
+      "createError": "Failed to create connection category",
+      "updateError": "Failed to update connection category",
+      "deleteError": "Failed to delete connection category",
+      "duplicateError": "A record with the same details already exists.",
+      "duplicateCodeError": "Connection Category Code already exists.",
+      "duplicateComboError": "A record with this Connection Category and Billing Frequency combination already exists."
+    },
+    "drawer": {
+      "addTitle": "Add Connection Category",
+      "editTitle": "Edit Connection Category",
+      "addSubtitle": "Create a new connection category",
+      "editSubtitle": "Update connection category details",
+      "cancel": "Cancel",
+      "save": "Save",
+      "update": "Update"
+    }
+  },
+  "loading": {
+    "message": "Loading Connection Category...",
+    "description": "Please wait while we fetch the connection category data"
+  },
+  "error": {
+    "title": "Failed to connect server. Please try again later.",
+    "description": "We encountered an error while loading the connection category page. Please try again.",
+    "tryAgain": "Try Again",
+    "goHome": "Go to Home",
+    "errorId": "Error ID: {id}"
+  }
+}

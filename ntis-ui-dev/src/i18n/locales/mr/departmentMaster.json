@@ -1,0 +1,70 @@
+{
+  "title": "विभाग मास्टर",
+  "subtitle": "अनुप्रयोग विभाग आणि त्यांचे श्रेणीबद्ध कॉन्फ़िगरेशन व्यवस्थापित करा",
+  "list": {
+    "title": "विभाग मास्टर",
+    "subtitle": "अनुप्रयोग विभाग आणि त्यांचे श्रेणीबद्ध कॉन्फ़िगरेशन व्यवस्थापित करा",
+    "buttons": {
+      "add": "विभाग जोडा",
+      "edit": "संपादित करा",
+      "delete": "हटवा"
+    },
+    "filters": {
+      "show": "दाखवा",
+      "searchPlaceholder": "विभाग कोड किंवा नावाने शोधा...",
+      "allStatus": "सर्व स्थिती",
+      "status": "स्थिती निवडा"
+    },
+    "table": {
+      "departmentCode": "विभाग कोड",
+      "departmentName": "विभागाचे नाव",
+      "departmentNameLocal": "स्थानिक नाव",
+      "departmentDescription": "वर्णन",
+      "status": "स्थिती",
+      "actions": "कृती"
+    }
+  },
+  "form": {
+    "title": {
+      "add": "नवीन विभाग जोडा",
+      "edit": "विभाग संपादित करा"
+    },
+    "subtitle": {
+      "add": "नवीन विभाग तपशील कॉन्फ़िगर करा",
+      "edit": "विद्यमान विभाग कॉन्फ़िगरेशन अपडेट करा"
+    },
+    "fields": {
+      "departmentCode": "विभाग कोड",
+      "departmentCodePlaceholder": "विभाग कोड प्रविष्ट करा",
+      "departmentName": "विभागाचे नाव",
+      "departmentNamePlaceholder": "विभागाचे नाव प्रविष्ट करा",
+      "departmentNameLocal": "स्थानिक नाव",
+      "departmentNameLocalPlaceholder": "स्थानिक नाव प्रविष्ट करा",
+      "departmentIcon": "आयकॉन क्लास",
+      "departmentIconPlaceholder": "उदा. briefcase, home",
+      "departmentDescription": "वर्णन",
+      "departmentDescriptionPlaceholder": "विभाग वर्णन प्रविष्ट करा",
+      "isActive": "सक्रिय आहे",
+      "statusText": "विभाग सध्या {status} आहे"
+    },
+    "buttons": {
+      "add": "विभाग जोडा",
+      "save": "विभाग तयार करा",
+      "cancel": "रद्द करा",
+      "update": "विभाग अपडेट करा"
+    }
+  },
+  "delete": {
+    "confirmDescription": "आपण नक्की हा विभाग हटवू इच्छिता? ही कृती पूर्ववत केली जाऊ शकत नाही."
+  },
+  "stats": {
+    "total": "एकूण विभाग",
+    "active": "सक्रिय",
+    "inactive": "निष्क्रिय"
+  },
+  "success": {
+    "created": "विभाग यशस्वीरित्या तयार केला",
+    "updated": "विभाग यशस्वीरित्या अपडेट केला",
+    "deleted": "विभाग यशस्वीरित्या हटवला"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "list": {
+    "title": "Geography Type Master",
+    "subtitle": "Manage geography types and their hierarchy levels",
+    "buttons": {
+      "add": "Add Geography Type",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "filters": {
+      "show": "Show",
+      "search": "Search by Code or Geography Type..."
+    },
+    "table": {
+      "geographyTypeCode": "Geography Type Code",
+      "geographyType": "Geography Type",
+      "levelNo": "Level No",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "pagination": {
+      "showing": "Showing",
+      "entries": "entries"
+    }
+  },
+  "form": {
+    "addTitle": "Add Geography Type",
+    "editTitle": "Edit Geography Type",
+    "subtitle": "Create new geography type",
+    "editSubtitle": "Update geography type details",
+    "fields": {
+      "code": {
+        "label": "Geography Type Code",
+        "placeholder": "e.g. ZONE"
+      },
+      "geographyType": {
+        "label": "Geography Type",
+        "placeholder": "e.g. Zone"
+      },
+      "levelNo": {
+        "label": "Level No"
+      }
+    },
+    "validation": {
+      "codeRequired": "Geography Type Code is required",
+      "codeMaxLength": "Maximum length is 20 characters",
+      "codeFormat": "Use only English letters, numbers, and underscores (_). The code cannot start or end with an underscore.",
+      "geographyTypeRequired": "Geography type is required",
+      "geographyTypeMaxLength": "Maximum length is 100 characters",
+      "geographyTypeFormat": "Only letters (any language), numbers, spaces, and basic punctuation allowed (,./-()).",
+      "levelNoInvalid": "Level number must be greater than 0",
+      "mustBeActive": "Geography type must be active to save",
+      "codeNumbersOnlyNotAllowed": "Please enter a valid code containing at least one alphabet.",
+      "geographyTypeNumbersOnlyNotAllowed": "Please enter a valid geography type containing at least one alphabet."
+    },
+    "status": {
+      "label": "Active Status",
+      "description": "Geography type is currently"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "save": "Save",
+      "update": "Update"
+    }
+  },
+  "delete": {
+    "confirmTitle": "Delete Geography Type?",
+    "confirmDescription": "Are you sure you want to delete this geography type record?",
+    "successMessage": "Geography type deleted successfully",
+    "errorMessage": "Cannot delete geography type because it is linked to other records."
+  },
+  "apiErrors": {
+    "duplicateRecord": "Please check Code and Geography Type - duplicates not allowed.",
+    "validationError": "Invalid data provided. Please check all fields.",
+    "invalidData": "Invalid data provided. Please check all fields.",
+    "notFound": "Geography type not found.",
+    "inUse": "Cannot deactivate/delete this geography type because it is referenced in other records.",
+    "operationFailed": "Operation failed. Please try again later."
+  },
+  "success": {
+    "created": "New geography type created successfully with code: {code}",
+    "updated": "Geography type updated successfully with code: {code}",
+    "deleted": "Geography type deleted successfully with code: {code}"
+  },
+  "error": {
+    "title": "Failed to connect server. Please try again later.",
+    "description": "We encountered an error while loading the geography type page. Please try again.",
+    "tryAgain": "Try Again",
+    "goHome": "Go to Home",
+    "errorId": "Error ID: {id}"
+  },
+  "loading": {
+    "message": "Loading Geography Type...",
+    "description": "Please wait while we fetch the geography type data"
+  }
+}

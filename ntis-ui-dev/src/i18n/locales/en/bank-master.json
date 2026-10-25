@@ -1,0 +1,127 @@
+{
+  "aliasFallback": {
+    "bank": "Bank",
+    "bankCode": "Bank Code",
+    "bankName": "Bank Name",
+    "branchName": "Branch Name",
+    "ifscCode": "IFSC Code",
+    "streetAddress": "Street Address",
+    "city": "City",
+    "state": "State",
+    "pincode": "Pincode"
+  },
+  "title": "{bank} Master",
+  "subtitle": "Manage {bank} and branch details",
+  "addBank": "Add {bank}",
+  "stats": {
+    "totalBanks": "Total {bank}s",
+    "active": "Active",
+    "states": "{state}s"
+  },
+  "filters": {
+    "allStates": "All States",
+    "statePlaceholder": "Filter by State",
+    "searchPlaceholder": "Search by bank name..."
+  },
+  "table": {
+    "code": "Code",
+    "bankBranch": "Bank & Branch",
+    "ifscCode": "IFSC Code",
+    "location": "Location",
+    "status": "Status"
+  },
+  "aria": {
+    "editBank": "Edit {name}",
+    "deleteBank": "Delete {name}"
+  },
+  "drawer": {
+    "addTitle": "Add New {bank}",
+    "editTitle": "Edit {bank} Details",
+    "subtitle": "Fill in the required information to configure {bank} details",
+    "sections": {
+      "basicDetails": "{bank} Basic Details",
+      "addressDetails": "Branch Address Details"
+    },
+    "labels": {
+      "bankCode": "Bank Code",
+      "bankName": "Bank Name",
+      "ifscCode": "IFSC Code",
+      "branchName": "Branch Name",
+      "streetAddress": "Street Address",
+      "city": "City",
+      "state": "State",
+      "pincode": "Pincode",
+      "status": "Status"
+    },
+    "placeholders": {
+      "bankCode": "e.g., SBI001",
+      "bankName": "e.g., State Bank of India",
+      "ifscCode": "e.g., SBIN0000001",
+      "branchName": "e.g., Main Branch, City Center Branch",
+      "streetAddress": "Enter complete branch address with building/street details",
+      "city": "e.g., City Name",
+      "state": "e.g., State Name",
+      "pincode": "e.g., 400001"
+    },
+    "footer": {
+      "adding": "Adding New {bank}",
+      "editing": "Editing: {bankName}"
+    },
+    "buttons": {
+      "save": "Save {bank}",
+      "update": "Update {bank}"
+    }
+  },
+  "messages": {
+    "createSuccess": "{bank} created successfully",
+    "createFailed": "Failed to create {bank}",
+    "updateSuccess": "{bank} updated successfully",
+    "updateFailed": "Failed to update {bank}",
+    "deleteSuccess": "{bank} deleted successfully",
+    "deleteFailed": "Failed to delete {bank}",
+    "fetchFailed": "Failed to fetch {bank} data",
+    "errorOccurred": "An unexpected error occurred",
+    "networkError": "Network error — please check your connection and try again",
+    "searchResult": "Found {count} records matching \"{term}\"",
+    "validationError": "Please fix the errors in the form",
+    "unauthorizedToken": "Unauthorized: Token expired or invalid"
+  },
+  "confirm": {
+    "deleteTitle": "Delete {bank} ({bankName})?",
+    "deleteDescription": "Are you sure you want to delete this {bank} record? This action cannot be undone."
+  },
+  "validation": {
+    "bankCodeRequired": "Bank Code is required",
+    "bankNameRequired": "Bank Name is required",
+    "ifscRequired": "IFSC Code is required",
+    "ifscFormat": "Invalid IFSC format (e.g., SBIN0000001)",
+    "branchRequired": "Branch Name is required",
+    "addressRequired": "Street Address is required",
+    "addressFormat": "Street address contains invalid special characters",
+    "cityRequired": "City is required",
+    "stateRequired": "State is required",
+    "pincodeRequired": "Pincode is required",
+    "pincodeFormat": "Invalid pincode",
+    "bankCodeLength": "Bank Code cannot exceed {count} characters",
+    "bankNameLength": "Bank Name cannot exceed {count} characters",
+    "branchNameLength": "Branch Name cannot exceed {count} characters",
+    "addressLength": "Address cannot exceed {count} characters",
+    "cityLength": "City Name cannot exceed {count} characters",
+    "stateLength": "State Name cannot exceed {count} characters",
+    "bankCodeExists": "Bank Code already exists",
+    "bankNameExists": "Bank Name already exists",
+    "ifscCodeExists": "IFSC Code already exists",
+    "bankMismatch": "Bank Code, Bank Name, and IFSC Code do not match"
+  },
+  "error": {
+    "title": "Something Went Wrong",
+    "description": "We encountered an error while loading the bank master page. Please try again.",
+    "tryAgain": "Try Again",
+    "goHome": "Go to Home",
+    "errorId": "Error ID: {id}"
+  },
+  "loading": {
+    "message": "Loading Bank Master...",
+    "description": "Please wait while we fetch the bank master data"
+  }
+}

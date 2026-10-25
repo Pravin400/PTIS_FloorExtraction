@@ -1,0 +1,351 @@
+{
+  "aliasFallback": {
+    "screen": "Screen",
+    "screenGroup": "Screen Group",
+    "accessControl": "Access Control",
+    "role": "Role",
+    "department": "Department",
+    "module": "Module",
+    "screenCode": "Screen Code",
+    "screenName": "Screen Name",
+    "route": "Route",
+    "groupCode": "Code",
+    "groupName": "Group Name"
+  },
+  "title": "{screen} & {accessControl} Management",
+  "subtitle": "Manage {screen}s, {screenGroup}s, navigation and {role}-based access permissions",
+
+  "loading": {
+    "message": "Loading Screen Management...",
+    "description": "Please wait while we prepare the screen access configuration."
+  },
+
+  "tabs": {
+    "screenManagement": "{screen} Management",
+    "accessControl": "{accessControl}"
+  },
+
+  "stats": {
+    "totalScreens": "Total {screen}s",
+    "activeScreens": "Active {screen}s",
+    "inactiveScreens": "Inactive {screen}s",
+    "totalGroups": "{screenGroup}s",
+    "activeGroups": "Active {screenGroup}s"
+  },
+
+  "screenManagement": {
+    "title": "{screen} Management",
+    "subtitle": "Manage application {screen}s and {screenGroup}s",
+
+    "tabs": {
+      "screens": "{screen}s",
+      "screenGroups": "{screenGroup}s"
+    },
+
+    "screens": {
+      "title": "{screen}s",
+      "addScreen": "Add {screen}",
+      "editScreen": "Edit {screen}",
+      "deleteScreen": "Delete {screen}",
+      "addButton": "Add {screen}",
+      "searchPlaceholder": "Search {screen}s...",
+      "noScreensFound": "No {screen}s found",
+
+      "table": {
+        "screenName": "Screen Name",
+        "code": "Code",
+        "route": "Route",
+        "department": "Department",
+        "module": "Module",
+        "group": "Group",
+        "status": "Status",
+        "actions": {
+          "label": "Actions",
+          "edit": "Edit {screen}",
+          "delete": "Delete {screen}"
+        }
+      },
+
+      "form": {
+        "addTitle": "Add New {screen}",
+        "editTitle": "Edit {screen}",
+        "addSubtitle": "Create a new {screen} with routing and permissions",
+        "editSubtitle": "Update {screen} details, routing and permissions",
+
+        "screenName": "Screen Name",
+        "screenNamePlaceholder": "Enter screen name",
+        "screenCode": "Screen Code",
+        "screenCodePlaceholder": "e.g., USER_MGMT",
+        "route": "Route",
+        "routePlaceholder": "e.g., /users",
+        "screenGroup": "Screen Group",
+        "selectGroup": "Select group",
+        "department": "Department",
+        "selectDepartment": "Select department",
+        "selectDepartmentFirst": "Select Department First",
+        "module": "Module",
+        "selectModule": "Select module",
+        "icon": "Icon",
+        "description": "Description",
+        "descriptionPlaceholder": "Enter description",
+        "status": "Status",
+        "isActive": "Active",
+        "isMenu": "Show in Menu",
+        "authRequired": "Authentication Required",
+        "requiresAuthentication": "Requires Authentication",
+
+        "sectionIdentity": "{screen} Identity",
+        "sectionClassification": "Classification & Grouping",
+        "sectionConfig": "{screen} Configuration",
+        "saveButton": "Save {screen}",
+        "cancelButton": "Cancel",
+        "errors": {
+          "groupRequired": "{screenGroup} is required",
+          "departmentRequired": "{department} is required",
+          "routeRequired": "Route path is required",
+          "duplicateName": "A {screen} with this Name already exists",
+          "duplicateCode": "A {screen} with this Code already exists",
+          "duplicateRoute": "A {screen} with this Route already exists",
+          "nameRequired": "{screen} name is required",
+          "codeRequired": "{screen} code is required",
+          "moduleRequired": "{module} is required"
+        }
+      },
+
+      "messages": {
+        "createSuccess": "{screen} created successfully",
+        "updateSuccess": "{screen} updated successfully",
+        "deleteSuccess": "{screen} deleted successfully",
+        "createError": "Failed to create {screen}",
+        "updateError": "Failed to update {screen}",
+        "deleteError": "Failed to delete {screen}",
+        "fetchModulesError": "Failed to fetch {module}s for auto-assignment",
+        "deleteConfirmTitle": "Delete {screen}",
+        "deleteConfirmMessage": "Are you sure you want to delete this {screen}?"
+      }
+    },
+
+    "groups": {
+      "title": "{screenGroup}s",
+      "addGroup": "Add {screenGroup}",
+      "editGroup": "Edit {screenGroup}",
+      "deleteGroup": "Delete {screenGroup}",
+      "addButton": "Add {screenGroup}",
+      "searchPlaceholder": "Search {screenGroup}s...",
+      "noGroupsFound": "No {screenGroup}s found",
+
+      "table": {
+        "groupName": "Group Name",
+        "code": "Code",
+        "description": "Description",
+        "status": "Status",
+        "actions": {
+          "label": "Actions",
+          "edit": "Edit {screenGroup}",
+          "delete": "Delete {screenGroup}"
+        },
+        "defaultDescription": "{screenGroup}"
+      },
+
+      "form": {
+        "addTitle": "Add New {screenGroup}",
+        "editTitle": "Edit {screenGroup}",
+        "addSubtitle": "Create a new {screenGroup} to organize {screen}s",
+        "editSubtitle": "Update {screenGroup} details",
+
+        "groupName": "Group Name",
+        "groupNamePlaceholder": "Enter group name",
+        "groupCode": "Code",
+        "groupCodePlaceholder": "e.g., GRP_001",
+        "icon": "Icon",
+        "status": "Status",
+        "isActive": "Active",
+
+        "sectionIdentity": "{screenGroup} Identity",
+        "sectionConfig": "{screenGroup} Configuration",
+        "saveButton": "Save {screenGroup}",
+        "cancelButton": "Cancel",
+        "errors": {
+          "duplicateName": "A {screenGroup} with this Name already exists",
+          "duplicateCode": "A {screenGroup} with this Code already exists",
+          "nameRequired": "{screenGroup} name is required",
+          "codeRequired": "{screenGroup} code is required"
+        }
+      },
+
+      "messages": {
+        "createSuccess": "{screenGroup} created successfully",
+        "updateSuccess": "{screenGroup} updated successfully",
+        "deleteSuccess": "{screenGroup} deleted successfully",
+        "createError": "Failed to create {screenGroup}",
+        "updateError": "Failed to update {screenGroup}",
+        "deleteError": "Failed to delete {screenGroup}",
+        "deleteConfirmTitle": "Delete {screenGroup}",
+        "deleteConfirmMessage": "Are you sure you want to delete this group?"
+      }
+    }
+  },
+
+  "accessControl": {
+    "title": "{accessControl}",
+    "subtitle": "Manage {role}-based {screen} access permissions",
+
+    "status": {
+      "pendingChanges": "({count}) pending changes"
+    },
+
+    "filters": {
+      "selectDept": "Select {department}",
+      "selectRole": "Select {role}",
+      "selectDepartment": "All {department}s",
+      "searchPlaceholder": "Search {screen}s...",
+      "systemDepartment": "System / Unassigned"
+    },
+
+    "domains": {
+      "general": "General"
+    },
+
+    "roles": {
+      "superAdmin": "Super Admin",
+      "admin": "Admin",
+      "manager": "Manager",
+      "user": "User",
+      "viewer": "Viewer",
+      "noRolesFound": "No {role}s available",
+      "apiWarning": "{role}s API:",
+      "apiUnavailable": "{role}s endpoint may not be available yet. Using empty list."
+    },
+
+    "accessLevels": {
+      "noAccess": "No Access",
+      "view": "View",
+      "edit": "Edit",
+      "delete": "Delete",
+      "full": "Full Access",
+
+      "descriptions": {
+        "noAccess": "Hidden",
+        "view": "Read-only",
+        "edit": "Modify",
+        "delete": "Can Delete",
+        "full": "Complete"
+      }
+    },
+
+    "table": {
+      "screen": "{screen}",
+      "accessLevel": "Access Level",
+      "permissions": "Permissions"
+    },
+
+    "actions": {
+      "setAll": "Set All",
+      "resetAll": "Reset All",
+      "applyToAll": "Apply to All",
+      "save": "Save Permissions",
+      "savePermissions": "Save Permissions",
+      "saveSuccess": "{screen} permissions saved successfully",
+      "saveError": "Failed to save permissions",
+      "addScreens": "Add {screen}s",
+      "addSelected": "Add Selected"
+    },
+
+    "buttons": {
+      "saveChanges": "Save Changes",
+      "cancelChanges": "Cancel"
+    },
+
+    "messages": {
+      "updateSuccess": "Access permissions updated successfully",
+      "updateError": "Failed to update access permissions",
+      "bulkUpdateSuccess": "Bulk permissions updated successfully",
+      "bulkUpdateError": "Failed to update bulk permissions",
+      "noScreensSelected": "No {screen}s selected",
+      "screensAdded": "{count} {screen}(s) added successfully",
+      "addScreensDescription": "Select {screen}s to add to this {role}",
+      "screensSelected": "{screen}(s) selected",
+      "availableScreens": "available {screen}(s)",
+      "totalScreens": "total {screen}(s)",
+      "allScreensAssigned": "All {screen}s are already assigned to this {role}",
+      "alreadyAssigned": "Already Assigned",
+      "currentAccess": "Current Access",
+      "noScreensFound": "No {screen}s found"
+    },
+    "labels": {
+      "screenCount": "{count, plural, =1 {# screen} other {# screens}}",
+      "noneCount": "None: {count}",
+      "fullCount": "Full: {count}",
+      "moduleInactive": "{module} Inactive",
+      "moduleInactiveHint": "This {module} is deactivated in {department} Activation. Users have no effective access to these {screen}s, but assigned permissions are preserved and will apply again when the {module} is reactivated.",
+      "assignedAccessPreserved": "Assigned: {level} (suspended while {module} is inactive)",
+      "storedPermissionHint": "Stored permission: {level}. Effective access is suspended until {module} is active."
+    }
+  },
+
+  "filters": {
+    "allGroups": "All {screenGroup}s",
+    "allStatus": "All Status",
+    "active": "Active",
+    "inactive": "Inactive",
+    "search": "Search..."
+  },
+
+  "messages": {
+    "loadingScreens": "Loading {screen}s...",
+    "loadingGroups": "Loading {screenGroup}s...",
+    "loadingPermissions": "Loading permissions...",
+    "savingChanges": "Saving changes...",
+    "saving": "Saving...",
+    "noDataAvailable": "No data available",
+    "noChangesToSave": "No changes to save",
+    "errorOccurred": "An error occurred"
+  },
+
+  "common": {
+    "cancel": "Cancel",
+    "save": "Save",
+    "close": "Close"
+  },
+
+  "departments": {
+    "system": "System",
+    "common": "Common",
+    "propertyTax": "Property Tax",
+    "waterTax": "Water Tax",
+    "tradeLicense": "Trade License",
+    "buildingPlan": "Building Plan",
+    "birthDeath": "Birth/Death Certificate",
+    "assetManagement": "Asset Management"
+  },
+
+  "errors": {
+    "apiConnection": {
+      "title": "API Connection Error",
+      "description": "Unable to fetch data from the backend API. Please ensure:",
+      "checkBackendRunning": "The backend API is running",
+      "checkApiUrl": "The API URL is correctly configured (check NEXT_PUBLIC_API_BASE_URL in .env.local)",
+      "checkApiAccessible": "The API is accessible at the configured address",
+      "detailsTitle": "Error Details",
+      "fetchScreensFailed": "Failed to fetch {screen}s",
+      "fetchScreenFailed": "Failed to fetch {screen}",
+      "createScreenFailed": "Failed to create {screen}",
+      "updateScreenFailed": "Failed to update {screen}",
+      "deleteScreenFailed": "Failed to delete {screen}",
+      "noDataReceived": "No data received from server",
+      "invalidResponseFormat": "Invalid response format",
+      "fetchDepartmentsFailed": "Failed to fetch {department}s",
+      "fetchModulesFailed": "Failed to fetch {module}s",
+      "unexpectedFormat": "Unexpected data format received from server"
+    }
+  },
+  "errorPage": {
+    "title": "Something went wrong",
+    "description": "We encountered an unexpected error while managing {screen}s. Please try again or return to the dashboard.",
+    "reloadPage": "Reload Page",
+    "tryAgain": "Try Again",
+    "goHome": "Return to Dashboard",
+    "errorId": "Error ID: {id}",
+    "generic": "An unexpected error occurred"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "natureFactorCVMaster": {
+    "defaults": {
+      "constructionType": "Construction Type",
+      "assessment": "Assessment"
+    },
+    "title": "Nature Factor CV Master",
+    "columns": {
+      "constructionCode": "Construction Code",
+      "description": "Description",
+      "factor": "Factor",
+      "assessmentYear": "{assessment} Year",
+      "status": "Status",
+      "action": "Action"
+    },
+    "filters": {
+      "assessmentYear": "{assessment} Year",
+      "constructionType": "{constructionType}",
+      "factor": "Factor"
+    },
+    "placeholders": {
+      "selectAssessmentYear": "Select {assessment} Year",
+      "selectConstructionType": "Select {constructionType}",
+      "factor": "0.00"
+    },
+    "messages": {
+      "noRecordsFound": "No records found",
+      "mandatoryFields": "Fields marked with * are mandatory"
+    },
+    "titles": {
+      "editNatureWeightage": "Edit Nature Weightage"
+    },
+    "descriptions": {
+      "updateNatureDetails": "Update nature weightage details"
+    },
+    "loading": {
+      "message": "Loading Nature Factor CV Master...",
+      "description": "Please wait while we fetch the records."
+    },
+    "error": {
+      "title": "Failed to connect server. Please try again later.",
+      "description": "An error occurred while loading the nature factor weightage records.",
+      "tryAgain": "Try again",
+      "goHome": "Go back home",
+      "errorId": "Error ID: {id}"
+    },
+    "errors": {
+      "invalidNatureFactorCVId": "Valid Nature Factor CV ID is required",
+      "fetchFailed": "Failed to fetch nature factor weightage records",
+      "updateFailed": "Failed to update nature factor weightage record",
+      "createFailed": "Failed to create nature factor weightage record",
+      "bulkUpdateFailed": "Failed to bulk update nature factor weightage records",
+      "bulkCreateFailed": "Failed to bulk create nature factor weightage records"
+    },
+    "apiErrors": {
+      "notFound": "{constructionType} Weightage record not found.",
+      "validationError": "Invalid request. Please check the entered values and try again.",
+      "referredInAutoWardEntry": "This {constructionType} Weightage cannot be deleted because it is already used in Capital Value tax calculations. Please remove the dependent records first."
+    },
+    "deleteConfirmation": {
+      "title": "{constructionType}",
+      "description": "Are you sure you want to delete this record?.",
+      "confirmButton": "Delete",
+      "cancelButton": "Cancel",
+      "successMessage": "Record deleted successfully",
+      "deleteFailed": "Failed to delete nature factor weightage record"
+    }
+  }
+}

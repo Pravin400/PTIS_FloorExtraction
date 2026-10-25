@@ -1,0 +1,150 @@
+{
+  "list": {
+    "title": "GIS KPI Master",
+    "subtitle": "Manage Key Performance Indicators (KPIs) for GIS analytics and dashboards",
+    "buttons": {
+      "add": "Add GIS KPI",
+      "edit": "Edit",
+      "delete": "Delete",
+      "manageMapping": "Manage Mapping"
+    },
+    "filters": {
+      "show": "Show",
+      "search": "Search by KPI Code, Title, or Icon...",
+      "department": "Department",
+      "allDepartments": "All Departments"
+    },
+    "table": {
+      "kpiCode": "KPI Code",
+      "defaultTitle": "Default Title",
+      "defaultIcon": "Default Icon",
+      "defaultColor": "Color",
+      "mappedDepartment": "Mapped Department",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "pagination": {
+      "showing": "Showing",
+      "entries": "entries"
+    }
+  },
+  "form": {
+    "addTitle": "Add GIS KPI",
+    "editTitle": "Edit GIS KPI",
+    "subtitle": "Create new GIS KPI configuration",
+    "editSubtitle": "Update GIS KPI configuration details",
+    "fields": {
+      "kpiCode": {
+        "label": "KPI Code",
+        "placeholder": "e.g. TOTAL_ASSETS"
+      },
+      "defaultTitle": {
+        "label": "Default Title",
+        "placeholder": "e.g. Total Properties / Assets"
+      },
+      "defaultIcon": {
+        "label": "Default Icon",
+        "placeholder": "e.g. building"
+      },
+      "defaultColor": {
+        "label": "Default Color",
+        "placeholder": "e.g. #2563EB"
+      }
+    },
+    "validation": {
+      "kpiCodeRequired": "KPI Code is required",
+      "kpiCodeMaxLength": "Maximum length is 50 characters",
+      "kpiCodeFormat": "Invalid format. Only English letters, numbers, and underscore are allowed.",
+      "kpiCodeNumbersOnlyNotAllowed": "Please enter a valid KPI code containing at least one alphabet.",
+      "defaultTitleRequired": "Default Title is required",
+      "defaultTitleMaxLength": "Maximum length is 100 characters",
+      "defaultTitleFormat": "Only letters, numbers, spaces, and basic punctuation are allowed.",
+      "defaultTitleNumbersOnlyNotAllowed": "Please enter a valid title containing at least one alphabet.",
+      "defaultIconRequired": "Default Icon is required",
+      "defaultIconMaxLength": "Maximum length is 50 characters",
+      "defaultColorRequired": "Default Color is required",
+      "defaultColorFormat": "Please enter a valid hex color code (e.g. #2563EB)",
+      "mustBeActive": "GIS KPI must be active to save"
+    },
+    "status": {
+      "label": "Active Status",
+      "description": "GIS KPI is currently"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "save": "Save",
+      "update": "Update"
+    },
+    "presets": "Presets:"
+  },
+  "mapping": {
+    "drawerTitle": "Map Card to Department",
+    "editDrawerTitle": "Edit Department Mapping",
+    "editDrawerSubtitle": "Update overrides and configuration for this mapping.",
+    "cancel": "Cancel",
+    "mapLater": "Map Later",
+    "saveAndAddAnother": "Save & Add Another",
+    "saveMapping": "Save Mapping",
+    "saveChanges": "Save Changes",
+    "deleteMapping": "Delete Mapping",
+    "updating": "Updating...",
+    "deleting": "Deleting...",
+    "departmentOverrides": "Department overrides (optional)",
+    "editDepartmentOverrides": "Department overrides",
+    "department": "Department",
+    "selectDepartment": "Select Department",
+    "loadingDepartments": "Loading departments...",
+    "alreadyMapped": "Already Mapped",
+    "customTitle": "Custom Title",
+    "customIcon": "Custom Icon",
+    "customColor": "Custom Color",
+    "displayOrder": "Display Order",
+    "displayOrderPlaceholder": "e.g. 1",
+    "activeStatus": "Active Status",
+    "statusActiveDesc": "This card will be visible to selected department.",
+    "statusInactiveDesc": "This card will be hidden for this department.",
+    "clickDestinationNotice": "Card click destination requires a new mapping API field.",
+    "mappedDepartments": "Mapped Departments ({count})",
+    "order": "Order: {order}",
+    "useDefaultIcon": "Use default ({name})",
+    "useDefaultColor": "Use default ({color})",
+    "removeTitle": "Remove Department Mapping",
+    "removeConfirm": "Are you sure you want to remove the department mapping for {name}? This action cannot be undone.",
+    "resetToDefault": "Reset to default",
+    "colorPlaceholder": "e.g. #DC2626"
+  },
+  "delete": {
+    "confirmTitle": "Delete GIS KPI ({code})?",
+    "confirmDescription": "Are you sure you want to delete this GIS KPI record?",
+    "successMessage": "GIS KPI ({code}) deleted successfully",
+    "errorMessage": "Cannot delete GIS KPI ({code}) because it is linked to other records."
+  },
+  "apiErrors": {
+    "duplicateRecord": "A GIS KPI with this code or title already exists.",
+    "validationError": "Invalid data provided. Please check all fields.",
+    "invalidData": "Invalid data provided. Please check all fields.",
+    "notFound": "GIS KPI not found.",
+    "inUse": "Cannot deactivate/delete this GIS KPI because it is referenced in GIS dashboard widgets.",
+    "operationFailed": "Operation failed. Please try again later."
+  },
+  "success": {
+    "created": "New GIS KPI created successfully with code: {code}",
+    "updated": "GIS KPI updated successfully with code: {code}",
+    "deleted": "GIS KPI deleted successfully with code: {code}"
+  },
+  "error": {
+    "title": "Failed to connect server. Please try again later.",
+    "description": "We encountered an error while loading the GIS KPI page. Please try again.",
+    "tryAgain": "Try Again",
+    "goHome": "Go to Home",
+    "errorId": "Error ID: {id}"
+  },
+  "loading": {
+    "message": "Loading GIS KPI Master...",
+    "description": "Please wait while we fetch the GIS KPI data"
+  }
+}

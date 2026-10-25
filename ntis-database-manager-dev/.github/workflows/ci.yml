@@ -1,0 +1,105 @@
+name: CI Pipeline
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+      - qa
+
+  push:
+    branches:
+      - main
+      - dev
+      - qa
+
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    services:
+      sqlserver:
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        env:
+          ACCEPT_EULA: "Y"
+          MSSQL_SA_PASSWORD: "CIPipeline_P@ssw0rd!"
+        ports:
+          - 1433:1433
+        options: >-
+          --health-cmd "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'CIPipeline_P@ssw0rd!' -Q 'SELECT 1' -C -N"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+          --health-start-period 30s
+
+    env:
+      DB_CONNECTION_STRING: "Server=localhost,1433;Database=master;User Id=sa;Password=CIPipeline_P@ssw0rd!;TrustServerCertificate=True"
+      DB_NAME: "MyAppDb"
+      DB_NAME_UPGRADE: "MyAppDbUpgrade"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Verify .NET
+        run: dotnet --version
+
+      - name: Restore dependencies
+        run: dotnet restore src/DatabaseManager.sln
+
+      - name: Build solution
+        run: dotnet build src/DatabaseManager.sln --configuration Release --no-restore
+
+      - name: Wait for SQL Server to accept connections
+        run: |
+          for i in $(seq 1 30); do
+            if (echo > /dev/tcp/127.0.0.1/1433) >/dev/null 2>&1; then
+              echo "Port 1433 is accepting TCP connections (attempt $i)."
+              exit 0
+            fi
+
+            echo "SQL Server not reachable yet (attempt $i/30), waiting 2s..."
+            sleep 2
+          done
+
+          echo "SQL Server did not become reachable on port 1433 within 60s."
+          exit 1
+
+      - name: Create test database
+        run: |
+          cd src
+          dotnet run --project DatabaseManager.csproj -- C \
+            --connection-string "$DB_CONNECTION_STRING" \
+            --database "$DB_NAME" \
+            --version "1.0.0" \
+            --force
+        env:
+          DOTNET_ENVIRONMENT: Development
+
+      - name: Create upgrade database
+        run: |
+          cd src
+          dotnet run --project DatabaseManager.csproj -- C \
+            --connection-string "$DB_CONNECTION_STRING" \
+            --database "$DB_NAME_UPGRADE" \
+            --version "1.0.0" \
+            --force
+        env:
+          DOTNET_ENVIRONMENT: Development
+
+      - name: Verify upgrade execution
+        run: |
+          cd src
+          dotnet run --project DatabaseManager.csproj -- U \
+            --connection-string "$DB_CONNECTION_STRING" \
+            --database "$DB_NAME_UPGRADE" \
+            --version "1.0.0"
+        env:
+          DOTNET_ENVIRONMENT: Development

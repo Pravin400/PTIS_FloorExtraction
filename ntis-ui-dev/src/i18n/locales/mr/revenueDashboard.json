@@ -1,0 +1,91 @@
+{
+  "currency": {
+    "crore": "{val} कोटी",
+    "lakh": "{val} लाख",
+    "thousand": "{val} हजार",
+    "symbol": "₹ "
+  },
+  "title": "महसूल व्यवस्थापन डॅशबोर्ड",
+  "subtitle": "मालमत्ता वितरण आणि महसूल आढावा - {year}",
+  "loading": {
+    "message": "महसूल डॅशबोर्ड लोड होत आहे",
+    "description": "मागणी आणि वसुलीचे आकडे मिळवले जात आहेत..."
+  },
+  "errors": {
+    "loadFailed": "महसूल डेटा लोड करता आला नाही. कृपया पुन्हा प्रयत्न करा."
+  },
+  "summary": {
+    "leasedAssets": "एकूण भाडेपट्ट्यावरील मालमत्ता",
+    "leasedAssetsSub": "भाडेपट्टा/भाड्यावरील मालमत्ता",
+    "totalDemand": "एकूण मागणी",
+    "totalDemandSub": "मासिक महसूल लक्ष्य",
+    "totalCollection": "एकूण वसुली",
+    "collectionRate": "{rate} वसुली दर"
+  },
+  "distribution": {
+    "title": "वर्गानुसार मालमत्ता वितरण",
+    "empty": "कोणताही वर्ग डेटा उपलब्ध नाही."
+  },
+  "cards": {
+    "demand": "एकूण मागणी",
+    "collected": "वसूल",
+    "lease": "भाडेपट्टा",
+    "rent": "भाडे",
+    "paid": "भरलेले",
+    "unpaid": "न भरलेले"
+  },
+  "trend": {
+    "title": "मासिक महसूल वसुली कल",
+    "collected": "वसूल",
+    "pending": "प्रलंबित"
+  },
+  "zones": {
+    "title": "क्षेत्रानुसार मागणी आणि वसुली",
+    "totalDemand": "एकूण मागणी"
+  },
+  "filters": {
+    "label": "फिल्टर",
+    "allZones": "सर्व क्षेत्रे",
+    "allWards": "सर्व प्रभाग",
+    "zone": "क्षेत्र",
+    "ward": "प्रभाग",
+    "type": "प्रकार",
+    "status": "स्थिती",
+    "allTypes": "सर्व प्रकार",
+    "allStatuses": "सर्व स्थिती"
+  },
+  "records": {
+    "allCategories": "सर्व वर्ग",
+    "allCategoriesCount": "{count} मालमत्ता",
+    "backToDashboard": "डॅशबोर्डवर परत जा",
+    "totalLeasedAssets": "एकूण भाडेपट्ट्यावरील मालमत्ता",
+    "assetCategories": "मालमत्ता वर्ग",
+    "subtitle": "{name} मधील सर्व मालमत्ता पहा",
+    "searchPlaceholder": "मालमत्ता, भाडेकरूने शोधा...",
+    "total": "एकूण मालमत्ता",
+    "collected": "एकूण वसुली",
+    "pending": "एकूण प्रलंबित",
+    "statusPaid": "भरलेले",
+    "statusUnpaid": "न भरलेले",
+    "empty": "तुमच्या फिल्टरशी जुळणारी कोणतीही मालमत्ता आढळली नाही",
+    "showing": "{total} पैकी {from}-{to} मालमत्ता दर्शवित आहे",
+    "previous": "मागील",
+    "next": "पुढील",
+    "cols": {
+      "srNo": "अ. क्र.",
+      "assetId": "मालमत्ता आयडी",
+      "assetName": "मालमत्तेचे नाव",
+      "zone": "क्षेत्र",
+      "ward": "प्रभाग",
+      "leaseType": "भाडेपट्टा प्रकार",
+      "tenant": "भाडेकरू",
+      "status": "स्थिती",
+      "rent": "भाडे"
+    }
+  },
+  "format": {
+    "currencyPrefix": "₹",
+    "lakhsSuffix": " लाख",
+    "croresSuffix": " कोटी"
+  }
+}

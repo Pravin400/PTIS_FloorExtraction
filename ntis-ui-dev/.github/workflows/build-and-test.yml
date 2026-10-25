@@ -1,0 +1,160 @@
+
+name: CI Build and Test
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+      - qa
+
+  push:
+    branches:
+      - main
+      - dev
+      - qa
+
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: [self-hosted, ci]
+
+    defaults:
+      run:
+        shell: powershell -ExecutionPolicy Bypass -Command "& '{0}'"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Security audit
+        run: npm audit --audit-level=high
+        continue-on-error: true
+
+      - name: Type checking
+        run: npm run type-check
+
+      - name: Run linter
+        run: npm run lint
+
+      # ======================================
+      # UPDATED: RUN ONLY AFFECTED PR TESTS
+      # ======================================
+      - name: Run tests with coverage
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          if ($env:EVENT_NAME -eq "pull_request") {
+
+            Write-Host "PR detected: Running affected tests only"
+            Write-Host "Base SHA: $env:PR_BASE_SHA"
+
+            # Fetch only the PR target commit
+            # Avoid fetching all branches
+            git -c protocol.version=2 fetch --no-tags --depth=1 origin $env:PR_BASE_SHA
+
+            if ($LASTEXITCODE -ne 0) {
+              throw "Failed to fetch PR base commit"
+            }
+
+            # Run only affected Vitest test files
+            npm run test:coverage -- --changed=$env:PR_BASE_SHA
+
+            if ($LASTEXITCODE -ne 0) {
+              throw "Affected PR tests failed"
+            }
+
+          }
+          else {
+
+            Write-Host "Push/manual execution: Running full test suite"
+
+            npm run test:coverage
+
+            if ($LASTEXITCODE -ne 0) {
+              throw "Full test suite failed"
+            }
+
+          }
+
+      - name: Upload coverage to Azure Blob Storage
+        shell: pwsh
+        run: |
+          $connectionString = "${{ secrets.PACKAGE_CONNECTION_STRING }}"
+          $containerName = "${{ vars.COVERAGE_CONTAINER }}"
+          $sha = "${{ github.sha }}"
+          $uniquePrefix = "ui-coverage/$sha"
+          $jsonSummary = "coverage/coverage-summary.json"
+          $jsonFinal = "coverage/coverage-final.json"
+
+          # Create ui-coverage folder inside the container and upload files
+          az storage blob upload --connection-string $connectionString --container-name $containerName --file $jsonSummary --name "$uniquePrefix-coverage-summary.json" --overwrite
+          az storage blob upload --connection-string $connectionString --container-name $containerName --file $jsonFinal --name "$uniquePrefix-coverage-final.json" --overwrite
+
+      - name: Build application
+        run: npm run build:production
+
+      - name: Analyze bundle size
+        run: |
+          Write-Host "Build output size:"
+          $nextSize = (Get-ChildItem -Path .next -Recurse | Measure-Object -Property Length -Sum).Sum / 1MB
+          Write-Host ("{0:N2} MB" -f $nextSize)
+          Write-Host "Static files size:"
+          $staticSize = (Get-ChildItem -Path .next/static -Recurse | Measure-Object -Property Length -Sum).Sum / 1MB
+          Write-Host ("{0:N2} MB" -f $staticSize)
+
+  coverage-report:
+    needs: build-and-test
+    runs-on: [self-hosted, Linux]
+    if: github.event_name == 'pull_request'
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download and Delete coverage from Azure Blob Storage
+        shell: pwsh
+        run: |
+          # Add ui-coverage directory
+          mkdir ui-coverage
+          $connectionString = "${{ secrets.PACKAGE_CONNECTION_STRING }}"
+          $containerName = "${{ vars.COVERAGE_CONTAINER }}"
+          $sha = "${{ github.sha }}"
+          $uniquePrefix = "ui-coverage/$sha"
+
+          # Download coverage files
+          az storage blob download --connection-string $connectionString --container-name $containerName --name "$uniquePrefix-coverage-summary.json" --file "ui-coverage/coverage-summary.json"
+          az storage blob download --connection-string $connectionString --container-name $containerName --name "$uniquePrefix-coverage-final.json" --file "ui-coverage/coverage-final.json"
+
+          # Delete coverage files
+          az storage blob delete --connection-string $connectionString --container-name $containerName --name "$uniquePrefix-coverage-summary.json"
+          az storage blob delete --connection-string $connectionString --container-name $containerName --name "$uniquePrefix-coverage-final.json"
+
+      - name: Coverage Report
+        uses: davelosert/vitest-coverage-report-action@v1
+        with:
+          json-summary-path: ./ui-coverage/coverage-summary.json
+          json-final-path: ./ui-coverage/coverage-final.json
+
+      - name: Remove ui-coverage directory
+        shell: pwsh
+        run: |
+          Remove-Item -Recurse -Force ui-coverage

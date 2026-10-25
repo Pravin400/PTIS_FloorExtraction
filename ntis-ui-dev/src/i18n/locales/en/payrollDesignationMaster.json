@@ -1,0 +1,96 @@
+{
+  "title": "Designation Master",
+  "subtitle": "Manage designations for payroll departments",
+  "list": {
+    "title": "Designation Master",
+    "subtitle": "Manage designations for payroll departments",
+    "buttons": {
+      "add": "Add Designation",
+      "edit": "Edit",
+      "delete": "Delete",
+      "editTitle": "Edit Designation",
+      "deleteTitle": "Delete Designation"
+    },
+    "filters": {
+      "search": "Search designations..."
+    },
+    "table": {
+      "designationCode": "Designation Code",
+      "designationName": "Designation Name",
+      "designationLocal": "Designation Name (Regional)",
+      "owningDepartment": "Owning Department",
+      "description": "Description",
+      "status": "Status",
+      "actions": "Actions"
+    }
+  },
+  "form": {
+    "addTitle": "Add Designation",
+    "editTitle": "Edit Designation",
+    "subtitle": "Create new designation",
+    "editSubtitle": "Update designation details",
+    "mandatoryFields": "* Mandatory Fields",
+    "fields": {
+      "designationCode": {
+        "label": "Designation Code",
+        "placeholder": "e.g. COMM"
+      },
+      "designationName": {
+        "label": "Designation Name",
+        "placeholder": "e.g. Municipal Commissioner"
+      },
+      "designationLocal": {
+        "label": "Designation Name (Regional)",
+        "placeholder": "उदा. महानगरपालिका आयुक्त"
+      },
+      "designationDescription": {
+        "label": "Description",
+        "placeholder": "Brief description of the post responsibilities, role cadre, and duty scope..."
+      },
+      "owningDepartmentId": {
+        "label": "Owning Department",
+        "placeholder": "Select Owning Department"
+      }
+    },
+    "status": {
+      "label": "Status",
+      "description": "Designation status is currently"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "save": "Save",
+      "update": "Update"
+    },
+    "validation": {
+      "designationCodeRequired": "Designation Code is required.",
+      "designationCodeMaxLength": "Designation code must not exceed 20 characters",
+      "designationCodeFormat": "Designation code must contain only letters, numbers, underscores, and hyphens",
+      "designationNameRequired": "Designation Name is required.",
+      "designationNameMinLength": "Designation name must be at least 5 characters",
+      "designationNameMaxLength": "Designation name must not exceed 100 characters",
+      "designationNameFormat": "Designation Name can only contain letters, spaces, and valid punctuation (. - / & ())",
+      "designationLocalRequired": "Designation Name (Regional) is required.",
+      "designationLocalMinLength": "Designation name (Regional) must be at least 5 characters",
+      "designationLocalMaxLength": "Designation Name (Regional) must not exceed 100 characters",
+      "designationLocalFormat": "Designation Name (Regional) can only contain valid characters and punctuation (. - / & ())",
+      "descriptionMaxLength": "Description must not exceed 250 characters",
+      "codeUnique": "This Designation Code already exists. Codes must be unique."
+    }
+  },
+  "delete": {
+    "confirmTitle": "Delete Designation",
+    "confirmDescription": "Are you sure you want to delete \"{name}\"? This action cannot be undone.",
+    "deleteInUse": "\"{name}\" is currently linked to employee or organizational records and cannot be deleted.",
+    "success": "\"{name}\" removed successfully."
+  },
+  "success": {
+    "created": "New designation created successfully: {code}",
+    "updated": "Designation updated successfully: {code}",
+    "deleted": "Designation deleted successfully: {code}"
+  },
+  "errors": {
+    "createFailed": "Failed to create designation master",
+    "updateFailed": "Failed to update designation master",
+    "deleteFailed": "Failed to delete designation master"
+  }
+}

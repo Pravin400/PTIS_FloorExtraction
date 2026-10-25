@@ -1,0 +1,133 @@
+{
+  "taxZoning": {
+    "title": "कर क्षेत्र",
+    "subtitle": "मालमत्ता श्रेणी मॅपिंग आणि स्वयंचलित वाढीसह प्रभाग-निहाय क्षेत्र कॉन्फिगर करा",
+    "aliasFallback": {
+      "ward": "प्रभाग",
+      "taxZone": "कर क्षेत्र"
+    },
+    "form": {
+      "taxZone": "{taxZone}",
+      "selectTaxZone": "{taxZone} निवडा",
+      "ward": "{ward}",
+      "selectWard": "{ward} निवडा",
+      "fromProperty": "मालमत्ता पासून",
+      "toProperty": "मालमत्ता पर्यंत",
+      "selectFromProperty": "मालमत्ता पासून निवडा",
+      "selectToProperty": "मालमत्ता पर्यंत निवडा",
+      "submit": "सबमिट करा",
+      "saving": "जतन करत आहे...",
+      "update": "अद्यतनित करा",
+      "bulkUpdate": "सामूहिक अद्यतन",
+      "updating": "अद्यतनित करत आहे...",
+      "clearImported": "साफ करा"
+    },
+    "columns": {
+      "wardNo": "{ward} क्रमांक",
+      "fromProperty": "मालमत्ता पासून",
+      "toProperty": "मालमत्ता पर्यंत",
+      "taxZoneNo": "{taxZone} क्रमांक",
+      "oldTaxZoneNo": "जुने {taxZone}",
+      "newTaxZoneNo": "नवीन {taxZone} क्रमांक",
+      "propertyNo": "मालमत्ता क्रमांक",
+      "status": "स्थिती"
+    },
+    "preview": {
+      "title": "पूर्वावलोकन",
+      "showing": "दाखवत आहे",
+      "of": "चे",
+      "records": "नोंदी",
+      "previous": "मागील",
+      "next": "पुढील",
+      "noPropertiesToPreview": "पूर्वावलोकनासाठी कोणतीही मालमत्ता नाही",
+      "selectZoneWardProperty": "{taxZone}, {ward} आणि मालमत्ता श्रेणी निवडा",
+      "multipleWardsSelected": "एकाधिक {ward} निवडले",
+      "multipleWardsMessage": "एकाधिक {ward} निवडल्यास मालमत्ता श्रेणी फील्ड अक्षम आहेत. मालमत्ता श्रेणी कॉन्फिगर करण्यासाठी एक {ward} निवडा.",
+      "notSpecified": "निर्दिष्ट नाही"
+    },
+    "buttons": {
+      "exportCSV": "CSV निर्यात करा",
+      "importFile": "फाइल आयात करा"
+    },
+    "messages": {
+      "fillAllFields": "कृपया सर्व आवश्यक फील्ड भरा",
+      "taxZoneRequired": "{taxZone} आवश्यक आहे",
+      "wardRequired": "किमान एक {ward} आवश्यक आहे",
+      "propertyRequired": "एकल प्रभाग निवडीसाठी मालमत्ता श्रेणी आवश्यक आहे",
+      "fromPropertyMustBeSmallerThanToProperty": "मालमत्ता पासून मालमत्ता पर्यंत पेक्षा लहान असावी",
+      "updateSuccess": "कर क्षेत्र यशस्वीरित्या अद्यतनित केले",
+      "updateFailed": "कर क्षेत्र अद्यतनित करण्यात अयशस्वी",
+      "createSuccess": "कर क्षेत्र यशस्वीरित्या तयार केले",
+      "createFailed": "कर क्षेत्र तयार करण्यात अयशस्वी",
+      "somethingWrong": "कर क्षेत्र अद्यतनित करताना काहीतरी चूक झाली",
+      "noRecordsToExport": "निर्यात करण्यासाठी कोणत्याही नोंदी नाहीत",
+      "csvExportSuccess": "CSV यशस्वीरित्या निर्यात केले",
+      "invalidFileType": "फक्त CSV आणि Excel फाइल्सना परवानगी आहे",
+      "invalidFile": "अवैध फाइल स्वरूप",
+      "fileHasNoData": "फाइलमध्ये डेटा नाही",
+      "fileProcessingError": "फाइल प्रक्रिया करताना त्रुटी आली",
+      "fileReadError": "फाइल वाचण्यात अयशस्वी",
+      "fetchTaxZonesFailed": "कर क्षेत्र लोड करण्यात अक्षम",
+      "fetchWardsFailed": "प्रभाग लोड करण्यात अक्षम",
+      "fetchZoningDataFailed": "कर झोनिंग डेटा आणण्यात अयशस्वी",
+      "fetchPropertyNoFailed": "कर झोनिंग मालमत्ता क्रमांक डेटा आणण्यात अयशस्वी",
+      "fetchByWardFailed": "प्रभागानुसार कर झोनिंग आणण्यात अयशस्वी",
+      "fetchAllFailed": "सर्व कर झोनिंग डेटा आणण्यात अयशस्वी",
+      "invalidFileFormat": "अवैध फाइल स्वरूप. आवश्यक स्तंभ क्रम: {ward} क्रमांक, मालमत्ता पासून, मालमत्ता पर्यंत, {taxZone} क्रमांक",
+      "noNewOrChangedRecords": "कोणत्याही नवीन किंवा बदललेल्या नोंदी आढळल्या नाहीत",
+      "newRecordsReadyToImport": "नवीन नोंदी आयात करण्यासाठी तयार",
+      "updatesReadyToImport": "अद्यतने आयात करण्यासाठी तयार",
+      "newRecordsAndUpdatesReady": "नवीन नोंदी आणि",
+      "andUpdatesReady": "अद्यतने आयात करण्यासाठी तयार",
+      "headersMissing": "आवश्यक हेडर गहाळ आहेत",
+      "noChanges": "अद्यतनित करण्यासाठी कोणतेही बदल नाहीत",
+      "importedDataCleared": "आयात केलेला डेटा साफ केला",
+      "bulkUpdateSuccess": "सामूहिक अद्यतन यशस्वीरित्या पूर्ण झाले!",
+      "newRecordsAdded": "नवीन नोंदी जोडल्या",
+      "recordsUpdated": "नोंदी अद्यतनित केल्या",
+      "errorDetails": "अद्यतनादरम्यान त्रुटी आल्या",
+      "criticalError": "सामूहिक अद्यतनादरम्यान गंभीर त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+      "noRecordsFound": "फाइलमध्ये कोणत्याही वैध नोंदी आढळल्या नाहीत",
+      "invalidDataFormat": "फाइलमध्ये अवैध डेटा स्वरूप",
+      "dbOperationCompleted": "डेटा इम्पोर्ट ऑपरेशन पूर्ण:",
+      "newRecordsCreated": "नवीन नोंदी यशस्वीरित्या तयार केल्या",
+      "recordsUpdatedSuccessfully": "नोंदी यशस्वीरित्या अद्यतनित केल्या",
+      "newRecordsCreatedAnd": "नवीन नोंदी तयार केल्या आणि",
+      "recordsFailed": "नोंदी प्रक्रिया करण्यात अयशस्वी.",
+      "noRecordsProcessed": "कोणत्याही नोंदी यशस्वीरित्या प्रक्रिया केल्या गेल्या नाहीत. कृपया डेटा तपासा आणि पुन्हा प्रयत्न करा.",
+      "failedToCreate": "तयार करण्यात अयशस्वी",
+      "failedToUpdate": "अद्यतनित करण्यात अयशस्वी",
+      "ward": "प्रभाग",
+      "zone": "क्षेत्र",
+      "exceptionProcessing": "प्रक्रिया अपवाद",
+      "wardsUpdatedSuccessfully": "{ward} यशस्वीरित्या अद्यतनित केले",
+      "wardsFailed": "{ward} अद्यतनित करण्यात अयशस्वी",
+      "wardNotFound": "प्रभाग झोनिंग रेकॉर्डमध्ये सापडला नाही",
+      "wardsNotFound": "खालील प्रभाग झोनिंग रेकॉर्डमध्ये सापडले नाहीत",
+      "wardNotFoundDetail": "कृपया अद्यतनित करण्यापूर्वी हा प्रभाग मालमत्ता रेकॉर्डमध्ये तयार करा"
+    },
+    "status": {
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय",
+      "new": "नवीन",
+      "updated": "अद्यतनित"
+    },
+    "table": {
+      "zoningRecords": "क्षेत्र नोंदी",
+      "show": "दाखवा",
+      "entries": "नोंदी",
+      "recordCount": "नोंद"
+    },
+    "loading": {
+      "message": "कर क्षेत्र लोड होत आहे...",
+      "description": "कृपया थांबा जोपर्यंत आम्ही डेटा लोड करतो"
+    },
+    "error": {
+      "title": "सर्व्हरशी कनेक्ट करता आले नाही. कृपया नंतर पुन्हा प्रयत्न करा.",
+      "description": "कर क्षेत्र पृष्ठ लोड करताना आम्हाला अनपेक्षित त्रुटी आली. कृपया पुन्हा प्रयत्न करा किंवा मुख्यपृष्ठावर परत जा.",
+      "errorId": "त्रुटी ID: {id}",
+      "goHome": "मुख्यपृष्ठावर जा",
+      "tryAgain": "पुन्हा प्रयत्न करा"
+    }
+  }
+}

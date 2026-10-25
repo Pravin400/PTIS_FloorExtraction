@@ -1,0 +1,40 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+
+namespace NtisPlatform.Application.DTOs;
+
+public class SubTypeOfUseDto : BaseDtos
+{
+    public int Id { get; set; }
+    public string Description { get; set; } = string.Empty;
+    public int TypeOfUseId { get; set; }
+    public int? SearchSequence { get; set; }
+    public int? TypeOfUseCategoryId { get; set; }
+}
+
+public class CreateSubTypeOfUseDto : CreateBaseDtos
+{
+    [Required(ErrorMessage = "SubTypeOfUse_Description_Required")]
+    [StringLength(80, ErrorMessage = "Description_MaxLen_80")]
+    public string Description { get; set; } = string.Empty;
+
+
+    [Required(ErrorMessage = "SubTypeOfUse_TypeOfUseID_Required")]
+    public int TypeOfUseId { get; set; }
+    public int? SearchSequence { get; set; }
+    public int? TypeOfUseCategoryId { get; set; }
+}
+
+public class UpdateSubTypeOfUseDto : UpdateBaseDtos
+{
+    [Required(ErrorMessage = "SubTypeOfUse_Description_Required")]
+    [StringLength(80, ErrorMessage = "Description_MaxLen_80")]
+    public string Description { get; set; } = string.Empty;
+
+
+    [Required(ErrorMessage = "SubTypeOfUse_TypeOfUseID_Required")]
+    public int TypeOfUseId { get; set; }
+
+    public int? SearchSequence { get; set; }
+    public int? TypeOfUseCategoryId { get; set; }
+}

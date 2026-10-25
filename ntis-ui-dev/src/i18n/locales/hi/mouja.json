@@ -1,0 +1,104 @@
+{
+  "moujaMaster": {
+    "aliasFallback": {
+      "entity": "मौजा"
+    },
+    "list": {
+      "title": "{mouja} मास्टर",
+      "subtitle": "{mouja} रिकॉर्ड और उनके विवरण प्रबंधित करें",
+      "buttons": {
+        "add": "{mouja} जोड़ें",
+        "edit": "संपादित करें",
+        "delete": "हटाएं"
+      },
+      "filters": {
+        "show": "दिखाएं",
+        "search": "{mouja} नंबर या नाम से खोजें..."
+      },
+      "table": {
+        "moujaNo": "{mouja} नंबर",
+        "moujaName": "{mouja} नाम",
+        "status": "स्थिति",
+        "actions": "क्रियाएं"
+      },
+      "status": {
+        "active": "सक्रिय",
+        "inactive": "निष्क्रिय"
+      },
+      "pagination": {
+        "showing": "दिखा रहा है",
+        "entries": "प्रविष्टियाँ"
+      }
+    },
+    "form": {
+      "addTitle": "नया {mouja} जोड़ें",
+      "editTitle": "{mouja} संपादित करें",
+      "subtitle": "नया {mouja} बनाएँ",
+      "editSubtitle": "{mouja} विवरण अपडेट करें",
+      "fields": {
+        "moujaNo": {
+          "label": "{mouja} नंबर",
+          "placeholder": "उदा. M001"
+        },
+        "moujaName": {
+          "label": "{mouja} नाम",
+          "placeholder": "उदा. अकुर्डी"
+        }
+      },
+      "validation": {
+        "moujaNoRequired": "{mouja} नंबर आवश्यक है",
+        "moujaNoMaxLength": "अधिकतम लंबाई 10 वर्ण है",
+        "moujaNoFormat": "अमान्य प्रारूप। केवल अंग्रेजी अक्षर, संख्याएँ, बिंदु (.) और अंडरस्कोर (_) की अनुमति है।",
+        "moujaNoEnglishOnly": "केवल अंग्रेजी अक्षर, संख्याएँ, बिंदु (.) और अंडरस्कोर (_) की अनुमति है। मराठी/हिंदी समर्थित नहीं है।",
+        "moujaNoExists": "यह {mouja} नंबर पहले से मौजूद है। कृपया एक अलग नंबर का उपयोग करें।",
+        "moujaNameRequired": "{mouja} नाम आवश्यक है",
+        "moujaNameMaxLength": "अधिकतम लंबाई 100 वर्ण है",
+        "moujaNameFormat": "केवल अक्षर (कोई भी भाषा), संख्या, रिक्त स्थान और बुनियादी विराम चिह्न की अनुमति है (,./-())।",
+        "moujaNameExists": "{mouja} नाम पहले से मौजूद है। कृपया एक अलग नाम दर्ज करें।",
+        "mustBeActive": "{mouja} सहेजने के लिए सक्रिय होना चाहिए"
+      },
+      "status": {
+        "label": "सक्रिय स्थिति",
+        "description": "{mouja} वर्तमान में"
+      },
+      "actions": {
+        "cancel": "रद्द करें",
+        "save": "सहेजें",
+        "update": "अपडेट करें"
+      }
+    },
+    "delete": {
+      "confirmTitle": "{mouja} ({id}) हटाएं?",
+      "confirmDescription": "क्या आप वाकई इस {mouja} रिकॉर्ड को हटाना चाहते हैं?",
+      "successMessage": "{mouja} ({id}) सफलतापूर्वक हटाया गया",
+      "errorMessage": "{mouja} ({id}) को हटाया नहीं जा सकता क्योंकि यह अन्य रिकॉर्ड से लिंक है।"
+    },
+    "apiErrors": {
+      "duplicateCode": "{mouja} नंबर पहले से मौजूद है। कृपया एक अलग नंबर का उपयोग करें।",
+      "duplicateName": "{mouja} नाम पहले से मौजूद है। कृपया एक अलग नाम का उपयोग करें।",
+      "duplicateRecord": "कृपया {mouja} नंबर और नाम की जांच करें - डुप्लिकेट की अनुमति नहीं है।",
+      "validationError": "अमान्य डेटा प्रदान किया गया। कृपया सभी फ़ील्ड जांचें।",
+      "invalidData": "अमान्य डेटा प्रदान किया गया। कृपया सभी फ़ील्ड जांचें।",
+      "notFound": "{mouja} नहीं मिला।",
+      "inUse": "इस {mouja} को निष्क्रिय/हटाया नहीं जा सकता क्योंकि यह अन्य रिकॉर्ड में संदर्भित है।",
+      "operationFailed": "ऑपरेशन विफल रहा। कृपया बाद में पुनः प्रयास करें।",
+      "linkedRecordError": "इस {mouja} को संशोधित नहीं किया जा सकता क्योंकि यह अन्य रिकॉर्ड से लिंक है।"
+    },
+    "success": {
+      "created": "नया {mouja} सफलतापूर्वक बनाया गया, कोड: {code}",
+      "updated": "{mouja} सफलतापूर्वक अपडेट किया गया, कोड: {code}",
+      "deleted": "{mouja} सफलतापूर्वक हटाया गया, कोड: {code}"
+    },
+    "error": {
+      "title": "सर्वर से कनेक्ट करने में विफल। कृपया बाद में पुनः प्रयास करें।",
+      "description": "{mouja} पेज लोड करते समय हमें एक त्रुटि का सामना करना पड़ा। कृपया पुनः प्रयास करें।",
+      "tryAgain": "पुनः प्रयास करें",
+      "goHome": "होम पर जाएं",
+      "errorId": "त्रुटि ID: {id}"
+    },
+    "loading": {
+      "message": "मौजा लोड हो रहा है...",
+      "description": "कृपया प्रतीक्षा करें जब तक हम मौजा डेटा प्राप्त करते हैं"
+    }
+  }
+}

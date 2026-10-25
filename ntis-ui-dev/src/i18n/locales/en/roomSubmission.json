@@ -1,0 +1,22 @@
+{
+  "roomSubmission": {
+    "validation": {
+      "enterRoomNumber": "Please enter the room number.",
+      "roomTypeRequired": "Please select a room type.",
+      "selectShapeOrEnterArea": "Please select a room shape or enter the area.",
+      "enterValidDimensions": "Please enter valid dimensions for the selected shape."
+    },
+    "input": {
+      "shapes": {
+        "select": "Select Shape",
+        "rectangle": "Rectangle",
+        "square": "Square",
+        "triangle": "Triangle",
+        "trapezoid": "Trapezoid",
+        "circle": "Circle",
+        "semiCircle": "Semi Circle",
+        "quarterCircle": "Quarter Circle"
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="40 40 407 748" width="407" height="748" style="background-color:#ffffff; font-family:Arial, sans-serif;">
+  <rect x="40" y="40" width="407" height="748" fill="#ffffff"/>
+  <line x1="250" y1="450" x2="100" y2="450" stroke="#008000" stroke-width="5" stroke-linecap="square"/>
+  <line x1="400" y1="300" x2="100" y2="300" stroke="#008000" stroke-width="5" stroke-linecap="square"/>
+  <line x1="250" y1="550" x2="400" y2="550" stroke="#008000" stroke-width="5" stroke-linecap="square"/>
+  <line x1="400" y1="650" x2="100" y2="650" stroke="#008000" stroke-width="5" stroke-linecap="square"/>
+  <line x1="100" y1="150" x2="100" y2="650" stroke="#008000" stroke-width="5" stroke-linecap="square"/>
+  <line x1="100" y1="150" x2="400" y2="150" stroke="#008000" stroke-width="5" stroke-linecap="square"/>
+  <line x1="400" y1="150" x2="400" y2="650" stroke="#008000" stroke-width="5" stroke-linecap="square"/>
+  <line x1="250" y1="150" x2="250" y2="650" stroke="#008000" stroke-width="5" stroke-linecap="square"/>
+  <text x="80" y="96" font-size="16" font-weight="bold" fill="#000000">
+    <tspan x="80" dy="0">THANE-MM13-A-31-1-(AREA IN MTR)</tspan>
+  </text>
+  <text x="100" y="714" font-size="16" font-weight="bold" fill="#000000">
+    <tspan x="100" dy="0">OWNER: The Holder</tspan>
+  </text>
+  <text x="150.75819257944323" y="394.2434195725535" font-size="16" font-weight="bold" fill="#000000">
+    <tspan x="150.75819257944323" dy="0">HALL</tspan>
+    <tspan x="150.75819257944323" dy="20">10*10</tspan>
+  </text>
+  <text x="294.06265466816654" y="416.8364454443195" font-size="16" font-weight="bold" fill="#000000">
+    <tspan x="294.06265466816654" dy="0">DINING</tspan>
+    <tspan x="294.06265466816654" dy="20">10*15</tspan>
+  </text>
+  <text x="116.91363265871065" y="544.5741282339708" font-size="16" font-weight="bold" fill="#000000">
+    <tspan x="116.91363265871065" dy="0">BED_ROOM1</tspan>
+    <tspan x="116.91363265871065" dy="20">12*13</tspan>
+  </text>
+  <text x="264.553451912261" y="582.5147356580427" font-size="16" font-weight="bold" fill="#000000">
+    <tspan x="264.553451912261" dy="0">STORE_ROOM</tspan>
+    <tspan x="264.553451912261" dy="20">5*7</tspan>
+  </text>
+  <text x="120.70754662512913" y="193.71278112082686" font-size="16" font-weight="bold" fill="#000000">
+    <tspan x="120.70754662512913" dy="0">BED_ROOM2</tspan>
+    <tspan x="120.70754662512913" dy="20">10*10</tspan>
+  </text>
+  <text x="272.0103767320529" y="200.91278112082688" font-size="16" font-weight="bold" fill="#000000">
+    <tspan x="272.0103767320529" dy="0">BED_ROOM3</tspan>
+    <tspan x="272.0103767320529" dy="20">15*16</tspan>
+  </text>
+</svg>

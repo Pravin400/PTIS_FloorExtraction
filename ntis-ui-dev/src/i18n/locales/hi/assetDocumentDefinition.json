@@ -1,0 +1,136 @@
+{
+  "list": {
+    "title": "एसेट दस्तावेज़ परिभाषा मास्टर",
+    "subtitle": "एसेट के लिए आवश्यक और वैकल्पिक दस्तावेज़ परिभाषाएं प्रबंधित करें",
+    "buttons": {
+      "add": "दस्तावेज़ परिभाषा जोड़ें",
+      "edit": "संपादित करें",
+      "delete": "हटाएं"
+    },
+    "filters": {
+      "show": "दिखाएं",
+      "search": "दस्तावेज़ कोड, नाम या विवरण से खोजें..."
+    },
+    "table": {
+      "documentCode": "दस्तावेज़ कोड",
+      "documentName": "दस्तावेज़ नाम",
+      "description": "विवरण",
+      "assetCategoryAndType": "संपत्ति श्रेणी / प्रकार",
+      "isRequired": "आवश्यक है क्या",
+      "displayOrder": "प्रदर्शन क्रम",
+      "status": "स्थिति",
+      "actions": "कार्रवाई"
+    },
+    "status": {
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय"
+    }
+  },
+  "errors": {
+    "duplicateDocumentCode": "इस संपत्ति श्रेणी और प्रकार के लिए दस्तावेज़ कोड पहले से मौजूद है",
+    "duplicateDocumentName": "इस संपत्ति श्रेणी और प्रकार के लिए दस्तावेज़ नाम पहले से मौजूद है",
+    "duplicate": "इस संपत्ति श्रेणी और प्रकार के लिए दस्तावेज़ परिभाषा पहले से मौजूद है",
+    "invalidAssetCategory": "चयनित संपत्ति श्रेणी अमान्य या निष्क्रिय है",
+    "invalidAssetType": "चयनित संपत्ति प्रकार अमान्य है या चयनित श्रेणी से संबंधित नहीं है"
+  },
+  "form": {
+    "addTitle": "एसेट दस्तावेज़ परिभाषा जोड़ें",
+    "editTitle": "एसेट दस्तावेज़ परिभाषा संपादित करें",
+    "subtitle": "एसेट के लिए नया दस्तावेज़ परिभाषित करें",
+    "editSubtitle": "दस्तावेज़ परिभाषा विवरण अपडेट करें",
+    "sections": {
+      "documentIdentity": "दस्तावेज़ पहचान",
+      "scopeAndCategory": "दायरा और श्रेणी"
+    },
+    "fields": {
+      "documentCode": {
+        "label": "दस्तावेज़ कोड",
+        "placeholder": "उदा. DOC-TITLE"
+      },
+      "documentName": {
+        "label": "दस्तावेज़ नाम",
+        "placeholder": "उदा. स्वामित्व दस्तावेज़"
+      },
+      "description": {
+        "label": "विवरण",
+        "placeholder": "उदा. आधिकारिक स्वामित्व दस्तावेज़"
+      },
+      "displayOrder": {
+        "label": "प्रदर्शन क्रम"
+      },
+      "assetCategoryId": {
+        "label": "संपत्ति श्रेणी",
+        "placeholder": "संपत्ति श्रेणी चुनें"
+      },
+      "assetTypeId": {
+        "label": "संपत्ति प्रकार",
+        "placeholder": "संपत्ति प्रकार चुनें"
+      },
+      "isRequired": {
+        "label": "दस्तावेज़ आवश्यक है क्या",
+        "description": "यह दस्तावेज़ अपलोड करना अनिवार्य होने पर चुनें"
+      }
+    },
+    "validation": {
+      "documentCodeRequired": "दस्तावेज़ कोड आवश्यक है",
+      "documentCodeMaxLength": "अधिकतम लंबाई 50 वर्ण है",
+      "documentCodeAllZeros": "दस्तावेज़ कोड पूरी तरह से शून्य नहीं हो सकता",
+      "documentCodeFormat": "केवल अक्षर, अंक, हाइफ़न और अंडरस्कोर की अनुमति है",
+      "documentNameRequired": "दस्तावेज़ नाम आवश्यक है",
+      "documentNameMaxLength": "अधिकतम लंबाई 100 वर्ण है",
+      "documentNameAllZeros": "दस्तावेज़ नाम पूरी तरह से शून्य नहीं हो सकता",
+      "documentNameFormat": "दस्तावेज़ नाम में केवल अक्षर, संख्याएं, स्थान, हाइफ़न और अंडरस्कोर ही होने चाहिए",
+      "descriptionRequired": "विवरण आवश्यक है",
+      "descriptionMaxLength": "अधिकतम लंबाई 200 वर्ण है",
+      "descriptionAllZeros": "विवरण पूरी तरह से शून्य नहीं हो सकता",
+      "descriptionFormat": "विवरण में अमान्य वर्ण हैं",
+      "displayOrderInvalid": "प्रदर्शन क्रम 0 से अधिक होना चाहिए",
+      "displayOrderRequired": "प्रदर्शन क्रम आवश्यक है",
+      "assetCategoryRequired": "संपत्ति श्रेणी आवश्यक है",
+      "assetTypeRequired": "संपत्ति प्रकार आवश्यक है",
+      "mustBeActive": "सहेजने के लिए दस्तावेज़ परिभाषा सक्रिय होनी चाहिए"
+    },
+    "status": {
+      "label": "सक्रिय स्थिति",
+      "description": "दस्तावेज़ परिभाषा वर्तमान में है"
+    },
+    "actions": {
+      "cancel": "रद्द करें",
+      "save": "सहेजें",
+      "update": "अपडेट करें"
+    }
+  },
+  "delete": {
+    "confirmDescription": "क्या आप वाकई इस दस्तावेज़ परिभाषा को हटाना चाहते हैं?"
+  },
+  "apiErrors": {
+    "duplicateRecord": "कृपया दस्तावेज़ कोड की जांच करें - डुप्लिकेट की अनुमति नहीं है।",
+    "AssetDocumentDefinition_DocumentCode_Duplicate": "दस्तावेज़ कोड पहले से मौजूद है",
+    "notFound": "दस्तावेज़ परिभाषा नहीं मिली।",
+    "operationFailed": "ऑपरेशन विफल रहा। कृपया बाद में पुनः प्रयास करें।",
+    "referenceBlocked": {
+      "assetDocumentDefinition": {
+        "deleteInUse": "इस एसेट दस्तावेज़ परिभाषा को हटाया नहीं जा सकता क्योंकि यह उपयोग में है।",
+        "deactivateInUse": "इस एसेट दस्तावेज़ परिभाषा को निष्क्रिय नहीं किया जा सकता क्योंकि यह उपयोग में है।"
+      }
+    }
+  },
+  "success": {
+    "created": "नई दस्तावेज़ परिभाषा सफलतापूर्वक बनाई गई: {code}",
+    "updated": "दस्तावेज़ परिभाषा सफलतापूर्वक अपडेट की गई: {code}",
+    "deleted": "दस्तावेज़ परिभाषा सफलतापूर्वक हटा दी गई: {code}"
+  },
+  "loading": {
+    "message": "दस्तावेज़ परिभाषा डेटा लोड हो रहा है...",
+    "description": "कृपया विवरण लोड होने तक प्रतीक्षा करें"
+  },
+  "error": {
+    "title": "दस्तावेज़ परिभाषा डेटा लोड करने में विफल",
+    "description": "विवरण लोड करते समय त्रुटि आई। कृपया पुनः प्रयास करें।",
+    "errorId": "त्रुटि आईडी: {id}",
+    "goHome": "होम पर जाएं",
+    "tryAgain": "पुनः प्रयास करें"
+  },
+  "yes": "हाँ",
+  "no": "नहीं"
+}

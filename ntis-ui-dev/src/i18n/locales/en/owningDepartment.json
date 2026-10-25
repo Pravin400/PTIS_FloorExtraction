@@ -1,0 +1,84 @@
+{
+  "title": "Owning Department Master",
+  "subtitle": "Manage owning departments, names, descriptions, and statuses",
+  "searchPlaceholder": "Search by Owning Department...",
+  "add": "Add Owning Department",
+  "delete": "Delete",
+  "edit": "Edit",
+  "columns": {
+    "owningDepartmentName": "Owning Department Name",
+    "description": "Description",
+    "status": "Status",
+    "actions": "Actions"
+  },
+  "form": {
+    "addTitle": "Add Owning Department",
+    "editTitle": "Edit Owning Department",
+    "subtitle": "Create a new owning department configuration",
+    "editSubtitle": "Update owning department configuration details",
+    "fields": {
+      "owningDepartmentName": {
+        "label": "Owning Department Name",
+        "placeholder": "e.g. Public Works Department"
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "e.g. Manages roads, bridges, and civil infrastructure"
+      }
+    },
+    "status": {
+      "label": "Active Status",
+      "active": "Active",
+      "inactive": "Inactive",
+      "description": "Owning Department is currently"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "save": "Save",
+      "update": "Update"
+    },
+    "validation": {
+      "nameRequired": "Owning department name is required",
+      "nameFormat": "Owning department name contains invalid characters",
+      "nameMaxLength": "Owning department name cannot exceed {count} characters",
+      "descriptionRequired": "Description is required",
+      "descriptionFormat": "Description contains invalid characters",
+      "descriptionMaxLength": "Description cannot exceed {count} characters",
+      "mandatoryNotice": "Fields marked with <b>*</b> are mandatory",
+      "fixErrors": "Please fix the errors in the form",
+      "invalidFormat": "Invalid format",
+      "departmentNameDuplicate": "Owning department name already exists"
+    },
+    "messages": {
+      "createSuccess": "Owning department created successfully",
+      "updateSuccess": "Owning department updated successfully",
+      "deleteSuccess": "Owning department deleted successfully",
+      "error": "Failed to save owning department",
+      "deleteConfirm": "Are you sure you want to delete this owning department?",
+      "duplicate": "This record already exists"
+    }
+  },
+  "apiErrors": {
+    "OwningDepartment_Duplicate": "Owning department name already exists",
+    "duplicateRecord": "This owning department name already exists",
+    "referenceBlocked": {
+      "owningDepartment": {
+        "deleteInUse": "This Owning Department cannot be deleted because it is in use.",
+        "deactivateInUse": "This Owning Department cannot be deactivated because it is in use.",
+        "deleteHasMasters": "This Owning Department cannot be deleted because it has {masters}. Please delete all {masters} for this Owning Department first.",
+        "deactivateHasMasters": "This Owning Department cannot be deactivated because it has {masters}. Please delete all {masters} for this Owning Department first."
+      }
+    },
+    "referenceMasters": {
+      "designations": "Designations",
+      "and": "and"
+    }
+  },
+  "error": {
+    "title": "Failed to load owning department data",
+    "description": "We encountered an error while loading owning department information. Please try again.",
+    "errorId": "Error ID: {id}",
+    "goHome": "Go Home",
+    "tryAgain": "Try Again"
+  }
+}

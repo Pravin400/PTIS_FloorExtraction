@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk"><!-- All common properties are inherited from Directory.Build.props -->
+
+  <ItemGroup>
+    <PackageReference Include="NetTopologySuite" Version="2.5.0" />
+    <InternalsVisibleTo Include="NtisPlatform.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PDFsharp" Version="6.2.4" />
+    <PackageReference Include="PDFsharp-MigraDoc" Version="6.2.4" />
+  </ItemGroup>
+</Project>

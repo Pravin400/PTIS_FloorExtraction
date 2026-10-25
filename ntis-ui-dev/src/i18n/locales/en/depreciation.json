@@ -1,0 +1,82 @@
+{
+  "depreciationMaster": {
+    "aliasFallback": {
+      "assessment": "Assessment",
+      "constructionType": "Construction Type",
+      "entity": "Assessment"
+    },
+    "title": "Depreciation Master",
+    "subtitle": "Property Tax {assessment} System",
+    "assessmentYear": "{assessment} Year",
+    "createRange": "Create Range",
+    "min": "Minimum Age",
+    "max": "Maximum Age",
+    "deleteRow": "Delete Row",
+    "addRange": "Add Range",
+    "currencySymbol": "₹",
+    "rangesAllYears": "Ranges (All Years)",
+    "noRangesFound": "No ranges found",
+    "deleteRange": "Delete Range",
+    "deleteRangeConfirmTitle": "Delete Range !!",
+    "deleteRangeConfirmDesc": "Are you sure? You want to delete this range {min}-{max}?",
+    "cancel": "Cancel",
+    "updateRates": "Update Rates",
+    "changesReverted": "Changes reverted",
+    "createDepChart": "Create Depreciation Chart For Adding Rates",
+    "ageRange": "Age Range",
+    "yearRange": "Age Range",
+    "action": "Action",
+    "active": "ACTIVE",
+    "processing": "Processing...",
+    "minPlaceholder": "Enter minimum age",
+    "maxPlaceholder": "Enter maximum age",
+    "deleteRangeConfirm": "Delete",
+    "success": {
+      "deleted": "Range deleted successfully.",
+      "updated": "Rates updated successfully.",
+      "added": "Range added successfully."
+    },
+    "messages": {
+      "noChanges": "No changes to update.",
+      "updating": "Updating {count} records...",
+      "creatingRange": "Creating range for all {constructionType}s..."
+    },
+    "noRanges": "No ranges found",
+    "errors": {
+      "load": "Failed to load depreciation data.",
+      "add": "Failed to add range.",
+      "update": "Failed to update rates.",
+      "delete": "Failed to delete range.",
+      "exists": "This range already exists.",
+      "minMax": "Please enter both minimum and maximum age.",
+      "invalidRange": "Minimum age must be less than maximum age.",
+      "overlap": "Age range overlaps with existing range {range}.",
+      "mustBeNumber": "Must be a valid number",
+      "cannotBeNegative": "Cannot be negative",
+      "mustBe9999OrLess": "Must be 9999 or less",
+      "mustBe100OrLess": "Must be 100 or less",
+      "mustBe999OrLess": "Must be 999 or less",
+      "mustBe99OrLess": "Must be 99 or less",
+      "gapMin": "Age range has a gap. Expected minimum age is {expectedMin}.",
+      "gapMax": "Age range has a gap. Expected maximum age is {expectedMax}."
+    },
+    "error": {
+      "title": "Something Went Wrong",
+      "description": "We encountered an error while loading the depreciation master page. Please try again.",
+      "tryAgain": "Try Again",
+      "goHome": "Go to Home",
+      "errorId": "Error ID: {id}"
+    },
+    "loading": {
+      "message": "Loading Depreciation Master...",
+      "description": "Please wait while we fetch the depreciation data"
+    },
+    "pagination": {
+      "showing": "Showing {ranges} ranges on page {page} of {totalPages}",
+      "total": "Total: {count} ranges",
+      "constructionTypes": "{constructionType}s",
+      "showingTypes": "Showing {shown} of {total} types on this page",
+      "typesMayBeOnOtherPages": "Some {constructionType}s may be on other pages. Navigate to see all data."
+    }
+  }
+}

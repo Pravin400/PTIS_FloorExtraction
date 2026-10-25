@@ -1,0 +1,47 @@
+{
+  "title": "विभाग सक्रियण",
+  "subtitle": "इस ULB के लिए विभाग और उनके उप-मॉड्यूल कॉन्फ़िगर करें",
+  "searchPlaceholder": "विभाग कोड या नाम से खोजें...",
+  "quickActions": {
+    "activateAll": "सभी सक्रिय करें",
+    "deactivateAll": "सभी निष्क्रिय करें"
+  },
+  "stats": {
+    "total": "कुल विभाग",
+    "active": "सक्रिय",
+    "inactive": "निष्क्रिय"
+  },
+  "card": {
+    "configureSubmodules": "उप-मॉड्यूल कॉन्फ़िगर करें",
+    "noDescription": "कोई विवरण प्रदान नहीं किया गया"
+  },
+  "modal": {
+    "title": "उप-मॉड्यूल कॉन्फ़िगर करें",
+    "drawerTitle": "{departmentName} - {title}",
+    "modulesLabel": "मॉड्यूल",
+    "modulesSummary": "{activeCount} / {totalCount} {modulesLabel}",
+    "activateAll": "सभी सक्रिय करें",
+    "deactivateAll": "सभी निष्क्रिय करें",
+    "saveChanges": "परिवर्तन सहेजें",
+    "allSaved": "सभी परिवर्तन सहेजे गए",
+    "unsavedHint": "{count, plural, one {# अनसहेजा परिवर्तन} other {# अनसहेजे परिवर्तन}}",
+    "unsavedTitle": "अनसहेजे परिवर्तन छोड़ें?",
+    "unsavedMessage": "आपके पास अनसहेजे मॉड्यूल सक्रियण परिवर्तन हैं। क्या उन्हें छोड़कर बंद करें?",
+    "discardChanges": "परिवर्तन छोड़ें",
+    "pending": "लंबित",
+    "noModules": "इस विभाग के लिए कोई मॉड्यूल नहीं मिला। पहले मॉड्यूल मास्टर में मॉड्यूल बनाएं।"
+  },
+  "messages": {
+    "activateAllSuccess": "सभी चयनित विभाग सफलतापूर्वक सक्रिय किए गए",
+    "deactivateAllSuccess": "सभी चयनित विभाग सफलतापूर्वक निष्क्रिय किए गए",
+    "moduleUpdateSuccess": "मॉड्यूल कॉन्फ़िगरेशन सफलतापूर्वक अपडेट किया गया",
+    "modulesSaveSuccess": "{count, plural, one {# मॉड्यूल सफलतापूर्वक अपडेट} other {# मॉड्यूल सफलतापूर्वक अपडेट}}",
+    "departmentStatusUpdated": "{departmentName} {status}",
+    "activated": "सक्रिय किया गया",
+    "deactivated": "निष्क्रिय किया गया",
+    "departmentUpdateError": "विभाग अपडेट करने में विफल",
+    "moduleUpdateFailed": "मॉड्यूल अपडेट करने में विफल",
+    "bulkUpdateResult": "{successCount} विभाग अपडेट किए गए, {failCount} विफल रहे",
+    "moduleBulkUpdateResult": "{successCount} मॉड्यूल अपडेट, {failCount} विफल"
+  }
+}

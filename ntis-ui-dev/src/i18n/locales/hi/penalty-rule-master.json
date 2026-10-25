@@ -1,0 +1,46 @@
+{
+  "table": {
+    "columns": {
+      "penaltyCode": "जुर्माना कोड",
+      "penaltyName": "जुर्माना नियम का नाम",
+      "calculationType": "गणना का प्रकार",
+      "penaltyValue": "जुर्माना मूल्य",
+      "gracePeriodDays": "छूट अवधि",
+      "status": "स्थिति"
+    }
+  },
+  "form": {
+    "addTitle": "नया जुर्माना नियम जोड़ें",
+    "editTitle": "जुर्माना नियम संपादित करें",
+    "createSubtitle": "नया जुर्माना नियम कॉन्फ़िगरेशन बनाएं",
+    "updateSubtitle": "मौजूदा जुर्माना नियम कॉन्फ़िगरेशन अपडेट करें",
+    "calculationTypeOptions": {
+      "Percentage": "प्रतिशत",
+      "FlatAmount": "समान राशि",
+      "PerDay": "प्रति दिन"
+    },
+    "labels": {
+      "status": "स्थिति",
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय",
+      "penaltyCode": "जुर्माना कोड",
+      "penaltyName": "जुर्माना नियम का नाम",
+      "calculationType": "गणना का प्रकार",
+      "penaltyValue": "जुर्माना मूल्य",
+      "gracePeriodDays": "छूट की अवधि (दिनों में)",
+      "days": "दिन"
+    },
+    "placeholders": {
+      "penaltyCode": "उदा., LATERENT_FLAT",
+      "penaltyName": "उदा., लेट रेंट फ्लैट शुल्क",
+      "calculationType": "गणना प्रकार चुनें",
+      "penaltyValue": "मूल्य दर्ज करें",
+      "gracePeriodDays": "उदा., 5"
+    },
+    "buttons": {
+      "save": "सहेजें",
+      "update": "अपडेट करें",
+      "cancel": "रद्द करें"
+    }
+  }
+}

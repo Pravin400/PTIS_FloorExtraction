@@ -1,0 +1,79 @@
+{
+  "title": "Meter Types",
+  "subtitle": "Supported meter technologies such as mechanical, AMR, AMI and ultrasonic.",
+  "actionLabel": "Add Meter Type",
+  "searchPlaceholder": "Search records...",
+  "rowsPerPage": "Rows per page:",
+  "showingEntries": "Showing {start} to {end} of {total} entries",
+  "table": {
+    "code": "Meter Type Code",
+    "name": "Meter Type",
+    "description": "Description",
+    "status": "Status",
+    "action": "ACTION"
+  },
+  "drawer": {
+    "addTitle": "Add Meter Type",
+    "editTitle": "Edit Meter Type",
+    "addSubtitle": "Configure new water meter technology classification",
+    "editSubtitle": "Update existing meter technology classification details",
+    "statusToggle": {
+      "title": "Status",
+      "description": "Enable or disable this meter type across the system ({status})",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "labels": {
+      "code": "Meter Type Code",
+      "name": "Meter Type Name",
+      "description": "Description"
+    },
+    "placeholders": {
+      "code": "e.g. MECH, AMR, AMI, ULTRA",
+      "name": "e.g. Mechanical Meter, AMR Meter",
+      "description": "e.g. Ultrasonic flow metering technology"
+    },
+    "mandatoryNote": "Fields marked with an asterisk (*) are mandatory. Please provide valid inputs.",
+    "buttons": {
+      "cancel": "Cancel",
+      "save": "Save Meter Type",
+      "update": "Update Meter Type"
+    }
+  },
+  "messages": {
+    "createSuccess": "Meter Type created successfully",
+    "updateSuccess": "Meter Type updated successfully",
+    "deleteSuccess": "Meter Type deleted successfully",
+    "duplicateRecord": "Record with this code or type name already exists. Please use unique values.",
+    "notFound": "Meter type record not found.",
+    "invalidData": "Invalid data provided. Please check all fields.",
+    "operationFailed": "Operation failed",
+    "deleteFailed": "Failed to delete record"
+  },
+  "confirm": {
+    "deleteTitle": "Meter Type: {code}",
+    "deleteDescription": "Are you sure you want to delete this Meter Type record?"
+  },
+  "validation": {
+    "codeRequired": "Meter Type Code is required.",
+    "codeMinLength": "Meter Type Code must be at least 2 characters long.",
+    "codeMaxLength": "Meter Type Code cannot exceed 20 characters.",
+    "codeInvalid": "Only letters and numbers are allowed (A-Z, 0-9). Special characters and spaces are not allowed.",
+    "nameRequired": "Meter Type Name is required.",
+    "nameMinLength": "Name must be at least 2 characters long.",
+    "nameMaxLength": "Name cannot exceed 100 characters.",
+    "nameInvalid": "Special characters are not allowed in Name.",
+    "descriptionMaxLength": "Description cannot exceed 300 characters."
+  },
+  "error": {
+    "title": "Failed to connect server. Please try again later.",
+    "description": "We encountered an error while loading the meter type page. Please try again.",
+    "tryAgain": "Try Again",
+    "goHome": "Go to Home",
+    "errorId": "Error ID: {id}"
+  },
+  "loading": {
+    "message": "Loading Meter Types...",
+    "description": "Please wait while we fetch the meter type records"
+  }
+}

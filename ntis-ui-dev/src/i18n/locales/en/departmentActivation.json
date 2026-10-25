@@ -1,0 +1,47 @@
+{
+  "title": "Department Activation",
+  "subtitle": "Configure departments and their submodules for this ULB",
+  "searchPlaceholder": "Search by Department Code or Name...",
+  "quickActions": {
+    "activateAll": "Activate All",
+    "deactivateAll": "Deactivate All"
+  },
+  "stats": {
+    "total": "Total Departments",
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "card": {
+    "configureSubmodules": "Configure Submodules",
+    "noDescription": "No description provided"
+  },
+  "modal": {
+    "title": "Configure Submodules",
+    "drawerTitle": "{departmentName} - {title}",
+    "modulesLabel": "modules",
+    "modulesSummary": "{activeCount} / {totalCount} {modulesLabel}",
+    "activateAll": "Activate All",
+    "deactivateAll": "Deactivate All",
+    "saveChanges": "Save Changes",
+    "allSaved": "All changes saved",
+    "unsavedHint": "{count, plural, one {# unsaved change} other {# unsaved changes}}",
+    "unsavedTitle": "Discard unsaved changes?",
+    "unsavedMessage": "You have unsaved module activation changes. Discard them and close?",
+    "discardChanges": "Discard Changes",
+    "pending": "Pending",
+    "noModules": "No modules found for this department. Create modules in Module Master first."
+  },
+  "messages": {
+    "activateAllSuccess": "All selected departments activated successfully",
+    "deactivateAllSuccess": "All selected departments deactivated successfully",
+    "moduleUpdateSuccess": "Module configuration updated successfully",
+    "modulesSaveSuccess": "{count, plural, one {# module updated successfully} other {# modules updated successfully}}",
+    "departmentStatusUpdated": "{departmentName} {status}",
+    "activated": "activated",
+    "deactivated": "deactivated",
+    "departmentUpdateError": "Failed to update department",
+    "moduleUpdateFailed": "Failed to update module",
+    "bulkUpdateResult": "Updated {successCount} departments, {failCount} failed",
+    "moduleBulkUpdateResult": "Updated {successCount} modules, {failCount} failed"
+  }
+}

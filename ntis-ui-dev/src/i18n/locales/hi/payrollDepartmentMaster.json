@@ -1,0 +1,139 @@
+{
+  "title": "विभाग मास्टर",
+  "subtitle": "पेरोल विभागों और उनके संगठनात्मक कॉन्फ़िगरेशन को प्रबंधित करें",
+  "list": {
+    "title": "विभाग मास्टर",
+    "subtitle": "पेरोल विभागों और उनके संगठनात्मक कॉन्फ़िगरेशन को प्रबंधित करें",
+    "buttons": {
+      "add": "विभाग जोड़ें",
+      "edit": "संपादित करें",
+      "delete": "हटाएं",
+      "editTitle": "विभाग संपादित करें",
+      "deleteTitle": "विभाग हटाएं"
+    },
+    "filters": {
+      "show": "दिखाएं",
+      "searchPlaceholder": "विभाग खोजें...",
+      "allStatus": "सभी स्थिति",
+      "status": "स्थिति चुनें"
+    },
+    "table": {
+      "departmentCode": "विभाग कोड",
+      "departmentName": "विभाग का नाम",
+      "departmentNameLocal": "विभाग का नाम (क्षेत्रीय)",
+      "departmentDescription": "विवरण",
+      "status": "स्थिति",
+      "actions": "कार्य"
+    }
+  },
+  "form": {
+    "title": {
+      "add": "नया विभाग जोड़ें",
+      "edit": "विभाग संपादित करें"
+    },
+    "subtitle": {
+      "add": "नए विभाग का विवरण कॉन्फ़िगर करें",
+      "edit": "मौजूदा विभाग कॉन्फ़िगरेशन अपडेट करें"
+    },
+    "mandatoryFields": "* चिह्नित फ़ील्ड अनिवार्य हैं",
+    "fields": {
+      "departmentCode": "विभाग कोड",
+      "departmentCodePlaceholder": "उदा. DEPT",
+      "departmentName": "विभाग का नाम",
+      "departmentNamePlaceholder": "उदा. Education",
+      "departmentNameLocal": "विभाग का नाम (क्षेत्रीय)",
+      "departmentNameLocalPlaceholder": "उदा. शिक्षण विभाग",
+      "departmentDescription": "विवरण",
+      "departmentDescriptionPlaceholder": "विभाग के कार्यक्षेत्र, कर्तव्यों और जिम्मेदारियों का संक्षिप्त विवरण...",
+      "status": "स्थिति",
+      "isActive": "सक्रिय है",
+      "statusText": "विभाग वर्तमान में {status} है"
+    },
+    "buttons": {
+      "add": "विभाग जोड़ें",
+      "save": "विभाग बनाएं",
+      "cancel": "रद्द करें",
+      "update": "विभाग अपडेट करें"
+    },
+    "validation": {
+      "departmentCodeRequired": "विभाग कोड आवश्यक है",
+      "departmentCodeMaxLength": "विभाग कोड 20 वर्णों से अधिक नहीं होना चाहिए",
+      "departmentCodeFormat": "कोड में केवल अक्षर, संख्या, अंडरस्कोर और हाइफ़न होने चाहिए",
+      "departmentNameRequired": "विभाग का नाम आवश्यक है",
+      "departmentNameMinLength": "विभाग का नाम कम से कम 5 वर्णों का होना चाहिए",
+      "departmentNameMaxLength": "विभाग का नाम 100 वर्णों से अधिक नहीं होना चाहिए",
+      "departmentNameFormat": "विभाग के नाम में केवल अक्षर, स्थान और मान्य प्रतीक (. - / & ()) होने चाहिए",
+      "departmentNameMarathiRequired": "विभाग का नाम (क्षेत्रीय) आवश्यक है",
+      "departmentNameMarathiMinLength": "विभाग का नाम (क्षेत्रीय) कम से कम 5 वर्णों का होना चाहिए",
+      "departmentNameMarathiMaxLength": "विभाग का नाम (क्षेत्रीय) 100 वर्णों से अधिक नहीं होना चाहिए",
+      "departmentNameMarathiFormat": "विभाग के क्षेत्रीय नाम में केवल मान्य अक्षर, स्थान और प्रतीक (. - / & ()) होने चाहिए",
+      "descriptionMaxLength": "विवरण 250 वर्णों से अधिक नहीं होना चाहिए",
+      "codeUnique": "यह विभाग कोड पहले से मौजूद है। कोड अद्वितीय होना चाहिए।"
+    }
+  },
+  "delete": {
+    "confirmTitle": "विभाग हटाएं",
+    "confirmDescription": "क्या आप वाकई \"{name}\" को हटाना चाहते हैं? इस कार्रवाई को पूर्ववत नहीं किया जा सकता।",
+    "deleteInUse": "\"{name}\" वर्तमान में कर्मचारी या संगठनात्मक रिकॉर्ड से जुड़ा हुआ है और इसे हटाया नहीं जा सकता।",
+    "success": "\"{name}\" सफलतापूर्वक हटा दिया गया।"
+  },
+  "stats": {
+    "total": "कुल विभाग",
+    "active": "सक्रिय",
+    "inactive": "निष्क्रिय"
+  },
+  "success": {
+    "created": "विभाग सफलतापूर्वक बनाया गया",
+    "updated": "विभाग सफलतापूर्वक अपडेट किया गया",
+    "deleted": "विभाग सफलतापूर्वक हटा दिया गया"
+  },
+  "errors": {
+    "createFailed": "विभाग मास्टर बनाने में विफल",
+    "updateFailed": "विभाग मास्टर अद्यतन करने में विफल",
+    "deleteFailed": "विभाग मास्टर हटाने में विफल"
+  },
+  "nav": {
+    "header": "आस्थापना मास्टर्स",
+    "comingSoon": "शीघ्र उपलब्ध",
+    "Departments": {
+      "title": "विभाग मास्टर",
+      "subtitle": "विभाग एवं संरचना"
+    },
+    "Designations": {
+      "title": "पदनाम मास्टर",
+      "subtitle": "पद एवं पदानुक्रम"
+    },
+    "EmpClasses": {
+      "title": "कर्मचारी संवर्ग मास्टर",
+      "subtitle": "संवर्ग एवं वर्गीकरण"
+    },
+    "EmpStatuses": {
+      "title": "कर्मचारी स्थिति मास्टर",
+      "subtitle": "रोजगार स्थितियाँ"
+    },
+    "EmpTypes": {
+      "title": "कर्मचारी प्रकार मास्टर",
+      "subtitle": "सेवा शर्तें एवं प्रकार"
+    },
+    "Qualifications": {
+      "title": "योग्यता मास्टर",
+      "subtitle": "शिक्षा एवं साख"
+    },
+    "ZoneDivisions": {
+      "title": "झोन / कार्यालय मास्टर",
+      "subtitle": "कार्यालय एवं स्थान"
+    },
+    "Years": {
+      "title": "वर्ष मास्टर",
+      "subtitle": "पेरोल वित्तीय वर्ष"
+    },
+    "Banks": {
+      "title": "बैंक मास्टर",
+      "subtitle": "बैंक अभिलेख एवं जानकारी"
+    },
+    "GRs": {
+      "title": "शासन निर्णय मास्टर",
+      "subtitle": "संकल्प एवं आदेश"
+    }
+  }
+}

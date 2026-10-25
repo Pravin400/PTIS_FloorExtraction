@@ -1,0 +1,75 @@
+{
+  "title": "Meter Test Status",
+  "subtitle": "Controlled outcomes for meter testing before/after deployment.",
+  "actionLabel": "Add Meter Test Status",
+  "searchPlaceholder": "Search records...",
+  "rowsPerPage": "Rows per page:",
+  "showingEntries": "Showing {start} to {end} of {total} entries",
+  "table": {
+    "code": "Meter Test Status Code",
+    "name": "Meter Test Status",
+    "status": "Status",
+    "action": "ACTION"
+  },
+  "drawer": {
+    "addTitle": "Add Meter Test Status",
+    "editTitle": "Edit Meter Test Status",
+    "addSubtitle": "Configure new testing outcome classification for meters",
+    "editSubtitle": "Update controlled test outcome for meter testing",
+    "statusToggle": {
+      "title": "Status",
+      "description": "Enable or disable this meter test status across the system ({status})",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "labels": {
+      "code": "Meter Test Status Code",
+      "name": "Meter Test Status"
+    },
+    "placeholders": {
+      "code": "e.g. PENDING, PASS, FAIL",
+      "name": "e.g. Pending, Pass, Fail"
+    },
+    "mandatoryNote": "Fields marked with an asterisk (*) are mandatory. Please provide valid inputs.",
+    "buttons": {
+      "cancel": "Cancel",
+      "save": "Save Meter Test Status",
+      "update": "Update Meter Test Status"
+    }
+  },
+  "messages": {
+    "createSuccess": "Meter Test Status created successfully",
+    "updateSuccess": "Meter Test Status updated successfully",
+    "deleteSuccess": "Meter Test Status deleted successfully",
+    "duplicateRecord": "Record with this code or status name already exists. Please use unique values.",
+    "notFound": "Meter test status record not found.",
+    "invalidData": "Invalid data provided. Please check all fields.",
+    "operationFailed": "Operation failed",
+    "deleteFailed": "Failed to delete record"
+  },
+  "confirm": {
+    "deleteTitle": "Meter Test Status: {code}",
+    "deleteDescription": "Are you sure you want to delete this Meter Test Status record?"
+  },
+  "validation": {
+    "codeRequired": "Meter Test Status Code is required.",
+    "codeMinLength": "Meter Test Status Code must be at least 2 characters long.",
+    "codeMaxLength": "Meter Test Status Code cannot exceed 15 characters.",
+    "codeInvalid": "Only letters and numbers are allowed (A-Z, 0-9). Special characters and spaces are not allowed.",
+    "nameRequired": "Meter Test Status is required.",
+    "nameMinLength": "Meter Test Status must be at least 2 characters long.",
+    "nameMaxLength": "Meter Test Status cannot exceed 30 characters.",
+    "nameInvalid": "Special characters are not allowed in Meter Test Status."
+  },
+  "error": {
+    "title": "Failed to connect server. Please try again later.",
+    "description": "We encountered an error while loading the meter test status page. Please try again.",
+    "tryAgain": "Try Again",
+    "goHome": "Go to Home",
+    "errorId": "Error ID: {id}"
+  },
+  "loading": {
+    "message": "Loading Meter Test Status...",
+    "description": "Please wait while we fetch the meter test status records"
+  }
+}

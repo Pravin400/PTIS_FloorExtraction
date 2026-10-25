@@ -1,0 +1,197 @@
+{
+  "pageTitle": "Property Tax Report Engine",
+  "pageSubtitle": "Select a report type and specify the required filters, then click Get Report to download the PDF.",
+  "navigation": {
+    "reportAdmin": "Report Admin",
+    "reportDesigner": "Report Designer",
+    "addNewReport": "Add New Report",
+    "importReport": "Import Report"
+  },
+  "fields": {
+    "reportType": "Report Type"
+  },
+  "buttons": {
+    "generate": "Get Report",
+    "reset": "Reset Filters"
+  },
+  "placeholders": {
+    "selectReport": "Select a report…",
+    "selectZone": "Select a zone…",
+    "selectWard": "Select a ward…",
+    "selectProperty": "Select a property…",
+    "selectPartition": "Select a partition…",
+    "pendingZone": "Select a zone first",
+    "pendingWard": "Select a ward first",
+    "pendingProperty": "Select a property first"
+  },
+  "validation": {
+    "reportRequired": "Please select a report type.",
+    "fieldRequired": "{label} is required.",
+    "dateRangeInvalid": "To Date must be on or after From Date."
+  },
+  "status": {
+    "queued": "Report queued. Generating — your download will start automatically when it's ready."
+  },
+  "success": {
+    "downloaded": "Report downloaded successfully."
+  },
+  "errors": {
+    "generationFailed": "Failed to generate report. Please try again.",
+    "loadFailed": "Failed to load report data. Please refresh the page."
+  },
+  "jobs": {
+    "title": "My Reports",
+    "refresh": "Refresh",
+    "empty": "No reports yet. Submit one above and it will appear here.",
+    "download": "Download",
+    "preview": "Preview",
+    "previewTitle": "Preview Report",
+    "columns": {
+      "report": "Report Name",
+      "status": "Status",
+      "requested": "Requested",
+      "completed": "Completed",
+      "actions": "Actions"
+    },
+    "statuses": {
+      "pending": "Pending",
+      "processing": "Processing",
+      "completed": "Completed",
+      "failed": "Failed",
+      "cancelled": "Cancelled",
+      "retrying": "Retrying"
+    }
+  },
+  "proTip": {
+    "title": "Pro Tip",
+    "body": "For large date ranges or ward-level reports, generation may take a few seconds. The PDF will download automatically once ready."
+  },
+  "loading": {
+    "message": "Loading report options…",
+    "description": "Please wait while we fetch the available reports."
+  },
+  "error": {
+    "title": "Something went wrong",
+    "description": "An error occurred while loading the reports page.",
+    "errorId": "Error ID: {id}",
+    "goHome": "Go Home",
+    "tryAgain": "Try Again"
+  },
+  "workspace": {
+    "steps": {
+      "selectCategory": "Select Category",
+      "selectReport": "Select Report",
+      "setParameters": "Set Parameters",
+      "generateReport": "Generate Report"
+    },
+    "categories": {
+      "assessment": "Assessment",
+      "amc": "AMC",
+      "transaction": "Transaction",
+      "approval": "Approval",
+      "discount": "Discount",
+      "others": "Others"
+    },
+    "reportsCount": "{count} reports",
+    "tabs": {
+      "generateReport": "Generate Report",
+      "myReports": "Download Report"
+    },
+    "toast": {
+      "generatedSuccess": "Report generated successfully!",
+      "generationFailed": "Report generation failed.",
+      "generatingPreview": "Generating secure preview...",
+      "preparingDocument": "Preparing document preview..."
+    },
+    "emptyState": {
+      "title": "Select a category above",
+      "subtitle": "Choose a report type to view available reports"
+    },
+    "noReportsFound": "No reports found for this category.",
+    "reportsHeader": "{category} Reports",
+    "configureParameters": "Configure Parameters",
+    "generating": {
+      "title": "Preparing Report",
+      "subtitle": "Please wait while your report is being prepared...",
+      "cancel": "Cancel"
+    },
+    "preview": {
+      "title": "Report Preview",
+      "downloadPdf": "PDF",
+      "idLabel": "ID: {id}"
+    },
+    "confirm": {
+      "title": "Report Creation",
+      "description": "Your report is being generated. You can download it from the 'Download Report' tab.",
+      "btnGo": "Open",
+      "btnClose": "Close"
+    }
+  },
+  "params": {
+    "emptyState": "Select a report from the list to configure parameters",
+    "financialYear": "Financial Year",
+    "zoneNo": "Zone No.",
+    "wardNo": "Ward No.",
+    "propertySelection": "Property Selection",
+    "propertyNo": "Property No",
+    "fromPropertyToProperty": "From Property To Property",
+    "fromProperty": "From Property",
+    "toProperty": "To Property",
+    "selectYear": "Select year",
+    "selectZone": "Select zone",
+    "selectWard": "Select ward",
+    "selectProperty": "Select property",
+    "selectStartProperty": "Select start property",
+    "selectEndProperty": "Select end property",
+    "loading": "Loading...",
+    "selectZoneFirst": "Select zone first",
+    "selectWardFirst": "Select ward first",
+    "selectMode": "Select mode",
+    "wardWise": "Ward Wise",
+    "fromToProperty": "From - To Property",
+    "individualProperty": "Individual Property",
+    "propertyDescription": "Property Description",
+    "selectDescription": "Select description",
+    "assessmentType": "Assessment Type",
+    "selectAssessmentType": "Select assessment type",
+    "propertyDemand": "Property Demand",
+    "greaterThan": "Greater Than",
+    "lessThan": "Less Than",
+    "top": "Top",
+    "enterAmount": "Enter amount",
+    "eg1": "e.g. 1",
+    "eg10": "e.g. 10",
+    "egPropertyNo": "e.g. 101 or 101-A1",
+    "propertiesSelected": "properties selected",
+    "viewEdit": "View / Edit",
+    "notice119Title": "Section 119 Notice",
+    "notice119Help": "Select the property scope and notice dates. Council name, address, logo and property details are filled from the database.",
+    "noticeDate": "Notice Date",
+    "objectionLastDate": "Last Date for Objection",
+    "showProperties": "Show Properties",
+    "validation": {
+      "financialYearRequired": "Financial year is required.",
+      "zoneRequired": "Zone is required.",
+      "wardRequired": "Ward is required.",
+      "fillAllRequired": "Please fill all required fields.",
+      "networkError": "Network error. Please try again.",
+      "failedToQueue": "Failed to queue report"
+    },
+
+    "reportQueued": "Report \"{name}\" request submitted successfully.",
+    "buttons": {
+      "reset": "Reset",
+      "generate": "Generate Report",
+      "queuing": "Queuing..."
+    }
+  },
+  "generationForm": {
+    "loadingParameters": "Loading parameters...",
+    "failedToLoadParameters": "Failed to load parameters from API:",
+    "noParametersDefined": "No parameters are defined for {report}.",
+    "back": "Back",
+    "selectPreviousFirst": "Select the previous field first",
+    "loading": "Loading...",
+    "select": "Select..."
+  }
+}

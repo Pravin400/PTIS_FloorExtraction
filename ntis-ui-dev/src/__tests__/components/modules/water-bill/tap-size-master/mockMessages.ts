@@ -1,0 +1,97 @@
+export const mockMessages = {
+  tapSizeMaster: {
+    tapSize: {
+      title: "Tap Size Master",
+      description: "Manage tap sizes and descriptions",
+      searchPlaceholder: "Search tap sizes...",
+      addButton: "Add Tap Size",
+      drawer: {
+        addTitle: "Add Tap Size",
+        addSubtitle: "Create a new tap size",
+        editTitle: "Edit Tap Size",
+        editSubtitle: "Update tap size details",
+      },
+      userManualBtn: "User Manual",
+      userManual: {
+        title: "User Manual",
+        desc1: "Desc 1",
+        desc2: "Desc 2",
+        desc3: "Desc 3",
+        desc4: "Desc 4",
+        warning: "Warning",
+      },
+      filters: {
+        all: "All records",
+        active: "Active",
+        inactive: "Inactive",
+      },
+      table: {
+        tapSizeCode: "Code",
+        tapSize: "Tap Size",
+        nominalSizeValue: "Nominal Size",
+        sizeUnit: "Unit",
+        statusName: "Status",
+      },
+      form: {
+        tapSizeCode: { label: "Tap Size Code", placeholder: "e.g., TAP01" },
+        tapSize: { label: "Tap Size", placeholder: "e.g., 1/2 Inch or 15 mm" },
+        nominalSizeValue: { label: "Nominal Size Value", placeholder: "e.g., 0.5 or 15" },
+        sizeUnit: { label: "Size Unit", placeholder: "e.g., Inch or mm" },
+        activeStatusTitle: "Active Status",
+        tapStatusTitle: "Tap Status",
+        activeStatusOn: "Active - Tap size is enabled",
+        activeStatusOff: "Inactive - Tap size is disabled",
+      },
+      validation: {
+        tapSizeCodeRequired: "Tap Size Code is required",
+        tapSizeCodeLength: "Tap Size Code cannot exceed 30 characters",
+        tapSizeRequired: "Tap Size is required",
+        tapSizeLength: "Tap Size cannot exceed 100 characters",
+        nominalSizeValueRequired: "Nominal Size Value is required",
+        nominalSizeValueInvalid: "Must be a valid number",
+        sizeUnitRequired: "Size Unit is required",
+        sizeUnitLength: "Size Unit cannot exceed 20 characters",
+      },
+      messages: {
+        createSuccess: "Tap Size created successfully",
+        updateSuccess: "Tap Size updated successfully",
+        createError: "Failed to create tap size",
+        updateError: "Failed to update tap size",
+        deleteSuccess: "Tap Size deleted successfully",
+        deleteError: "Failed to delete tap size",
+        duplicateError: "A record with the same details already exists.",
+      },
+      confirm: {
+        deleteTitle: "Delete Tap Size",
+        deleteDescription: "Are you sure you want to permanently delete this tap size?",
+      },
+    },
+  },
+  common: {
+    buttons: {
+      cancel: "Cancel",
+      save: "Save",
+      update: "Update",
+    },
+    note: {
+      mandatory: "Indicates mandatory fields",
+    },
+    table: {
+      columns: { actions: "Actions" },
+      showing: "Showing",
+      to: "to",
+      of: "of",
+      rowsPerPage: "Rows per page",
+      showingEntries: "Showing {start} to {end} of {total}",
+      page: "Page",
+      actions: {
+        edit: "Edit",
+        delete: "Delete",
+      },
+    },
+    status: {
+      active: "Active",
+      inactive: "Inactive",
+    },
+  },
+};

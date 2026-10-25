@@ -1,0 +1,171 @@
+{
+  "propertyType": {
+    "aliasFallback": {
+      "category": "श्रेणी",
+      "typeOfUse": "उपयोग प्रकार",
+      "ward": "वार्ड",
+      "entity": "संपत्ति प्रकार"
+    },
+    "list": {
+      "title": "संपत्ति प्रकार मास्टर",
+      "subtitle": "संपत्ति प्रकार और उनके वर्गीकरण प्रबंधित करें",
+      "buttons": {
+        "add": "संपत्ति प्रकार जोड़ें",
+        "edit": "संपादित करें",
+        "delete": "हटाएं"
+      },
+      "filters": {
+        "show": "दिखाएं",
+        "search": "संपत्ति विवरण या प्रकार से खोजें..."
+      },
+      "table": {
+        "descriptionEnglish": "अंग्रेजी विवरण",
+        "propertyDescription": "क्षेत्रीय विवरण",
+        "type": "प्रकार",
+        "propertyTypeGroup": "संपत्ति प्रकार समूह",
+        "category": "संपत्ति प्रकार {category}",
+        "searchSequence": "खोज क्रम",
+        "typeOfUseValidation": "{typeOfUse} सत्यापन",
+        "status": "स्थिति",
+        "actions": "क्रियाएं"
+      },
+      "status": {
+        "active": "सक्रिय",
+        "inactive": "निष्क्रिय"
+      },
+      "pagination": {
+        "showing": "दिखा रहा है",
+        "entries": "प्रविष्टियाँ"
+      }
+    },
+    "form": {
+      "addTitle": "नया संपत्ति प्रकार जोड़ें",
+      "editTitle": "संपत्ति प्रकार संपादित करें",
+      "subtitle": "नया संपत्ति प्रकार बनाएँ",
+      "editSubtitle": "संपत्ति प्रकार विवरण अपडेट करें",
+      "fields": {
+        "propertyTypeId": {
+          "label": "संपत्ति प्रकार ID"
+        },
+        "descriptionEnglish": {
+          "label": "अंग्रेजी विवरण",
+          "placeholder": "अंग्रेजी विवरण दर्ज करें"
+        },
+        "propertyDescription": {
+          "label": "क्षेत्रीय विवरण",
+          "placeholder": "क्षेत्रीय विवरण दर्ज करें"
+        },
+        "type": {
+          "label": "प्रकार",
+          "placeholder": "प्रकार चुनें"
+        },
+        "propertyTypeGroup": {
+          "label": "संपत्ति प्रकार समूह",
+          "placeholder": "उदा. गैर-आवासीय"
+        },
+        "searchSequence": {
+          "label": "खोज क्रम"
+        },
+        "category": {
+          "label": "संपत्ति प्रकार {category}",
+          "placeholder": "{category} चुनें"
+        }
+      },
+      "validation": {
+        "descriptionEnglishRequired": "अंग्रेजी विवरण आवश्यक है",
+        "descriptionEnglishAllZeros": "अंग्रेजी विवरण सभी शून्य नहीं हो सकता",
+        "englishOnly": "केवल अंग्रेजी भाषा के अक्षर ही अनुमत हैं",
+        "propertyDescriptionRequired": "क्षेत्रीय विवरण आवश्यक है",
+        "propertyDescriptionMaxLength": "अधिकतम लंबाई 100 वर्ण है",
+        "propertyDescriptionFormat": "केवल अक्षर (कोई भी भाषा), संख्या, रिक्त स्थान और बुनियादी विराम चिह्न की अनुमति (,./-()).",
+        "propertyDescriptionExists": "संपत्ति विवरण पहले से मौजूद है। कृपया अलग विवरण दर्ज करें।",
+        "typeRequired": "प्रकार आवश्यक है",
+        "typeMaxLength": "अधिकतम लंबाई 10 वर्ण है",
+        "typeFormat": "केवल अक्षर और संख्या की अनुमति है",
+        "propertyTypeGroupRequired": "संपत्ति प्रकार समूह आवश्यक है",
+        "propertyTypeGroupMaxLength": "अधिकतम लंबाई 100 वर्ण है",
+        "sequenceInvalid": "खोज क्रम 0 या अधिक होना चाहिए",
+        "categoryRequired": "संपत्ति प्रकार {category} आवश्यक है",
+        "mustBeActive": "सेव करने के लिए संपत्ति प्रकार सक्रिय होना चाहिए"
+      },
+      "status": {
+        "label": "सक्रिय स्थिति",
+        "description": "संपत्ति प्रकार वर्तमान में है"
+      },
+      "actions": {
+        "cancel": "रद्द करें",
+        "save": "सेव करें",
+        "update": "अपडेट करें"
+      },
+      "typeOfUseSection": {
+        "title": "{typeOfUse} असाइनमेंट",
+        "noItems": "कोई {typeOfUse} नहीं मिला।",
+        "selected": "{count} चयनित",
+        "search": "खोजें",
+        "searchPlaceholder": "कोड या विवरण से खोजें...",
+        "typeLabel": "{typeOfUse}",
+        "allTypes": "सभी प्रकार",
+        "selectAll": "सभी चुनें",
+        "clear": "सभी हटाएं",
+        "noMatches": "कोई मिलान नहीं मिला।",
+        "hint": "इस संपत्ति प्रकार पर लागू {typeOfUse} कोड चुनें",
+        "saveFailed": "{typeOfUse} सत्यापन सहेजने में विफल",
+        "saveWarning": "संपत्ति प्रकार बनाया गया, लेकिन {typeOfUse} असाइन नहीं किया जा सका। कृपया {typeOfUse} जोड़ने के लिए रिकॉर्ड संपादित करें।"
+      }
+    },
+    "modal": {
+      "title": "{typeOfUse} सत्यापन",
+      "subtitle": "असाइन किए गए {typeOfUse} कोड",
+      "propertySubtitle": "असाइन किया गया: {description}",
+      "close": "बंद करें"
+    },
+    "delete": {
+      "confirmTitle": "संपत्ति प्रकार ({id}) हटाएं?",
+      "confirmDescription": "क्या आप वाकई इस संपत्ति प्रकार रिकॉर्ड को हटाना चाहते हैं?",
+      "successMessage": "संपत्ति प्रकार ({id}) सफलतापूर्वक हटाया गया",
+      "errorMessage": "संपत्ति प्रकार ({id}) को हटाया नहीं जा सकता क्योंकि यह अन्य रिकॉर्ड से जुड़ा है।"
+    },
+    "apiErrors": {
+      "duplicateDescription": "संपत्ति विवरण पहले से मौजूद है। कृपया अलग विवरण का उपयोग करें।",
+      "duplicateRecord": "कृपया संपत्ति विवरण जांचें - डुप्लिकेट की अनुमति नहीं है।",
+      "validationError": "अमान्य डेटा प्रदान किया गया। कृपया सभी फ़ील्ड जांचें।",
+      "invalidData": "अमान्य डेटा प्रदान किया गया। कृपया सभी फ़ील्ड जांचें।",
+      "notFound": "संपत्ति प्रकार नहीं मिला।",
+      "inUse": "इस रिकॉर्ड का उपयोग हो रहा है इसलिए हटाया नहीं जा सकता।",
+      "operationFailed": "ऑपरेशन विफल। कृपया बाद में पुनः प्रयास करें।",
+      "referredInAutoWardEntry": "इस रिकॉर्ड को हटाया नहीं जा सकता क्योंकि यह ऑटो {ward} एंट्री में संदर्भित है।",
+      "linkedToProperties": "इस संपत्ति प्रकार को हटाया नहीं जा सकता क्योंकि यह {count} संपत्तियों से जुड़ा है।",
+      "cannotDeactivateReferred": "इस रिकॉर्ड को निष्क्रिय नहीं किया जा सकता क्योंकि यह ऑटो {ward} एंट्री में संदर्भित है।",
+      "linkedRecordError": "इस संपत्ति प्रकार को संशोधित नहीं किया जा सकता क्योंकि यह अन्य रिकॉर्ड से जुड़ा है।"
+    },
+    "success": {
+      "created": "नया संपत्ति प्रकार सफलतापूर्वक बनाया गया: {description}",
+      "updated": "संपत्ति प्रकार सफलतापूर्वक अपडेट किया गया: {description}",
+      "deleted": "संपत्ति प्रकार सफलतापूर्वक हटाया गया: {description}"
+    },
+    "serverValidation": {
+      "invalidPropertyTypeId": "वैध संपत्ति प्रकार ID आवश्यक है",
+      "propertyDescriptionRequired": "संपत्ति विवरण आवश्यक है",
+      "descriptionEnglishRequired": "अंग्रेजी विवरण आवश्यक है",
+      "typeRequired": "प्रकार आवश्यक है",
+      "propertyTypeGroupRequired": "संपत्ति प्रकार समूह आवश्यक है",
+      "categoryRequired": "संपत्ति प्रकार {category} आवश्यक है",
+      "idRequiredForUpdate": "अपडेट के लिए संपत्ति प्रकार ID आवश्यक है",
+      "createFailed": "संपत्ति प्रकार बनाने में विफल",
+      "updateFailed": "संपत्ति प्रकार अपडेट करने में विफल",
+      "deleteFailed": "संपत्ति प्रकार हटाने में विफल",
+      "purgeDeleteFailed": "संपत्ति प्रकार को स्थायी रूप से हटाने में विफल"
+    },
+    "error": {
+      "title": "कुछ गलत हो गया",
+      "description": "संपत्ति प्रकार पृष्ठ लोड करते समय हमें एक त्रुटि मिली। कृपया पुनः प्रयास करें।",
+      "tryAgain": "पुनः प्रयास करें",
+      "goHome": "होम पर जाएं",
+      "errorId": "त्रुटि ID: {id}"
+    },
+    "loading": {
+      "message": "संपत्ति प्रकार लोड हो रहा है...",
+      "description": "कृपया प्रतीक्षा करें जब तक हम संपत्ति प्रकार डेटा प्राप्त करते हैं"
+    }
+  }
+}

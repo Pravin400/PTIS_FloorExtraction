@@ -1,0 +1,283 @@
+{
+  "floor": {
+    "loading": {
+      "message": "मंजिल डेटा लोड हो रहा है...",
+      "description": "कृपया प्रतीक्षा करें जब तक हम मंजिल जानकारी लोड करते हैं"
+    },
+    "error": {
+      "title": "मंजिल डेटा लोड करने में विफल",
+      "description": "मंजिल जानकारी लोड करते समय एक त्रुटि हुई। कृपया पुनः प्रयास करें।",
+      "errorId": "त्रुटि आईडी: {id}",
+      "goHome": "होम पर जाएं",
+      "tryAgain": "पुनः प्रयास करें"
+    },
+    "floor": "मंजिल",
+    "aliasFallback": {
+      "floor": "मंजिल",
+      "floors": "फ्लोर"
+    },
+    "title": "{floor} मास्टर प्रबंधन",
+    "delete": {
+      "confirmTitle": "मंजिल हटाएं",
+      "confirmDescription": "क्या आप वाकई इस {floor} को हटाना चाहते हैं? यह क्रिया पूर्ववत नहीं की जा सकती।"
+    },
+    "subtitle": "{floor} जानकारी जोड़ें, संपादित करें और प्रबंधित करें",
+    "tableTitle": "मंजिल सूची",
+    "search": {
+      "placeholder": "{floor} संकेतांक या विवरण से खोजें..."
+    },
+    "buttons": {
+      "add": "{floor} जोड़ें"
+    },
+    "tabs": {
+      "floor": "मंजिल",
+      "subfloor": "उप-{floor}"
+    },
+    "form": {
+      "title": "मंजिल विवरण",
+      "addTitle": "{floor} जोड़ें",
+      "addSubtitle": "नया {floor} बनाएं",
+      "editTitle": "{floor} संपादित करें",
+      "editSubtitle": "{floor} जानकारी अपडेट करें",
+      "entryMode": "{floor} निर्माण मोड चुनें",
+      "singleFloor": "एकल {floor}",
+      "singleFloorDesc": "कस्टम विवरण के साथ एक मंजिल जोड़ें",
+      "floorRange": "{floor} रेंज",
+      "floorRangeDesc": "एक साथ कई मंजिल जोड़ें",
+      "floorCode": "{floor} संकेतांक",
+      "floorCodePlaceholder": "उदा., GF, 1F, 2F",
+      "floorName": "मंजिल का नाम",
+      "floorNamePlaceholder": "उदा., भूतल, प्रथम तल, तहखाना",
+      "floorNameEnglish": "अंग्रेजी विवरण",
+      "floorNameEnglishPlaceholder": "अंग्रेजी विवरण दर्ज करें",
+      "descriptionEnglish": "अंग्रेजी विवरण",
+      "descriptionEnglishPlaceholder": "अंग्रेजी विवरण दर्ज करें",
+      "regionalName": "क्षेत्रीय विवरण",
+      "regionalNamePlaceholder": "क्षेत्रीय विवरण दर्ज करें",
+      "floorNumber": "मंजिल नंबर",
+      "floorNumberPlaceholder": "उदा., 0, 1, 2, -1",
+      "sequenceNo": "क्रम संख्या",
+      "sequenceNoPlaceholder": "क्रम संख्या दर्ज करें",
+      "description": "क्षेत्रीय विवरण",
+      "descriptionPlaceholder": "क्षेत्रीय विवरण दर्ज करें",
+      "searchPlaceholder": "आईडी या {floor} नाम से खोजें...",
+      "status": "स्थिति",
+      "isActive": "सक्रिय",
+      "activeStatusTitle": "{floor} स्थिति",
+      "activeStatusOn": "सक्रिय",
+      "activeStatusOff": "निष्क्रिय",
+      "range": {
+        "title": "मंजिल रेंज",
+        "start": "शुरू",
+        "end": "अंत",
+        "startPlaceholder": "1",
+        "endPlaceholder": "10"
+      },
+      "englishName": {
+        "title": "अंग्रेजी नाम",
+        "prefix": "उपसर्ग",
+        "prefixPlaceholder": "FL",
+        "suffix": "प्रत्यय",
+        "suffixPlaceholder": "FL"
+      },
+      "autoGenerateSubFloor": "उप-मजला स्वचालित रूप से बनाएं",
+      "autoGenerateSubFloorDesc": "रेंज में प्रत्येक फ्लोर के लिए एक उप-मजला बनाता है",
+      "rangeExample": "उदाहरण: रेंज 1-5 बनाता है 1F, 2F, 3F, 4F, 5F",
+      "validation": {
+        "codeRequired": "संकेतांक आवश्यक है",
+        "codeFormat": "संकेतांक में केवल अक्षर, संख्या और अंडरस्कोर हो सकते हैं (शुरुआत/अंत में नहीं)",
+        "codeMaxLength": "संकेतांक {count} वर्णों से अधिक नहीं हो सकता",
+        "descriptionRequired": "विवरण आवश्यक है",
+        "descriptionEnglishRequired": "अंग्रेजी विवरण आवश्यक है",
+        "descriptionEnglishAllZeros": "अंग्रेजी विवरण सभी शून्य नहीं हो सकता",
+        "descriptionFormat": "विवरण में अमान्य वर्ण या स्वरूपण है",
+        "descriptionMaxLength": "विवरण {count} वर्णों से अधिक नहीं हो सकता",
+        "englishOnly": "केवल अंग्रेजी भाषा के अक्षर ही अनुमत हैं",
+        "sequenceNoRequired": "क्रम संख्या आवश्यक है",
+        "mustBeActive": "नया फ्लोर सक्रिय होना चाहिए",
+        "rangeStartRequired": "शुरू मान आवश्यक है",
+        "rangeEndRequired": "अंत मान आवश्यक है",
+        "rangeStartMinValue": "शुरू मान कम से कम 1 होना चाहिए",
+        "rangeEndMinValue": "अंत मान कम से कम 1 होना चाहिए",
+        "rangeStartLessThanEnd": "शुरू अंत से कम या बराबर होना चाहिए",
+        "rangeMaxValue": "मान {count} से अधिक नहीं हो सकता",
+        "rangeMaxCount": "एक बार में {count} से अधिक फ्लोर नहीं जोड़े जा सकते",
+        "flatGenerationGroupRequired": "फ्लैट जनरेशन प्रकार आवश्यक है",
+        "flatGenerationSeqRequired": "फ्लैट जनरेशन अनुक्रम आवश्यक है"
+      },
+      "flatGenerationGroup": "फ्लैट जनरेशन प्रकार",
+      "flatGenerationGroupPlaceholder": "फ्लैट जनरेशन प्रकार चुनें",
+      "flatGenerationSeq": "फ्लैट जनरेशन अनुक्रम",
+      "flatGenerationSeqPlaceholder": "अनुक्रम दर्ज करें"
+    },
+    "table": {
+      "columns": {
+        "srNo": "क्र. सं.",
+        "floorCode": "{floor} संकेतांक",
+        "floorName": "मंजिल का नाम",
+        "descriptionEnglish": "अंग्रेजी विवरण",
+        "descriptionRegional": "क्षेत्रीय विवरण",
+        "floorNumber": "मंजिल नंबर",
+        "description": "क्षेत्रीय विवरण",
+        "sequenceNo": "क्रम संख्या",
+        "status": "स्थिति",
+        "actions": "कार्रवाई"
+      },
+      "pagination": {
+        "showing": "दिखा रहा है",
+        "entries": "{total} प्रविष्टियों में से"
+      }
+    },
+    "messages": {
+      "addSuccess": "फ्लोर सफलतापूर्वक जोड़ा गया",
+      "createSuccess": "{floor} सफलतापूर्वक बनाया गया",
+      "createRangeSuccess": "{count} {floors} सफलतापूर्वक बनाए गए",
+      "updateSuccess": "{floor} सफलतापूर्वक अपडेट किया गया",
+      "deleteSuccess": "{floor} सफलतापूर्वक हटाया गया",
+      "deleteFailed": "मंजिल हटाने में विफल। कृपया पुनः प्रयास करें।",
+      "deleteInUse": "यह फ्लोर निम्नलिखित में संदर्भित होने के कारण इसे निष्क्रिय/हटाया नहीं जा सकता:\nवेटेज मास्टर, संपत्ति विवरण (Weightage Master, Property Details).\n\nकृपया पहले निर्भर रिकॉर्ड हटाएं।",
+      "deleteConfirm": "क्या आप वाकई इस मंजिल को हटाना चाहते हैं?",
+      "noFloors": "कोई मंजिल उपलब्ध नहीं है। शुरू करने के लिए एक नया मंजिल जोड़ें।",
+      "validFloorIdRequired": "मान्य मंजिल आईडी आवश्यक है"
+    },
+    "validation": {
+      "floorIdPattern": "केवल अक्षर, संख्या, /, _, - की अनुमति है",
+      "floorCodePattern": "केवल अक्षर, संख्या, /, _, - की अनुमति है",
+      "duplicateFloorId": "मंजिल आईडी पहले से मौजूद है",
+      "duplicateFloorCode": "मंजिल संकेतांक पहले से मौजूद है",
+      "maxFloorGteSequence": "अधिकतम मंजिल >= क्रम संख्या होना चाहिए",
+      "duplicateSequenceNo": "क्रम संख्या पहले से मौजूद है",
+      "mustBeNumber": "वैध संख्या होनी चाहिए",
+      "required": "यह फ़ील्ड आवश्यक है"
+    },
+    "apiErrors": {
+      "duplicateRecord": "रिकॉर्ड पहले से मौजूद है",
+      "invalidData": "अमान्य डेटा प्रदान किया गया",
+      "notFound": "रिकॉर्ड नहीं मिला",
+      "operationFailed": "ऑपरेशन विफल रहा",
+      "inUse": "यह {floor} निम्नलिखित में संदर्भित होने के कारण इसे निष्क्रिय/हटाया नहीं जा सकता:\nवेटेज मास्टर, संपत्ति विवरण (Weightage Master, Property Details).\n\nकृपया पहले निर्भर रिकॉर्ड हटाएं।"
+    },
+    "note": {
+      "mandatory": "* चिह्नित फ़ील्ड अनिवार्य हैं"
+    }
+  },
+  "subfloor": {
+    "loading": {
+      "message": "उप-मंजिल डेटा लोड हो रहा है...",
+      "description": "कृपया प्रतीक्षा करें जब तक हम उप-मंजिल जानकारी लोड करते हैं"
+    },
+    "error": {
+      "title": "उप-मंजिल डेटा लोड करने में विफल",
+      "description": "उप-मंजिल जानकारी लोड करते समय एक त्रुटि हुई। कृपया पुनः प्रयास करें।",
+      "errorId": "त्रुटि आईडी: {id}",
+      "goHome": "होम पर जाएं",
+      "tryAgain": "पुनः प्रयास करें"
+    },
+    "aliasFallback": {
+      "floor": "मंजिल"
+    },
+    "delete": {
+      "confirmTitle": "उप-{floor} हटाएं",
+      "confirmDescription": "क्या आप वाकई इस उप-{floor} को हटाना चाहते हैं? यह क्रिया पूर्ववत नहीं की जा सकती।"
+    },
+    "title": "उप-मंजिल मास्टर प्रबंधन",
+    "subtitle": "उप-मंजिल श्रेणियों को जोड़ें, संपादित करें और प्रबंधित करें",
+    "tableTitle": "उप-मंजिल सूची",
+    "search": {
+      "placeholder": "संकेतांक या विवरण से खोजें..."
+    },
+    "buttons": {
+      "add": "उप-{floor} जोड़ें"
+    },
+    "tabs": {
+      "floor": "फ्लोर",
+      "subfloor": "उप-{floor}"
+    },
+    "form": {
+      "title": "उप-मंजिल विवरण",
+      "addTitle": "उप-{floor} जोड़ें",
+      "addSubtitle": "नई उप-{floor} बनाएं",
+      "editTitle": "उप-{floor} संपादित करें",
+      "editSubtitle": "उप-{floor} विवरण अपडेट करें",
+      "subFloorId": "उप-मंजिल आईडी",
+      "subFloorIdPlaceholder": "उदा., SF01, SF02",
+      "descriptionEnglish": "अंग्रेजी विवरण",
+      "descriptionEnglishPlaceholder": "अंग्रेजी विवरण दर्ज करें",
+      "descriptionRegional": "क्षेत्रीय विवरण",
+      "descriptionRegionalPlaceholder": "क्षेत्रीय विवरण दर्ज करें",
+      "searchPlaceholder": "आईडी या विवरण से खोजें...",
+      "activeStatusTitle": "सक्रिय स्थिति",
+      "activeStatusOn": "वर्तमान में सक्षम",
+      "activeStatusOff": "वर्तमान में अक्षम",
+      "code": "उप-{floor} संकेतांक",
+      "codePlaceholder": "उदा., SF01, SF02",
+      "description": "क्षेत्रीय विवरण",
+      "descriptionPlaceholder": "क्षेत्रीय विवरण दर्ज करें",
+      "sequenceNo": "क्रम संख्या",
+      "sequenceNoPlaceholder": "क्रम संख्या दर्ज करें",
+      "validation": {
+        "codeRequired": "संकेतांक आवश्यक है",
+        "codeFormat": "संकेतांक में केवल अक्षर, संख्या और अंडरस्कोर हो सकते हैं (शुरुआत/अंत में नहीं)",
+        "codeMaxLength": "संकेतांक {count} वर्णों से अधिक नहीं हो सकता",
+        "descriptionRequired": "क्षेत्रीय विवरण आवश्यक है",
+        "descriptionEnglishRequired": "अंग्रेजी विवरण आवश्यक है",
+        "descriptionEnglishAllZeros": "अंग्रेजी विवरण सभी शून्य नहीं हो सकता",
+        "descriptionFormat": "विवरण में अमान्य वर्ण या स्वरूपण है",
+        "descriptionMaxLength": "विवरण {count} वर्णों से अधिक नहीं हो सकता",
+        "englishOnly": "केवल अंग्रेजी वर्णों की अनुमति है",
+        "sequenceNoRequired": "क्रम संख्या आवश्यक है",
+        "mustBeActive": "नया उप-मंजिल सक्रिय होना चाहिए"
+      }
+    },
+    "table": {
+      "columns": {
+        "srNo": "क्र. सं.",
+        "subFloorId": "उप-{floor}",
+        "descriptionEnglish": "अंग्रेजी विवरण",
+        "descriptionRegional": "क्षेत्रीय विवरण",
+        "status": "स्थिति",
+        "actions": "कार्रवाई",
+        "subFloorCode": "उप-{floor} संकेतांक",
+        "subFloorDescription": "क्षेत्रीय विवरण",
+        "sequenceNo": "क्रम संख्या"
+      },
+      "pagination": {
+        "showing": "दिखा रहा है",
+        "entries": "{total} प्रविष्टियों में से"
+      }
+    },
+    "messages": {
+      "addSuccess": "उप-मंजिल सफलतापूर्वक जोड़ा गया",
+      "createSuccess": "उप-{floor} सफलतापूर्वक बनाया गया",
+      "updateSuccess": "उप-{floor} सफलतापूर्वक अपडेट किया गया",
+      "deleteSuccess": "उप-{floor} सफलतापूर्वक हटाया गया",
+      "deleteFailed": "उप-{floor} हटाने में विफल। कृपया पुनः प्रयास करें।",
+      "deleteInUse": "यह उप-{floor} उपयोग में है, इसलिए आप इसे हटा नहीं सकते।",
+      "deleteConfirm": "क्या आप वाकई इस उप-मंजिल को हटाना चाहते हैं?",
+      "noSubFloors": "कोई उप-मंजिल उपलब्ध नहीं है। शुरू करने के लिए एक नया उप-मंजिल जोड़ें।",
+      "validSubFloorIdRequired": "मान्य उप-मंजिल आईडी आवश्यक है"
+    },
+    "validation": {
+      "subFloorIdPattern": "केवल अक्षर, संख्या, /, _, - की अनुमति है",
+      "codePattern": "केवल अक्षर, संख्या, /, _, - की अनुमति है",
+      "duplicateSubFloorId": "डुप्लिकेट उप-मंजिल आईडी की अनुमति नहीं है",
+      "duplicateCode": "डुप्लिकेट उप-मंजिल संकेतांक की अनुमति नहीं है",
+      "required": "यह फ़ील्ड आवश्यक है"
+    },
+    "apiErrors": {
+      "duplicateRecord": "रिकॉर्ड पहले से मौजूद है",
+      "invalidData": "अमान्य डेटा प्रदान किया गया",
+      "notFound": "रिकॉर्ड नहीं मिला",
+      "operationFailed": "ऑपरेशन विफल रहा",
+      "referencedIn": "{tables} तालिका में संदर्भित होने के कारण इस उप-{floor} को निष्‍क्र‍िय या हटाया नहीं जा सकता।"
+    },
+    "note": {
+      "mandatory": "* चिह्नित फ़ील्ड अनिवार्य हैं"
+    },
+    "sequenceWarningTitle": "मंजिल अनुक्रम चेतावनी",
+    "doYouWantToProceed": "क्या आप फिर भी आगे बढ़ना चाहते हैं?",
+    "proceedAnyway": "फिर भी आगे बढ़ें",
+    "sequenceGapDetected": "मंजिल अनुक्रम में अंतर पाया गया: {currLabel} अनुक्रम से बाहर है। {prevLabel} के बाद गायब मंजिल संख्या ({missingNo})।",
+    "sequenceMustStartGround": "मंजिल अनुक्रम भूतल (0) से शुरू होना चाहिए। {firstLabel} से पहले भूतल गायब है।"
+  }
+}

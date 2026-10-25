@@ -1,0 +1,292 @@
+{
+  "landing": {
+    "title": "Extended Area Property Tax Assessment",
+    "subtitle": "Section 129A — General Tax transition assessment for properties newly included within municipal limits",
+    "singleTitle": "Single Assessment",
+    "singleDescription": "Calculate the Section 129A year-wise General Tax schedule for one property.",
+    "bulkTitle": "Bulk Update",
+    "bulkDescription": "Import, batch-update and calculate Section 129A assessments for many properties at once.",
+    "bulkUnderDevelopment": "This screen is not completed yet — it is under development.",
+    "open": "Open"
+  },
+  "error": {
+    "title": "Error Loading Extended Area Assessment",
+    "description": "An unexpected error occurred while loading the extended area assessment module. Please try again.",
+    "tryAgain": "Try Again",
+    "goHome": "Go to Home"
+  },
+  "loading": {
+    "message": "Loading Extended Area Assessment...",
+    "description": "Please wait while the page is loading..."
+  },
+  "single": {
+    "title": "Section 129A Assessment",
+    "subtitle": "Editable General Tax transition calculator for an extended/included municipal area property",
+    "backToLanding": "Back",
+    "printHeaderTitle": "Municipal Extended Area – Section 129A Assessment",
+    "error": {
+      "title": "Error Loading Section 129A Assessment",
+      "description": "An unexpected error occurred while loading the Section 129A assessment screen. Please try again.",
+      "tryAgain": "Try Again",
+      "goHome": "Go to Home"
+    },
+    "loading": {
+      "message": "Loading Section 129A Assessment...",
+      "description": "Fetching property details, financial years, and assessment schedule..."
+    },
+    "card": {
+      "title": "Property & Assessment Details",
+      "editable": "Editable"
+    },
+    "section": {
+      "propertyIdentification": "Property Identification",
+      "inclusionBasis": "Inclusion & General Tax Basis",
+      "inclusionTotalTaxBasis": "Inclusion & Total Tax Basis",
+      "propertyChangeCheck": "Property Change Check",
+      "propertyChangeCheckHint": "If any of the three changes below is set to Yes, Section 129A will not apply and full (100%) tax will be considered for this property.",
+      "caseControl": "Case Control"
+    },
+    "dropdowns": {
+      "loadingWards": "Loading Wards...",
+      "selectWard": "Select Ward...",
+      "selectWardFirst": "Select Ward first",
+      "loadingProperties": "Loading Properties...",
+      "selectPropertyNo": "Select Property No...",
+      "selectPropertyNoFirst": "Select Property No first",
+      "loadingPartitions": "Loading Partitions...",
+      "selectPartitionNo": "Select Partition No...",
+      "partitionLabel": "Partition {partitionNo}",
+      "mainProperty": "Main Property"
+    },
+    "fields": {
+      "ward": "Ward",
+      "propertyNo": "Property No",
+      "partitionNo": "Partition No",
+      "upic": "UPIC Id",
+      "oldGpNo": "Old GP Number",
+      "ownerName": "Property Holder Name",
+      "address": "Address / Village / Included Area",
+      "useType": "Usage Type",
+      "zone": "Zone / Ward",
+      "inclusionDate": "Area Inclusion Date",
+      "ocDate": "OC Date (Occupancy Certificate)",
+      "useOcDateBasis": "Use OC Date as the basis instead of Area Inclusion Date",
+      "noOcDate": "No Occupancy Certificate date is on record for this property.",
+      "oldTax": "Old Gram Panchayat General Tax (₹)",
+      "oldTaxTotal": "Old Gram Panchayat Total Tax (₹)",
+      "fullGeneral": "Municipal General Tax at 100% (₹)",
+      "fullGeneralTotal": "Municipal Total Tax at 100% (₹)",
+      "taxableValue": "Taxable Value (₹)",
+      "generalRate": "General Tax Rate (%)",
+      "areaChanged": "Increase in Area",
+      "useChanged": "Change of Use",
+      "otherChanged": "Other Structural / Assessment Change",
+      "changeDate": "Change Effective Date",
+      "changeDetails": "Change Details",
+      "changeDetailsPlaceholder": "Enter increased area, old/new use, structural change or assessment revision details",
+      "caseStatus": "Case Status",
+      "officer": "Verification Officer",
+      "officerPlaceholder": "Officer name",
+      "remarks": "Remarks / Order Reference"
+    },
+    "options": {
+      "yes": "Yes",
+      "no": "No",
+      "usage": {
+        "residential": "Residential",
+        "nonResidential": "Non-Residential",
+        "mixedUse": "Mixed Use",
+        "industrial": "Industrial"
+      },
+      "caseStatus": {
+        "draft": "Draft",
+        "calculated": "Calculated",
+        "verified": "Verified",
+        "approved": "Approved"
+      }
+    },
+    "whichIsMoreRule": {
+      "title": "Which is More Rule",
+      "description": "The higher amount between Old GP General Tax and staged Municipal General Tax will always be considered.",
+      "descriptionTotalTax": "The higher amount between Old GP Total Tax and staged Municipal Total Tax will always be considered.",
+      "badge": "Mandatory"
+    },
+    "ruleMessage": {
+      "applicable": "Section 129A transition benefit is applicable because no property change is recorded.",
+      "notApplicable": "Section 129A transition benefit is not applicable from the effective date of property change. Full Municipal General Tax at 100% will be considered.",
+      "notApplicableTotalTax": "Section 129A transition benefit is not applicable from the effective date of property change. Full Municipal Total Tax at 100% will be considered."
+    },
+    "actions": {
+      "recalculate": "Recalculate Assessment",
+      "recalculating": "Recalculating...",
+      "reset": "Reset Form",
+      "save": "Save Case",
+      "print": "Print / PDF",
+      "exportCsv": "Export CSV",
+      "loadSample": "Load Sample",
+      "searchProperty": "Search property"
+    },
+    "kpis": {
+      "currentFy": "Current Financial Year",
+      "applicableGeneralTax": "Applicable General Tax",
+      "applicableTotalTax": "Applicable Total Tax",
+      "totalDemand": "Total Annual Demand",
+      "generalTaxOnly": "General Tax Only",
+      "totalTaxOnly": "Total Tax Only",
+      "section129a": "Section 129A"
+    },
+    "timeline": {
+      "oldGp": "Old GP",
+      "oldGpSpan": "First 2 financial years",
+      "thirdYear": "Third year",
+      "fourthYear": "Fourth year",
+      "fifthYear": "Fifth year",
+      "sixthYear": "Sixth year",
+      "thereafter": "Thereafter"
+    },
+    "scheduleTable": {
+      "title": "Section 129A Year-wise Assessment Schedule",
+      "totalRow": "Total Demand for Displayed Period",
+      "columns": {
+        "srNo": "Sr. No.",
+        "financialYear": "Financial Year",
+        "stage": "Stage",
+        "municipalPct": "Municipal General Tax %",
+        "municipalTotalTaxPct": "Municipal Total Tax %",
+        "stageTax": "Calculated Stage Tax",
+        "oldGpTax": "Old GP General Tax",
+        "oldGpTotalTax": "Old GP Total Tax",
+        "applicableTax": "Applicable General Tax",
+        "applicableTotalTax": "Applicable Total Tax",
+        "totalDemand": "Total Demand",
+        "difference": "Difference from 100%",
+        "ruleApplied": "Rule Applied",
+        "status": "Status"
+      },
+      "status": {
+        "current": "Current",
+        "completed": "Completed",
+        "future": "Future"
+      }
+    },
+    "messages": {
+      "caseSaved": "Assessment saved successfully.",
+      "recalculated": "Assessment recalculated successfully.",
+      "recalculateBasisNotCalculated": "Municipal Tax is not applied for this property. Please run \"Add Taxes\" for this property/year first, then recalculate Section 129A.",
+      "recalculateBaseTaxCodeChanged": "Section 129A rule is already applied for this property using {appliedTaxCode}. The configured base tax code has since changed to {currentTaxCode}. Revert the policy back to {appliedTaxCode}, or contact support before recalculating this property.",
+      "formReset": "Form cleared.",
+      "provideDates": "Please enter both the Inclusion Date and the Assessment Date.",
+      "enterUpic": "Enter a UPIC Number to search.",
+      "enterOldGpNo": "Enter an Old Gram Panchayat Number to search.",
+      "enterUpicOrOldGpNo": "Enter a UPIC Number or Old Gram Panchayat Number to search.",
+      "propertyNotFound": "Property not found.",
+      "propertyLoaded": "Property loaded.",
+      "assessmentYearMismatchTitle": "Assessment Year Mismatch",
+      "assessmentYearMismatchDescription": "The selected Assessment Date year ({selected}) differs from the property's Assessment Year ({existing}). Do you want to proceed and apply Section 129A from {selected}?",
+      "proceedAnyway": "Yes, Proceed",
+      "changeDate": "No, Change Date",
+      "inclusionDateRequired": "Area Inclusion Date is required — the current policy configuration determines the Section 129A start year from it.",
+      "changeDetailsRequired": "Change Effective Date and Change Details are required when Increase in Area, Change of Use, or Other Structural / Assessment Change is set to Yes.",
+      "recalculateConfirmTitle": "Section 129A Already Applied",
+      "recalculateConfirmDescription": "Section 129A rule is already applied from {year}. Do you want to recalculate taxes again?",
+      "recalculateConfirmDescriptionGeneric": "Section 129A rule is already applied for this property. Do you want to recalculate taxes again?",
+      "recalculateConfirmYes": "Yes, Recalculate",
+      "recalculateConfirmNo": "No"
+    }
+  },
+  "bulk": {
+    "title": "Section 129A – Bulk Property Update",
+    "subtitle": "CSV import, batch update and bulk assessment",
+    "backToLanding": "Back",
+    "badge": "CSV / Excel-compatible",
+    "error": {
+      "title": "Error Loading Bulk Assessment",
+      "description": "An unexpected error occurred while loading the Bulk Assessment screen. Please try again.",
+      "tryAgain": "Try Again",
+      "goHome": "Go to Home"
+    },
+    "loading": {
+      "message": "Loading Bulk Property Assessment...",
+      "description": "Preparing bulk update grid and assessment calculation tools..."
+    },
+    "toolbar": {
+      "addProperty": "Add Property",
+      "importCsv": "Import CSV",
+      "downloadTemplate": "Download Template",
+      "calculateAll": "Calculate All",
+      "exportResults": "Export Results",
+      "clear": "Clear"
+    },
+    "applyBar": {
+      "bulkUpdateField": "Bulk Update Field",
+      "value": "Value",
+      "valuePlaceholder": "YYYY-MM-DD or Yes / No",
+      "applyToSelected": "Apply to Selected",
+      "selectAll": "Select All",
+      "unselectAll": "Unselect All",
+      "fields": {
+        "assessmentDate": "Assessment Date",
+        "inclusionDate": "Inclusion Date",
+        "useChanged": "Change of Use",
+        "otherChanged": "Other Change",
+        "policyMode": "Policy Method",
+        "oldArea": "Old Area",
+        "newArea": "New Area",
+        "areaThreshold": "Area Threshold %",
+        "areaRuleEnabled": "Area Rule Enabled",
+        "useDisqualify": "Disqualify on Use Change",
+        "otherDisqualify": "Disqualify on Other Change",
+        "changeDate": "Change Effective Date"
+      }
+    },
+    "help": "Configure each property as Conditional or Unconditional. Example: an Area Threshold of 200% means the policy is not applied when New Area is equal to or more than double the Old Area. The first two financial years remain protected at Old GP Tax.",
+    "columns": {
+      "select": "Select",
+      "srNo": "Sr.",
+      "upic": "UPIC",
+      "oldGpNo": "Old GP No.",
+      "owner": "Owner",
+      "inclusionDate": "Inclusion Date",
+      "assessmentDate": "Assessment Date",
+      "oldTax": "Old GP Tax",
+      "fullTax": "Municipal Tax 100%",
+      "policyMode": "Policy Method",
+      "oldArea": "Old Area",
+      "newArea": "New Area",
+      "areaThreshold": "Threshold %",
+      "areaRuleEnabled": "Area Rule",
+      "useChanged": "Use Changed",
+      "otherChanged": "Other Change",
+      "useDisqualify": "Use Disqualify",
+      "otherDisqualify": "Other Disqualify",
+      "changeDate": "Change Date",
+      "currentFy": "Current FY",
+      "stage": "Stage",
+      "applicableTax": "Applicable Tax",
+      "action": "Action"
+    },
+    "policyMode": {
+      "conditional": "Conditional",
+      "unconditional": "Unconditional"
+    },
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    },
+    "actions": {
+      "remove": "Remove"
+    },
+    "messages": {
+      "calculated": "{count} properties calculated.",
+      "imported": "{count} properties imported.",
+      "noDataInCsv": "No data rows found in the imported file.",
+      "noRows": "No properties added yet.",
+      "enterBulkValue": "Enter a bulk update value.",
+      "invalidDate": "Enter the date as YYYY-MM-DD (e.g. 2026-03-01).",
+      "clearConfirmTitle": "Clear all bulk property rows?",
+      "clearConfirmDescription": "This removes every row from the bulk update table. This cannot be undone.",
+      "cleared": "Bulk property rows cleared.",
+      "noRowsSelected": "Select at least one property first."
+    }
+  }
+}

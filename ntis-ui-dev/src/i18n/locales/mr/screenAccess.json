@@ -1,0 +1,351 @@
+{
+  "aliasFallback": {
+    "screen": "स्क्रीन",
+    "screenGroup": "स्क्रीन गट",
+    "accessControl": "प्रवेश नियंत्रण",
+    "role": "भूमिका",
+    "department": "विभाग",
+    "module": "मॉड्यूल",
+    "screenCode": "स्क्रीन कोड",
+    "screenName": "स्क्रीनचे नाव",
+    "route": "रूट",
+    "groupCode": "कोड",
+    "groupName": "गटाचे नाव"
+  },
+  "title": "{screen} आणि {accessControl} व्यवस्थापन",
+  "subtitle": "{screen}, {screenGroup}, नेव्हिगेशन आणि {role}-आधारित प्रवेश परवानग्या व्यवस्थापित करा",
+
+  "loading": {
+    "message": "स्क्रीन व्यवस्थापन लोड होत आहे...",
+    "description": "आम्ही स्क्रीन प्रवेश कॉन्फ़िगरेशन तयार करत असताना कृपया प्रतीक्षा करा."
+  },
+
+  "tabs": {
+    "screenManagement": "{screen} व्यवस्थापन",
+    "accessControl": "{accessControl}"
+  },
+
+  "stats": {
+    "totalScreens": "एकूण {screen}",
+    "activeScreens": "सक्रिय {screen}",
+    "inactiveScreens": "निष्क्रिय {screen}",
+    "totalGroups": "{screenGroup}",
+    "activeGroups": "सक्रिय {screenGroup}"
+  },
+
+  "screenManagement": {
+    "title": "{screen} व्यवस्थापन",
+    "subtitle": "अनुप्रयोग {screen} आणि {screenGroup} व्यवस्थापित करा",
+
+    "tabs": {
+      "screens": "{screen}",
+      "screenGroups": "{screenGroup}"
+    },
+
+    "screens": {
+      "title": "{screen}",
+      "addScreen": "{screen} जोडा",
+      "editScreen": "{screen} संपादित करा",
+      "deleteScreen": "{screen} हटवा",
+      "addButton": "{screen} जोडा",
+      "searchPlaceholder": "{screen} शोधा...",
+      "noScreensFound": "कोणतीही {screen} सापडली नाही",
+
+      "table": {
+        "screenName": "स्क्रीनचे नाव",
+        "code": "कोड",
+        "route": "रूट",
+        "department": "विभाग",
+        "module": "मॉड्यूल",
+        "group": "गट",
+        "status": "स्थिती",
+        "actions": {
+          "label": "कृती",
+          "edit": "{screen} संपादित करा",
+          "delete": "{screen} हटवा"
+        }
+      },
+
+      "form": {
+        "addTitle": "नवीन {screen} जोडा",
+        "editTitle": "{screen} संपादित करा",
+        "addSubtitle": "रूटिंग आणि परवानग्यांसह नवीन {screen} तयार करा",
+        "editSubtitle": "{screen} तपशील, रूटिंग आणि परवानग्या अपडेट करा",
+
+        "screenName": "स्क्रीनचे नाव",
+        "screenNamePlaceholder": "स्क्रीनचे नाव प्रविष्ट करा",
+        "screenCode": "स्क्रीन कोड",
+        "screenCodePlaceholder": "उदा. USER_MGMT",
+        "route": "रूट",
+        "routePlaceholder": "उदा. /users",
+        "screenGroup": "स्क्रीन गट",
+        "selectGroup": "गट निवडा",
+        "department": "विभाग",
+        "selectDepartment": "विभाग निवडा",
+        "selectDepartmentFirst": "प्रथम विभाग निवडा",
+        "module": "मॉड्यूल",
+        "selectModule": "मॉड्यूल निवडा",
+        "icon": "आयकॉन",
+        "description": "वर्णन",
+        "descriptionPlaceholder": "वर्णन प्रविष्ट करा",
+        "status": "स्थिती",
+        "isActive": "सक्रिय",
+        "isMenu": "मेनूमध्ये दाखवा",
+        "authRequired": "प्रमाणीकरण आवश्यक",
+        "requiresAuthentication": "प्रमाणीकरण आवश्यक आहे",
+
+        "sectionIdentity": "{screen} ओळख",
+        "sectionClassification": "वर्गीकरण आणि गटीकरण",
+        "sectionConfig": "{screen} कॉन्फिगरेशन",
+        "saveButton": "{screen} जतन करा",
+        "cancelButton": "रद्द करा",
+        "errors": {
+          "groupRequired": "{screenGroup} अनिवार्य आहे",
+          "departmentRequired": "{department} अनिवार्य आहे",
+          "routeRequired": "रूट मार्ग अनिवार्य आहे",
+          "duplicateName": "या नावाने असलेली एक {screen} आधीपासून अस्तित्वात आहे",
+          "duplicateCode": "या कोडने असलेली एक {screen} आधीपासून अस्तित्वात आहे",
+          "duplicateRoute": "या मार्गाने असलेली एक {screen} आधीपासून अस्तित्वात आहे",
+          "nameRequired": "{screen} नाव आवश्यक आहे",
+          "codeRequired": "{screen} कोड आवश्यक आहे",
+          "moduleRequired": "{module} आवश्यक आहे"
+        }
+      },
+
+      "messages": {
+        "createSuccess": "{screen} यशस्वीरित्या तयार केली",
+        "updateSuccess": "{screen} यशस्वीरित्या अपडेट केली",
+        "deleteSuccess": "{screen} यशस्वीरित्या हटविली",
+        "createError": "{screen} तयार करण्यात अयशस्वी",
+        "updateError": "{screen} अपडेट करण्यात अयशस्वी",
+        "deleteError": "{screen} हटविण्यात अयशस्वी",
+        "fetchModulesError": "ऑटो-असाइनमेंटसाठी {module} आणण्यात अयशस्वी",
+        "deleteConfirmTitle": "{screen} हटवा",
+        "deleteConfirmMessage": "तुम्हाला खात्री आहे की तुम्ही ही {screen} हटवू इच्छिता?"
+      }
+    },
+
+    "groups": {
+      "title": "{screenGroup}",
+      "addGroup": "{screenGroup} जोडा",
+      "editGroup": "{screenGroup} संपादित करा",
+      "deleteGroup": "{screenGroup} हटवा",
+      "addButton": "{screenGroup} जोडा",
+      "searchPlaceholder": "{screenGroup} शोधा...",
+      "noGroupsFound": "कोणतेही {screenGroup} सापडले नाहीत",
+
+      "table": {
+        "groupName": "गटाचे नाव",
+        "code": "कोड",
+        "description": "वर्णन",
+        "status": "स्थिती",
+        "actions": {
+          "label": "कृती",
+          "edit": "{screenGroup} संपादित करा",
+          "delete": "{screenGroup} हटवा"
+        },
+        "defaultDescription": "{screenGroup}"
+      },
+
+      "form": {
+        "addTitle": "नवीन {screenGroup} जोडा",
+        "editTitle": "{screenGroup} संपादित करा",
+        "addSubtitle": "{screen} व्यवस्थित करण्यासाठी नवीन {screenGroup} तयार करा",
+        "editSubtitle": "{screenGroup} तपशील अपडेट करा",
+
+        "groupName": "गटाचे नाव",
+        "groupNamePlaceholder": "गटाचे नाव प्रविष्ट करा",
+        "groupCode": "कोड",
+        "groupCodePlaceholder": "उदा., GRP_001",
+        "icon": "आयकॉन",
+        "status": "स्थिती",
+        "isActive": "सक्रिय",
+
+        "sectionIdentity": "{screenGroup} ओळख",
+        "sectionConfig": "{screenGroup} कॉन्फ़िगरेशन",
+        "saveButton": "{screenGroup} जतन करा",
+        "cancelButton": "रद्द करा",
+        "errors": {
+          "duplicateName": "या नावाने असलेला एक {screenGroup} आधीपासून अस्तित्वात आहे",
+          "duplicateCode": "या कोडने असलेला एक {screenGroup} आधीपासून अस्तित्वात आहे",
+          "nameRequired": "{screenGroup} नाव आवश्यक आहे",
+          "codeRequired": "{screenGroup} कोड आवश्यक आहे"
+        }
+      },
+
+      "messages": {
+        "createSuccess": "{screenGroup} यशस्वीरित्या तयार केला",
+        "updateSuccess": "{screenGroup} यशस्वीरित्या अपडेट केला",
+        "deleteSuccess": "{screenGroup} यशस्वीरित्या हटविला",
+        "createError": "{screenGroup} तयार करण्यात अयशस्वी",
+        "updateError": "{screenGroup} अपडेट करण्यात अयशस्वी",
+        "deleteError": "{screenGroup} हटविण्यात अयशस्वी",
+        "deleteConfirmTitle": "{screenGroup} हटवा",
+        "deleteConfirmMessage": "तुम्हाला खात्री आहे की तुम्ही हा {screenGroup} हटवू इच्छिता?"
+      }
+    }
+  },
+
+  "accessControl": {
+    "title": "{accessControl}",
+    "subtitle": "{role}-आधारित {screen} प्रवेश परवानग्या व्यवस्थापित करा",
+
+    "status": {
+      "pendingChanges": "({count}) प्रलंबित बदल"
+    },
+
+    "filters": {
+      "selectDept": "{department} निवडा",
+      "selectRole": "{role} निवडा",
+      "selectDepartment": "सर्व {department}",
+      "searchPlaceholder": "{screen} शोधा...",
+      "systemDepartment": "सिस्टम / अनअसाइंड"
+    },
+
+    "domains": {
+      "general": "सामान्य"
+    },
+
+    "roles": {
+      "superAdmin": "सुपर अॅडमिन",
+      "admin": "अॅडमिन",
+      "manager": "व्यवस्थापक",
+      "user": "वापरकर्ता",
+      "viewer": "दर्शक",
+      "noRolesFound": "कोणतीही {role} उपलब्ध नाही",
+      "apiWarning": "{role} एपीआय:",
+      "apiUnavailable": "{role} एंडपॉइंट अद्याप उपलब्ध नसू शकते. रिकाम्या सूचीचा वापर केला जात आहे।"
+    },
+
+    "accessLevels": {
+      "noAccess": "प्रवेश नाही",
+      "view": "केवळ पहा",
+      "edit": "संपादित करा",
+      "delete": "हटवा",
+      "full": "पूर्ण प्रवेश",
+
+      "descriptions": {
+        "noAccess": "लपलेले",
+        "view": "केवळ वाचनीय",
+        "edit": "बदल करा",
+        "delete": "हटवू शकता",
+        "full": "पूर्ण"
+      }
+    },
+
+    "table": {
+      "screen": "{screen}",
+      "accessLevel": "प्रवेश स्तर",
+      "permissions": "परवानग्या"
+    },
+
+    "actions": {
+      "setAll": "सर्व सेट करा",
+      "resetAll": "सर्व रीसेट करा",
+      "applyToAll": "सर्वांना लागू करा",
+      "save": "परवानग्या जतन करा",
+      "savePermissions": "परवानग्या जतन करा",
+      "saveSuccess": "{screen} परवानग्या यशस्वीरित्या जतन केल्या",
+      "saveError": "परवानग्या जतन करण्यात अयशस्वी",
+      "addScreens": "{screen} जोडा",
+      "addSelected": "निवडलेले जोडा"
+    },
+
+    "buttons": {
+      "saveChanges": "बदल जतन करा",
+      "cancelChanges": "रद्द करा"
+    },
+
+    "messages": {
+      "updateSuccess": "प्रवेश परवानग्या यशस्वीरित्या अपडेट केल्या",
+      "updateError": "प्रवेश परवानग्या अपडेट करण्यात अयशस्वी",
+      "bulkUpdateSuccess": "मोठ्या प्रमाणात परवानग्या यशस्वीरित्या अपडेट केल्या",
+      "bulkUpdateError": "मोठ्या प्रमाणात परवानग्या अपडेट करण्यात अयशस्वी",
+      "noScreensSelected": "कोणत्याही {screen} निवडल्या गेल्या नाहीत",
+      "screensAdded": "{count} {screen} यशस्वीरित्या जोडल्या",
+      "addScreensDescription": "या {role} मध्ये जोडण्यासाठी {screen} निवडा",
+      "screensSelected": "{screen} निवडल्या",
+      "availableScreens": "उपलब्ध {screen}",
+      "totalScreens": "एकूण {screen}",
+      "allScreensAssigned": "सर्व {screen} आधीच या {role} ला नियुक्त केल्या आहेत",
+      "alreadyAssigned": "आधीच नियुक्त",
+      "currentAccess": "सध्याचा प्रवेश",
+      "noScreensFound": "कोणत्याही {screen} सापडल्या नाहीत"
+    },
+    "labels": {
+      "screenCount": "{count, plural, =1 {# स्क्रीन} other {# स्क्रीन}}",
+      "noneCount": "काहीही नाही: {count}",
+      "fullCount": "पूर्ण: {count}",
+      "moduleInactive": "{module} निष्क्रिय",
+      "moduleInactiveHint": "हा {module} {department} सक्रियकरणात निष्क्रिय आहे. वापरकर्त्यांना या {screen} चा प्रभावी प्रवेश नाही, पण नियुक्त केलेल्या परवानग्या जतन केल्या आहेत आणि {module} पुन्हा सक्रिय केल्यावर पुन्हा लागू होतील.",
+      "assignedAccessPreserved": "नियुक्त: {level} ({module} निष्क्रिय असताना निलंबित)",
+      "storedPermissionHint": "साठवलेली परवानगी: {level}. {module} सक्रिय होईपर्यंत प्रभावी प्रवेश निलंबित आहे."
+    }
+  },
+
+  "filters": {
+    "allGroups": "सर्व {screenGroup}",
+    "allStatus": "सर्व स्थिती",
+    "active": "सक्रिय",
+    "inactive": "निष्क्रिय",
+    "search": "शोधा..."
+  },
+
+  "messages": {
+    "loadingScreens": "{screen} लोड होत आहेत...",
+    "loadingGroups": "{screenGroup} लोड होत आहेत...",
+    "loadingPermissions": "परवानग्या लोड होत आहेत...",
+    "savingChanges": "बदल जतन करत आहे...",
+    "saving": "जतन करत आहे...",
+    "noDataAvailable": "कोणताही डेटा उपलब्ध नाही",
+    "noChangesToSave": "जतन करण्यासाठी कोणतेही बदल नाहीत",
+    "errorOccurred": "एक त्रुटी आली"
+  },
+
+  "common": {
+    "cancel": "रद्द करा",
+    "save": "जतन करा",
+    "close": "बंद करा"
+  },
+
+  "departments": {
+    "system": "सिस्टम",
+    "common": "सामान्य",
+    "propertyTax": "मालमत्ता कर",
+    "waterTax": "पाणीपट्टी",
+    "tradeLicense": "व्यापार परवाना",
+    "buildingPlan": "इमारत योजना",
+    "birthDeath": "जन्म/मृत्यु प्रमाणपत्र",
+    "assetManagement": "मालमत्ता व्यवस्थापन"
+  },
+
+  "errors": {
+    "apiConnection": {
+      "title": "एपीआय कनेक्शन त्रुटी",
+      "description": "बॅकएंड एपीआयकडून डेटा मिळवणे शक्य नाही. कृपया खात्री करा:",
+      "checkBackendRunning": "बॅकएंड एपीआय चालू आहे",
+      "checkApiUrl": "एपीआय URL योग्यरीत्या कॉन्फिगर केले आहे (.env.local मधील NEXT_PUBLIC_API_BASE_URL तपासा)",
+      "checkApiAccessible": "एपीआय कॉन्फिगर केलेल्या पत्यावर उपलब्ध आहे",
+      "detailsTitle": "त्रुटी तपशील",
+      "fetchScreensFailed": "{screen} मिळवण्यात अयशस्वी",
+      "fetchScreenFailed": "{screen} मिळवण्यात अयशस्वी",
+      "createScreenFailed": "{screen} तयार करण्यात अयशस्वी",
+      "updateScreenFailed": "{screen} अपडेट करण्यात अयशस्वी",
+      "deleteScreenFailed": "{screen} हटवण्यात अयशस्वी",
+      "noDataReceived": "सर्व्हरकडून कोणताही डेटा प्राप्त झाला नाही",
+      "invalidResponseFormat": "अवैध प्रतिसाद स्वरूप",
+      "fetchDepartmentsFailed": "{department} मिळवण्यात अयशस्वी",
+      "fetchModulesFailed": "{module} मिळवण्यात अयशस्वी",
+      "unexpectedFormat": "सर्व्हरकडून अनपेक्षित डेटा स्वरूप प्राप्त झाले"
+    }
+  },
+  "errorPage": {
+    "title": "काहीतरी चूक झाली",
+    "description": "{screen} व्यवस्थापित करताना आम्हाला अनपेक्षित त्रुटी आली. कृपया पुन्हा प्रयत्न करा किंवा डॅशबोर्डवर परत जा.",
+    "reloadPage": "पृष्ठ पुन्हा लोड करा",
+    "tryAgain": "पुन्हा प्रयत्न करा",
+    "goHome": "डॅशबोर्डवर परत जा",
+    "errorId": "त्रुटी ID: {id}",
+    "generic": "एक अनपेक्षित त्रुटी आली"
+  }
+}

@@ -1,0 +1,72 @@
+.leaflet-container,
+.leaflet-container:focus,
+.leaflet-container:focus-visible,
+.leaflet-container *:focus,
+.leaflet-container *:focus-visible,
+.leaflet-interactive,
+.leaflet-interactive:focus,
+.leaflet-interactive:focus-visible,
+path.leaflet-interactive,
+path.leaflet-interactive:focus,
+path.leaflet-interactive:focus-visible,
+svg.leaflet-zoom-animated,
+svg.leaflet-zoom-animated:focus,
+svg.leaflet-zoom-animated:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.ward-tooltip-clean {
+  background: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(203, 213, 225, 0.9) !important;
+  color: #0f172a !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  padding: 4px 8px !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.16) !important;
+}
+.ward-tooltip-clean::before {
+  border-top-color: #ffffff !important;
+}
+
+/* ── AMC Radar Blinking Beacon Animations & Styling ── */
+@keyframes amcRadarPing {
+  0% {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0.9;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.6);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.0);
+    opacity: 0;
+  }
+}
+
+.amc-red-beacon-wrapper:hover .amc-beacon-core {
+  transform: scale(1.22);
+}
+
+.amc-beacon-core {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.amc-leaflet-tooltip {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
+  border-radius: 12px !important;
+  padding: 8px 12px !important;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.35), 0 10px 10px rgba(15, 23, 42, 0.22) !important;
+  opacity: 1 !important;
+}
+.amc-leaflet-tooltip::before {
+  border-top-color: #ffffff !important;
+}
+

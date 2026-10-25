@@ -1,0 +1,249 @@
+{
+    "aliasFallback": {
+        "ward": "वार्ड",
+        "wards": "वार्ड्स",
+        "division": "प्रभाग",
+        "category": "श्रेणी",
+        "propertyNo": "संपत्ति क्र.",
+        "user": "उपयोगकर्ता"
+    },
+    "propertyMediaHeader": {
+        "propertyMediaHeaderTitle": "फ़ोटो, योजनाएं और दस्तावेज़",
+        "uploadDownload": "अपलोड / डाउनलोड",
+        "auditTrail": "ऑडिट ट्रेल"
+    },
+    "summaryCards": {
+        "totalProperties": "कुल संपत्तियां",
+        "buildingPhotoAvailable": "भवन की फ़ोटो उपलब्ध",
+        "buildingPlanAvailable": "भवन योजना उपलब्ध",
+        "surveyFormAvailable": "सर्वेक्षण प्रपत्र उपलब्ध",
+        "structures": "संरचनाएं",
+        "units": "इकाइयां"
+    },
+    "gapAnalysis": {
+        "header": {
+            "title": "गैप विश्लेषण",
+            "filter": "फ़िल्टर",
+            "excel": "एक्सेल",
+            "pdf": "पीडीएफ"
+        },
+        "summaryCards": {
+            "buildingPhotoMissing": "भवन की फ़ोटो अनुपलब्ध",
+            "buildingPlanMissing": "भवन योजना अनुपलब्ध",
+            "surveyFormMissing": "सर्वेक्षण प्रपत्र अनुपलब्ध",
+            "applicable": "लागू",
+            "available": "उपलब्ध",
+            "missing": "अनुपलब्ध"
+        },
+        "categories": {
+            "photo": "फ़ोटो",
+            "plan": "योजना",
+            "document": "दस्तावेज़"
+        }
+    },
+    "detailedCoverageHeader": {
+        "title": "विस्तृत कवरेज",
+        "allItems": "सभी मदें",
+        "showAll": "सभी दिखाएं",
+        "view": "देखें",
+        "horizontal": "क्षैतिज",
+        "vertical": "लंबवत",
+        "searchPlaceholder": "खोजें..."
+    },
+    "detailedCoverageTable": {
+        "columns": {
+            "category": "श्रेणी",
+            "typeSubtype": "प्रकार / उपप्रकार",
+            "requirement": "आवश्यकता",
+            "applicable": "लागू",
+            "available": "उपलब्ध",
+            "missing": "अनुपलब्ध",
+            "coverage": "कवरेज",
+            "action": "कार्रवाई"
+        },
+        "buttons": {
+            "view": "देखें"
+        }
+    },
+    "propertyMediaViewDrawer": {
+        "title": "भवन फ़ोटो — गैप संपत्ति सूची",
+        "subtitle": "चयनित रिकॉर्ड से वंचित संपत्तियां",
+        "filter": "फ़िल्टर",
+        "excel": "एक्सेल",
+        "pdf": "पीडीएफ",
+        "workflowStageLabel": "कार्यप्रवाह चरण",
+        "divisionLabel": "प्रभाग",
+        "wardLabel": "वार्ड",
+        "propertyTypeLabel": "संपत्ति प्रकार",
+        "search": "खोजें",
+        "searchPlaceholder": "संपत्ति / मालिक",
+        "placeholders": {
+            "selectStage": "चरण चुनें",
+            "selectDivision": "प्रभाग चुनें",
+            "selectWard": "वार्ड चुनें",
+            "selectPropertyType": "संपत्ति प्रकार चुनें",
+            "loading": "लोड हो रहा है..."
+        },
+        "summary": {
+            "gapRecords": "गैप रिकॉर्ड्स",
+            "division": "प्रभाग",
+            "ward": "वार्ड",
+            "propertyType": "संपत्ति प्रकार",
+            "all": "सभी"
+        },
+        "table": {
+            "propertyNumber": "संपत्ति संख्या",
+            "division": "प्रभाग",
+            "ward": "वार्ड",
+            "ownerName": "मालिक का नाम",
+            "propertyType": "संपत्ति प्रकार",
+            "missingType": "अनुपलब्ध प्रकार",
+            "workflowStatus": "कार्यप्रवाह स्थिति",
+            "lastUpdatedDate": "अंतिम अद्यतन दिनांक",
+            "noRecords": "कोई रिकॉर्ड नहीं मिला"
+        }
+    },
+    "uploadDownloadDrawer": {
+        "title": "अपलोड / डाउनलोड",
+        "uploadTab": "अपलोड",
+        "downloadTab": "डाउनलोड",
+        "uploadButton": "अपलोड करें",
+        "downloadButton": "डाउनलोड करें",
+        "confirmUploadTitle": "प्रॉपर्टी मीडिया अपलोड करें",
+        "confirmUploadDescription": "क्या आप वाकई मीडिया फ़ाइलें अपलोड करना चाहते हैं?",
+        "chooseWhatToUpload": "क्या अपलोड करना है चुनें",
+        "chooseWhatToDownload": "क्या डाउनलोड करना है चुनें",
+        "categoryLabel": "श्रेणी",
+        "categoryPlaceholder": "श्रेणी चुनें",
+        "subCategoryPlaceholder": "उप-श्रेणी चुनें",
+        "documentTypeLabel": "दस्तावेज़ का प्रकार",
+        "photoSubtypeLabel": "फ़ोटो का उपप्रकार",
+        "planTypeLabel": "योजना का प्रकार",
+        "downloadContentLabel": "डाउनलोड सामग्री",
+        "downloadContentPlaceholder": "डाउनलोड सामग्री चुनें",
+        "packageLabel": "पैकेज",
+        "packagePlaceholder": "पैकेज चुनें",
+        "autoMapNotePrefix": "स्वचालित मानचित्रण:",
+        "autoMapNoteText": "पुनर्नामित फ़ाइल नामों से {propertyNo} पढ़ा जाता है।",
+        "browse": "ब्राउज़ करें",
+        "noFilesSelected": "कोई फ़ाइल नहीं चुना गया",
+        "filesSelected": "{count} फ़ाइलें चुनी गईं",
+        "documentTypeNotePrefix": "दस्तावेज़ का प्रकार:",
+        "documentTypeNoteText": "चयन चुनी गई संपत्ति के दायरे पर लागू होता है।",
+        "propertyFilter": {
+            "title": "संपत्ति फ़िल्टर",
+            "optional": "वैकल्पिक",
+            "filter": "फ़िल्टर",
+            "filterActive": "फ़िल्टर सक्रिय",
+            "noFilter": "कोई फ़िल्टर नहीं",
+            "divisionLabel": "प्रभाग",
+            "divisionPlaceholder": "प्रभाग चुनें",
+            "divisionFirstPlaceholder": "पहले प्रभाग चुनें",
+            "wardLabel": "वार्ड",
+            "wardPlaceholder": "वार्ड चुनें",
+            "propertyFromLabel": "{propertyNo} से",
+            "propertyToLabel": "{propertyNo} तक",
+            "propertyFromFirstPlaceholder": "पहले संपत्ति क्र. से चुनें",
+            "loading": "लोड हो रहा है...",
+            "sameFromToScope": "समान से और तक = एकल संपत्ति का दायरा।"
+        },
+        "totalMatchedRecords": "कुल मिलान किए गए रिकॉर्ड",
+        "totalUnmatchedRecords": "कुल बेमेल रिकॉर्ड",
+        "matched": "मिलान",
+        "unmatched": "बेमेल",
+        "uploadCountLabel": "अपलोड गणना",
+        "uploadCountPlaceholder": "अपलोड गणना दर्ज करें",
+        "selectFilesServerTitle": "सर्वर से फ़ाइलें चुनें",
+        "selectFilesServerSubtitle": "सर्वर पर उपलब्ध मौजूदा फ़ाइलें चुनें और उन्हें अपलोड करें।",
+        "selectFilesDeviceTitle": "अपने डिवाइस से फ़ाइलें चुनें",
+        "selectFilesDeviceSubtitle": "अपलोड करने से पहले पूर्वावलोकन और मिलान के लिए अपने स्थानीय स्टोरेज से फ़ाइलें चुनें।",
+        "fromDeviceTab": "अपने डिवाइस से",
+        "fromServerTab": "सर्वर से",
+        "localUploadButton": "लोड करें",
+        "noFilesSelectedError": "कृपया अपलोड करने के लिए कम से कम एक फ़ाइल चुनें",
+        "filesUploadedSuccessfully": "{count} फ़ाइलें सफलतापूर्वक अपलोड की गईं",
+        "filesMatchedSummary": "{total} में से {matched} फ़ाइल(एं) मेल खाईं",
+        "table": {
+            "columns": {
+                "fileName": "फ़ाइल का नाम",
+                "propertyDetails": "संपत्ति विवरण",
+                "matchStatus": "मिलान स्थिति"
+            }
+        },
+        "validation": {
+            "categoryRequired": "कृपया एक श्रेणी चुनें",
+            "subCategoryRequired": "कृपया एक उप-श्रेणी चुनें",
+            "uploadCountRequired": "कृपया अपलोड गणना दर्ज करें",
+            "uploadCountNumeric": "अपलोड गणना एक मान्य संख्या होनी चाहिए और 0 से प्रारंभ नहीं हो सकती",
+            "uploadCountMin": "अपलोड गणना कम से कम {min} होनी चाहिए",
+            "uploadCountMax": "अपलोड गणना {max} से अधिक नहीं हो सकती",
+            "downloadContentRequired": "कृपया डाउनलोड सामग्री चुनें",
+            "packageRequired": "कृपया एक पैकेज चुनें",
+            "photoTypeAndCategoryRequired": "छवियों को डाउनलोड करने के लिए फ़ोटो प्रकार और श्रेणी आवश्यक हैं।",
+            "maxFilesExceeded": "आप 10 से अधिक फ़ाइलें नहीं चुन सकते",
+            "maxFileSizeExceeded": "कुल फ़ाइल का आकार 20MB से कम होना चाहिए"
+        },
+        "success": {
+            "uploaded": "फ़ाइलें सफलतापूर्वक अपलोड की गईं",
+            "uploadInProgress": "अपलोड प्रगति पर है। फाइलों के प्रोसेस होने तक कृपया प्रतीक्षा करें...",
+            "downloadStarted": "डाउनलोड सफलतापूर्वक प्रारंभ हुआ",
+            "downloadCompleted": "मीडिया फ़ाइलें सफलतापूर्वक डाउनलोड हो गईं"
+        },
+        "status": {
+            "completed": "अपलोड कार्य {jobCode} सफलतापूर्वक पूर्ण हुआ!",
+            "failed": "अपलोड कार्य {jobCode} विफल रहा। कृपया गतिविधि लॉग जांचें।",
+            "cancelled": "अपलोड कार्य {jobCode} रद्द कर दिया गया था।",
+            "timeout": "अपलोड कार्य {jobCode} में अपेक्षा से अधिक समय लग रहा है। कृपया गतिविधि लॉग जांचें।",
+            "statusCheckFailed": "अपलोड कार्य स्थिति सत्यापित करने में असमर्थ। कृपया गतिविधि लॉग जांचें।"
+        },
+        "apiErrors": {
+            "duplicateMedia": "डुप्लिकेट फ़ाइल या मीडिया पहले से मौजूद है",
+            "notFound": "अनुरोधित मीडिया नहीं मिला",
+            "operationFailed": "कार्रवाई विफल रही। कृपया पुनः प्रयास करें।",
+            "invalidPhotoType": "मान्य फ़ोटो प्रकार आवश्यक है",
+            "invalidUploadCount": "मान्य अपलोड गणना आवश्यक है",
+            "failedToExecute": "स्थानीय मीडिया आयात निष्पादित करने में विफल",
+            "payloadTooLarge": "कुल फ़ाइल का आकार बहुत बड़ा है।",
+            "uploadInterruptedOrTooLarge": "कुल फ़ाइल का आकार बहुत बड़ा है या कनेक्शन बाधित हो गया था।",
+            "noImagesFound": "चयनित मानदंडों से मेल खाने वाली कोई छवियां नहीं मिलीं। कृपया अपने फ़िल्टर समायोजित करें और पुन: प्रयास करें।",
+            "storageFilesMissing": "{count} छवि रिकॉर्ड मिले, लेकिन स्टोरेज से भौतिक फ़ाइलें प्राप्त नहीं की जा सकीं। कृपया व्यवस्थापक से संपर्क करें।",
+            "storageFilesMissingGeneric": "छवि रिकॉर्ड मौजूद हैं, लेकिन स्टोरेज से भौतिक फ़ाइलें प्राप्त नहीं की जा सकीं। कृपया व्यवस्थापक से संपर्क करें।",
+            "downloadFailed": "छवि संग्रह डाउनलोड करने में विफल। कृपया पुनः प्रयास करें।"
+        }
+    },
+    "auditTrailDrawer": {
+        "title": "ऑडिट ट्रेल",
+        "excel": "एक्सेल",
+        "pdf": "पीडीएफ",
+        "table": {
+            "columns": {
+                "dateTime": "दिनांक और समय",
+                "user": "उपयोगकर्ता",
+                "action": "कार्रवाई",
+                "category": "श्रेणी",
+                "result": "परिणाम"
+            },
+            "uploaded": "अपलोड किया गया",
+            "uploadedCount": "{count} अपलोड किए गए",
+            "noRecords": "कोई रिकॉर्ड नहीं मिला"
+        }
+    },
+    "error": {
+        "title": "सर्वर से कनेक्ट करने में विफल। कृपया बाद में पुन: प्रयास करें।",
+        "description": "प्रॉपर्टी मीडिया पेज लोड करते समय हमें एक त्रुटि का सामना करना पड़ा। कृपया पुन: प्रयास करें।",
+        "tryAgain": "पुन: प्रयास करें",
+        "goHome": "होम पर जाएं",
+        "errorId": "त्रुटि आईडी: {id}"
+    },
+    "loading": {
+        "message": "प्रॉपर्टी मीडिया लोड हो रहा है...",
+        "description": "कृपया प्रतीक्षा करें जब तक हम प्रॉपर्टी मीडिया डेटा प्राप्त कर रहे हैं"
+    },
+    "export": {
+        "excelStarted": "एक्सेल निर्यात हो रहा है, कृपया प्रतीक्षा करें...",
+        "pdfStarted": "पीडीएफ निर्यात हो रहा है, कृपया प्रतीक्षा करें...",
+        "excelSuccess": "एक्सेल सफलतापूर्वक डाउनलोड हो गया",
+        "pdfSuccess": "पीडीएफ सफलतापूर्वक डाउनलोड हो गया",
+        "failed": "फ़ाइल निर्यात करने में विफल। कृपया पुनः प्रयास करें।"
+    }
+}

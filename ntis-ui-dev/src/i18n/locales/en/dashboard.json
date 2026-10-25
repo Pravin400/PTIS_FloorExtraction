@@ -1,0 +1,27 @@
+{
+  "title": "Dashboard",
+  "subtitle": "Overview of operations and real-time status",
+  "stats": {
+    "totalRoutes": "Total Routes",
+    "activeVehicles": "Active Vehicles",
+    "activeRoutes": "Active Routes",
+    "delayed": "Delayed"
+  },
+  "table": {
+    "columns": {
+      "route": "Route",
+      "status": "Status",
+      "vehicles": "Vehicles",
+      "lastUpdate": "Last Update",
+      "actions": "Actions"
+    },
+    "title": "Routes"
+  },
+  "form": {
+    "title": "Add New Route",
+    "routeName": "Route Name",
+    "routePlaceholder": "e.g., North Route E",
+    "statusLabel": "Status",
+    "vehiclesLabel": "Number of Vehicles"
+  }
+}

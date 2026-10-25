@@ -1,0 +1,107 @@
+{
+  "list": {
+    "title": "पदनाम मास्टर",
+    "subtitle": "विभागांसाठी पदनाम व्यवस्थापित करा",
+    "buttons": {
+      "add": "पदनाम जोडा"
+    },
+    "filters": {
+      "search": "पदनाम कोड किंवा नावाद्वारे शोधा..."
+    },
+    "table": {
+      "designationCode": "पदनाम कोड",
+      "designationName": "पदनाम नाव",
+      "designationLocal": "पदनाम नाव (प्रादेशिक)",
+      "owningDepartment": "विभाग",
+      "description": "वर्णन",
+      "status": "स्थिती"
+    }
+  },
+  "form": {
+    "addTitle": "पदनाम जोडा",
+    "editTitle": "पदनाम संपादित करा",
+    "subtitle": "नवीन पदनाम तयार करा",
+    "editSubtitle": "पदनाम तपशीलवार अपडेट करा",
+    "fields": {
+      "designationCode": {
+        "label": "पदनाम कोड",
+        "placeholder": "उदा. ENG_DIR"
+      },
+      "designationName": {
+        "label": "पदनाम नाव",
+        "placeholder": "उदा. अभियांत्रिकी संचालक"
+      },
+      "designationLocal": {
+        "label": "पदनाम नाव (प्रादेशिक)",
+        "placeholder": "उदा. अभियांत्रिकी संचालक"
+      },
+      "designationDescription": {
+        "label": "वर्णन",
+        "placeholder": "उदा. विभाग कामकाजाचे नेतृत्व"
+      },
+      "owningDepartmentId": {
+        "label": "विभाग",
+        "placeholder": "विभाग निवडा"
+      }
+    },
+    "status": {
+      "label": "सक्रिय स्थिती",
+      "description": "पदनाम सध्या आहे"
+    },
+    "actions": {
+      "cancel": "रद्द करा",
+      "save": "जतन करा",
+      "update": "अपडेट करा"
+    },
+    "validation": {
+      "designationCodeRequired": "पदनाम कोड आवश्यक आहे",
+      "designationCodeMaxLength": "जास्तीत जास्त लांबी {count} अक्षरे असावी",
+      "designationCodeFormat": "केवळ अक्षरे, अंक आणि अंडरस्कोरची परवानगी आहे",
+      "designationNameRequired": "पदनाम नाव आवश्यक आहे",
+      "designationNameMaxLength": "जास्तीत जास्त लांबी १०० अक्षरे असावी",
+      "designationNameFormat": "अवैध नाव स्वरूप",
+      "designationLocalRequired": "प्रादेशिक पदनाम नाव आवश्यक आहे",
+      "designationLocalMaxLength": "जास्तीत जास्त लांबी १०० अक्षरे असावी",
+      "owningDepartmentRequired": "विभाग आवश्यक आहे",
+      "mustBeActive": "जतन करण्यासाठी पदनाम सक्रिय असणे आवश्यक आहे",
+      "descriptionMaxLength": "जास्तीत जास्त लांबी {count} अक्षरे असावी",
+      "descriptionFormat": "अवैध वर्णन स्वरूप",
+      "invalidFormat": "अवैध स्वरूप"
+    }
+  },
+  "delete": {
+    "confirmDescription": "आपण नक्की हे पदनाम रेकॉर्ड डिलीट करू इच्छिता?"
+  },
+  "apiErrors": {
+    "duplicateRecord": "डेसिग्नेशन कोड किंवा नाव आधीपासून अस्तित्वात आहे. कृपया तपासा आणि पुन्हा प्रयत्न करा.",
+    "A record with the same details already exists": "समान तपशीलांचे रेकॉर्ड आधीपासूनच अस्तित्वात आहे.",
+    "notFound": "पदनाम आढळला नाही.",
+    "inUse": "हे पदनाम निष्क्रिय/डिलीट करता येत नाही कारण ते इतर रेकॉर्डमध्ये वापरले गेले आहे.",
+    "invalidData": "अवैध डेटा प्रदान केला आहे. कृपया सर्व फील्ड तपासा.",
+    "operationFailed": "ऑपरेशन यशस्वी झाले नाही. कृपया नंतर पुन्हा प्रयत्न करा.",
+    "referenceBlocked": {
+      "designation": {
+        "deleteInUse": "हे पदनाम वापरात असल्यामुळे डिलीट करता येत नाही.",
+        "deactivateInUse": "हे पदनाम वापरात असल्यामुळे निष्क्रिय करता येत नाही."
+      }
+    }
+  },
+  "success": {
+    "created": "नवीन पदनाम यशस्वीरित्या तयार केले: {code}",
+    "updated": "पदनाम यशस्वीरित्या अपडेट केले: {code}",
+    "deleted": "पदनाम यशस्वीरित्या डिलीट केले: {code}"
+  },
+  "yes": "होय",
+  "no": "नाही",
+  "loading": {
+    "message": "पदनाम डेटा लोड होत आहे...",
+    "description": "कृपया पदनाम माहिती लोड होईपर्यंत प्रतीक्षा करा"
+  },
+  "error": {
+    "title": "पदनाम डेटा लोड करण्यात अक्षम",
+    "description": "पदनाम माहिती लोड करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+    "errorId": "त्रुटी आयडी: {id}",
+    "goHome": "मुख्यपृष्ठावर जा",
+    "tryAgain": "पुन्हा प्रयत्न करा"
+  }
+}

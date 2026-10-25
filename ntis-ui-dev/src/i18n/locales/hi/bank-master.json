@@ -1,0 +1,127 @@
+{
+  "aliasFallback": {
+    "bank": "बैंक",
+    "bankCode": "बैंक कोड",
+    "bankName": "बैंक का नाम",
+    "branchName": "शाखा का नाम",
+    "ifscCode": "IFSC कोड",
+    "streetAddress": "सड़क का पता",
+    "city": "शहर",
+    "state": "राज्य",
+    "pincode": "पिनकोड"
+  },
+  "title": "{bank} मास्टर",
+  "subtitle": "{bank} और शाखा विवरण प्रबंधित करें",
+  "addBank": "{bank} जोड़ें",
+  "stats": {
+    "totalBanks": "कुल {bank}",
+    "active": "सक्रिय",
+    "states": "{state}"
+  },
+  "filters": {
+    "allStates": "सभी राज्य",
+    "statePlaceholder": "राज्य द्वारा फ़िल्टर करें",
+    "searchPlaceholder": "बैंक के नाम से खोजें..."
+  },
+  "table": {
+    "code": "कोड",
+    "bankBranch": "बैंक और शाखा",
+    "ifscCode": "IFSC कोड",
+    "location": "स्थान",
+    "status": "स्थिति"
+  },
+  "aria": {
+    "editBank": "{name} संपादित करें",
+    "deleteBank": "{name} हटाएं"
+  },
+  "drawer": {
+    "addTitle": "नया {bank} जोड़ें",
+    "editTitle": "{bank} विवरण संपादित करें",
+    "subtitle": "{bank} विवरण कॉन्फ़िगर करने के लिए आवश्यक जानकारी भरें",
+    "sections": {
+      "basicDetails": "{bank} बुनियादी विवरण",
+      "addressDetails": "शाखा का पता विवरण"
+    },
+    "labels": {
+      "bankCode": "बैंक कोड",
+      "bankName": "बैंक का नाम",
+      "ifscCode": "IFSC कोड",
+      "branchName": "शाखा का नाम",
+      "streetAddress": "सड़क का पता",
+      "city": "शहर",
+      "state": "राज्य",
+      "pincode": "पिनकोड",
+      "status": "स्थिति"
+    },
+    "placeholders": {
+      "bankCode": "जैसे, SBI001",
+      "bankName": "जैसे, स्टेट बैंक ऑफ इंडिया",
+      "ifscCode": "जैसे, SBIN0000001",
+      "branchName": "जैसे, मुख्य शाखा, सिटी सेंटर शाखा",
+      "streetAddress": "इमारत/सड़क के विवरण के साथ पूरा शाखा का पता दर्ज करें",
+      "city": "जैसे, शहर का नाम",
+      "state": "जैसे, राज्य का नाम",
+      "pincode": "जैसे, 400001"
+    },
+    "footer": {
+      "adding": "नया {bank} जोड़ रहा है",
+      "editing": "संपादन: {bankName}"
+    },
+    "buttons": {
+      "save": "{bank} सहेजें",
+      "update": "{bank} अपडेट करें"
+    }
+  },
+  "messages": {
+    "createSuccess": "{bank} सफलतापूर्वक बनाया गया",
+    "createFailed": "{bank} बनाने में विफल",
+    "updateSuccess": "{bank} सफलतापूर्वक अपडेट किया गया",
+    "updateFailed": "{bank} अपडेट करने में विफल",
+    "deleteSuccess": "{bank} सफलतापूर्वक हटाया गया",
+    "deleteFailed": "{bank} हटाने में विफल",
+    "fetchFailed": "{bank} डेटा प्राप्त करने में विफल",
+    "errorOccurred": "एक अप्रत्याशित त्रुटि हुई",
+    "networkError": "नेटवर्क त्रुटि — कृपया अपना कनेक्शन जांचें और पुनः प्रयास करें",
+    "searchResult": "{count} रिकॉर्ड \"{term}\" से मिलान करते हुए मिले",
+    "validationError": "कृपया फॉर्म में त्रुटियों को ठीक करें",
+    "unauthorizedToken": "अनधिकृत: टोकन समाप्त हो गया है या अमान्य है"
+  },
+  "confirm": {
+    "deleteTitle": "{bank} हटाएं ({bankName})?",
+    "deleteDescription": "क्या आप वाकई इस {bank} रिकॉर्ड को हटाना चाहते हैं? यह क्रिया पूर्ववत नहीं की जा सकती।"
+  },
+  "validation": {
+    "bankCodeRequired": "बैंक कोड आवश्यक है",
+    "bankNameRequired": "बैंक का नाम आवश्यक है",
+    "ifscRequired": "IFSC कोड आवश्यक है",
+    "ifscFormat": "अमान्य IFSC प्रारूप (जैसे, SBIN0000001)",
+    "branchRequired": "शाखा का नाम आवश्यक है",
+    "addressRequired": "सड़क का पता आवश्यक है",
+    "addressFormat": "सड़क के पते में अमान्य विशेष वर्ण हैं",
+    "cityRequired": "शहर आवश्यक है",
+    "stateRequired": "राज्य आवश्यक है",
+    "pincodeRequired": "पिनकोड आवश्यक है",
+    "pincodeFormat": "अमान्य पिनकोड",
+    "bankCodeLength": "बैंक कोड {count} वर्णों से अधिक नहीं हो सकता",
+    "bankNameLength": "बैंक का नाम {count} वर्णों से अधिक नहीं हो सकता",
+    "branchNameLength": "शाखा का नाम {count} वर्णों से अधिक नहीं हो सकता",
+    "addressLength": "पता {count} वर्णों से अधिक नहीं हो सकता",
+    "cityLength": "शहर {count} वर्णों से अधिक नहीं हो सकता",
+    "stateLength": "राज्य {count} वर्णों से अधिक नहीं हो सकता",
+    "bankCodeExists": "बैंक कोड पहले से मौजूद है",
+    "bankNameExists": "बैंक का नाम पहले से मौजूद है",
+    "ifscCodeExists": "IFSC कोड पहले से मौजूद है",
+    "bankMismatch": "बैंक कोड, बैंक का नाम और IFSC कोड मेल नहीं खाते हैं"
+  },
+  "error": {
+    "title": "कुछ गलत हो गया",
+    "description": "बैंक मास्टर पेज लोड करते समय हमें एक त्रुटि मिली। कृपया पुनः प्रयास करें।",
+    "tryAgain": "पुनः प्रयास करें",
+    "goHome": "होम पर जाएं",
+    "errorId": "त्रुटि ID: {id}"
+  },
+  "loading": {
+    "message": "बैंक मास्टर लोड हो रहा है...",
+    "description": "कृपया प्रतीक्षा करें जब तक हम बैंक मास्टर डेटा प्राप्त करते हैं"
+  }
+}

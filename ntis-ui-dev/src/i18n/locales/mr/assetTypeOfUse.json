@@ -1,0 +1,222 @@
+{
+  "noDataFound": "डेटा सापडला नाही",
+  "title": "वापर प्रकार मास्टर",
+  "seq": "अनुक्रम",
+  "selectIcon": "चिन्ह निवडा",
+  "residential": "निवासी",
+  "commercial": "व्यावसायिक",
+  "industrial": "औद्योगिक",
+  "nontaxable": "करमुक्त",
+  "subtitle": "वापर गट, प्रकार आणि उप-प्रकार कॉन्फिगर करा",
+  "errors": {
+    "typeOfUseCodeRequired": "वापर प्रकार कोड आवश्यक आहे",
+    "typeOfUseCodeMaxLength": "वापर प्रकार कोडची कमाल लांबी १० अक्षरे आहे",
+    "typeOfUseCodeFormat": "अवैध कोड स्वरूप",
+    "groupCodeRequired": "गट कोड आवश्यक आहे",
+    "groupCodeMaxLength": "कमाल १० अक्षरांना अनुमती आहे",
+    "groupCodeFormat": "अवैध कोड स्वरूप",
+    "groupNameRequired": "गटाचे नाव आवश्यक आहे",
+    "groupNameMaxLength": "कमाल ५० अक्षरांना अनुमती आहे",
+    "groupNameFormat": "अवैध नाव स्वरूप",
+    "descriptionMaxLength": "वर्णनाची कमाल लांबी १०० अक्षरे आहे",
+    "descriptionFormat": "अवैध वर्णन स्वरूप",
+    "unauthorized": "अनधिकृत",
+    "deleteError": "गट हटविण्यात अयशस्वी",
+    "fixErrors": "कृपया प्रमाणीकरण त्रुटी दुरुस्त करा",
+    "mustBeActive": "जतन करण्यासाठी सक्रिय असणे आवश्यक आहे",
+    "groupIconRequired": "गट चिन्ह आवश्यक आहे",
+    "subTypeNameFormat": "अवैध उप-प्रकार नाव स्वरूप"
+  },
+  "apiErrors": {
+    "duplicateRecord": "रेकॉर्ड आधीपासून अस्तित्वात आहे",
+    "A record with the same details already exists": "समान तपशीलांचे रेकॉर्ड आधीपासूनच अस्तित्वात आहे.",
+    "AssetTypeOfUse_TypeOfUseCode_Duplicate": "वापर प्रकार कोड आधीपासूनच अस्तित्वात आहे",
+    "AssetTypeOfUse_Description_Duplicate": "वापर प्रकाराचे नाव आधीपासूनच अस्तित्वात आहे",
+    "AssetTypeOfUse_TypeOfUseCode_MaxLength": "वापर प्रकार कोडची कमाल लांबी १० अक्षरे आहे",
+    "AssetSubTypeOfUse_Description_Duplicate": "उप-प्रकार वर्णन आधीपासूनच अस्तित्वात आहे",
+    "AssetTypeOfUseGroup_GroupCode_Duplicate": "गट कोड आधीपासूनच अस्तित्वात आहे",
+    "AssetTypeOfUseGroup_GroupName_Duplicate": "गटाचे नाव आधीपासूनच अस्तित्वात आहे",
+    "notFound": "रेकॉर्ड सापडला नाही",
+    "operationFailed": "क्रिया अयशस्वी झाली",
+    "TypeOfUseGroup_Code_Required": "गट कोड आवश्यक आहे",
+    "TypeOfUseGroup_Code_MaxLen_10": "गट कोडची कमाल लांबी १० अक्षरे आहे",
+    "TypeOfUseGroup_GroupName_Required": "गटाचे नाव आवश्यक आहे",
+    "TypeOfUseGroup_GroupName_MaxLen_50": "गटाच्या नावाची कमाल लांबी ५० अक्षरे आहे",
+    "TypeOfUseGroup_GroupIcon_Required": "गट चिन्ह आवश्यक आहे",
+    "TypeOfUseGroup_GroupIcon_MaxLen_50": "गट चिन्हाची कमाल लांबी ५० अक्षरे आहे",
+    "AssetTypeOfUse_AssetCategoryId_Required": "मालमत्ता वर्ग आवश्यक आहे",
+    "AssetTypeOfUse_AssetTypeId_Required": "मालमत्ता प्रकार आवश्यक आहे",
+    "AssetTypeOfUse_TypeOfUseGroupId_Required": "गट आवश्यक आहे",
+    "AssetTypeOfUse_TypeOfUseCode_Required": "वापर प्रकार कोड आवश्यक आहे",
+    "AssetTypeOfUse_TypeOfUseCode_MaxLen_10": "वापर प्रकार कोडची कमाल लांबी १० अक्षरे आहे",
+    "AssetTypeOfUse_Description_Required": "वापर प्रकाराचे नाव आवश्यक आहे",
+    "AssetTypeOfUse_Description_MaxLen_100": "वापर प्रकाराच्या नावाची कमाल लांबी १०० अक्षरे आहे",
+    "AssetSubTypeOfUse_TypeOfUseId_Required": "वापर प्रकार आवश्यक आहे",
+    "AssetSubTypeOfUse_Description_Required": "उप-प्रकार वर्णन आवश्यक आहे",
+    "AssetSubTypeOfUse_Description_MaxLen_100": "उप-प्रकार वर्णनाची कमाल लांबी १०० अक्षरे आहे",
+    "inUse": "इतर तक्त्यांमध्ये वापरलेले असल्याने हा रेकॉर्ड डिलीट करता येत नाही.",
+    "referenceBlocked": {
+      "typeOfUseGroup": {
+        "deleteInUse": "हा वापर गट वापरात असल्याने डिलीट करता येत नाही.",
+        "deactivateInUse": "हा वापर गट वापरात असल्याने निष्क्रिय करता येत नाही.",
+        "deleteHasMasters": "हा वापर गट डिलीट करता येत नाही कारण त्यामध्ये {masters} आहेत. कृपया प्रथम या वापर गट चे सर्व {masters} डिलीट करा.",
+        "deactivateHasMasters": "हा वापर गट निष्क्रिय करता येत नाही कारण त्यामध्ये {masters} आहेत. कृपया प्रथम या वापर गट चे सर्व {masters} डिलीट करा."
+      },
+      "typeOfUse": {
+        "deleteInUse": "हा वापर प्रकार वापरात असल्याने डिलीट करता येत नाही.",
+        "deactivateInUse": "हा वापर प्रकार वापरात असल्याने निष्क्रिय करता येत नाही.",
+        "deleteHasMasters": "हा वापर प्रकार डिलीट करता येत नाही कारण त्यामध्ये {masters} आहेत. कृपया प्रथम या वापर प्रकार चे सर्व {masters} डिलीट करा.",
+        "deactivateHasMasters": "हा वापर प्रकार निष्क्रिय करता येत नाही कारण त्यामध्ये {masters} आहेत. कृपया प्रथम या वापर प्रकार चे सर्व {masters} डिलीट करा."
+      },
+      "subTypeOfUse": {
+        "deleteInUse": "हा उप-वापर प्रकार वापरात असल्याने डिलीट करता येत नाही.",
+        "deactivateInUse": "हा उप-वापर प्रकार वापरात असल्याने निष्क्रिय करता येत नाही.",
+        "deleteHasMasters": "हा उप-वापर प्रकार डिलीट करता येत नाही कारण त्यामध्ये {masters} आहेत. कृपया प्रथम या उप-वापर प्रकार चे सर्व {masters} डिलीट करा.",
+        "deactivateHasMasters": "हा उप-वापर प्रकार निष्क्रिय करता येत नाही कारण त्यामध्ये {masters} आहेत. कृपया प्रथम या उप-वापर प्रकार चे सर्व {masters} डिलीट करा."
+      }
+    },
+    "referenceMasters": {
+      "typeOfUses": "वापर प्रकार",
+      "cvRates": "CV दर",
+      "subTypeOfUses": "उप-वापर प्रकार",
+      "useFactors": "वापर गुणांक",
+      "and": "आणि"
+    }
+  },
+  "messages": {
+    "addingTo": "{name} मध्ये जोडत आहे",
+    "categoryRequired": "वर्ग आवश्यक आहे",
+    "typeRequired": "प्रकार आवश्यक आहे",
+    "groupRequired": "गट आवश्यक आहे",
+    "descriptionRequired": "वापर प्रकाराचे नाव आवश्यक आहे",
+    "descriptionMaxLength": "वापर प्रकाराच्या नावाची कमाल लांबी १०० अक्षरे आहे",
+    "subTypeNameRequired": "उप-प्रकाराचे नाव आवश्यक आहे",
+    "subTypeNameMaxLength": "उप-प्रकाराच्या नावाची कमाल लांबी १०० अक्षरे आहे",
+    "sequenceRequired": "अनुक्रम आवश्यक आहे",
+    "sequenceNonNegative": "अनुक्रम ० किंवा त्यापेक्षा जास्त असणे आवश्यक आहे",
+    "sequenceMaxLimit": "अनुक्रम 999 किंवा त्यापेक्षा कमी असावा",
+    "typeCreated": "वापर प्रकार यशस्वीरित्या तयार केला गेला",
+    "typeUpdated": "वापर प्रकार यशस्वीरित्या अद्यतनित केला गेला",
+    "typeDeleted": "वापर प्रकार यशस्वीरित्या हटविला गेला",
+    "subTypeCreated": "उप-प्रकार यशस्वीरित्या तयार केला गेला",
+    "subTypeUpdated": "उप-प्रकार यशस्वीरित्या अद्यतनित केला गेला",
+    "subTypeDeleted": "उप-वापर प्रकार यशस्वीरित्या हटविला गेला",
+    "groupCreated": "गट यशस्वीरित्या तयार केला गेला",
+    "groupUpdated": "गट यशस्वीरित्या अद्यतनित केला गेला",
+    "groupDeleted": "गट यशस्वीरित्या हटविला गेला",
+    "subTypeNameLabel": "उप-प्रकाराचे नाव"
+  },
+  "status": {
+    "active": "सक्रिय",
+    "inactive": "निष्क्रिय",
+    "toggleDescription": "स्थिती बदला"
+  },
+  "loading": {
+    "message": "वापर प्रकार डेटा लोड करत आहे...",
+    "description": "कृपया आम्ही माहिती लोड करेपर्यंत प्रतीक्षा करा"
+  },
+  "error": {
+    "title": "वापर प्रकार डेटा लोड करण्यात अयशस्वी",
+    "description": "माहिती लोड करताना आम्हाला त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+    "errorId": "त्रुटी आयडी: {id}",
+    "goHome": "मुख्यपृष्ठ जा",
+    "tryAgain": "पुन्हा प्रयत्न करा"
+  },
+  "list": {
+    "selectGroupNotice": "वापर प्रकार पाहण्यासाठी कृपया सूचीमधून वापर गट निवडा.",
+    "selectTypeNotice": "उप-वापर प्रकार पाहण्यासाठी कृपया सूचीमधून वापर प्रकार निवडा."
+  },
+  "type": {
+    "title": "वापर प्रकार",
+    "searchPlaceholder": "कोड/वर्णन शोधा...",
+    "addButton": "वापर प्रकार जोडा",
+    "add": "वापर प्रकार जोडा",
+    "edit": "वापर प्रकार संपादित करा",
+    "options": {
+      "residential": "R - निवासी (Residential)",
+      "commercial": "C - व्यावसायिक (Commercial)",
+      "industrial": "I - औद्योगिक (Industrial)",
+      "nontaxable": "N - करमुक्त (Non-taxable)"
+    },
+    "fields": {
+      "category": "मालमत्ता वर्ग",
+      "assetType": "मालमत्ता प्रकार",
+      "code": {
+        "label": "कोड"
+      },
+      "description": {
+        "label": "वापर प्रकाराचे नाव"
+      },
+      "sequence": "अनुक्रम",
+      "type": {
+        "label": "प्रकार"
+      },
+      "typeId": "वापर प्रकार कोड",
+      "useTypeGroup": "वापर प्रकार गट",
+      "selectType": "प्रकार आवश्यक आहे"
+    },
+    "placeholders": {
+      "typeId": "वापर प्रकार कोड प्रविष्ट करा",
+      "description": "वापर प्रकाराचे नाव प्रविष्ट करा"
+    },
+    "selectType": "प्रकार आवश्यक आहे",
+    "deleteConfirmDescription": "तुम्हाला खात्री आहे की तुम्ही हा वापर प्रकार हटवू इच्छिता?"
+  },
+  "subtype": {
+    "title": "उप-वापर प्रकार",
+    "searchPlaceholder": "उप-प्रकार शोधा...",
+    "addButton": "उप-वापर प्रकार जोडा",
+    "add": "उप-वापर प्रकार जोडा",
+    "edit": "उप-वापर प्रकार संपादित करा",
+    "addSubtitle": "नवीन उप-वापर प्रकार तयार करा",
+    "editSubtitle": "विद्यमान उप-वापर प्रकार अद्यतनित करा",
+    "fields": {
+      "description": {
+        "label": "उप-प्रकाराचे नाव"
+      },
+      "sequence": {
+        "label": "अनुक्रम"
+      }
+    },
+    "placeholders": {
+      "subTypeEnglish": "उप-प्रकाराचे नाव प्रविष्ट करा"
+    },
+    "deleteConfirmDescription": "तुम्हाला खात्री आहे की तुम्ही हा उप-वापर प्रकार हटवू इच्छिता?"
+  },
+  "group": {
+    "allGroups": "सर्व गट",
+    "title": "वापर गट",
+    "typeOfUseGroups": "वापराचे गट",
+    "groupsCount": "{count} गट",
+    "codeLabel": "कोड: {code}",
+    "addSubtitle": "नवीन वापर गट तयार करा",
+    "add": "वापर गट जोडा",
+    "edit": "वापर गट संपादित करा",
+    "editSubtitle": "विद्यमान वापर गट अद्यतनित करा",
+    "deleteConfirmDescription": "तुम्हाला खात्री आहे की तुम्ही हा गट हटवू इच्छिता?",
+    "form": {
+      "addTitle": "वापर गट जोडा",
+      "editTitle": "वापर गट संपादित करा",
+      "subtitle": "वापर गट कॉन्फिगर करा"
+    },
+    "fields": {
+      "groupId": "गट कोड",
+      "status": "सक्रिय स्थिती",
+      "code": {
+        "label": "गट कोड",
+        "placeholder": "गट कोड प्रविष्ट करा"
+      },
+      "name": {
+        "label": "गटाचे नाव",
+        "placeholder": "गटाचे नाव प्रविष्ट करा"
+      },
+      "icon": {
+        "label": "गट चिन्ह",
+        "placeholder": "गट चिन्ह प्रविष्ट करा (उदा. home, building)"
+      }
+    }
+  },
+  "subType": {
+    "title": "वापराचे उप-प्रकार"
+  }
+}

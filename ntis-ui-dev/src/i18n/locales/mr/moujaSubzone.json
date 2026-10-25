@@ -1,0 +1,119 @@
+{
+  "list": {
+    "title": "मौजा आणि उपविभाग तपशील मास्टर",
+    "subtitle": "मालमत्तांसाठी मौजा आणि उपविभाग व्यवस्थापित करा",
+    "moujaTitle": "मौजा मास्टर",
+    "subZoneTitle": "उपविभाग तपशील मास्टर",
+    "buttons": {
+      "addMouja": "मौजा जोडा",
+      "addSubZone": "उपविभाग जोडा"
+    },
+    "filters": {
+      "searchMouja": "मौजा शोधा...",
+      "searchSubZone": "उपविभाग शोधा..."
+    },
+    "table": {
+      "moujaNo": "मौजा क्रमांक",
+      "moujaName": "मौजा नाव",
+      "subZoneNo": "उपविभाग क्रमांक",
+      "subZoneName": "उपविभाग नाव",
+      "status": "स्थिती"
+    },
+    "selectMoujaNotice": "उपविभाग पाहण्यासाठी कृपया सूचीमधून एक मौजा निवडा.",
+    "cannotAddInactiveMouja": "अक्रिय मौजेमध्ये उपविभाग जोडता येत नाही"
+  },
+  "form": {
+    "addMoujaTitle": "मौजा जोडा",
+    "editMoujaTitle": "मौजा संपादित करा",
+    "addSubZoneTitle": "उपविभाग जोडा",
+    "editSubZoneTitle": "उपविभाग संपादित करा",
+    "fields": {
+      "moujaNo": {
+        "label": "मौजा क्रमांक",
+        "placeholder": "उदा. MJ-001"
+      },
+      "moujaName": {
+        "label": "मौजा नाव",
+        "placeholder": "उदा. अकोला"
+      },
+      "subZoneNo": {
+        "label": "उपविभाग क्रमांक",
+        "placeholder": "उदा. 2.172/64A"
+      },
+      "subZoneName": {
+        "label": "उपविभाग नाव",
+        "placeholder": "उदा. उपविभाग अ"
+      },
+      "moujaId": {
+        "label": "मौजा",
+        "placeholder": "मौजा निवडा"
+      }
+    },
+    "status": {
+      "label": "सक्रिय स्थिती",
+      "description": "स्थिती सध्या"
+    },
+    "actions": {
+      "cancel": "रद्द करा",
+      "save": "जतन करा",
+      "update": "अपडेट करा"
+    },
+    "validation": {
+      "moujaNoRequired": "मौजा क्रमांक आवश्यक आहे",
+      "moujaNoMaxLength": "जास्तीत जास्त लांबी २० अक्षरे असावी",
+      "moujaNoFormat": "फक्त अक्षरे, अंक, हायफन ( - ) आणि अंडरस्कोअर ( _ ) वापरण्याची परवानगी आहे",
+      "moujaNameRequired": "मौजा नाव आवश्यक आहे",
+      "moujaNameMaxLength": "जास्तीत जास्त लांबी १०० अक्षरे असावी",
+      "moujaNameFormat": "नाव अयोग्य स्वरूपात आहे",
+      "subZoneNoRequired": "उपविभाग क्रमांक आवश्यक आहे",
+      "subZoneNoMaxLength": "जास्तीत जास्त लांबी २० अक्षरे असावी",
+      "subZoneNoFormat": "फक्त अक्षरे, अंक, डॉट ( . ), हायफन ( - ) आणि स्लॅश ( / ) वापरण्याची परवानगी आहे",
+      "subZoneNameRequired": "उपविभाग नाव आवश्यक आहे",
+      "subZoneNameMaxLength": "जास्तीत जास्त लांबी १०० अक्षरे असावी",
+      "subZoneNameFormat": "नाव अयोग्य स्वरूपात आहे",
+      "moujaRequired": "मौजा आवश्यक आहे",
+      "mustBeActive": "जतन करण्यासाठी सक्रिय असणे आवश्यक आहे",
+      "fixErrors": "कृपया प्रमाणीकरण त्रुटी दुरुस्त करा",
+      "invalidFormat": "अवैध स्वरूप"
+    }
+  },
+  "delete": {
+    "confirmDescription": "आपण नक्की हे रेकॉर्ड डिलीट करू इच्छिता?"
+  },
+  "apiErrors": {
+    "duplicateRecord": "या कोड/क्रमांकाचे रेकॉर्ड आधीपासून अस्तित्वात आहे.",
+    "Mouja_MoujaNo_Duplicate": "मौजा क्रमांक आधीपासूनच अस्तित्वात आहे.",
+    "Mouja_MoujaName_Duplicate": "मौजा नाव आधीपासूनच अस्तित्वात आहे.",
+    "SubZoneDetailsForCV_SubZoneNo_Duplicate": "उपविभाग क्रमांक आधीपासूनच अस्तित्वात आहे.",
+    "SubZoneDetailsForCV_SubZoneName_Duplicate": "उपविभाग नाव आधीपासूनच अस्तित्वात आहे.",
+    "AssetMouja_MoujaNo_Duplicate": "मालमत्ता मौजा क्रमांक आधीपासूनच अस्तित्वात आहे.",
+    "AssetSubZoneDetailsForCV_SubZoneNo_Duplicate": "मालमत्ता उपविभाग क्रमांक आधीपासूनच अस्तित्वात आहे.",
+    "notFound": "रेकॉर्ड आढळले नाही.",
+    "moujaDeleteBlocked": "या मौजामध्ये उपविभाग असल्यामुळे तो डिलीट करता येत नाही. कृपया आधी या मौजाचे सर्व उपविभाग डिलीट करा.",
+    "moujaDeactivateBlocked": "या मौजामध्ये उपविभाग असल्यामुळे तो निष्क्रिय करता येत नाही. कृपया आधी या मौजाचे सर्व उपविभाग डिलीट करा.",
+    "subZoneDeleteBlocked": "या उपविभागामध्ये सीव्ही दर असल्यामुळे तो डिलीट करता येत नाही. कृपया आधी या उपविभागाचे सर्व सीव्ही दर डिलीट करा.",
+    "subZoneDeactivateBlocked": "या उपविभागामध्ये सीव्ही दर असल्यामुळे तो निष्क्रिय करता येत नाही. कृपया आधी या उपविभागाचे सर्व सीव्ही दर डिलीट करा.",
+    "A record with the same details already exists": "समान तपशीलांचे रेकॉर्ड आधीपासूनच अस्तित्वात आहे.",
+    "operationFailed": "ऑपरेशन यशस्वी झाले नाही.",
+    "User session required": "वापरकर्ता सत्र आवश्यक आहे."
+  },
+  "success": {
+    "moujaCreated": "नवीन मौजा यशस्वीरित्या तयार केला",
+    "moujaUpdated": "मौजा यशस्वीरित्या अपडेट केला",
+    "moujaDeleted": "मौजा यशस्वीरित्या डिलीट केला",
+    "subZoneCreated": "नवीन उपविभाग यशस्वीरित्या तयार केला",
+    "subZoneUpdated": "उपविभाग यशस्वीरित्या अपडेट केला",
+    "subZoneDeleted": "उपविभाग यशस्वीरित्या डिलीट केला"
+  },
+  "loading": {
+    "message": "मौजा आणि उपविभाग डेटा लोड करत आहे...",
+    "description": "कृपया आम्ही माहिती लोड करेपर्यंत प्रतीक्षा करा"
+  },
+  "error": {
+    "title": "मौजा आणि उपविभाग डेटा लोड करण्यात अक्षम",
+    "description": "माहिती लोड करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+    "errorId": "त्रुटी आयडी: {id}",
+    "goHome": "मुख्यपृष्ठावर जा",
+    "tryAgain": "पुन्हा प्रयत्न करा"
+  }
+}

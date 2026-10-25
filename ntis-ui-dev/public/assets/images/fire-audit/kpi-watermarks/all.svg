@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Back paper -->
+  <rect x="22" y="14" width="56" height="72" rx="8" fill="#0EA5E9" fill-opacity="0.12" stroke="#0EA5E9" stroke-width="2.5" stroke-dasharray="3 3"/>
+  <!-- Front paper -->
+  <rect x="14" y="22" width="56" height="72" rx="8" fill="#FFFFFF" fill-opacity="0.9" stroke="#0284C7" stroke-width="2.5"/>
+  <!-- Document Header -->
+  <rect x="24" y="32" width="28" height="4" rx="2" fill="#0284C7"/>
+  <!-- Content Lines -->
+  <rect x="24" y="42" width="36" height="3" rx="1.5" fill="#38BDF8"/>
+  <rect x="24" y="50" width="30" height="3" rx="1.5" fill="#38BDF8"/>
+  <rect x="24" y="58" width="34" height="3" rx="1.5" fill="#38BDF8"/>
+  <!-- Checkmark badge -->
+  <circle cx="56" cy="74" r="14" fill="#0284C7"/>
+  <path d="M50 74l4 4 8-8" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

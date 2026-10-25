@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<!-- All common properties are inherited from Directory.Build.props -->
+ 
+	<ItemGroup>
+		<ProjectReference Include="..\..\Core\NtisPlatform.Core\NtisPlatform.Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Lets the tests reach internal helpers (PerPropertyGate), as NtisPlatform.Core already does. -->
+		<InternalsVisibleTo Include="NtisPlatform.Tests" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+		<PackageReference Include="ClosedXML" Version="0.105.0" />
+		<!-- Used for server-side PDF generation -->
+		<PackageReference Include="PdfSharp-MigraDoc" Version="6.2.4" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(MicrosoftPackageVersion)" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="$(MicrosoftPackageVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="$(MicrosoftPackageVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="$(MicrosoftPackageVersion)" />
+		<PackageReference Include="MediatR" Version="$(MediatRVersion)" />
+		<PackageReference Include="PDFsharp" Version="6.2.4" />
+		<PackageReference Include="PDFsharp-MigraDoc" Version="6.2.4" />
+		<PackageReference Include="RulesEngine" Version="6.0.0" />
+		<PackageReference Include="System.Drawing.Common" Version="10.0.12" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.2.1" />
+		<!-- AutoMapper 16.1.1 patches vulnerability GHSA-rvv3-g6hj-g44x (affected versions < 16.1.1) -->
+		<PackageReference Include="AutoMapper" Version="16.1.1" />
+		<PackageReference Include="NetTopologySuite" Version="2.5.0" />
+		<PackageReference Include="NetTopologySuite.IO.GeoJSON" Version="2.0.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="DTOs\Master\AgeFactorMaster\" />
+	  <Folder Include="DTOs\Master\FloorFactorMaster\" />
+	  <Folder Include="Services\PropertySignature\" />
+	</ItemGroup>
+
+ 
+</Project>

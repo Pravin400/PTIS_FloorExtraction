@@ -1,0 +1,133 @@
+{
+  "title": "Grievance Workflow Stage",
+  "subtitle": "Manage grievance workflow stages per ULB type",
+  "searchPlaceholder": "Search grievance workflow stage records...",
+  "add": "Add Workflow Stage",
+  "edit": "Edit Stage",
+  "delete": "Delete Stage",
+  "actions": "Actions",
+  "ulbTypeId": "ULB Type ID",
+  "ulbTypeName": "ULB Type",
+  "stageCode": "Stage Code",
+  "stageName": "Stage Name",
+  "stageNameLocal": "Stage Name (Local)",
+  "stageOrder": "Stage Order",
+  "workflowStatus": "Workflow Status",
+  "activeStatus": "Active Status",
+  "description": "Description",
+  "form": {
+    "addTitle": "Add New Workflow Stage",
+    "editTitle": "Edit Workflow Stage",
+    "addSubtitle": "Configure a new grievance workflow stage",
+    "editSubtitle": "Update grievance workflow stage configuration",
+    "subtitle": "Configure a new grievance workflow stage",
+    "actions": {
+      "save": "Create Stage",
+      "update": "Update Stage",
+      "cancel": "Cancel"
+    },
+    "fields": {
+      "ulbTypeId": {
+        "label": "ULB Type",
+        "placeholder": "Select ULB Type"
+      },
+      "stageCode": {
+        "label": "Stage Code",
+        "placeholder": "e.g. CORRECTION / VERIFICATION"
+      },
+      "stageName": {
+        "label": "Stage Name",
+        "placeholder": "e.g. Verification Stage"
+      },
+      "stageNameLocal": {
+        "label": "Stage Name (Local)",
+        "placeholder": "e.g. Verification Stage in local language"
+      },
+      "stageOrder": {
+        "label": "Stage Order",
+        "placeholder": "e.g. 1"
+      },
+      "status": {
+        "label": "Workflow Status",
+        "placeholder": "e.g. IN REVIEW or SUBMITTED"
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "Optional description for this workflow stage"
+      }
+    },
+    "status": {
+      "label": "Active Status",
+      "active": "Active",
+      "inactive": "Inactive",
+      "description": "Workflow Stage is currently"
+    },
+    "validation": {
+      "ulbTypeIdRequired": "ULB Type is required",
+      "stageCodeRequired": "Stage Code is required",
+      "stageCodeFormat": "Stage Code can only contain letters, numbers, and underscores",
+      "stageCodeMaxLength": "Stage Code cannot exceed {count} characters",
+      "stageNameRequired": "Stage Name is required",
+      "stageNameMaxLength": "Stage Name cannot exceed {count} characters",
+      "stageNameFormat": "Stage Name can only contain letters and spaces",
+      "stageNameLocalMaxLength": "Local Stage Name cannot exceed {count} characters",
+      "stageNameLocalFormat": "Local Stage Name can only contain letters and spaces",
+      "stageOrderRequired": "Stage Order is required",
+      "stageOrderInvalid": "Stage Order must be a positive number",
+      "stageOrderMax": "Stage Order cannot exceed {count}",
+      "statusRequired": "Status is required",
+      "statusFormat": "Status can only contain letters and spaces",
+      "statusMaxLength": "Status cannot exceed {count} characters",
+      "descriptionMaxLength": "Description cannot exceed {count} characters",
+      "descriptionFormat": "Invalid description format",
+      "invalidFormat": "Invalid format",
+      "fixErrors": "Please fix validation errors",
+      "mandatoryNotice": "Fields marked with <b>*</b> are mandatory",
+      "mandatoryNoticePlain": "Fields marked with * are mandatory",
+      "stageCodeDuplicate": "Stage Code already exists",
+      "stageNameDuplicate": "Stage Name already exists",
+      "stageOrderDuplicate": "Stage Order already exists",
+      "stageCodeAndStageOrderDuplicate": "Stage Code and Stage Order already exist",
+      "stageCodeAndStageNameDuplicate": "Stage Code and Stage Name already exist",
+      "stageNameAndStageOrderDuplicate": "Stage Name and Stage Order already exist",
+      "stageAllDuplicate": "Stage Code, Stage Name and Stage Order already exist",
+      "duplicate": "Workflow Stage Code already exists"
+    },
+    "messages": {
+      "createSuccess": "Grievance workflow stage created successfully",
+      "updateSuccess": "Grievance workflow stage updated successfully",
+      "deleteSuccess": "Grievance workflow stage deleted successfully",
+      "error": "Unable to save grievance workflow stage",
+      "duplicate": "This workflow stage already exists"
+    }
+  },
+  "apiErrors": {
+    "GrievanceWorkflowStage_StageCode_Duplicate": "Stage Code already exists",
+    "GrievanceWorkflowStage_StageName_Duplicate": "Stage Name already exists",
+    "GrievanceWorkflowStage_StageOrder_Duplicate": "Stage Order already exists",
+    "GrievanceWorkflowStage_InvalidUlbTypeId": "Invalid ULB Type selected",
+    "GrievanceWorkflowStage_Status_MaxLen_50": "Status cannot exceed 50 characters",
+    "deleteBlockedInUse": "This workflow stage cannot be deleted because it is in use.",
+    "deactivateBlockedInUse": "This workflow stage cannot be deactivated because it is in use.",
+    "referenceBlocked": {
+      "workflowStage": {
+        "deleteInUse": "This Workflow Stage cannot be deleted because it is in use.",
+        "deactivateInUse": "This Workflow Stage cannot be deactivated because it is in use.",
+        "deleteHasMasters": "This Workflow Stage cannot be deleted because it has {masters}. Please delete all {masters} for this Workflow Stage first.",
+        "deactivateHasMasters": "This Workflow Stage cannot be deactivated because it has {masters}. Please delete all {masters} for this Workflow Stage first."
+      }
+    },
+    "referenceMasters": {
+      "stageAccessControl": "Stage Access Control",
+      "and": "and"
+    }
+  },
+  "deleteConfirm": "Are you sure you want to delete this workflow stage record?",
+  "error": {
+    "title": "Failed to connect to the server. Please try again later.",
+    "description": "We encountered an error while loading the grievance workflow stage page. Please try again.",
+    "tryAgain": "Try Again",
+    "goHome": "Go to Home",
+    "errorId": "Error ID: {id}"
+  }
+}

@@ -1,0 +1,398 @@
+import { useTranslations } from "next-intl";
+import { useConfirm } from "@/components/common";
+import { useTransition } from "react";
+import { toast } from "sonner";
+import { RoomWiseSubmissionProps, FloorData, RoomData } from "@/types/room-details.types";
+import { calculateRoomArea } from "@/lib/utils/RoomSubmission/room-submission.utils";
+import { validateRoomDetails } from "@/lib/utils/RoomSubmission/room-validation.utils";
+import { calculateRoomAreas, calculateNetOffsetArea, convertAreaUnit } from "@/lib/utils/RoomSubmission/room-calculation.util";
+import {
+  deleteRoomSubmissionNoRedirectAction,
+  deleteOffsetSubmissionNoRedirectAction
+} from "@/app/[locale]/property-tax/ptis/QuickDataEntry/[propertyId]/FloorSubmission/actions";
+import { RoomSubmissionState } from "./useRoomSubmissionState";
+import { checkIsUtilityCategory } from "@/lib/utils/floorSubmission/floor-utility-checks";
+import { isRecordOpenPlot } from "@/hooks/ptis/floorSubmission/useFloorAreaValidation";
+
+export const useRoomListActions = (state: RoomSubmissionState, props: RoomWiseSubmissionProps & { floorData?: FloorData }, handleCancelEdit: () => void, handleEdit?: (index: number, room?: RoomData) => void) => {
+  const t = useTranslations("quickDataEntry");
+  const { confirm } = useConfirm();
+  const [, startTransition] = useTransition();
+  const {
+    rooms, setRooms, formData, shapeParameters, editingIndex, currentRoomOffsets,
+    areaUnit, setValidationErrors
+  } = state;
+
+  const getSafeText = (key: string, fallback: string) => {
+    try {
+      if (typeof t?.has === "function" ? t.has(key) : true) {
+        const val = t(key);
+        return val || fallback;
+      }
+      return fallback;
+    } catch {
+      return fallback;
+    }
+  };
+
+  const warning = (msg: string) => {
+    confirm({
+      variant: "warning",
+      title: getSafeText("common.warning", "Warning"),
+      description: msg,
+      confirmText: getSafeText("common.ok", "OK"),
+      onConfirm: () => { },
+    });
+  };
+
+  const handleAddRoom = () => {
+    const isUtility = checkIsUtilityCategory(props.floorData?.typeOfUseCategoryId) || isRecordOpenPlot(props.floorData);
+    const baseArea = calculateRoomArea(formData, shapeParameters);
+
+    const emptySlots: number[] = [];
+    if (!isUtility) {
+      rooms.forEach((room, idx) => {
+        if ((room.area === 0 && room.total === 0) || idx === editingIndex) emptySlots.push(idx);
+      });
+    }
+
+    const { success, errors } = validateRoomDetails(
+      formData as unknown as Partial<RoomData>,
+      isUtility ? null : emptySlots.length,
+      baseArea
+    );
+
+    if (!success) {
+      setValidationErrors(errors);
+      const firstErrorKey = Object.values(errors)[0];
+      toast.error(t(firstErrorKey));
+      return;
+    }
+
+    const roomCount = isUtility ? 1 : (parseInt(formData.roomCount) || 1);
+    const totalOffsetArea = calculateNetOffsetArea(currentRoomOffsets);
+    const computed = calculateRoomAreas(baseArea, formData.offsetMinus, totalOffsetArea, formData.outer);
+
+    const isSquare = String(formData.shape).toLowerCase() === 'square';
+    const effectiveLength = isSquare ? (shapeParameters.side || formData.length) : formData.length;
+    const effectiveWidth = isSquare ? (shapeParameters.side || formData.width) : formData.width;
+
+    const getUpdatedRooms = (prevRooms: RoomData[]) => {
+      let updated: RoomData[] = [];
+      if (isUtility) {
+        const nextRoomNo = String(
+          Math.max(
+            0,
+            ...prevRooms
+              .map(r => Number(String(r.roomNo ?? "").trim()))
+              .filter(n => Number.isFinite(n) && n > 0)
+          ) + 1
+        );
+        updated = [
+          ...prevRooms,
+          {
+            roomNo: nextRoomNo,
+            length: effectiveLength, width: effectiveWidth, side: shapeParameters.side, area: baseArea,
+            mainArea: baseArea, carpetArea: computed.carpetArea, builtUpArea: computed.builtUpArea,
+            roomCount: "1", offsetMinus: formData.offsetMinus, offsets: [...currentRoomOffsets],
+            roomWiseMinusData: [...currentRoomOffsets],
+            outer: formData.outer,
+            outerYesNo: formData.outer === 'Yes',
+            total: computed.carpetArea,
+            areaSqMtr: baseArea,
+            totalAreaSqMtr: computed.carpetArea,
+            remark: formData.remark === "-Select-" ? "" : formData.remark,
+            utilities: formData.utilities === "-Select-" ? "" : formData.utilities,
+            roomType: formData.utilities === "-Select-" ? "" : formData.utilities,
+            roomTypeId: formData.roomTypeId ? Number(formData.roomTypeId) : undefined,
+            shape: formData.shape === "-Select-" ? "" : formData.shape,
+            shapeParams: { ...shapeParameters, side: shapeParameters.side || effectiveLength },
+            shapeParameters: { ...shapeParameters, side: shapeParameters.side || effectiveLength },
+            isAutoGenerated: false, isAutoFilled: false,
+            tempId: `temp-${Date.now()}-${prevRooms.length}`
+          }
+        ];
+      } else {
+        updated = [...prevRooms];
+        for (let i = 0; i < roomCount; i++) {
+          const slotIdx = emptySlots[i];
+          const existingSlot = updated[slotIdx];
+          updated[slotIdx] = {
+            id: existingSlot.id,
+            roomWiseSubmissionId: existingSlot.roomWiseSubmissionId,
+            roomNo: existingSlot.roomNo,
+            length: effectiveLength, width: effectiveWidth, side: shapeParameters.side, area: baseArea,
+            mainArea: baseArea, carpetArea: computed.carpetArea, builtUpArea: computed.builtUpArea,
+            roomCount: "1", offsetMinus: formData.offsetMinus, offsets: [...currentRoomOffsets],
+            roomWiseMinusData: [...currentRoomOffsets],
+            outer: formData.outer,
+            outerYesNo: formData.outer === 'Yes',
+            total: computed.carpetArea,
+            areaSqMtr: baseArea,
+            totalAreaSqMtr: computed.carpetArea,
+            remark: formData.remark === "-Select-" ? "" : formData.remark,
+            utilities: formData.utilities === "-Select-" ? "" : formData.utilities,
+            roomType: formData.utilities === "-Select-" ? "" : formData.utilities,
+            roomTypeDescription: formData.utilities === "-Select-" ? "" : formData.utilities,
+            roomTypeId: formData.roomTypeId ? Number(formData.roomTypeId) : undefined,
+            shape: formData.shape === "-Select-" ? "" : formData.shape,
+            shapeParams: { ...shapeParameters, side: shapeParameters.side || effectiveLength },
+            shapeParameters: { ...shapeParameters, side: shapeParameters.side || effectiveLength },
+            isAutoGenerated: false, isAutoFilled: false,
+            tempId: existingSlot.tempId || `temp-${Date.now()}-${slotIdx}`
+          };
+        }
+      }
+      return updated;
+    };
+
+    const executeAdd = () => {
+      const updated = getUpdatedRooms(rooms);
+      const nextEmptyIdx = updated.findIndex((r) => {
+        return !(Number(r.area || 0) > 0 && r.shape && r.shape !== "-Select-");
+      });
+
+      startTransition(() => {
+        setRooms(() => updated);
+        if (nextEmptyIdx !== -1 && handleEdit) {
+          handleEdit(nextEmptyIdx, updated[nextEmptyIdx]);
+        } else {
+          handleCancelEdit();
+        }
+      });
+    };
+
+    if (computed.carpetArea > 20) {
+      const hasWarningKey = typeof t?.has === "function" ? t.has("roomSubmission.validation.totalExceedsWarning") : true;
+      const descriptionText = hasWarningKey
+        ? t("roomSubmission.validation.totalExceedsWarning", { total: computed.carpetArea.toFixed(2) })
+        : "The entered width exceeds the standard limit of 20. Please verify the value before continuing. Do you want to proceed anyway?";
+
+      confirm({
+        variant: "warning",
+        title: getSafeText("common.warning", "Warning"),
+        description: descriptionText,
+        confirmText: getSafeText("roomSubmission.confirmSave.confirmBtn", getSafeText("common.confirm", "Proceed")),
+        cancelText: getSafeText("roomSubmission.confirmSave.cancelBtn", getSafeText("common.cancel", "Cancel")),
+        onConfirm: () => {
+          executeAdd();
+        },
+      });
+      return;
+    }
+
+    executeAdd();
+  };
+
+  const handleUpdateRoom = () => {
+    if (editingIndex === null) return;
+    const isUtility = checkIsUtilityCategory(props.floorData?.typeOfUseCategoryId) || isRecordOpenPlot(props.floorData);
+    const baseArea = calculateRoomArea(formData, shapeParameters);
+
+    const emptySlots: number[] = [];
+    if (!isUtility) {
+      rooms.forEach((room, idx) => {
+        if (room.area === 0 && room.total === 0 && idx !== editingIndex) emptySlots.push(idx);
+      });
+    }
+
+    const { success, errors } = validateRoomDetails(
+      formData as unknown as Partial<RoomData>,
+      isUtility ? null : (emptySlots.length + 1),
+      baseArea
+    );
+
+    if (!success) {
+      setValidationErrors(errors);
+      const firstErrorKey = Object.values(errors)[0];
+      toast.error(t(firstErrorKey));
+      return;
+    }
+
+    const roomCount = isUtility ? 1 : (parseInt(formData.roomCount) || 1);
+    const additionalRoomsNeeded = isUtility ? 0 : (roomCount - 1);
+
+    const computed = calculateRoomAreas(baseArea, formData.offsetMinus, calculateNetOffsetArea(currentRoomOffsets), formData.outer);
+    const currentRoom = rooms[editingIndex];
+
+    const isSquare = String(formData.shape).toLowerCase() === 'square';
+    const effectiveLength = isSquare ? (shapeParameters.side || formData.length) : formData.length;
+    const effectiveWidth = isSquare ? (shapeParameters.side || formData.width) : formData.width;
+
+    const getUpdatedRooms = (prevRooms: RoomData[]) => {
+      const updated = [...prevRooms];
+      updated[editingIndex] = {
+        ...currentRoom,
+        roomNo: formData.roomNo || currentRoom.roomNo,
+        length: effectiveLength, width: effectiveWidth, side: shapeParameters.side, area: baseArea, mainArea: baseArea,
+        carpetArea: computed.carpetArea, builtUpArea: computed.builtUpArea, roomCount: "1",
+        offsetMinus: formData.offsetMinus, offsets: [...currentRoomOffsets], roomWiseMinusData: [...currentRoomOffsets],
+        outer: formData.outer,
+        outerYesNo: formData.outer === 'Yes',
+        total: computed.carpetArea,
+        areaSqMtr: baseArea,
+        totalAreaSqMtr: computed.carpetArea,
+        remark: formData.remark === "-Select-" ? "" : formData.remark,
+        utilities: formData.utilities === "-Select-" ? "" : formData.utilities,
+        roomType: formData.utilities === "-Select-" ? "" : formData.utilities,
+        roomTypeDescription: formData.utilities === "-Select-" ? "" : formData.utilities,
+        roomTypeId: formData.roomTypeId ? Number(formData.roomTypeId) : undefined,
+        shape: formData.shape === "-Select-" ? "" : formData.shape,
+        shapeParams: { ...shapeParameters, side: shapeParameters.side || effectiveLength },
+        shapeParameters: { ...shapeParameters, side: shapeParameters.side || effectiveLength },
+        isAutoFilled: false
+      };
+
+      if (additionalRoomsNeeded > 0) {
+        const followingEmptySlots = [];
+        for (let i = editingIndex + 1; i < updated.length; i++) {
+          if (updated[i].area === 0 && updated[i].total === 0) followingEmptySlots.push(i);
+        }
+        const roomsToFill = Math.min(additionalRoomsNeeded, followingEmptySlots.length);
+        for (let i = 0; i < roomsToFill; i++) {
+          const slotIdx = followingEmptySlots[i];
+          updated[slotIdx] = {
+            ...updated[editingIndex],
+            id: updated[slotIdx].id,
+            roomWiseSubmissionId: updated[slotIdx].roomWiseSubmissionId,
+            tempId: updated[slotIdx].tempId,
+            isAutoGenerated: false,
+            isAutoFilled: true,
+            roomNo: updated[slotIdx].roomNo
+          };
+        }
+      }
+      return updated;
+    };
+
+    const executeUpdate = () => {
+      const updated = getUpdatedRooms(rooms);
+      const nextEmptyIdx = updated.findIndex((r) => {
+        return !(Number(r.area || 0) > 0 && r.shape && r.shape !== "-Select-");
+      });
+
+      startTransition(() => {
+        setRooms(() => updated);
+        if (nextEmptyIdx !== -1 && handleEdit) {
+          handleEdit(nextEmptyIdx, updated[nextEmptyIdx]);
+        } else {
+          handleCancelEdit();
+        }
+      });
+    };
+
+    const performUpdate = () => {
+      if (computed.carpetArea > 20) {
+        const hasWarningKey = typeof t?.has === "function" ? t.has("roomSubmission.validation.totalExceedsWarning") : true;
+        const descriptionText = hasWarningKey
+          ? t("roomSubmission.validation.totalExceedsWarning", { total: computed.carpetArea.toFixed(2) })
+          : "The entered width exceeds the standard limit of 20. Please verify the value before continuing. Do you want to proceed anyway?";
+
+        confirm({
+          variant: "warning",
+          title: getSafeText("common.warning", "Warning"),
+          description: descriptionText,
+          confirmText: getSafeText("roomSubmission.confirmSave.confirmBtn", getSafeText("common.confirm", "Proceed")),
+          cancelText: getSafeText("roomSubmission.confirmSave.cancelBtn", getSafeText("common.cancel", "Cancel")),
+          onConfirm: () => {
+            executeUpdate();
+          },
+        });
+        return;
+      }
+      executeUpdate();
+    };
+
+    const { pendingDeletions, setPendingDeletions } = state;
+    if (pendingDeletions.rooms.length > 0 || pendingDeletions.offsets.length > 0) {
+      startTransition(async () => {
+        try {
+          const roomResults = await Promise.all(
+            pendingDeletions.rooms.map(async (roomId) => ({
+              id: roomId,
+              success: (await deleteRoomSubmissionNoRedirectAction(roomId))?.success
+            }))
+          );
+
+          const offsetResults = await Promise.all(
+            pendingDeletions.offsets.map(async (offsetId) => ({
+              id: offsetId,
+              success: (await deleteOffsetSubmissionNoRedirectAction(offsetId))?.success
+            }))
+          );
+
+          const failedRooms = roomResults.filter(r => !r.success).map(r => r.id);
+          const failedOffsets = offsetResults.filter(o => !o.success).map(o => o.id);
+
+          setPendingDeletions({ rooms: failedRooms, offsets: failedOffsets });
+          if (failedRooms.length > 0 || failedOffsets.length > 0) {
+            warning(t("roomSubmission.validation.someDeletionsFailed") || "Some deletions failed. Please try again.");
+            return;
+          }
+          performUpdate();
+        } catch (err) {
+          const errorMsg = err instanceof Error
+            ? err.message
+            : t("roomSubmission.validation.failedPendingDeletions") || "Failed to execute pending deletions. Please try again.";
+          warning(errorMsg);
+        }
+      });
+    } else {
+      performUpdate();
+    }
+  };
+
+  const handleDelete = (index: number) => {
+    const roomToDelete = rooms[index];
+    if (!roomToDelete) return;
+    const roomDbId = roomToDelete.id || roomToDelete.roomWiseSubmissionId;
+    const hasDbId = roomDbId && Number(roomDbId) > 0 && Number(roomDbId) < 1_000_000_000_000;
+
+    confirm({
+      variant: 'delete', title: t('roomSubmission.table.delete'),
+      description: t('roomSubmission.validation.deleteConfirm') || 'Are you sure you want to delete this room?',
+      confirmText: t('roomSubmission.table.delete'), cancelText: t('roomSubmission.table.cancel'),
+      onConfirm: async () => {
+        // ...existing code...
+        if (hasDbId) {
+          try {
+            const response = await deleteRoomSubmissionNoRedirectAction(roomDbId);
+            if (!response.success) {
+              toast.error(response.error || "Failed to delete room from database");
+              return;
+            }
+            toast.success(t("roomSubmission.success.deleted") || "Room deleted successfully");
+          } catch (err) {
+            toast.error(err instanceof Error ? err.message : "Failed to delete room");
+            return;
+          }
+        }
+
+        const updated = rooms.filter((_, i) => i !== index);
+        setRooms(updated);
+
+        if (props.onUpdate) {
+          const sumTotal = updated.reduce((sum, r) => sum + ((r.total || 0) * (parseInt(String(r.roomCount || 1)) || 1)), 0);
+          const sumBuiltUp = updated.reduce((sum, r) => {
+            const carpet = parseFloat(String(r.carpetArea || r.total || 0)) || 0;
+            const builtUp = Number((carpet * 1.20).toFixed(2));
+            return sum + (builtUp * (parseInt(String(r.roomCount || 1)) || 1));
+          }, 0);
+          props.onUpdate({
+            floorNumber: props.floorNumber || "0",
+            rooms: updated,
+            totalAreaSqM: parseFloat(convertAreaUnit(sumTotal, areaUnit || "sq.m", "sq.m").toFixed(2)),
+            builtUpAreaSqM: parseFloat(convertAreaUnit(sumBuiltUp, areaUnit || "sq.m", "sq.m").toFixed(2)),
+            roomCount: updated.filter(r => Number(r.area || 0) > 0).length
+          });
+        }
+
+        if (editingIndex === index) {
+          handleCancelEdit();
+        }
+      },
+    });
+  };
+
+  return { handleAddRoom, handleUpdateRoom, handleDelete };
+};

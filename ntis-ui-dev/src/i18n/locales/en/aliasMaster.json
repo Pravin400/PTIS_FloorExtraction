@@ -1,0 +1,92 @@
+{
+  "title": "Alias Master",
+  "subtitle": "Manage field aliases and their multilingual display labels",
+  "searchPlaceholder": "Search alias records...",
+  "add": "Add Alias",
+  "edit": "Edit Alias",
+  "delete": "Delete Alias",
+  "actions": "Actions",
+  "keyName": "Key Name",
+  "labelName": "Label Name",
+  "englishName": "English Name",
+  "regionalName": "Regional Name",
+  "hindiName": "Hindi Name",
+  "status": "Status",
+  "active": "Active",
+  "inactive": "Inactive",
+  "deleteConfirm": "Are you sure you want to delete this alias record?",
+  "stats": {
+    "total": "Total Keys",
+    "active": "Active Keys",
+    "inactive": "Inactive Keys"
+  },
+  "form": {
+    "addTitle": "Add New Alias",
+    "editTitle": "Edit Alias",
+    "addSubtitle": "Create a new field alias configuration",
+    "editSubtitle": "Update an existing field alias configuration",
+    "subtitle": "Create a new field alias configuration",
+    "actions": {
+      "save": "Create Alias",
+      "update": "Update Alias",
+      "cancel": "Cancel"
+    },
+    "fields": {
+      "keyName": {
+        "label": "Key Name",
+        "placeholder": "e.g. BuildingType"
+      },
+      "labelName": {
+        "label": "Label Name",
+        "placeholder": "e.g. Building Type"
+      },
+      "englishName": {
+        "label": "English Name",
+        "placeholder": "e.g. Building Type"
+      },
+      "regionalName": {
+        "label": "Regional Name",
+        "placeholder": "e.g. इमारत प्रकार"
+      },
+      "hindiName": {
+        "label": "Hindi Name",
+        "placeholder": "e.g. भवन प्रकार"
+      }
+    },
+    "status": {
+      "label": "Status",
+      "active": "Active",
+      "inactive": "Inactive",
+      "description": "Alias is currently"
+    },
+    "validation": {
+      "keyNameRequired": "Key name is required",
+      "keyNameFormat": "Key name contains invalid characters",
+      "keyNameMaxLength": "Key name cannot exceed {count} characters",
+      "labelNameRequired": "Label name is required",
+      "labelNameFormat": "Label name contains invalid characters",
+      "labelNameMaxLength": "Label name cannot exceed {count} characters",
+      "englishNameMaxLength": "English name cannot exceed {count} characters",
+      "regionalNameMaxLength": "Regional name cannot exceed {count} characters",
+      "hindiNameMaxLength": "Hindi name cannot exceed {count} characters",
+      "fixErrors": "Please fix validation errors",
+      "mandatoryNotice": "Fields marked with <b>*</b> are mandatory"
+    },
+    "messages": {
+      "createSuccess": "Alias created successfully",
+      "updateSuccess": "Alias updated successfully",
+      "deleteSuccess": "Alias deleted successfully",
+      "activateSuccess": "Alias activated successfully",
+      "deactivateSuccess": "Alias deactivated successfully",
+      "error": "Unable to save Alias",
+      "duplicate": "This record already exists"
+    }
+  },
+  "error": {
+    "title": "Failed to load Alias data",
+    "description": "We encountered an error while loading Alias information. Please try again.",
+    "errorId": "Error ID: {id}",
+    "goHome": "Go Home",
+    "tryAgain": "Try Again"
+  }
+}

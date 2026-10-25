@@ -1,0 +1,343 @@
+{
+  "propertyMapping": {
+    "pageTitle": "संपत्ति मैपिंग",
+    "stepLabel": "चरण {step}",
+    "loadingTitle": "पुरानी संपत्ति रिकॉर्ड प्राप्त हो रहे हैं",
+    "loadingSubtitle": "ठाणे नगर निगम API से मैप की गई उम्मीदवारों की सूची लोड हो रही है...",
+    "pendingCount": "लंबित",
+
+    "error": {
+      "title": "संपत्ति मैपिंग त्रुटि",
+      "description": "संपत्ति मैपिंग डेटा संसाधित करते समय एक त्रुटि हुई।",
+      "goHome": "मुख्य पृष्ठ पर जाएं",
+      "tryAgain": "पुनः प्रयास करें"
+    },
+
+    "tabs": {
+      "workspace": "संपत्ति सत्यापित करें",
+      "confirmed": "पुष्टि किए गए मैपिंग",
+      "history": "सत्यापन इतिहास लॉग"
+    },
+
+    "header": {
+      "back": "वापस",
+      "title": "संपत्ति मैपिंग"
+    },
+
+    "sidebar": {
+      "sectionLabel": "नई सर्वेक्षण संपत्ति",
+      "autoDetectedLink": "स्वतः पहचानी गई लिंक",
+      "fields": {
+        "newPropertyNo": "नई संपत्ति संख्या",
+        "ctsNo": "सीटीएस / सर्वेक्षण संख्या",
+        "ownerName": "मालिक का नाम",
+        "address": "संपत्ति का पता",
+        "mobile": "मोबाइल संख्या",
+        "plotBuiltArea": "भूखंड / निर्मित क्षेत्र",
+        "carpetArea": "कार्पेट क्षेत्र",
+        "floors": "नई मंजिलें",
+        "useCategory": "उपयोग श्रेणी",
+        "rateableValue": "दर योग्य मूल्य",
+        "capitalValue": "पूंजी मूल्य",
+        "totalTax": "कुल कर"
+      },
+      "areaUnit": "वर्ग फुट",
+      "navigation": {
+        "prev": "पिछला",
+        "next": "अगला",
+        "recordOf": "{total} में से {current} रिकॉर्ड"
+      },
+      "status": {
+        "mapped": "मैप किया गया",
+        "unmapped": "मैप नहीं किया गया",
+        "needsVerification": "सत्यापन आवश्यक"
+      }
+    },
+
+    "searchBar": {
+      "label": "संपत्ति, मालिक या पता खोजें",
+      "placeholder": "संपत्ति संख्या, मालिक, सीटीएस, पता, मोबाइल...",
+      "searchButton": "खोजें",
+      "searchingButton": "खोज रहा है...",
+      "resetButton": "रीसेट",
+      "verificationStatusLabel": "सत्यापन स्थिति",
+      "filterOptions": {
+        "all": "सभी",
+        "needVerification": "सत्यापन आवश्यक",
+        "mapped": "मैप किया गया",
+        "unmapped": "मैप नहीं किया गया"
+      }
+    },
+
+    "candidatesTable": {
+      "step1": {
+        "label": "चरण १",
+        "title": "जुड़ी पुरानी संपत्तियाँ ({count})",
+        "description": "ये पुरानी संपत्ति रिकॉर्ड वर्तमान में नई सर्वेक्षण संपत्ति से जुड़े हैं।",
+        "emptyText": "वर्तमान में कोई ऐतिहासिक संपत्ति जुड़ी नहीं है।"
+      },
+      "step2": {
+        "label": "चरण २",
+        "title": "पुरानी संपत्तियाँ खोजें और चुनें ({count})",
+        "descriptionAuto": "नई सर्वेक्षण संपत्ति के लिए स्वतः पहचाने गए मिलान उम्मीदवार।",
+        "descriptionManual": "नई सर्वेक्षण संपत्ति से जोड़ने के लिए मैनुअल खोज परिणामों में से खोजें और चुनें।",
+        "badgeAutoDetected": "स्वतः पहचाना गया",
+        "badgeSearchResults": "खोज परिणाम",
+        "emptyText": "इस सर्वेक्षण स्थान के लिए कोई उम्मीदवार संपत्ति नहीं मिली।"
+      },
+      "step3": {
+        "label": "चरण ३",
+        "title": "मैनुअल खोज परिणाम ({count})",
+        "description": "मैनुअल खोज बार प्रश्नों के परिणाम।",
+        "badgeManual": "मैनुअल खोज",
+        "emptyText": "इस खोज प्रश्न के लिए कोई उम्मीदवार संपत्ति नहीं मिली।"
+      },
+      "columns": {
+        "selectMatch": "मिलान चुनें",
+        "status": "स्थिति",
+        "oldPropertyNo": "पुरानी संपत्ति संख्या",
+        "ownerAddress": "मालिक / पता",
+        "builtUpArea": "निर्मित क्षेत्र",
+        "carpetArea": "कार्पेट क्षेत्र",
+        "tax": "कर",
+        "floors": "मंजिलें",
+        "evidenceDetails": "साक्ष्य विवरण",
+        "matchPercent": "मिलान %",
+        "action": "क्रिया"
+      },
+      "statusBadge": {
+        "mappedTo": "संपत्ति संख्या:- {propNo} से मैप किया गया",
+        "mapped": "मैप किया गया",
+        "unmapped": "मैप नहीं किया गया",
+        "blocked": "अवरुद्ध"
+      },
+      "areaUnit": "वर्ग फुट",
+      "compareButton": "तुलना करें",
+      "compareButtonBlocked": "तुलना देखें (अवरुद्ध)"
+    },
+
+    "comparisonCards": {
+      "step4": {
+        "label": "चरण ४",
+        "title": "क्षेत्र और कुल कर की तुलना करें"
+      },
+      "areaCard": {
+        "title": "क्षेत्र सामंजस्य",
+        "builtUpAreaSection": "निर्मित क्षेत्र",
+        "newBuiltUp": "नया निर्मित क्षेत्र",
+        "oldBuiltUp": "पुराना निर्मित क्षेत्र",
+        "difference": "अंतर",
+        "carpetAreaSection": "कार्पेट क्षेत्र",
+        "newCarpet": "नया कार्पेट क्षेत्र",
+        "oldCarpet": "पुराना कार्पेट क्षेत्र",
+        "toleranceStatus": "सहनशीलता स्थिति"
+      },
+      "floorCard": {
+        "title": "मंजिल मिलान जाँच",
+        "newFloorCount": "नई मंजिल संख्या",
+        "oldFloorCount": "पुरानी मंजिल संख्या",
+        "floorRecordsAvailable": "मंजिल रिकॉर्ड उपलब्ध",
+        "floorMatchResult": "मंजिल मिलान परिणाम",
+        "yes": "हाँ",
+        "no": "नहीं",
+        "floorStatus": {
+          "matched": "मिलान हुआ",
+          "oldIsLess": "पुराना कम है",
+          "oldIsMore": "पुराना अधिक है",
+          "noMatchingLayout": "कोई मिलान लेआउट नहीं"
+        }
+      },
+      "taxCard": {
+        "title": "कुल कर लागू",
+        "newAnnualTax": "नया वार्षिक कर",
+        "oldAnnualTax": "पुराना वार्षिक कर",
+        "difference": "अंतर",
+        "differenceStatus": "अंतर स्थिति"
+      },
+      "toleranceBadge": {
+        "within": "सहनशीलता में",
+        "exceeded": "सीमा पार",
+        "equal": "बराबर",
+        "oldIsLess": "पुराना कम है",
+        "oldIsMore": "पुराना अधिक है"
+      },
+      "areaUnit": "वर्ग फुट",
+      "records": "रिकॉर्ड"
+    },
+
+    "floorVisualizer": {
+      "step5": {
+        "label": "चरण ५",
+        "title": "मंजिलवार निर्माण का विस्तृत समीक्षा करें",
+        "description": "कर रिकॉर्ड के विरुद्ध ऊर्ध्वाधर निर्माण स्तरों की समीक्षा करने के लिए नीचे पुरानी संपत्ति टैब चुनें।"
+      },
+      "emptyState": "बिल्डिंग विज़ुअलाइज़र बनाने के लिए चरण १ में जुड़ी पुरानी संपत्तियाँ चुनें।",
+      "gridLabel": "निर्माण और कर मापदंड ग्रिड",
+      "tabLabel": {
+        "new": "नई",
+        "old": "पुरानी"
+      },
+      "columns": {
+        "floor": "मंजिल",
+        "useCategory": "उपयोग श्रेणी",
+        "construction": "निर्माण",
+        "carpetArea": "कार्पेट क्षेत्र",
+        "builtUpArea": "निर्मित क्षेत्र",
+        "constructionYear": "निर्माण वर्ष",
+        "assessmentYear": "मूल्यांकन वर्ष"
+      },
+      "areaUnit": "वर्ग फुट"
+    },
+
+    "confirmFooter": {
+      "readyMessage": "सभी सत्यापन मेट्रिक्स नगर निगम सहनशीलता स्तरों से मेल खाते हैं। पुष्टि के लिए तैयार।",
+      "confirmMergeButton": "विलय की पुष्टि करें",
+      "saveUnmappedButton": "मैप न की गई संपत्ति के रूप में सहेजें"
+    },
+
+    "validation": {
+      "hardConflict": "सत्यापन अवरुद्ध: चयनित पुराने उम्मीदवार में कठोर मिलान संघर्ष पाया गया।",
+      "remarkRequired": "सर्वेक्षण संपत्ति को मैप न की गई के रूप में सहेजने के लिए ऑडिट टिप्पणी आवश्यक है।",
+      "areaVariance": "चेतावनी: संयुक्त क्षेत्र भिन्नता १०% सहनशीलता से अधिक ({value}%)।",
+      "taxVariance": "चेतावनी: कर मूल्य विसंगति १०% से अधिक ({value}%)।"
+    },
+
+    "dialogs": {
+      "remarkPrompt": "मैपिंग जाँच की व्याख्या करने वाली टिप्पणी दर्ज करें:",
+      "confirmMerge": {
+        "title": "संपत्ति विलय की पुष्टि करें?",
+        "description": "क्या आप सुनिश्चित हैं कि आप सर्वेक्षण संपत्ति {newPropNo} को ऐतिहासिक रिकॉर्ड से विलय करना चाहते हैं: {oldPropNos}?",
+        "confirmText": "विलय की पुष्टि करें",
+        "cancelText": "रद्द करें"
+      },
+      "markUnmapped": {
+        "title": "मैप न की गई संपत्ति के रूप में सत्यापित करें?",
+        "description": "क्या आप सुनिश्चित हैं कि आप नई सर्वेक्षण संपत्ति {newPropNo} को मैप न की गई के रूप में चिह्नित करना चाहते हैं? कोई पुरानी रिकॉर्ड लिंक नहीं की जाएगी।",
+        "confirmText": "मैप न की गई के रूप में चिह्नित करें",
+        "cancelText": "रद्द करें"
+      },
+      "unmapProperty": {
+        "title": "संपत्ति अनमैप करें?",
+        "description": "क्या आप सुनिश्चित हैं कि आप सर्वेक्षण संपत्ति {newPropNo} के लिए संपत्ति लिंक {mId} अनमैप करना चाहते हैं? इससे मैप किए गए पुराने रिकॉर्ड डिस्कनेक्ट हो जाएंगे।",
+        "confirmText": "संपत्ति अनमैप करें",
+        "cancelText": "रद्द करें"
+      },
+      "unmapSelection": {
+        "title": "अनमैप करने के लिए संपत्तियाँ चुनें",
+        "surveyProperty": "सर्वेक्षण संपत्ति:",
+        "multipleDesc": "यह सर्वेक्षण संपत्ति {count} पुरानी संपत्तियों से जुड़ी है। अनमैप करने के लिए रिकॉर्ड चुनें:",
+        "singleDesc": "क्या आप सुनिश्चित हैं कि आप सर्वेक्षण संपत्ति {newPropNo} के लिए संपत्ति लिंक {mId} अनमैप करना चाहते हैं? इससे पुराना रिकॉर्ड डिस्कनेक्ट हो जाएगा।",
+        "recordsHeader": "पुराने संपत्ति रिकॉर्ड ({selected}/{total} चयनित)",
+        "selectAll": "सभी चुनें",
+        "deselectAll": "सभी अचयनित करें",
+        "toUnmap": "अनमैप करें",
+        "keep": "रखें",
+        "cancel": "रद्द करें",
+        "unmapping": "अनमैप हो रहा है...",
+        "unmapSelected": "चयनित अनमैप करें ({count})"
+      }
+    },
+
+    "toasts": {
+      "filtersReset": "फ़िल्टर सफलतापूर्वक रीसेट किए गए",
+      "searchFailed": "सर्वर खोज विफल",
+      "markedUnmapped": "संपत्ति {propNo} मैप न की गई के रूप में सत्यापित।",
+      "mappingConfirmed": "संपत्ति मैपिंग सफलतापूर्वक सत्यापित: {propNo}।",
+      "unmapped": "{propNo} के लिए संपत्ति लिंक अनमैप कर दिया गया है।",
+      "mergeFailed": "संपत्ति रिकॉर्ड विलय करने में विफल।",
+      "unmergeFailed": "संपत्ति रिकॉर्ड अनमर्ज करने में विफल।",
+      "unlinkFailed": "संपत्ति रिकॉर्ड अनलिंक करने में विफल।",
+      "invalidPropertyId": "अमान्य संपत्ति पहचानकर्ता।"
+    },
+
+    "mappingType": {
+      "unmapped": "मैप न किया गया (नए सर्वेक्षण के रूप में पुष्टि करें)",
+      "oneToOne": "१ \u2192 १ (एक-से-एक)",
+      "split": "विभाजित (१ नई \u2192 {count} पुराने रिकॉर्ड)"
+    },
+
+    "confirmedMappingsTab": {
+      "title": "सक्रिय मैपिंग रजिस्टर",
+      "emptyText": "अभी तक कोई सक्रिय मैपिंग सहेजी नहीं गई।",
+      "columns": {
+        "mappingLinkId": "मैपिंग लिंक आईडी",
+        "newSurveyProperty": "नई सर्वेक्षण संपत्ति",
+        "legacyOldProperties": "पुरानी विरासत संपत्तियाँ",
+        "relationshipType": "संबंध प्रकार",
+        "confidence": "विश्वसनीयता",
+        "verifiedBy": "सत्यापित किया",
+        "verifiedDate": "सत्यापन दिनांक",
+        "action": "क्रिया"
+      },
+      "unmappedLabel": "मैप नहीं किया गया",
+      "unmapButton": "संपत्ति अनमैप करें"
+    },
+
+    "historyTab": {
+      "title": "ऑडिट ट्रेल",
+      "emptyText": "अभी तक इतिहास में कोई क्रिया दर्ज नहीं की गई।",
+      "naValue": "लागू नहीं",
+      "columns": {
+        "timestamp": "समय-मुद्रांक",
+        "action": "क्रिया",
+        "newPropertyNo": "नई संपत्ति संख्या",
+        "linkedLegacyRecords": "जुड़े पुराने विरासत रिकॉर्ड",
+        "officer": "अधिकारी",
+        "auditRemarks": "सामंजस्य ऑडिट टिप्पणी"
+      }
+    },
+
+    "diffModal": {
+      "title": "मापदंड तुलना",
+      "subtitle": "नए जीआईएस सर्वेक्षण मापदंडों की पुरानी नगर निगम रिकॉर्ड से तुलना करें।",
+      "closeButton": "तुलना बंद करें",
+      "columns": {
+        "parameters": "मापदंड",
+        "newPropertyRecord": "नई संपत्ति रिकॉर्ड",
+        "oldPropertyRecord": "पुरानी संपत्ति रिकॉर्ड",
+        "status": "स्थिति"
+      },
+      "matchStatus": {
+        "matched": "मिलान हुआ",
+        "unmatch": "मिलान नहीं",
+        "noData": "डेटा नहीं"
+      },
+      "fields": {
+        "propertyNo": "संपत्ति संख्या",
+        "ownerName": "मालिक का नाम",
+        "address": "पता",
+        "builtUpArea": "निर्मित क्षेत्र",
+        "carpetArea": "कार्पेट क्षेत्र",
+        "floors": "मंजिलें",
+        "rateableValue": "दर योग्य मूल्य",
+        "annualTax": "कुल कर",
+        "ctsSurvey": "सीटीएस / सर्वेक्षण",
+        "useCategory": "उपयोग श्रेणी",
+        "zoneWard": "क्षेत्र / वार्ड",
+        "plotNumber": "भूखंड संख्या",
+        "constructionYear": "निर्माण वर्ष",
+        "mobileNumber": "मोबाइल संख्या"
+      },
+      "naValue": "लागू नहीं",
+      "areaUnit": "वर्ग फुट"
+    },
+
+    "evidence": {
+      "ward": "वार्ड {wardNo}",
+      "zone": "क्षेत्र {zoneNo}",
+      "searchResult": "खोज परिणाम",
+      "category": "श्रेणी {category}"
+    },
+
+    "auditDefaultRemarks": {
+      "newSurvey": "नई सर्वेक्षण संपत्ति के रूप में पुष्टि की गई (मैप नहीं)।",
+      "mappingConfirmed": "मैपिंग संबंध की पुष्टि की गई।",
+      "unmapManual": "सक्रिय मैपिंग रजिस्टर से मैनुअल सत्यापन लिंक अनमैप करें।"
+    },
+
+    "waitingWindow": {
+      "title": "संपत्तियाँ खोजी जा रही हैं",
+      "message": "ऐतिहासिक नगर निगम रिकॉर्ड खोजे जा रहे हैं..."
+    }
+  }
+}

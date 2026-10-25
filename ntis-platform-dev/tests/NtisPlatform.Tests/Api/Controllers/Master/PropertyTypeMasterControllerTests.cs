@@ -1,0 +1,222 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Moq;
+using NtisPlatform.Api.Controllers.Master;
+using NtisPlatform.Application.DTOs.Master.PropertyTypeMaster;
+using NtisPlatform.Application.Exceptions;
+using NtisPlatform.Application.Interfaces;
+using NtisPlatform.Application.Models;
+using Xunit;
+
+namespace NtisPlatform.Tests.Api.Controllers.Master;
+
+public class PropertyTypeMasterControllerTests
+{
+    private readonly Mock<IPropertyTypeMasterService> _serviceMock;
+    private readonly Mock<ILogger<PropertyTypeMasterController>> _loggerMock;
+    private readonly PropertyTypeMasterController _controller;
+
+    public PropertyTypeMasterControllerTests()
+    {
+        _serviceMock = new Mock<IPropertyTypeMasterService>();
+        _loggerMock = new Mock<ILogger<PropertyTypeMasterController>>();
+        _controller = new PropertyTypeMasterController(_serviceMock.Object, _loggerMock.Object);
+    }
+
+    [Fact]
+    public async Task GetAll_ReturnsOkResult()
+    {
+        var queryParams = new PropertyTypeMasterQueryParameters();
+        var pagedResult = new PagedResult<PropertyTypeMasterDto>
+        {
+            Items = new List<PropertyTypeMasterDto>
+            {
+                new PropertyTypeMasterDto
+                {
+                    Id = 1,
+                    PropertyDescription = "इमारत",
+                    PropertyDescriptionEnglish = "Building"
+                }
+            },
+            TotalCount = 1,
+            PageNumber = 1,
+            PageSize = 10
+        };
+        _serviceMock.Setup(s => s.GetAllAsync(It.IsAny<PropertyTypeMasterQueryParameters>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync(pagedResult);
+
+        var result = await _controller.GetAll(queryParams, CancellationToken.None);
+
+        var okResult = Assert.IsType<OkObjectResult>(result);
+        var response = Assert.IsType<PagedResult<PropertyTypeMasterDto>>(okResult.Value);
+        Assert.Single(response.Items);
+        Assert.Equal("Building", response.Items.First().PropertyDescriptionEnglish);
+    }
+
+    [Fact]
+    public async Task GetById_WithValidId_ReturnsOkResult()
+    {
+        var dto = new PropertyTypeMasterDto
+        {
+            Id = 1,
+            PropertyDescription = "इमारत",
+            PropertyDescriptionEnglish = "Building",
+            Type = "B"
+        };
+        _serviceMock.Setup(s => s.GetByIdAsync(1, It.IsAny<CancellationToken>()))
+            .ReturnsAsync(dto);
+
+        var result = await _controller.GetById(1, CancellationToken.None);
+
+        var okResult = Assert.IsType<OkObjectResult>(result);
+        var response = Assert.IsType<PropertyTypeMasterDto>(okResult.Value);
+        Assert.Equal(1, response.Id);
+        Assert.Equal("इमारत", response.PropertyDescription);
+        Assert.Equal("Building", response.PropertyDescriptionEnglish);
+    }
+
+    [Fact]
+    public async Task GetById_WithInvalidId_ReturnsNotFound()
+    {
+        _serviceMock.Setup(s => s.GetByIdAsync(999, It.IsAny<CancellationToken>()))
+            .ReturnsAsync((PropertyTypeMasterDto?)null);
+
+        var result = await _controller.GetById(999, CancellationToken.None);
+
+        Assert.IsType<NotFoundResult>(result);
+    }
+
+    [Fact]
+    public async Task Create_WithValidDto_ReturnsOkResult()
+    {
+        var createDto = new CreatePropertyTypeMasterDto
+        {
+            PropertyDescription = "इमारत",
+            PropertyDescriptionEnglish = "Building",
+            Type = "B"
+        };
+        var createdDto = new PropertyTypeMasterDto
+        {
+            Id = 1,
+            PropertyDescription = "इमारत",
+            PropertyDescriptionEnglish = "Building",
+            Type = "B"
+        };
+        _serviceMock.Setup(s => s.CreateAsync(It.IsAny<CreatePropertyTypeMasterDto>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync(createdDto);
+
+        var result = await _controller.Create(createDto, CancellationToken.None);
+
+        var okResult = Assert.IsType<OkObjectResult>(result);
+        var response = Assert.IsType<ApiResponse<PropertyTypeMasterDto>>(okResult.Value);
+        Assert.True(response.Success);
+        Assert.NotNull(response.Items);
+        Assert.Equal("Building", response.Items.PropertyDescriptionEnglish);
+        Assert.Equal("इमारत", response.Items.PropertyDescription);
+    }
+
+    [Fact]
+    public async Task Update_WithValidData_ReturnsOkResult()
+    {
+        var updateDto = new UpdatePropertyTypeMasterDto
+        {
+            PropertyDescription = "सुधारित इमारत",
+            PropertyDescriptionEnglish = "Updated Building",
+            Type = "B"
+        };
+        var updatedDto = new PropertyTypeMasterDto
+        {
+            Id = 1,
+            PropertyDescription = "सुधारित इमारत",
+            PropertyDescriptionEnglish = "Updated Building",
+            Type = "B"
+        };
+        _serviceMock.Setup(s => s.UpdateAsync(1, It.IsAny<UpdatePropertyTypeMasterDto>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync(updatedDto);
+
+        var result = await _controller.Update(1, updateDto, CancellationToken.None);
+
+        var okResult = Assert.IsType<OkObjectResult>(result);
+        var response = Assert.IsType<ApiResponse<PropertyTypeMasterDto>>(okResult.Value);
+        Assert.True(response.Success);
+        Assert.NotNull(response.Items);
+        Assert.Equal("Updated Building", response.Items.PropertyDescriptionEnglish);
+        Assert.Equal("सुधारित इमारत", response.Items.PropertyDescription);
+    }
+
+    [Fact]
+    public async Task Update_WithInvalidId_ReturnsOk()
+    {
+        var updateDto = new UpdatePropertyTypeMasterDto();
+        _serviceMock.Setup(s => s.UpdateAsync(999, It.IsAny<UpdatePropertyTypeMasterDto>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync((PropertyTypeMasterDto?)null);
+
+        var result = await _controller.Update(999, updateDto, CancellationToken.None);
+
+        Assert.IsType<OkObjectResult>(result);
+    }
+
+    [Fact]
+    public async Task Delete_WithValidId_ReturnsOk()
+    {
+        _serviceMock.Setup(s => s.DeleteAsync(1, It.IsAny<CancellationToken>()))
+            .ReturnsAsync(true);
+
+        var result = await _controller.Delete(1, CancellationToken.None);
+
+        Assert.IsType<OkObjectResult>(result);
+    }
+
+    [Fact]
+    public async Task Delete_WithInvalidId_ReturnsOk()
+    {
+        _serviceMock.Setup(s => s.DeleteAsync(999, It.IsAny<CancellationToken>()))
+            .ReturnsAsync(false);
+
+        var result = await _controller.Delete(999, CancellationToken.None);
+
+        Assert.IsType<OkObjectResult>(result);
+    }
+
+    [Fact]
+    public async Task Purge_WithValidId_ReturnsOk()
+    {
+        _serviceMock.Setup(s => s.ForceDeleteAsync(1, It.IsAny<CancellationToken>()))
+            .ReturnsAsync(true);
+
+        var result = await _controller.Purge(1, CancellationToken.None);
+
+        var okResult = Assert.IsType<OkObjectResult>(result);
+        var response = Assert.IsType<ApiResponse<object>>(okResult.Value);
+        Assert.True(response.Success);
+        Assert.Contains("permanently deleted", response.Message, StringComparison.OrdinalIgnoreCase);
+        _serviceMock.Verify(s => s.ForceDeleteAsync(1, It.IsAny<CancellationToken>()), Times.Once);
+    }
+
+    [Fact]
+    public async Task Purge_WithInvalidId_ReturnsOkWithFailureMessage()
+    {
+        _serviceMock.Setup(s => s.ForceDeleteAsync(999, It.IsAny<CancellationToken>()))
+            .ReturnsAsync(false);
+
+        var result = await _controller.Purge(999, CancellationToken.None);
+
+        var okResult = Assert.IsType<OkObjectResult>(result);
+        var response = Assert.IsType<ApiResponse<object>>(okResult.Value);
+        Assert.False(response.Success);
+        Assert.Contains("not found", response.Message, StringComparison.OrdinalIgnoreCase);
+        _serviceMock.Verify(s => s.ForceDeleteAsync(999, It.IsAny<CancellationToken>()), Times.Once);
+    }
+
+    [Fact]
+    public async Task Purge_WithLinkedProperties_PropagatesValidationException()
+    {
+        // Business rule enforced by PropertyTypeMasterService.ForceDeleteAsync
+        _serviceMock.Setup(s => s.ForceDeleteAsync(1, It.IsAny<CancellationToken>()))
+            .ThrowsAsync(new ValidationException(
+                "Cannot delete this Property Type because it is linked to 2 properties.",
+                NtisPlatform.Application.Enums.OperationType.Delete));
+
+        await Assert.ThrowsAsync<ValidationException>(() => _controller.Purge(1, CancellationToken.None));
+    }
+}

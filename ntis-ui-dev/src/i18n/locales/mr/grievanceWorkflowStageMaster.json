@@ -1,0 +1,133 @@
+{
+  "title": "तक्रार कार्यप्रवाह टप्पा",
+  "subtitle": "ULB प्रकारानुसार तक्रार कार्यप्रवाह टप्पे व्यवस्थापित करा",
+  "searchPlaceholder": "तक्रार कार्यप्रवाह टप्पा नोंदी शोधा...",
+  "add": "कार्यप्रवाह टप्पा जोडा",
+  "edit": "टप्पा संपादित करा",
+  "delete": "टप्पा हटवा",
+  "actions": "कृती",
+  "ulbTypeId": "ULB प्रकार आयडी",
+  "ulbTypeName": "ULB प्रकार",
+  "stageCode": "टप्पा कोड",
+  "stageName": "टप्पा नाव",
+  "stageNameLocal": "टप्पा नाव (स्थानिक)",
+  "stageOrder": "टप्पा क्रम",
+  "workflowStatus": "कार्यप्रवाह स्थिती",
+  "activeStatus": "सक्रिय स्थिती",
+  "description": "वर्णन",
+  "form": {
+    "addTitle": "नवीन कार्यप्रवाह टप्पा जोडा",
+    "editTitle": "कार्यप्रवाह टप्पा संपादित करा",
+    "addSubtitle": "नवीन तक्रार कार्यप्रवाह टप्पा कॉन्फिगर करा",
+    "editSubtitle": "तक्रार कार्यप्रवाह टप्पा कॉन्फिगरेशन अद्ययावत करा",
+    "subtitle": "नवीन तक्रार कार्यप्रवाह टप्पा कॉन्फिगर करा",
+    "actions": {
+      "save": "टप्पा तयार करा",
+      "update": "टप्पा अद्ययावत करा",
+      "cancel": "रद्द करा"
+    },
+    "fields": {
+      "ulbTypeId": {
+        "label": "ULB प्रकार",
+        "placeholder": "ULB प्रकार निवडा"
+      },
+      "stageCode": {
+        "label": "टप्पा कोड",
+        "placeholder": "उदा. CORRECTION / VERIFICATION"
+      },
+      "stageName": {
+        "label": "टप्पा नाव",
+        "placeholder": "उदा. पडताळणी टप्पा"
+      },
+      "stageNameLocal": {
+        "label": "टप्पा नाव (स्थानिक)",
+        "placeholder": "उदा. पडताळणी टप्पा"
+      },
+      "stageOrder": {
+        "label": "टप्पा क्रम",
+        "placeholder": "उदा. 1"
+      },
+      "status": {
+        "label": "कार्यप्रवाह स्थिती",
+        "placeholder": "उदा. IN REVIEW किंवा SUBMITTED"
+      },
+      "description": {
+        "label": "वर्णन",
+        "placeholder": "या कार्यप्रवाह टप्प्याचे वर्णन"
+      }
+    },
+    "status": {
+      "label": "सक्रिय स्थिती",
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय",
+      "description": "कार्यप्रवाह टप्पा सध्या"
+    },
+    "validation": {
+      "ulbTypeIdRequired": "ULB प्रकार आवश्यक आहे",
+      "stageCodeRequired": "टप्पा कोड आवश्यक आहे",
+      "stageCodeFormat": "टप्पा कोडमध्ये फक्त अक्षरे, अंक आणि अंडरस्कोअर असावेत",
+      "stageCodeMaxLength": "टप्पा कोड {count} अक्षरांपेक्षा जास्त असू शकत नाही",
+      "stageNameRequired": "टप्पा नाव आवश्यक आहे",
+      "stageNameMaxLength": "टप्पा नाव {count} अक्षरांपेक्षा जास्त असू शकत नाही",
+      "stageNameFormat": "टप्पा नावामध्ये फक्त अक्षरे आणि स्पेस असू शकतात",
+      "stageNameLocalMaxLength": "स्थानिक टप्पा नाव {count} अक्षरांपेक्षा जास्त असू शकत नाही",
+      "stageNameLocalFormat": "स्थानिक टप्पा नावामध्ये फक्त अक्षरे आणि स्पेस असू शकतात",
+      "stageOrderRequired": "टप्पा क्रम आवश्यक आहे",
+      "stageOrderInvalid": "टप्पा क्रम धन संख्या असावी",
+      "stageOrderMax": "टप्पा क्रम {count} पेक्षा जास्त असू शकत नाही",
+      "statusRequired": "स्थिती आवश्यक आहे",
+      "statusFormat": "स्थितीमध्ये फक्त अक्षरे आणि स्पेस असू शकतात",
+      "statusMaxLength": "स्थिती {count} अक्षरांपेक्षा जास्त असू शकत नाही",
+      "descriptionMaxLength": "वर्णन {count} अक्षरांपेक्षा जास्त असू शकत नाही",
+      "descriptionFormat": "वर्णनासाठी अवैध स्वरूप",
+      "invalidFormat": "अवैध स्वरूप",
+      "fixErrors": "कृपया व्हॅलिडेशन त्रुटी दुरुस्त करा",
+      "mandatoryNotice": "<b>*</b> चिन्हांकित फील्ड्स अनिवार्य आहेत",
+      "mandatoryNoticePlain": "* चिन्हांकित फील्ड्स अनिवार्य आहेत",
+      "stageCodeDuplicate": "टप्पा कोड आधीच अस्तित्वात आहे",
+      "stageNameDuplicate": "टप्पा नाव आधीच अस्तित्वात आहे",
+      "stageOrderDuplicate": "टप्पा क्रम आधीच अस्तित्वात आहे",
+      "stageCodeAndStageOrderDuplicate": "टप्पा कोड आणि टप्पा क्रम आधीच अस्तित्वात आहेत",
+      "stageCodeAndStageNameDuplicate": "टप्पा कोड आणि टप्पा नाव आधीच अस्तित्वात आहेत",
+      "stageNameAndStageOrderDuplicate": "टप्पा नाव आणि टप्पा क्रम आधीच अस्तित्वात आहेत",
+      "stageAllDuplicate": "टप्पा कोड, टप्पा नाव आणि टप्पा क्रम आधीच अस्तित्वात आहेत",
+      "duplicate": "टप्पा कोड आधीच अस्तित्वात आहे"
+    },
+    "messages": {
+      "createSuccess": "तक्रार कार्यप्रवाह टप्पा यशस्वीरित्या तयार केला",
+      "updateSuccess": "तक्रार कार्यप्रवाह टप्पा यशस्वीरित्या अद्ययावत केला",
+      "deleteSuccess": "तक्रार कार्यप्रवाह टप्पा यशस्वीरित्या हटवला",
+      "error": "तक्रार कार्यप्रवाह टप्पा जतन करण्यात अक्षम",
+      "duplicate": "हा कार्यप्रवाह टप्पा आधीच अस्तित्वात आहे"
+    }
+  },
+  "apiErrors": {
+    "GrievanceWorkflowStage_StageCode_Duplicate": "टप्पा कोड आधीच अस्तित्वात आहे",
+    "GrievanceWorkflowStage_StageName_Duplicate": "टप्पा नाव आधीच अस्तित्वात आहे",
+    "GrievanceWorkflowStage_StageOrder_Duplicate": "टप्पा क्रम आधीच अस्तित्वात आहे",
+    "GrievanceWorkflowStage_InvalidUlbTypeId": "अवैध ULB प्रकार निवडला गेला",
+    "GrievanceWorkflowStage_Status_MaxLen_50": "स्थिती 50 अक्षरांपेक्षा जास्त असू शकत नाही",
+    "deleteBlockedInUse": "हा कार्यप्रवाह टप्पा वापरात असल्यामुळे हटवता येत नाही.",
+    "deactivateBlockedInUse": "हा कार्यप्रवाह टप्पा वापरात असल्यामुळे निष्क्रिय करता येत नाही.",
+    "referenceBlocked": {
+      "workflowStage": {
+        "deleteInUse": "हा तक्रार कार्यप्रवाह टप्पा वापरात असल्यामुळे हटवता येत नाही.",
+        "deactivateInUse": "हा तक्रार कार्यप्रवाह टप्पा वापरात असल्यामुळे निष्क्रिय करता येत नाही.",
+        "deleteHasMasters": "या तक्रार कार्यप्रवाह टप्प्यामध्ये {masters} असल्यामुळे तो हटवता येत नाही. कृपया आधी या तक्रार कार्यप्रवाह टप्प्याची सर्व {masters} हटवा.",
+        "deactivateHasMasters": "या तक्रार कार्यप्रवाह टप्प्यामध्ये {masters} असल्यामुळे तो निष्क्रिय करता येत नाही. कृपया आधी या तक्रार कार्यप्रवाह टप्प्याची सर्व {masters} हटवा."
+      }
+    },
+    "referenceMasters": {
+      "stageAccessControl": "टप्पा प्रवेश नियंत्रण",
+      "and": "आणि"
+    }
+  },
+  "deleteConfirm": "तुम्हाला नक्की ही कार्यप्रवाह टप्पा नोंद हटवायची आहे का?",
+  "error": {
+    "title": "सर्व्हरशी कनेक्ट होण्यात अयशस्वी. कृपया नंतर पुन्हा प्रयत्न करा.",
+    "description": "तक्रार कार्यप्रवाह टप्पा पृष्ठ लोड करताना आम्हाला त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+    "tryAgain": "पुन्हा प्रयत्न करा",
+    "goHome": "मुख्यपृष्ठावर जा",
+    "errorId": "त्रुटी आयडी: {id}"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "depreciationMaster": {
+    "aliasFallback": {
+      "assessment": "मूल्यांकन",
+      "constructionType": "निर्माण प्रकार",
+      "entity": "मूल्यांकन"
+    },
+    "title": "घसारा",
+    "subtitle": "संपत्ति कर {assessment} प्रणाली",
+    "assessmentYear": "{assessment} वर्ष",
+    "createRange": "रेंज बनाएं",
+    "min": "न्यूनतम आयु",
+    "max": "अधिकतम आयु",
+    "addRange": "रेंज जोड़ें",
+    "deleteRow": "पंक्ति हटाएं",
+    "currencySymbol": "₹",
+    "rangesAllYears": "सभी वर्षों की रेंज",
+    "noRangesFound": "कोई रेंज नहीं मिली",
+    "deleteRange": "रेंज हटाएं",
+    "deleteRangeConfirmTitle": "रेंज हटाएं !!",
+    "deleteRangeConfirmDesc": "क्या आप वाकई इस रेंज {min}-{max} को हटाना चाहते हैं?",
+    "cancel": "रद्द करें",
+    "updateRates": "रेंज अपडेट करें",
+    "changesReverted": "परिवर्तन वापस लिए गए",
+    "createDepChart": "दर जोड़ने के लिए घसारा बनाएं",
+    "ageRange": "आयु रेंज",
+    "yearRange": "वर्ष रेंज",
+    "active": "सक्रिय",
+    "action": "कार्रवाई",
+    "processing": "प्रोसेसिंग...",
+    "minPlaceholder": "न्यूनतम आयु दर्ज करें",
+    "maxPlaceholder": "अधिकतम आयु दर्ज करें",
+    "deleteRangeConfirm": "हटाएं",
+    "noRanges": "कोई रेंज नहीं मिली",
+    "success": {
+      "deleted": "रेंज सफलतापूर्वक हटाई गई।",
+      "updated": "रेंज सफलतापूर्वक अपडेट की गईं।",
+      "added": "रेंज सफलतापूर्वक बनाई गई।"
+    },
+    "messages": {
+      "noChanges": "अपडेट करने के लिए कोई बदलाव नहीं।",
+      "updating": "{count} रिकॉर्ड अपडेट हो रहे हैं...",
+      "creatingRange": "सभी {constructionType}ों के लिए रेंज बनाई जा रही है..."
+    },
+    "errors": {
+      "load": "घसारा डेटा लोड करने में विफल।",
+      "add": "रेंज जोड़ने में विफल।",
+      "update": "दर अपडेट करने में विफल।",
+      "delete": "रेंज हटाने में विफल।",
+      "exists": "यह रेंज पहले से मौजूद है।",
+      "minMax": "कृपया न्यूनतम और अधिकतम आयु दोनों दर्ज करें।",
+      "invalidRange": "न्यूनतम आयु अधिकतम आयु से कम होना चाहिए।",
+      "overlap": "यह श्रेणी पहले से मौजूद है। {range}",
+      "mustBeNumber": "वैध संख्या होना चाहिए",
+      "cannotBeNegative": "नकारात्मक नहीं हो सकता",
+      "mustBe9999OrLess": "9999 या उससे कम होना चाहिए",
+      "mustBe100OrLess": "100 या उससे कम होना चाहिए",
+      "mustBe999OrLess": "999 या उससे कम होना चाहिए",
+      "mustBe99OrLess": "99 या उससे कम होना चाहिए",
+      "gapMin": "आयु सीमा में अंतराल है। अपेक्षित न्यूनतम आयु {expectedMin} है।",
+      "gapMax": "आयु सीमा में अंतराल है। अपेक्षित अधिकतम आयु {expectedMax} है।"
+    },
+    "error": {
+      "title": "कुछ गलत हो गया",
+      "description": "घसारा मास्टर पेज लोड करने में त्रुटि हुई। कृपया पुनः प्रयास करें।",
+      "tryAgain": "पुनः प्रयास करें",
+      "goHome": "होम पर जाएं",
+      "errorId": "त्रुटि आईडी: {id}"
+    },
+    "loading": {
+      "message": "घसारा मास्टर लोड हो रहा है...",
+      "description": "कृपया प्रतीक्षा करें जब तक घसारा डेटा प्राप्त हो रहा है"
+    },
+    "pagination": {
+      "showing": "पृष्ठ {page} में से {totalPages} पर {ranges} श्रेणियां दिखा रहे हैं",
+      "total": "कुल: {count} श्रेणियां",
+      "constructionTypes": "{constructionType}",
+      "showingTypes": "इस पृष्ठ पर {total} में से {shown} प्रकार दिखा रहे हैं",
+      "typesMayBeOnOtherPages": "कुछ {constructionType} अन्य पृष्ठों पर हो सकते हैं। सभी डेटा देखने के लिए नेविगेट करें।"
+    }
+  }
+}

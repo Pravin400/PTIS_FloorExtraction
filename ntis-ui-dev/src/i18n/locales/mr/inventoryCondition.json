@@ -1,0 +1,177 @@
+{
+  "configuration": {
+    "header": {
+      "title": "Configuration Master",
+      "subtitle": "मालमत्ता आणि इन्व्हेंटरी स्थिती व्यवस्थापन",
+      "totalMasters": "Total Masters"
+    },
+    "tabs": {
+      "masterData": "Master Data",
+      "screenMaster": "Screen Master",
+      "screenFieldsMaster": "Screen Fields Master"
+    },
+    "masterData": {
+      "title": "Master Data",
+      "records": "Master Records",
+      "addNew": "नवीन {name} जोडा",
+      "searchPlaceholder": "मास्टर रेकॉर्ड शोधा...",
+      "stats": {
+        "master": "Master Types",
+        "shown": "Shown",
+        "active": "Active"
+      },
+      "groupFilter": {
+        "categoriesTitle": "श्रेण्या",
+        "itemNamesTitle": "श्रेण्या"
+      },
+      "form": {
+        "addTitle": "{name} जोडा",
+        "editTitle": "{name} संपादित करा",
+        "createSubtitle": "नवीन नोंद तयार करा",
+        "updateSubtitle": "निवडलेली नोंद अद्यतनित करा",
+        "labels": {
+          "name": "नाव",
+          "conditionType": "स्थिती श्रेणी",
+          "category": "श्रेणी",
+          "categoryName": "श्रेणीचे नाव",
+          "description": "वर्णन",
+          "conditionFactor": "स्थिती घटक",
+          "displayOrder": "प्रदर्शन क्रम",
+          "status": "स्थिती",
+          "active": "सक्रिय",
+          "inactive": "निष्क्रिय"
+        },
+        "placeholders": {
+          "name": "नाव प्रविष्ट करा",
+          "conditionType": "स्थिती श्रेणी निवडा",
+          "category": "श्रेणी निवडा",
+          "description": "वर्णन प्रविष्ट करा",
+          "conditionFactor": "स्थिती घटक प्रविष्ट करा",
+          "displayOrder": "प्रदर्शन क्रम प्रविष्ट करा"
+        },
+        "buttons": {
+          "save": "जतन करा",
+          "update": "अद्यतनित करा",
+          "cancel": "रद्द करा"
+        },
+        "validation": {
+          "duplicateRecord": "हा रेकॉर्ड आधीपासून अस्तित्वात आहे. कृपया तपासा आणि पुन्हा प्रयत्न करा."
+        },
+        "errors": {
+          "fillRequired": "कृपया सर्व आवश्यक फील्ड भरा.",
+          "conditionTypeRequired": "स्थिती श्रेणी आवश्यक आहे.",
+          "nameRequired": "स्थितीचे नाव आवश्यक आहे.",
+          "categoryRequired": "श्रेणी आवश्यक आहे.",
+          "englishOnly": "कृपया केवळ इंग्रजीमध्ये प्रविष्ट करा.",
+          "noSpecialCharacters": "कृपया नावात फक्त अक्षरे, संख्या आणि स्पेसेस वापरा.",
+          "maxLength": "कृपया अनुमत अक्षरांच्या मर्यादेपेक्षा जास्त टाकू नका.",
+          "conditionFactorRequired": "स्थिती घटक आवश्यक आहे.",
+          "conditionFactorInvalid": "स्थिती घटक वैध क्रमांक असणे आवश्यक आहे.",
+          "conditionFactorRange": "स्थिती घटक 0 आणि 1 च्या दरम्यान असणे आवश्यक आहे.",
+          "displayOrderRequired": "प्रदर्शन क्रम आवश्यक आहे.",
+          "displayOrderInvalid": "प्रदर्शन क्रम 1 किंवा त्याहून मोठा पूर्णांक असणे आवश्यक आहे.",
+          "apiActionsNotConfigured": "API क्रिया संरचीत नाहीत.",
+          "saveFailed": "रेकॉर्ड जतन करता आले नाही.",
+          "deleteFailed": "रेकॉर्ड हटवता आले नाही.",
+          "unexpected": "एक अनपेक्षित त्रुटी आली.",
+          "codeRequired": "कोड आवश्यक आहे",
+          "codeAllZeros": "कोड शून्य असू शकत नाही",
+          "codeMax": "कोड कमाल लांबीपेक्षा जास्त आहे",
+          "codeFormat": "कोडसाठी अवैध स्वरूप",
+          "codeTooLong15": "कोड 15 वर्णांपेक्षा जास्त असू शकत नाही",
+          "codeInvalidChars": "कोडमध्ये अवैध वर्ण आहेत",
+          "codeDuplicate": "हा कोड आधीपासून अस्तित्वात आहे",
+          "nameAllZeros": "नाव शून्य असू शकत नाही",
+          "nameMax": "नाव कमाल लांबीपेक्षा जास्त आहे",
+          "nameFormat": "नावासाठी अवैध स्वरूप",
+          "nameTooLong50": "नाव 50 वर्णांपेक्षा जास्त असू शकत नाही",
+          "nameInvalidChars": "नावामध्ये अवैध वर्ण आहेत",
+          "nameDuplicate": "हे नाव आधीपासून अस्तित्वात आहे",
+          "descriptionAllZeros": "वर्णन शून्य असू शकत नाही",
+          "descriptionFormat": "वर्णनासाठी अवैध स्वरूप",
+          "descriptionTooLong": "वर्णन 500 वर्णांपेक्षा जास्त असू शकत नाही",
+          "descInvalidChars": "वर्णनात अवैध वर्ण आहेत",
+          "duplicateName": "स्थितीचे नाव अद्वितीय असावे.",
+          "group": "श्रेणी आवश्यक आहे."
+        },
+        "messages": {
+          "createSuccess": "नोंद यशस्वीरित्या तयार केली",
+          "updateSuccess": "नोंद यशस्वीरित्या अद्यतनित केली",
+          "invalidIdError": "अवैध नोंद आयडी",
+          "error": "एक अनपेक्षित त्रुटी आली"
+        }
+      },
+      "error": {
+        "title": "डेटा लोड करणे अयशस्वी",
+        "description": "मास्टर डेटा नोंदी लोड करताना एक त्रुटी आली. कृपया तुमचे कनेक्शन तपासा किंवा पुन्हा प्रयत्न करा.",
+        "categoryTitle": "श्रेणी लोड करणे अयशस्वी",
+        "categoryDescription": "अ‍ॅसेट श्रेणी लोड करताना एक त्रुटी आली. कृपया तुमचे कनेक्शन तपासा किंवा पुन्हा प्रयत्न करा.",
+        "typeTitle": "प्रकार लोड करणे अयशस्वी",
+        "typeDescription": "अ‍ॅसेट प्रकार लोड करताना एक त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+        "reload": "पृष्ठ पुन्हा लोड करा",
+        "tryAgain": "पुन्हा प्रयत्न करा",
+        "goHome": "मुख्यपृष्ठावर जा"
+      }
+    }
+  },
+  "apiErrors": {
+    "referenceBlocked": {
+      "condition": {
+        "deleteInUse": "ही स्थिती वापरात असल्यामुळे डिलीट करता येत नाही.",
+        "deactivateInUse": "ही स्थिती वापरात असल्यामुळे निष्क्रिय करता येत नाही."
+      }
+    }
+  },
+  "masterNames": {
+    "asset-type-master": "मालमत्ता प्रकार",
+    "asset-category-master": "मालमत्ता श्रेणी",
+    "inventory-category-master": "इन्व्हेंटरी श्रेणी",
+    "inventory-model-master": "इन्व्हेंटरी मॉडेल",
+    "inventory-name-master": "इन्व्हेंटरी आयटमचे नाव",
+    "inventory-condition-master": "मालमत्ता स्थिती मास्टर"
+  },
+  "list": {
+    "title": "इन्व्हेंटरी स्थिती मास्टर",
+    "subtitle": "इन्व्हेंटरीसाठी स्थिती व्यवस्थापित करा",
+    "buttons": {
+      "add": "नवीन इन्व्हेंटरी स्थिती जोडा",
+      "edit": "संपादित करा",
+      "delete": "डिलीट"
+    },
+    "filters": {
+      "show": "दाखवा",
+      "search": "इन्व्हेंटरी स्थिती शोधा...",
+      "label": "फिल्टर्स",
+      "conditionCategoryAll": "स्थिती श्रेणी: सर्व",
+      "categoryAll": "श्रेणी: सर्व",
+      "statusAll": "स्थिती: सर्व",
+      "reset": "रीसेट करा",
+      "export": "निर्यात करा",
+      "asset": "मालमत्ता",
+      "inventory": "इन्व्हेंटरी"
+    },
+    "table": {
+      "conditionCategory": "स्थिती श्रेणी",
+      "name": "नाव",
+      "description": "वर्णन",
+      "conditionFactor": "स्थिती घटक",
+      "category": "श्रेणी",
+      "status": "स्थिती",
+      "actions": "कृती"
+    },
+    "status": {
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय"
+    }
+  },
+  "stats": {
+    "totalConditions": "एकूण स्थिती",
+    "totalConditionsSub": "सर्व कॉन्फिगर केलेल्या स्थिती",
+    "activeConditions": "सक्रिय स्थिती",
+    "activeConditionsSub": "सध्या सक्रिय",
+    "avgConditionFactor": "सरासरी स्थिती घटक",
+    "avgConditionFactorSub": "सर्व स्थितींमध्ये",
+    "categories": "श्रेण्या",
+    "categoriesSub": "स्थिती श्रेण्या"
+  }
+}

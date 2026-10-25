@@ -1,0 +1,104 @@
+{
+  "moujaMaster": {
+    "aliasFallback": {
+      "entity": "मौजा"
+    },
+    "list": {
+      "title": "{mouja} मास्टर",
+      "subtitle": "{mouja} नोंदी आणि त्यांचे तपशील व्यवस्थापित करा",
+      "buttons": {
+        "add": "{mouja} जोडा",
+        "edit": "संपादन",
+        "delete": "हटवा"
+      },
+      "filters": {
+        "show": "दाखवा",
+        "search": "{mouja} क्रमांक किंवा नावाने शोधा..."
+      },
+      "table": {
+        "moujaNo": "{mouja} क्रमांक",
+        "moujaName": "{mouja} नाव",
+        "status": "स्थिती",
+        "actions": "क्रिया"
+      },
+      "status": {
+        "active": "सक्रिय",
+        "inactive": "निष्क्रिय"
+      },
+      "pagination": {
+        "showing": "दाखवत आहे",
+        "entries": "नोंदी"
+      }
+    },
+    "form": {
+      "addTitle": "नवीन {mouja} जोडा",
+      "editTitle": "{mouja} संपादित करा",
+      "subtitle": "नवीन {mouja} तयार करा",
+      "editSubtitle": "{mouja} तपशील अद्यतन करा",
+      "fields": {
+        "moujaNo": {
+          "label": "{mouja} क्रमांक",
+          "placeholder": "उदा. M001"
+        },
+        "moujaName": {
+          "label": "{mouja} नाव",
+          "placeholder": "उदा. अकुर्डी"
+        }
+      },
+      "validation": {
+        "moujaNoRequired": "{mouja} क्रमांक आवश्यक आहे",
+        "moujaNoMaxLength": "कमाल लांबी 10 वर्ण आहे",
+        "moujaNoFormat": "फक्त इंग्रजी अक्षरे, संख्या, डॉट (.) आणि अंडरस्कोर (_) वर्णांना परवानगी आहे",
+        "moujaNoEnglishOnly": "फक्त इंग्रजी अक्षरे, संख्या, डॉट (.) आणि अंडरस्कोर (_) ला परवानगी आहे. मराठी/हिंदी समर्थित नाही.",
+        "moujaNoExists": "हा {mouja} क्रमांक आधीच अस्तित्वात आहे. कृपया वेगळा क्रमांक वापरा.",
+        "moujaNameRequired": "{mouja} नाव आवश्यक आहे",
+        "moujaNameMaxLength": "कमाल लांबी 100 वर्ण आहे",
+        "moujaNameFormat": "फक्त अक्षरे (कोणतीही भाषा), संख्या, रिक्त स्थाने आणि मूलभूत विरामचिन्हांना परवानगी आहे (,./-()).",
+        "moujaNameExists": "{mouja} नाव आधीच अस्तित्वात आहे. कृपया वेगळे नाव प्रविष्ट करा.",
+        "mustBeActive": "{mouja} जतन करण्यासाठी सक्रिय असणे आवश्यक आहे"
+      },
+      "status": {
+        "label": "सक्रिय स्थिती",
+        "description": "हा {mouja} सध्या"
+      },
+      "actions": {
+        "cancel": "रद्द करा",
+        "save": "जतन करा",
+        "update": "अद्यतन करा"
+      }
+    },
+    "delete": {
+      "confirmTitle": "{mouja} ({id}) हटवा?",
+      "confirmDescription": "तुम्हाला खात्री आहे की तुम्ही ही {mouja} नोंद हटवू इच्छिता?",
+      "successMessage": "{mouja} ({id}) यशस्वीरित्या हटवला",
+      "errorMessage": "{mouja} ({id}) हटवू शकत नाही कारण तो इतर नोंदींशी जोडलेला आहे."
+    },
+    "apiErrors": {
+      "duplicateCode": "{mouja} क्रमांक आधीच अस्तित्वात आहे. कृपया वेगळा क्रमांक वापरा.",
+      "duplicateName": "{mouja} नाव आधीच अस्तित्वात आहे. कृपया वेगळे नाव वापरा.",
+      "duplicateRecord": "कृपया {mouja} क्रमांक आणि नाव तपासा - डुप्लिकेटला परवानगी नाही.",
+      "validationError": "अवैध डेटा प्रदान केला. कृपया सर्व फील्ड तपासा.",
+      "invalidData": "अवैध डेटा प्रदान केला. कृपया सर्व फील्ड तपासा.",
+      "notFound": "{mouja} सापडला नाही.",
+      "inUse": "हा {mouja} निष्क्रिय/हटवू शकत नाही कारण तो इतर नोंदींमध्ये संदर्भित आहे.",
+      "operationFailed": "ऑपरेशन अयशस्वी झाले. कृपया नंतर पुन्हा प्रयत्न करा.",
+      "linkedRecordError": "हा {mouja} सुधारू शकत नाही कारण तो इतर नोंदींशी जोडलेला आहे."
+    },
+    "success": {
+      "created": "नवीन {mouja} यशस्वीरित्या तयार केला, कोड: {code}",
+      "updated": "{mouja} यशस्वीरित्या अद्यतन केला, कोड: {code}",
+      "deleted": "{mouja} यशस्वीरित्या हटवला, कोड: {code}"
+    },
+    "error": {
+      "title": "सर्वरशी कनेक्ट करण्यात अयशस्वी. कृपया नंतर पुन्हा प्रयत्न करा.",
+      "description": "{mouja} पृष्ठ लोड करताना आम्हाला त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+      "tryAgain": "पुन्हा प्रयत्न करा",
+      "goHome": "मुख्यपृष्ठावर जा",
+      "errorId": "त्रुटी ID: {id}"
+    },
+    "loading": {
+      "message": "मौजा लोड होत आहे...",
+      "description": "कृपया प्रतीक्षा करा आम्ही मौजा डेटा मिळवत आहोत"
+    }
+  }
+}

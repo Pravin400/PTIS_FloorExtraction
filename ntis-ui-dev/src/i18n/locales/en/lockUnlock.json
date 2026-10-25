@@ -1,0 +1,173 @@
+{
+  "title": "Lock Property",
+  "subtitle": "Administrative control utility for locking or unlocking groups of properties within selected ranges.",
+  "common": {
+    "loading": "Loading..."
+  },
+  "defaults": {
+    "zone": "Zone / Node",
+    "ward": "Ward / Sector",
+    "propertyNo": "Property No.",
+    "partition": "Partition"
+  },
+  "scopeSelectionCard": {
+    "title": "1. Scope Selection",
+    "subtitle": "Choose scope. Only relevant fields appear below.",
+    "options": {
+      "zone": {
+        "label": "{zone}",
+        "sublabel": "{zone}-wise selection"
+      },
+      "ward": {
+        "label": "{ward}",
+        "sublabel": "Multi {ward} selection"
+      },
+      "building": {
+        "label": "Building Wise",
+        "sublabel": "Building level"
+      },
+      "propertyRange": {
+        "label": "Property Range",
+        "sublabel": "From-to property range"
+      },
+      "excelUpload": {
+        "label": "Excel Upload",
+        "sublabel": "Search data by Excel"
+      }
+    }
+  },
+  "selectPropertyCard": {
+    "title": "Select Properties",
+    "zone": "{zone}",
+    "selectZone": "Select {zone}",
+    "propertyNo": "{propertyNo}",
+    "selectProperties": "Select Properties",
+    "wardNo": "{ward} no",
+    "selectWard": "Select {ward}",
+    "fromProperty": "From Property",
+    "selectStartRange": "Select Start Range",
+    "toProperty": "To Property",
+    "selectEndRange": "Select End Range",
+    "showButton": "Show",
+    "clearButton": "Clear all",
+    "mandatoryBanner": "Fields marked with * are mandatory",
+    "uploadExcel": "Upload Excel",
+    "downloadTemplate": "Download Template",
+    "searchDataByExcel": "Search Data By Excel",
+    "dragDropText": "Drag & drop an Excel file (.xlsx, .xls) here, or click to browse",
+    "rowsParsed": "{count} rows parsed from file",
+    "invalidFile": "Invalid file. Please upload an .xlsx or .xls file.",
+    "wrongExcelUploaded": "Wrong Excel uploaded.",
+    "missingColumns": "Excel must contain ZoneNo, WardNo, and PropertyNo columns.",
+    "noDataInFile": "No data rows found in the uploaded file.",
+    "tooManyRows": "Excel has too many rows. Maximum allowed is {max}.",
+    "duplicatesRemoved": "{count} duplicate rows removed.",
+    "excelUploadRequired": "Please upload an Excel file first.",
+    "fileSelected": "{name} selected",
+    "removeFile": "Remove file"
+  },
+  "screenSelectionCard": {
+    "title": "Screen selection",
+    "selectedCount": "{count} selected",
+    "noScreens": "No screens available to select.",
+    "searchPlaceholder": "Search by code or description",
+    "typeOfUse": "All Types",
+    "selectAll": "Select All",
+    "clearAll": "Clear All",
+    "helperText": "Select the screen codes applicable to lock/unlock",
+    "allTypes": "All Types"
+  },
+  "resultsTable": {
+    "title": "Bulk Operations ({count} properties selected)",
+    "propertyMasterTitle": "",
+    "lockButton": "Lock Selected Screens",
+    "unlockButton": "Unlock Selected Screens",
+    "searchPropertyPlaceholder": "Search by {propertyNo} or {partition} No...",
+    "searchButton": "Search",
+    "placeholderText": "Please select a {ward} and Property range, then click \"Show\" to view properties.",
+    "noResultsFound": "No properties found.",
+    "columns": {
+      "propertyDetail": "{propertyNo}",
+      "screenNames": "Screen Names",
+      "status": "Status",
+      "lockUnlock": "Lock/Unlock",
+      "actions": "Actions"
+    },
+    "status": {
+      "locked": "Locked",
+      "unlocked": "Unlocked",
+      "none": "None"
+    },
+    "actions": {
+      "manage": "Manage"
+    }
+  },
+  "manageModal": {
+    "title": "Manage Locks: {propertyNo}",
+    "description": "Select which modules or screens should be locked for this property. Checked screens will prevent users from performing edits or submissions.",
+    "cancel": "Cancel",
+    "saveChanges": "Save Changes"
+  },
+  "messages": {
+    "screenRequired": "Please select at least one screen from the Screen selection card to {action}.",
+    "lockConfirmTitle": "Lock Property",
+    "unlockConfirmTitle": "Unlock Property",
+    "lockConfirmDescription": "Are you sure you want to lock the selected screens for Property {propertyNo}?",
+    "unlockConfirmDescription": "Are you sure you want to unlock the selected screen(s) for Property {propertyNo}?",
+    "lockButtonText": "Lock",
+    "unlockButtonText": "Unlock",
+    "lockText": "Lock",
+    "unlockText": "Unlock",
+    "propertySuccess": "Property successfully {action}.",
+    "operationFailed": "Operation failed.",
+    "unexpectedError": "An error occurred.",
+    "saveSuccess": "Lock settings updated successfully.",
+    "savePartialFailed": "Failed to update some lock configurations.",
+    "saveFailed": "Failed to update locks.",
+    "selectPropertyRequired": "Please select at least one property from the table.",
+    "selectScreenRequired": "Please Select the at least one screen",
+    "selectZoneRequired": "Please select a {zone}",
+    "selectWardRequired": "Please select a {ward}",
+    "selectWardAndPropertyRequired": "Please select a {ward} and at least one Property",
+    "selectPropertyDropdownRequired": "Please select at least one Property",
+    "selectFromToPropertyRequired": "Please select From Property and To Property",
+    "bulkLockTitle": "Bulk Lock Properties",
+    "bulkUnlockTitle": "Bulk Unlock Properties",
+    "bulkConfirmDescription": "Are you sure you want to {action} the selected screen for the {propertyCount, plural, =1 {1 checked property} other {# checked properties}}?",
+    "bulkConfirmDescriptionRange": "Are you sure you want to {action} the selected screen for {propertyCount} properties from Property {fromProperty} to {toProperty}?",
+    "alreadyLockedIgnored": "(Properties that are already locked will be ignored)",
+    "alreadyUnlockedIgnored": "(Properties that are already unlocked will be ignored)",
+    "exactLockedIgnored": "({ignoredCount} already locked {ignoredCount, plural, =1 {property} other {properties}} will be ignored)",
+    "exactUnlockedIgnored": "({ignoredCount} already unlocked {ignoredCount, plural, =1 {property} other {properties}} will be ignored)",
+    "bulkConfirmDescriptionScope": "Are you sure you want to <warning>{action}</warning> the selected {screenCount} screen(s) for the selected scope (approx. <highlight>{propertyCount}</highlight> properties)? This bulk update modifies a large number of records and may take several minutes to complete. Please do not close this window.",
+    "bulkLockUnlockConfirmation": "You are about to <warning>{action}</warning> <highlight>{propertyCount}</highlight> properties. This bulk operation may take several minutes.\nPlease keep this page open until the process completes.\nTo proceed, click <warning>{action}</warning>. To abort, click <highlight>Cancel</highlight>.",
+    "bulkSuccessmsg": "Bulk operation completed.",
+    "bulkSuccessLock": "Successfully locked {count, plural, =1 {1 property} other {# properties}}.",
+    "bulkSuccessUnlock": "Successfully unlocked {count, plural, =1 {1 property} other {# properties}}.",
+    "wrongScreenSelectedLock": "The selected screen's are already locked for this property.",
+    "wrongScreenSelectedUnlock": "The selected screen's are not locked for this property.",
+    "bulkFailed": "Bulk operation failed.",
+    "unexpectedErrorBulk": "An unexpected error occurred during bulk operation.",
+    "noPropertiesFoundFilters": "No properties found.",
+    "noPropertiesSelectedExclusions": "No properties selected after applying exclusions.",
+    "atLeastOnePropertyRequired": "At least one property must be selected.",
+    "processingTitle": "Processing Request",
+    "processingMessage": "Please wait while the properties are being updated. This may take a few moments...",
+    "clearedFilters": "Cleared all filters.",
+    "validationError": "Please fill in all required fields ({ward} no, From Property, and To Property).",
+    "fetchSuccess": "Properties fetched successfully.",
+    "fetchNoResults": "No properties found.",
+    "fetchFailed": "Failed to load properties.",
+    "fetchWardsError": "Error fetching {wards}:",
+    "excelDuplicatesNotice": "Found {count, plural, =1 {1 duplicate row} other {# duplicate rows}} in the Excel file. Each property is shown only once.",
+    "searchValidationError": "Please enter a value to search.",
+    "validationGreaterProperty": "The 'To Property' must be greater than the 'From Property'."
+  },
+  "error": {
+    "title": "Failed to connect to the server. Please try again later.",
+    "description": "We encountered an error while loading the lock and unlock property page. Please try again.",
+    "errorId": "Error ID: {id}",
+    "goHome": "Go to Home",
+    "tryAgain": "Try Again"
+  }
+}

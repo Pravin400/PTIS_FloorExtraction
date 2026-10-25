@@ -1,0 +1,142 @@
+{
+  "list": {
+    "title": "Office Master",
+    "subtitle": "Manage office list and details",
+    "buttons": {
+      "add": "Add Office",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "filters": {
+      "show": "Show",
+      "search": "Search by Office Code or Name...",
+      "allTypes": "All Types",
+      "type": "Select Type",
+      "allStatus": "All Status",
+      "status": "Select Status"
+    },
+    "table": {
+      "officeCode": "Office Code",
+      "officeName": "Office Name",
+      "type": "Type",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "pagination": {
+      "showing": "Showing",
+      "entries": "entries"
+    }
+  },
+  "form": {
+    "addTitle": "Add Office",
+    "editTitle": "Edit Office",
+    "subtitle": "Create new office",
+    "editSubtitle": "Update office details",
+    "fields": {
+      "officeCode": {
+        "label": "Office Code",
+        "placeholder": "e.g. O1"
+      },
+      "officeName": {
+        "label": "Office Name",
+        "placeholder": "e.g. Main Branch"
+      },
+      "type": {
+        "label": "Type",
+        "placeholder": "Select Type",
+        "options": {
+          "mainOffice": "Main Office",
+          "zonalOffice": "Zonal Office",
+          "departmentOffice": "Department Office",
+          "wardOffice": "Ward Office",
+          "subOffice": "Sub Office",
+          "headOffice": "Head Office",
+          "regionalOffice": "Regional Office",
+          "branchOffice": "Branch Office"
+        }
+      },
+      "emailId": {
+        "label": "Email ID",
+        "placeholder": "test@example.com"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "Phone number"
+      },
+      "city": {
+        "label": "City",
+        "placeholder": "Enter city"
+      },
+      "pincode": {
+        "label": "Pincode",
+        "placeholder": "6-digit pincode"
+      },
+      "establishedDate": {
+        "label": "Established Date"
+      },
+      "officeIncharge": {
+        "label": "Office Incharge",
+        "placeholder": "Enter Incharge ID"
+      },
+      "designationMasterId": {
+        "label": "Designation",
+        "placeholder": "Enter Designation ID"
+      },
+      "address": {
+        "label": "Address",
+        "placeholder": "Full office address..."
+      }
+    },
+    "validation": {
+      "officeCodeRequired": "Office code is required",
+      "officeNameRequired": "Office name is required",
+      "officeNameNumeric": "Office name cannot contain only numbers",
+      "invalidDateFormat": "Date must be in DD-MM-YYYY format",
+      "invalidDate": "Please enter a valid date",
+      "futureDate": "Established date cannot be in the future"
+    },
+    "status": {
+      "label": "Active Status",
+      "description": "Office is currently"
+    },
+    "detailsSection": "Office Details",
+    "contactSection": "Contact Details",
+    "additionalSection": "Additional Details",
+    "actions": {
+      "cancel": "Cancel",
+      "save": "Save",
+      "update": "Update"
+    }
+  },
+  "delete": {
+    "confirmTitle": "Delete Office ({id})?",
+    "confirmDescription": "Are you sure you want to delete the record?",
+    "successMessage": "Office deleted successfully",
+    "errorMessage": "Cannot delete Office."
+  },
+  "apiErrors": {
+    "duplicateCode": "Office code already exists.",
+    "validationError": "Invalid data provided.",
+    "notFound": "Office not found.",
+    "inUse": "Cannot delete this record as it is in use."
+  },
+  "stats": {
+    "total": "Total Offices",
+    "headOffices": "Head Offices",
+    "activeOffices": "Active Offices",
+    "regionalOffices": "Regional Offices",
+    "inactiveOffices": "Inactive Offices",
+    "active": "Active",
+    "inactive": "Inactive",
+    "records": "Total Records"
+  },
+  "success": {
+    "created": "New office created successfully.",
+    "updated": "Office updated successfully.",
+    "deleted": "Office deleted successfully."
+  }
+}

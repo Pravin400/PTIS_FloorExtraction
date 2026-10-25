@@ -1,0 +1,98 @@
+{
+  "days": "{count} days",
+  "title": "Financial Year Master",
+  "subtitle": "Manage and configure financial year periods and status",
+  "stats": {
+    "totalYears": "Total Years",
+    "active": "Active",
+    "draft": "Draft",
+    "closed": "Closed"
+  },
+  "table": {
+    "searchPlaceholder": "Search financial years...",
+    "addButton": "Add Financial Year",
+    "filterByStatus": "Filter by Status",
+    "allStatuses": "All Statuses",
+    "clearFilters": "Clear filters",
+    "columns": {
+      "code": "Code",
+      "financialYear": "Financial Year",
+      "period": "Period",
+      "duration": "Duration",
+      "current": "Current",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "actions": {
+      "setCurrent": "Set Current",
+      "close": "Close"
+    },
+    "messages": {
+      "confirmDelete": "Are you sure you want to delete this financial year?",
+      "confirmDeleteTitle": "Delete Financial Year",
+      "confirmClose": "Are you sure you want to close this financial year? This action cannot be undone.",
+      "confirmCloseTitle": "Close Financial Year",
+      "deleteSuccess": "Financial year deleted",
+      "setCurrentSuccess": "Current financial year updated",
+      "closeSuccess": "Financial year closed",
+      "cannotDeleteCurrent": "Cannot delete current financial year"
+    }
+  },
+  "form": {
+    "addTitle": "Add New Financial Year",
+    "editTitle": "Edit Financial Year",
+    "description": "Configure financial year period and settings",
+    "fields": {
+      "yearCode": "Year Code",
+      "yearCodePlaceholder": "e.g. FY2024-25",
+      "status": "Status",
+      "year": "Year (Number)",
+      "yearPlaceholder": "e.g. 2024",
+      "periodDetails": "Period Details",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "duration": "Duration",
+      "description": "Description",
+      "descriptionPlaceholder": "Brief description",
+      "markAsCurrent": "Mark as Current Financial Year"
+    },
+    "buttons": {
+      "cancel": "Cancel",
+      "create": "Create Year",
+      "update": "Update Year"
+    },
+    "validation": {
+      "codeRequired": "Year code is required",
+      "codeMaxLength": "Year code must be at most {count} characters",
+      "codeFormat": "Year code contains invalid characters",
+      "statusRequired": "Status is required",
+      "yearRequired": "Year is required",
+      "yearInvalid": "Year must be between 1900 and 2100",
+      "startDateRequired": "Start date is required",
+      "endDateRequired": "End date is required",
+      "endDateMustBeAfterStartDate": "End date must be after start date",
+      "startDateRange": "Start date must be within the financial year (April 1st to March 31st)",
+      "endDateRange": "End date must be within the financial year (April 1st to March 31st)",
+      "descriptionMaxLength": "Description must be at most {count} characters",
+      "descriptionFormat": "Description cannot contain invalid characters",
+      "yearMinValue": "Year must be 1900 or later",
+      "yearMaxValue": "Year must be 2100 or earlier",
+      "yearMustBePositive": "Year must be a positive number",
+      "codeAllZeros": "Year code cannot be all zeros",
+      "statusInvalid": "Status must be Draft, Active, or Closed",
+      "backendError": "An error occurred. Please try again.",
+      "codeDuplicate": "Financial year code already exists",
+      "yearDuplicate": "Financial year already exists"
+    },
+    "confirmStatusUpdate": {
+      "title": "Confirm Status Update",
+      "description": "Are you sure you want to change the status to {status}?",
+      "confirmText": "Yes, Update",
+      "cancelText": "Cancel"
+    },
+    "messages": {
+      "createSuccess": "Financial year created",
+      "updateSuccess": "Financial year updated"
+    }
+  }
+}

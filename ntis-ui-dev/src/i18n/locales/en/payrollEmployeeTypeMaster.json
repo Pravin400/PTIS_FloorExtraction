@@ -1,0 +1,80 @@
+{
+  "title": "Employee Type Master",
+  "subtitle": "Configure employee employment contracts, terms, and engagement types",
+  "buttons": {
+    "add": "Add Employee Type"
+  },
+  "filters": {
+    "searchPlaceholder": "Search employee types...",
+    "status": "Filter by status"
+  },
+  "table": {
+    "columns": {
+      "typeCode": "Type Code",
+      "typeName": "Employee Type",
+      "typeNameMarathi": "Employee Type (Regional)",
+      "sequenceNo": "Sequence No",
+      "status": "Status",
+      "actions": "Actions"
+    }
+  },
+  "drawer": {
+    "addTitle": "Add New Employee Type",
+    "editTitle": "Edit Employee Type",
+    "addSubtitle": "Create a new municipal employee type classification",
+    "editSubtitle": "Update employee type classification and ordering",
+    "sectionTitle": "Employee Type Details",
+    "mandatoryFields": "* Mandatory Fields",
+    "labels": {
+      "typeCode": "Type Code",
+      "status": "Status",
+      "typeName": "Employee Type",
+      "typeNameMarathi": "Employee Type (Regional)",
+      "sequenceNo": "Sequence No"
+    },
+    "placeholders": {
+      "typeCode": "e.g. PERM",
+      "typeName": "e.g. Permanent",
+      "typeNameMarathi": "उदा. कायम / नियमित",
+      "sequenceNo": "e.g. 1"
+    },
+    "buttons": {
+      "create": "Create Type",
+      "update": "Update Type",
+      "cancel": "Cancel"
+    },
+    "validation": {
+      "typeCodeRequired": "Employee Type Code is required.",
+      "typeCodeMinLength": "Employee Type Code must be at least 5 characters.",
+      "typeCodeLettersOnly": "Type Code must contain letters, hyphens (-), and underscores (_) only.",
+      "typeCodeDuplicate": "This Type Code already exists. Codes must be unique.",
+      "typeNameRequired": "Employee Type Name is required.",
+      "typeNameLettersOnly": "Type Name cannot contain numbers (letters only).",
+      "typeNameDuplicate": "This employee type name already exists for this code.",
+      "typeNameMarathiRequired": "Employee Type (Regional) is required.",
+      "typeNameMarathiNoNumbers": "Type Name in regional language cannot contain numbers.",
+      "sequenceNoPositiveInteger": "Sequence number must be a valid positive integer (>= 1)."
+    }
+  },
+  "apiErrors": {
+    "duplicate": "A record with the same details already exists."
+  },
+  "deleteModal": {
+    "title": "Delete Employee Type",
+    "description": "Are you sure you want to delete {name}? This action cannot be undone.",
+    "inUse": "\"{name}\" is currently linked to employee records and cannot be deleted.",
+    "confirm": "Delete",
+    "cancel": "Cancel"
+  },
+  "messages": {
+    "createSuccess": "Employee type created successfully.",
+    "createFailed": "Failed to create employee type.",
+    "updateSuccess": "Employee type updated successfully.",
+    "updateFailed": "Failed to update employee type.",
+    "deleteSuccess": "Employee type deleted successfully.",
+    "deleteFailed": "Failed to delete employee type.",
+    "deleteError": "An error occurred while deleting employee type.",
+    "saveError": "An error occurred while saving employee type.",
+    "invalidId": "Invalid ID"
+  }
+}

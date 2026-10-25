@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Safety shield -->
+  <path d="M50 14L80 25v25c0 21-15 33-30 37-15-4-30-16-30-37V25L50 14z" fill="#FFF7ED" fill-opacity="0.85" stroke="#EA580C" stroke-width="3"/>
+  <path d="M50 24L72 32v18c0 15-11 23-22 26-11-3-22-11-22-26V32L50 24z" fill="#FFEDD5" fill-opacity="0.55"/>
+  <!-- Exclamation icon -->
+  <path d="M50 36v18m0 8v2.5" stroke="#EA580C" stroke-width="4.5" stroke-linecap="round"/>
+</svg>

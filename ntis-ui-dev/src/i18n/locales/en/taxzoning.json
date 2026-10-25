@@ -1,0 +1,133 @@
+{
+  "taxZoning": {
+    "title": "Tax Zoning",
+    "subtitle": "Configure ward-wise zoning with property range mapping and intelligent auto-increment",
+    "aliasFallback": {
+      "ward": "Ward",
+      "taxZone": "Tax Zone"
+    },
+    "form": {
+      "taxZone": "{taxZone}",
+      "selectTaxZone": "Select {taxZone}",
+      "ward": "{ward}",
+      "selectWard": "Select {ward}",
+      "fromProperty": "From Property",
+      "toProperty": "To Property",
+      "selectFromProperty": "Select From Property",
+      "selectToProperty": "Select To Property",
+      "submit": "Submit",
+      "saving": "Saving...",
+      "update": "Update",
+      "bulkUpdate": "Bulk Update",
+      "updating": "Updating...",
+      "clearImported": "Clear"
+    },
+    "columns": {
+      "wardNo": "{ward} No",
+      "fromProperty": "From Property",
+      "toProperty": "To Property",
+      "taxZoneNo": "{taxZone} No",
+      "oldTaxZoneNo": "Old {taxZone}",
+      "newTaxZoneNo": "New {taxZone} No",
+      "propertyNo": "Property No",
+      "status": "Status"
+    },
+    "preview": {
+      "title": "Preview",
+      "showing": "Showing",
+      "of": "of",
+      "records": "records",
+      "previous": "Previous",
+      "next": "Next",
+      "noPropertiesToPreview": "No properties to preview",
+      "selectZoneWardProperty": "Select {taxZone}, {ward}, and property range",
+      "multipleWardsSelected": "Multiple {ward}s Selected",
+      "multipleWardsMessage": "Property range fields are disabled when multiple {ward}s are selected. Select a single {ward} to configure property ranges.",
+      "notSpecified": "Not specified"
+    },
+    "buttons": {
+      "exportCSV": "Export CSV",
+      "importFile": "Import File"
+    },
+    "messages": {
+      "fillAllFields": "Please fill all required fields",
+      "taxZoneRequired": "{taxZone} is required",
+      "wardRequired": "At least one {ward} is required",
+      "propertyRequired": "Property range is required for single ward selection",
+      "fromPropertyMustBeSmallerThanToProperty": "From Property must be smaller than To Property",
+      "updateSuccess": "Tax zoning updated successfully",
+      "updateFailed": "Failed to update tax zoning",
+      "createSuccess": "Tax zoning created successfully",
+      "createFailed": "Failed to create tax zoning",
+      "somethingWrong": "Something went wrong while updating tax zoning",
+      "noRecordsToExport": "No records to export",
+      "csvExportSuccess": "CSV exported successfully",
+      "invalidFileType": "Only CSV and Excel files are allowed",
+      "invalidFile": "Invalid file format",
+      "fileHasNoData": "File has no data",
+      "fileProcessingError": "An error occurred while processing the file",
+      "fileReadError": "Failed to read the file",
+      "fetchTaxZonesFailed": "Unable to load Tax Zones",
+      "fetchWardsFailed": "Unable to load Wards",
+      "fetchZoningDataFailed": "Failed to fetch tax zoning data",
+      "fetchPropertyNoFailed": "Failed to fetch tax zoning property number data",
+      "fetchByWardFailed": "Failed to fetch tax zoning by ward",
+      "fetchAllFailed": "Failed to fetch all tax zoning data",
+      "invalidFileFormat": "Invalid file format. Required column order: {ward} No, From Property, To Property, {taxZone} No",
+      "noNewOrChangedRecords": "No new or changed records found",
+      "newRecordsReadyToImport": "new record(s) ready to import",
+      "updatesReadyToImport": "update(s) ready to import",
+      "newRecordsAndUpdatesReady": "new record(s) and",
+      "andUpdatesReady": "update(s) ready to import",
+      "headersMissing": "Required headers missing",
+      "noChanges": "No changes to update",
+      "importedDataCleared": "Imported data cleared",
+      "bulkUpdateSuccess": "Bulk update completed successfully!",
+      "newRecordsAdded": "New records added",
+      "recordsUpdated": "Records updated",
+      "errorDetails": "Errors occurred during update",
+      "criticalError": "Critical error occurred during bulk update. Please try again.",
+      "noRecordsFound": "No valid records found in file",
+      "invalidDataFormat": "Invalid data format in file",
+      "dbOperationCompleted": "Import operation completed:",
+      "newRecordsCreated": "new record(s) created successfully",
+      "recordsUpdatedSuccessfully": "record(s) updated successfully",
+      "newRecordsCreatedAnd": "new record(s) created and",
+      "recordsFailed": "record(s) failed to process.",
+      "noRecordsProcessed": "No records were successfully processed. Please check the data and try again.",
+      "failedToCreate": "Failed to create",
+      "failedToUpdate": "Failed to update",
+      "ward": "Ward",
+      "zone": "Zone",
+      "exceptionProcessing": "Exception processing",
+      "wardsUpdatedSuccessfully": "{ward}(s) updated successfully",
+      "wardsFailed": "{ward}(s) failed to update",
+      "wardNotFound": "Ward not found in zoning records",
+      "wardsNotFound": "Following wards not found in zoning records",
+      "wardNotFoundDetail": "Please create this ward in property records first before updating"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "new": "New",
+      "updated": "Updated"
+    },
+    "table": {
+      "zoningRecords": "Zoning Records",
+      "show": "Show",
+      "entries": "entries",
+      "recordCount": "record(s)"
+    },
+    "loading": {
+      "message": "Loading Tax Zoning...",
+      "description": "Please wait while we load the data"
+    },
+    "error": {
+      "title": "Failed to connect server. Please try again later.",
+      "description": "We encountered an error while loading the tax zoning page. Please try refreshing or contact support if the issue persists.",
+      "errorId": "Error ID: {id}",
+      "goHome": "Go Home",
+      "tryAgain": "Try Again"
+    }
+  }
+}

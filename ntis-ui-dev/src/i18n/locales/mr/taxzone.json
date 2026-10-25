@@ -1,0 +1,107 @@
+{
+  "taxZone": {
+    "aliasFallback": {
+      "taxZone": "कर क्षेत्र",
+      "taxZones": "कर क्षेत्रे",
+      "ward": "वॉर्ड"
+    },
+    "list": {
+      "title": "{zone} मास्टर",
+      "subtitle": "{tax_zones} आणि त्यांचे {ward_no}-वार कॉन्फिगरेशन व्यवस्थापित करा",
+      "tabs": {
+        "taxZone": "कर क्षेत्र",
+        "taxZoning": "कर जोनिंग"
+      },
+      "buttons": {
+        "add": "{zone} जोडा",
+        "edit": "संपादन",
+        "delete": "हटवा"
+      },
+      "filters": {
+        "show": "दाखवा",
+        "search": "{zone} क्रमांक, {zone} प्रकार किंवा टिपण्णीने शोधा...",
+        "searching": "शोधत आहे...",
+        "recordsFound": "{count} रेकॉर्ड सापडले"
+      },
+      "table": {
+        "zoneNo": "{zone} क्र.",
+        "zoneType": "{zone} प्रकार",
+        "remark": "{zone} वर्णन",
+        "status": "स्थिती",
+        "actions": "क्रिया"
+      }
+    },
+    "form": {
+      "addTitle": "नवीन {zone} जोडा",
+      "editTitle": "{zone} संपादित करा",
+      "subtitle": "नवीन {zone} तयार करा",
+      "editSubtitle": "{zone} तपशील अद्यतन करा",
+      "fields": {
+        "zoneNo": {
+          "label": "{zone} क्र.",
+          "placeholder": "उदा. 1 किंवा Z"
+        },
+        "zoneType": {
+          "label": "{zone} प्रकार",
+          "placeholder": "उदा. निवासी"
+        },
+        "remark": {
+          "label": "{zone} वर्णन",
+          "placeholder": "{zone} वर्णन प्रविष्ट करा"
+        }
+      },
+      "validation": {
+        "zoneNoRequired": "{zone} क्र. आवश्यक आहे",
+        "zoneNoAllZeros": "{zone} क्र. फक्त शून्य असू शकत नाही",
+        "zoneNoMax": "कमाल लांबी 10 वर्ण आहे",
+        "zoneNoFormat": "फक्त अक्षरे, संख्या आणि अंडरस्कोर अनुमत आहेत (अंडरस्कोर फक्त मध्ये)",
+        "zoneNoExists": "डुप्लिकेट क्षेत्र क्रमांक अनुमत नाही",
+        "zoneTypeRequired": "{zone} प्रकार आवश्यक आहे",
+        "zoneTypeAllZeros": "{zone} प्रकार फक्त शून्य असू शकत नाही",
+        "zoneTypeFormat": "फक्त अक्षरे, संख्या आणि मूलभूत विरामचिन्हे अनुमत आहेत (विशेष वर्ण फक्त मध्ये, फक्त एकल स्पेस)",
+        "zoneTypeExists": "डुप्लिकेट क्षेत्र प्रकार अनुमत नाही",
+        "remarkRequired": "{zone} वर्णन आवश्यक आहे",
+        "remarkAllZeros": "टिपण्णी फक्त शून्य असू शकत नाही",
+        "remarkFormat": "फक्त अक्षरे, संख्या आणि मूलभूत विरामचिन्हे अनुमत आहेत (विशेष वर्ण फक्त मध्ये, फक्त एकल स्पेस)",
+        "fixErrors": "कृपया त्रुटी दुरुस्त करा",
+        "duplicateError": "कृपया {zone} क्र. आणि {zone} प्रकार तपासा - डुप्लिकेट अनुमती नाही.",
+        "remarkMax": "कमाल लांबी 15 वर्ण आहे",
+        "zoneTypeMax": "कमाल लांबी 15 वर्ण आहे"
+      },
+      "status": {
+        "label": "सक्रिय स्थिती",
+        "active": "{zone} सध्या सक्रिय आहे",
+        "inactive": "{zone} सध्या निष्क्रिय आहे"
+      },
+      "note": {
+        "mandatory": "* चिन्हित सर्व क्षेत्रे अनिवार्य आहेत"
+      },
+      "actions": {
+        "cancel": "रद्द करा",
+        "save": "जतन करा",
+        "update": "अद्यतन करा"
+      },
+      "messages": {
+        "createSuccess": "{zone} यशस्वीरीत्या तयार केले",
+        "updateSuccess": "{zone} यशस्वीरीत्या अद्यतनित केले",
+        "error": "{zone} हटवता/निष्क्रिय करता येत नाही कारण ते वापरात आहे",
+        "invalidIdError": "अवैध ID स्वरूप. ID सकारात्मक संख्या असणे आवश्यक आहे."
+      }
+    },
+    "delete": {
+      "success": "{zone} यशस्वीरित्या हटवले",
+      "error": "हे {zone} वापरात असल्यामुळे हटवता येत नाही"
+    },
+    "error": {
+      "title": "कर क्षेत्र त्रुटी",
+      "description": "कर क्षेत्र पृष्ठ लोड करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+      "errorId": "त्रुटी ID: {id}",
+      "goHome": "मुख्यपृष्ठावर जा",
+      "tryAgain": "पुन्हा प्रयत्न करा"
+    },
+    "loading": {
+      "message": "कर क्षेत्र लोड होत आहे...",
+      "description": "कृपया थांबा जोपर्यंत आम्ही कर क्षेत्र डेटा आणतो"
+    }
+  }
+}

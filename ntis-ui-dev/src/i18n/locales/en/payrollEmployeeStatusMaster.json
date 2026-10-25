@@ -1,0 +1,79 @@
+{
+  "title": "Employee Status Master",
+  "subtitle": "Manage municipal employment statuses and service availability",
+  "buttons": {
+    "add": "Add Employee Status"
+  },
+  "filters": {
+    "searchPlaceholder": "Search employee status...",
+    "status": "Filter by status"
+  },
+  "table": {
+    "columns": {
+      "statusCode": "Status Code",
+      "statusName": "Employee Status",
+      "statusNameMarathi": "Employee Status (Regional)",
+      "description": "Description",
+      "status": "Status",
+      "actions": "Actions"
+    }
+  },
+  "drawer": {
+    "addTitle": "Add New Employee Status",
+    "editTitle": "Edit Employee Status",
+    "addSubtitle": "Create a new municipal employment status record",
+    "editSubtitle": "Update employment status settings and service eligibility",
+    "sectionTitle": "Employee Status Information",
+    "mandatoryFields": "* Mandatory Fields",
+    "labels": {
+      "statusCode": "Status Code",
+      "status": "Status",
+      "statusName": "Employee Status",
+      "statusNameMarathi": "Employee Status (Regional)",
+      "description": "Description"
+    },
+    "placeholders": {
+      "statusCode": "e.g. ACTIVE",
+      "statusName": "e.g. Active in Service",
+      "statusNameMarathi": "उदा. सेवेत कार्यरत",
+      "description": "Brief description of the Employee Status..."
+    },
+    "buttons": {
+      "create": "Create Status",
+      "update": "Update Status",
+      "cancel": "Cancel"
+    },
+    "validation": {
+      "statusCodeRequired": "Employee Status Code is required.",
+      "statusCodeMinLength": "Employee Status Code must be at least 5 characters.",
+      "statusCodeLettersOnly": "Status Code must contain letters, hyphens (-), and underscores (_) only.",
+      "statusCodeDuplicate": "This Status Code already exists. Codes must be unique.",
+      "statusNameRequired": "Employee Status name is required.",
+      "statusNameLettersOnly": "Employee Status cannot contain numbers (letters only).",
+      "statusNameDuplicate": "This employee status name already exists.",
+      "statusNameMarathiRequired": "Employee Status (Regional) is required.",
+      "statusNameMarathiNoNumbers": "Status in regional language cannot contain numbers."
+    }
+  },
+  "apiErrors": {
+    "duplicate": "A record with the same details already exists."
+  },
+  "deleteModal": {
+    "title": "Delete Employee Status",
+    "description": "Are you sure you want to delete {name}? This action cannot be undone.",
+    "inUse": "\"{name}\" is currently linked to employee records and cannot be deleted.",
+    "confirm": "Delete",
+    "cancel": "Cancel"
+  },
+  "messages": {
+    "createSuccess": "Employee status created successfully.",
+    "createFailed": "Failed to create employee status.",
+    "updateSuccess": "Employee status updated successfully.",
+    "updateFailed": "Failed to update employee status.",
+    "deleteSuccess": "Employee status deleted successfully.",
+    "deleteFailed": "Failed to delete employee status.",
+    "deleteError": "An error occurred while deleting employee status.",
+    "saveError": "An error occurred while saving employee status.",
+    "invalidId": "Invalid ID"
+  }
+}

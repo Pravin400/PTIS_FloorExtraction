@@ -1,0 +1,385 @@
+{
+  "waterConnectionMaster": {
+    "title": "जल जोडणी मास्टर",
+    "subtitle": "जल जोडणी स्थिती, प्रकार आणि आकार व्यवस्थापित करा",
+    "error": {
+      "title": "जल जोडणी मास्टर लोड करण्यात अयशस्वी. कृपया नंतर पुन्हा प्रयत्न करा.",
+      "description": "जल जोडणी मास्टर पृष्ठ लोड करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+      "tryAgain": "पुन्हा प्रयत्न करा",
+      "goHome": "मुख्यपृष्ठावर जा",
+      "errorId": "त्रुटी ID: {id}"
+    },
+    "loading": {
+      "message": "जल जोडणी मास्टर लोड होत आहे...",
+      "description": "कृपया थांबा, जल जोडणी मास्टर डेटा मिळवत आहोत"
+    },
+    "tabs": {
+      "tapStatus": "नळ स्थिती",
+      "tapType": "नळ प्रकार",
+      "tapSize": "नळ आकार",
+      "waterRate": "जल दर",
+      "connectionType": "जोडणी प्रकार",
+      "connectionCategory": "जोडणी श्रेणी"
+    },
+    "tapStatus": {
+      "title": "नळ स्थिती मास्टर",
+      "subtitle": "जल जोडणी स्थिती कोड व्यवस्थापित करा",
+      "searchPlaceholder": "स्थिती कोड किंवा नावाने शोधा...",
+      "addTitle": "नळ स्थिती जोडा",
+      "editTitle": "नळ स्थिती संपादित करा",
+      "addSubtitle": "नवीन जल जोडणी स्थिती तयार करा",
+      "editSubtitle": "जल जोडणी स्थिती तपशील अद्यतनित करा",
+      "table": {
+        "statusCode": "स्थिती कोड",
+        "statusName": "स्थिती नाव",
+        "status": "स्थिती"
+      },
+      "form": {
+        "statusCode": {
+          "label": "स्थिती कोड",
+          "placeholder": "उदा., ACT"
+        },
+        "statusName": {
+          "label": "स्थिती नाव",
+          "placeholder": "उदा., सक्रिय"
+        },
+        "isActive": {
+          "label": "सक्रिय स्थिती"
+        },
+        "activeStatusTitle": "नळ स्थिती",
+        "activeStatusOn": "सक्रिय - स्थिती सक्षम आहे",
+        "activeStatusOff": "निष्क्रिय - स्थिती अक्षम आहे"
+      },
+      "validation": {
+        "statusCodeRequired": "स्थिती कोड आवश्यक आहे",
+        "statusNameRequired": "स्थिती नाव आवश्यक आहे",
+        "statusNameInvalid": "स्थिती नावात फक्त अक्षरे असावीत, संख्या किंवा विशेष वर्ण नको",
+        "statusCodeLength": "स्थिती कोड {count} वर्णांपेक्षा जास्त असू शकत नाही",
+        "statusNameLength": "स्थिती नाव {count} वर्णांपेक्षा जास्त असू शकत नाही"
+      },
+      "messages": {
+        "createSuccess": "नळ स्थिती यशस्वीरित्या तयार केली",
+        "updateSuccess": "नळ स्थिती यशस्वीरित्या अद्यतनित केली",
+        "deleteSuccess": "नळ स्थिती यशस्वीरित्या हटवली",
+        "deleteInUse": "ही नळ स्थिती सध्या वापरात आहे आणि ती हटवता येत नाही"
+      },
+      "confirm": {
+        "deleteTitle": "नळ स्थिती हटवायची?",
+        "deleteDescription": "तुम्हाला खरोखर ही नळ स्थिती हटवायची आहे का?"
+      }
+    },
+    "tapType": {
+      "title": "नळ प्रकार मास्टर",
+      "subtitle": "जल जोडणी प्रकार कोड व्यवस्थापित करा",
+      "searchPlaceholder": "प्रकार कोड किंवा नावाने शोधा...",
+      "addTitle": "नळ प्रकार जोडा",
+      "editTitle": "नळ प्रकार संपादित करा",
+      "addSubtitle": "नवीन जल जोडणी प्रकार तयार करा",
+      "editSubtitle": "जल जोडणी प्रकार तपशील अद्यतनित करा",
+      "table": {
+        "typeCode": "प्रकार कोड",
+        "typeName": "प्रकार नाव",
+        "status": "स्थिती"
+      },
+      "form": {
+        "typeCode": {
+          "label": "प्रकार कोड",
+          "placeholder": "उदा., DOM"
+        },
+        "typeName": {
+          "label": "प्रकार नाव",
+          "placeholder": "उदा., घरगुती"
+        },
+        "isActive": {
+          "label": "सक्रिय स्थिती"
+        },
+        "activeStatusTitle": "नळ प्रकार",
+        "activeStatusOn": "सक्रिय - प्रकार सक्षम आहे",
+        "activeStatusOff": "निष्क्रिय - प्रकार अक्षम आहे"
+      },
+      "validation": {
+        "typeCodeRequired": "प्रकार कोड आवश्यक आहे",
+        "typeNameRequired": "प्रकार नाव आवश्यक आहे",
+        "typeCodeInvalid": "प्रकार कोडमध्ये फक्त अक्षरे असावीत, संख्या किंवा विशेष वर्ण नको",
+        "typeNameInvalid": "प्रकार नावात फक्त अक्षरे असावीत, संख्या किंवा विशेष वर्ण नको",
+        "typeCodeLength": "प्रकार कोड {count} वर्णांपेक्षा जास्त असू शकत नाही",
+        "typeNameLength": "प्रकार नाव {count} वर्णांपेक्षा जास्त असू शकत नाही"
+      },
+      "messages": {
+        "createSuccess": "नळ प्रकार यशस्वीरित्या तयार केला",
+        "updateSuccess": "नळ प्रकार यशस्वीरित्या अद्यतनित केला",
+        "deleteSuccess": "नळ प्रकार यशस्वीरित्या हटवला",
+        "deleteInUse": "हा नळ प्रकार सध्या वापरात आहे आणि तो हटवता येत नाही"
+      },
+      "confirm": {
+        "deleteTitle": "नळ प्रकार हटवायचा?",
+        "deleteDescription": "तुम्हाला खरोखर हा नळ प्रकार हटवायचा आहे का?"
+      }
+    },
+    "tapSize": {
+      "title": "नळ आकार मास्टर",
+      "subtitle": "जल जोडणी आकार कोड व्यवस्थापित करा",
+      "searchPlaceholder": "आकार कोड किंवा नावाने शोधा...",
+      "addTitle": "नळ आकार जोडा",
+      "editTitle": "नळ आकार संपादित करा",
+      "addSubtitle": "नवीन जल जोडणी आकार तयार करा",
+      "editSubtitle": "जल जोडणी आकार तपशील अद्यतनित करा",
+      "table": {
+        "displayLabel": "आकार",
+        "status": "स्थिती"
+      },
+      "form": {
+        "sizeCode": {
+          "label": "आकार कोड",
+          "placeholder": "उदा., 15MM"
+        },
+        "sizeName": {
+          "label": "आकार नाव",
+          "placeholder": "उदा., 1.3"
+        },
+        "unit": {
+          "label": "एकक",
+          "placeholder": "उदा., MM, इंच"
+        },
+        "isActive": {
+          "label": "सक्रिय स्थिती"
+        },
+        "activeStatusTitle": "नळ आकार",
+        "activeStatusOn": "सक्रिय - आकार सक्षम आहे",
+        "activeStatusOff": "निष्क्रिय - आकार अक्षम आहे"
+      },
+      "validation": {
+        "sizeCodeRequired": "आकार कोड आवश्यक आहे",
+        "sizeNameRequired": "आकार नाव आवश्यक आहे",
+        "sizeNameInvalid": "आकार धन संख्या असावी आणि जास्तीत जास्त 2 दशांश स्थाने असावीत",
+        "unitRequired": "एकक आवश्यक आहे",
+        "unitInvalid": "एककात विशेष वर्ण नसावेत",
+        "sizeCodeLength": "आकार कोड {count} वर्णांपेक्षा जास्त असू शकत नाही",
+        "sizeNameLength": "आकार नाव {count} वर्णांपेक्षा जास्त असू शकत नाही",
+        "unitLength": "एकक {count} वर्णांपेक्षा जास्त असू शकत नाही"
+      },
+      "messages": {
+        "createSuccess": "नळ आकार यशस्वीरित्या तयार केला",
+        "updateSuccess": "नळ आकार यशस्वीरित्या अद्यतनित केला",
+        "deleteSuccess": "नळ आकार यशस्वीरित्या हटवला",
+        "deleteInUse": "हा नळ आकार सध्या वापरात आहे आणि तो हटवता येत नाही"
+      },
+      "confirm": {
+        "deleteTitle": "नळ आकार हटवायचा?",
+        "deleteDescription": "तुम्हाला खरोखर हा नळ आकार हटवायचा आहे का?"
+      }
+    },
+    "waterRate": {
+      "title": "जल दर मास्टर",
+      "subtitle": "प्रकार आणि आकारानुसार वार्षिक जल जोडणी दर व्यवस्थापित करा",
+      "searchPlaceholder": "जल दर शोधा...",
+      "addTitle": "जल दर जोडा",
+      "editTitle": "जल दर संपादित करा",
+      "addSubtitle": "नवीन जल दर तपशील प्रविष्ट करा",
+      "editSubtitle": "जल दर तपशील अद्यतनित करा",
+      "table": {
+        "connectionTypeName": "जोडणी प्रकार",
+        "connectionSizeDisplay": "जोडणी आकार",
+        "yearCode": "आर्थिक वर्ष",
+        "yearlyRate": "वार्षिक दर",
+        "quarterlyRate": "त्रैमासिक दर",
+        "monthlyRate": "मासिक दर",
+        "status": "स्थिती"
+      },
+      "form": {
+        "connectionType": {
+          "label": "जोडणी प्रकार",
+          "placeholder": "प्रकार निवडा..."
+        },
+        "connectionSize": {
+          "label": "जोडणी आकार",
+          "placeholder": "आकार निवडा..."
+        },
+        "financeYear": {
+          "label": "आर्थिक वर्ष",
+          "placeholder": "वर्ष निवडा..."
+        },
+        "rateType": {
+          "label": "दर वारंवारता",
+          "placeholder": "दर वारंवारता निवडा..."
+        },
+        "yearlyRate": {
+          "label": "वार्षिक दर",
+          "placeholder": "उदा., १५००"
+        },
+        "quarterlyRate": {
+          "label": "त्रैमासिक दर",
+          "placeholder": "उदा., ३७५"
+        },
+        "monthlyRate": {
+          "label": "मासिक दर",
+          "placeholder": "उदा., १२५"
+        },
+        "activeStatusTitle": "जल दर",
+        "activeStatusOn": "सक्रिय - दर लागू आहे",
+        "activeStatusOff": "निष्क्रिय - दर लागू नाही"
+      },
+      "validation": {
+        "typeRequired": "जोडणी प्रकार आवश्यक आहे",
+        "sizeRequired": "जोडणी आकार आवश्यक आहे",
+        "yearRequired": "आर्थिक वर्ष आवश्यक आहे",
+        "rateRequired": "दर आवश्यक आहे",
+        "rateInvalid": "दर ही एक वैध सकारात्मक संख्या असावी",
+        "rateMaxDigits": "दर 6 अंकांपेक्षा जास्त असू शकत नाही"
+      },
+      "messages": {
+        "createSuccess": "जल दर यशस्वीरित्या तयार केला",
+        "updateSuccess": "जल दर यशस्वीरित्या अद्यतनित केला",
+        "deleteSuccess": "जल दर यशस्वीरित्या हटवला",
+        "deleteInUse": "हा जल दर सध्या वापरात आहे आणि तो हटवता येत नाही"
+      },
+      "confirm": {
+        "deleteTitle": "जल दर हटवायचा?",
+        "deleteDescription": "तुम्हाला खरोखर हा जल दर हटवायचा आहे का?"
+      }
+    }
+  },
+  "waterConnection": {
+    "page": {
+      "title": "जल जोडणी व्यवस्थापन",
+      "subtitle": "वैयक्तिक मालमत्ता दृश्य"
+    },
+    "stats": {
+      "totalConnections": "एकूण जोडण्या",
+      "activeConnections": "सक्रिय जोडण्या",
+      "stoppedConnections": "थांबवलेल्या जोडण्या",
+      "yearlyRevenue": "वार्षिक महसूल"
+    },
+    "property": {
+      "owner": "मालक",
+      "contact": "संपर्क",
+      "email": "ईमेल",
+      "address": "पत्ता",
+      "propertyNo": "मालमत्ता क्रमांक",
+      "zone": "क्षेत्र",
+      "ward": "वार्ड",
+      "buildingType": "इमारत प्रकार"
+    },
+    "list": {
+      "title": "जल जोडण्या",
+      "subtitle": "मालमत्ता {propertyNo} साठी जल जोडण्यांचे पुनरावलोकन आणि देखभाल करा",
+      "buttons": {
+        "add": "नवीन जोडा"
+      },
+      "connections": "{count} जोडण्या",
+      "status": {
+        "active": "सक्रिय",
+        "stopped": "थांबवलेले",
+        "activated": "सक्रिय केले",
+        "stoppedOn": "थांबवले"
+      },
+      "table": {
+        "connectionNo": "जोडणी क्रमांक",
+        "type": "प्रकार",
+        "tapSize": "नळाचा आकार",
+        "applicableRate": "लागू दर",
+        "perMonth": "प्रति महिना",
+        "perQuarter": "प्रति तिमाही",
+        "perYear": "प्रति वर्ष",
+        "category": "श्रेणी",
+        "applicableCharges": "लागू शुल्क",
+        "installedOn": "स्थापित",
+        "status": "स्थिती",
+        "actions": "कृती"
+      }
+    },
+    "form": {
+      "addTitle": "नवीन जोडणी जोडा",
+      "editTitle": "जोडणी संपादित करा",
+      "subtitle": "या मालमत्तेसाठी नवीन जल जोडणी तयार करा.",
+      "editSubtitle": "जल जोडणी तपशील अद्यतनित करा.",
+      "fields": {
+        "connectionNo": {
+          "label": "जोडणी क्रमांक",
+          "placeholder": "जोडणी क्रमांक प्रविष्ट करा"
+        },
+        "meterNo": {
+          "label": "मीटर क्रमांक",
+          "placeholder": "मीटर क्रमांक प्रविष्ट करा"
+        },
+        "type": {
+          "label": "प्रकार",
+          "placeholder": "प्रकार निवडा",
+          "domestic": "घरगुती",
+          "commercial": "व्यावसायिक"
+        },
+        "installDate": {
+          "label": "स्थापना तारीख"
+        },
+        "tapSize": {
+          "label": "नळाचा आकार",
+          "placeholder": "नळाचा आकार निवडा",
+          "15Inch": "15 इंच",
+          "20Inch": "20 इंच",
+          "25Inch": "25 इंच",
+          "32Inch": "32 इंच"
+        },
+        "status": {
+          "label": "जोडणी स्थिती",
+          "placeholder": "स्थिती निवडा"
+        },
+        "rateType": {
+          "label": "दर वारंवारता",
+          "placeholder": "दर वारंवारता निवडा",
+          "yearly": "वार्षिक दर",
+          "quarterly": "त्रैमासिक दर",
+          "monthly": "मासिक दर"
+        },
+        "applicableRate": {
+          "label": "लागू दर (₹)",
+          "autoCalculated": "निवडलेल्या दर वारंवारतेवर आधारित स्वयं-गणना"
+        }
+      },
+      "validation": {
+        "connectionNoRequired": "जोडणी क्रमांक आवश्यक आहे",
+        "connectionNoFormat": "फक्त अक्षरे, संख्या आणि हायफन परवानगी आहे",
+        "connectionNoInvalidChars": "@#$%^&*()_ सारखे विशेष वर्ण परवानगी नाहीत",
+        "connectionNoMaxLength": "जोडणी क्रमांक 20 अक्षरांपेक्षा जास्त नसावा",
+        "meterNoRequired": "मीटर क्रमांक आवश्यक आहे",
+        "meterNoInvalidChars": "@#$%^&*()_ सारखे विशेष वर्ण परवानगी नाहीत",
+        "meterNoMaxLength": "मीटर क्रमांक 20 अक्षरांपेक्षा जास्त नसावा",
+        "typeRequired": "प्रकार आवश्यक आहे",
+        "tapSizeRequired": "नळाचा आकार आवश्यक आहे",
+        "statusRequired": "जोडणी स्थिती आवश्यक आहे",
+        "installDateRequired": "स्थापना तारीख आवश्यक आहे",
+        "fixErrors": "कृपया प्रमाणीकरण त्रुटी दुरुस्त करा",
+        "rateNotFound": "निवडलेल्या प्रकार आणि नळाच्या आकारासाठी कोणतीही लागू दर आढळली नाही"
+      },
+      "status": {
+        "label": "जोडणी स्थिती",
+        "active": "जोडणी सध्या सक्रिय आहे",
+        "inactive": "जोडणी सध्या थांबवलेली आहे"
+      },
+      "actions": {
+        "cancel": "रद्द करा",
+        "add": "जोडणी जोडा",
+        "update": "जोडणी अद्यतनित करा"
+      },
+      "messages": {
+        "createSuccess": "जोडणी यशस्वीरित्या जोडली",
+        "updateSuccess": "जोडणी यशस्वीरित्या अद्यतनित केली",
+        "error": "काहीतरी चुकले"
+      }
+    },
+    "delete": {
+      "success": "जोडणी यशस्वीरित्या हटवली",
+      "error": "ही जोडणी हटवता येत नाही"
+    },
+    "loading": {
+      "message": "जल जोडण्या लोड होत आहेत...",
+      "description": "कृपया थांबा"
+    },
+    "error": {
+      "title": "जल जोडणी त्रुटी",
+      "description": "पृष्ठ लोड करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+      "goHome": "मुख्यपृष्ठ",
+      "tryAgain": "पुन्हा प्रयत्न करा",
+      "errorId": "त्रुटी ID: {id}"
+    }
+  }
+}

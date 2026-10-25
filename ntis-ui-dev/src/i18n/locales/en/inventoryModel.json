@@ -1,0 +1,169 @@
+{
+  "configuration": {
+    "header": {
+      "title": "Inventory Model Master",
+      "subtitle": "Centralized Master Data Management System",
+      "totalMasters": "Total Masters"
+    },
+    "tabs": {
+      "masterData": "Master Data",
+      "screenMaster": "Screen Master",
+      "screenFieldsMaster": "Screen Fields Master"
+    },
+    "masterData": {
+      "title": "Master Data",
+      "records": "Master Records",
+      "addNew": "Add New {name}",
+      "searchPlaceholder": "Search master records...",
+      "stats": {
+        "master": "Master Types",
+        "shown": "Shown",
+        "active": "Active"
+      },
+      "groupFilter": {
+        "categoriesTitle": "Categories",
+        "itemNamesTitle": "Item Names"
+      },
+      "form": {
+        "addTitle": "Add New {name}",
+        "editTitle": "Edit {name}",
+        "createSubtitle": "Create a new record",
+        "updateSubtitle": "Update existing record",
+        "labels": {
+          "name": "Name",
+          "itemName": "Item Name",
+          "description": "Description",
+          "displayOrder": "Display Order",
+          "status": "Status",
+          "active": "Active",
+          "inactive": "Inactive"
+        },
+        "placeholders": {
+          "name": "Enter name",
+          "itemName": "Select item name",
+          "description": "Enter description",
+          "displayOrder": "Enter display order"
+        },
+        "buttons": {
+          "save": "Save",
+          "update": "Update",
+          "cancel": "Cancel"
+        },
+        "validation": {
+          "codeRequired": "Code is required",
+          "codeAllZeros": "Code cannot be all zeros",
+          "codeMax": "Code exceeds maximum length",
+          "codeFormat": "Invalid format (only alphanumeric and hyphens allowed)",
+          "nameRequired": "Name is required",
+          "nameAllZeros": "Name cannot be all zeros",
+          "nameMax": "Name exceeds maximum length",
+          "nameFormat": "Invalid format for name",
+          "descriptionAllZeros": "Description cannot be all zeros",
+          "descriptionFormat": "Invalid format for description",
+          "fixErrors": "Please fix all validation errors before submitting",
+          "duplicateRecord": "This record already exists",
+          "duplicateError": "A duplicate record was found"
+        },
+        "messages": {
+          "createSuccess": "Record created successfully",
+          "updateSuccess": "Record updated successfully",
+          "invalidIdError": "Invalid record ID",
+          "error": "An unexpected error occurred"
+        },
+        "apiErrors": {
+          "referenceBlocked": {
+            "inventoryModel": {
+              "deleteInUse": "This Inventory Model cannot be deleted because it is in use.",
+              "deactivateInUse": "This Inventory Model cannot be deactivated because it is in use."
+            }
+          }
+        },
+        "errors": {
+          "fillRequired": "Please fill in all required fields.",
+          "group": "Item Name is required.",
+          "nameRequired": "Model name is required.",
+          "categoryRequired": "Category is required.",
+          "duplicateName": "Model name must be unique.",
+          "englishOnly": "Please enter Model Name in English only.",
+          "noSpecialCharacters": "Please use only letters, numbers, and spaces.",
+          "maxLength": "Please enter no more than the allowed number of characters.",
+          "displayOrderRequired": "Display order is required.",
+          "apiActionsNotConfigured": "API actions are not configured.",
+          "saveFailed": "Failed to save record",
+          "deleteFailed": "Failed to delete record",
+          "unexpected": "An unexpected error occurred",
+          "codeRequired": "Code is required",
+          "codeAllZeros": "Code cannot be all zeros",
+          "codeMax": "Code exceeds maximum length",
+          "codeTooLong15": "Code cannot exceed 15 characters",
+          "codeInvalidChars": "Code contains invalid characters",
+          "codeDuplicate": "This code already exists",
+          "nameAllZeros": "Name cannot be all zeros",
+          "nameMax": "Name exceeds maximum length",
+          "nameFormat": "Invalid format for name",
+          "nameTooLong50": "Name cannot exceed 50 characters",
+          "nameInvalidChars": "Name contains invalid characters",
+          "nameDuplicate": "This name already exists",
+          "descriptionAllZeros": "Description cannot be all zeros",
+          "descriptionFormat": "Invalid format for description",
+          "descriptionTooLong": "Description cannot exceed 500 characters",
+          "descInvalidChars": "Description contains invalid characters"
+        }
+      },
+      "error": {
+        "title": "Data Loading Failed",
+        "description": "An error occurred while loading master data records. Please check your connection or try again.",
+        "categoryTitle": "Category Loading Failed",
+        "categoryDescription": "An error occurred while loading Asset Categories. Please check your connection or try again.",
+        "typeTitle": "Type Loading Failed",
+        "typeDescription": "An error occurred while loading Asset Types. Please try again.",
+        "reload": "Reload Page",
+        "tryAgain": "Try Again",
+        "goHome": "Go Home"
+      }
+    }
+  },
+  "masterNames": {
+    "asset-type-master": "Asset Type",
+    "asset-category-master": "Asset Category",
+    "inventory-category-master": "Inventory Category",
+    "inventory-model-master": "Inventory Model",
+    "inventory-name-master": "Inventory Item Name",
+    "inventory-condition-master": "Inventory Condition"
+  },
+  "apiErrors": {
+    "referenceBlocked": {
+      "inventoryModel": {
+        "deleteInUse": "This Inventory Model cannot be deleted because it is in use.",
+        "deactivateInUse": "This Inventory Model cannot be deactivated because it is in use."
+      }
+    }
+  },
+  "pageTitle": "Inventory Model",
+  "pageSubtitle": "Centralized Master Data Management System",
+  "addInventoryModel": "Add New Inventory Model",
+  "filters": {
+    "title": "Filters",
+    "modelNameAll": "Model Name: All",
+    "statusAll": "Status: All",
+    "active": "Active",
+    "inactive": "Inactive",
+    "reset": "Reset",
+    "export": "Export"
+  },
+  "columns": {
+    "name": "Name",
+    "description": "Description",
+    "status": "Status"
+  },
+  "excel": {
+    "srNo": "Sr. No.",
+    "modelCode": "Model Code",
+    "modelName": "Model Name",
+    "description": "Description",
+    "status": "Status",
+    "exportSuccess": "Inventory models exported to Excel successfully!",
+    "exportError": "Failed to export inventory models",
+    "noData": "No records available to export"
+  }
+}

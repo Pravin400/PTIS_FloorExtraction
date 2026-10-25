@@ -1,0 +1,416 @@
+{
+  "loading": {
+    "message": "संपत्ति कर संचालन लोड हो रहा है...",
+    "description": "कृपया प्रतीक्षा करें जब तक हम संपत्ति कर संचालन आरंभ करते हैं"
+  },
+  "title": "संपत्ति कर संचालन",
+  "subtitle": "संपत्ति कर लेनदेन पोस्ट करें, उलटें, आयात करें और निगरानी करें",
+  "buttons": {
+    "guidelines": "दिशा-निर्देश",
+    "userManual": "उपयोगकर्ता पुस्तिका",
+    "auditTrail": "ऑडिट ट्रेल"
+  },
+  "stats": {
+    "financeYear": "वित्तीय वर्ष",
+    "totalProperties": "कुल संपत्तियां",
+    "transmastProperties": "पहले से ही कर लगाया गया",
+    "eligibleRecords": "लंबित संपत्तियां",
+    "skippedLocked": "छोड़े गए / लॉक",
+    "runningJobs": "चल रहे कार्य"
+  },
+  "permissions": {
+    "title": "उपयोगकर्ता अनुमति",
+    "allowedMessage": "संपत्ति कर की गणना के लिए अनुमति है।"
+  },
+  "tabs": {
+    "excelComingSoon": "एक्सेल आयात कार्यक्षमता जल्द ही आ रही है",
+    "auditComingSoon": "ऑडिट और मॉनिटर कार्यक्षमता जल्द ही आ रही है",
+    "manualSelection": "मैन्युअल चयन",
+    "excelImport": "एक्सेल आयात",
+    "auditMonitor": "ऑडिट और मॉनिटर"
+  },
+  "scopeSelection": {
+    "title": "1. दायरा चयन",
+    "subtitle": "दायरा चुनें। केवल प्रासंगिक फ़ील्ड नीचे दिखाई देंगे।",
+    "scopes": {
+      "allProperties": "सभी संपत्तियां",
+      "allPropertiesDesc": "संपूर्ण निगम",
+      "zoneNode": "ज़ोन / नोड",
+      "zoneNodeDesc": "ज़ोन-वार चयन",
+      "wardSector": "वार्ड / सेक्टर",
+      "wardSectorDesc": "बहु वार्ड चयन",
+      "buildingWise": "इमारत वार",
+      "buildingWiseDesc": "इमारत स्तर",
+      "propertyWise": "संपत्ति वार",
+      "propertyWiseDesc": "चयनित संपत्तियां",
+      "propertyRange": "संपत्ति सीमा",
+      "propertyRangeDesc": "प्रारंभिक से अंतिम संपत्ति सीमा",
+      "masterDataChange": "मास्टर डेटा परिवर्तन",
+      "masterDataChangeDesc": "पुनर्गणना की आवश्यकता वाली संपत्तियां"
+    },
+    "zoneNodeSelect": "ज़ोन / नोड",
+    "zoneNodeSelectPlaceholder": "ज़ोन / नोड चुनें",
+    "propertyType": "संपत्ति का प्रकार",
+    "propertyTypePlaceholder": "सभी प्रकार",
+    "eligibleProperties": "पात्र संपत्तियां"
+  },
+  "executionValidation": {
+    "title": "निष्पादन सत्यापन",
+    "tags": {
+      "financeYear": "वित्तीय वर्ष",
+      "scope": "दायरा",
+      "eligibleRecords": "पात्र रिकॉर्ड",
+      "permission": "अनुमति"
+    },
+    "readyRecords": "तैयार रिकॉर्ड",
+    "eligibleRecordsSub": "पात्र रिकॉर्ड",
+    "reviewExecute": "समीक्षा और निष्पादन",
+    "requiresConfirmation": "अंतिम पुष्टि की आवश्यकता है"
+  },
+  "validateEligibility": {
+    "title": "2. पात्रता सत्यापित करें",
+    "subtitle": "उपयोगकर्ता अनुमति, वित्तीय वर्ष और चयनित दायरे के आधार पर अनुमत कार्य।",
+    "actions": {
+      "addTax": "कर जोड़ें",
+      "addTaxDesc": "चयनित वित्तीय वर्ष और दायरे के लिए पात्र",
+      "quarterlyAdd": "त्रैमासिक जोड़",
+      "quarterlyAddDesc": "तिमाही चयनित होने पर पात्र",
+      "removeTax": "कर हटाएं",
+      "removeTaxDesc": "वरिष्ठ की पुष्टि की आवश्यकता है",
+      "quarterlyRemove": "त्रैमासिक हटाना",
+      "quarterlyRemoveDesc": "अनुमोदन नोट की आवश्यकता है"
+    },
+    "status": {
+      "allowed": "अनुमत",
+      "restricted": "प्रतिबंधित"
+    },
+    "infoNote": "यहां अनुमत कार्य का चयन करें। अंतिम निर्णय सारांश केवल समीक्षा और निष्पादन पर क्लिक करने के बाद दिखाया जाएगा।"
+  },
+  "progressPanel": {
+    "title": "प्रक्रिया नौकरी",
+    "processing": "नौकरी की प्रक्रिया हो रही है...",
+    "completed": "पूरा हुआ",
+    "inProgress": "प्रगति पर",
+    "cancelJob": "कार्य रद्द करें",
+    "exportLog": "लॉग निर्यात करें",
+    "propertiesProcessed": "संसाधित संपत्तियां: {processed} / {total}",
+    "expandListNotice": "प्रत्येक संपत्ति गणना की स्थिति देखने के लिए नीचे दी गई सूची का विस्तार करें।",
+    "stats": {
+      "total": "कुल",
+      "processed": "संसाधित",
+      "added": "जोड़ा गया",
+      "failed": "विफल",
+      "pending": "लंबित"
+    },
+    "columns": {
+      "zone": "ज़ोन",
+      "propertyNo": "संपत्ति संख्या",
+      "owner": "मालिक",
+      "taxHead": "कर शीर्ष",
+      "amount": "रकम",
+      "status": "स्थिति",
+      "message": "संदेश"
+    },
+    "status": {
+      "failed": "विफल",
+      "added": "जोड़ा गया",
+      "pending": "लंबित",
+      "skipped": "छोड़ा गया"
+    }
+  },
+  "reviewModal": {
+    "title": "अंतिम पुष्टि",
+    "warningPrefix": "आप इसके लिए",
+    "action": "कर जोड़ना",
+    "warningSuffix": "शुरू करने वाले हैं ({count} संपत्तियां)",
+    "cancel": "रद्द करें",
+    "preview": "पूर्वावलोकन",
+    "proceed": "आगे बढ़ें और निष्पादन शुरू करें",
+    "scheduleExecutionButton": "निष्पादन का समय निर्धारित करें",
+    "operation": "संचालन",
+    "backgroundNotice": "यह संचालन पृष्ठभूमि (background) में चलेगा। आप 'ऑडिट और मॉनिटर' टैब में प्रगति की निगरानी कर सकते हैं।",
+    "forceRecalculate": "पुनर्गणना बाध्य करें",
+    "forceRecalculateHint": "संचित (cached) मान अनदेखा करें और प्रत्येक चयनित संपत्ति के लिए शुरू से पुनर्गणना करें",
+    "masterDataNotice": "वित्तीय वर्ष {financeYear} में मास्टर डेटा परिवर्तनों के कारण फ़्लैग की गई सभी संपत्तियों के लिए कर पुनर्गणना करता है।"
+  },
+  "dynamicFields": {
+    "labels": {
+      "zoneNode": "ज़ोन / नोड",
+      "wardSector": "वार्ड / सेक्टर",
+      "propertyType": "संपत्ति का प्रकार",
+      "building": "इमारत",
+      "searchProperty": "संपत्ति खोजें",
+      "assessmentStatus": "मूल्यांकन की स्थिति",
+      "fromPropertyNo": "प्रारंभिक संपत्ति संख्या",
+      "toPropertyNo": "अंतिम संपत्ति संख्या"
+    },
+    "placeholders": {
+      "selectZoneNode": "ज़ोन / नोड चुनें",
+      "selectWardSector": "वार्ड / सेक्टर चुनें",
+      "allTypes": "सभी प्रकार",
+      "selectBuilding": "इमारत चुनें",
+      "searchByUPIC": "UPIC ID / मोबाइल नंबर द्वारा खोजें",
+      "selectPropertyType": "संपत्ति का प्रकार चुनें",
+      "selectAssessmentStatus": "मूल्यांकन की स्थिति चुनें",
+      "noOptionsAvailable": "कोई विकल्प उपलब्ध नहीं हैं",
+      "selectPropertyNo": "संपत्ति संख्या चुनें"
+    },
+    "calculateEligible": "पात्र संपत्तियों की गणना करें",
+    "calculateRange": "सीमा की गणना करें",
+    "rangeWarningTitle": "एक विशिष्ट संपत्ति संख्या श्रेणी चुनें",
+    "rangeWarningDesc": "सीमा की गणना केवल चयनित 'प्रारंभिक संपत्ति' और 'अंतिम संपत्ति' के बीच की जाएगी। इस स्क्रीन पर ज़ोन/वार्ड दोहराव से बचा जाता है।",
+    "internalValidationNotice": "पूर्वावलोकन के दौरान सिस्टम आंतरिक रूप से ज़ोन, वार्ड और संपत्ति अनुक्रम को सत्यापित करेगा।",
+    "headerTitle": {
+      "property": "संपत्ति वार — विशिष्ट संपत्ति खोजें और जोड़ें",
+      "range": "संपत्ति सीमा — प्रारंभिक संपत्ति संख्या और अंतिम संपत्ति संख्या दर्ज करें",
+      "select": "चुनें"
+    }
+  },
+  "Skip_AlreadyProcessed": "पहले से ही संसाधित",
+  "Skip_PropertyLocked": "संपत्ति लॉक है",
+  "Skip_PropertyDetailsMissing": "संपत्ति का विवरण उपलब्ध नहीं है",
+  "Skip_PendingVerification": "सत्यापन लंबित",
+  "Skip_InvalidScope": "अमान्य दायरा",
+  "Skip_PermissionRestricted": "अनुमति प्रतिबंधित",
+  "Skip_ApprovalRequired": "स्वीकृति आवश्यक",
+  "Skip_RateNotFound": "दर कॉन्फ़िगर नहीं है",
+  "Skip_TaxPercentageMissing": "कर प्रतिशत कॉन्फ़िगर नहीं है",
+  "excel": {
+    "total": "कुल: {count}",
+    "eligible": "पात्र: {count}",
+    "skipped": "छोड़े गए: {count}",
+    "verifyColumns": "दायरे के आधार पर कॉलम सत्यापित करें।",
+    "scopeLabel": "दायरा:"
+  },
+  "excelGuide": {
+    "title": "एक्सेल आयात गाइड",
+    "description": "गुणों को थोक में अपलोड करने के लिए, पहले सिस्टम आवश्यकताओं वाले एक्सेल टेम्पलेट को डाउनलोड करें। अपनी संपत्ति के विवरण के साथ शीट को संशोधित करें, फिर इसे ड्रॉपज़ोन का उपयोग करके अपलोड करें।",
+    "step1": "डायनेमिक एक्सेल स्प्रेडशीट टेम्पलेट डाउनलोड करें।",
+    "step2": "आवश्यकताओं के आधार पर विवरण भरें। ज़ोन/वार्ड नामों का मिलान करें।",
+    "step3": "योग्यता को सत्यापित करने के लिए स्प्रेडशीट को ड्रैग और ड्रॉप करें।",
+    "downloadTemplate": "टेम्पलेट डाउनलोड करें"
+  },
+  "uploader": {
+    "removeFile": "फाइल हटाएं",
+    "uploadAnother": "दूसरा अपलोड करें",
+    "dragDrop": "एक्सेल फाइल को यहां ड्रैग और ड्रॉप करें",
+    "clickBrowse": "या डिवाइस से ब्राउज़ करने के लिए क्लिक करें",
+    "sizeSupport": ".xlsx / .xls फाइलें 10 एमबी तक समर्थित हैं",
+    "browseFile": "फाइल ब्राउज़ करें",
+    "previewTitle": "योग्यता सत्यापन पूर्वावलोकन",
+    "previewSubtitle": "एक्सेल स्प्रेडशीट से आयातित कॉलम और पंक्तियों की समीक्षा करें"
+  },
+  "preview": {
+    "title": "ऑपरेशन पूर्वावलोकन",
+    "subtitle": "ऑपरेशन निष्पादित करने से पहले चयनित रिकॉर्ड और उनकी पात्रता की समीक्षा करें",
+    "close": "बंद करें",
+    "totalSelected": "कुल चयनित",
+    "eligible": "लंबित",
+    "skipped": "छोड़े गए",
+    "alreadyTaxed": "पहले से ही कर लगाया गया",
+    "requiresApproval": "अनुमोदन की आवश्यकता है",
+    "columns": {
+      "zone": "ज़ोन",
+      "propertyNo": "संपत्ति संख्या",
+      "owner": "मालिक",
+      "status": "स्थिति",
+      "skipReason": "छोड़ने का कारण"
+    },
+    "status": {
+      "eligible": "पात्र",
+      "skipped": "छोड़े गए"
+    }
+  },
+  "skipReasons": {
+    "AlreadyProcessed": "इस संपत्ति के लिए चयनित वित्तीय वर्ष का कर पहले से ही गणना किया जा चुका है",
+    "DetailsMissing": "एक या अधिक संपत्तियों का विवरण नहीं मिला",
+    "PropertyLocked": "संपत्ति लॉक है",
+    "RateNotFound": "एक या अधिक संपत्ति विवरणों के लिए दर कॉन्फ़िगर नहीं की गई है",
+    "TaxPercentageMissing": "एक या अधिक संपत्ति विवरणों के लिए कर प्रतिशत कॉन्फ़िगर नहीं किया गया है",
+    "detailsMissingPrefix": "संपत्ति का विवरण नहीं मिला: ",
+    "detailsMissingSuffix": " गायब हैं",
+    "fields": {
+      "floorType": "मंजिल का प्रकार",
+      "constructionType": "निर्माण प्रकार",
+      "carpetArea": "कालीन क्षेत्र",
+      "builtupArea": "निर्मित क्षेत्र",
+      "typeOfUse": "उपयोग का प्रकार",
+      "assessmentYear": "मूल्यांकन वर्ष"
+    }
+  },
+  "error": {
+    "title": "सर्वर से कनेक्ट करने में विफल। कृपया बाद में पुनः प्रयास करें।",
+    "description": "संपत्ति कर संचालन पृष्ठ लोड करते समय एक त्रुटि आई। कृपया पुनः प्रयास करें।",
+    "tryAgain": "पुनः प्रयास करें",
+    "goHome": "होम पर जाएं",
+    "errorId": "त्रुटि आईडी: {id}"
+  },
+  "guidelines": {
+    "title": "दिशा-निर्देश",
+    "step1": "पहले वित्तीय वर्ष चुनें।",
+    "step2": "दायरा चुनें और पात्र रिकॉर्ड का पूर्वावलोकन करें।",
+    "step3": "प्रतिबंधित कार्यों के लिए अनुमोदन की आवश्यकता होती है।",
+    "step4": "अंतिम प्रक्रिया से पहले हमेशा 'समीक्षा करें और निष्पादित करें' का उपयोग करें।"
+  },
+  "userManual": {
+    "title": "उपयोगकर्ता पुस्तिका",
+    "desc1": "यह स्क्रीन टैक्स जोड़ने, त्रैमासिक जोड़ने, टैक्स हटाने और त्रैमासिक हटाने का समर्थन करती है।",
+    "desc2": "सभी संपत्तियों, ज़ोन, वार्ड, भवन, संपत्ति और सीमा मोड के बीच स्विच करने के लिए दायरा कार्ड का उपयोग करें।"
+  },
+  "confirmations": {
+    "overrideAlreadyTaxed": {
+      "title": "पहले से कर गणना की गई संपत्तियां मिलीं",
+      "confirmText": "हाँ"
+    }
+  },
+  "messages": {
+    "invalidPropertySearch": "कृपया मान्य UPIC ID/मोबाइल नंबर दर्ज करें",
+    "skippedCount": "{count} संपत्तियों को छोड़ दिया गया / लॉक किया गया।",
+    "alreadyTaxedCount": "{count} संपत्तियों के लिए इस वित्तीय वर्ष का कर पहले से ही गणना किया जा चुका है। क्या आप कर की पुनः गणना करना चाहते हैं?",
+    "selectedTimeInPast": "चयनित समय अतीत में है। कृपया भविष्य का समय चुनें।",
+    "timeReset": "भविष्य का समय सुनिश्चित करने के लिए समय {time} पर रीसेट कर दिया गया है।",
+    "selectTimeRequired": "कृपया समय चुनें।",
+    "scheduledTimeInPast": "निर्धारित समय भविष्य में होना चाहिए।",
+    "fillRequiredFields": "कृपया गणना करने से पहले सभी आवश्यक फ़ील्ड भरें।",
+    "executionStarted": "निष्पादन सफलतापूर्वक शुरू हुआ। कार्य कोड: {jobId}",
+    "jobScheduled": "कार्य सफलतापूर्वक निर्धारित किया गया। कार्य कोड: {jobId}",
+    "executionCompleted": "निष्पादन सफलतापूर्वक पूरा हुआ। कार्य कोड: {jobId}",
+    "failedExecute": "कार्य निष्पादित करने में विफल।",
+    "errorExecution": "निष्पादन के दौरान त्रुटि हुई।",
+    "failedPreview": "पूर्वावलोकन डेटा लोड करने में विफल।",
+    "errorPreview": "पूर्वावलोकन के दौरान त्रुटि हुई।",
+    "templateDownloaded": "एक्सेल टेम्पलेट सफलतापूर्वक डाउनलोड किया गया",
+    "failedTemplateDownload": "एक्सेल टेम्पलेट डाउनलोड करने में विफल",
+    "invalidFileFormat": "अमान्य फ़ाइल स्वरूप। कृपया .xlsx या .xls फ़ाइल अपलोड करें।",
+    "fileTooLarge": "फ़ाइल का आकार 10 एमबी की सीमा से अधिक है।",
+    "emptyExcelSheet": "एक्सेल शीट खाली है",
+    "invalidExcelTemplate": "कृपया टेम्पलेट के अनुसार सही एक्सेल अपलोड करें।",
+    "invalidWardPropertyData": "कृपया एक्सेल में मान्य वार्ड और संपत्तियाँ अपलोड करें।",
+    "uploadSuccess": "सफलतापूर्वक अपलोड किया गया। ऑटो-डिटेक्टेड दायरा: {scope}",
+    "failedParseExcel": "एक्सेल फ़ाइल का विश्लेषण करने में विफल",
+    "eligibleCalculated": "पात्र संपत्तियों की गणना सफलतापूर्वक की गई",
+    "failedFetchCalculation": "गणना परिणाम प्राप्त करने में विफल",
+    "errorCalculating": "पात्र संपत्तियों की गणना करते समय त्रुटि हुई",
+    "scheduledJobStarted": "निर्धारित कार्य {jobId} का निष्पादन शुरू हो गया है।",
+    "invalidRange": "अंतिम संपत्ति संख्या प्रारंभिक संपत्ति संख्या से बड़ी होनी चाहिए। कृपया सही श्रेणी चुनें।",
+    "exportSuccess": "सफलतापूर्वक निर्यात किया गया",
+    "exportCompleted": "निर्यात सफलतापूर्वक पूरा हुआ",
+    "exportingStarted": "निर्यात डाउनलोड शुरू हुआ...",
+    "exportingDownloading": "निर्यात डाउनलोड हो रहा है, कृपया प्रतीक्षा करें...",
+    "exportFailed": "निर्यात करने में विफल",
+    "previewExportInProgress": "पूर्वावलोकन निर्यात किया जा रहा है ({downloadType})...",
+    "previewExportSuccess": "पूर्वावलोकन निर्यात ({downloadType}) सफलतापूर्वक पूरा हुआ।",
+    "previewExportFailed": "पूर्वावलोकन निर्यात फ़ाइल डाउनलोड करने में विफल।"
+  },
+  "schedule": {
+    "title": "कार्य निष्पादन का समय निर्धारित करें",
+    "subtitle": "निष्पादन तिथि और समय निर्दिष्ट करें (केवल आज या कल की अनुमति है)",
+    "back": "पीछे",
+    "submit": "समय निर्धारित करें",
+    "selectDate": "दिनांक चुनें",
+    "selectTime": "समय चुनें"
+  },
+  "audit": {
+    "stats": {
+      "totalJobs": "कुल कार्य",
+      "totalJobsSub": "सभी थोक कर संचालन",
+      "completed": "पूरा हुआ",
+      "completedSub": "सफलतापूर्वक संसाधित किया गया",
+      "running": "सक्रिय",
+      "runningSub": "वर्तमान में निष्पादित हो रहा है",
+      "failed": "विफल",
+      "failedSub": "समीक्षा की आवश्यकता है"
+    },
+    "filters": {
+      "allJobs": "सभी कार्य",
+      "searchJobId": "कार्य आईडी खोजें",
+      "searchPlaceholder": "कार्य आईडी खोजें",
+      "status": "स्थिति",
+      "date": "दिनांक"
+    },
+    "status": {
+      "all": "सभी स्थिति",
+      "completed": "पूरा हुआ",
+      "inProgress": "प्रगति पर",
+      "pending": "लंबित",
+      "scheduled": "निर्धारित",
+      "failed": "विफल"
+    },
+    "buttons": {
+      "applyFilter": "फ़िल्टर लागू करें",
+      "resetFilters": "रीसेट करें",
+      "syncData": "डेटा सिंक/रिफ्रेश करें",
+      "viewDetails": "देखें"
+    },
+    "columns": {
+      "action": "कार्यवाही",
+      "jobId": "कार्य आईडी",
+      "dateTime": "दिनांक और समय",
+      "operation": "संचालन",
+      "doneBy": "किसने किया",
+      "scope": "दायरा",
+      "startTime": "शुरू होने का समय",
+      "completeTime": "पूरा होने का समय",
+      "duration": "अवधि",
+      "records": "रिकॉर्ड",
+      "status": "स्थिति",
+      "remarks": "टिप्पणी"
+    },
+    "detailColumns": {
+      "propertyNo": "संपत्ति संख्या",
+      "propertyNoUpicId": "संपत्ति संख्या / UPIC ID",
+      "owner": "मालिक",
+      "taxHeadAmount": "कर शीर्ष / राशि",
+      "status": "स्थिति",
+      "message": "संदेश"
+    },
+    "jobDetail": {
+      "title": "कार्य लॉग: {jobId}",
+      "operationLabel": "संचालन:",
+      "doneByLabel": "किसने किया:",
+      "durationLabel": "अवधि:",
+      "financialYearLabel": "वित्तीय वर्ष:",
+      "loadingText": "कार्य संपत्तियों को लोड किया जा रहा है..."
+    },
+    "emptyState": {
+      "noData": "कोई डेटा उपलब्ध नहीं है"
+    }
+  },
+  "inactiveFinanceYear": {
+    "title": "कार्य प्रतिबंधित",
+    "message": "वित्तीय वर्ष \"{financeYear}\" के लिए आप कर नहीं जोड़ सकते।",
+    "subtext": "कृपया कर संचालन करने के लिए वर्तमान वित्तीय वर्ष का चयन करें।"
+  },
+  "masterDataChange": {
+    "banner": "मास्टर डेटा में बदलाव हुआ ({remarkSummary}) — {count} संपत्तियों को कर पुनर्गणना की आवश्यकता हो सकती है",
+    "defaultRemark": "मास्टर डेटा",
+    "viewProperties": "संपत्तियां देखें",
+    "modalTitle": "पुनर्गणना के लिए चिह्नित संपत्तियां",
+    "modalSubtitle": "मास्टर डेटा में बदलाव के कारण {count} संपत्तियों को कर पुनर्गणना की आवश्यकता हो सकती है",
+    "alertTitle": "मास्टर डेटा परिवर्तन का पता चला – कर पुनर्गणना लंबित",
+    "alertDescription": "मास्टर तालिका परिवर्तनों के कारण {count} संपत्तियों पर कर पुनर्गणना फ़्लैग लंबित हैं।",
+    "scheduled": "अनुसूचित",
+    "proceedExecution": "निष्पादन आगे बढ़ाएं",
+    "exporting": "निर्यात हो रहा है...",
+    "exportAffectedProperties": "प्रभावित संपत्तियां निर्यात करें (CSV)",
+    "selectFinanceYearExportError": "कृपया निर्यात करने से पहले एक वित्तीय वर्ष चुनें।",
+    "exportActionUnavailable": "निर्यात कार्रवाई उपलब्ध नहीं है।",
+    "exportingCsvToast": "मास्टर डेटा प्रभावित संपत्तियां CSV निर्यात की जा रही हैं...",
+    "exportSuccessToast": "निर्यात डाउनलोड सफलतापूर्वक पूरा हुआ!",
+    "exportFailedToast": "मास्टर डेटा परिवर्तन CSV निर्यात करने में विफल",
+    "exportCsv": "CSV निर्यात करें",
+    "exportingDownloading": "निर्यात डाउनलोड हो रहा है, कृपया प्रतीक्षा करें...",
+    "exportCompleted": "निर्यात डाउनलोड पूर्ण हुआ",
+    "exportFailed": "संपत्तियों को निर्यात करने में विफल",
+    "columns": {
+      "zone": "ज़ोन",
+      "ward": "वार्ड",
+      "propertyNo": "संपत्ति क्रमांक",
+      "partitionNo": "विभाजन क्रमांक",
+      "upicId": "UPIC आईडी",
+      "owner": "मालिक",
+      "remark": "टिप्पणी",
+      "flaggedAt": "चिह्नित समय"
+    }
+  }
+}

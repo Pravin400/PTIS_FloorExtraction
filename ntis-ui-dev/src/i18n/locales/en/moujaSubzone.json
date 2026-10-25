@@ -1,0 +1,119 @@
+{
+  "list": {
+    "title": "Mouja & SubZone Details Master",
+    "subtitle": "Manage Moujas and SubZones for Assets",
+    "moujaTitle": "Mouja Master",
+    "subZoneTitle": "SubZone Details Master",
+    "buttons": {
+      "addMouja": "Add Mouja",
+      "addSubZone": "Add SubZone"
+    },
+    "filters": {
+      "searchMouja": "Search Mouja...",
+      "searchSubZone": "Search SubZone..."
+    },
+    "table": {
+      "moujaNo": "Mouja No",
+      "moujaName": "Mouja Name",
+      "subZoneNo": "SubZone No",
+      "subZoneName": "SubZone Name",
+      "status": "Status"
+    },
+    "selectMoujaNotice": "Please select a Mouja from the list to view SubZones.",
+    "cannotAddInactiveMouja": "Cannot add SubZone to an inactive Mouja"
+  },
+  "form": {
+    "addMoujaTitle": "Add Mouja",
+    "editMoujaTitle": "Edit Mouja",
+    "addSubZoneTitle": "Add SubZone",
+    "editSubZoneTitle": "Edit SubZone",
+    "fields": {
+      "moujaNo": {
+        "label": "Mouja No",
+        "placeholder": "e.g. MJ-001"
+      },
+      "moujaName": {
+        "label": "Mouja Name",
+        "placeholder": "e.g. Akola"
+      },
+      "subZoneNo": {
+        "label": "SubZone No",
+        "placeholder": "e.g. 2.172/64A"
+      },
+      "subZoneName": {
+        "label": "SubZone Name",
+        "placeholder": "e.g. SubZone A"
+      },
+      "moujaId": {
+        "label": "Mouja",
+        "placeholder": "Select Mouja"
+      }
+    },
+    "status": {
+      "label": "Active Status",
+      "description": "Status is currently"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "save": "Save",
+      "update": "Update"
+    },
+    "validation": {
+      "moujaNoRequired": "Mouja number is required",
+      "moujaNoMaxLength": "Maximum length is 20 characters",
+      "moujaNoFormat": "Only alphanumeric characters, hyphens (-), and underscores (_) are allowed",
+      "moujaNameRequired": "Mouja name is required",
+      "moujaNameMaxLength": "Maximum length is 100 characters",
+      "moujaNameFormat": "Invalid name format",
+      "subZoneNoRequired": "SubZone number is required",
+      "subZoneNoMaxLength": "Maximum length is 20 characters",
+      "subZoneNoFormat": "Only alphanumeric characters, dots (.), hyphens (-), and slashes (/) are allowed",
+      "subZoneNameRequired": "SubZone name is required",
+      "subZoneNameMaxLength": "Maximum length is 100 characters",
+      "subZoneNameFormat": "Invalid name format",
+      "moujaRequired": "Mouja is required",
+      "mustBeActive": "Must be active to save",
+      "fixErrors": "Please fix validation errors",
+      "invalidFormat": "Invalid format"
+    }
+  },
+  "delete": {
+    "confirmDescription": "Are you sure you want to delete this record?"
+  },
+  "apiErrors": {
+    "duplicateRecord": "Record with this code/number already exists.",
+    "Mouja_MoujaNo_Duplicate": "Mouja number already exists.",
+    "Mouja_MoujaName_Duplicate": "Mouja name already exists.",
+    "SubZoneDetailsForCV_SubZoneNo_Duplicate": "SubZone number already exists.",
+    "SubZoneDetailsForCV_SubZoneName_Duplicate": "SubZone name already exists.",
+    "AssetMouja_MoujaNo_Duplicate": "Asset Mouja number already exists.",
+    "AssetSubZoneDetailsForCV_SubZoneNo_Duplicate": "Asset SubZone number already exists.",
+    "notFound": "Record not found.",
+    "moujaDeleteBlocked": "This Mouja cannot be deleted because it has Sub Zones. Please delete all Sub Zones for this Mouja first.",
+    "moujaDeactivateBlocked": "This Mouja cannot be deactivated because it has Sub Zones. Please delete all Sub Zones for this Mouja first.",
+    "subZoneDeleteBlocked": "This Sub Zone cannot be deleted because it has CV Rates. Please delete all CV Rates for this Sub Zone first.",
+    "subZoneDeactivateBlocked": "This Sub Zone cannot be deactivated because it has CV Rates. Please delete all CV Rates for this Sub Zone first.",
+    "A record with the same details already exists": "A record with the same details already exists.",
+    "operationFailed": "Operation failed.",
+    "User session required": "User session required."
+  },
+  "success": {
+    "moujaCreated": "New Mouja created successfully",
+    "moujaUpdated": "Mouja updated successfully",
+    "moujaDeleted": "Mouja deleted successfully",
+    "subZoneCreated": "New SubZone created successfully",
+    "subZoneUpdated": "SubZone updated successfully",
+    "subZoneDeleted": "SubZone deleted successfully"
+  },
+  "loading": {
+    "message": "Loading Mouja & SubZone data...",
+    "description": "Please wait while we load the information"
+  },
+  "error": {
+    "title": "Failed to load Mouja & SubZone data",
+    "description": "We encountered an error while loading the information. Please try again.",
+    "errorId": "Error ID: {id}",
+    "goHome": "Go Home",
+    "tryAgain": "Try Again"
+  }
+}

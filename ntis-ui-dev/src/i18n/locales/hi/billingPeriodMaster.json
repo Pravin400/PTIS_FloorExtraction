@@ -1,0 +1,163 @@
+{
+  "billingPeriodMaster": {
+    "moduleTitle": "बिलिंग अवधि मास्टर",
+    "title": "बिलिंग अवधियाँ",
+    "subtitle": "बिल निर्माण, देय तिथियाँ, छूट और दंड अवधि सहित परिचालन बिल चक्र कैलेंडर।",
+    "searchPlaceholder": "बिलिंग आवृत्ति द्वारा रिकॉर्ड खोजें...",
+    "addTitle": "बिलिंग अवधि जोड़ें",
+    "editTitle": "बिलिंग अवधि संपादित करें",
+    "addSubtitle": "नया बिलिंग अवधि रिकॉर्ड बनाएं",
+    "editSubtitle": "बिलिंग अवधि का विवरण अपडेट करें",
+    "table": {
+      "periodCode": "अवधि कोड",
+      "financialYear": "वित्तीय वर्ष",
+      "billingFrequency": "बिलिंग आवृत्ति",
+      "periodFrom": "प्रारंभ तिथि",
+      "periodTo": "समाप्ति तिथि",
+      "billGenerationDate": "बिल निर्माण तिथि",
+      "dueDate": "देय तिथि",
+      "graceDays": "छूट दिवस",
+      "currentPenalty": "वर्तमान दंड",
+      "pendingPenalty": "लंबित दंड",
+      "to": "तक",
+      "sequenceNo": "क्रम संख्या",
+      "currentPenaltyStartDate": "वर्तमान जुर्माना प्रारंभ",
+      "currentPenaltyEndDate": "वर्तमान जुर्माना समाप्ति",
+      "pendingPenaltyStartDate": "लंबित जुर्माना प्रारंभ",
+      "pendingPenaltyEndDate": "लंबित जुर्माना समाप्ति",
+      "isReadingApprovalRequired": "रीडिंग अनुमोदन आवश्यक",
+      "status": "स्थिति",
+      "isActive": "सक्रिय",
+      "yes": "हाँ",
+      "no": "नहीं"
+    },
+    "statusOptions": {
+      "open": "खुला (Open)",
+      "closed": "बंद (Closed)",
+      "draft": "प्रारूप (Draft)"
+    },
+    "form": {
+      "enabled": "सक्षम",
+      "disabled": "अक्षम",
+      "saveRecord": "रिकॉर्ड सहेजें",
+      "updateRecord": "रिकॉर्ड अपडेट करें",
+      "periodCode": {
+        "label": "अवधि कोड",
+        "placeholder": "उदा., 2026-Q1"
+      },
+      "sequenceNo": {
+        "label": "क्रम संख्या",
+        "placeholder": "उदा., 1"
+      },
+      "financialYear": {
+        "label": "वित्तीय वर्ष",
+        "placeholder": "वित्तीय वर्ष चुनें"
+      },
+      "billingFrequency": {
+        "label": "बिलिंग आवृत्ति",
+        "placeholder": "बिलिंग आवृत्ति चुनें"
+      },
+      "periodFrom": {
+        "label": "प्रारंभ तिथि",
+        "placeholder": "तिथि चुनें"
+      },
+      "periodTo": {
+        "label": "समाप्ति तिथि",
+        "placeholder": "तिथि चुनें"
+      },
+      "billGenerationDate": {
+        "label": "बिल निर्माण तिथि",
+        "placeholder": "तिथि चुनें"
+      },
+      "dueDate": {
+        "label": "देय तिथि",
+        "placeholder": "तिथि चुनें"
+      },
+      "graceDays": {
+        "label": "छूट दिवस",
+        "placeholder": "उदा., 10"
+      },
+      "status": {
+        "label": "स्थिति"
+      },
+      "readingApproval": {
+        "label": "रीडिंग अनुमोदन आवश्यक"
+      },
+      "activeStatusTitle": "स्थिति",
+      "activeStatusOn": "सक्रिय - बिलिंग अवधि सक्षम है",
+      "activeStatusOff": "निष्क्रिय - बिलिंग अवधि अक्षम है",
+      "creatingPeriodStatus": "अवधि {current} / {total} बनाई जा रही है (इस वित्तीय वर्ष के लिए {remaining} अवधि शेष)"
+    },
+    "validation": {
+      "billingPeriodCodeRequired": "अवधि कोड आवश्यक है",
+      "billingPeriodCodeLength": "अवधि कोड {count} वर्णों से अधिक नहीं हो सकता",
+      "financialYearRequired": "वित्तीय वर्ष आवश्यक है",
+      "billingFrequencyRequired": "बिलिंग आवृत्ति आवश्यक है",
+      "periodFromDateRequired": "प्रारंभ तिथि आवश्यक है",
+      "periodFromDateInvalid": "प्रारंभ तिथि मान्य तिथि नहीं है",
+      "periodToDateRequired": "समाप्ति तिथि आवश्यक है",
+      "periodToDateInvalid": "समाप्ति तिथि मान्य तिथि नहीं है",
+      "periodToDateAfterFromDate": "समाप्ति तिथि प्रारंभ तिथि के बाद होनी चाहिए",
+      "periodFromDateMustMatchYearStart": "पहले पीरियड की 'प्रारंभ तिथि' वित्तीय वर्ष की आरंभ तिथि ({date}) के समान होनी चाहिए",
+      "periodToDateMustMatchYearEnd": "अंतिम पीरियड की 'समाप्ति तिथि' वित्तीय वर्ष की समाप्ति तिथि ({date}) के समान होनी चाहिए",
+      "periodFromNotBeforeYearStart": "'प्रारंभ तिथि' वित्तीय वर्ष की आरंभ तिथि ({date}) से पहले नहीं हो सकती",
+      "periodToNotAfterYearEnd": "'समाप्ति तिथि' वित्तीय वर्ष की समाप्ति तिथि ({date}) के बाद नहीं हो सकती",
+      "billGenerationDateInvalid": "बिल निर्माण तिथि मान्य तिथि नहीं है",
+      "billGenerationNotBeforePeriodFrom": "बिल निर्माण तिथि प्रारंभ तिथि ({date}) से पहले नहीं हो सकती",
+      "billGenerationNotAfterDueDate": "बिल निर्माण तिथि देय तिथि ({date}) के बाद नहीं हो सकती",
+      "dueDateRequired": "नियत तिथि आवश्यक है",
+      "dueDateInvalid": "नियत तिथि मान्य तिथि नहीं है",
+      "dueDateAfterPeriodTo": "नियत तिथि समाप्ति तिथि के बाद होनी चाहिए",
+      "dueDateMaxDays": "नियत तिथि समाप्ति तिथि से {count} दिनों से अधिक नहीं हो सकती",
+      "dueDateMaxOneMonth": "नियत तिथि समाप्ति तिथि के एक महीने के भीतर होनी चाहिए",
+      "currentPenaltyStartMustMatchPeriodFrom": "वर्तमान दंड प्रारंभ तिथि प्रारंभ तिथि ({date}) के समान होनी चाहिए",
+      "currentPenaltyEndMustMatchPeriodTo": "वर्तमान दंड समाप्ति तिथि समाप्ति तिथि ({date}) के समान होनी चाहिए",
+      "currentPenaltyStartAfterDueDate": "वर्तमान दंड प्रारंभ तिथि नियत तिथि के बाद होनी चाहिए",
+      "currentPenaltyStartNotAfterEnd": "वर्तमान दंड प्रारंभ तिथि वर्तमान दंड समाप्ति तिथि के बाद नहीं हो सकती",
+      "currentPenaltyEndAfterStart": "वर्तमान दंड समाप्ति तिथि वर्तमान दंड प्रारंभ तिथि से पहले नहीं हो सकती",
+      "pendingPenaltyStartNotBeforeCurrentPenaltyEnd": "लंबित दंड प्रारंभ तिथि वर्तमान दंड समाप्ति तिथि ({date}) के बाद होनी चाहिए",
+      "pendingPenaltyStartNotAfterEnd": "लंबित दंड प्रारंभ तिथि लंबित दंड समाप्ति तिथि के बाद नहीं हो सकती",
+      "pendingPenaltyEndAfterStart": "लंबित दंड समाप्ति तिथि लंबित दंड प्रारंभ तिथि से पहले नहीं हो सकती",
+      "graceDaysMismatch": "रियायती दिन और नियत तिथि में बेमेल है",
+      "graceDaysRequired": "रियायती दिन आवश्यक हैं",
+      "graceDaysPositive": "रियायती दिन सकारात्मक संख्या होनी चाहिए",
+      "graceDaysMax": "रियायती दिन {count} दिनों से अधिक नहीं हो सकते",
+      "maxPeriodsReached": "चयनित वित्तीय वर्ष के लिए इस बिलिंग आवृत्ति की सभी {count} अवधियाँ पहले ही बनाई जा चुकी हैं।",
+      "validationFailed": "सत्यापन विफल रहा। कृपया त्रुटियों को सुधारें"
+    },
+    "errors": {
+      "noMutationAction": "कोई म्यूटेशन क्रिया उपलब्ध नहीं है",
+      "noDeleteAction": "हटाने की क्रिया उपलब्ध नहीं है",
+      "unexpectedError": "एक अप्रत्याशित त्रुटि उत्पन्न हुई",
+      "fetchListFailed": "बिलिंग अवधियाँ प्राप्त करने में विफल",
+      "fetchItemFailed": "बिलिंग अवधि प्राप्त करने में विफल",
+      "notFound": "बिलिंग अवधि नहीं मिली",
+      "createFailed": "बिलिंग अवधि बनाने में विफल",
+      "updateFailed": "बिलिंग अवधि अपडेट करने में विफल",
+      "deleteFailed": "बिलिंग अवधि हटाने में विफल"
+    },
+    "confirm": {
+      "deleteTitle": "बिलिंग अवधि हटाएं",
+      "deleteDescription": "क्या आप वाकई इस बिलिंग अवधि को स्थायी रूप से हटाना चाहते हैं? यह क्रिया पूर्ववत नहीं की जा सकती।"
+    },
+    "messages": {
+      "createSuccess": "बिलिंग अवधि सफलतापूर्वक बनाई गई",
+      "updateSuccess": "बिलिंग अवधि सफलतापूर्वक अपडेट की गई",
+      "deleteSuccess": "बिलिंग अवधि सफलतापूर्वक हटाई गई",
+      "createFailed": "बिलिंग अवधि बनाने में विफल",
+      "updateFailed": "बिलिंग अवधि अपडेट करने में विफल",
+      "deleteFailed": "बिलिंग अवधि हटाने में विफल"
+    },
+    "error": {
+      "title": "सर्वर से कनेक्ट करने में विफल। कृपया बाद में पुनः प्रयास करें।",
+      "description": "बिलिंग अवधि पेज लोड करते समय हमें एक त्रुटि का सामना करना पड़ा। कृपया पुनः प्रयास करें।",
+      "tryAgain": "पुनः प्रयास करें",
+      "goHome": "होम पर जाएं",
+      "errorId": "त्रुटि ID: {id}"
+    },
+    "loading": {
+      "message": "बिलिंग अवधि लोड हो रही है...",
+      "description": "कृपया प्रतीक्षा करें जब तक हम बिलिंग अवधि डेटा प्राप्त कर रहे हैं"
+    }
+  }
+}

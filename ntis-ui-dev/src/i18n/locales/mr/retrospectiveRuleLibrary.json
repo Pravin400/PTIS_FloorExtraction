@@ -1,0 +1,226 @@
+{
+  "title": "मागील कार्यलक्ष्यी नियम ग्रंथालय",
+  "subtitle": "महापालिका-विशिष्ट नियमांचे पुनरावलोकन, तुलना आणि संरचना करा.",
+  "exportJson": "JSON निर्यात करा",
+  "corporations": {
+    "all": "सर्व महापालिका",
+    "thane": "ठाणे महानगरपालिका",
+    "pune": "पुणे महानगरपालिका",
+    "mumbai": "मुंबई महानगरपालिका"
+  },
+  "stats": {
+    "importedRules": "आयात केलेले नियम",
+    "readyActive": "तयार / सक्रिय",
+    "needReview": "पुनरावलोकनाची गरज",
+    "lookbackGuardrail": "वैधानिक लुक-बॅक गार्डरेल",
+    "years": "वर्षे"
+  },
+  "defaultDateRules": {
+    "title": "मूलभूत दिनांक नियम",
+    "subtitle": "ज्या प्रकरणांमध्ये प्रत्यक्ष ताबा तारीख उपलब्ध नाही तेथे मूलभूत ताबा तारीख नियम परिभाषित करा.",
+    "defaultBadge": "मूलभूत",
+    "columns": {
+      "priority": "प्राधान्य",
+      "ruleName": "नियमाचे नाव",
+      "appliesTo": "लागू होतो",
+      "condition": "अट",
+      "defaultDateLogic": "मूलभूत दिनांक तर्कशास्त्र",
+      "effectiveFrom": "पासून प्रभावी",
+      "status": "स्थिती",
+      "actions": "कृती"
+    },
+    "noRules": "कोणतेही मूलभूत दिनांक नियम कॉन्फिगर केलेले नाहीत.",
+    "showing": "{total} पैकी {start} ते {end} नियम दर्शवित आहे"
+  },
+  "ruleLibrary": {
+    "title": "महापालिका नियम ग्रंथालय",
+    "subtitle": "मूळ शब्द तपासण्यासाठी किंवा बिल्डरमध्ये उघडण्यासाठी एक नियम निवडा.",
+    "createRule": "नियम तयार करा",
+    "searchPlaceholder": "नियम, पुरावा किंवा निकाल शोधा...",
+    "statuses": {
+      "all": "सर्व स्थिती",
+      "active": "सक्रिय",
+      "review": "पुनरावलोकन",
+      "draft": "मसुदा",
+      "inactive": "निष्क्रिय"
+    },
+    "evidenceFilters": {
+      "all": "सर्व पुरावे",
+      "authorized": "अधिकृत: OC किंवा CC उपलब्ध",
+      "unauthorized": "अनधिकृत: OC आणि CC अनुपलब्ध"
+    },
+    "columns": {
+      "rule": "नियम",
+      "condition": "अट",
+      "startLogic": "शुरुवातीचे तर्कशास्त्र",
+      "commonTaxation": "सामान्य कर आकारणी",
+      "unauthorizedPenalty": "अनधिकृत दंड",
+      "status": "स्थिती",
+      "actions": "कृती"
+    },
+    "noRules": "तुमच्या फिल्टरशी जुळणारे कोणतेही मागील कार्यलक्ष्यी नियम आढळले नाहीत.",
+    "buttons": {
+      "view": "पाहा",
+      "edit": "संपादित करा"
+    }
+  },
+  "builder": {
+    "title": "मागील कार्यलक्ष्यी नियम कॉन्फिगर करा",
+    "subtitle": "कर आकारणी सेट करा, पुरावा अटी परिभाषित करा आणि परिणामी कृती निवडा.",
+    "pills": {
+      "taxation": "कर आकारणी",
+      "conditions": "अटी",
+      "actions": "कृती"
+    },
+    "taxation": {
+      "title": "कर आकारणी दर आणि टक्केवारी",
+      "subtitle": "निवडलेल्या महापालिकेअंतर्गत सर्व नियमांसाठी सामान्य.",
+      "configured": "कॉन्फिगर केले आहे",
+      "rateLabel": "कर आकारणी दर",
+      "percentageLabel": "कर टक्केवारी",
+      "saveButton": "कर आकारणी जतन करा",
+      "updateTaxation": "कर आकारणी अद्ययावत करा",
+      "rateOptions": {
+        "currentYear": "सर्व वर्षांसाठी चालू वर्षाचा दर",
+        "historical": "प्रत्येक वर्षासाठी ऐतिहासिक दर"
+      },
+      "percentageOptions": {
+        "currentYear": "सर्व वर्षांसाठी चालू वर्षाची टक्केवारी",
+        "slabBased": "स्लॅबवर आधारित टक्केवारी"
+      }
+    },
+    "conditions": {
+      "title": "अटी",
+      "subtitle": "हा नियम केव्हा लागू होतो ते परिभाषित करा.",
+      "badge": "जेव्हा",
+      "ruleNameLabel": "नियमाचे नाव",
+      "ruleNamePlaceholder": "उदा. OC सहा वर्षांपेक्षा जुने",
+      "evidenceStateHeader": "या नियमासाठी पुराव्याची स्थिती निवडा:",
+      "evidenceStateHelp": "प्रत्येक पुरावा आयटम केवळ एका बाजूला निवडा.",
+      "availableEvidence": "उपलब्ध पुरावे",
+      "availableHelp": "निवडलेली नोंद उपस्थित असणे आवश्यक आहे.",
+      "unavailableEvidence": "अनुपलब्ध पुरावे",
+      "unavailableHelp": "निवडलेली नोंद गहाळ असणे आवश्यक आहे.",
+      "selectedCount": "{count} निवडले",
+      "mutuallyExclusiveNotice": "पुरावा निवडी परस्पर अनन्य आहेत.",
+      "compareDatesLabel": "पुरावा तारखांची तुलना करा",
+      "authorizedConstruction": "अधिकृत बांधकाम",
+      "unauthorizedConstruction": "अनधिकृत बांधकाम",
+      "authorizedDescription": "OC किंवा CC उपलब्ध आहे.",
+      "unauthorizedDescription": "OC आणि CC दोन्ही अनुपलब्ध आहेत.",
+      "authorizedBadge": "अधिकृत",
+      "unauthorizedBadge": "अनधिकृत",
+      "compareOptions": {
+        "olderThanAllowed": "अनुमत कालावधीपेक्षा जुनी OC तारीख",
+        "withinAllowed": "अनुमत कालावधीत OC तारीख",
+        "noComparison": "तारीख तुलनेची गरज नाही"
+      }
+    },
+    "actions": {
+      "title": "कृती",
+      "subtitle": "मागील कार्यलक्ष्यी कर आणि अनधिकृत बांधकाम दंड निश्चित करा.",
+      "badge": "तेव्हा",
+      "retrospectiveTaxTitle": "मागील कार्यलक्ष्यी कर",
+      "retrospectiveTaxSubtitle": "शुरुवात, मर्यादा आणि गुणक निवडा.",
+      "taxStartsFromLabel": "कर येथून सुरू होतो",
+      "useDateLabel": "वापराची तारीख",
+      "monthsAfterLabel": "महिन्यांनंतर",
+      "earliestAllowedDateLabel": "सर्वात आधीची अनुमत तारीख",
+      "taxStartsFromOptions": {
+        "selectedEvidenceDate": "निवडलेली पुरावा तारीख",
+        "afterSpecifiedMonths": "निर्दिष्ट महिन्यांनंतर",
+        "maxLookback": "कमाल लुक-बॅक तारीख",
+        "fromOc": "OC तारखेपासून",
+        "fixedCutoff": "निश्चित कटऑफ तारीख"
+      },
+      "limitLabel": "मागील कार्यलक्ष्यी मर्यादा",
+      "limitOptions": {
+        "earliestChargeable": "सर्वात आधीची आकारणीयोग्य तारीख",
+        "noLimit": "कोणतीही अतिरिक्त मर्यादा नाही",
+        "maxYears": "कमाल वर्षे"
+      },
+      "earliestAllowedDateLabel": "सर्वात आधीची अनुमत तारीख",
+      "maxYearsLabel": "कमाल वर्षे",
+      "maxYearsPlaceholder": "उदा: ६",
+      "taxCalcLabel": "कर गणना",
+      "taxCalcOptions": {
+        "oneMultiplier": "संपूर्ण कालावधीसाठी एक गुणक",
+        "differentMultiplier": "दोन तारखांमधील भिन्न गुणक"
+      },
+      "multiplierLabel": "कर गुणक",
+      "splitPeriodTitle": "विभाजित-कालावधी कर गुणक",
+      "higherRateStartsFromLabel": "उच्च दर येथून सुरू होतो",
+      "higherRateContinuesUpToLabel": "उच्च दर येथपर्यंत सुरू राहतो",
+      "duringPeriodLabel": "कालावधीदरम्यानचा गुणक",
+      "afterPeriodLabel": "कालावधीनंतरचा गुणक",
+      "splitExampleText": "उदा: CC आणि OC दरम्यान १.५x दर आकारला जाईल; OC नंतर मूळ १.०x दर पुनर्स्थापित होईल.",
+      "taxationUsedNotice": "वापरलेली कर आकारणी: सर्व वर्षांसाठी चालू वर्षाचा दर; सर्व वर्षांसाठी चालू वर्षाची टक्केवारी.",
+      "unauthorizedPenaltyTitle": "अनधिकृत बांधकाम दंड",
+      "unauthorizedPenaltySubtitle": "केवळ जेव्हा OC आणि CC दोन्ही अनुपलब्ध असतात तेव्हाच दर्शविले जाते.",
+      "authorizedNotice": "अधिकृत बांधकाम - OC किंवा CC उपलब्ध",
+      "authorizedHelp": "कोणताही अनधिकृत बांधकाम दंड लागू होत नाही.",
+      "unauthorizedNotice": "अनधिकृत बांधकाम - OC आणि CC अनुपलब्ध",
+      "unauthorizedHelp": "कायद्यानुसार दंड जोडला जाईल.",
+      "summaryTitle": "नियम सारांश",
+      "summaryWhen": "जेव्हा",
+      "summaryTax": "कर",
+      "summaryPenalty": "दंड",
+      "summaryAvailable": "{evidence} उपलब्ध; {compareDate}",
+      "summaryTaxDetail": "रोलिंग {years}-वर्षीय सीमेपासून प्रारंभ करा; कमाल {years} वर्षे; कर = {multiplier}.",
+      "summaryNotApplicable": "लागू नाही",
+      "summaryApplyPenalty": "कायद्यानुसार दंड लागू करा"
+    },
+    "footer": {
+      "reviewText": "नियमाचे पुनरावलोकन करा, नंतर जतन करा किंवा प्रकाशित करा.",
+      "testRule": "चाचणी नियम",
+      "saveDraft": "जतन करा",
+      "update": "अद्ययावत करा",
+      "publishRule": "नियम प्रकाशित करा"
+    }
+  },
+  "confirm": {
+    "updateTitle": "नियमाच्या अद्ययावतीकरणाची पुष्टी करा",
+    "createTitle": "नियम निर्मितीची पुष्टी करा",
+    "deleteTitle": "नियम हटवण्याची पुष्टी करा",
+    "updateDescription": "तुम्हाला नक्की मागील कार्यलक्ष्यी नियम \"{name}\" जतन करून अद्ययावत करायचा आहे का?",
+    "createDescription": "तुम्हाला नक्की नवीन मागील कार्यलक्ष्यी नियम \"{name}\" तयार करून प्रकाशित करायचा आहे का?",
+    "deleteDescription": "तुम्हाला नक्की नियम \"{name}\" हटवायचा आहे का? ही क्रिया उलटवता येणार नाही.",
+    "updateConfirm": "होय, अद्ययावत करा",
+    "createConfirm": "होय, तयार करा",
+    "deleteConfirm": "होय, हटवा",
+    "cancel": "रद्द करा"
+  },
+  "notifications": {
+    "updateSuccess": "✅ नियम यशस्वीरित्या अद्ययावत केला!",
+    "createSuccess": "✅ नियम यशस्वीरित्या तयार आणि जतन केला!",
+    "draftSuccess": "✅ नियम जतन करून पोस्ट केला!",
+    "taxSuccess": "✅ कर आकारणी धोरण यशस्वीरित्या जतन केले!"
+  },
+  "loading": {
+    "message": "मागील कार्यलक्ष्यी नियम ग्रंथालय लोड होत आहे...",
+    "description": "कृपया आम्ही कॉन्फिगरेशन नियम मिळेपर्यंत वाट पहा."
+  },
+  "error": {
+    "title": "मागील कार्यलक्ष्यी नियम ग्रंथालय लोड करण्यात अपयशी",
+    "description": "नियम कॉन्फिगरेशन लोड करताना अनपेक्षित त्रुटी आली.",
+    "goHome": "मागे जा",
+    "tryAgain": "पुन्हा प्रयत्न करा",
+    "errorId": "त्रुटी आयडी: {id}"
+  },
+  "validation": {
+    "ruleTitleRequired": "नियमाचे शीर्षक आवश्यक आहे",
+    "ruleTitleMin": "नियमाचे शीर्षक किमान ३ अक्षरांचे असणे आवश्यक आहे",
+    "ruleTitleMax": "नियमाचे शीर्षक १०० अक्षरांपेक्षा जास्त असू शकत नाही",
+    "ruleCodeRequired": "नियम कोड आवश्यक आहे",
+    "ruleCodeInvalid": "नियम कोडमध्ये फक्त अक्षरे, अंक आणि हायफन असावेत",
+    "compareEvidenceDatesSelect": "कृपया एक वैध तुलना पर्याय निवडा",
+    "taxStartsFromSelect": "कृपया एक वैध कर प्रारंभ पर्याय निवडा",
+    "retrospectiveLimitSelect": "कृपया एक वैध मर्यादा पर्याय निवडा",
+    "taxCalculationSelect": "कृपया एक वैध कर गणना पर्याय निवडा",
+    "maxYearsRequired": "\"कमाल वर्षे\" मर्यादा निवडल्यास कमाल वर्षे आवश्यक आहे",
+    "maxYearsPositive": "कमाल वर्षे एक धनात्मक संख्या असावी",
+    "maxYearsLimit": "कमाल लुक-बॅक मर्यादा १०० वर्षांपेक्षा जास्त असू शकत नाही",
+    "taxMultiplierRequired": "कर गुणक आवश्यक आहे",
+    "taxMultiplierNegative": "कर गुणक ऋण असू शकत नाही"
+  }
+}

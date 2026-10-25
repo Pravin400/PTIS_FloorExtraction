@@ -1,0 +1,177 @@
+{
+  "configuration": {
+    "header": {
+      "title": "Configuration Master",
+      "subtitle": "एसेट और इन्वेंटरी स्थिति प्रबंधन",
+      "totalMasters": "Total Masters"
+    },
+    "tabs": {
+      "masterData": "Master Data",
+      "screenMaster": "Screen Master",
+      "screenFieldsMaster": "Screen Fields Master"
+    },
+    "masterData": {
+      "title": "Master Data",
+      "records": "Master Records",
+      "addNew": "नया {name} जोड़ें",
+      "searchPlaceholder": "मास्टर रिकॉर्ड खोजें...",
+      "stats": {
+        "master": "Master Types",
+        "shown": "Shown",
+        "active": "Active"
+      },
+      "groupFilter": {
+        "categoriesTitle": "श्रेणियाँ",
+        "itemNamesTitle": "श्रेणियाँ"
+      },
+      "form": {
+        "addTitle": "नया {name} जोड़ें",
+        "editTitle": "{name} संपादित करें",
+        "createSubtitle": "नया रिकॉर्ड बनाएं",
+        "updateSubtitle": "मौजूदा रिकॉर्ड अपडेट करें",
+        "labels": {
+          "name": "नाम",
+          "conditionType": "स्थिति श्रेणी",
+          "category": "श्रेणी",
+          "categoryName": "श्रेणी का नाम",
+          "description": "विवरण",
+          "conditionFactor": "स्थिति कारक",
+          "displayOrder": "प्रदर्शन क्रम",
+          "status": "स्थिति",
+          "active": "सक्रिय",
+          "inactive": "निष्क्रिय"
+        },
+        "placeholders": {
+          "name": "नाम दर्ज करें",
+          "conditionType": "स्थिति श्रेणी चुनें",
+          "category": "श्रेणी चुनें",
+          "description": "विवरण दर्ज करें",
+          "conditionFactor": "स्थिति कारक दर्ज करें",
+          "displayOrder": "प्रदर्शन क्रम दर्ज करें"
+        },
+        "buttons": {
+          "save": "सहेजें",
+          "update": "अद्यतन करें",
+          "cancel": "रद्द करें"
+        },
+        "validation": {
+          "duplicateRecord": "यह रिकॉर्ड पहले से मौजूद है। कृपया जांच करें और पुनः प्रयास करें।"
+        },
+        "errors": {
+          "fillRequired": "कृपया सभी आवश्यक फ़ील्ड भरें।",
+          "conditionTypeRequired": "स्थिति श्रेणी आवश्यक है।",
+          "nameRequired": "स्थिति का नाम आवश्यक है।",
+          "categoryRequired": "श्रेणी आवश्यक है।",
+          "englishOnly": "कृपया केवल अंग्रेजी में दर्ज करें।",
+          "noSpecialCharacters": "कृपया केवल अक्षर, संख्याएं और रिक्त स्थान का उपयोग करें।",
+          "maxLength": "कृपया अनुमत अक्षरों की सीमा से अधिक न डालें।",
+          "conditionFactorRequired": "स्थिति कारक आवश्यक है।",
+          "conditionFactorInvalid": "स्थिति कारक एक वैध संख्या होनी चाहिए।",
+          "conditionFactorRange": "स्थिति कारक 0 और 1 के बीच होनी चाहिए।",
+          "displayOrderRequired": "प्रदर्शन क्रम आवश्यक है।",
+          "displayOrderInvalid": "प्रदर्शन क्रम 1 या उससे अधिक का पूर्णांक होना चाहिए।",
+          "apiActionsNotConfigured": "API क्रियाएं कॉन्फ़िगर नहीं की गई हैं।",
+          "saveFailed": "रिकॉर्ड सहेजना विफल रहा।",
+          "deleteFailed": "रिकॉर्ड हटाना विफल रहा।",
+          "unexpected": "एक अप्रत्याशित त्रुटि हुई।",
+          "codeRequired": "कोड आवश्यक है",
+          "codeAllZeros": "कोड शून्य नहीं हो सकता",
+          "codeMax": "कोड अधिकतम लंबाई से अधिक है",
+          "codeFormat": "कोड के लिए अमान्य प्रारूप",
+          "codeTooLong15": "कोड 15 वर्णों से अधिक नहीं हो सकता",
+          "codeInvalidChars": "कोड में अमान्य वर्ण हैं",
+          "codeDuplicate": "यह कोड पहले से मौजूद है",
+          "nameAllZeros": "नाम शून्य नहीं हो सकता",
+          "nameMax": "नाम अधिकतम लंबाई से अधिक है",
+          "nameFormat": "नाम के लिए अमान्य प्रारूप",
+          "nameTooLong50": "नाम 50 वर्णों से अधिक नहीं हो सकता",
+          "nameInvalidChars": "नाम में अमान्य वर्ण हैं",
+          "nameDuplicate": "यह नाम पहले से मौजूद है",
+          "descriptionAllZeros": "विवरण शून्य नहीं हो सकता",
+          "descriptionFormat": "विवरण के लिए अमान्य प्रारूप",
+          "descriptionTooLong": "विवरण 500 वर्णों से अधिक नहीं हो सकता",
+          "descInvalidChars": "विवरण में अमान्य वर्ण हैं",
+          "duplicateName": "स्थिति का नाम अद्वितीय होना चाहिए।",
+          "group": "श्रेणी आवश्यक है।"
+        },
+        "messages": {
+          "createSuccess": "रिकॉर्ड सफलतापूर्वक बनाया गया",
+          "updateSuccess": "रिकॉर्ड सफलतापूर्वक अपडेट किया गया",
+          "invalidIdError": "अमान्य रिकॉर्ड आईडी",
+          "error": "एक अप्रत्याशित त्रुटि हुई"
+        }
+      },
+      "error": {
+        "title": "डेटा लोड करने में विफल",
+        "description": "मास्टर डेटा रिकॉर्ड लोड करते समय एक त्रुटि हुई। कृपया अपना कनेक्शन जांचें या पुनः प्रयास करें।",
+        "categoryTitle": "श्रेणी लोड करने में विफल",
+        "categoryDescription": "एसेट श्रेणियों को लोड करते समय एक त्रुटि हुई। कृपया अपना कनेक्शन जांचें या पुनः प्रयास करें।",
+        "typeTitle": "प्रकार लोड करने में विफल",
+        "typeDescription": "एसेट प्रकारों को लोड करते समय एक त्रुटि हुई। कृपया पुनः प्रयास करें।",
+        "reload": "पृष्ठ पुनः लोड करें",
+        "tryAgain": "पुनः प्रयास करें",
+        "goHome": "होम पर जाएं"
+      }
+    }
+  },
+  "apiErrors": {
+    "referenceBlocked": {
+      "condition": {
+        "deleteInUse": "यह स्थिति उपयोग में है, इसलिए इसे हटाया नहीं जा सकता।",
+        "deactivateInUse": "यह स्थिति उपयोग में है, इसलिए इसे निष्क्रिय नहीं किया जा सकता।"
+      }
+    }
+  },
+  "masterNames": {
+    "asset-type-master": "एसेट प्रकार",
+    "asset-category-master": "एसेट श्रेणी",
+    "inventory-category-master": "इन्वेंटरी श्रेणी",
+    "inventory-model-master": "इन्वेंटरी मॉडल",
+    "inventory-name-master": "इन्वेंटरी आइटम का नाम",
+    "inventory-condition-master": "एसेट स्थिति मास्टर"
+  },
+  "list": {
+    "title": "इन्वेंटरी स्थिति मास्टर",
+    "subtitle": "इन्वेंटरी के लिए स्थिति प्रबंधित करें",
+    "buttons": {
+      "add": "नया इन्वेंटरी स्थिति जोड़ें",
+      "edit": "संपादित करें",
+      "delete": "हटाएं"
+    },
+    "filters": {
+      "show": "दिखाएं",
+      "search": "इन्वेंटरी स्थिति खोजें...",
+      "label": "फ़िल्टर",
+      "conditionCategoryAll": "स्थिति श्रेणी: सभी",
+      "categoryAll": "श्रेणी: सभी",
+      "statusAll": "स्थिति: सभी",
+      "reset": "रीसेट करें",
+      "export": "निर्यात करें",
+      "asset": "संपत्ति",
+      "inventory": "इन्वेंटरी"
+    },
+    "table": {
+      "conditionCategory": "स्थिति श्रेणी",
+      "name": "नाम",
+      "description": "विवरण",
+      "conditionFactor": "स्थिति कारक",
+      "category": "श्रेणी",
+      "status": "स्थिति",
+      "actions": "कार्रवाई"
+    },
+    "status": {
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय"
+    }
+  },
+  "stats": {
+    "totalConditions": "कुल स्थितियां",
+    "totalConditionsSub": "सभी कॉन्फ़िगर की गई स्थितियां",
+    "activeConditions": "सक्रिय स्थितियां",
+    "activeConditionsSub": "वर्तमान में सक्रिय",
+    "avgConditionFactor": "औसत स्थिति कारक",
+    "avgConditionFactorSub": "सभी स्थितियों में",
+    "categories": "श्रेणियां",
+    "categoriesSub": "स्थिति श्रेणियां"
+  }
+}

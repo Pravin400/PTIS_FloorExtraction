@@ -1,0 +1,276 @@
+{
+  "tariffWorkbench": {
+    "moduleTitle": "टॅरिफ वर्कबेंच",
+    "title": "टॅरिफ वर्कबेंच",
+    "subtitle": "आर्थिक वर्ष, कनेक्शन प्रकार, वर्ग आणि बिलिंग पद्धतीद्वारे आवृत्तीबद्ध टॅरिफ हेडर.",
+    "searchPlaceholder": "रेकॉर्ड शोधा...",
+    "addTitle": "टॅरिफ जोडा",
+    "addSlabTitle": "स्लॅब तपशील जोडा",
+    "editSlabTitle": "स्लॅब तपशील संपादित करा",
+    "addChargeDetailTitle": "शुल्क तपशील जोडा",
+    "editChargeDetailTitle": "शुल्क तपशील संपादित करा",
+    "editTitle": "टॅरिफ संपादन करा",
+    "addSubtitle": "नवीन पाणी टॅरिफ कॉन्फिगरेशन तयार करा",
+    "editSubtitle": "टॅरिफ कॉन्फिगरेशन तपशील अद्यतनित करा",
+    "stats": {
+      "records": "नोंदी",
+      "recordsSub": "सर्व्हर डेटाबेसवरून लोड केले",
+      "active": "सक्रिय",
+      "activeSub": "100% सक्षम",
+      "dbRelationships": "DB संबंध",
+      "dbSub": "3 संदर्भित · 3 अवलंबून",
+      "designPattern": "डिझाइन नमुना",
+      "designSub": "ऑडिट-अनुकूल नगरपालिका सेटअप",
+      "versionedRates": "आवृत्तीबद्ध दर"
+    },
+    "tabs": {
+      "master": "टॅरिफ मास्टर",
+      "slabs": "टॅरिफ स्लॅब तपशील",
+      "chargeDetails": "टॅरिफ शुल्क तपशील"
+    },
+    "note": "प्रकाशन झाल्यानंतर टॅरिफ हेडर अपरिवर्तनीय असावेत. मागणी निर्मितीमध्ये वापरलेले टॅरिफ संपादित करण्याऐवजी नवीन आवृत्ती/प्रभावी कालावधी तयार करा.",
+    "table": {
+      "tariffCode": "टॅरिफ कोड",
+      "tariffName": "टॅरिफचे नाव",
+      "financialYear": "आर्थिक वर्ष",
+      "connectionType": "कनेक्शन प्रकार",
+      "connectionCategory": "कनेक्शन वर्ग",
+      "tapSize": "नळ आकार",
+      "billingMethod": "बिलिंग पद्धत",
+      "description": "वर्णन",
+      "effectiveFrom": "प्रभावी तारीख",
+      "effectiveTo": "अंतिम तारीख",
+      "versionNo": "आवृत्ती क्र",
+      "statusHeader": "स्थिती",
+      "status": "स्थिती",
+      "isActive": "स्थिती",
+      "rateSlabs": "दर स्लॅब",
+      "view": "पहा",
+      "yes": "होय",
+      "no": "नाही",
+      "geographyUnit": "भौगोलिक एकक",
+      "fromUnit": "सुरुवातीचे एकक",
+      "toUnit": "अंतिम एकक",
+      "unitRate": "युनिट दर",
+      "fixedCharge": "निश्चित शुल्क",
+      "minimumCharge": "किमान शुल्क",
+      "maximumCharge": "कमाल शुल्क",
+      "perConnectionAmount": "प्रति कनेक्शन रक्कम",
+      "formulaCode": "सूत्र कोड",
+      "chargeHeadName": "शुल्क शीर्षक",
+      "amount": "रक्कम",
+      "isDynamic": "गतिशील",
+      "isMandatory": "अनिवार्य",
+      "sequenceNo": "क्रम"
+    },
+    "filters": {
+      "all": "सर्व रेकॉर्ड",
+      "active": "फक्त सक्रिय",
+      "inactive": "फक्त निष्क्रिय",
+      "tariffId": "टॅरिफ आयडी"
+    },
+    "form": {
+      "enabled": "सक्षम",
+      "disabled": "अक्षम",
+      "saveRecord": "नोंद जतन करा",
+      "formulaCodes": {
+        "unitRate": "युनिट दर",
+        "flatRate": "फ्लॅट दर",
+        "slabRate": "स्लॅब दर",
+        "perConnection": "प्रति कनेक्शन",
+        "unitRateFixed": "युनिट दर प्लस निश्चित शुल्क",
+        "minimumCharge": "किमान शुल्क"
+      },
+      "tariffCode": {
+        "label": "टॅरिफ कोड",
+        "placeholder": "उदा., RES-MTR-2026"
+      },
+      "tariffName": {
+        "label": "टॅरिफचे नाव",
+        "placeholder": "उदा., निवासी मीटर टॅरिफ"
+      },
+      "financialYear": {
+        "label": "आर्थिक वर्ष",
+        "placeholder": "आर्थिक वर्ष निवडा किंवा प्रविष्ट करा"
+      },
+      "connectionType": {
+        "label": "कनेक्शन प्रकार",
+        "placeholder": "कनेक्शन प्रकार निवडा",
+        "residential": "निवासी",
+        "commercial": "व्यावसायिक",
+        "industrial": "औद्योगिक",
+        "government": "शासकीय",
+        "institutional": "संस्थात्मक"
+      },
+      "connectionCategory": {
+        "label": "कनेक्शन वर्ग",
+        "placeholder": "कनेक्शन वर्ग निवडा",
+        "regular": "नियमित",
+        "annual": "वार्षिक",
+        "flatRate": "फ्लॅट दर",
+        "slabMetered": "स्लॅब मीटरने मोजलेले"
+      },
+      "tapSize": {
+        "label": "नळ आकार",
+        "placeholder": "नळ आकार निवडा"
+      },
+      "billingMethod": {
+        "label": "बिलिंग पद्धत",
+        "placeholder": "उदा., मीटर, फ्लॅट, स्लॅब",
+        "metered": "मीटरने मोजलेले",
+        "flat": "फ्लॅट",
+        "slab": "स्लॅब",
+        "flatRate": "फ्लॅट दर",
+        "slabMetered": "स्लॅब मीटरने मोजलेले",
+        "annual": "वार्षिक"
+      },
+      "effectiveFrom": {
+        "label": "प्रभावी तारीख",
+        "placeholder": "तारीख निवडा"
+      },
+      "effectiveTo": {
+        "label": "अंतिम तारीख",
+        "placeholder": "तारीख निवडा"
+      },
+      "versionNo": {
+        "label": "आवृत्ती क्र",
+        "placeholder": "उदा., 1"
+      },
+      "status": {
+        "label": "स्थिती",
+        "placeholder": "उदा., मसुदा / प्रकाशित",
+        "draft": "मसुदा",
+        "published": "प्रकाशित"
+      },
+      "description": {
+        "label": "वर्णन",
+        "placeholder": "या टॅरिफसाठी सविस्तर वर्णन किंवा टीपा प्रविष्ट करा..."
+      },
+      "activeStatusTitle": "स्थिती",
+      "activeStatusOn": "सक्रिय - टॅरिफ सक्षम आहे",
+      "activeStatusOff": "निष्क्रिय - टॅरिफ अक्षम आहे"
+    },
+    "validation": {
+      "tariffCodeRequired": "टॅरिफ कोड आवश्यक आहे",
+      "tariffCodeLength": "टॅरिफ कोड {count} अक्षरांपेक्षा जास्त असू शकत नाही",
+      "tariffNameRequired": "टॅरिफचे नाव आवश्यक आहे",
+      "tariffNameLength": "टॅरिफचे नाव {count} अक्षरांपेक्षा जास्त असू शकत नाही",
+      "financialYearIdRequired": "आर्थिक वर्ष आवश्यक आहे",
+      "connectionTypeIdRequired": "जोडणीचा प्रकार आवश्यक आहे",
+      "connectionCategoryIdRequired": "जोडणी श्रेणी आवश्यक आहे",
+      "tapSizeIdRequired": "नळाचा आकार आवश्यक आहे",
+      "effectiveFromRequired": "प्रभावी सुरू तारीख आवश्यक आहे",
+      "effectiveFromInvalid": "प्रभावी सुरू तारीख वैध नाही",
+      "effectiveToInvalid": "प्रभावी समाप्ती तारीख वैध नाही",
+      "effectiveToAfterFrom": "समाप्ती तारीख सुरू तारखेला किंवा त्यानंतर असणे आवश्यक आहे",
+      "formulaCodeRequired": "सूत्र कोड आवश्यक आहे",
+      "formulaCodeInvalid": "अवैध सूत्र कोड",
+      "tariffIdRequired": "टॅरिफ आयडी आवश्यक आहे",
+      "chargeHeadIdRequired": "शुल्क शीर्ष आवश्यक आहे",
+      "amountRequired": "रक्कम आवश्यक आहे",
+      "amountInvalid": "रक्कम 0 पेक्षा मोठी किंवा समान असणे आवश्यक आहे",
+      "isDynamicRequired": "डायनॅमिक निवड आवश्यक आहे",
+      "isMandatoryRequired": "अनिवार्य निवड आवश्यक आहे",
+      "validationFailed": "प्रमाणीकरण अयशस्वी. कृपया त्रुटी सुधारा"
+    },
+    "errors": {
+      "noMutationAction": "कोणतीही कृती उपलब्ध नाही",
+      "noDeleteAction": "हटवण्याची कृती उपलब्ध नाही",
+      "tariffNameRequired": "दराचे नाव आवश्यक आहे",
+      "chargeHeadRequired": "शुल्क शीर्ष आवश्यक आहे",
+      "amountRequired": "रक्कम आवश्यक आहे",
+      "fromUnitInvalid": "सुरुवातीचे एकक 0 पेक्षा मोठे किंवा समान असणे आवश्यक आहे",
+      "toUnitInvalid": "अंतिम एकक 0 पेक्षा मोठे असणे आवश्यक आहे",
+      "toUnitGtFromUnit": "अंतिम एकक सुरुवातीच्या एककापेक्षा मोठे असणे आवश्यक आहे",
+      "unitRateInvalid": "युनिट दर 0 पेक्षा मोठा किंवा समान असणे आवश्यक आहे",
+      "formulaCodeRequired": "सूत्र कोड आवश्यक आहे",
+      "formulaCodeInvalid": "अवैध सूत्र कोड",
+      "amountInvalid": "रक्कम 0 पेक्षा मोठी किंवा समान असणे आवश्यक आहे",
+      "sequenceNoInvalid": "अनुक्रम क्रमांक 1 पेक्षा मोठा किंवा समान असणे आवश्यक आहे",
+      "dynamicAmountNonZero": "जेव्हा डायनॅमिक होय असते तेव्हा रक्कम 0 असणे आवश्यक आहे",
+      "forbidden": "प्रवेश नाकारला: तुम्हाला ही कृती करण्याची परवानगी नाही",
+      "unexpectedError": "अनपेक्षित त्रुटी आली",
+      "fetchListFailed": "टॅरिफ मिळवण्यात अयशस्वी",
+      "fetchItemFailed": "टॅरिफ मिळवण्यात अयशस्वी",
+      "notFound": "टॅरिफ आढळले नाही",
+      "createFailed": "टॅरिफ तयार करण्यात अयशस्वी",
+      "updateFailed": "टॅरिफ अद्यतनित करण्यात अयशस्वी",
+      "deleteFailed": "टॅरिफ हटवण्यात अयशस्वी"
+    },
+    "error": {
+      "title": "पृष्ठ लोड करण्यात अक्षम",
+      "description": "टॅरिफ वर्कबेंच पृष्ठ लोड करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+      "tryAgain": "पुन्हा प्रयत्न करा",
+      "goHome": "मुख्यपृष्ठावर जा",
+      "errorId": "त्रुटी आयडी: {id}"
+    },
+    "loading": {
+      "message": "टॅरिफ वर्कबेंच लोड होत आहे...",
+      "description": "कृपया टॅरिफ वर्कबेंच डेटा प्राप्त होईपर्यंत प्रतीक्षा करा"
+    },
+    "confirm": {
+      "deleteTitle": "टॅरिफ हटवा",
+      "deleteDescription": "तुम्हाला नक्की हे टॅरिफ कायमचे हटवायचे आहे का? ही कृती पूर्ववत केली जाऊ शकत नाही.",
+      "deleteSlabTitle": "स्लॅब तपशील हटवा",
+      "deleteSlabDescription": "तुम्हाला नक्की हा स्लॅब तपशील हटवायचा आहे का? ही कृती पूर्ववत केली जाऊ शकत नाही.",
+      "deleteChargeDetailTitle": "चार्ज तपशील हटवा",
+      "deleteChargeDetailDescription": "तुम्हाला नक्की हा चार्ज तपशील हटवायचा आहे का? ही कृती पूर्ववत केली जाऊ शकत नाही."
+    },
+    "messages": {
+      "createSuccess": "टॅरिफ यशस्वीरित्या तयार केले",
+      "updateSuccess": "टॅरिफ यशस्वीरित्या अद्यतनित केले",
+      "deleteSuccess": "टॅरिफ यशस्वीरित्या हटवले",
+      "createFailed": "टॅरिफ तयार करण्यात अयशस्वी",
+      "updateFailed": "टॅरिफ अद्यतनित करण्यात अयशस्वी",
+      "deleteFailed": "टॅरिफ हटवण्यात अयशस्वी",
+      "sequenceLoading": "पुढील अनुक्रम क्रमांक ठरवला जात आहे..."
+    },
+    "userManual": {
+      "button": "वापरकर्ता मार्गदर्शिका",
+      "title": "टॅरिफ वर्कबेंच — हे कसे कार्य करते",
+      "intro": "टॅरिफ वर्कबेंच पाणी मागणी गणनेसाठी आर्थिक वर्ष, कनेक्शन प्रकार, वर्ग आणि बिलिंग पद्धतीनुसार आवृत्तीबद्ध पाणी पुरवठा टॅरिफ हेडर परिभाषित करते.",
+      "tariffConfigTitle": "टॅरिफ कॉन्फिगरेशन",
+      "tariffConfigSub": "कोड, नाव, आर्थिक वर्ष, प्रकार, वर्ग, पद्धत, तारखा",
+      "publishedTitle": "प्रकाशित टॅरिफ",
+      "publishedSub": "मसुदा → प्रमाणीकरण/पुनरावलोकन → प्रकाशित (आवृत्तीबद्ध)",
+      "point1Title": "टॅरिफ हेडर तपशील",
+      "point1Desc": " – टॅरिफ कोड, नाव, आर्थिक वर्ष, कनेक्शन प्रकार (निवासी/व्यावसायिक), कनेक्शन वर्ग (नियमित/फ्लॅट/वार्षिक), बिलिंग पद्धत (मीटर/स्लॅब/फ्लॅट), प्रभावी सुरू व समाप्ती तारखा आणि सक्रिय स्थिती परिभाषित करते.",
+      "point2Title": "आवृत्ती आणि ऑडिट सुरक्षा",
+      "point2Desc": " – आवृत्ती क्रमांक वेळेनुसार टॅरिफ पुनरावृत्तीचा मागोवा घेतो. ऐतिहासिक टॅरिफ रेकॉर्ड न लिहिता पुढील प्रभावी कालावधीसाठी नवीन आवृत्त्या तयार केल्या जाऊ शकतात.",
+      "point3Title": "स्थिती जीवनचक्र आणि संरक्षण",
+      "point3Desc": " – मसुदा किंवा प्रकाशित स्थितीचा मागोवा घेते. सक्रिय बिलिंग मागणी निर्मितीमध्ये वापरलेले प्रकाशित टॅरिफ बिलिंग अखंडता सुनिश्चित करण्यासाठी विनाशकारी संपादनापासून संरक्षित असतात.",
+      "noteTitle": "नेहमी नवीन आवृत्ती किंवा प्रभावी कालावधी तयार करा",
+      "noteDesc": ", नंतर त्यांचा संदर्भ देणारे परिमाण अद्यतनित करा — मागणी निर्मितीमध्ये वापरल्यास प्रकाशित टॅरिफ थेट संपादित केले जाऊ शकत नाहीत."
+    },
+    "rateSlabsView": {
+      "backToMaster": "टॅरिफ मास्टरकडे परत जा",
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय",
+      "editTariff": "टॅरिफ संपादन करा",
+      "overviewTitle": "टॅरिफ कॉन्फिगरेशन विहंगावलोकन",
+      "category": "वर्ग",
+      "tapSizeArea": "नळ आकार / क्षेत्र",
+      "from": "पासून",
+      "to": "पर्यंत",
+      "minimum": "किमान",
+      "formula": "सूत्र",
+      "standard": "मानक"
+    },
+    "detailView": {
+      "publishedTariffConfig": "प्रकाशित टॅरिफ कॉन्फिगरेशन",
+      "draftTariffConfig": "ड्राफ्ट टॅरिफ कॉन्फिगरेशन",
+      "statusPublished": "प्रकाशित",
+      "statusDraft": "ड्राफ्ट",
+      "financialYear": "आर्थिक वर्ष",
+      "connectionType": "कनेक्शन प्रकार",
+      "category": "वर्ग",
+      "billingMethod": "बिलिंग पद्धत",
+      "effectiveFrom": "प्रभावी तारीख",
+      "effectiveTo": "अंतिम तारीख",
+      "version": "आवृत्ती",
+      "slabs": "स्लॅब",
+      "safePublishingTitle": "सुरक्षित प्रकाशन पद्धत",
+      "safePublishingDesc": "मसुदा → ओव्हरलॅपिंग तारखा/स्लॅब तपासा → नमुना बिल प्रिव्ह्यू → प्रकाशित करा → लॉक करा. एकदा मागणी दर स्नॅपशॉटचा संदर्भ देते की, ऐतिहासिक टॅरिफ जतन करा आणि भविष्यातील कालावधीसाठी नवीन आवृत्ती प्रकाशित करा."
+    }
+  }
+}

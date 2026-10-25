@@ -1,0 +1,226 @@
+{
+  "title": "Retrospective Rule Library",
+  "subtitle": "Review, compare and configure corporation-specific rules.",
+  "exportJson": "Export JSON",
+  "corporations": {
+    "all": "All Corporations",
+    "thane": "Thane Municipal Corporation",
+    "pune": "Pune Municipal Corporation",
+    "mumbai": "Mumbai Municipal Corporation"
+  },
+  "stats": {
+    "importedRules": "Imported rules",
+    "readyActive": "Ready / active",
+    "needReview": "Need review",
+    "lookbackGuardrail": "Statutory look-back guardrail",
+    "years": "yrs"
+  },
+  "defaultDateRules": {
+    "title": "Default Date Rules",
+    "subtitle": "Define default occupancy date rules for cases where actual occupancy date is not available.",
+    "defaultBadge": "Default",
+    "columns": {
+      "priority": "Priority",
+      "ruleName": "Rule Name",
+      "appliesTo": "Applies To",
+      "condition": "Condition",
+      "defaultDateLogic": "Default Date Logic",
+      "effectiveFrom": "Effective From",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "noRules": "No default date rules configured.",
+    "showing": "Showing {start} to {end} of {total} rules"
+  },
+  "ruleLibrary": {
+    "title": "Corporation Rule Library",
+    "subtitle": "Select a rule to inspect its source wording or open it in the builder.",
+    "createRule": "Create Rule",
+    "searchPlaceholder": "Search rule, evidence or result...",
+    "statuses": {
+      "all": "All statuses",
+      "active": "Active",
+      "review": "Review",
+      "draft": "Draft",
+      "inactive": "Inactive"
+    },
+    "evidenceFilters": {
+      "all": "All evidence",
+      "authorized": "Authorized: OC or CC available",
+      "unauthorized": "Unauthorized: OC & CC unavailable"
+    },
+    "columns": {
+      "rule": "RULE",
+      "condition": "CONDITION",
+      "startLogic": "START LOGIC",
+      "commonTaxation": "COMMON TAXATION",
+      "unauthorizedPenalty": "UNAUTHORIZED PENALTY",
+      "status": "STATUS",
+      "actions": "ACTIONS"
+    },
+    "noRules": "No retrospective rules found matching your filters.",
+    "buttons": {
+      "view": "View",
+      "edit": "Edit"
+    }
+  },
+  "builder": {
+    "title": "Configure Retrospective Rule",
+    "subtitle": "Set taxation, define evidence conditions, and choose the resulting action.",
+    "pills": {
+      "taxation": "Taxation",
+      "conditions": "Conditions",
+      "actions": "Actions"
+    },
+    "taxation": {
+      "title": "Taxation Rate & Percentage",
+      "subtitle": "Common for all rules under the selected corporation.",
+      "configured": "Configured",
+      "rateLabel": "Taxation rate",
+      "percentageLabel": "Tax percentage",
+      "saveButton": "Save Taxation",
+      "updateTaxation": "Update Taxation",
+      "rateOptions": {
+        "currentYear": "Current year rate for all years",
+        "historical": "Historical rate for each year"
+      },
+      "percentageOptions": {
+        "currentYear": "Current year percentage for all years",
+        "slabBased": "Slab-based percentage"
+      }
+    },
+    "conditions": {
+      "title": "Conditions",
+      "subtitle": "Define when this rule applies.",
+      "badge": "WHEN",
+      "ruleNameLabel": "Rule name",
+      "ruleNamePlaceholder": "e.g. OC older than six years",
+      "evidenceStateHeader": "Choose the evidence state for this rule:",
+      "evidenceStateHelp": "Select each evidence item on only one side. Selecting it on one side automatically clears it from the other.",
+      "availableEvidence": "Available evidence",
+      "availableHelp": "The selected record must be present.",
+      "unavailableEvidence": "Unavailable evidence",
+      "unavailableHelp": "The selected record must be missing.",
+      "selectedCount": "{count} selected",
+      "mutuallyExclusiveNotice": "Evidence selections are mutually exclusive; an item can appear on one side only.",
+      "compareDatesLabel": "Compare evidence dates",
+      "authorizedConstruction": "Authorized construction",
+      "unauthorizedConstruction": "Unauthorized construction",
+      "authorizedDescription": "OC or CC is available.",
+      "unauthorizedDescription": "Both OC and CC are unavailable.",
+      "authorizedBadge": "Authorized",
+      "unauthorizedBadge": "Unauthorized",
+      "compareOptions": {
+        "olderThanAllowed": "OC date older than allowed period",
+        "withinAllowed": "OC date within allowed period",
+        "noComparison": "No date comparison required"
+      }
+    },
+    "actions": {
+      "title": "Actions",
+      "subtitle": "Set retrospective tax and, when required, unauthorized-construction penalty.",
+      "badge": "THEN",
+      "retrospectiveTaxTitle": "Retrospective Tax",
+      "retrospectiveTaxSubtitle": "Choose the start, limit and multiplier.",
+      "taxStartsFromLabel": "Tax starts from",
+      "useDateLabel": "Use date",
+      "monthsAfterLabel": "Months after",
+      "taxStartsFromOptions": {
+        "selectedEvidenceDate": "Selected evidence date",
+        "afterSpecifiedMonths": "After specified months",
+        "maxLookback": "Maximum look-back date",
+        "fromOc": "From OC date",
+        "fixedCutoff": "Fixed cutoff date"
+      },
+      "limitLabel": "Retrospective limit",
+      "limitOptions": {
+        "earliestChargeable": "Earliest chargeable date",
+        "noLimit": "No additional corporation limit",
+        "maxYears": "Maximum years"
+      },
+      "earliestAllowedDateLabel": "Earliest allowed date",
+      "maxYearsLabel": "Maximum years",
+      "maxYearsPlaceholder": "Example: 6",
+      "taxCalcLabel": "Tax calculation",
+      "taxCalcOptions": {
+        "oneMultiplier": "One multiplier for entire period",
+        "differentMultiplier": "Different multiplier between two dates",
+        "yearlyDynamic": "Yearly dynamic multiplier"
+      },
+      "multiplierLabel": "Tax multiplier",
+      "splitPeriodTitle": "Split-period tax multiplier",
+      "higherRateStartsFromLabel": "Higher rate starts from",
+      "higherRateContinuesUpToLabel": "Higher rate continues up to",
+      "duringPeriodLabel": "During period",
+      "afterPeriodLabel": "After period",
+      "splitExampleText": "Example: CC – OC at 1.5×, then from OC onward at 1×.",
+      "taxationUsedNotice": "Taxation used: Historical year-wise; Historical year-wise percentage • Six-year legal safeguard is automatic.",
+      "unauthorizedPenaltyTitle": "Unauthorized Construction Penalty",
+      "unauthorizedPenaltySubtitle": "Shown only when both OC and CC are unavailable.",
+      "authorizedNotice": "Authorized construction - OC or CC available",
+      "authorizedHelp": "No unauthorized-construction penalty applies because construction authorization is present.",
+      "unauthorizedNotice": "Unauthorized construction - OC & CC unavailable",
+      "unauthorizedHelp": "Penalty as per the Act will be added.",
+      "summaryTitle": "Rule Summary",
+      "summaryWhen": "When",
+      "summaryTax": "Tax",
+      "summaryPenalty": "Penalty",
+      "summaryAvailable": "{evidence} available; {compareDate}",
+      "summaryTaxDetail": "Start from Rolling {years}-year boundary; maximum {years} years; tax = {multiplier}.",
+      "summaryNotApplicable": "Not applicable",
+      "summaryApplyPenalty": "Apply penalty as per the Act"
+    },
+    "footer": {
+      "reviewText": "Review the rule, then save or publish.",
+      "testRule": "Test Rule",
+      "saveDraft": "Save",
+      "update": "Update",
+      "publishRule": "Publish Rule"
+    }
+  },
+  "confirm": {
+    "updateTitle": "Confirm Rule Update",
+    "createTitle": "Confirm Rule Creation",
+    "deleteTitle": "Confirm Delete Rule",
+    "updateDescription": "Are you sure you want to save and update retrospective rule \"{name}\"?",
+    "createDescription": "Are you sure you want to create and publish retrospective rule \"{name}\"?",
+    "deleteDescription": "Are you sure you want to delete rule \"{name}\"? This action cannot be undone.",
+    "updateConfirm": "Yes, Update",
+    "createConfirm": "Yes, Create",
+    "deleteConfirm": "Yes, Delete",
+    "cancel": "Cancel"
+  },
+  "notifications": {
+    "updateSuccess": "✅ Rule updated successfully!",
+    "createSuccess": "✅ Rule created and saved successfully!",
+    "draftSuccess": "✅ Rule saved and posted to API successfully!",
+    "taxSuccess": "✅ Taxation policy saved successfully!"
+  },
+  "loading": {
+    "message": "Loading Retrospective Rule Library...",
+    "description": "Please wait while we fetch the configuration rules."
+  },
+  "error": {
+    "title": "Failed to Load Retrospective Rule Library",
+    "description": "An unexpected error occurred while loading rule configurations.",
+    "goHome": "Go Back",
+    "tryAgain": "Try Again",
+    "errorId": "Error ID: {id}"
+  },
+  "validation": {
+    "ruleTitleRequired": "Rule title is required",
+    "ruleTitleMin": "Rule title must be at least 3 characters long",
+    "ruleTitleMax": "Rule title cannot exceed 100 characters",
+    "ruleCodeRequired": "Rule code is required",
+    "ruleCodeInvalid": "Rule code should only contain alphanumeric characters and hyphens",
+    "compareEvidenceDatesSelect": "Please select a valid comparison option",
+    "taxStartsFromSelect": "Please select a valid tax start option",
+    "retrospectiveLimitSelect": "Please select a valid limit option",
+    "taxCalculationSelect": "Please select a valid tax calculation option",
+    "maxYearsRequired": "Maximum years is required when \"Maximum years\" limit is selected",
+    "maxYearsPositive": "Maximum years must be a positive number",
+    "maxYearsLimit": "Maximum look-back limit cannot exceed 100 years",
+    "taxMultiplierRequired": "Tax multiplier is required",
+    "taxMultiplierNegative": "Tax multiplier cannot be negative"
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "shared": {
+    "aliasFallback": {
+      "entity": "मूल्यांकन"
+    },
+    "title": "{assessment} वर्ष सीमा",
+    "subtitle": "संपत्ति कर गणना के लिए {assessment} वर्ष सीमाएं प्रबंधित करें",
+    "tabs": {
+      "rateableValue": "मूल्य योग्य मूल्य",
+      "capitalValue": "पूंजी मूल्य"
+    }
+  },
+  "rateableValue": {
+    "aliasFallback": {
+      "entity": "मूल्यांकन"
+    },
+    "list": {
+      "title": "{assessment} वर्ष सीमा (मूल्य योग्य मूल्य)",
+      "subtitle": "मूल्य योग्य मूल्य गणना के लिए {assessment} वर्ष सीमाएं प्रबंधित करें",
+      "buttons": {
+        "add": "वर्ष सीमा जोड़ें",
+        "edit": "संपादित करें",
+        "delete": "हटाएं"
+      },
+      "filters": {
+        "search": "वर्ष द्वारा खोजें..."
+      },
+      "table": {
+        "fromYear": "वर्ष से",
+        "toYear": "वर्ष तक",
+        "status": "स्थिति"
+      }
+    },
+    "form": {
+      "addTitle": "{assessment} वर्ष सीमा जोड़ें",
+      "editTitle": "{assessment} वर्ष सीमा संपादित करें",
+      "subtitle": "नई {assessment} वर्ष सीमा बनाएं",
+      "editSubtitle": "{assessment} वर्ष सीमा विवरण अपडेट करें",
+      "fields": {
+        "fromYear": {
+          "label": "वर्ष से",
+          "placeholder": "उदा. 2020"
+        },
+        "toYear": {
+          "label": "वर्ष तक",
+          "placeholder": "उदा. 2025"
+        }
+      },
+      "validation": {
+        "fromYearRequired": "वर्ष से आवश्यक है",
+        "toYearRequired": "वर्ष तक आवश्यक है",
+        "yearFormat": "वर्ष 4 अंकों की संख्या होनी चाहिए",
+        "yearRange": "वर्ष {min} और {max} के बीच होना चाहिए",
+        "fromYearGreaterThanToYear": "वर्ष से, वर्ष तक से अधिक नहीं हो सकता",
+        "fromYearMustBeLessThanToYear": "वर्ष से, वर्ष तक से कम होना चाहिए",
+        "mustBeActive": "सहेजने के लिए वर्ष सीमा सक्रिय होनी चाहिए"
+      },
+      "status": {
+        "label": "सक्रिय स्थिति",
+        "description": "वर्ष सीमा वर्तमान में"
+      },
+      "actions": {
+        "cancel": "रद्द करें",
+        "save": "सहेजें",
+        "update": "अपडेट करें"
+      }
+    },
+    "delete": {
+      "confirmTitle": "वर्ष सीमा हटाएं?",
+      "confirmDescription": "क्या आप वाकई इस {assessment} वर्ष सीमा को हटाना चाहते हैं?"
+    },
+    "apiErrors": {
+      "duplicateRecord": "यह वर्ष सीमा मौजूदा सीमा के साथ ओवरलैप होती है। कृपया अलग वर्ष उपयोग करें।",
+      "invalidData": "अमान्य डेटा प्रदान किया गया। कृपया सभी फ़ील्ड जांचें।",
+      "notFound": "{assessment} वर्ष सीमा नहीं मिली।",
+      "inUse": "इस वर्ष सीमा का उपयोग हो रहा है इसलिए हटाया नहीं जा सकता।",
+      "referredInYearRange": "इस {assessment} Year Range को हटाया नहीं जा सकता क्योंकि यह Rate Master में संदर्भित है।",
+      "cannotDeactivateYearRange": "इस {assessment} Year Range को निष्क्रिय नहीं किया जा सकता क्योंकि यह Rate Master में संदर्भित है।",
+      "operationFailed": "ऑपरेशन विफल। कृपया बाद में पुनः प्रयास करें।"
+    },
+    "success": {
+      "created": "वर्ष सीमा {fromYear}-{toYear} सफलतापूर्वक बनाई गई",
+      "updated": "वर्ष सीमा {fromYear}-{toYear} सफलतापूर्वक अपडेट की गई",
+      "deleted": "वर्ष सीमा {fromYear}-{toYear} सफलतापूर्वक हटाई गई"
+    },
+    "error": {
+      "title": "त्रुटि",
+      "description": "मूल्यांकन वर्ष सीमा डेटा लोड करते समय कुछ गलत हुआ।",
+      "errorId": "त्रुटि आईडी: {id}",
+      "goHome": "होम पर जाएं",
+      "tryAgain": "पुनः प्रयास करें"
+    },
+    "loading": {
+      "title": "लोड हो रहा है",
+      "message": "लोड हो रहा है...",
+      "description": "कृपया प्रतीक्षा करें, मूल्यांकन वर्ष सीमा डेटा लोड हो रहा है"
+    }
+  },
+  "capitalValue": {
+    "aliasFallback": {
+      "entity": "मूल्यांकन"
+    },
+    "list": {
+      "title": "{assessment} वर्ष सीमा (पूंजी मूल्य)",
+      "subtitle": "पूंजी मूल्य गणना के लिए {assessment} वर्ष सीमाएं प्रबंधित करें",
+      "buttons": {
+        "add": "वर्ष सीमा जोड़ें",
+        "edit": "संपादित करें",
+        "delete": "हटाएं"
+      },
+      "filters": {
+        "search": "वर्ष द्वारा खोजें..."
+      },
+      "table": {
+        "fromYear": "वर्ष से",
+        "toYear": "वर्ष तक",
+        "status": "स्थिति"
+      }
+    },
+    "form": {
+      "addTitle": "{assessment} वर्ष सीमा जोड़ें",
+      "editTitle": "{assessment} वर्ष सीमा संपादित करें",
+      "subtitle": "नई {assessment} वर्ष सीमा बनाएं",
+      "editSubtitle": "{assessment} वर्ष सीमा विवरण अपडेट करें",
+      "fields": {
+        "fromYear": {
+          "label": "वर्ष से",
+          "placeholder": "उदा. 2020"
+        },
+        "toYear": {
+          "label": "वर्ष तक",
+          "placeholder": "उदा. 2025"
+        }
+      },
+      "validation": {
+        "fromYearRequired": "वर्ष से आवश्यक है",
+        "toYearRequired": "वर्ष तक आवश्यक है",
+        "yearFormat": "वर्ष 4 अंकों की संख्या होनी चाहिए",
+        "yearRange": "वर्ष {min} और {max} के बीच होना चाहिए",
+        "fromYearGreaterThanToYear": "वर्ष से, वर्ष तक से अधिक नहीं हो सकता",
+        "fromYearMustBeLessThanToYear": "वर्ष से, वर्ष तक से कम होना चाहिए",
+        "mustBeActive": "सहेजने के लिए वर्ष सीमा सक्रिय होनी चाहिए"
+      },
+      "status": {
+        "label": "सक्रिय स्थिति",
+        "description": "वर्ष सीमा वर्तमान में"
+      },
+      "actions": {
+        "cancel": "रद्द करें",
+        "save": "सहेजें",
+        "update": "अपडेट करें"
+      }
+    },
+    "delete": {
+      "confirmTitle": "वर्ष सीमा हटाएं?",
+      "confirmDescription": "क्या आप वाकई इस {assessment} वर्ष सीमा को हटाना चाहते हैं?"
+    },
+    "apiErrors": {
+      "duplicateRecord": "यह वर्ष सीमा मौजूदा सीमा के साथ ओवरलैप होती है। कृपया अलग वर्ष उपयोग करें।",
+      "invalidData": "अमान्य डेटा प्रदान किया गया। कृपया सभी फ़ील्ड जांचें।",
+      "notFound": "{assessment} वर्ष सीमा नहीं मिली।",
+      "inUse": "इस वर्ष सीमा का उपयोग हो रहा है इसलिए हटाया नहीं जा सकता।",
+      "referredInYearRange": "इस {assessment} Year Range CV को हटाया नहीं जा सकता क्योंकि यह Age Factor CV Master, Floor Factor CV Master, Nature Factor CV Master में संदर्भित है।",
+      "cannotDeactivateYearRange": "इस {assessment} Year Range CV को निष्क्रिय नहीं किया जा सकता क्योंकि यह Age Factor CV Master, Floor Factor CV Master, Nature Factor CV Master में संदर्भित है।",
+      "operationFailed": "ऑपरेशन विफल। कृपया बाद में पुनः प्रयास करें।"
+    },
+    "success": {
+      "created": "वर्ष सीमा {fromYear}-{toYear} सफलतापूर्वक बनाई गई",
+      "updated": "वर्ष सीमा {fromYear}-{toYear} सफलतापूर्वक अपडेट की गई",
+      "deleted": "वर्ष सीमा {fromYear}-{toYear} सफलतापूर्वक हटाई गई"
+    },
+    "error": {
+      "title": "त्रुटि",
+      "description": "मूल्यांकन वर्ष सीमा डेटा लोड करते समय कुछ गलत हुआ।",
+      "errorId": "त्रुटि आईडी: {id}",
+      "goHome": "होम पर जाएं",
+      "tryAgain": "पुनः प्रयास करें"
+    },
+    "loading": {
+      "title": "लोड हो रहा है",
+      "message": "लोड हो रहा है...",
+      "description": "कृपया प्रतीक्षा करें, मूल्यांकन वर्ष सीमा डेटा लोड हो रहा है"
+    }
+  }
+}

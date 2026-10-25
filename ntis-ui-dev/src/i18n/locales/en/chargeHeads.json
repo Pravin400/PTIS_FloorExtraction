@@ -1,0 +1,227 @@
+{
+  "title": "Charge Heads",
+  "subtitle": "Ledger-level charge components used to break demand into water charge, interest, penalty and fees.",
+  "addTitle": "Add Charge Head",
+  "addSubtitle": "Create new charge head details",
+  "editTitle": "Edit Charge Head",
+  "editSubtitle": "Update charge head details",
+  "categoryTag": "WATERBILL.CHARGEHEADMASTER",
+  "enabled": "Enabled",
+  "disabled": "Disabled",
+  "saveRecord": "Save record",
+  "userManual": "User Manual",
+  "list": {
+    "title": "Charge Heads",
+    "subtitle": "Ledger-level charge components used to break demand into water charge, interest, penalty and fees.",
+    "buttons": {
+      "add": "Add Charge Head",
+      "edit": "Edit",
+      "delete": "Delete",
+      "userManual": "User Manual"
+    },
+    "filters": {
+      "show": "Show",
+      "search": "Search by Code, Name or Type..."
+    },
+    "table": {
+      "code": "Charge Head Code",
+      "name": "Name",
+      "nameLocal": "Name (Local)",
+      "description": "Description",
+      "chargeType": "Charge Type",
+      "tax": "Tax",
+      "penalty": "Penalty",
+      "refundable": "Refundable",
+      "regularPay": "Regular Pay",
+      "active": "Active Status",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "pagination": {
+      "showing": "Showing",
+      "entries": "entries"
+    }
+  },
+  "status": {
+    "yes": "Yes",
+    "no": "No",
+    "enabled": "Enabled",
+    "disabled": "Disabled"
+  },
+  "actions": {
+    "save": "Save record",
+    "update": "Update record",
+    "cancel": "Cancel"
+  },
+  "messages": {
+    "createSuccess": "Charge head created successfully",
+    "updateSuccess": "Charge head updated successfully",
+    "deleteSuccess": "Charge head deleted successfully"
+  },
+  "confirm": {
+    "deleteTitle": "Delete Charge Head?",
+    "deleteDescription": "Are you sure you want to delete this charge head? This action cannot be undone."
+  },
+  "delete": {
+    "confirmTitle": "Delete Charge Head?",
+    "confirmDescription": "Are you sure you want to delete this charge head? This action cannot be undone.",
+    "successMessage": "Charge head deleted successfully",
+    "errorMessage": "Cannot delete charge head because it is linked to other records."
+  },
+  "errors": {
+    "createFailed": "Failed to create charge head",
+    "updateFailed": "Failed to update charge head",
+    "deleteFailed": "Failed to delete charge head",
+    "fetchFailed": "Failed to fetch charge head data",
+    "validationFailed": "Validation failed. Please check form fields.",
+    "notFound": "Charge head not found",
+    "noDeleteAction": "Delete action not available",
+    "noMutationAction": "No mutation action provided",
+    "forbidden": "Access denied: You do not have permission to perform this action"
+  },
+  "apiErrors": {
+    "duplicateRecord": "Please check Code and Name - duplicates not allowed.",
+    "validationError": "Invalid data provided. Please check all fields.",
+    "invalidData": "Invalid data provided. Please check all fields.",
+    "notFound": "Charge head not found.",
+    "inUse": "Cannot deactivate/delete this charge head because it is referenced in other records.",
+    "operationFailed": "Operation failed. Please try again later."
+  },
+  "success": {
+    "created": "Charge head created successfully",
+    "updated": "Charge head updated successfully",
+    "deleted": "Charge head deleted successfully"
+  },
+  "error": {
+    "title": "Unable to Load Page",
+    "description": "We encountered an error while loading the charge heads page. Please try again.",
+    "tryAgain": "Try Again",
+    "goHome": "Go to Home",
+    "errorId": "Error ID: {id}"
+  },
+  "loading": {
+    "message": "Loading Charge Heads...",
+    "description": "Please wait while we fetch the charge head data"
+  },
+  "userManualModal": {
+    "title": "Charge Heads — How It Works",
+    "intro": "Charge Heads define ledger-level charge components used to break down water bill demand into water charge, interest, penalty, and fees.",
+    "card1": {
+      "title": "Charge Head Master",
+      "subtitle": "Code, Name, Charge Type"
+    },
+    "card2": {
+      "title": "Demand Breakdown Component",
+      "subtitle": "Tax, Penalty & Refundable Classification"
+    },
+    "point1": {
+      "title": "Charge Head Details",
+      "text": "Defines Code, Name, Charge Type (Tax, Interest, Penalty, Charge, Fee) for municipal financial accounting."
+    },
+    "point2": {
+      "title": "Component Classification Flags",
+      "text": "Tax, Penalty, and Refundable flags classify how each charge component is treated during bill computation, ledger posting, and refunds."
+    },
+    "point3": {
+      "title": "Status & Tariff Integration",
+      "text": "Active state determines whether the charge head can be attached to active tariff rate schedules for demand generation."
+    },
+    "note": "Ensure charge types are accurately configured before linking charge heads to active tariff rules or billing demand logic."
+  },
+  "form": {
+    "addTitle": "Add Charge Head",
+    "editTitle": "Edit Charge Head",
+    "addSubtitle": "Create new charge head details",
+    "subtitle": "Create new charge head details",
+    "editSubtitle": "Update charge head details",
+    "fields": {
+      "code": {
+        "label": "Code",
+        "placeholder": "e.g., WTR_CHG"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "e.g., Water Charge"
+      },
+      "nameLocal": {
+        "label": "Name (Local)",
+        "placeholder": "Enter local language name"
+      },
+      "sequenceNo": {
+        "label": "Sequence No",
+        "placeholder": "e.g., 1"
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "Enter Description"
+      },
+      "chargeType": {
+        "label": "Charge Type",
+        "placeholder": "Select Charge Type",
+        "deposit": "Deposit",
+        "fee": "Fee",
+        "tax": "Tax",
+        "charge": "Charge",
+        "penalty": "Penalty"
+      },
+      "tax": "Tax",
+      "penalty": "Penalty",
+      "refundable": {
+        "label": "Refundable"
+      },
+      "regularPay": {
+        "label": "Regular Pay"
+      },
+      "active": {
+        "label": "Active Status"
+      }
+    },
+    "validation": {
+      "codeRequired": "Code is required",
+      "codeInvalid": "Code can only contain letters, numbers, underscores, and hyphens",
+      "codeMaxLength": "Code cannot exceed {count} characters",
+      "nameRequired": "Name is required",
+      "nameInvalid": "Name must contain valid letters or numbers",
+      "nameMaxLength": "Name cannot exceed {count} characters",
+      "nameLocalInvalid": "Local name must contain valid letters or numbers",
+      "nameLocalMaxLength": "Local name cannot exceed {count} characters",
+      "chargeTypeRequired": "Charge type is required",
+      "chargeTypeInvalid": "Please select a valid charge type",
+      "sequenceNoRequired": "Sequence number is required",
+      "sequenceNoMin": "Sequence number must be at least {count}",
+      "descriptionInvalid": "Description must contain valid letters or numbers",
+      "descriptionMaxLength": "Description cannot exceed {count} characters",
+      "sequenceNoMax": "Sequence number cannot exceed {count}"
+    },
+    "active": {
+      "label": "Active Status",
+      "activeHelp": "Charge head is currently active",
+      "inactiveHelp": "Charge head is currently inactive"
+    },
+    "status": {
+      "label": "Active Status",
+      "description": "Charge head is currently"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "save": "Save",
+      "update": "Update"
+    }
+  },
+  "table": {
+    "code": "Charge Head Code",
+    "name": "Name",
+    "description": "Description",
+    "chargeType": "Charge Type",
+    "tax": "Tax",
+    "penalty": "Penalty",
+    "refundable": "Refundable",
+    "regularPay": "Regular Pay",
+    "active": "Active",
+    "actions": "Actions"
+  }
+}

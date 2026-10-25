@@ -1,0 +1,99 @@
+{
+  "title": "शैक्षणिक योग्यता मास्टर",
+  "subtitle": "स्वीकृत शैक्षणिक, तकनीकी और व्यावसायिक योग्यताओं को कॉन्फ़िगर करें",
+  "list": {
+    "title": "शैक्षणिक योग्यता मास्टर",
+    "subtitle": "स्वीकृत शैक्षणिक, तकनीकी और व्यावसायिक योग्यताओं को कॉन्फ़िगर करें",
+    "buttons": {
+      "add": "योग्यता जोड़ें",
+      "edit": "संपादित करें",
+      "delete": "हटाएं",
+      "editTitle": "योग्यता संपादित करें",
+      "deleteTitle": "योग्यता हटाएं"
+    },
+    "filters": {
+      "show": "दिखाएं",
+      "searchPlaceholder": "योग्यता खोजें...",
+      "allStatus": "सभी स्थिति",
+      "status": "स्थिति चुनें"
+    },
+    "table": {
+      "qualificationCode": "योग्यता कोड",
+      "qualificationName": "योग्यता का नाम",
+      "qualificationNameLocal": "योग्यता का नाम (क्षेत्रीय)",
+      "qualificationDescription": "विवरण",
+      "status": "स्थिति",
+      "actions": "कार्य"
+    }
+  },
+  "form": {
+    "title": {
+      "add": "नई योग्यता जोड़ें",
+      "edit": "योग्यता संपादित करें"
+    },
+    "subtitle": {
+      "add": "एक नया योग्यता मानक रिकॉर्ड बनाएं",
+      "edit": "योग्यता विवरण और आवश्यकताएं अपडेट करें"
+    },
+    "mandatoryFields": "* चिह्नित फ़ील्ड अनिवार्य हैं",
+    "fields": {
+      "qualificationCode": "योग्यता कोड",
+      "qualificationCodePlaceholder": "उदा. BCOM, BE, SSC",
+      "qualificationName": "योग्यता का नाम",
+      "qualificationNamePlaceholder": "उदा. वाणिज्य स्नातक (बी.कॉम.)",
+      "qualificationNameLocal": "योग्यता का नाम (क्षेत्रीय)",
+      "qualificationNameLocalPlaceholder": "उदा. वाणिज्य पदवी (बी.कॉम.)",
+      "qualificationDescription": "विवरण",
+      "qualificationDescriptionPlaceholder": "योग्यता के कार्यक्षेत्र, शैक्षणिक स्तर और आवश्यकताओं का संक्षिप्त विवरण...",
+      "status": "स्थिति",
+      "isActive": "सक्रिय है",
+      "statusText": "योग्यता वर्तमान में {status} है"
+    },
+    "buttons": {
+      "add": "योग्यता जोड़ें",
+      "save": "योग्यता बनाएं",
+      "cancel": "रद्द करें",
+      "update": "योग्यता अपडेट करें"
+    },
+    "validation": {
+      "qualificationCodeRequired": "योग्यता कोड आवश्यक है",
+      "qualificationCodeMaxLength": "योग्यता कोड 30 वर्णों से अधिक नहीं होना चाहिए",
+      "qualificationCodeFormat": "कोड में केवल अक्षर, संख्या, अंडरस्कोर और हाइफ़न होने चाहिए",
+      "qualificationNameRequired": "योग्यता का नाम आवश्यक है",
+      "qualificationNameMinLength": "योग्यता का नाम कम से कम 2 वर्णों का होना चाहिए",
+      "qualificationNameMaxLength": "योग्यता का नाम 100 वर्णों से अधिक नहीं होना चाहिए",
+      "qualificationNameFormat": "योग्यता के नाम में केवल अक्षर, संख्याएं, स्थान और प्रतीक (. , - / & () +) हो सकते हैं",
+      "qualificationNameMarathiRequired": "योग्यता का नाम (क्षेत्रीय) आवश्यक है",
+      "qualificationNameMarathiMinLength": "योग्यता का नाम (क्षेत्रीय) कम से कम 2 वर्णों का होना चाहिए",
+      "qualificationNameMarathiMaxLength": "योग्यता का नाम (क्षेत्रीय) 150 वर्णों से अधिक नहीं होना चाहिए",
+      "qualificationNameMarathiFormat": "योग्यता के क्षेत्रीय नाम में केवल मान्य अक्षर, स्थान और प्रतीक (. - / & ()) होने चाहिए",
+      "descriptionMaxLength": "विवरण 250 वर्णों से अधिक नहीं होना चाहिए",
+      "codeUnique": "यह योग्यता कोड पहले से मौजूद है। कोड अद्वितीय होना चाहिए।",
+      "qualificationNameRegionalRequired": "योग्यता का नाम (क्षेत्रीय) आवश्यक है",
+      "qualificationNameRegionalMinLength": "योग्यता का नाम (क्षेत्रीय) कम से कम 2 वर्णों का होना चाहिए",
+      "qualificationNameRegionalMaxLength": "योग्यता का नाम (क्षेत्रीय) 150 वर्णों से अधिक नहीं होना चाहिए",
+      "qualificationNameRegionalFormat": "योग्यता के क्षेत्रीय नाम में केवल मान्य अक्षर, संख्याएं, स्थान और प्रतीक (. , - / & () +) होने चाहिए"
+    }
+  },
+  "delete": {
+    "confirmTitle": "योग्यता हटाएं",
+    "confirmDescription": "क्या आप वाकई \"{name}\" को हटाना चाहते हैं? इस कार्रवाई को पूर्ववत नहीं किया जा सकता।",
+    "deleteInUse": "\"{name}\" वर्तमान में कर्मचारी रिकॉर्ड से जुड़ा हुआ है और इसे हटाया नहीं जा सकता।",
+    "success": "\"{name}\" सफलतापूर्वक हटा दिया गया।"
+  },
+  "stats": {
+    "total": "कुल योग्यताएं",
+    "active": "सक्रिय",
+    "inactive": "निष्क्रिय"
+  },
+  "success": {
+    "created": "योग्यता सफलतापूर्वक बनाई गई",
+    "updated": "योग्यता सफलतापूर्वक अपडेट की गई",
+    "deleted": "योग्यता सफलतापूर्वक हटा दी गई"
+  },
+  "errors": {
+    "createFailed": "योग्यता मास्टर बनाने में विफल",
+    "updateFailed": "योग्यता मास्टर अपडेट करने में विफल",
+    "deleteFailed": "योग्यता मास्टर हटाने में विफल"
+  }
+}

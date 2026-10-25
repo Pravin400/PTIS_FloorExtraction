@@ -1,0 +1,171 @@
+{
+  "propertyType": {
+    "aliasFallback": {
+      "category": "Category",
+      "typeOfUse": "Type of Use",
+      "ward": "Ward",
+      "entity": "Property Type"
+    },
+    "list": {
+      "title": "Property Type Master",
+      "subtitle": "Manage property types and their classifications",
+      "buttons": {
+        "add": "Add Property Type",
+        "edit": "Edit",
+        "delete": "Delete"
+      },
+      "filters": {
+        "show": "Show",
+        "search": "Search by Property Description or Type..."
+      },
+      "table": {
+        "descriptionEnglish": "English Description",
+        "propertyDescription": "Regional Description",
+        "type": "Type",
+        "propertyTypeGroup": "Property Type Group",
+        "category": "Property Type {category}",
+        "searchSequence": "Search Sequence",
+        "typeOfUseValidation": "{typeOfUse} Validation",
+        "status": "Status",
+        "actions": "Actions"
+      },
+      "status": {
+        "active": "Active",
+        "inactive": "Inactive"
+      },
+      "pagination": {
+        "showing": "Showing",
+        "entries": "entries"
+      }
+    },
+    "form": {
+      "addTitle": "Add Property Type",
+      "editTitle": "Edit Property Type",
+      "subtitle": "Create new property type",
+      "editSubtitle": "Update property type details",
+      "fields": {
+        "propertyTypeId": {
+          "label": "Property Type ID"
+        },
+        "descriptionEnglish": {
+          "label": "English Description",
+          "placeholder": "Enter English description"
+        },
+        "propertyDescription": {
+          "label": "Regional Description",
+          "placeholder": "Enter regional description"
+        },
+        "type": {
+          "label": "Type",
+          "placeholder": "Select Type"
+        },
+        "propertyTypeGroup": {
+          "label": "Property Type Group",
+          "placeholder": "e.g. Non-Residential"
+        },
+        "searchSequence": {
+          "label": "Search Sequence"
+        },
+        "category": {
+          "label": "Property Type {category}",
+          "placeholder": "Select {category}"
+        }
+      },
+      "validation": {
+        "descriptionEnglishRequired": "English description is required",
+        "descriptionEnglishAllZeros": "English description cannot be all zeros",
+        "englishOnly": "Only English characters are allowed",
+        "propertyDescriptionRequired": "Regional description is required",
+        "propertyDescriptionMaxLength": "Maximum length is 100 characters",
+        "propertyDescriptionFormat": "Only letters (any language), numbers, spaces, and basic punctuation allowed (,./-()).",
+        "propertyDescriptionExists": "Property description already exists. Please enter a different description.",
+        "typeRequired": "Type is required",
+        "typeMaxLength": "Maximum length is 10 characters",
+        "typeFormat": "Only letters and numbers are allowed",
+        "propertyTypeGroupRequired": "Property type group is required",
+        "propertyTypeGroupMaxLength": "Maximum length is 100 characters",
+        "sequenceInvalid": "Search sequence must be 0 or greater",
+        "categoryRequired": "Property Type {category} is required",
+        "mustBeActive": "Property Type must be active to save"
+      },
+      "status": {
+        "label": "Active Status",
+        "description": "Property type is currently"
+      },
+      "actions": {
+        "cancel": "Cancel",
+        "save": "Save",
+        "update": "Update"
+      },
+      "typeOfUseSection": {
+        "title": "{typeOfUse} Assignment",
+        "noItems": "No {typeOfUse} found.",
+        "selected": "{count} selected",
+        "search": "Search",
+        "searchPlaceholder": "Search by code or description...",
+        "typeLabel": "{typeOfUse}",
+        "allTypes": "All Types",
+        "selectAll": "Select All",
+        "clear": "Clear All",
+        "noMatches": "No matching items found.",
+        "hint": "Select the {typeOfUse} codes applicable to this property type",
+        "saveFailed": "Failed to save {typeOfUse} validations",
+        "saveWarning": "Property type created, but {typeOfUse} could not be assigned. Please edit the record to add {typeOfUse}."
+      }
+    },
+    "modal": {
+      "title": "{typeOfUse} Validation",
+      "subtitle": "Assigned {typeOfUse} codes",
+      "propertySubtitle": "Assigned to: {description}",
+      "close": "Close"
+    },
+    "delete": {
+      "confirmTitle": "Delete Property Type ({id})?",
+      "confirmDescription": "Are you sure you want to delete this property type record?",
+      "successMessage": "Property Type ({id}) deleted successfully",
+      "errorMessage": "Cannot delete Property Type ({id}) because it is linked to other records."
+    },
+    "apiErrors": {
+      "duplicateDescription": "Property description already exists. Please use a different description.",
+      "duplicateRecord": "Please check Property Description - duplicates not allowed.",
+      "validationError": "Invalid data provided. Please check all fields.",
+      "invalidData": "Invalid data provided. Please check all fields.",
+      "notFound": "Property type not found.",
+      "inUse": "Cannot delete this record as it is in use.",
+      "operationFailed": "Operation failed. Please try again later.",
+      "referredInAutoWardEntry": "Cannot delete this record as it is referred in Auto {ward} Entry",
+      "linkedToProperties": "Cannot delete this Property Type because it is linked to {count} properties.",
+      "cannotDeactivateReferred": "Cannot deactivate this record because it is referenced in Auto {ward} Entry",
+      "linkedRecordError": "Cannot modify this property type because it is linked to other records."
+    },
+    "success": {
+      "created": "New property type created successfully: {description}",
+      "updated": "Property type updated successfully: {description}",
+      "deleted": "Property type deleted successfully: {description}"
+    },
+    "serverValidation": {
+      "invalidPropertyTypeId": "Valid Property Type ID is required",
+      "propertyDescriptionRequired": "Property description is required",
+      "descriptionEnglishRequired": "English description is required",
+      "typeRequired": "Type is required",
+      "propertyTypeGroupRequired": "Property type group is required",
+      "categoryRequired": "Property type {category} is required",
+      "idRequiredForUpdate": "Property Type ID is required for update",
+      "createFailed": "Failed to create property type",
+      "updateFailed": "Failed to update property type",
+      "deleteFailed": "Failed to delete property type",
+      "purgeDeleteFailed": "Failed to permanently delete property type"
+    },
+    "error": {
+      "title": "Something Went Wrong",
+      "description": "We encountered an error while loading the property type page. Please try again.",
+      "tryAgain": "Try Again",
+      "goHome": "Go to Home",
+      "errorId": "Error ID: {id}"
+    },
+    "loading": {
+      "message": "Loading Property Type...",
+      "description": "Please wait while we fetch the property type data"
+    }
+  }
+}

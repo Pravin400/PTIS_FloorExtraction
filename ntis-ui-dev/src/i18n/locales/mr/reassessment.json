@@ -1,0 +1,132 @@
+{
+  "emptyState": {
+    "title": "मालमता निवडा",
+    "description": "कृपया पुनर्मूल्यांकन तपशील पाहण्यासाठी वॉर्ड आणि मालमता क्रमांक निवडा"
+  },
+  "photoLabels": {
+    "oldPropertyPhoto": "जुनी मालमता फोटो",
+    "oldPlanPhoto": "जुना प्लॅन फोटो",
+    "newPropertyPhoto": "नवीन मालमता फोटो",
+    "newPlanPhoto": "नवीन प्लॅन फोटो",
+    "photoAsPerOld": "महानगरपालिका नोंदणीनुसार छायाचित्र",
+    "photoAsPerNew": "नवीन सर्वेक्षणानुसार छायाचित्र",
+    "clickToView": "पाहण्यासाठी क्लिक करा"
+  },
+  "sectionHeaders": {
+    "municipalRegistration": "म्युनिसिपल कॉर्पोरेशन नोंदणीनुसार तपशील",
+    "newSurvey": "नवीन सर्वेनुसार तपशील",
+    "taxDetails": "कर तपशील आणि पुनर्मूल्यांकन सारांश"
+  },
+  "floorDetails": {
+    "oldTitle": "जुने मजला तपशील",
+    "newTitle": "नवीन मजला तपशील",
+    "columns": {
+      "floor": "मजला",
+      "type": "प्रकार",
+      "conYear": "बांधकाम वर्ष",
+      "asstYear": "मूल्यांकन वर्ष",
+      "constType": "बांधकाम प्रकार",
+      "use": "वापर",
+      "carpetArea": "कार्पेट क्षेत्रफळ",
+      "carpetAreaSqFt": "कार्पेट क्षेत्रफळ (चौ. फूट)",
+      "carpetAreaSqM": "कार्पेट क्षेत्रफळ (चौ. मीटर)",
+      "carpetAreaSqFtM": "कार्पेट क्षेत्रफळ (चौ. फूट / चौ. मीटर)",
+      "builtUpArea": "बिल्ट-अप क्षेत्रफळ",
+      "builtUpAreaSqFt": "बिल्ट-अप क्षेत्रफळ (चौ. फूट)",
+      "builtUpAreaSqM": "बिल्ट-अप क्षेत्रफळ (चौ. मीटर)",
+      "builtUpAreaSqFtM": "बिल्ट-अप क्षेत्रफळ (चौ. फूट / चौ. मीटर)",
+      "rate": "दर",
+      "yearlyRate": "वार्षिक दर",
+      "rateYearlyRate": "दर (मासिक/वार्षिक)",
+      "financialYear": "आर्थिक वर्ष",
+      "renter": "भाडेकर",
+      "isRenter": "भाड्याने दिलेले",
+      "renterName": "भाडेकराचे नाव",
+      "taxLiability": "कर जबाबदारी",
+      "rentMy": "भाडे महिना/वर्ष",
+      "rentMonthly": "मासिक भाडे",
+      "finalYearlyRent": "अंतिम वार्षिक भाडे",
+      "rentalValue": "भाड्याचे मूल्य",
+      "depreciation": "मूल्यह्रास",
+      "alv": "वार्षिक भाडे मूल्य",
+      "mr": "दुरुस्ती आणि देखभाल",
+      "rv": "मूल्यांकन मूल्य",
+      "ocCertificateNo": "OC क्रमांक",
+      "ocCertificateIssueDate": "OC तारीख",
+      "ccCertificateNo": "CC क्रमांक",
+      "ccCertificateIssueDate": "CC तारीख",
+      "maintenance": "देखभाल",
+      "yearlyRent": "वार्षिक भाडे",
+      "status": "स्थिती"
+    },
+    "statuses": {
+      "unchanged": "बदल नाही",
+      "added": "जोडले",
+      "removed": "वगळले"
+    },
+    "values": {
+      "yes": "होय",
+      "no": "नाही",
+      "selfOccupied": "स्वतः वापरलेले"
+    }
+  },
+  "buttons": {
+    "retrospectiveDetails": "पूर्वव्यापी तपशील",
+    "section129": "कलम 129 प्रगतिशील गणना",
+    "startAutoScroll": "ऑटो स्क्रोल सुरू करा",
+    "stopAutoScroll": "ऑटो स्क्रोल बंद करा",
+    "close": "बंद करा"
+  },
+  "taxDetails": {
+    "taxes": "कर",
+    "totalTax": "एकूण कर"
+  },
+  "summaryCards": {
+    "oldLabel": "जुने",
+    "newLabel": "नवीन",
+    "carpetAreaLabel": "बांधकाम क्षेत्रफळ",
+    "typeOfUseLabel": "वापरामध्ये बदल",
+    "rateableValueLabel": "आर वी",
+    "totalTaxLabel": "कर",
+    "units": {
+      "sqM": "मी²",
+      "type": "प्रकार",
+      "rupees": "₹"
+    },
+    "changedStatus": "बदललेले"
+  },
+  "retrospectiveModal": {
+    "title": "पूर्वव्यापी कर तपशील",
+    "subtitle": "ऐतिहासिक कर मूल्यांकन डेटा",
+    "columns": {
+      "financeYear": "वित्तीय वर्ष",
+      "days": "दिवस",
+      "total": "एकूण"
+    },
+    "noData": "कोणताही पूर्वव्यापी कर डेटा उपलब्ध नाही."
+  },
+  "section129Modal": {
+    "title": "कलम 129 वर्षवार प्रगतिशील कर गणना",
+    "subtitle": "वित्तीय वर्षानुसार कर प्रगती",
+    "note": "कलम 129 नुसार वर्षवार प्रगतिशील कर गणना",
+    "columns": {
+      "year": "वर्ष",
+      "applicablePct": "लागू टक्केवारी",
+      "generalTax": "सामान्य कर",
+      "waterTax": "पाणी कर",
+      "educationTax": "शिक्षण कर",
+      "fireTax": "अग्निशमन कर",
+      "totalTax": "एकूण कर",
+      "remark": "टिप्पणी"
+    },
+    "remarks": {
+      "noChange": "कोणताही बदल नाही",
+      "regular": "नियमित म्युनिसिपल कर",
+      "municipalTaxApplied": "% म्युनिसिपल कर लागू"
+    },
+    "applicablePct": {
+      "asPerGramPanchayat": "ग्राम पंचायतीनुसार"
+    }
+  },
+  "noDataAvailable": "कोणताही पुनर्मूल्यांकन डेटा उपलब्ध नाही"
+}

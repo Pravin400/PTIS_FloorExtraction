@@ -1,0 +1,136 @@
+{
+  "constructionType": {
+    "aliasFallback": {
+      "entity": "निर्माण प्रकार"
+    },
+    "list": {
+      "title": "{constructionType} मास्टर",
+      "subtitle": "{constructionType} और उनके वर्गीकरण प्रबंधित करें",
+      "buttons": {
+        "add": "{constructionType} जोड़ें",
+        "edit": "संपादित करें",
+        "delete": "हटाएं"
+      },
+      "filters": {
+        "show": "दिखाएं",
+        "search": "{constructionType} या विवरण से खोजें..."
+      },
+      "table": {
+        "constructionCode": "{constructionType}",
+        "descriptionEnglish": "अंग्रेजी विवरण",
+        "description": "प्रादेशिक विवरण",
+        "searchKey": "खोज कुंजी",
+        "searchSequence": "खोज क्रम",
+        "status": "स्थिति",
+        "actions": "क्रियाएं"
+      },
+      "status": {
+        "active": "सक्रिय",
+        "inactive": "निष्क्रिय"
+      },
+      "pagination": {
+        "showing": "दिखा रहा है",
+        "entries": "प्रविष्टियाँ"
+      }
+    },
+    "form": {
+      "addTitle": "नया {constructionType} जोड़ें",
+      "editTitle": "{constructionType} संपादित करें",
+      "subtitle": "नया {constructionType} बनाएँ",
+      "editSubtitle": "{constructionType} विवरण अपडेट करें",
+      "fields": {
+        "constructionId": {
+          "label": "निर्माण ID"
+        },
+        "constructionCode": {
+          "label": "{constructionType}",
+          "placeholder": "उदा. A"
+        },
+        "descriptionEnglish": {
+          "label": "अंग्रेजी विवरण",
+          "placeholder": "उदा. RCC {constructionType}"
+        },
+        "description": {
+          "label": "प्रादेशिक विवरण",
+          "placeholder": "प्रादेशिक विवरण"
+        },
+        "searchSequence": {
+          "label": "खोज क्रम"
+        },
+        "searchKey": {
+          "label": "खोज कुंजी",
+          "placeholder": "उदा. 7"
+        }
+      },
+      "validation": {
+        "constructionCodeRequired": "{constructionType} आवश्यक है",
+        "constructionCodeMaxLength": "अधिकतम लंबाई 7 वर्ण है",
+        "constructionCodeFormat": "अमान्य प्रारूप। केवल अंग्रेजी अक्षर, संख्याएँ और अंडरस्कोर (_) की अनुमति है।",
+        "constructionCodeEnglishOnly": "केवल अंग्रेजी अक्षर, संख्याएँ और अंडरस्कोर (_) की अनुमति है। मराठी/हिंदी समर्थित नहीं है।",
+        "constructionCodeExists": "यह {constructionType} पहले से मौजूद है। कृपया एक अलग प्रकार का उपयोग करें।",
+        "descriptionEnglishRequired": "अंग्रेजी विवरण आवश्यक है",
+        "descriptionEnglishMaxLength": "अधिकतम लंबाई 100 वर्ण है",
+        "descriptionEnglishFormat": "केवल अंग्रेजी अक्षर, संख्याएं, रिक्त स्थान और बुनियादी विराम चिह्न की अनुमति है (,./-())।",
+        "descriptionEnglishExists": "अंग्रेजी विवरण पहले से मौजूद है। कृपया एक अलग विवरण दर्ज करें।",
+        "descriptionRequired": "विवरण आवश्यक है",
+        "descriptionMaxLength": "अधिकतम लंबाई 100 वर्ण है",
+        "descriptionFormat": "केवल अक्षर (कोई भी भाषा), संख्या, रिक्त स्थान और बुनियादी विराम चिह्न की अनुमति है (,./-())।",
+        "descriptionExists": "विवरण पहले से मौजूद है। कृपया एक अलग विवरण दर्ज करें।",
+        "idRequiredForUpdate": "अपडेट के लिए {constructionType} आईडी आवश्यक है",
+        "validIdRequired": "वैध {constructionType} आईडी आवश्यक है",
+        "searchKeyRequired": "खोज कुंजी आवश्यक है",
+        "searchKeyMaxLength": "अधिकतम लंबाई 20 वर्ण है",
+        "searchKeyFormat": "केवल अक्षर, संख्याएं और + - वर्ण अनुमत हैं",
+        "sequenceInvalid": "खोज क्रम 0 या अधिक होना चाहिए",
+        "mustBeActive": "{constructionType} सहेजने के लिए सक्रिय होना चाहिए",
+        "constructionCodeNumbersOnlyNotAllowed": "कृपया एक मान्य {constructionType} दर्ज करें जिसमें कम से कम एक अक्षर हो।",
+        "descriptionNumbersOnlyNotAllowed": "कृपया एक मान्य विवरण दर्ज करें जिसमें कम से कम एक अक्षर हो।",
+        "descriptionEnglishNumbersOnlyNotAllowed": "कृपया एक मान्य अंग्रेजी विवरण दर्ज करें जिसमें कम से कम एक अक्षर हो।"
+      },
+      "status": {
+        "label": "सक्रिय स्थिति",
+        "description": "{constructionType} वर्तमान में"
+      },
+      "actions": {
+        "cancel": "रद्द करें",
+        "save": "सहेजें",
+        "update": "अपडेट करें"
+      }
+    },
+    "delete": {
+      "confirmTitle": "{constructionType} ({id}) हटाएं?",
+      "confirmDescription": "क्या आप वाकई इस {constructionType} रिकॉर्ड को हटाना चाहते हैं?",
+      "successMessage": "{constructionType} ({id}) सफलतापूर्वक हटाया गया",
+      "errorMessage": "{constructionType} ({id}) को हटाया नहीं जा सकता क्योंकि यह अन्य रिकॉर्ड से जुड़ा हुआ है।"
+    },
+    "apiErrors": {
+      "linkedRecordError": "{constructionType} को हटाया नहीं जा सकता क्योंकि यह अन्य रिकॉर्ड से जुड़ा हुआ है।",
+      "duplicateRecord": "डुप्लिकेट रिकॉर्ड मिला। कृपया {constructionType} और विवरण जांचें।",
+      "duplicateCode": "यह {constructionType} कोड पहले से मौजूद है। कृपया एक अलग कोड का उपयोग करें।",
+      "duplicateDescription": "यह विवरण पहले से मौजूद है। कृपया एक अलग विवरण दर्ज करें।",
+      "invalidData": "अमान्य डेटा प्रदान किया गया। कृपया सभी फ़ील्ड जांचें।",
+      "notFound": "{constructionType} नहीं मिला।",
+      "inUse": "इस {constructionType} को निष्क्रिय/हटाया नहीं जा सकता क्योंकि यह निम्नलिखित में संदर्भित है: दरें, आयु कारक, प्रकृति कारक, संपत्ति विवरण, मूल्यह्रास मास्टर",
+      "updateError": "अपडेट करने में विफल",
+      "validationError": "कृपया सबमिट करने से पहले सभी सत्यापन त्रुटियों को ठीक करें",
+      "apiValidationFailed": "सत्यापन विफल। कृपया अपना इनपुट जांचें।",
+      "operationFailed": "ऑपरेशन विफल। कृपया पुनः प्रयास करें।"
+    },
+    "success": {
+      "created": "नया {constructionType} कोड के साथ सफलतापूर्वक बनाया गया: {code}",
+      "updated": "{constructionType} कोड के साथ सफलतापूर्वक अपडेट किया गया: {code}",
+      "deleted": "{constructionType} कोड के साथ सफलतापूर्वक हटाया गया: {code}"
+    },
+    "error": {
+      "title": "सर्वर से कनेक्ट करने में विफल। कृपया बाद में पुनः प्रयास करें।",
+      "description": "निर्माण प्रकार पृष्ठ लोड करते समय एक त्रुटि आई। कृपया पुनः प्रयास करें।",
+      "tryAgain": "पुनः प्रयास करें",
+      "goHome": "होम पर जाएं",
+      "errorId": "त्रुटि आईडी: {id}"
+    },
+    "loading": {
+      "message": "निर्माण प्रकार लोड हो रहा है...",
+      "description": "कृपया प्रतीक्षा करें जब तक हम निर्माण प्रकार डेटा लोड करते हैं"
+    }
+  }
+}

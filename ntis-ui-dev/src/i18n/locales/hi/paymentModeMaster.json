@@ -1,0 +1,121 @@
+{
+    "title": "भुगतान मोड मास्टर",
+    "subtitle": "भुगतान विधियों, लेनदेन सेटिंग्स और गेटवे कॉन्फ़िगरेशन प्रबंधित करें",
+    "addLabel": "भुगतान मोड जोड़ें",
+    "searchPlaceholder": "भुगतान मोड खोजें...",
+    "stats": {
+        "totalModes": "कुल मोड",
+        "online": "ऑनलाइन मोड",
+        "offline": "ऑफ़लाइन मोड",
+        "both": "दोनों मोड",
+        "active": "सक्रिय मोड"
+    },
+    "pagination": {
+        "showing": "दिखा रहा है",
+        "to": "से",
+        "of": "का",
+        "entries": "प्रविष्टियां",
+        "show": "दिखाएं"
+    },
+    "status": {
+        "active": "सक्रिय",
+        "inactive": "निष्क्रिय"
+    },
+    "actions": "कार्रवाई",
+    "actionsTooltip": {
+        "edit": "भुगतान मोड संपादित करें",
+        "delete": "भुगतान मोड हटाएं"
+    },
+    "noDataFound": "कोई भुगतान मोड नहीं मिला",
+    "table": {
+        "code": "कोड",
+        "name": "भुगतान मोड",
+        "type": "प्रकार",
+        "category": "श्रेणी",
+        "charge": "लेनदेन शुल्क",
+        "status": "स्थिति",
+        "actions": "कार्रवाई",
+        "deleteConfirmTitle": "भुगतान मोड हटाएं?",
+        "deleteConfirmSubtitle": "क्या आप वाकई इस भुगतान मोड को हटाना चाहते हैं? यह क्रिया पूर्ववत नहीं की जा सकती।",
+        "deleteConfirmButton": "हटाएं",
+        "deleteCancelButton": "रद्द करें"
+    },
+    "form": {
+        "title": {
+            "add": "नया भुगतान मोड जोड़ें",
+            "edit": "भुगतान मोड संपादित करें"
+        },
+        "subtitle": {
+            "add": "नए भुगतान मोड विवरण और लेनदेन शुल्क कॉन्फ़िगर करें",
+            "edit": "मौजूदा भुगतान मोड कॉन्फ़िगरेशन अपडेट करें"
+        },
+        "fields": {
+            "code": "मोड कोड",
+            "codePlaceholder": "उदा., CASH, ONLINE",
+            "paymentModeName": "मोड का नाम",
+            "paymentModeNamePlaceholder": "उदा., नकद भुगतान, क्रेडिट कार्ड",
+            "type": "प्रकार",
+            "category": "श्रेणी",
+            "description": "विवरण",
+            "descriptionPlaceholder": "भुगतान मोड विवरण...",
+            "transactionCharge": "लेनदेन शुल्क",
+            "transactionChargePlaceholder": "0.00",
+            "chargeType": "शुल्क प्रकार",
+            "isActive": "सक्रिय है",
+            "statusText": "मोड वर्तमान में {status} है",
+            "paymentTypes": {
+                "online": "ऑनलाइन",
+                "offline": "ऑफ़लाइन",
+                "both": "दोनों"
+            },
+            "categories": {
+                "cash": "नकद",
+                "banktransfer": "बैंक ट्रांसफर",
+                "card": "कार्ड",
+                "digitalwallet": "डिजिटल वॉलेट",
+                "other": "अन्य"
+            },
+            "chargeTypes": {
+                "fixed": "निश्चित",
+                "percentage": "प्रतिशत",
+                "none": "कोई नहीं"
+            }
+        },
+        "mandatory": "<b>*</b> से चिह्नित फ़ील्ड अनिवार्य हैं",
+        "buttons": {
+            "save": "मोड बनाएं",
+            "cancel": "रद्द करें",
+            "update": "मोड अपडेट करें"
+        },
+        "validation": {
+            "codeRequired": "मोड कोड आवश्यक है",
+            "codeMaxLength": "अधिकतम लंबाई 20 अक्षर है",
+            "codeInvalidResult": "केवल अक्षर और संख्या की अनुमति है (कोई विशेष वर्ण नहीं)",
+            "nameRequired": "मोड का नाम आवश्यक है",
+            "nameMaxLength": "अधिकतम लंबाई 50 अक्षर है",
+            "descriptionMaxLength": "अधिकतम लंबाई 200 अक्षर है",
+            "chargeNegative": "लेनदेन शुल्क नकारात्मक नहीं हो सकता",
+            "chargePercentageRange": "प्रतिशत शुल्क 0% और 100% के बीच होना चाहिए",
+            "chargeNoneInvalid": "शुल्क प्रकार 'कोई नहीं' होने पर लेनदेन शुल्क 0 होना चाहिए"
+        }
+    },
+    "toast": {
+        "validationError": "कृपया सत्यापन त्रुटियों को ठीक करें",
+        "saveFailed": "भुगतान मोड सहेजने में विफल",
+        "unexpectedError": "एक अप्रत्याशित त्रुटि हुई",
+        "deleteSuccess": "भुगतान मोड सफलतापूर्वक हटा दिया गया",
+        "createSuccess": "भुगतान मोड सफलतापूर्वक बनाया गया",
+        "updateSuccess": "भुगतान मोड सफलतापूर्वक अपडेट किया गया"
+    },
+    "loading": {
+        "message": "भुगतान मोड लोड हो रहे हैं...",
+        "description": "कृपया प्रतीक्षा करें जब तक हम भुगतान विधियों और गेटवे कॉन्फ़िगरेशन प्राप्त करते हैं।"
+    },
+    "error": {
+        "title": "भुगतान मोड लोड होना विफल रहा",
+        "description": "भुगतान मोड सेटिंग्स प्राप्त करते समय एक त्रुटि हुई। कृपया पुनः प्रयास करें।",
+        "errorId": "त्रुटि आईडी: {id}",
+        "goHome": "होम पर जाएं",
+        "tryAgain": "पुनः प्रयास करें"
+    }
+}

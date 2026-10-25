@@ -1,0 +1,51 @@
+{
+  "floorFactorMaster": {
+    "defaults": {
+      "floor": "मजला",
+      "floors": "मजले",
+      "assessment": "मूल्यांकन"
+    },
+    "title": "{floor} घटक मास्टर",
+    "columns": {
+      "floorCode": "{floor} कोड",
+      "description": "वर्णन",
+      "factorWithLift": "घटक (लिफ्टसह)",
+      "factorWithoutLift": "घटक (लिफ्टशिवाय)",
+      "assessmentYear": "{assessment} वर्ष",
+      "status": "स्थिती",
+      "action": "कृती"
+    },
+    "filters": {
+      "assessmentYear": "{assessment} वर्ष",
+      "fromFloor": "{floor} पासून",
+      "toFloor": "{floor} पर्यंत",
+      "liftStatus": "लिफ्ट स्थिती",
+      "factor": "घटक"
+    },
+    "liftStatusOptions": {
+      "both": "दोन्ही",
+      "withLift": "लिफ्टसह",
+      "withoutLift": "लिफ्टशिवाय"
+    },
+    "placeholders": {
+      "select": "निवडा..."
+    },
+    "messages": {
+      "fromFloorGreaterError": "{floor} पासून, {floor} पर्यंत पेक्षा जास्त असू शकत नाही",
+      "noRecordsFound": "कोणत्याही नोंदी आढळल्या नाहीत",
+      "mandatoryFields": "* ने चिन्हांकित फील्ड अनिवार्य आहेत"
+    },
+    "apiErrors": {
+      "notFound": "फ्लोर वेटेज नोंद सापडली नाही.",
+      "validationError": "अवैध विनंती. कृपया प्रविष्ट केलेली मूल्ये तपासा आणि पुन्हा प्रयत्न करा.",
+      "referredInAutoWardEntry": "हे {floor} वेटेज हटवता येणार नाही कारण ते आधीच कॅपिटल व्हॅल्यू कर गणनेत वापरले जात आहे. कृपया प्रथम संबंधित नोंदी हटवा."
+    },
+    "deleteConfirmation": {
+      "title": "{floor} प्रकार",
+      "description": "तुम्हाला खात्री आहे की तुम्ही ही नोंद हटवू इच्छिता?",
+      "confirmButton": "हटवा",
+      "cancelButton": "रद्द करा",
+      "successMessage": "नोंद यशस्वीरित्या हटवली"
+    }
+  }
+}

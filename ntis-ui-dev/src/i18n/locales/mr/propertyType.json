@@ -1,0 +1,171 @@
+{
+  "propertyType": {
+    "aliasFallback": {
+      "category": "श्रेणी",
+      "typeOfUse": "वापराचा प्रकार",
+      "ward": "प्रभाग",
+      "entity": "मालमत्ता प्रकार"
+    },
+    "list": {
+      "title": "मालमत्ता प्रकार मास्टर",
+      "subtitle": "मालमत्ता प्रकार आणि त्यांचे वर्गीकरण व्यवस्थापित करा",
+      "buttons": {
+        "add": "मालमत्ता प्रकार जोडा",
+        "edit": "संपादन",
+        "delete": "हटवा"
+      },
+      "filters": {
+        "show": "दाखवा",
+        "search": "मालमत्ता वर्णन किंवा प्रकाराने शोधा..."
+      },
+      "table": {
+        "descriptionEnglish": "इंग्रजी वर्णन",
+        "propertyDescription": "प्रादेशिक वर्णन",
+        "type": "प्रकार",
+        "propertyTypeGroup": "मालमत्ता प्रकार गट",
+        "category": "मालमत्ता प्रकार {category}",
+        "searchSequence": "शोध क्रम",
+        "typeOfUseValidation": "{typeOfUse} प्रमाणीकरण",
+        "status": "स्थिती",
+        "actions": "क्रिया"
+      },
+      "status": {
+        "active": "सक्रिय",
+        "inactive": "निष्क्रिय"
+      },
+      "pagination": {
+        "showing": "दाखवत आहे",
+        "entries": "नोंदी"
+      }
+    },
+    "form": {
+      "addTitle": "नवीन मालमत्ता प्रकार जोडा",
+      "editTitle": "मालमत्ता प्रकार संपादित करा",
+      "subtitle": "नवीन मालमत्ता प्रकार तयार करा",
+      "editSubtitle": "मालमत्ता प्रकार तपशील अद्यतन करा",
+      "fields": {
+        "propertyTypeId": {
+          "label": "मालमत्ता प्रकार ID"
+        },
+        "descriptionEnglish": {
+          "label": "इंग्रजी वर्णन",
+          "placeholder": "इंग्रजी वर्णन प्रविष्ट करा"
+        },
+        "propertyDescription": {
+          "label": "प्रादेशिक वर्णन",
+          "placeholder": "प्रादेशिक वर्णन प्रविष्ट करा"
+        },
+        "type": {
+          "label": "प्रकार",
+          "placeholder": "प्रकार निवडा"
+        },
+        "propertyTypeGroup": {
+          "label": "मालमत्ता प्रकार गट",
+          "placeholder": "उदा. बिगर निवासी"
+        },
+        "searchSequence": {
+          "label": "शोध क्रम"
+        },
+        "category": {
+          "label": "मालमत्ता प्रकार {category}",
+          "placeholder": "{category} निवडा"
+        }
+      },
+      "validation": {
+        "descriptionEnglishRequired": "इंग्रजी वर्णन आवश्यक आहे",
+        "descriptionEnglishAllZeros": "इंग्रजी वर्णन सर्व शून्य असू शकत नाही",
+        "englishOnly": "फक्त इंग्रजी भाषेतील अक्षरे अनुज्ञेय आहेत",
+        "propertyDescriptionRequired": "प्रादेशिक वर्णन आवश्यक आहे",
+        "propertyDescriptionMaxLength": "कमाल लांबी 100 वर्ण आहे",
+        "propertyDescriptionFormat": "फक्त अक्षरे (कोणतीही भाषा), संख्या, रिक्त स्थाने आणि मूलभूत विरामचिन्हे परवानगी (,./-()).",
+        "propertyDescriptionExists": "मालमत्ता वर्णन आधीच अस्तित्वात आहे. कृपया वेगळे वर्णन प्रविष्ट करा.",
+        "typeRequired": "प्रकार आवश्यक आहे",
+        "typeMaxLength": "कमाल लांबी 10 वर्ण आहे",
+        "typeFormat": "फक्त अक्षरे आणि संख्या परवानगी आहे",
+        "propertyTypeGroupRequired": "मालमत्ता प्रकार गट आवश्यक आहे",
+        "propertyTypeGroupMaxLength": "कमाल लांबी 100 वर्ण आहे",
+        "sequenceInvalid": "शोध क्रम 0 किंवा त्यापेक्षा जास्त असावा",
+        "categoryRequired": "मालमत्ता प्रकार {category} आवश्यक आहे",
+        "mustBeActive": "सेव्ह करण्यासाठी मालमत्ता प्रकार सक्रिय असणे आवश्यक आहे"
+      },
+      "status": {
+        "label": "सक्रिय स्थिती",
+        "description": "मालमत्ता प्रकार सध्या आहे"
+      },
+      "actions": {
+        "cancel": "रद्द करा",
+        "save": "सेव्ह करा",
+        "update": "अद्यतन करा"
+      },
+      "typeOfUseSection": {
+        "title": "{typeOfUse} असाइनमेंट",
+        "noItems": "{typeOfUse} सापडला नाही.",
+        "selected": "{count} निवडले",
+        "search": "शोधा",
+        "searchPlaceholder": "कोड किंवा वर्णनाने शोधा...",
+        "typeLabel": "{typeOfUse}",
+        "allTypes": "सर्व प्रकार",
+        "selectAll": "सर्व निवडा",
+        "clear": "सर्व काढा",
+        "noMatches": "जुळणारे आयटम सापडले नाहीत.",
+        "hint": "या मालमत्ता प्रकारासाठी लागू असलेले {typeOfUse} कोड निवडा",
+        "saveFailed": "{typeOfUse} प्रमाणीकरण सेव्ह करण्यात अयशस्वी",
+        "saveWarning": "मालमत्ता प्रकार तयार झाला, परंतु {typeOfUse} नियुक्त करता आला नाही. कृपया {typeOfUse} जोडण्यासाठी रेकॉर्ड संपादित करा."
+      }
+    },
+    "modal": {
+      "title": "{typeOfUse} प्रमाणीकरण",
+      "subtitle": "नियुक्त केलेले {typeOfUse} कोड",
+      "propertySubtitle": "नियुक्त: {description}",
+      "close": "बंद करा"
+    },
+    "delete": {
+      "confirmTitle": "मालमत्ता प्रकार ({id}) हटवायचे?",
+      "confirmDescription": "तुम्हाला खात्री आहे की तुम्ही ही मालमत्ता प्रकार नोंद हटवू इच्छिता?",
+      "successMessage": "मालमत्ता प्रकार ({id}) यशस्वीरित्या हटविला",
+      "errorMessage": "मालमत्ता प्रकार ({id}) हटवता येत नाही कारण ते इतर नोंदींशी जोडलेले आहे."
+    },
+    "apiErrors": {
+      "duplicateDescription": "मालमत्ता वर्णन आधीच अस्तित्वात आहे. कृपया वेगळे वर्णन वापरा.",
+      "duplicateRecord": "कृपया मालमत्ता वर्णन तपासा - डुप्लिकेट परवानगी नाही.",
+      "validationError": "अवैध डेटा प्रदान केला. कृपया सर्व फील्ड तपासा.",
+      "invalidData": "अवैध डेटा प्रदान केला. कृपया सर्व फील्ड तपासा.",
+      "notFound": "मालमत्ता प्रकार सापडला नाही.",
+      "inUse": "ही नोंद वापरात असल्याने हटवता येत नाही.",
+      "operationFailed": "ऑपरेशन अयशस्वी. कृपया नंतर पुन्हा प्रयत्न करा.",
+      "referredInAutoWardEntry": "ही नोंद हटवता येत नाही कारण ती ऑटो {ward} एंट्रीमध्ये संदर्भित आहे.",
+      "linkedToProperties": "हा मालमत्ता प्रकार हटवता येत नाही कारण तो {count} मालमत्तांशी जोडलेला आहे.",
+      "cannotDeactivateReferred": "ही नोंद निष्क्रिय करता येणार नाही कारण ती ऑटो {ward} एंट्रीमध्ये संदर्भित आहे.",
+      "linkedRecordError": "ही मालमत्ता प्रकार इतर नोंदींशी जोडलेला असल्याने सुधारणा करता येत नाही."
+    },
+    "success": {
+      "created": "नवीन मालमत्ता प्रकार यशस्वीरित्या तयार: {description}",
+      "updated": "मालमत्ता प्रकार यशस्वीरित्या अद्यतित: {description}",
+      "deleted": "मालमत्ता प्रकार यशस्वीरित्या हटविला: {description}"
+    },
+    "serverValidation": {
+      "invalidPropertyTypeId": "वैध मालमत्ता प्रकार ID आवश्यक आहे",
+      "propertyDescriptionRequired": "मालमत्ता वर्णन आवश्यक आहे",
+      "descriptionEnglishRequired": "इंग्रजी वर्णन आवश्यक आहे",
+      "typeRequired": "प्रकार आवश्यक आहे",
+      "propertyTypeGroupRequired": "मालमत्ता प्रकार गट आवश्यक आहे",
+      "categoryRequired": "मालमत्ता प्रकार {category} आवश्यक आहे",
+      "idRequiredForUpdate": "अद्यतनासाठी मालमत्ता प्रकार ID आवश्यक आहे",
+      "createFailed": "मालमत्ता प्रकार तयार करण्यात अयशस्वी",
+      "updateFailed": "मालमत्ता प्रकार अद्यतन करण्यात अयशस्वी",
+      "deleteFailed": "मालमत्ता प्रकार हटविण्यात अयशस्वी",
+      "purgeDeleteFailed": "मालमत्ता प्रकार कायमचा हटविण्यात अयशस्वी"
+    },
+    "error": {
+      "title": "काहीतरी चुकले",
+      "description": "मालमत्ता प्रकार पृष्ठ लोड करताना आम्हाला त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+      "tryAgain": "पुन्हा प्रयत्न करा",
+      "goHome": "होम वर जा",
+      "errorId": "त्रुटी ID: {id}"
+    },
+    "loading": {
+      "message": "मालमत्ता प्रकार लोड होत आहे...",
+      "description": "कृपया थांबा आम्ही मालमत्ता प्रकार डेटा आणत आहोत"
+    }
+  }
+}

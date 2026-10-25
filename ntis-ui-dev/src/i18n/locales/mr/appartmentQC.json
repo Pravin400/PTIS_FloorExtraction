@@ -1,0 +1,531 @@
+{
+  "columns": {
+    "srNo": "अ. क्र.",
+    "propertyNo": "मालमत्ता क्र.",
+    "oldPropertyNo": "जुना मालमत्ता क्र",
+    "wingName": "विंग",
+    "shopNo": "फ्लॅट क्र/दुकान क्र",
+    "flatNo": "फ्लॅट क्र/दुकान क्र",
+    "ownerName": "मालमत्ता धारकाचे नाव",
+    "occupierName": "भोगवटादाराचे नाव",
+    "shopName": "दुकानाचे नाव",
+    "rent": "भाडे",
+    "renterName": "भाडेकरूचे नाव",
+    "description": "वर्णन",
+    "type": "प्रकार",
+    "records": "नोंदी",
+    "apartmentType": " प्रकार",
+    "floor": "मजला",
+    "assessmentYear": "मूल्यांकन वर्ष",
+    "asstYear": "मू. वर्ष",
+    "constructionYear": "बांधकाम वर्ष",
+    "OldConstructionYear": "जुने बांधकाम वर्ष",
+    "surveyConstructionYear": "बांधकाम वर्ष",
+    "conYear": "बां. वर्ष",
+    "constructionArea": "बांधकाम क्षेत्र",
+    "constructionType": "बांधकाम प्रकार",
+    "conType": "बां. प्रकार",
+    "toiletCount": "शौचालयाची संख्या",
+    "bhk": "BHK",
+    "use": "वापर",
+    "carpetAreaSqFt": "कार्पेट क्षेत्रफळ (चौ. फूट)",
+    "carpetAreaSqMtr": "कार्पेट क्षेत्रफळ (चौ. मीटर)",
+    "carpetASqFt": "कार्पेट ए (चौ. फूट)",
+    "carpetASqMtr": "कार्पेट ए (चौ. मीटर)",
+    "builtupAreaSqFt": "निर्मित क्षेत्रफळ (चौ. फूट)",
+    "builtupAreaSqMtr": "निर्मित क्षेत्रफळ (चौ. मीटर)",
+    "builtupASqFt": "निर्मित ए (चौ. फूट)",
+    "builtupASqMtr": "निर्मित ए (चौ. मीटर)",
+    "carpetAreaSqFtMtr": "कार्पेट ए (चौ. फूट/मी)",
+    "builtupAreaSqFtMtr": "निर्मित ए (चौ. फूट/मी)",
+    "oldConstArea": "बांधकाम क्षेत्रफळ",
+    "oldConA": "जुने बां. क्षेत्र",
+    "oldRV": "जुने आरव्ही",
+    "oldRVCV": "जुने आरव्ही (सीव्ही)",
+    "oldTax": "जुना कर",
+    "newRV": "नवीन आरव्ही",
+    "newTaxRV": "नवीन कर(आरव्ही)",
+    "rv": "आरव्ही",
+    "capitalValue": "भांडवली मूल्य",
+    "totalTaxCV": "एकूण कर(सीव्ही)",
+    "newCV": "नवीन सीव्ही",
+    "newTax": "नवीन कर",
+    "cv": "सीव्ही",
+    "totalTax": "एकूण कर",
+    "tax": "कर",
+    "mobileNo": "मोबाईल क्र",
+    "emailId": "ईमेल आयडी",
+    "ocDate": "ओसी दिनांक",
+    "kyc": "केवायसी"
+  },
+  "taxDetails": {
+    "taxDetailsTab": "कर तपशील ({type})",
+    "arrearsTab": "थकीत",
+    "title": "मालमत्ता कर तपशील सारांश",
+    "subtitle": "मालमत्ता प्रकारानुसार एकत्रित कर तपशील",
+    "propertyType": "मालमत्तेचा प्रकार",
+    "methodLabel": "पद्धत",
+    "total": "एकूण",
+    "columnTotal": "कॉलम एकूण",
+    "noData": "कर तपशील उपलब्ध नाहीत",
+    "loadingDetails": "मागणी तपशील लोड होत आहेत...",
+    "noBreakdown": "तपशील माहिती उपलब्ध नाही",
+    "taxes": "कर",
+    "taxTypes": "करांचे प्रकार",
+    "years": "वर्षे",
+    "method": "पद्धत",
+    "generalTax": "सामान्य कर",
+    "stateEducationTax": "राज्य शिक्षण कर",
+    "stateEmploymentTax": "राज्य रोजगार कर",
+    "treeCess": "वृक्ष कर",
+    "specialWaterCess": "विशेष पाणी कर",
+    "roadCess": "रस्ता कर",
+    "fireCess": "अग्नि कर",
+    "lightCess": "दिवाबत्ती कर",
+    "waterBenefitCess": "पाणी लाभ कर",
+    "sewageDisposalCess": "मलनिस्सारण कर",
+    "specialEducationTax": "विशेष शिक्षण कर",
+    "sanitationCess": "स्वच्छता कर",
+    "drainCess": "सांडपाणी कर",
+    "waterBill": "पाणी बिल",
+    "bigBuilding": "मोठी इमारत",
+    "illegalConstructionPenalty": "अनधिकृत बांधकाम दंड",
+    "illegalConPenalty": "अनधिकृत बां. दंड",
+    "userCharges": "वापरकर्ता शुल्क",
+    "serviceTax": "सेवा कर",
+    "oldPenaltyULB": "यूएलबीचा जुना दंड",
+    "oldPenaltyULBShort": "जुना दंड यूएलबी",
+    "runTimePenalty": "रन टाइम दंड",
+    "totalTax": "एकूण कर",
+    "propertyCount": "मालमत्ता संख्या",
+    "rvPropertyCount": "आरव्ही मालमत्ता संख्या",
+    "cvPropertyCount": "सीव्ही मालमत्ता संख्या"
+  },
+  "apartmentTabs": {
+    "amenitiesTitle": "मालमत्ता कर सुविधा",
+    "commercialTitle": "मालमत्ता कर व्यावसायिक तपशील",
+    "residentialTitle": "मालमत्ता कर निवासी तपशील",
+    "rateable": "करयोग्य मूल्य",
+    "capital": "भांडवली मूल्य",
+    "dual": "दुहेरी पद्धत",
+    "showingData": "{tab} डेटा दाखवत आहे"
+  },
+  "actions": {
+    "startAutoScroll": "ऑटो-स्क्रॉल सुरू करा",
+    "stopAutoScroll": "ऑटो-स्क्रॉल थांबवा",
+    "exportExcel": "एक्सेलमध्ये निर्यात करा"
+  },
+  "export": {
+    "downloading": "एक्सेल फाइल डाउनलोड होत आहे...",
+    "success": "एक्सेल फाइल यशस्वीरित्या डाउनलोड झाली!",
+    "error": "एक्सेल फाइल डाउनलोड करण्यात अयशस्वी",
+    "missingParams": "वॉर्ड ID किंवा मालमत्ता क्रमांक गहाळ आहे"
+  },
+  "filter": {
+    "filterColumn": "कॉलम फिल्टर करा",
+    "filterBy": "फिल्टर करा",
+    "noOptions": "कोणतेही पर्याय उपलब्ध नाहीत",
+    "clearAll": "सर्व साफ करा",
+    "apply": "लागू करा"
+  },
+  "drawer": {
+    "apartmentQCHeading": "अपार्टमेंट QC",
+    "title": "मालमत्ता तपशील",
+    "noPropertyData": "कोणतीही मालमत्ता डेटा सापडला नाही.",
+    "goBack": "मागे जा",
+    "cancel": "रद्द करा",
+    "update": "अद्यतनित करा",
+    "basicInformation": "मूलभूत माहिती",
+    "floorQC": "फ्लोअर QC",
+    "basicProperty": "मूलभूत मालमत्ता",
+    "taxDetails": "कर तपशील",
+    "oldPropertyDetails": "जुने मालमत्ता तपशील",
+    "photoPlan": "फोटो आराखडा",
+    "apartmentQCLoading": "लोड होत आहे...",
+    "roomWiseSubmission": "खोलीनिहाय सादरीकरण",
+    "loadingRoomData": "खोली डेटा लोड होत आहे...",
+    "viewImage": "प्रतिकारन",
+    "propertyPhotos": "संपत्ति फ़ाइल",
+    "loadingPhotos": "प्रतिकारन लोड हो रहा है...",
+    "noPhotos": "प्रतिकारन नहीं",
+    "photoLoadError": "प्रतिकारन लोड करने में अपना लाभ नहीं",
+    "tabs": {
+      "rateable": "करयोग्य मूल्य",
+      "capital": "भांडवली मूल्य"
+    },
+    "units": {
+      "sqM": "चौ. मी",
+      "sqFt": "चौ. फूट"
+    }
+  },
+  "tooltips": {
+    "srNo": "अनुक्रमांक",
+    "propertyNo": "मालमत्ता क्र",
+    "oldPropertyNo": "जुना मालमत्ता क्र",
+    "wing": "विंग",
+    "flatOrShopNo": "फ्लॅट/दुकान क्र",
+    "ownerName": "मालकाचे नाव",
+    "occupierName": "राहणाऱ्याचे नाव",
+    "ocDate": "ओसी दिनांक",
+    "assessmentYear": "मूल्यमापन वर्ष",
+    "constructionYear": "बांधकाम वर्ष",
+    "carpetArea": "कार्पेट क्षेत्र (वर्ग फूट / वर्ग मीटर)",
+    "builtupArea": "बांधकाम क्षेत्र (वर्ग फूट / वर्ग मीटर)",
+    "typeOfUse": "वापराचा प्रकार",
+    "apartmentType": "अपार्टमेंट प्रकार",
+    "oldRV": "जुना आरव्ही",
+    "newRV": "नवीन आरव्ही",
+    "oldConstArea": "बांधकाम क्षेत्रफळ",
+    "totalTax": "एकूण कर",
+    "flatOrShopName": "फ्लॅट/दुकान नाव",
+    "renterName": "भाडेकरूचे नाव",
+    "description": "वर्णन",
+    "constructionType": "बांधकाम प्रकार",
+    "toiletCount": "शौचालय संख्या",
+    "oldconstructionArea": "बांधकाम क्षेत्रफळ",
+    "oldtax": "जुना कर",
+    "newtax": "नवीन कर",
+    "mobileNo": "मोबाईल नंबर",
+    "emailId": "ईमेल आयडी",
+    "bhk": "BHK",
+    "rentMonthly": "मासिक भाडे",
+    "propertyTypeName": "मालमत्तेचा प्रकार",
+    "oldTotalTax": "जुना एकूण कर",
+    "newTotalTax": "नवीन एकूण कर",
+    "newTaxTotalCV": "नवीन कर एकूण (CV)",
+    "newTaxTotalRV": "नवीन कर एकूण (RV)",
+    "totalTaxCV": "एकूण कर (CV)",
+    "rateableValue": "करयोग्य मूल्य",
+    "capitalValue": "भांडवली मूल्य",
+    "cv": "भांडवली मूल्य",
+    "kyc": "तुमच्या ग्राहकाची ओळख",
+    "viewKycDetails": "केवाईसी तपशील पहा",
+    "hideKycDetails": "केवाईसी तपशील लपवा",
+    "expandTable": "टेबल विस्तृत करा",
+    "collapseTable": "टेबल संकुचित करा"
+  },
+  "pageTitle": "मालमत्ता तपशील संपादित करा",
+  "badges": {
+    "ward": "प्रभाग",
+    "zone": "विभाग",
+    "prop": "प्रॉप",
+    "type": "प्रकार"
+  },
+  "buttons": {
+    "back": "मागे",
+    "save": "बदल जतन करा",
+    "saving": "जतन करत आहे..."
+  },
+  "messages": {
+    "propertyIdMissing": "मालमत्ता आयडी गहाळ आहे",
+    "validationErrors": "कृपया जतन करण्यापूर्वी प्रमाणीकरण त्रुटी दुरुस्त करा",
+    "floorQCValidationError": "मजला QC प्रमाणीकरण त्रुटी",
+    "basicDetailsUpdateFailed": "मूलभूत तपशील अद्यतनित करण्यात अयशस्वी",
+    "floorQCUpdateFailed": "मजला QC तपशील अद्यतनित करण्यात अयशस्वी",
+    "allChangesSaved": "सर्व बदल यशस्वीरित्या जतन झाले",
+    "basicDetailsUpdated": "मूलभूत तपशील यशस्वीरित्या अद्यतनित झाले",
+    "roomDataUpdated": "खोली डेटा अद्यतनित - क्षेत्र ताजे केले",
+    "failedToLoadRooms": "विद्यमान खोल्या लोड करण्यात अयशस्वी",
+    "cannotOpenRoomSubmission": "खोली सबमिशन उघडू शकत नाही - कोणताही तपशील आयडी नाही"
+  },
+  "basicInfo": {
+    "title": "मूलभूत माहिती",
+    "fields": {
+      "ownerName": {
+        "label": "मालकाचे नाव",
+        "placeholder": "मालकाचे नाव प्रविष्ट करा"
+      },
+      "occupierName": {
+        "label": "राहणाऱ्याचे नाव",
+        "placeholder": "राहणाऱ्याचे नाव प्रविष्ट करा"
+      },
+      "renterName": {
+        "label": "भाडेकरूचे नाव",
+        "placeholder": "भाडेकरूचे नाव प्रविष्ट करा"
+      },
+      "propertyDescription": {
+        "label": "मालमत्ता वर्णन",
+        "placeholder": "मालमत्ता प्रकार निवडा"
+      },
+      "bhk": {
+        "label": "BHK",
+        "placeholder": "BHK प्रविष्ट करा"
+      },
+      "mobileNo": {
+        "label": "मोबाईल",
+        "placeholder": "मोबाईल नंबर प्रविष्ट करा"
+      },
+      "emailId": {
+        "label": "ईमेल आयडी",
+        "placeholder": "ईमेल प्रविष्ट करा"
+      },
+      "flatOrShopName": {
+        "label": "दुकानाचे नाव",
+        "placeholder": "दुकानाचे नाव प्रविष्ट करा"
+      },
+      "wingName": {
+        "label": "विंग",
+        "placeholder": "विंग प्रविष्ट करा"
+      },
+      "flatOrShopNo": {
+        "label": "फ्लॅट/दुकान क्र.",
+        "placeholder": "फ्लॅट/दुकान क्र. प्रविष्ट करा"
+      },
+      "oldPropertyNo": {
+        "label": "जुना मालमत्ता क्र.",
+        "placeholder": "जुना मालमत्ता क्र. प्रविष्ट करा"
+      },
+      "remark": {
+        "label": "टिप्पणी"
+      },
+      "oldRV": {
+        "label": "जुना करपात्र मूल्य"
+      },
+      "newRV": {
+        "label": "नवीन करपात्र मूल्य"
+      },
+      "oldTax": {
+        "label": "जुना कर"
+      },
+      "newTax": {
+        "label": "नवीन कर"
+      },
+      "oldArea": {
+        "label": "जुने क्षेत्र (चौ. मी.)"
+      },
+      "newArea": {
+        "label": "नवीन क्षेत्र (चौ. मी.)"
+      },
+      "oldUseType": {
+        "label": "जुना उपयोग प्रकार"
+      },
+      "oldConstructionType": {
+        "label": "जुना निर्माण प्रकार"
+      },
+      "oldCSN": {
+        "label": "जुना CSN"
+      },
+      "oldConstructionYear": {
+        "label": "जुना निर्माण वर्ष"
+      }
+    },
+    "validation": {
+      "ownerNameRequired": "मालकाचे नाव आवश्यक आहे",
+      "occupierNameRequired": "राहणाऱ्याचे नाव आवश्यक आहे",
+      "invalidNameFormat": "अवैध नाव स्वरूप",
+      "invalidMobile": "वैध 10-अंकी मोबाईल प्रविष्ट करा",
+      "invalidEmail": "वैध ईमेल प्रविष्ट करा",
+      "flatOrShopNoRequired": "फ्लॅट/दुकान क्र. आवश्यक आहे",
+      "invalidWingFormat": "अवैध विंग स्वरूप",
+      "invalidPropertyNoFormat": "अवैध मालमत्ता क्र. स्वरूप"
+    }
+  },
+  "floorQC": {
+    "title": "मजला QC",
+    "form": {
+      "loading": "लोड होत आहे...",
+      "selectFloor": "मजला निवडा",
+      "selectConType": "प्रकार निवडा",
+      "selectUse": "वापर निवडा",
+      "selectSubType": "उप प्रकार निवडा",
+      "yearPlaceholder": "YYYY",
+      "roomsPlaceholder": "उदा. 2",
+      "auto": "स्वयंचलित",
+      "autoCalculated": "स्वयं-गणना",
+      "sqFt": "चौ. फूट"
+    },
+    "columns": {
+      "floor": "मजला",
+      "conYear": "बांधकाम वर्ष",
+      "asstYear": "मूल्यांकन वर्ष",
+      "conType": "बांधकाम प्रकार",
+      "use": "वापर",
+      "subTypeOfUse": "उप वापर प्रकार",
+      "noOfRooms": "खोल्यांची संख्या",
+      "taxable": "करपात्र",
+      "subFloor": "उप मजला",
+      "renter": "भाडेकरू",
+      "areaSqFt": "क्षेत्रफळ (चौ. फूट)",
+      "areaSqMtr": "क्षेत्रफळ (चौ. मीटर)",
+      "buildupAreaSqFt": "बांधलेले क्षेत्रफळ (चौ. फूट)",
+      "buildupAreaSqMtr": "बांधलेले क्षेत्रफळ (चौ. मीटर)",
+      "area": "क्षेत्र",
+      "rentMY": "भाडे म/व",
+      "rateMY": "दर म/व",
+      "rentalValue": "भाडे मूल्य",
+      "depreciation": "घसारा",
+      "alv": "वार्षिक भाडे मूल्य",
+      "mr": "देखभाल",
+      "rv": "करपात्र मूल्य",
+      "sdrr": "SDRR",
+      "baseValue": "आधार मूल्य",
+      "floorFactor": "मजला घटक",
+      "ageFactor": "वय घटक",
+      "ntbFactor": "NTB घटक",
+      "useFactor": "वापर घटक",
+      "capitalValue": "भांडवली मूल्य",
+      "editFloorQC": "मजल्याचे तपशील संपादित करा",
+      "action": "क्रिया"
+    },
+    "toolTipFloorQC": {
+      "tooltips": {
+        "floor": "मजला",
+        "conYear": "बांधकाम वर्ष",
+        "asstYear": "मूल्यांकन वर्ष",
+        "conType": "बांधकाम प्रकार",
+        "use": "वापराचा प्रकार",
+        "subTypeOfUse": "उप-वापर प्रकार",
+        "noOfRooms": "खोल्यांची संख्या",
+        "area": "क्षेत्रफळ",
+        "rentMY": "भाडे मासिक / वार्षिक",
+        "rateMY": "दर मासिक / वार्षिक",
+        "rentalValue": "भाडे मूल्य",
+        "depreciation": "घसारा",
+        "alv": "वार्षिक भाडे मूल्य",
+        "mr": "देखभाल",
+        "rv": "करपात्र मूल्य",
+        "sdrr": "SDRR",
+        "baseValue": "आधार मूल्य",
+        "floorFactor": "मजला गुणांक",
+        "ageFactor": "वय गुणांक",
+        "ntbFactor": "NTB गुणांक",
+        "useFactor": "वापर गुणांक",
+        "capitalValue": "भांडवली मूल्य",
+        "editFloorQC": "मजला QC संपादित करा",
+        "action": "क्रिया"
+      }
+    },
+    "tabs": {
+      "rateable": "दर योग्य",
+      "capital": "भांडवल"
+    },
+    "validation": {
+      "invalidYear": "4-अंकी वर्ष प्रविष्ट करा",
+      "yearOutOfRange": "वर्ष मर्यादेबाहेर",
+      "floorRequired": "मजला आवश्यक आहे",
+      "conYearRequired": "बांधकाम वर्ष आवश्यक आहे",
+      "conYearInvalid": "बांधकाम वर्ष 4-अंकी असणे आवश्यक आहे",
+      "asstYearRequired": "मूल्यांकन वर्ष आवश्यक आहे",
+      "asstYearInvalid": "मूल्यांकन वर्ष 4-अंकी असणे आवश्यक आहे",
+      "conTypeRequired": "बांधकाम प्रकार आवश्यक आहे",
+      "useRequired": "वापर प्रकार आवश्यक आहे"
+    },
+    "tooltips": {
+      "viewRoomDetails": "खोली तपशील पहा/संपादित करा",
+      "noDetailId": "कोणताही तपशील आयडी उपलब्ध नाही",
+      "editFloorQC": "मजला QC संपादित करा"
+    }
+  },
+  "list": {
+    "title": "अपार्टमेंट QC",
+    "tabs": {
+      "residential": "निवासी",
+      "commercial": "व्यावसायिक",
+      "amenities": "सुविधा"
+    },
+    "search": {
+      "placeholder": "मालमत्ता क्र., मालकाचे नाव द्वारे शोधा...",
+      "noResults": "कोणतीही मालमत्ता आढळली नाही"
+    },
+    "table": {
+      "ward": "प्रभाग",
+      "zone": "विभाग",
+      "propertyNo": "मालमत्ता क्र.",
+      "flatShopNo": "फ्लॅट/दुकान क्र.",
+      "ownerName": "मालकाचे नाव",
+      "occupierName": "राहणाऱ्याचे नाव",
+      "type": "प्रकार",
+      "oldArea": "जुने क्षेत्र",
+      "newArea": "नवीन क्षेत्र",
+      "oldRV": "जुना RV",
+      "newRV": "नवीन RV",
+      "actions": "क्रिया"
+    },
+    "actions": {
+      "edit": "संपादित करा",
+      "view": "पहा"
+    }
+  },
+  "header": {
+    "propertyNo": "मालमत्ता क्र.:",
+    "upicId": "युपीआयसी आयडी:",
+    "copyUpic": "युपीआयसी कॉपी करा",
+    "societyName": "सोसायटीचे नाव:",
+    "editSociety": "सोसायटी संपादित करा",
+    "hideSection": "विभाग लपवा",
+    "reopenSection": "विभाग पुन्हा उघडा",
+    "hideMiddleSection": "मधला विभाग लपवा",
+    "showMiddleSection": "मधला विभाग दाखवा",
+    "hideManagementDetails": "व्यवस्थापन तपशील लपवा",
+    "showManagementDetails": "व्यवस्थापन तपशील दाखवा",
+    "hideManagement": "व्यवस्थापन लपवा",
+    "showManagement": "व्यवस्थापन दाखवा"
+  },
+  "actions": {
+    "hide": "लपवा",
+    "show": "दाखवा"
+  },
+  "grid": {
+    "generalInfo": "स्थान आणि माहिती",
+    "management": "व्यवस्थापन",
+    "managementDetails": "व्यवस्थापन तपशील",
+    "metrics": "पत्ता आणि क्षेत्र",
+    "division": "विभाग:",
+    "wardNo": "प्रभाग क्र.:",
+    "category": "वर्गवारी:",
+    "taxZoneAndName": "कर क्षेत्र आणि नाव:",
+    "subZoneCsn": "उप क्षेत्र आणि सीएसएन:",
+    "plotNo": "प्लॉट क्र.:",
+    "landOwnerName": "जमीन मालकाचे नाव:",
+    "builderName": "बिल्डरचे नाव:",
+    "managerNameEnglish": "व्यवस्थापकाचे नाव:",
+    "societyEmail": "सोसायटी ईमेल:",
+    "secretaryName": "सचिवांचे नाव:",
+    "secretaryMobile": "सचिवांचा मोबाईल:",
+    "secretaryEmail": "सचिवांचा ईमेल:",
+    "address": "पत्ता:",
+    "plotArea": "प्लॉट क्षेत्रफळ:",
+    "carpetBuiltUp": "कार्पेट / निर्मित क्षेत्रफळ:",
+    "oldCarpetBuiltUp": "जुने कार्पेट / निर्मित:",
+    "totalWings": "एकूण विंग:",
+    "totalFloors": "एकूण मजले:",
+    "totalUnits": "एकूण युनिट्स:",
+    "totalProperties": "एकूण युनिट्स:",
+    "res": "निवासी:-",
+    "comm": "व्यावसायिक:-",
+    "amen": "सुविधा:-",
+    "residential": "निवासी",
+    "commercial": "व्यावसायिक",
+    "amenity": "सुविधा",
+    "resCommAmen": "(निवासी/अनिवासी/सुविधा)",
+    "carpet": "कार्पेट:",
+    "builtUp": "निर्मित:",
+    "oldCarpet": "जुने कार्पेट:",
+    "oldBuiltUp": "जुने निर्मित:",
+    "carpetArea": "कार्पेट क्षेत्रफळ:",
+    "builtUpArea": "निर्मित क्षेत्रफळ:",
+    "current": "चालू:",
+    "old": "जुने:"
+  },
+  "revenueCard": {
+    "addRevenue": "अतिरिक्त महसूल",
+    "desc": "तपशील:",
+    "oldCurrentTax": "जुना चालू कर"
+  },
+  "stats": {
+    "oldCurrentTax": "जुना चालू कर",
+    "currentTax": "चालू कर",
+    "retroTax": "मागील कर",
+    "retroTaxTooltip": "मागील कर (थकबाकी)",
+    "totalTax": "एकूण कर",
+    "totalDemand": "एकूण मागणी",
+    "current": "चालू",
+    "pending": "प्रलंबित",
+    "demandDetails": "मागणी तपशील",
+    "total": "एकूण",
+    "currentDemand": "चालू मागणी",
+    "pendingDemand": "प्रलंबित मागणी",
+    "collection": "वसूली",
+    "totalBalance": "एकूण शिल्लक"
+  }
+}

@@ -1,0 +1,121 @@
+{
+    "title": "Payment Mode Master",
+    "subtitle": "Manage payment methods, transaction settings, and gateway configurations",
+    "addLabel": "Add Payment Mode",
+    "searchPlaceholder": "Search payment modes...",
+    "stats": {
+        "totalModes": "Total Modes",
+        "online": "Online Modes",
+        "offline": "Offline Modes",
+        "both": "Both Modes",
+        "active": "Active Modes"
+    },
+    "pagination": {
+        "showing": "Showing",
+        "to": "to",
+        "of": "of",
+        "entries": "entries",
+        "show": "Show"
+    },
+    "status": {
+        "active": "Active",
+        "inactive": "Inactive"
+    },
+    "actions": "Actions",
+    "actionsTooltip": {
+        "edit": "Edit Payment Mode",
+        "delete": "Delete Payment Mode"
+    },
+    "noDataFound": "No payment modes found",
+    "table": {
+        "code": "Code",
+        "name": "Payment Mode",
+        "type": "Type",
+        "category": "Category",
+        "charge": "Transaction Charge",
+        "status": "Status",
+        "actions": "Actions",
+        "deleteConfirmTitle": "Delete Payment Mode?",
+        "deleteConfirmSubtitle": "Are you sure you want to delete this payment mode? This action cannot be undone.",
+        "deleteConfirmButton": "Delete",
+        "deleteCancelButton": "Cancel"
+    },
+    "form": {
+        "title": {
+            "add": "Add New Payment Mode",
+            "edit": "Edit Payment Mode"
+        },
+        "subtitle": {
+            "add": "Configure new payment mode details and transaction charges",
+            "edit": "Update existing payment mode configuration"
+        },
+        "fields": {
+            "code": "Mode Code",
+            "codePlaceholder": "e.g. CASH, ONLINE",
+            "paymentModeName": "Mode Name",
+            "paymentModeNamePlaceholder": "e.g. Cash Payment, Credit Card",
+            "type": "Type",
+            "category": "Category",
+            "description": "Description",
+            "descriptionPlaceholder": "Payment mode description...",
+            "transactionCharge": "Transaction Charge",
+            "transactionChargePlaceholder": "0.00",
+            "chargeType": "Charge Type",
+            "isActive": "Active",
+            "statusText": "Mode is currently {status}",
+            "paymentTypes": {
+                "online": "Online",
+                "offline": "Offline",
+                "both": "Both"
+            },
+            "categories": {
+                "cash": "Cash",
+                "banktransfer": "Bank Transfer",
+                "card": "Card",
+                "digitalwallet": "Digital Wallet",
+                "other": "Other"
+            },
+            "chargeTypes": {
+                "fixed": "Fixed",
+                "percentage": "Percentage",
+                "none": "None"
+            }
+        },
+        "mandatory": "Fields marked with <b>*</b> are mandatory",
+        "buttons": {
+            "save": "Create Mode",
+            "cancel": "Cancel",
+            "update": "Update Mode"
+        },
+        "validation": {
+            "codeRequired": "Mode code is required",
+            "codeMaxLength": "Maximum length is 20 characters",
+            "codeInvalidResult": "Only letters and numbers allowed (no special characters)",
+            "nameRequired": "Mode name is required",
+            "nameMaxLength": "Maximum length is 50 characters",
+            "descriptionMaxLength": "Maximum length is 200 characters",
+            "chargeNegative": "Transaction charge cannot be negative",
+            "chargePercentageRange": "Percentage charge must be between 0% and 100%",
+            "chargeNoneInvalid": "Transaction charge must be 0 when charge type is None"
+        }
+    },
+    "toast": {
+        "validationError": "Please fix validation errors",
+        "saveFailed": "Failed to save payment mode",
+        "unexpectedError": "An unexpected error occurred",
+        "deleteSuccess": "Payment mode deleted successfully",
+        "createSuccess": "Payment mode created successfully",
+        "updateSuccess": "Payment mode updated successfully"
+    },
+    "loading": {
+        "message": "Loading Payment Modes...",
+        "description": "Please wait while we fetch the payment methods and gateway configurations."
+    },
+    "error": {
+        "title": "Payment Modes Load Failed",
+        "description": "An error occurred while retrieving payment mode settings. Please try again.",
+        "errorId": "Error ID: {id}",
+        "goHome": "Go Home",
+        "tryAgain": "Try Again"
+    }
+}

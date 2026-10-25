@@ -1,0 +1,100 @@
+{
+  "days": "{count} दिन",
+  "title": "वित्तीय वर्ष मास्टर",
+  "subtitle": "वित्तीय वर्ष की अवधि और स्थिति प्रबंधित और कॉन्फ़िगर करें",
+  "stats": {
+    "totalYears": "कुल वर्ष",
+    "active": "सक्रिय",
+    "draft": "ड्राफ्ट",
+    "closed": "बंद"
+  },
+  "table": {
+    "searchPlaceholder": "वित्तीय वर्ष खोजें...",
+    "addButton": "वित्तीय वर्ष जोड़ें",
+    "filterByStatus": "स्थिति के अनुसार फ़िल्टर करें",
+    "allStatuses": "सभी स्थितियाँ",
+    "clearFilters": "फ़िल्टर हटाएं",
+    "columns": {
+      "code": "कोड",
+      "financialYear": "वित्तीय वर्ष",
+      "period": "अवधि",
+      "duration": "अवधि (दिन)",
+      "current": "वर्तमान",
+      "status": "स्थिति",
+      "actions": "कार्य"
+    },
+    "actions": {
+      "setCurrent": "वर्तमान सेट करें",
+      "close": "बंद करें"
+    },
+    "messages": {
+      "confirmDelete": "क्या आप वाकई इस वित्तीय वर्ष को हटाना चाहते हैं?",
+      "confirmDeleteTitle": "वित्तीय वर्ष हटाएं",
+      "confirmClose": "क्या आप वाकई इस वित्तीय वर्ष को बंद करना चाहते हैं? इस कार्य को पूर्ववत नहीं किया जा सकता।",
+      "confirmCloseTitle": "वित्तीय वर्ष बंद करें",
+      "deleteSuccess": "वित्तीय वर्ष हटा दिया गया",
+      "setCurrentSuccess": "वर्तमान वित्तीय वर्ष अपडेट किया गया",
+      "closeSuccess": "वित्तीय वर्ष बंद कर दिया गया",
+      "cannotDeleteCurrent": "वर्तमान वित्तीय वर्ष को हटाया नहीं जा सकता"
+    }
+  },
+  "form": {
+    "addTitle": "नया वित्तीय वर्ष जोड़ें",
+    "editTitle": "वित्तीय वर्ष संपादित करें",
+    "description": "वित्तीय वर्ष की अवधि और सेटिंग्स कॉन्फ़िगर करें",
+    "fields": {
+      "yearCode": "वर्ष कोड",
+      "yearCodePlaceholder": "जैसे FY2024-25",
+      "status": "स्थिति",
+      "year": "वर्ष (संख्या)",
+      "yearPlaceholder": "जैसे 2024",
+      "periodDetails": "अवधि विवरण",
+      "startDate": "प्रारंभ तिथि",
+      "endDate": "समाप्ति तिथि",
+      "duration": "अवधि",
+      "description": "विवरण",
+      "descriptionPlaceholder": "संक्षिप्त विवरण",
+      "markAsCurrent": "वर्तमान वित्तीय वर्ष के रूप में चिह्नित करें"
+    },
+    "buttons": {
+      "cancel": "रद्द करें",
+      "create": "वर्ष बनाएं",
+      "update": "वर्ष अपडेट करें"
+    },
+    "validation": {
+      "codeRequired": "वर्ष कोड आवश्यक है",
+      "codeMaxLength": "वर्ष कोड अधिकतम {count} अक्षरों का होना चाहिए",
+      "codeFormat": "वर्ष कोड में अमान्य अक्षर हैं",
+      "statusRequired": "स्थिति आवश्यक है",
+      "yearRequired": "वर्ष आवश्यक है",
+      "yearInvalid": "वर्ष 1900 से 2100 के बीच होना चाहिए",
+      "startDateRequired": "प्रारंभ तिथि आवश्यक है",
+      "endDateRequired": "समाप्ति तिथि आवश्यक है",
+      "endDateMustBeAfterStartDate": "समाप्ति तिथि प्रारंभ तिथि के बाद की होनी चाहिए",
+      "startDateRange": "प्रारंभ तिथि वित्तीय वर्ष (1 अप्रैल से 31 मार्च) के भीतर होनी चाहिए",
+      "endDateRange": "समाप्ति तिथि वित्तीय वर्ष (1 अप्रैल से 31 मार्च) के भीतर होनी चाहिए",
+      "descriptionMaxLength": "विवरण अधिकतम {count} अक्षरों का होना चाहिए",
+      "descriptionFormat": "विवरण में अमान्य अक्षर नहीं हो सकते",
+      "yearMinValue": "वर्ष 1900 या उसके बाद का होना चाहिए",
+      "yearMaxValue": "वर्ष 2100 या उससे पहले का होना चाहिए",
+      "yearMustBePositive": "वर्ष एक सकारात्मक संख्या होनी चाहिए",
+      "codeAllZeros": "वर्ष कोड सभी शून्य नहीं हो सकता",
+      "statusInvalid": "स्थिति ड्राफ्ट, सक्रिय या बंद होनी चाहिए",
+      "backendError": "एक त्रुटि हुई। कृपया पुन: प्रयास करें।",
+      "codeDuplicate": "वित्तीय वर्ष कोड पहले से मौजूद है",
+      "yearDuplicate": "वित्तीय वर्ष पहले से मौजूद है"
+    },
+    "confirmStatusUpdate": {
+      "title": "स्थिति अपडेट की पुष्टि करें",
+      "description": "क्या आप वाकई स्थिति को {status} में बदलना चाहते हैं?",
+      "confirmText": "हाँ, अपडेट करें",
+      "cancelText": "रद्द करें"
+    },
+    "messages": {
+      "createSuccess": "वित्तीय वर्ष बनाया गया",
+      "updateSuccess": "वित्तीय वर्ष अपडेट किया गया"
+    }
+  }
+}
+
+

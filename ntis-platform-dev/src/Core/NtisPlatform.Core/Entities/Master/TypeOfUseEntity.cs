@@ -1,0 +1,39 @@
+using NtisPlatform.Core.Entities.Master;
+
+namespace NtisPlatform.Core.Entities;
+
+public class TypeOfUseEntity : BaseEntity
+{
+     public string? TypeOfUseCode { get; set; }
+     public string? Description { get; set; }
+     public string? Type { get; set; }
+     public int TypeOfUseGroupId { get; set; }
+     public int TypeOfUseGroupCVId { get; set; }
+
+     public int? SearchSequence { get; set; }
+     public int? TypeOfUseCategoryId { get; set; }
+
+     /// <summary>
+     /// When false (DB value 0), details with this TypeOfUse are excluded from the
+     /// Education tax calculation (tax base and EDU rows) in the RV calculation. Defaults to true.
+     /// </summary>
+     public bool StateEduTaxApplicable { get; set; } = true;
+
+     /// <summary>
+     /// When false (DB value 0), details with this TypeOfUse are excluded from the
+     /// Employment tax calculation (tax base and EMP rows) in the RV calculation. Defaults to true.
+     /// </summary>
+     public bool StateEmpTaxApplicable { get; set; } = true;
+     public virtual TypeOfUseGroupEntity? TypeOfUseGroup { get; set; }
+     public virtual TypeOfUseGroupCVEntity? TypeOfUseGroupCV { get; set; }
+     public virtual TypeOfUseCategoryEntity? TypeOfUseCategory { get; set; }
+
+    public ICollection<PropertyDetailsEntity> PropertyDetails { get; set; } = new List<PropertyDetailsEntity>();
+    public ICollection<UseFactorCVMasterEntity> UseFactorCVMaster { get; set; } = new List<UseFactorCVMasterEntity>();
+    public ICollection<ParkingTypeMasterEntity> ParkingTypeMaster { get; set; } = new List<ParkingTypeMasterEntity>();
+    public ICollection<TaxPercentageMasterCVEntity> TaxPercentageMasterCV { get; set; } = new List<TaxPercentageMasterCVEntity>();
+    public ICollection<PropertyDescriptionAndTypeOfUseValidationEntity> PropertyDescriptionAndTypeOfUseValidation { get; set; } = new List<PropertyDescriptionAndTypeOfUseValidationEntity>();
+    public ICollection<SubTypeOfUseEntity> SubTypeOfUse { get; set; } = new List<SubTypeOfUseEntity>();
+    public ICollection<TaxPercentageMasterRVEntity> TaxPercentageMasterRV { get; set; } = new List<TaxPercentageMasterRVEntity>();
+}
+

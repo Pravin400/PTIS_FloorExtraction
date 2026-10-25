@@ -1,0 +1,99 @@
+{
+  "title": "शैक्षणिक पात्रता मास्टर",
+  "subtitle": "मान्यताप्राप्त शैक्षणिक, तांत्रिक आणि व्यावसायिक पात्रता कॉन्फिगर करा",
+  "list": {
+    "title": "शैक्षणिक पात्रता मास्टर",
+    "subtitle": "मान्यताप्राप्त शैक्षणिक, तांत्रिक आणि व्यावसायिक पात्रता कॉन्फिगर करा",
+    "buttons": {
+      "add": "पात्रता जोडा",
+      "edit": "संपादित करा",
+      "delete": "हटवा",
+      "editTitle": "पात्रता संपादित करा",
+      "deleteTitle": "पात्रता हटवा"
+    },
+    "filters": {
+      "show": "दाखवा",
+      "searchPlaceholder": "पात्रता शोधा...",
+      "allStatus": "सर्व स्थिती",
+      "status": "स्थिती निवडा"
+    },
+    "table": {
+      "qualificationCode": "पात्रता कोड",
+      "qualificationName": "पात्रतेचे नाव",
+      "qualificationNameLocal": "पात्रतेचे नाव (प्रादेशिक)",
+      "qualificationDescription": "वर्णन",
+      "status": "स्थिती",
+      "actions": "कृती"
+    }
+  },
+  "form": {
+    "title": {
+      "add": "नवीन पात्रता जोडा",
+      "edit": "पात्रता संपादित करा"
+    },
+    "subtitle": {
+      "add": "नवीन पात्रता मानक नोंद तयार करा",
+      "edit": "पात्रता तपशील आणि आवश्यकता अपडेट करा"
+    },
+    "mandatoryFields": "* चिन्हांकित फील्ड अनिवार्य आहेत",
+    "fields": {
+      "qualificationCode": "पात्रता कोड",
+      "qualificationCodePlaceholder": "उदा. BCOM, BE, SSC",
+      "qualificationName": "पात्रतेचे नाव",
+      "qualificationNamePlaceholder": "उदा. Bachelor of Commerce (B.Com.)",
+      "qualificationNameLocal": "पात्रतेचे नाव (प्रादेशिक)",
+      "qualificationNameLocalPlaceholder": "उदा. वाणिज्य पदवी (बी.कॉम.)",
+      "qualificationDescription": "वर्णन",
+      "qualificationDescriptionPlaceholder": "पात्रतेच्या व्याप्ती, शैक्षणिक पातळी आणि आवश्यकतांचे संक्षिप्त वर्णन...",
+      "status": "स्थिती",
+      "isActive": "सक्रिय आहे",
+      "statusText": "पात्रता सध्या {status} आहे"
+    },
+    "buttons": {
+      "add": "पात्रता जोडा",
+      "save": "पात्रता तयार करा",
+      "cancel": "रद्द करा",
+      "update": "पात्रता अपडेट करा"
+    },
+    "validation": {
+      "qualificationCodeRequired": "पात्रता कोड आवश्यक आहे",
+      "qualificationCodeMaxLength": "पात्रता कोड ३० अक्षरांपेक्षा जास्त नसावा",
+      "qualificationCodeFormat": "कोडमध्ये फक्त अक्षरे, अंक, अंडरस्कोर आणि हायफन असावेत",
+      "qualificationNameRequired": "पात्रतेचे नाव आवश्यक आहे",
+      "qualificationNameMinLength": "पात्रतेचे नाव किमान २ अक्षरांचे असावे",
+      "qualificationNameMaxLength": "पात्रतेचे नाव १०० अक्षरांपेक्षा जास्त नसावे",
+      "qualificationNameFormat": "पात्रतेच्या नावात फक्त अक्षरे, संख्या, जागा आणि वैध चिन्हे (. , - / & () +) असावीत",
+      "qualificationNameMarathiRequired": "पात्रतेचे नाव (प्रादेशिक) आवश्यक आहे",
+      "qualificationNameMarathiMinLength": "पात्रतेचे नाव (प्रादेशिक) किमान २ अक्षरांचे असावे",
+      "qualificationNameMarathiMaxLength": "पात्रतेचे नाव (प्रादेशिक) १५० अक्षरांपेक्षा जास्त नसावे",
+      "qualificationNameMarathiFormat": "पात्रतेच्या प्रादेशिक नावात फक्त अक्षरे, जागा आणि वैध चिन्हे (. - / & ()) असावीत",
+      "descriptionMaxLength": "वर्णन २५० अक्षरांपेक्षा जास्त नसावे",
+      "codeUnique": "हा पात्रता कोड आधीपासून अस्तित्वात आहे. कोड अद्वितीय असणे आवश्यक आहे.",
+      "qualificationNameRegionalRequired": "पात्रतेचे नाव (प्रादेशिक) आवश्यक आहे",
+      "qualificationNameRegionalMinLength": "पात्रतेचे नाव (प्रादेशिक) किमान २ अक्षरांचे असावे",
+      "qualificationNameRegionalMaxLength": "पात्रतेचे नाव (प्रादेशिक) १५० अक्षरांपेक्षा जास्त नसावे",
+      "qualificationNameRegionalFormat": "पात्रतेच्या प्रादेशिक नावात फक्त अक्षरे, संख्या, जागा आणि वैध चिन्हे (. , - / & () +) असावीत"
+    }
+  },
+  "delete": {
+    "confirmTitle": "पात्रता हटवा",
+    "confirmDescription": "आपण नक्की \"{name}\" हटवू इच्छिता? ही कृती पूर्ववत केली जाऊ शकत नाही.",
+    "deleteInUse": "\"{name}\" सध्या कर्मचारी नोंदींशी जोडलेली आहे आणि ती हटवता येत नाही.",
+    "success": "\"{name}\" यशस्वीरित्या काढून टाकले."
+  },
+  "stats": {
+    "total": "एकूण पात्रता",
+    "active": "सक्रिय",
+    "inactive": "निष्क्रिय"
+  },
+  "success": {
+    "created": "पात्रता यशस्वीरित्या तयार केली",
+    "updated": "पात्रता यशस्वीरित्या अपडेट केली",
+    "deleted": "पात्रता यशस्वीरित्या काढून टाकली"
+  },
+  "errors": {
+    "createFailed": "पात्रता मास्टर तयार करण्यात अयशस्वी",
+    "updateFailed": "पात्रता मास्टर अपडेट करण्यात अयशस्वी",
+    "deleteFailed": "पात्रता मास्टर हटवण्यात अयशस्वी"
+  }
+}

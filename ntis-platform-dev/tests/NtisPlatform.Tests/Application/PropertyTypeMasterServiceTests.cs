@@ -1,0 +1,433 @@
+using AutoMapper;
+using MockQueryable;
+using Moq;
+using NtisPlatform.Application.DTOs.Master.PropertyTypeMaster;
+using NtisPlatform.Application.Exceptions;
+using NtisPlatform.Application.Interfaces;
+using NtisPlatform.Application.Services;
+using NtisPlatform.Core.Entities;
+using NtisPlatform.Core.Entities.Master;
+using NtisPlatform.Core.Interfaces;
+
+namespace NtisPlatform.Tests.Application;
+
+public class PropertyTypeMasterServiceTests
+{
+    private readonly Mock<IRepository<PropertyTypeMasterEntity, int>> _mockRepository;
+    private readonly Mock<IReferenceValidationService> _mockReferenceValidator;
+    private readonly Mock<IUnitOfWork> _mockUnitOfWork;
+    private readonly Mock<IMapper> _mockMapper;
+    private readonly Mock<IHardDeleteCleanupService> _mockHardDeleteCleanupService;
+    private readonly Mock<IRepository<PropertyEntity, int>> _mockPropertyRepository;
+    private readonly PropertyTypeMasterService _service;
+
+    public PropertyTypeMasterServiceTests()
+    {
+        _mockRepository = new Mock<IRepository<PropertyTypeMasterEntity, int>>();
+        _mockReferenceValidator = new Mock<IReferenceValidationService>();
+        _mockUnitOfWork = new Mock<IUnitOfWork>();
+        _mockMapper = new Mock<IMapper>();
+        _mockHardDeleteCleanupService = new Mock<IHardDeleteCleanupService>();
+        _mockPropertyRepository = new Mock<IRepository<PropertyEntity, int>>();
+
+        _mockUnitOfWork
+            .Setup(u => u.SaveChangesAsync(It.IsAny<CancellationToken>()))
+            .ReturnsAsync(1);
+
+        _mockUnitOfWork
+            .Setup(u => u.BeginTransactionAsync(It.IsAny<CancellationToken>()))
+            .Returns(Task.CompletedTask);
+
+        _mockUnitOfWork
+            .Setup(u => u.CommitTransactionAsync(It.IsAny<CancellationToken>()))
+            .Returns(Task.CompletedTask);
+
+        _service = new PropertyTypeMasterService(
+            _mockRepository.Object,
+            _mockUnitOfWork.Object,
+            _mockMapper.Object,
+            _mockReferenceValidator.Object,
+            _mockHardDeleteCleanupService.Object,
+            _mockPropertyRepository.Object);
+    }
+
+    [Fact]
+    public async Task GetByIdAsync_ExistingId_ReturnsDto()
+    {
+        // Arrange
+        var entity = new PropertyTypeMasterEntity
+        {
+            Id = 1,
+            PropertyDescription = "Residential",
+            PropertyDescriptionEnglish = "Residential Building",
+            Type = "R",
+            SearchSequence = 1,
+            PropertyTypeCategoryId = 1,
+            IsActive = true,
+            CreatedDate = DateTime.Now
+        };
+
+        _mockRepository.Setup(r => r.GetByIdAsync(1, It.IsAny<CancellationToken>()))
+            .ReturnsAsync(entity);
+
+        _mockMapper.Setup(m => m.Map<PropertyTypeMasterDto>(It.IsAny<PropertyTypeMasterEntity>()))
+            .Returns(new PropertyTypeMasterDto
+            {
+                Id = 1,
+                PropertyDescription = "Residential",
+                PropertyDescriptionEnglish = "Residential Building",
+                Type = "R",
+                SearchSequence = 1,
+                PropertyTypeCategoryId = 1,
+                IsActive = true
+            });
+
+        // Act
+        var result = await _service.GetByIdAsync(1);
+
+        // Assert
+        Assert.NotNull(result);
+        Assert.Equal(1, result.Id);
+        Assert.Equal("Residential", result.PropertyDescription);
+        Assert.Equal("Residential Building", result.PropertyDescriptionEnglish);
+        Assert.Equal("R", result.Type);
+        Assert.Equal(1, result.SearchSequence);
+        Assert.Equal(1, result.PropertyTypeCategoryId);
+        Assert.True(result.IsActive);
+    }
+
+    [Fact]
+    public async Task GetByIdAsync_NonExistingId_ReturnsNull()
+    {
+        // Arrange
+        _mockRepository.Setup(r => r.GetByIdAsync(9999, It.IsAny<CancellationToken>()))
+            .ReturnsAsync((PropertyTypeMasterEntity?)null);
+
+        // Act
+        var result = await _service.GetByIdAsync(9999);
+
+        // Assert
+        Assert.Null(result);
+    }
+
+    [Fact]
+    public async Task GetAllAsync_ReturnsAllEntities()
+    {
+        // Arrange
+        var entities = new List<PropertyTypeMasterEntity>
+        {
+            new() { Id = 1, PropertyDescription = "Type1", PropertyDescriptionEnglish = "Type1 English", Type = "T1", IsActive = true },
+            new() { Id = 2, PropertyDescription = "Type2", PropertyDescriptionEnglish = "Type2 English", Type = "T2", IsActive = true }
+        };
+
+        var mockQuery = entities.BuildMock();
+        _mockRepository.Setup(r => r.GetQueryable()).Returns(mockQuery);
+
+        var mapperConfig = new MapperConfiguration(cfg =>
+        {
+            cfg.CreateMap<PropertyTypeMasterEntity, PropertyTypeMasterDto>();
+        }, Microsoft.Extensions.Logging.Abstractions.NullLoggerFactory.Instance);
+
+        mapperConfig.AssertConfigurationIsValid();
+        IMapper mapper = mapperConfig.CreateMapper();
+
+        var service = new PropertyTypeMasterService(
+            _mockRepository.Object,
+            _mockUnitOfWork.Object,
+            mapper,
+            _mockReferenceValidator.Object,
+            _mockHardDeleteCleanupService.Object,
+            _mockPropertyRepository.Object);
+
+        var qp = new PropertyTypeMasterQueryParameters
+        {
+            PageNumber = 1,
+            PageSize = 10,
+            FilterLogic = NtisPlatform.Application.Enums.FilterLogic.And,
+            SearchTerm = null!,
+            SortBy = null!
+        };
+
+        // Act
+        var result = await service.GetAllAsync(qp, CancellationToken.None);
+
+        // Assert
+        Assert.NotNull(result);
+        Assert.Equal(2, result.TotalCount);
+
+        var items = result.Items.ToList();
+        Assert.Equal(2, items.Count);
+        Assert.Contains(items, x => x.PropertyDescription == "Type1" && x.PropertyDescriptionEnglish == "Type1 English");
+        Assert.Contains(items, x => x.PropertyDescription == "Type2" && x.PropertyDescriptionEnglish == "Type2 English");
+    }
+
+    [Fact]
+    public async Task CreateAsync_ValidDto_ReturnsCreatedDto()
+    {
+        // Arrange
+        var createDto = new CreatePropertyTypeMasterDto
+        {
+            PropertyDescription = "New Type",
+            PropertyDescriptionEnglish = "New Type English",
+            Type = "N",
+            SearchSequence = 3,
+            PropertyTypeCategoryId = 2,
+            IsActive = true
+        };
+
+        _mockMapper
+            .Setup(m => m.Map<PropertyTypeMasterEntity>(It.IsAny<CreatePropertyTypeMasterDto>()))
+            .Returns((CreatePropertyTypeMasterDto dto) => new PropertyTypeMasterEntity
+            {
+                PropertyDescription = dto.PropertyDescription,
+                PropertyDescriptionEnglish = dto.PropertyDescriptionEnglish,
+                Type = dto.Type,
+                SearchSequence = dto.SearchSequence,
+                PropertyTypeCategoryId = dto.PropertyTypeCategoryId,
+                CreatedBy = dto.CreatedBy,
+                CreatedDate = DateTime.Now,
+                IsActive = true
+            });
+
+        _mockRepository
+            .Setup(r => r.AddAsync(It.IsAny<PropertyTypeMasterEntity>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync((PropertyTypeMasterEntity e, CancellationToken _) => e);
+
+        _mockMapper
+            .Setup(m => m.Map<PropertyTypeMasterDto>(It.IsAny<PropertyTypeMasterEntity>()))
+            .Returns((PropertyTypeMasterEntity e) => new PropertyTypeMasterDto
+            {
+                PropertyDescription = e.PropertyDescription,
+                PropertyDescriptionEnglish = e.PropertyDescriptionEnglish,
+                Type = e.Type,
+                SearchSequence = e.SearchSequence,
+                PropertyTypeCategoryId = e.PropertyTypeCategoryId,
+                IsActive = true
+            });
+
+        // Act
+        var result = await _service.CreateAsync(createDto, CancellationToken.None);
+
+        // Assert
+        Assert.NotNull(result);
+        Assert.Equal("New Type", result.PropertyDescription);
+        Assert.Equal("New Type English", result.PropertyDescriptionEnglish);
+        Assert.Equal("N", result.Type);
+        Assert.Equal(3, result.SearchSequence);
+        Assert.Equal(2, result.PropertyTypeCategoryId);
+        Assert.True(result.IsActive);
+
+        _mockRepository.Verify(r => r.AddAsync(It.IsAny<PropertyTypeMasterEntity>(), It.IsAny<CancellationToken>()), Times.Once);
+        _mockUnitOfWork.Verify(u => u.SaveChangesAsync(It.IsAny<CancellationToken>()), Times.Once);
+        _mockUnitOfWork.Verify(u => u.BeginTransactionAsync(It.IsAny<CancellationToken>()), Times.Never);
+        _mockUnitOfWork.Verify(u => u.CommitTransactionAsync(It.IsAny<CancellationToken>()), Times.Never);
+    }
+
+    [Fact]
+    public async Task UpdateAsync_ExistingEntity_UpdatesSuccessfully()
+    {
+        // Arrange
+        var updateDto = new UpdatePropertyTypeMasterDto
+        {
+            PropertyDescription = "Updated Description",
+            PropertyDescriptionEnglish = "Updated Description English",
+            Type = "U",
+            SearchSequence = 5,
+            PropertyTypeCategoryId = 3,
+            IsActive = true
+        };
+
+        var existingEntity = new PropertyTypeMasterEntity
+        {
+            Id = 1,
+            PropertyDescription = "Old Description",
+            PropertyDescriptionEnglish = "Old Description English",
+            Type = "O",
+            SearchSequence = 1,
+            PropertyTypeCategoryId = 1,
+            IsActive = true
+        };
+
+        _mockRepository
+            .Setup(r => r.GetByIdAsync(1, It.IsAny<CancellationToken>()))
+            .ReturnsAsync(existingEntity);
+
+        _mockRepository
+            .Setup(r => r.UpdateAsync(It.IsAny<PropertyTypeMasterEntity>(), It.IsAny<CancellationToken>()))
+            .Returns(Task.CompletedTask);
+
+        _mockMapper
+            .Setup(m => m.Map(It.IsAny<UpdatePropertyTypeMasterDto>(), It.IsAny<PropertyTypeMasterEntity>()))
+            .Callback((UpdatePropertyTypeMasterDto src, PropertyTypeMasterEntity dest) =>
+            {
+                dest.PropertyDescription = src.PropertyDescription;
+                dest.PropertyDescriptionEnglish = src.PropertyDescriptionEnglish;
+                dest.Type = src.Type;
+                dest.SearchSequence = src.SearchSequence;
+                dest.PropertyTypeCategoryId = src.PropertyTypeCategoryId;
+            });
+
+        // Act
+        await _service.UpdateAsync(1, updateDto, CancellationToken.None);
+
+        // Assert
+        _mockRepository.Verify(r => r.GetByIdAsync(1, It.IsAny<CancellationToken>()), Times.Once);
+        _mockRepository.Verify(r => r.UpdateAsync(It.IsAny<PropertyTypeMasterEntity>(), It.IsAny<CancellationToken>()), Times.Once);
+        _mockUnitOfWork.Verify(u => u.SaveChangesAsync(It.IsAny<CancellationToken>()), Times.Once);
+        _mockUnitOfWork.Verify(u => u.BeginTransactionAsync(It.IsAny<CancellationToken>()), Times.Never);
+        _mockUnitOfWork.Verify(u => u.CommitTransactionAsync(It.IsAny<CancellationToken>()), Times.Never);
+
+        Assert.Equal("Updated Description", existingEntity.PropertyDescription);
+        Assert.Equal("Updated Description English", existingEntity.PropertyDescriptionEnglish);
+        Assert.Equal("U", existingEntity.Type);
+        Assert.Equal(5, existingEntity.SearchSequence);
+        Assert.Equal(3, existingEntity.PropertyTypeCategoryId);
+        Assert.True(existingEntity.IsActive);
+    }
+
+    [Fact]
+    public async Task UpdateAsync_NonExistingEntity_DoesNotUpdate()
+    {
+        // Arrange
+        var updateDto = new UpdatePropertyTypeMasterDto
+        {
+            PropertyDescription = "Test",
+            Type = "T",
+            IsActive = true
+        };
+
+        _mockRepository
+            .Setup(r => r.GetByIdAsync(9999, It.IsAny<CancellationToken>()))
+            .ReturnsAsync((PropertyTypeMasterEntity?)null);
+
+        // Act
+        await _service.UpdateAsync(9999, updateDto, CancellationToken.None);
+
+        // Assert
+        _mockRepository.Verify(r => r.UpdateAsync(It.IsAny<PropertyTypeMasterEntity>(), It.IsAny<CancellationToken>()), Times.Never);
+        _mockUnitOfWork.Verify(u => u.SaveChangesAsync(It.IsAny<CancellationToken>()), Times.Never);
+        _mockUnitOfWork.Verify(u => u.CommitTransactionAsync(It.IsAny<CancellationToken>()), Times.Never);
+    }
+
+    [Fact]
+    public async Task DeleteAsync_NonExistingEntity_ReturnsFalse_DoesNotSave()
+    {
+        // Arrange
+        int idToDelete = 9999;
+
+        _mockRepository
+            .Setup(r => r.GetByIdAsync(idToDelete, It.IsAny<CancellationToken>()))
+            .ReturnsAsync((PropertyTypeMasterEntity?)null);
+
+        // Act
+        var result = await _service.DeleteAsync(idToDelete, CancellationToken.None);
+
+        // Assert
+        Assert.False(result);
+
+        _mockRepository.Verify(r => r.GetByIdAsync(idToDelete, It.IsAny<CancellationToken>()), Times.Once);
+        _mockRepository.Verify(r => r.DeleteAsync(It.IsAny<PropertyTypeMasterEntity>(), It.IsAny<CancellationToken>()), Times.Never);
+        _mockUnitOfWork.Verify(u => u.SaveChangesAsync(It.IsAny<CancellationToken>()), Times.Never);
+        _mockUnitOfWork.Verify(u => u.CommitTransactionAsync(It.IsAny<CancellationToken>()), Times.Never);
+    }
+
+    [Fact]
+    public async Task DeleteAsync_ExistingEntity_DeletesAndSaves_ReturnsTrue()
+    {
+        // Arrange
+        int idToDelete = 1;
+
+        var existingEntity = new PropertyTypeMasterEntity
+        {
+            Id = idToDelete,
+            PropertyDescription = "Type to Delete",
+            Type = "D",
+            IsActive = true
+        };
+
+        _mockRepository
+            .Setup(r => r.GetByIdAsync(idToDelete, It.IsAny<CancellationToken>()))
+            .ReturnsAsync(existingEntity);
+
+        _mockRepository
+            .Setup(r => r.DeleteAsync(It.IsAny<PropertyTypeMasterEntity>(), It.IsAny<CancellationToken>()))
+            .Returns(Task.CompletedTask);
+
+        // Act
+        var result = await _service.DeleteAsync(idToDelete, CancellationToken.None);
+
+        // Assert
+        Assert.True(result);
+
+        _mockRepository.Verify(r => r.GetByIdAsync(idToDelete, It.IsAny<CancellationToken>()), Times.Once);
+        _mockRepository.Verify(r => r.DeleteAsync(It.IsAny<PropertyTypeMasterEntity>(), It.IsAny<CancellationToken>()), Times.Once);
+        _mockUnitOfWork.Verify(u => u.SaveChangesAsync(It.IsAny<CancellationToken>()), Times.Once);
+        _mockUnitOfWork.Verify(u => u.BeginTransactionAsync(It.IsAny<CancellationToken>()), Times.Never);
+        _mockUnitOfWork.Verify(u => u.CommitTransactionAsync(It.IsAny<CancellationToken>()), Times.Never);
+    }
+
+    [Fact]
+    public async Task ForceDeleteAsync_WithLinkedProperties_ThrowsValidationException()
+    {
+        // Arrange
+        int idToDelete = 1;
+        var properties = new List<PropertyEntity>
+        {
+            new() { Id = 1, PropertyTypeId = idToDelete },
+            new() { Id = 2, PropertyTypeId = idToDelete }
+        };
+
+        _mockPropertyRepository.Setup(r => r.GetQueryable()).Returns(properties.BuildMock());
+
+        // Act & Assert
+        var ex = await Assert.ThrowsAsync<ValidationException>(
+            () => _service.ForceDeleteAsync(idToDelete, CancellationToken.None));
+
+        Assert.Contains("2 properties", ex.Message);
+
+        _mockHardDeleteCleanupService.Verify(
+            s => s.ForceHardDeleteAsync<PropertyTypeMasterEntity, int>(It.IsAny<int>(), It.IsAny<CancellationToken>()),
+            Times.Never);
+    }
+
+    [Fact]
+    public async Task ForceDeleteAsync_NoLinkedProperties_CallsHardDeleteAndReturnsResult()
+    {
+        // Arrange
+        int idToDelete = 1;
+        var properties = new List<PropertyEntity>();
+
+        _mockPropertyRepository.Setup(r => r.GetQueryable()).Returns(properties.BuildMock());
+        _mockHardDeleteCleanupService
+            .Setup(s => s.ForceHardDeleteAsync<PropertyTypeMasterEntity, int>(idToDelete, It.IsAny<CancellationToken>()))
+            .ReturnsAsync(true);
+
+        // Act
+        var result = await _service.ForceDeleteAsync(idToDelete, CancellationToken.None);
+
+        // Assert
+        Assert.True(result);
+        _mockHardDeleteCleanupService.Verify(
+            s => s.ForceHardDeleteAsync<PropertyTypeMasterEntity, int>(idToDelete, It.IsAny<CancellationToken>()),
+            Times.Once);
+    }
+
+    [Fact]
+    public async Task ForceDeleteAsync_NoLinkedProperties_EntityNotFound_ReturnsFalse()
+    {
+        // Arrange
+        int idToDelete = 9999;
+        var properties = new List<PropertyEntity>();
+
+        _mockPropertyRepository.Setup(r => r.GetQueryable()).Returns(properties.BuildMock());
+        _mockHardDeleteCleanupService
+            .Setup(s => s.ForceHardDeleteAsync<PropertyTypeMasterEntity, int>(idToDelete, It.IsAny<CancellationToken>()))
+            .ReturnsAsync(false);
+
+        // Act
+        var result = await _service.ForceDeleteAsync(idToDelete, CancellationToken.None);
+
+        // Assert
+        Assert.False(result);
+    }
+}

@@ -1,0 +1,351 @@
+{
+  "aliasFallback": {
+    "screen": "स्क्रीन",
+    "screenGroup": "स्क्रीन समूह",
+    "accessControl": "एक्सेस नियंत्रण",
+    "role": "भूमिका",
+    "department": "विभाग",
+    "module": "मॉड्यूल",
+    "screenCode": "स्क्रीन कोड",
+    "screenName": "स्क्रीन का नाम",
+    "route": "रूट",
+    "groupCode": "कोड",
+    "groupName": "समूह का नाम"
+  },
+  "title": "{screen} और {accessControl} प्रबंधन",
+  "subtitle": "{screen}, {screenGroup}, नेविगेशन और {role}-आधारित एक्सेस अनुमतियों का प्रबंधन करें",
+
+  "loading": {
+    "message": "स्क्रीन प्रबंधन लोड हो रहा है...",
+    "description": "कृपया प्रतीक्षा करें जब हम स्क्रीन एक्सेस कॉन्फ़िगरेशन तैयार करते हैं।"
+  },
+
+  "tabs": {
+    "screenManagement": "{screen} प्रबंधन",
+    "accessControl": "{accessControl}"
+  },
+
+  "stats": {
+    "totalScreens": "कुल {screen}",
+    "activeScreens": "सक्रिय {screen}",
+    "inactiveScreens": "निष्क्रिय {screen}",
+    "totalGroups": "{screenGroup}",
+    "activeGroups": "सक्रिय {screenGroup}"
+  },
+
+  "screenManagement": {
+    "title": "{screen} प्रबंधन",
+    "subtitle": "एप्लिकेशन {screen} और {screenGroup} का प्रबंधन करें",
+
+    "tabs": {
+      "screens": "{screen}",
+      "screenGroups": "{screenGroup}"
+    },
+
+    "screens": {
+      "title": "{screen}",
+      "addScreen": "{screen} जोड़ें",
+      "editScreen": "{screen} संपादित करें",
+      "deleteScreen": "{screen} हटाएं",
+      "addButton": "{screen} जोड़ें",
+      "searchPlaceholder": "{screen} खोजें...",
+      "noScreensFound": "कोई {screen} नहीं मिली",
+
+      "table": {
+        "screenName": "स्क्रीन का नाम",
+        "code": "कोड",
+        "route": "रूट",
+        "department": "विभाग",
+        "module": "मॉड्यूल",
+        "group": "समूह",
+        "status": "स्थिति",
+        "actions": {
+          "label": "कार्रवाई",
+          "edit": "{screen} संपादित करें",
+          "delete": "{screen} हटाएं"
+        }
+      },
+
+      "form": {
+        "addTitle": "नई {screen} जोड़ें",
+        "editTitle": "{screen} संपादित करें",
+        "addSubtitle": "रूटिंग और अनुमतियों के साथ एक नई {screen} बनाएं",
+        "editSubtitle": "{screen} विवरण, रूटिंग और अनुमतियां अपडेट करें",
+
+        "screenName": "स्क्रीन का नाम",
+        "screenNamePlaceholder": "स्क्रीन का नाम दर्ज करें",
+        "screenCode": "स्क्रीन कोड",
+        "screenCodePlaceholder": "उदाहरण: USER_MGMT",
+        "route": "रूट",
+        "routePlaceholder": "उदाहरण: /users",
+        "screenGroup": "स्क्रीन समूह",
+        "selectGroup": "समूह चुनें",
+        "department": "विभाग",
+        "selectDepartment": "विभाग चुनें",
+        "selectDepartmentFirst": "पहले विभाग चुनें",
+        "module": "मॉड्यूल",
+        "selectModule": "मॉड्यूल चुनें",
+        "icon": "आइकन",
+        "description": "विवरण",
+        "descriptionPlaceholder": "विवरण दर्ज करें",
+        "status": "स्थिति",
+        "isActive": "सक्रिय",
+        "isMenu": "मेनू में दिखाएं",
+        "authRequired": "प्रमाणीकरण आवश्यक",
+        "requiresAuthentication": "प्रमाणीकरण आवश्यक है",
+
+        "sectionIdentity": "{screen} पहचान",
+        "sectionClassification": "वर्गीकरण और समूहीकरण",
+        "sectionConfig": "{screen} कॉन्फ़िगरेशन",
+        "saveButton": "{screen} सहेजें",
+        "cancelButton": "रद्द करें",
+        "errors": {
+          "groupRequired": "{screenGroup} अनिवार्य है",
+          "departmentRequired": "{department} अनिवार्य है",
+          "routeRequired": "रूट पथ अनिवार्य है",
+          "duplicateName": "इस नाम वाली एक {screen} पहले से मौजूद है",
+          "duplicateCode": "इस कोड वाली एक {screen} पहले से मौजूद है",
+          "duplicateRoute": "इस रूट वाला एक {screen} पहले से मौजूद है",
+          "nameRequired": "{screen} नाम आवश्यक है",
+          "codeRequired": "{screen} कोड आवश्यक है",
+          "moduleRequired": "{module} आवश्यक है"
+        }
+      },
+
+      "messages": {
+        "createSuccess": "{screen} सफलतापूर्वक बनाई गई",
+        "updateSuccess": "{screen} सफलतापूर्वक अपडेट की गई",
+        "deleteSuccess": "{screen} सफलतापूर्वक हटाई गई",
+        "createError": "{screen} बनाने में विफल",
+        "updateError": "{screen} अपडेट करने में विफल",
+        "deleteError": "{screen} हटाने में विफल",
+        "fetchModulesError": "ऑटो-असाइनमेंट के लिए {module} लाने में विफल",
+        "deleteConfirmTitle": "{screen} हटाएं",
+        "deleteConfirmMessage": "क्या आप वाकई इस {screen} को हटाना चाहते हैं?"
+      }
+    },
+
+    "groups": {
+      "title": "{screenGroup}",
+      "addGroup": "{screenGroup} जोड़ें",
+      "editGroup": "{screenGroup} संपादित करें",
+      "deleteGroup": "{screenGroup} हटाएं",
+      "addButton": "{screenGroup} जोड़ें",
+      "searchPlaceholder": "{screenGroup} खोजें...",
+      "noGroupsFound": "कोई {screenGroup} नहीं मिला",
+
+      "table": {
+        "groupName": "समूह का नाम",
+        "code": "कोड",
+        "description": "विवरण",
+        "status": "स्थिति",
+        "actions": {
+          "label": "कार्रवाई",
+          "edit": "{screenGroup} संपादित करें",
+          "delete": "{screenGroup} हटाएं"
+        },
+        "defaultDescription": "{screenGroup}"
+      },
+
+      "form": {
+        "addTitle": "नया {screenGroup} जोड़ें",
+        "editTitle": "{screenGroup} संपादित करें",
+        "addSubtitle": "{screen} व्यवस्थित करने के लिए एक नया {screenGroup} बनाएं",
+        "editSubtitle": "{screenGroup} विवरण अपडेट करें",
+
+        "groupName": "समूह का नाम",
+        "groupNamePlaceholder": "समूह का नाम दर्ज करें",
+        "groupCode": "कोड",
+        "groupCodePlaceholder": "उदा., GRP_001",
+        "icon": "आइकन",
+        "status": "स्थिति",
+        "isActive": "सक्रिय",
+
+        "sectionIdentity": "{screenGroup} पहचान",
+        "sectionConfig": "{screenGroup} कॉन्फ़िगरेशन",
+        "saveButton": "{screenGroup} सहेजें",
+        "cancelButton": "रद्द करें",
+        "errors": {
+          "duplicateName": "इस नाम वाला एक {screenGroup} पहले से मौजूद है",
+          "duplicateCode": "इस कोड वाला एक {screenGroup} पहले से मौजूद है",
+          "nameRequired": "{screenGroup} नाम आवश्यक है",
+          "codeRequired": "{screenGroup} कोड आवश्यक है"
+        }
+      },
+
+      "messages": {
+        "createSuccess": "{screenGroup} सफलतापूर्वक बनाया गया",
+        "updateSuccess": "{screenGroup} सफलतापूर्वक अपडेट किया गया",
+        "deleteSuccess": "{screenGroup} सफलतापूर्वक हटाया गया",
+        "createError": "{screenGroup} बनाने में विफल",
+        "updateError": "{screenGroup} अपडेट करने में विफल",
+        "deleteError": "{screenGroup} हटाने में विफल",
+        "deleteConfirmTitle": "{screenGroup} हटाएं",
+        "deleteConfirmMessage": "क्या आप वाकई इस समूह को हटाना चाहते हैं?"
+      }
+    }
+  },
+
+  "accessControl": {
+    "title": "{accessControl}",
+    "subtitle": "{role}-आधारित {screen} एक्सेस अनुमतियों का प्रबंधन करें",
+
+    "status": {
+      "pendingChanges": "({count}) लंबित परिवर्तन"
+    },
+
+    "filters": {
+      "selectDept": "{department} चुनें",
+      "selectRole": "{role} चुनें",
+      "selectDepartment": "सभी {department}",
+      "searchPlaceholder": "{screen} खोजें...",
+      "systemDepartment": "सिस्टम / अनअसाइंड"
+    },
+
+    "domains": {
+      "general": "सामान्य"
+    },
+
+    "roles": {
+      "superAdmin": "सुपर एडमिन",
+      "admin": "एडमिन",
+      "manager": "प्रबंधक",
+      "user": "उपयोगकर्ता",
+      "viewer": "दर्शक",
+      "noRolesFound": "कोई {role} उपलब्ध नहीं है",
+      "apiWarning": "{role} एपीआई:",
+      "apiUnavailable": "{role} एंडपॉइंट अभी उपलब्ध नहीं हो सकता है। खाली सूची का उपयोग किया जा रहा है।"
+    },
+
+    "accessLevels": {
+      "noAccess": "कोई एक्सेस नहीं",
+      "view": "देखें",
+      "edit": "संपादित करें",
+      "delete": "हटाएं",
+      "full": "पूर्ण एक्सेस",
+
+      "descriptions": {
+        "noAccess": "छिपा हुआ",
+        "view": "केवल पढ़ने के लिए",
+        "edit": "संशोधित करें",
+        "delete": "हटा सकते हैं",
+        "full": "पूर्ण"
+      }
+    },
+
+    "table": {
+      "screen": "{screen}",
+      "accessLevel": "एक्सेस स्तर",
+      "permissions": "अनुमतियाँ"
+    },
+
+    "actions": {
+      "setAll": "सभी सेट करें",
+      "resetAll": "सभी रीसेट करें",
+      "applyToAll": "सभी पर लागू करें",
+      "save": "अनुमतियाँ सहेजें",
+      "savePermissions": "अनुमतियाँ सहेजें",
+      "saveSuccess": "{screen} अनुमतियाँ सफलतापूर्वक सहेजी गईं",
+      "saveError": "अनुमतियाँ सहेजने में विफल",
+      "addScreens": "{screen} जोड़ें",
+      "addSelected": "चयनित जोड़ें"
+    },
+
+    "buttons": {
+      "saveChanges": "परिवर्तन सहेजें",
+      "cancelChanges": "रद्द करें"
+    },
+
+    "messages": {
+      "updateSuccess": "एक्सेस अनुमतियाँ सफलतापूर्वक अपडेट की गईं",
+      "updateError": "एक्सेस अनुमतियाँ अपडेट करने में विफल",
+      "bulkUpdateSuccess": "थोक अनुमतियाँ सफलतापूर्वक अपडेट की गईं",
+      "bulkUpdateError": "थोक अनुमतियाँ अपडेट करने में विफल",
+      "noScreensSelected": "कोई {screen} चयनित नहीं",
+      "screensAdded": "{count} {screen} सफलतापूर्वक जोड़ी गई",
+      "addScreensDescription": "इस {role} में जोड़ने के लिए {screen} चुनें",
+      "screensSelected": "{screen} चयनित",
+      "availableScreens": "उपलब्ध {screen}",
+      "totalScreens": "कुल {screen}",
+      "allScreensAssigned": "सभी {screen} पहले से ही इस {role} को सौंपी गई हैं",
+      "alreadyAssigned": "पहले से सौंपी गई",
+      "currentAccess": "वर्तमान एक्सेस",
+      "noScreensFound": "कोई {screen} नहीं मिली"
+    },
+    "labels": {
+      "screenCount": "{count, plural, =1 {# स्क्रीन} other {# स्क्रीनें}}",
+      "noneCount": "कोई नहीं: {count}",
+      "fullCount": "पूर्ण: {count}",
+      "moduleInactive": "{module} निष्क्रिय",
+      "moduleInactiveHint": "यह {module} {department} सक्रियण में निष्क्रिय है। उपयोगकर्ताओं को इन {screen} तक प्रभावी पहुंच नहीं है, लेकिन निर्दिष्ट अनुमतियाँ सुरक्षित हैं और {module} पुनः सक्रिय होने पर फिर से लागू होंगी।",
+      "assignedAccessPreserved": "निर्दिष्ट: {level} ({module} निष्क्रिय होने पर निलंबित)",
+      "storedPermissionHint": "संग्रहीत अनुमति: {level}. {module} सक्रिय होने तक प्रभावी पहुंच निलंबित है।"
+    }
+  },
+
+  "filters": {
+    "allGroups": "सभी {screenGroup}",
+    "allStatus": "सभी स्थितियाँ",
+    "active": "सक्रिय",
+    "inactive": "निष्क्रिय",
+    "search": "खोजें..."
+  },
+
+  "messages": {
+    "loadingScreens": "{screen} लोड हो रही हैं...",
+    "loadingGroups": "{screenGroup} लोड हो रहे हैं...",
+    "loadingPermissions": "अनुमतियाँ लोड हो रही हैं...",
+    "savingChanges": "परिवर्तन सहेजे जा रहे हैं...",
+    "saving": "सहेजा जा रहा है...",
+    "noDataAvailable": "कोई डेटा उपलब्ध नहीं है",
+    "noChangesToSave": "सहेजने के लिए कोई परिवर्तन नहीं",
+    "errorOccurred": "एक त्रुटि हुई"
+  },
+
+  "common": {
+    "cancel": "रद्द करें",
+    "save": "सहेजें",
+    "close": "बंद करें"
+  },
+
+  "departments": {
+    "system": "सिस्टम",
+    "common": "सामान्य",
+    "propertyTax": "संपत्ति कर",
+    "waterTax": "जल कर",
+    "tradeLicense": "व्यापार लाइसेंस",
+    "buildingPlan": "भवन योजना",
+    "birthDeath": "जन्म/मृत्यु प्रमाण पत्र",
+    "assetManagement": "संपत्ति प्रबंधन"
+  },
+
+  "errors": {
+    "apiConnection": {
+      "title": "एपीआई कनेक्शन त्रुटि",
+      "description": "बैकएंड एपीआई से डेटा प्राप्त नहीं हो सका। कृपया सुनिश्चित करें:",
+      "checkBackendRunning": "बैकएंड एपीआई चल रही है",
+      "checkApiUrl": "एपीआई URL सही तरह से कॉन्फ़िगर किया गया है (.env.local जाँचें NEXT_PUBLIC_API_BASE_URL)",
+      "checkApiAccessible": "एपीआई कॉन्फ़िगर किए गए पते पर सुलभ है",
+      "detailsTitle": "त्रुटि विवरण",
+      "fetchScreensFailed": "{screen} प्राप्त करने में विफल",
+      "fetchScreenFailed": "{screen} प्राप्त करने में विफल",
+      "createScreenFailed": "{screen} बनाने में विफल",
+      "updateScreenFailed": "{screen} अपडेट करने में विफल",
+      "deleteScreenFailed": "{screen} हटाने में विफल",
+      "noDataReceived": "सर्वर से कोई डेटा प्राप्त नहीं हुआ",
+      "invalidResponseFormat": "अमान्य प्रतिक्रिया प्रारूप",
+      "fetchDepartmentsFailed": "{department} प्राप्त करने में विफल",
+      "fetchModulesFailed": "{module} प्राप्त करने में विफल",
+      "unexpectedFormat": "सर्वर से अप्रत्याशित डेटा प्रारूप प्राप्त हुआ"
+    }
+  },
+  "errorPage": {
+    "title": "कुछ गलत हो गया",
+    "description": "{screen} प्रबंधित करते समय हमें एक अप्रत्याशित त्रुटि का सामना करना पड़ा। कृपया पुनः प्रयास करें या डैशबोर्ड पर वापस जाएं।",
+    "reloadPage": "पेज पुनः लोड करें",
+    "tryAgain": "पुनः प्रयास करें",
+    "goHome": "डैशबोर्ड पर वापस जाएं",
+    "errorId": "त्रुटि ID: {id}",
+    "generic": "एक अप्रत्याशित त्रुटि हुई"
+  }
+}

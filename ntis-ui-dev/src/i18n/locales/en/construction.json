@@ -1,0 +1,134 @@
+{
+  "constructionType": {
+    "aliasFallback": {
+      "entity": "Construction Type"
+    },
+    "list": {
+      "title": "{constructionType} Master",
+      "subtitle": "Manage {constructionType} and their classifications",
+      "buttons": {
+        "add": "Add {constructionType}",
+        "edit": "Edit",
+        "delete": "Delete"
+      },
+      "filters": {
+        "show": "Show",
+        "search": "Search by {constructionType} or Description..."
+      },
+      "table": {
+        "constructionCode": "{constructionType}",
+        "descriptionEnglish": "English Description",
+        "description": "Regional Description",
+        "searchKey": "Search Key",
+        "searchSequence": "Search Sequence",
+        "status": "Status",
+        "actions": "Actions"
+      },
+      "status": {
+        "active": "Active",
+        "inactive": "Inactive"
+      },
+      "pagination": {
+        "showing": "Showing",
+        "entries": "entries"
+      }
+    },
+    "form": {
+      "addTitle": "Add {constructionType}",
+      "editTitle": "Edit {constructionType}",
+      "subtitle": "Create new {constructionType}",
+      "editSubtitle": "Update {constructionType} details",
+      "fields": {
+        "constructionId": {
+          "label": "Construction ID"
+        },
+        "constructionCode": {
+          "label": "{constructionType}",
+          "placeholder": "e.g. A"
+        },
+        "descriptionEnglish": {
+          "label": "English Description",
+          "placeholder": "e.g. RCC {constructionType}"
+        },
+        "description": {
+          "label": "Regional Description",
+          "placeholder": "Regional description"
+        },
+        "searchSequence": {
+          "label": "Search Sequence"
+        },
+        "searchKey": {
+          "label": "Search Key",
+          "placeholder": "e.g. 7"
+        }
+      },
+      "validation": {
+        "constructionCodeRequired": "{constructionType} is required",
+        "constructionCodeMaxLength": "Maximum length is 7 characters",
+        "constructionCodeFormat": "Invalid format. Only English letters, numbers, and underscore are allowed.",
+        "constructionCodeEnglishOnly": "Only English letters, numbers, and underscore are allowed. Marathi/Hindi not supported.",
+        "constructionCodeExists": "This Construction Code already exists. Please use a different code.",
+        "descriptionEnglishRequired": "English Description is required",
+        "descriptionEnglishMaxLength": "Maximum length is 100 characters",
+        "descriptionEnglishFormat": "Only English letters, numbers, spaces, and basic punctuation allowed (,./-()).",
+        "descriptionEnglishExists": "English Description already exists. Please enter a different description.",
+        "descriptionRequired": "Description is required",
+        "descriptionMaxLength": "Maximum length is 100 characters",
+        "descriptionFormat": "Only letters (any language), numbers, spaces, and basic punctuation allowed (,./-()).",
+        "descriptionExists": "Description already exists. Please enter a different description.",
+        "idRequiredForUpdate": "{constructionType} ID is required for update",
+        "validIdRequired": "Valid {constructionType} ID is required",
+        "searchKeyRequired": "Search key is required",
+        "searchKeyMaxLength": "Maximum length is 20 characters",
+        "searchKeyFormat": "Only letters, numbers and + - characters are allowed",
+        "sequenceInvalid": "Search sequence must be 0 or greater",
+        "mustBeActive": "{constructionType} must be active to save",
+        "constructionCodeNumbersOnlyNotAllowed": "Please enter a valid construction code containing at least one alphabet.",
+        "descriptionNumbersOnlyNotAllowed": "Please enter a valid description containing at least one alphabet.",
+        "descriptionEnglishNumbersOnlyNotAllowed": "Please enter a valid English description containing at least one alphabet."
+      },
+      "status": {
+        "label": "Active Status",
+        "description": "{constructionType} is currently"
+      },
+      "actions": {
+        "cancel": "Cancel",
+        "save": "Save",
+        "update": "Update"
+      }
+    },
+    "delete": {
+      "confirmTitle": "Delete {constructionType} ({id})?",
+      "confirmDescription": "Are you sure you want to delete this {constructionType} record?",
+      "successMessage": "{constructionType} ({id}) deleted successfully",
+      "errorMessage": "Cannot delete {constructionType} ({id}) because it is linked to other records."
+    },
+    "apiErrors": {
+      "duplicateCode": "Construction code already exists. Please use a different code.",
+      "duplicateDescription": "Description already exists. Please use a different description.",
+      "duplicateRecord": "Please check {constructionType} and Description - duplicates not allowed.",
+      "validationError": "Invalid data provided. Please check all fields.",
+      "invalidData": "Invalid data provided. Please check all fields.",
+      "notFound": "{constructionType} not found.",
+      "inUse": "Cannot deactivate/delete this {constructionType} because it is referenced in: Rates, Age Factors, Nature Factors, Property Details, Depreciation Master",
+      "operationFailed": "Operation failed. Please try again later.",
+      "linkedRecordError": "Cannot modify this {constructionType} because it is linked to other records."
+    },
+    "success": {
+      "created": "New {constructionType} created successfully with code: {code}",
+      "updated": "{constructionType} updated successfully with code: {code}",
+      "deleted": "{constructionType} deleted successfully with code: {code}"
+    },
+    "error": {
+      "title": "Failed to connect server. Please try again later.",
+      "description": "We encountered an error while loading the construction type page. Please try again.",
+      "tryAgain": "Try Again",
+      "goHome": "Go to Home",
+      "errorId": "Error ID: {id}"
+    },
+    "loading": {
+      "message": "Loading Construction Type...",
+      "description": "Please wait while we fetch the construction type data"
+    }
+  }
+}

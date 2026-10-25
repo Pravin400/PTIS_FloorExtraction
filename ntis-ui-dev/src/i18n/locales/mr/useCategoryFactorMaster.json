@@ -1,0 +1,91 @@
+{
+  "useCategoryFactorMaster": {
+    "defaults": {
+      "assessment": "मूल्यांकन",
+      "typeOfUse": "वापराचा प्रकार",
+      "subTypeOfUse": "वापराचा उपप्रकार",
+      "use": "वापर",
+      "category": "वर्ग"
+    },
+    "title": "{use} {category} CV घटक मास्टर",
+    "columns": {
+      "typeOfUseCode": "{typeOfUse} कोड",
+      "typeOfUse": "{typeOfUse}",
+      "subType": "{subTypeOfUse}",
+      "factor": "घटक",
+      "assessmentYear": "{assessment} वर्ष",
+      "status": "स्थिती",
+      "action": "कृती"
+    },
+    "leftTable": {
+      "typeOfUseCode": "{typeOfUse} कोड",
+      "typeOfUse": "{typeOfUse}",
+      "status": "स्थिती"
+    },
+    "filters": {
+      "assessmentYear": "{assessment} वर्ष",
+      "typeOfUse": "{typeOfUse}",
+      "factor": "घटक"
+    },
+    "placeholders": {
+      "selectAssessmentYear": "{assessment} वर्ष निवडा",
+      "selectTypeOfUse": "{typeOfUse} निवडा",
+      "factor": "0.00"
+    },
+    "messages": {
+      "noSubtypeRecordsFound": "निवडलेल्या प्रकारासाठी कोणत्याही उप-प्रकार नोंदी आढळल्या नाहीत",
+      "selectTypeOfUsePrompt": "डाव्या सारणीतून {typeOfUse} निवडा किंवा ड्रॉपडाउन फिल्टर वापरा",
+      "noTypeOfUseRecordsFound": "{typeOfUse} कोणत्याही नोंदी आढळल्या नाहीत",
+      "mandatoryFields": "* चिन्हांकित केलेली फील्ड अनिवार्य आहेत"
+    },
+    "titles": {
+      "editTitle": "{subTypeOfUse} भारांक संपादित करा"
+    },
+    "descriptions": {
+      "updateSubTypeDetails": "{subTypeOfUse} भारांकाचे तपशील अद्यतनित करा"
+    },
+    "loading": {
+      "message": "{use} {category} CV घटक मास्टर लोड होत आहे...",
+      "description": "कृपया आम्ही रेकॉर्ड मिळेपर्यंत प्रतीक्षा करा."
+    },
+    "error": {
+      "title": "सर्व्हरशी कनेक्ट करता आले नाही. कृपया नंतर पुन्हा प्रयत्न करा.",
+      "description": "{use} {category} घटक वेटेज रेकॉर्ड लोड करताना त्रुटी आली.",
+      "tryAgain": "पुन्हा प्रयत्न करा",
+      "goHome": "घरी परत जा",
+      "errorId": "त्रुटी ID: {id}"
+    },
+    "errors": {
+      "invalidId": "वैध {use} घटक CV ID आवश्यक आहे",
+      "typeOfUseIdRequired": "{typeOfUse} आवश्यक आहे",
+      "yearRangeCVIdRequired": "{assessment} वर्ष आवश्यक आहे",
+      "factorNegative": "घटक नकारात्मक असू शकत नाही",
+      "fetchFailed": "{use} घटक CV मास्टर रेकॉर्ड मिळवण्यात अयशस्वी",
+      "updateFailed": "{use} घटक CV मास्टर अपडेट करण्यात अयशस्वी",
+      "createFailed": "{use} घटक CV मास्टर तयार करण्यात अयशस्वी",
+      "bulkUpdateFailed": "{use} घटक CV मास्टर मोठ्या प्रमाणात अपडेट करण्यात अयशस्वी",
+      "bulkCreateFailed": "{use} घटक CV मास्टर मोठ्या प्रमाणात तयार करण्यात अयशस्वी",
+      "payloadRequired": "वैध पेलोड आवश्यक आहे",
+      "invalidPaginationParameters": "अवैध पृष्ठ पॅरामीटर्स",
+      "fetchTypeOfUseFailed": "{typeOfUse} रेकॉर्ड मिळवण्यात अयशस्वी",
+      "deleteFailed": "{use} घटक रेकॉर्ड हटवण्यात अयशस्वी"
+    },
+    "apiErrors": {
+      "notFound": "{typeOfUse} वेटेज नोंद सापडली नाही.",
+      "validationError": "अवैध विनंती. कृपया प्रविष्ट केलेली मूल्ये तपासा आणि पुन्हा प्रयत्न करा.",
+      "referredInAutoWardEntry": "हे {typeOfUse} वेटेज हटवता येणार नाही कारण ते आधीच कॅपिटल व्हॅल्यू कर गणनेत वापरले जात आहे. कृपया प्रथम संबंधित नोंदी हटवा."
+    },
+    "deleteConfirmation": {
+      "title": "{typeOfUse}",
+      "description": "तुम्हाला खात्री आहे की तुम्ही हे रेकॉर्ड हटवू इच्छिता?",
+      "confirmButton": "हटवा",
+      "cancelButton": "रद्द करा",
+      "successMessage": "रेकॉर्ड यशस्वीरित्या हटवले"
+    },
+    "edit": {
+      "subTypeStatus": "{subTypeOfUse} भारांक सध्या {status} आहे",
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय"
+    }
+  }
+}

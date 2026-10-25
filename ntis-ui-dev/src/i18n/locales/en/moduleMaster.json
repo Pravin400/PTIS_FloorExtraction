@@ -1,0 +1,111 @@
+{
+  "aliasFallback": {
+    "module": "Module",
+    "department": "Department",
+    "moduleCode": "Module Code",
+    "moduleName": "Module Name",
+    "localName": "Local Name",
+    "description": "Description"
+  },
+  "title": "{module} Master",
+  "subtitle": "Manage application {module}s and their hierarchical configuration under {department}s",
+  "addLabel": "Add {module}",
+  "stats": {
+    "totalModules": "Total {module}s",
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "filters": {
+    "searchPlaceholder": "Search by module name..."
+  },
+  "table": {
+    "code": "Module Code",
+    "name": "Module & Department",
+    "localName": "Local Name",
+    "description": "Description",
+    "status": "Status"
+  },
+  "aria": {
+    "editModule": "Edit {name}",
+    "deleteModule": "Delete {name}"
+  },
+  "drawer": {
+    "addTitle": "Add New {module}",
+    "editTitle": "Edit {module} Details",
+    "subtitle": "Fill in the required information to configure {module} details",
+    "sections": {
+      "basicDetails": "{module} Basic Details"
+    },
+    "labels": {
+      "status": "Status"
+    },
+    "footer": {
+      "adding": "Adding New {module}",
+      "editing": "Editing: {moduleName}"
+    },
+    "buttons": {
+      "save": "Save {module}",
+      "update": "Update {module}"
+    }
+  },
+  "form": {
+    "fields": {
+      "departmentId": "Department",
+      "moduleCode": "Module Code",
+      "moduleCodePlaceholder": "Enter module code",
+      "moduleName": "Module Name",
+      "moduleNamePlaceholder": "Enter module name",
+      "moduleNameLocal": "Local Name",
+      "moduleNameLocalPlaceholder": "Enter local name",
+      "moduleIcon": "Icon Class",
+      "moduleIconPlaceholder": "e.g. briefcase, home",
+      "moduleLabel": "Module Label",
+      "moduleLabelPlaceholder": "Enter module label",
+      "moduleDescription": "Description",
+      "moduleDescriptionPlaceholder": "Enter module description",
+      "isActive": "Is Active"
+    }
+  },
+  "messages": {
+    "createSuccess": "{module} created successfully",
+    "createFailed": "Failed to create {module}",
+    "updateSuccess": "{module} updated successfully",
+    "updateFailed": "Failed to update {module}",
+    "deleteSuccess": "{module} deleted successfully",
+    "deleteFailed": "Failed to delete {module}",
+    "fetchFailed": "Failed to fetch {module} data",
+    "unauthorizedToken": "Unauthorized: Token expired or invalid",
+    "errorOccurred": "An unexpected error occurred",
+    "processingError": "An error occurred while processing your request.",
+    "validationError": "Please fix the errors in the form"
+  },
+  "confirm": {
+    "deleteTitle": "Delete {module} ({moduleName})?",
+    "deleteDescription": "Are you sure you want to delete this {module} record? This action cannot be undone."
+  },
+  "validation": {
+    "departmentIdRequired": "Department is required",
+    "moduleCodeRequired": "Module Code is required",
+    "moduleCodeLength": "Module Code cannot exceed {count} characters",
+    "moduleCodeFormat": "Module Code must only contain alphanumeric characters and underscores",
+    "moduleNameRequired": "Module Name is required",
+    "moduleNameLength": "Module Name cannot exceed {count} characters",
+    "moduleNameLocalLength": "Local Name cannot exceed {count} characters",
+    "moduleIconLength": "Icon Class cannot exceed {count} characters",
+    "moduleLabelLength": "Module Label cannot exceed {count} characters",
+    "moduleDescriptionLength": "Description cannot exceed {count} characters",
+    "moduleCodeExists": "Module Code already exists",
+    "moduleNameExists": "Module Name already exists"
+  },
+  "error": {
+    "title": "Something Went Wrong",
+    "description": "We encountered an error while loading the module master page. Please try again.",
+    "tryAgain": "Try Again",
+    "goHome": "Go to Home",
+    "errorId": "Error ID: {id}"
+  },
+  "loading": {
+    "message": "Loading Module Master...",
+    "description": "Please wait while we fetch the module master data"
+  }
+}

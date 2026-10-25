@@ -1,0 +1,170 @@
+{
+  "socialAttribute": {
+    "list": {
+      "title": "सामाजिक वैशिष्ट्य मास्टर",
+      "subtitle": "पॅरेंट-चाइल्ड अवलंबनासह सामाजिक वैशिष्ट्ये व्यवस्थापित करा",
+      "buttons": {
+        "add": "सामाजिक वैशिष्ट्य जोडा",
+        "edit": "संपादित करा",
+        "delete": "हटवा",
+        "reset": "रीसेट करा"
+      },
+      "filters": {
+        "show": "दाखवा",
+        "search": "कोड किंवा नावाने शोधा",
+        "noResults": "फिल्टर निकषांशी जुळणारे कोणतेही सामाजिक वैशिष्ट्य आढळले नाही.",
+        "dataType": {
+          "placeholder": "सर्व डेटा प्रकार",
+          "ariaLabel": "डेटा प्रकारानुसार फिल्टर करा"
+        },
+        "attributeType": {
+          "placeholder": "सर्व वैशिष्ट्ये",
+          "parentOnly": "केवळ मूळ (पॅरेंट)",
+          "childOnly": "केवळ उप (चाइल्ड)",
+          "discount": "सवलत लागू",
+          "ariaLabel": "वैशिष्ट्य प्रकारानुसार फिल्टर करा"
+        }
+      },
+      "table": {
+        "socialAttributeCode": "वैशिष्ट्य कोड",
+        "socialAttributeName": "वैशिष्ट्य नाव",
+        "dataType": "डेटा प्रकार",
+        "unit": "एकक",
+        "displayOrder": "प्रदर्शन क्रम",
+        "parentAttributeId": "मूळ वैशिष्ट्य",
+        "status": "स्थिती",
+        "actions": "कृती"
+      },
+      "status": {
+        "active": "सक्रिय",
+        "inactive": "निष्क्रिय"
+      },
+      "discount": "सवलत",
+      "parentAttribute": "मूळ वैशिष्ट्य",
+      "subAttributeIndicator": "↳",
+      "parentInfo": "मूळ: {code}",
+      "parentInfoWithRequired": "मूळ: {code} | मूळ सक्रिय असताना आवश्यक: होय",
+      "pagination": {
+        "showing": "दर्शवित आहे",
+        "entries": "नोंदी"
+      }
+    },
+    "form": {
+      "addTitle": "सामाजिक वैशिष्ट्य जोडा",
+      "editTitle": "सामाजिक वैशिष्ट्य संपादित करा",
+      "subtitle": "नवीन सामाजिक वैशिष्ट्य तयार करा",
+      "editSubtitle": "सामाजिक वैशिष्ट्य तपशील अद्यतनित करा",
+      "fields": {
+        "socialAttributeCode": {
+          "label": "सामाजिक वैशिष्ट्य कोड",
+          "placeholder": "उदा. ROAD_WIDTH"
+        },
+        "socialAttributeName": {
+          "label": "socialAttribute नाव",
+          "placeholder": "उदा. Road Width"
+        },
+        "dataType": {
+          "label": "डेटा प्रकार",
+          "placeholder": "डेटा प्रकार निवडा",
+          "options": {
+            "decimal": "DECIMAL (उदा. १०.५)",
+            "bit": "BIT (सत्य/असत्य)",
+            "integer": "INTEGER (उदा. १०)",
+            "text": "TEXT (उदा. मजकूर)",
+            "date": "DATE (उदा. १५-०८-२०२६)"
+          }
+        },
+        "unit": {
+          "label": "एकक",
+          "placeholder": "एकक निवडा"
+        },
+        "displayOrder": {
+          "label": "प्रदर्शन क्रम",
+          "placeholder": "उदा. १"
+        },
+        "parentAttribute": {
+          "label": "मूळ वैशिष्ट्य",
+          "placeholder": "मूळ वैशिष्ट्य निवडा"
+        },
+        "isRequiredWhenParentTrue": {
+          "label": "मूळ सक्रिय असताना आवश्यक"
+        },
+        "isDiscountApplicable": {
+          "label": "सवलत लागू"
+        },
+        "isPhotoRequired": {
+          "label": "फोटो आवश्यक"
+        },
+        "isDocumentRequired": {
+          "label": "दस्तऐवज आवश्यक"
+        },
+        "isChild": {
+          "label": "हे उप-वैशिष्ट्य आहे का?"
+        }
+      },
+      "validation": {
+        "codeRequired": "वैशिष्ट्य कोड आवश्यक आहे",
+        "codeMinLength": "वैशिष्ट्य कोड किमान ३ अक्षरांचा असणे आवश्यक आहे",
+        "codeMaxLength": "कमाल लांबी {count} वर्ण आहे",
+        "codeFormat": "अवैध स्वरूप. केवळ इंग्रजी मोठी अक्षरे आणि अंडरस्कोर अनुमत आहेत.",
+        "nameRequired": "वैशिष्ट्य नाव आवश्यक आहे",
+        "nameMaxLength": "कमाल लांबी १०० वर्ण आहे",
+        "nameMinLength": "गुणधर्माचे नाव किमान ३ अक्षरांचे असावे",
+        "nameFormat": "केवळ अक्षरे, जागा, डॅश (-) आणि कंस () अनुमत आहेत.",
+        "dataTypeRequired": "डेटा प्रकार आवश्यक आहे",
+        "unitFormat": "केवळ अक्षरे आणि संख्या अनुमत आहेत.",
+        "displayOrderInvalid": "प्रदर्शन क्रम ० किंवा अधिक असणे आवश्यक आहे",
+        "mustBeActive": "जतन करण्यासाठी सामाजिक वैशिष्ट्य सक्रिय असणे आवश्यक आहे",
+        "codeExists": "Social Attribute Code आधीपासूनच अस्तित्वात आहे",
+        "nameExists": "Social Attribute Name आधीपासूनच अस्तित्वात आहे",
+        "parentRequired": "उप-वैशिष्ट्यासाठी मुख्य वैशिष्ट्य (Parent Attribute) आवश्यक आहे"
+      },
+      "status": {
+        "label": "सक्रिय स्थिती",
+        "description": "सामाजिक वैशिष्ट्य सध्या"
+      },
+      "actions": {
+        "cancel": "रद्द करा",
+        "save": "जतन करा",
+        "update": "अद्यतनित करा"
+      }
+    },
+    "delete": {
+      "confirmTitle": "सामाजिक वैशिष्ट्य ({id}) हटवायचे?",
+      "confirmDescription": "आपण नक्की हे सामाजिक वैशिष्ट्य रेकॉर्ड हटवू इच्छिता?",
+      "successMessage": "सामाजिक वैशिष्ट्य ({id}) यशस्वीरित्या हटवले",
+      "errorMessage": "सामाजिक वैशिष्ट्य ({id}) हटवता येत नाही कारण ते इतर रेकॉर्डशी जोडलेले आहे."
+    },
+    "apiErrors": {
+      "duplicateRecord": "कृपया सामाजिक वैशिष्ट्य कोड आणि नाव तपासा - डुप्लिकेट अनुमत नाही.",
+      "validationError": "अवैध डेटा प्रदान केला आहे. कृपया सर्व फील्ड तपासा.",
+      "invalidData": "अवैध डेटा प्रदान केला आहे. कृपया सर्व फील्ड तपासा.",
+      "notFound": "सामाजिक वैशिष्ट्य आढळले नाही.",
+      "inUse": "हे सामाजिक वैशिष्ट्य निष्क्रिय/हटवू शकत नाही कारण ते इतर रेकॉर्डमध्ये संदर्भित आहे.",
+      "hasChildren": "हे मूळ वैशिष्ट्य हटवता येत नाही कारण याच्या अंतर्गत उप-वैशिष्ट्ये आहेत. कृपया आधी उप-वैशिष्ट्ये हटवा.",
+      "operationFailed": "कृती अपयशी ठरली. कृपया नंतर पुन्हा प्रयत्न करा।"
+    },
+    "success": {
+      "created": "नवीन सामाजिक वैशिष्ट्य यशस्वीरित्या कोडसह तयार केले: {code}",
+      "updated": "सामाजिक वैशिष्ट्य यशस्वीरित्या कोडसह अद्यतनित केले: {code}",
+      "deleted": "सामाजिक वैशिष्ट्य यशस्वीरित्या कोडसह हटवले: {code}"
+    },
+    "error": {
+      "title": "सर्व्हरशी कनेक्ट करण्यात अपयश. कृपया नंतर पुन्हा प्रयत्न करा.",
+      "description": "सामाजिक वैशिष्ट्य पृष्ठ लोड करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+      "tryAgain": "पुन्हा प्रयत्न करा",
+      "goHome": "मुख्यपृष्ठावर जा",
+      "errorId": "त्रुटि आयडी: {id}"
+    },
+    "loading": {
+      "message": "सामाजिक वैशिष्ट्य लोड होत आहे...",
+      "description": "आम्ही डेटा लोड करेपर्यंत कृपया प्रतीक्षा करा"
+    },
+    "confirmClose": {
+      "title": "बदल रद्द करा",
+      "description": "फॉर्ममध्ये तुमचे असहेज बदल आहेत. आपण खरोखरच ते बदल रद्द करू इच्छिता?",
+      "confirmText": "बदलाव रद्द करा",
+      "cancelText": "संपादन चालू ठेवा"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+export * from './ClassicReportDesigner';
+export type { ClassicReportDesignerProps } from '@/types/designer.types';
+export * from '@/hooks/reports/designer/useReportEditor';
+export * from '@/hooks/reports/designer/useReportDefState';
+export * from '@/hooks/reports/designer/useCanvasInteractions';
+export * from '@/hooks/reports/designer/useWordTableEditor';
+export * from '@/hooks/reports/designer/useKeyboardShortcuts';
+export * from './canvas/ElementRenderer';
+export * from './canvas/SectionBandView';
+export * from './canvas/ReportCanvas';
+export * from './sidebar/ReportProperties';
+export * from './components/EditorControls';
+export * from '@/lib/utils/reports/designer';

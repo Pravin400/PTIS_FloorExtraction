@@ -1,0 +1,112 @@
+{
+  "title": "दंड नियम",
+  "subtitle": "श्रेणी, भूगोल आणि शुल्क शीर्षाद्वारे प्रभावी-दिनांकित चालू/प्रलंबित बिल दंड नियम.",
+  "department": "पाणी पुरवठा विभाग",
+  "section": "कनेक्शन आणि टॅरिफ",
+  "add": "नवीन दंड नियम जोडा",
+  "edit": "दंड नियम संपादित करा",
+  "export": "निर्यात",
+  "userManual": "वापरकर्ता मॅन्युअल",
+  "searchPlaceholder": "दंड नियम शोधा...",
+  "summary": {
+    "records": "एकूण नोंदी",
+    "recordsSub": "बॅकएंडवरून लोड केले",
+    "active": "सक्रिय",
+    "relationships": "डीबी संबंध",
+    "relationshipsSub": "4 संदर्भ • आर्थिक वर्ष/श्रेणीवर अवलंबून",
+    "designPattern": "डिझाइन पॅटर्न",
+    "designPatternVal": "नियंत्रित मास्टर",
+    "designPatternSub": "प्रभावी-दिनांकित दंड इंजिन"
+  },
+  "implementationNote": "दंड गणना थकबाकी बिल वय आणि बिल चक्र प्रकारावर आधारित टक्केवारी किंवा फ्लॅट दंड लागू करते.",
+  "columns": {
+    "financialYear": "आर्थिक वर्ष",
+    "connectionCategory": "कनेक्शन श्रेणी",
+    "geography": "भौगोलिक घटक",
+    "chargeHead": "शुल्क शीर्षक",
+    "penaltyType": "दंड प्रकार",
+    "fromDay": "प्रारंभिक दिवस",
+    "toDay": "अंतिम दिवस",
+    "percentageRate": "दर (%)",
+    "flatAmount": "निश्चित रक्कम (₹)",
+    "maximumAmount": "कमाल मर्यादा (₹)",
+    "effectiveFrom": "प्रभावी प्रारंभ",
+    "effectiveTo": "प्रभावी समाप्ती",
+    "isCurrentBill": "चालू बिल",
+    "isPendingBill": "प्रलंबित बिल",
+    "status": "स्थिती",
+    "actions": "कृती"
+  },
+  "form": {
+    "addTitle": "दंड नियम जोडा",
+    "editTitle": "दंड नियम संपादित करा",
+    "description": "विलंब शुल्क आणि दंड मापदंड कॉन्फिगर करा.",
+    "financialYear": "आर्थिक वर्ष",
+    "financialYearPlaceholder": "आर्थिक वर्ष निवडा",
+    "connectionCategory": "कनेक्शन श्रेणी",
+    "connectionCategoryPlaceholder": "श्रेणी निवडा",
+    "geography": "भौगोलिक घटक",
+    "geographyPlaceholder": "सर्व / घटक निवडा",
+    "chargeHead": "शुल्क शीर्षक",
+    "chargeHeadPlaceholder": "शुल्क शीर्षक निवडा",
+    "penaltyType": "दंड गणना प्रकार",
+    "penaltyTypePlaceholder": "दंड प्रकार निवडा",
+    "fromDay": "प्रारंभिक थकीत दिवस",
+    "toDay": "अंतिम थकीत दिवस",
+    "percentageRate": "टक्केवारी दर (%)",
+    "flatAmount": "निश्चित रक्कम (₹)",
+    "maximumAmount": "कमाल दंड मर्यादा (₹)",
+    "effectiveFrom": "प्रभावी प्रारंभ तारीख",
+    "effectiveTo": "प्रभावी समाप्ती तारीख",
+    "billTypeFlags": "लागू बिल प्रकार (किमान एक निवडा)",
+    "isCurrentBill": "चालू बिल दंड",
+    "isPendingBill": "प्रलंबित / थकबाकी बिल दंड",
+    "isActive": "सक्रिय स्थिती",
+    "status": {
+      "label": "सक्रिय स्थिती",
+      "description": "दंड नियम सध्या आहे"
+    },
+    "cancel": "रद्द करा",
+    "save": "दंड नियम जतन करा",
+    "saving": "जतन करत आहे..."
+  },
+  "validation": {
+    "yearRequired": "आर्थिक वर्ष आवश्यक आहे",
+    "categoryRequired": "कनेक्शन श्रेणी आवश्यक आहे",
+    "chargeHeadRequired": "शुल्क शीर्षक आवश्यक आहे",
+    "penaltyTypeRequired": "दंड प्रकार आवश्यक आहे",
+    "fromDayInvalid": "प्रारंभिक थकीत दिवस 0 किंवा जास्त असावा",
+    "effectiveFromRequired": "प्रभावी प्रारंभ तारीख आवश्यक आहे",
+    "effectiveToRequired": "प्रभावी समाप्ती तारीख आवश्यक आहे",
+    "billTypeRequired": "चालू बिल किंवा प्रलंबित बिलांपैकी किमान एक निवडणे आवश्यक आहे",
+    "dayRangeInvalid": "अंतिम दिवस प्रारंभिक दिवसापेक्षा जास्त असावा",
+    "rateRequired": "टक्केवारी आधारित दंडासाठी दर आवश्यक आहे",
+    "flatRequired": "निश्चित दंडासाठी रक्कम आवश्यक आहे",
+    "dateRangeInvalid": "समाप्ती तारीख प्रारंभ तारखेनंतर असावी",
+    "overlap": "या दिवस श्रेणी आणि प्रभावी कालावधीशी दंड नियम आधीच ओव्हरलॅप होतो",
+    "failed": "कृपया त्रुटी दुरुस्त करा."
+  },
+  "confirm": {
+    "deleteTitle": "दंड नियम हटवा",
+    "deleteDesc": "आपण खरोखर हा दंड नियम हटवू इच्छिता का?",
+    "toggleTitle": "स्थिती बदला",
+    "toggleDesc": "आपण या दंड नियमाची स्थिती बदलू इच्छिता का?"
+  },
+  "messages": {
+    "createSuccess": "दंड नियम यशस्वीरित्या तयार केला.",
+    "updateSuccess": "दंड नियम यशस्वीरित्या अद्यतनित केला.",
+    "deleteSuccess": "दंड नियम यशस्वीरित्या हटवला.",
+    "statusSuccess": "दंड नियमाची स्थिती अद्यतनित केली."
+  },
+  "loading": {
+    "message": "दंड नियम लोड होत आहे...",
+    "description": "कृपया दंड नियम डेटा लोड होईपर्यंत प्रतीक्षा करा"
+  },
+  "error": {
+    "title": "दंड नियम डेटा लोड करण्यात अयशस्वी",
+    "description": "दंड नियम माहिती लोड करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+    "errorId": "त्रुटी आयडी: {id}",
+    "goHome": "मुख्यपृष्ठावर जा",
+    "tryAgain": "पुन्हा प्रयत्न करा"
+  }
+}

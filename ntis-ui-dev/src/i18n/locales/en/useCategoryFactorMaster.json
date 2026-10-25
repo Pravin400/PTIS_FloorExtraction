@@ -1,0 +1,91 @@
+{
+  "useCategoryFactorMaster": {
+    "defaults": {
+      "assessment": "Assessment",
+      "typeOfUse": "Type Of Use",
+      "subTypeOfUse": "Sub Type Of Use",
+      "use": "Use",
+      "category": "Category"
+    },
+    "title": "{use} {category} CV Factor Master",
+    "columns": {
+      "typeOfUseCode": "{typeOfUse} Code",
+      "typeOfUse": "{typeOfUse}",
+      "subType": "{subTypeOfUse}",
+      "factor": "Factor",
+      "assessmentYear": "{assessment} Year",
+      "status": "Status",
+      "action": "Action"
+    },
+    "leftTable": {
+      "typeOfUseCode": "{typeOfUse} Code",
+      "typeOfUse": "{typeOfUse}",
+      "status": "Status"
+    },
+    "filters": {
+      "assessmentYear": "{assessment} Year",
+      "typeOfUse": "{typeOfUse}",
+      "factor": "Factor"
+    },
+    "placeholders": {
+      "selectAssessmentYear": "Select {assessment} Year",
+      "selectTypeOfUse": "Select {typeOfUse}",
+      "factor": "0.00"
+    },
+    "messages": {
+      "noSubtypeRecordsFound": "No subtype records found for selected type",
+      "selectTypeOfUsePrompt": "Select a {typeOfUse} from left table or use dropdown filter",
+      "noTypeOfUseRecordsFound": "No {typeOfUse} records found",
+      "mandatoryFields": "Fields marked with * are mandatory"
+    },
+    "titles": {
+      "editTitle": "Edit {subTypeOfUse} Weightage"
+    },
+    "descriptions": {
+      "updateSubTypeDetails": "Update {subTypeOfUse} weightage details"
+    },
+    "loading": {
+      "message": "Loading {use} {category} CV Factor Master...",
+      "description": "Please wait while we fetch the records."
+    },
+    "error": {
+      "title": "Failed to connect server. Please try again later.",
+      "description": "An error occurred while loading the {use} {category} factor weightage records.",
+      "tryAgain": "Try again",
+      "goHome": "Go back home",
+      "errorId": "Error ID: {id}"
+    },
+    "errors": {
+      "invalidId": "Valid {use} Factor CV ID is required",
+      "typeOfUseIdRequired": "{typeOfUse} is required",
+      "yearRangeCVIdRequired": "{assessment} Year is required",
+      "factorNegative": "Factor cannot be negative",
+      "fetchFailed": "Failed to fetch {use} Factor CV Master records",
+      "updateFailed": "Failed to update {use} Factor CV Master",
+      "createFailed": "Failed to create {use} Factor CV Master",
+      "bulkUpdateFailed": "Failed to bulk update {use} Factor CV Master",
+      "bulkCreateFailed": "Failed to bulk create {use} Factor CV Master",
+      "payloadRequired": "Valid payload is required",
+      "invalidPaginationParameters": "Invalid pagination parameters",
+      "fetchTypeOfUseFailed": "Failed to fetch {typeOfUse} records",
+      "deleteFailed": "Failed to delete {use} Factor CV Master"
+    },
+    "apiErrors": {
+      "notFound": "{typeOfUse} Weightage record not found.",
+      "validationError": "Invalid request. Please check the entered values and try again.",
+      "referredInAutoWardEntry": "This {typeOfUse} Weightage cannot be deleted because it is already used in Capital Value tax calculations. Please remove the dependent records first."
+    },
+    "deleteConfirmation": {
+      "title": "{typeOfUse}",
+      "description": "Are you sure you want to delete this record?",
+      "confirmButton": "Delete",
+      "cancelButton": "Cancel",
+      "successMessage": "Record deleted successfully"
+    },
+    "edit": {
+      "subTypeStatus": "{subTypeOfUse} weightage is currently {status}",
+      "active": "Active",
+      "inactive": "Inactive"
+    }
+  }
+}

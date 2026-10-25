@@ -1,0 +1,96 @@
+{
+  "title": "पदनाम मास्टर",
+  "subtitle": "पेरोल विभागांसाठी पदनाम व्यवस्थापित करा",
+  "list": {
+    "title": "पदनाम मास्टर",
+    "subtitle": "पेरोल विभागांसाठी पदनाम व्यवस्थापित करा",
+    "buttons": {
+      "add": "पदनाम जोडा",
+      "edit": "संपादित करा",
+      "delete": "हटवा",
+      "editTitle": "पदनाम संपादित करा",
+      "deleteTitle": "पदनाम हटवा"
+    },
+    "filters": {
+      "search": "पदनाम शोधा..."
+    },
+    "table": {
+      "designationCode": "पदनाम कोड",
+      "designationName": "पदनाम नाव",
+      "designationLocal": "पदनाम नाव (प्रादेशिक)",
+      "owningDepartment": "विभाग",
+      "description": "वर्णन",
+      "status": "स्थिती",
+      "actions": "कृती"
+    }
+  },
+  "form": {
+    "addTitle": "पदनाम जोडा",
+    "editTitle": "पदनाम संपादित करा",
+    "subtitle": "नवीन पदनाम तयार करा",
+    "editSubtitle": "पदनाम तपशीलवार अपडेट करा",
+    "mandatoryFields": "* चिन्हांकित फील्ड अनिवार्य आहेत",
+    "fields": {
+      "designationCode": {
+        "label": "पदनाम कोड",
+        "placeholder": "उदा. COMM"
+      },
+      "designationName": {
+        "label": "पदनाम नाव",
+        "placeholder": "उदा. Municipal Commissioner"
+      },
+      "designationLocal": {
+        "label": "पदनाम नाव (प्रादेशिक)",
+        "placeholder": "उदा. महानगरपालिका आयुक्त"
+      },
+      "designationDescription": {
+        "label": "वर्णन",
+        "placeholder": "उदा. पद जबाबदाऱ्या आणि कामाची व्याप्ती..."
+      },
+      "owningDepartmentId": {
+        "label": "विभाग",
+        "placeholder": "विभाग निवडा"
+      }
+    },
+    "status": {
+      "label": "स्थिती",
+      "description": "पदनाम सध्या आहे"
+    },
+    "actions": {
+      "cancel": "रद्द करा",
+      "save": "जतन करा",
+      "update": "अपडेट करा"
+    },
+    "validation": {
+      "designationCodeRequired": "पदनाम कोड आवश्यक आहे",
+      "designationCodeMaxLength": "पदनाम कोड २० अक्षरांपेक्षा जास्त नसावा",
+      "designationCodeFormat": "पदनाम कोडमध्ये फक्त अक्षरे, अंक, अंडरस्कोर आणि हायफन असावेत",
+      "designationNameRequired": "पदनाम नाव आवश्यक आहे",
+      "designationNameMinLength": "पदनाम नाव किमान ५ अक्षरांचे असावे",
+      "designationNameMaxLength": "पदनाम नाव १०० अक्षरांपेक्षा जास्त नसावे",
+      "designationNameFormat": "पदनाम नावात फक्त अक्षरे, जागा आणि वैध चिन्हे (. - / & ()) असावीत",
+      "designationLocalRequired": "पदनाम नाव (प्रादेशिक) आवश्यक आहे",
+      "designationLocalMinLength": "पदनाम नाव (प्रादेशिक) किमान ५ अक्षरांचे असावे",
+      "designationLocalMaxLength": "पदनाम नाव (प्रादेशिक) १०० अक्षरांपेक्षा जास्त नसावे",
+      "designationLocalFormat": "पदनाम प्रादेशिक नावात फक्त अक्षरे, जागा आणि वैध चिन्हे (. - / & ()) असावीत",
+      "descriptionMaxLength": "वर्णन २५० अक्षरांपेक्षा जास्त नसावे",
+      "codeUnique": "हा पदनाम कोड आधीपासून अस्तित्वात आहे. कोड अद्वितीय असणे आवश्यक आहे."
+    }
+  },
+  "delete": {
+    "confirmTitle": "पदनाम हटवा",
+    "confirmDescription": "आपण नक्की \"{name}\" हटवू इच्छिता? ही कृती पूर्ववत केली जाऊ शकत नाही.",
+    "deleteInUse": "\"{name}\" सध्या कर्मचारी किंवा संस्थात्मक नोंदींशी जोडलेले आहे आणि ते हटवता येत नाही.",
+    "success": "\"{name}\" यशस्वीरित्या काढून टाकले."
+  },
+  "success": {
+    "created": "नवीन पदनाम यशस्वीरित्या तयार केले: {code}",
+    "updated": "पदनाम यशस्वीरित्या अपडेट केले: {code}",
+    "deleted": "पदनाम यशस्वीरित्या डिलीट केले: {code}"
+  },
+  "errors": {
+    "createFailed": "पदनाम मास्टर तयार करण्यात अयशस्वी",
+    "updateFailed": "पदनाम मास्टर अद्यतनित करण्यात अयशस्वी",
+    "deleteFailed": "पदनाम मास्टर हटवण्यात अयशस्वी"
+  }
+}

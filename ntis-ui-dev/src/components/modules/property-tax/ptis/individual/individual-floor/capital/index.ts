@@ -1,0 +1,1 @@
+export { CapitalTaxDetailsSection } from './CapitalTaxDetailSection';

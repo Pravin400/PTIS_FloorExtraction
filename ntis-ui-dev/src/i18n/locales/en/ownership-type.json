@@ -1,0 +1,100 @@
+{
+  "configuration": {
+    "header": {
+      "title": "Configuration Master",
+      "subtitle": "Centralized Master Data Management System",
+      "totalMasters": "Total Masters"
+    },
+    "tabs": {
+      "masterData": "Master Data",
+      "screenMaster": "Screen Master",
+      "screenFieldsMaster": "Screen Fields Master"
+    },
+    "masterData": {
+      "title": "Master Data",
+      "records": "Master Records",
+      "addNew": "Add New {name}",
+      "searchPlaceholder": "Search master records...",
+      "stats": {
+        "master": "Master Types",
+        "shown": "Shown",
+        "active": "Active"
+      },
+      "groupFilter": {
+        "categoriesTitle": "Categories",
+        "itemNamesTitle": "Item Names"
+      },
+      "form": {
+        "addTitle": "Add New {name}",
+        "editTitle": "Edit {name}",
+        "createSubtitle": "Create a new record",
+        "updateSubtitle": "Update existing record",
+        "labels": {
+          "code": "Code",
+          "name": "Name",
+          "category": "Asset Category",
+          "itemName": "Item Name",
+          "description": "Description",
+          "displayOrder": "Display Order",
+          "status": "Status",
+          "active": "Active",
+          "inactive": "Inactive"
+        },
+        "placeholders": {
+          "code": "Enter code",
+          "name": "Enter name",
+          "category": "Select category",
+          "itemName": "Select item name",
+          "description": "Enter description",
+          "displayOrder": "Enter display order"
+        },
+        "buttons": {
+          "save": "Save",
+          "update": "Update",
+          "cancel": "Cancel"
+        },
+        "errors": {
+          "fillRequired": "Please fill in all required fields.",
+          "nameRequired": "Name is required.",
+          "nameInvalid": "Name must contain only letters and spaces (max 50 characters). Supports all Indian languages.",
+          "descriptionRequired": "Description is required.",
+          "descriptionInvalid": "Description contains invalid characters. Allowed: letters, numbers, and basic punctuation (supports all Indian languages).",
+          "duplicateCode": "A record with this code already exists.",
+          "invalidData": "Invalid data provided.",
+          "unexpected": "An unexpected error occurred.",
+          "codeRequired": "Code is required",
+          "codeTooLong15": "Code cannot exceed 15 characters",
+          "codeInvalidChars": "Code contains invalid characters",
+          "codeDuplicate": "This code already exists",
+          "nameTooLong50": "Name cannot exceed 50 characters",
+          "nameInvalidChars": "Name contains invalid characters",
+          "nameDuplicate": "This name already exists",
+          "descriptionTooLong": "Description cannot exceed 100 characters",
+          "descInvalidChars": "Description contains invalid characters"
+        }
+      },
+      "error": {
+        "title": "Data Loading Failed",
+        "description": "An error occurred while loading master data records. Please check your connection or try again.",
+        "categoryTitle": "Category Loading Failed",
+        "categoryDescription": "An error occurred while loading Asset Categories. Please check your connection or try again.",
+        "typeTitle": "Type Loading Failed",
+        "typeDescription": "An error occurred while loading Asset Types. Please try again.",
+        "reload": "Reload Page",
+        "tryAgain": "Try Again",
+        "goHome": "Go Home"
+      }
+    }
+  },
+  "masterNames": {
+    "ownership-type-master": "Ownership Type"
+  },
+  "apiErrors": {
+    "referenceBlocked": {
+      "ownershipType": {
+        "deleteInUse": "This Ownership Type cannot be deleted because it is in use.",
+        "deactivateInUse": "This Ownership Type cannot be deactivated because it is in use."
+      }
+    }
+  }
+}

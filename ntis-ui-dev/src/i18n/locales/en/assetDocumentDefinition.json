@@ -1,0 +1,136 @@
+{
+  "list": {
+    "title": "Asset Document Definition Master",
+    "subtitle": "Manage required and optional document definitions for assets",
+    "buttons": {
+      "add": "Add Document Definition",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "filters": {
+      "show": "Show",
+      "search": "Search by Document Code, Name, or Description..."
+    },
+    "table": {
+      "documentCode": "Document Code",
+      "documentName": "Document Name",
+      "description": "Description",
+      "assetCategoryAndType": "Category / Type",
+      "isRequired": "Is Required",
+      "displayOrder": "Display Order",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    }
+  },
+  "errors": {
+    "duplicateDocumentCode": "Document Code already exists for this Asset Category and Type",
+    "duplicateDocumentName": "Document Name already exists for this Asset Category and Type",
+    "duplicate": "Document definition already exists for this Asset Category and Type",
+    "invalidAssetCategory": "Selected Asset Category is invalid or inactive",
+    "invalidAssetType": "Selected Asset Type is invalid or does not belong to the selected Category"
+  },
+  "form": {
+    "addTitle": "Add Asset Document Definition",
+    "editTitle": "Edit Asset Document Definition",
+    "subtitle": "Define a new required/optional document for assets",
+    "editSubtitle": "Update document definition details",
+    "sections": {
+      "documentIdentity": "Document Identity",
+      "scopeAndCategory": "Scope & Category"
+    },
+    "fields": {
+      "documentCode": {
+        "label": "Document Code",
+        "placeholder": "e.g. DOC-TITLE"
+      },
+      "documentName": {
+        "label": "Document Name",
+        "placeholder": "e.g. Title Deed"
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "e.g. Official ownership title document"
+      },
+      "displayOrder": {
+        "label": "Display Order"
+      },
+      "assetCategoryId": {
+        "label": "Asset Category",
+        "placeholder": "Select Asset Category"
+      },
+      "assetTypeId": {
+        "label": "Asset Type",
+        "placeholder": "Select Asset Type"
+      },
+      "isRequired": {
+        "label": "Is Document Required",
+        "description": "Mark if this document must be uploaded for assets"
+      }
+    },
+    "validation": {
+      "documentCodeRequired": "Document code is required",
+      "documentCodeMaxLength": "Maximum length is 50 characters",
+      "documentCodeAllZeros": "Document Code cannot be all zeros",
+      "documentCodeFormat": "Only uppercase letters, digits, spaces, hyphens, and underscores allowed",
+      "documentNameRequired": "Document name is required",
+      "documentNameMaxLength": "Maximum length is 100 characters",
+      "documentNameAllZeros": "Document Name cannot be all zeros",
+      "documentNameFormat": "Document Name must contain letters, numbers, spaces, hyphens, and underscores only",
+      "descriptionRequired": "Description is required",
+      "descriptionMaxLength": "Maximum length is 200 characters",
+      "descriptionAllZeros": "Description cannot be all zeros",
+      "descriptionFormat": "Description contains invalid characters",
+      "displayOrderInvalid": "Display order must be greater than 0",
+      "displayOrderRequired": "Display order is required",
+      "assetCategoryRequired": "Asset Category is required",
+      "assetTypeRequired": "Asset Type is required",
+      "mustBeActive": "Asset Document Definition must be active to save"
+    },
+    "status": {
+      "label": "Active Status",
+      "description": "Asset document definition is currently"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "save": "Save",
+      "update": "Update"
+    }
+  },
+  "delete": {
+    "confirmDescription": "Are you sure you want to delete this asset document definition?"
+  },
+  "apiErrors": {
+    "duplicateRecord": "Please check Document Code - duplicates not allowed.",
+    "AssetDocumentDefinition_DocumentCode_Duplicate": "Asset Document Definition Code already exists",
+    "notFound": "Asset document definition not found.",
+    "operationFailed": "Operation failed. Please try again later.",
+    "referenceBlocked": {
+      "assetDocumentDefinition": {
+        "deleteInUse": "This Asset Document Definition cannot be deleted because it is in use.",
+        "deactivateInUse": "This Asset Document Definition cannot be deactivated because it is in use."
+      }
+    }
+  },
+  "success": {
+    "created": "New asset document definition created successfully: {code}",
+    "updated": "Asset document definition updated successfully: {code}",
+    "deleted": "Asset document definition deleted successfully: {code}"
+  },
+  "loading": {
+    "message": "Loading asset document definition data...",
+    "description": "Please wait while we load document definition details"
+  },
+  "error": {
+    "title": "Failed to load asset document definition data",
+    "description": "We encountered an error while loading document definition details. Please try again.",
+    "errorId": "Error ID: {id}",
+    "goHome": "Go Home",
+    "tryAgain": "Try Again"
+  },
+  "yes": "Yes",
+  "no": "No"
+}

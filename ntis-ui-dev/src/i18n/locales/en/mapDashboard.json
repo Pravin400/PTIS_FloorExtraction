@@ -1,0 +1,54 @@
+{
+  "title": "ULB Estate Management Dashboard",
+  "ulbListTitle": "Urban Local Bodies",
+  "clearFilterTooltip": "Show all districts",
+  "comingSoonToast": "Asset Management System for {city} is coming soon!",
+  "tabs": {
+    "municipalCorporations": "Municipal Corporations",
+    "municipalCouncils": "Municipal Councils",
+    "nagarPanchayats": "Nagar Panchayats"
+  },
+  "table": {
+    "columns": {
+      "name": "Name",
+      "totalAssets": "Total Assets",
+      "buildings": "Buildings",
+      "land": "Land",
+      "infra": "Infra.",
+      "movable": "Movable",
+      "valueCr": "Value (Cr)",
+      "action": "Portal"
+    },
+    "openButton": "Open",
+    "totalCount": "Total: {count}",
+    "allDistricts": "All Districts",
+    "noULBs": "No {type} in this district"
+  },
+  "cards": {
+    "totalUlbs": "Total ULBs",
+    "totalAssets": "Total Assets",
+    "buildingAssets": "Building Assets",
+    "landAssets": "Land Assets",
+    "infrastructureAssets": "Infrastructure Assets",
+    "movableAssets": "Movable Assets",
+    "assetValuation": "Asset Valuation",
+    "revenueAnnual": "Revenue (Annual)",
+    "monetization": "Monetization",
+    "encroachment": "Encroachment"
+  },
+  "map": {
+    "backToStateMap": "Back to State Map",
+    "visitMunicipalPortal": "Visit Municipal Asset Portal"
+  },
+  "loading": {
+    "message": "Loading dashboard data...",
+    "description": "Please wait while we load the map dashboard information"
+  },
+  "error": {
+    "title": "Failed to load dashboard data",
+    "description": "We encountered an error while loading the map dashboard. Please try again.",
+    "errorId": "Error ID: {id}",
+    "goHome": "Go Home",
+    "tryAgain": "Try Again"
+  }
+}

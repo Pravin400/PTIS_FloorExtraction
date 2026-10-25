@@ -1,0 +1,50 @@
+{
+  "header": {
+    "title": "पुणे महानगरपालिका अग्निशामक दल",
+    "subtitle": "अग्नि सर्वेक्षण पोर्टल",
+    "syncButton": "तपासणी सिंक करा",
+    "syncTitle": "सिंक करा"
+  },
+  "sidebar": {
+    "menuTitle": "मेनू",
+    "home": "होम",
+    "inspections": "तपासणी",
+    "history": "इतिहास",
+    "profile": "प्रोफाइल",
+    "backToDashboard": "डॅशबोर्डवर परत जा"
+  },
+  "error": {
+    "title": "सर्वेक्षण कार्यक्षेत्र त्रुटी",
+    "message": "सर्वेक्षण डॅशबोर्ड लोड करण्यात अक्षम. कृपया कार्यक्षेत्र पुन्हा लोड करण्याचा प्रयत्न करा.",
+    "retry": "पुन्हा प्रयत्न करा"
+  },
+  "kpi": {
+    "assigned": "नियुक्त",
+    "dueToday": "आज देय",
+    "overdue": "मुदत संपलेली",
+    "pending": "प्रलंबित",
+    "reInspection": "पुनर्तपासणी",
+    "completed": "पूर्ण"
+  },
+  "map": {
+    "wardBadge": "पुणे मनपा अग्निशामक दल",
+    "layerDefault": "डिफॉल्ट",
+    "layerSatellite": "सॅटेलाइट",
+    "layerTerrain": "टेरेन",
+    "siteContact": "साइट संपर्क",
+    "callNow": "कॉल करा",
+    "navigate": "नेव्हिगेट",
+    "startAudit": "तपासणी सुरू करा",
+    "resumeAudit": "तपासणी सुरू ठेवा",
+    "viewDetails": "तपशील पहा",
+    "scheduled": "नियोजित",
+    "overdueBy": "मुदत संपलेली",
+    "cycle1": "सायकल १ • पहिली भेट",
+    "cycle2": "सायकल २ • पुनर्तपासणी",
+    "noInspections": "या स्थितीशी जुळणारी तपासणी उपलब्ध नाही.",
+    "showingAll": "सर्व तपासण्या दाखवत आहे",
+    "activeFilter": "फिल्टर: {status}",
+    "occupancy": "वापर: {code}",
+    "loadingMap": "सर्व्हेअर नकाशा लोड होत आहे..."
+  }
+}

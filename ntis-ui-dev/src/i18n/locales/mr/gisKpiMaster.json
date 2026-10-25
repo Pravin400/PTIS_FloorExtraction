@@ -1,0 +1,150 @@
+{
+  "list": {
+    "title": "जीआयएस केपीआय मास्टर",
+    "subtitle": "जीआयएस विश्लेषण आणि डॅशबोर्डसाठी मुख्य कामगिरी निर्देशक (KPI) व्यवस्थापित करा",
+    "buttons": {
+      "add": "जीआयएस केपीआय जोडा",
+      "edit": "संपादित करा",
+      "delete": "हटवा",
+      "manageMapping": "मॅपिंग व्यवस्थापित करा"
+    },
+    "filters": {
+      "show": "दाखवा",
+      "search": "केपीआय कोड, शीर्षक किंवा आयकॉनद्वारे शोधा...",
+      "department": "विभाग",
+      "allDepartments": "सर्व विभाग"
+    },
+    "table": {
+      "kpiCode": "केपीआय कोड",
+      "defaultTitle": "डीफॉल्ट शीर्षक",
+      "defaultIcon": "डीफॉल्ट आयकॉन",
+      "defaultColor": "रंग",
+      "mappedDepartment": "मॅप केलेला विभाग",
+      "status": "स्थिती",
+      "actions": "कृती"
+    },
+    "status": {
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय"
+    },
+    "pagination": {
+      "showing": "दाखवत आहे",
+      "entries": "नोंदी"
+    }
+  },
+  "form": {
+    "addTitle": "जीआयएस केपीआय जोडा",
+    "editTitle": "जीआयएस केपीआय संपादित करा",
+    "subtitle": "नवीन जीआयएस केपीआय कॉन्फिगरेशन तयार करा",
+    "editSubtitle": "जीआयएस केपीआय कॉन्फिगरेशन तपशील अपडेट करा",
+    "fields": {
+      "kpiCode": {
+        "label": "केपीआय कोड",
+        "placeholder": "उदा. TOTAL_ASSETS"
+      },
+      "defaultTitle": {
+        "label": "डीफॉल्ट शीर्षक",
+        "placeholder": "उदा. Total Properties / Assets"
+      },
+      "defaultIcon": {
+        "label": "डीफॉल्ट आयकॉन",
+        "placeholder": "उदा. building"
+      },
+      "defaultColor": {
+        "label": "डीफॉल्ट रंग",
+        "placeholder": "उदा. #2563EB"
+      }
+    },
+    "validation": {
+      "kpiCodeRequired": "केपीआय कोड आवश्यक आहे",
+      "kpiCodeMaxLength": "कमाल लांबी 50 वर्ण आहे",
+      "kpiCodeFormat": "अवैध स्वरूप. फक्त इंग्रजी अक्षरे, संख्या आणि अंडरस्कोर अनुमत आहेत.",
+      "kpiCodeNumbersOnlyNotAllowed": "कृपया किमान एक वर्ण असलेले वैध केपीआय कोड प्रविष्ट करा.",
+      "defaultTitleRequired": "डीफॉल्ट शीर्षक आवश्यक आहे",
+      "defaultTitleMaxLength": "कमाल लांबी 100 वर्ण आहे",
+      "defaultTitleFormat": "फक्त अक्षरे, संख्या, जागा आणि विरामचिन्हे अनुमत आहेत.",
+      "defaultTitleNumbersOnlyNotAllowed": "कृपया किमान एक वर्ण असलेले वैध शीर्षक प्रविष्ट करा.",
+      "defaultIconRequired": "डीफॉल्ट आयकॉन आवश्यक आहे",
+      "defaultIconMaxLength": "कमाल लांबी 50 वर्ण आहे",
+      "defaultColorRequired": "डीफॉल्ट रंग आवश्यक आहे",
+      "defaultColorFormat": "कृपया वैध हेक्स रंग कोड प्रविष्ट करा (उदा. #2563EB)",
+      "mustBeActive": "जतन करण्यासाठी जीआयएस केपीआय सक्रिय असणे आवश्यक आहे"
+    },
+    "status": {
+      "label": "सक्रिय स्थिती",
+      "description": "जीआयएस केपीआय सध्या आहे"
+    },
+    "actions": {
+      "cancel": "रद्द करा",
+      "save": "जतन करा",
+      "update": "अपडेट करा"
+    },
+    "presets": "प्रीसेट:"
+  },
+  "mapping": {
+    "drawerTitle": "विभागात कार्ड मॅप करा",
+    "editDrawerTitle": "विभाग मॅपिंग संपादित करा",
+    "editDrawerSubtitle": "या मॅपिंगसाठी ओव्हरराइड आणि कॉन्फिगरेशन अपडेट करा.",
+    "cancel": "रद्द करा",
+    "mapLater": "नंतर मॅप करा",
+    "saveAndAddAnother": "जतन करा आणि दुसरे जोडा",
+    "saveMapping": "मॅपिंग जतन करा",
+    "saveChanges": "बदल जतन करा",
+    "deleteMapping": "मॅपिंग हटवा",
+    "updating": "अपडेट होत आहे...",
+    "deleting": "हटवले जात आहे...",
+    "departmentOverrides": "विभाग ओव्हरराइड (पर्यायी)",
+    "editDepartmentOverrides": "विभाग ओव्हरराइड",
+    "department": "विभाग",
+    "selectDepartment": "विभाग निवडा",
+    "loadingDepartments": "विभाग लोड होत आहेत...",
+    "alreadyMapped": "आधीच मॅप केलेले",
+    "customTitle": "सानुकूल शीर्षक",
+    "customIcon": "सानुकूल चिन्ह",
+    "customColor": "सानुकूल रंग",
+    "displayOrder": "प्रदर्शन क्रम",
+    "displayOrderPlaceholder": "उदा. 1",
+    "activeStatus": "सक्रिय स्थिती",
+    "statusActiveDesc": "हे कार्ड निवडलेल्या विभागाला दिसेल.",
+    "statusInactiveDesc": "हे कार्ड या विभागासाठी लपवले जाईल.",
+    "clickDestinationNotice": "कार्ड क्लिक डेस्टिनेशनसाठी नवीन मॅपिंग एपीआय फील्ड आवश्यक आहे.",
+    "mappedDepartments": "मॅप केलेले विभाग ({count})",
+    "order": "क्रम: {order}",
+    "useDefaultIcon": "डीफॉल्ट वापरा ({name})",
+    "useDefaultColor": "डीफॉल्ट वापरा ({color})",
+    "removeTitle": "विभाग मॅपिंग हटवा",
+    "removeConfirm": "तुम्हाला खात्री आहे की तुम्ही {name} साठी विभाग मॅपिंग हटवू इच्छिता? ही कृती पूर्ववत केली जाऊ शकत नाही.",
+    "resetToDefault": "डीफॉल्टवर रीसेट करा",
+    "colorPlaceholder": "उदा. #DC2626"
+  },
+  "delete": {
+    "confirmTitle": "जीआयएस केपीआय ({code}) हटवायचे?",
+    "confirmDescription": "तुम्हाला खात्री आहे की तुम्ही ही जीआयएस केपीआय नोंद हटवू इच्छिता?",
+    "successMessage": "जीआयएस केपीआय ({code}) यशस्वीरित्या हटवले",
+    "errorMessage": "जीआयएस केपीआय ({code}) हटवता येत नाही कारण ते इतर नोंदींशी जोडलेले आहे."
+  },
+  "apiErrors": {
+    "duplicateRecord": "या कोड किंवा शीर्षकासह जीआयएस केपीआय आधीच अस्तित्वात आहे.",
+    "validationError": "अवैध डेटा प्रदान केला. कृपया सर्व फील्ड तपासा.",
+    "invalidData": "अवैध डेटा प्रदान केला. कृपया सर्व फील्ड तपासा.",
+    "notFound": "जीआयएस केपीआय आढळले नाही.",
+    "inUse": "हे जीआयएस केपीआय निष्क्रिय/हटवता येत नाही कारण ते जीआयएस डॅशबोर्ड विजेट्समध्ये संदर्भित आहे.",
+    "operationFailed": "ऑपरेशन अयशस्वी झाले. कृपया नंतर पुन्हा प्रयत्न करा."
+  },
+  "success": {
+    "created": "कोड: {code} सह नवीन जीआयएस केपीआय यशस्वीरित्या तयार केले",
+    "updated": "कोड: {code} सह जीआयएस केपीआय यशस्वीरित्या अपडेट केले",
+    "deleted": "कोड: {code} सह जीआयएस केपीआय यशस्वीरित्या हटवले"
+  },
+  "error": {
+    "title": "सर्व्हरशी कनेक्ट करण्यात अयशस्वी. कृपया नंतर पुन्हा प्रयत्न करा.",
+    "description": "जीआयएस केपीआय पृष्ठ लोड करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+    "tryAgain": "पुन्हा प्रयत्न करा",
+    "goHome": "मुख्यपृष्ठावर जा",
+    "errorId": "त्रुटी आयडी: {id}"
+  },
+  "loading": {
+    "message": "जीआयएस केपीआय मास्टर लोड होत आहे...",
+    "description": "आम्ही जीआयएस केपीआय डेटा आणत असताना कृपया प्रतीक्षा करा"
+  }
+}

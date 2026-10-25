@@ -1,0 +1,372 @@
+{
+  "waterConnectionMaster": {
+    "title": "Water Connection Master",
+    "subtitle": "Manage water connection status, type, and size",
+    "error": {
+      "title": "Failed to load Water Connection Master. Please try again later.",
+      "description": "We encountered an error while loading the water connection master page. Please try again.",
+      "tryAgain": "Try Again",
+      "goHome": "Go to Home",
+      "errorId": "Error ID: {id}"
+    },
+    "loading": {
+      "message": "Loading Water Connection Master...",
+      "description": "Please wait while we fetch the water connection master data"
+    },
+    "tabs": {
+      "tapStatus": "Tap Status",
+      "tapType": "Tap Type",
+      "tapSize": "Tap Size",
+      "waterRate": "Water Rate",
+      "connectionType": "Connection Type",
+      "connectionCategory": "Connection Category"
+    },
+    "tapStatus": {
+      "title": "Tap Status Master",
+      "subtitle": "Manage water connection status codes",
+      "searchPlaceholder": "Search by status name...",
+      "addTitle": "Add Tap Status",
+      "editTitle": "Edit Tap Status",
+      "addSubtitle": "Create a new water connection status",
+      "editSubtitle": "Update water connection status details",
+      "table": {
+        "statusName": "Status Name",
+        "status": "Status"
+      },
+      "form": {
+        "statusName": {
+          "label": "Status Name",
+          "placeholder": "e.g., Active"
+        },
+        "activeStatusTitle": "Tap Status",
+        "activeStatusOn": "Active - Status is enabled",
+        "activeStatusOff": "Inactive - Status is disabled"
+      },
+      "validation": {
+        "statusCodeRequired": "Status Code is required",
+        "statusNameRequired": "Status Name is required",
+        "statusNameInvalid": "Status Name must contain letters only, no numbers or special characters",
+        "statusCodeLength": "Status Code cannot exceed {count} characters",
+        "statusNameLength": "Status Name cannot exceed {count} characters"
+      },
+      "messages": {
+        "createSuccess": "Tap Status created successfully",
+        "updateSuccess": "Tap Status updated successfully",
+        "deleteSuccess": "Tap Status deleted successfully",
+        "deleteInUse": "This tap status is currently in use and cannot be deleted"
+      },
+      "confirm": {
+        "deleteTitle": "Delete Tap Status?",
+        "deleteDescription": "Are you sure you want to delete this tap status?"
+      }
+    },
+    "tapType": {
+      "title": "Tap Type Master",
+      "subtitle": "Manage water connection type codes",
+      "searchPlaceholder": "Search by type code",
+      "addTitle": "Add Tap Type",
+      "editTitle": "Edit Tap Type",
+      "addSubtitle": "Create a new water connection type",
+      "editSubtitle": "Update water connection type details",
+      "table": {
+        "typeCode": "Type Code",
+        "typeName": "Type Name",
+        "status": "Status"
+      },
+      "form": {
+        "typeCode": {
+          "label": "Type Code",
+          "placeholder": "e.g., DOM"
+        },
+        "typeName": {
+          "label": "Type Name",
+          "placeholder": "e.g., Domestic"
+        },
+        "activeStatusTitle": "Tap Type",
+        "activeStatusOn": "Active - Type is enabled",
+        "activeStatusOff": "Inactive - Type is disabled"
+      },
+      "validation": {
+        "typeCodeRequired": "Type Code is required",
+        "typeNameRequired": "Type Name is required",
+        "typeCodeInvalid": "Type Code must contain letters only, no numbers or special characters",
+        "typeNameInvalid": "Type Name must contain letters only, no numbers or special characters",
+        "typeCodeLength": "Type Code cannot exceed {count} characters",
+        "typeNameLength": "Type Name cannot exceed {count} characters"
+      },
+      "messages": {
+        "createSuccess": "Tap Type created successfully",
+        "updateSuccess": "Tap Type updated successfully",
+        "deleteSuccess": "Tap Type deleted successfully",
+        "deleteInUse": "This tap type is currently in use and cannot be deleted"
+      },
+      "confirm": {
+        "deleteTitle": "Delete Tap Type?",
+        "deleteDescription": "Are you sure you want to delete this tap type?"
+      }
+    },
+    "tapSize": {
+      "title": "Tap Size Master",
+      "subtitle": "Manage water connection size codes",
+      "searchPlaceholder": "Search by size code",
+      "addTitle": "Add Tap Size",
+      "editTitle": "Edit Tap Size",
+      "addSubtitle": "Create a new water connection size",
+      "editSubtitle": "Update water connection size details",
+      "table": {
+        "displayLabel": "Size",
+        "status": "Status"
+      },
+      "form": {
+        "sizeCode": {
+          "label": "Size Code",
+          "placeholder": "e.g., 15MM"
+        },
+        "sizeName": {
+          "label": "Size",
+          "placeholder": "e.g., 1.3"
+        },
+        "unit": {
+          "label": "Unit",
+          "placeholder": "e.g., MM, Inch"
+        },
+        "activeStatusTitle": "Tap Size",
+        "activeStatusOn": "Active - Size is enabled",
+        "activeStatusOff": "Inactive - Size is disabled"
+      },
+      "validation": {
+        "sizeCodeRequired": "Size Code is required",
+        "sizeNameRequired": "Size Name is required",
+        "sizeNameInvalid": "Size must be a positive number with up to 2 decimal places",
+        "unitRequired": "Unit is required",
+        "unitInvalid": "Unit must not contain special characters",
+        "sizeCodeLength": "Size Code cannot exceed {count} characters",
+        "sizeNameLength": "Size Name cannot exceed {count} characters",
+        "unitLength": "Unit cannot exceed {count} characters"
+      },
+      "messages": {
+        "createSuccess": "Tap Size created successfully",
+        "updateSuccess": "Tap Size updated successfully",
+        "deleteSuccess": "Tap Size deleted successfully",
+        "deleteInUse": "This tap size is currently in use and cannot be deleted"
+      },
+      "confirm": {
+        "deleteTitle": "Delete Tap Size?",
+        "deleteDescription": "Are you sure you want to delete this tap size?"
+      }
+    },
+    "waterRate": {
+      "title": "Water Rate Master",
+      "subtitle": "Manage yearly connection rates by type and size",
+      "searchPlaceholder": "Search water rates...",
+      "addTitle": "Add Water Rate",
+      "editTitle": "Edit Water Rate",
+      "addSubtitle": "Create a new connection rate",
+      "editSubtitle": "Update connection rate details",
+      "table": {
+        "connectionTypeName": "Connection Type",
+        "connectionSizeDisplay": "Connection Size",
+        "yearCode": "Finance Year",
+        "yearlyRate": "Yearly Rate",
+        "quarterlyRate": "Quarterly Rate",
+        "monthlyRate": "Monthly Rate",
+        "status": "Status"
+      },
+      "form": {
+        "connectionType": {
+          "label": "Connection Type",
+          "placeholder": "Select Type..."
+        },
+        "connectionSize": {
+          "label": "Connection Size",
+          "placeholder": "Select Size..."
+        },
+        "financeYear": {
+          "label": "Finance Year",
+          "placeholder": "Select Year..."
+        },
+        "rateType": {
+          "label": "Rate Frequency",
+          "placeholder": "Select Rate Frequency..."
+        },
+        "yearlyRate": {
+          "label": "Yearly Rate",
+          "placeholder": "e.g., 1500"
+        },
+        "quarterlyRate": {
+          "label": "Quarterly Rate",
+          "placeholder": "e.g., 375"
+        },
+        "monthlyRate": {
+          "label": "Monthly Rate",
+          "placeholder": "e.g., 125"
+        },
+        "activeStatusTitle": "Water Rate",
+        "activeStatusOn": "Active - Rate is enabled",
+        "activeStatusOff": "Inactive - Rate is disabled"
+      },
+      "validation": {
+        "typeRequired": "Connection Type is required",
+        "sizeRequired": "Connection Size is required",
+        "yearRequired": "Finance Year is required",
+        "rateRequired": "Rate is required",
+        "rateInvalid": "Rate must be a valid positive number",
+        "rateMaxDigits": "Rate cannot exceed 6 digits"
+      },
+      "messages": {
+        "createSuccess": "Water Rate created successfully",
+        "updateSuccess": "Water Rate updated successfully",
+        "deleteSuccess": "Water Rate deleted successfully",
+        "deleteInUse": "This water rate is currently in use and cannot be deleted"
+      },
+      "confirm": {
+        "deleteTitle": "Delete Water Rate?",
+        "deleteDescription": "Are you sure you want to delete this water rate?"
+      }
+    }
+  },
+  "waterConnection": {
+    "page": {
+      "title": "Water Connection Management",
+      "subtitle": "Individual Property View"
+    },
+    "stats": {
+      "totalConnections": "Total Connections",
+      "activeConnections": "Active Connections",
+      "stoppedConnections": "Stopped Connections",
+      "yearlyRevenue": "Yearly Revenue"
+    },
+    "property": {
+      "owner": "Owner",
+      "contact": "Contact",
+      "email": "Email",
+      "address": "Address",
+      "propertyNo": "Property No",
+      "zone": "Zone",
+      "ward": "Ward",
+      "buildingType": "Building Type"
+    },
+    "list": {
+      "title": "Water Connections",
+      "subtitle": "Review and maintain water connections for property {propertyNo}",
+      "buttons": {
+        "add": "Add New"
+      },
+      "connections": "{count} Connections",
+      "status": {
+        "active": "Active",
+        "inactive": "Inactive",
+        "stopped": "Stopped",
+        "activated": "Activated",
+        "stoppedOn": "Stopped"
+      },
+      "table": {
+        "connectionNo": "Connection No",
+        "type": "Type",
+        "tapSize": "Tap Size",
+        "applicableRate": "Applicable Rate",
+        "perMonth": "per month",
+        "perQuarter": "per quarter",
+        "perYear": "per year",
+        "category": "Category",
+        "applicableCharges": "Applicable Charges",
+        "installedOn": "Installed",
+        "status": "Status",
+        "actions": "Action"
+      }
+    },
+    "form": {
+      "addTitle": "Add New Connection",
+      "editTitle": "Edit Connection",
+      "subtitle": "Create a new water connection for this property.",
+      "editSubtitle": "Update water connection details.",
+      "fields": {
+        "connectionNo": {
+          "label": "Connection No",
+          "placeholder": "Enter connection number"
+        },
+        "meterNo": {
+          "label": "Meter No",
+          "placeholder": "Enter meter number"
+        },
+        "type": {
+          "label": "Type",
+          "placeholder": "Select type",
+          "domestic": "Domestic",
+          "commercial": "Commercial"
+        },
+        "installDate": {
+          "label": "Install Date"
+        },
+        "tapSize": {
+          "label": "Tap Size",
+          "placeholder": "Select tap size",
+          "15Inch": "15 Inch",
+          "20Inch": "20 Inch",
+          "25Inch": "25 Inch",
+          "32Inch": "32 Inch"
+        },
+        "status": {
+          "label": "Connection Status",
+          "placeholder": "Select status"
+        },
+        "rateType": {
+          "label": "Rate Frequency",
+          "placeholder": "Select rate frequency",
+          "yearly": "Yearly Rate",
+          "quarterly": "Quarterly Rate",
+          "monthly": "Monthly Rate"
+        },
+        "applicableRate": {
+          "label": "Applicable Rate (₹)",
+          "autoCalculated": "Auto-calculated based on selected rate frequency"
+        }
+      },
+      "validation": {
+        "connectionNoRequired": "Connection No is required",
+        "connectionNoFormat": "Only letters, numbers and hyphens allowed",
+        "connectionNoInvalidChars": "Special characters like @#$%^&*()_ are not allowed",
+        "connectionNoMaxLength": "Connection No must not exceed 20 characters",
+        "meterNoRequired": "Meter No is required",
+        "meterNoInvalidChars": "Special characters like @#$%^&*()_ are not allowed",
+        "meterNoMaxLength": "Meter No must not exceed 20 characters",
+        "typeRequired": "Type is required",
+        "tapSizeRequired": "Tap Size is required",
+        "statusRequired": "Connection Status is required",
+        "installDateRequired": "Install Date is required",
+        "fixErrors": "Please fix validation errors",
+        "rateNotFound": "No applicable rate found for the selected Type and Tap Size"
+      },
+      "status": {
+        "label": "Connection Status",
+        "active": "Connection is currently active",
+        "inactive": "Connection is currently stopped"
+      },
+      "actions": {
+        "cancel": "Cancel",
+        "add": "Add Connection",
+        "update": "Update Connection"
+      },
+      "messages": {
+        "createSuccess": "Connection added successfully",
+        "updateSuccess": "Connection updated successfully",
+        "error": "Something went wrong"
+      }
+    },
+    "delete": {
+      "success": "Connection deleted successfully",
+      "error": "Cannot delete this connection"
+    },
+    "loading": {
+      "message": "Loading Water Connections...",
+      "description": "Please wait while we fetch the water connection data"
+    },
+    "error": {
+      "title": "Water Connection Error",
+      "description": "An error occurred while loading the water connection page. Please try again.",
+      "goHome": "Go Home",
+      "tryAgain": "Try Again",
+      "errorId": "Error ID: {id}"
+    }
+  }
+}

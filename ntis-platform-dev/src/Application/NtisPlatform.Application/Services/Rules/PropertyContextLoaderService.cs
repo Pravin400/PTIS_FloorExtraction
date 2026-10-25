@@ -1,0 +1,589 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using NtisPlatform.Application.DTOs.Rules.RuleExecution;
+using NtisPlatform.Application.Helpers;
+using NtisPlatform.Application.Interfaces;
+using NtisPlatform.Application.Interfaces.Master;
+using NtisPlatform.Application.Interfaces.Rules;
+using NtisPlatform.Application.Interfaces.TaxEngine;
+using NtisPlatform.Application.Services.TaxEngine;
+using NtisPlatform.Core.Constants;
+using NtisPlatform.Core.Entities;
+using NtisPlatform.Core.Entities.Master;
+using NtisPlatform.Core.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace NtisPlatform.Application.Services.Rules
+{
+    /// <summary>
+    /// Responsible for loading, validating, and assembling the complete
+    /// <see cref="PropertyCalculationContext"/> from the database.
+    ///
+    /// <para>
+    /// This service is the single entry point for obtaining a ready-to-use context.
+    /// Callers (e.g. <c>RateableValueService</c>) should never query the property,
+    /// assessment, or detail repositories directly — they should call this service instead.
+    /// </para>
+    ///
+    /// <para>
+    /// <b>Responsibilities:</b><br/>
+    /// 1. Parallel-fetch property, assessment, social details, and property details.<br/>
+    /// 2. Validate required data (property exists, details present, construction year parseable).<br/>
+    /// 3. Resolve the applicable assessment year range.<br/>
+    /// 4. Sequential-fetch renter and certificate child collections.<br/>
+    /// 5. Assemble and return a fully populated <see cref="PropertyCalculationContext"/>.
+    /// </para>
+    /// </summary>
+    public class PropertyContextLoaderService : IPropertyContextLoaderService
+    {
+        /// <summary>
+        /// Sequence number threshold representing the First Floor.
+        /// Floors with SequenceNo >= 12 correspond to upper-structure floors (First Floor and above),
+        /// while sequence numbers below 12 represent Ground Floor, Basements, etc.
+        /// </summary>
+        private const int FirstFloorSequenceThreshold = 12;
+
+        private readonly IRepository<PropertyEntity, int> _propertyRepo;
+        private readonly IRepository<PropertyCategoryEntity, int> _categoryRepo;
+        private readonly IRepository<PropertyDetailsEntity, int> _propertyDetailsRepo;
+        private readonly IRepository<PropertyAssessmentEntity, int> _propertyAssessmentRepo;
+        private readonly IRepository<PropertySocialDetailsEntity, int> _propertySocialDetailsRepo;
+        private readonly IRepository<RenterMastEntity, int> _renterRepo;
+        private readonly IRepository<PropertyCertificateEntity, int> _propertyCertificateRepo;
+        private readonly ITaxMasterDataService _masterDataService;
+        private readonly IFinanceYearProvider _financeYearProvider;
+        private readonly IRepository<YearMasterEntity, int> _yearMasterRepo;
+        private readonly IRVCalculationCleanupService _rvCalculationCleanupService;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IRepository<RVCalculationResultsEntity, int> _rvCalculationResultsRepo;
+        private readonly IRepository<TransMastEntity, int> _transMastRepo;
+        private readonly IRepository<WingDetailsMastEntity, int> _wingDetailsMastRepo;
+        private readonly IRepository<SocietyDetailsEntity, int> _societyRepo;
+        private readonly ILogger<PropertyContextLoaderService> _logger;
+
+
+        public PropertyContextLoaderService(
+            IRepository<PropertyEntity, int> propertyRepo,
+            IRepository<PropertyCategoryEntity, int> categoryRepo,
+            IRepository<PropertyDetailsEntity, int> propertyDetailsRepo,
+            IRepository<PropertyAssessmentEntity, int> propertyAssessmentRepo,
+            IRepository<PropertySocialDetailsEntity, int> propertySocialDetailsRepo,
+            IRepository<RenterMastEntity, int> renterRepo,
+            IRepository<PropertyCertificateEntity, int> propertyCertificateRepo,
+            ITaxMasterDataService masterDataService,
+            IFinanceYearProvider financeYearProvider,
+            IRepository<YearMasterEntity, int> yearMasterRepo,
+            IRVCalculationCleanupService rvCalculationCleanupService,
+            IUnitOfWork unitOfWork,
+            IRepository<RVCalculationResultsEntity, int> rvCalculationResultsRepo,
+            IRepository<TransMastEntity, int> transMastRepo,
+            ILogger<PropertyContextLoaderService> logger,
+            IRepository<WingDetailsMastEntity, int> wingDetailsMastRepo,
+            IRepository<SocietyDetailsEntity, int> societyRepo)
+        {
+            _propertyRepo = propertyRepo;
+            _categoryRepo = categoryRepo;
+            _propertyDetailsRepo = propertyDetailsRepo;
+            _propertyAssessmentRepo = propertyAssessmentRepo;
+            _propertySocialDetailsRepo = propertySocialDetailsRepo;
+            _renterRepo = renterRepo;
+            _propertyCertificateRepo = propertyCertificateRepo;
+            _masterDataService = masterDataService;
+            _financeYearProvider = financeYearProvider;
+            _yearMasterRepo = yearMasterRepo;
+            _rvCalculationCleanupService = rvCalculationCleanupService;
+            _unitOfWork = unitOfWork;
+            _rvCalculationResultsRepo = rvCalculationResultsRepo;
+            _transMastRepo = transMastRepo;
+            _logger = logger;
+            _wingDetailsMastRepo = wingDetailsMastRepo;
+            _societyRepo = societyRepo;
+        }
+
+        /// <inheritdoc/>
+        public async Task<PropertyCalculationContext> LoadPropertyContextAsync(
+            int propertyId,
+            int financeYear,
+            CancellationToken cancellationToken = default)
+        {
+            _logger.LogInformation(
+                "Loading PropertyCalculationContext for PropertyId={PropertyId}, FinanceYear={FinanceYear}",
+                propertyId, financeYear);
+
+            // ── Phase 1: Core Property Fetch ──────────────────────────────────────
+
+            var propertyWithCategory = await (
+                from p in _propertyRepo.GetQueryable().AsNoTracking()
+                join c in _categoryRepo.GetQueryable().AsNoTracking() on p.CategoryId equals c.Id into categoryJoin
+                from c in categoryJoin.DefaultIfEmpty()
+                where p.Id == propertyId && p.IsActive && !p.MarkedForDeletion
+                select new
+                {
+                    Property = p,
+                    CategoryName = c != null ? c.PropertyCategoryName : null
+                }
+            ).FirstOrDefaultAsync(cancellationToken);
+
+            if (propertyWithCategory == null)
+                throw new InvalidOperationException($"Property not found for PropertyId={propertyId}");
+
+            var property = propertyWithCategory.Property;
+            var categoryName = propertyWithCategory.CategoryName;
+
+            bool isApartmentOrIndustry = property.CategoryId == 1 ||
+                (categoryName != null && (
+                    PropertyCategoryConstants.ApartmentCategoryNames.Any(name =>
+                        name.Equals(categoryName, StringComparison.OrdinalIgnoreCase)) ||
+                    categoryName.Equals("Industry", StringComparison.OrdinalIgnoreCase) ||
+                    categoryName.Equals("Industrial", StringComparison.OrdinalIgnoreCase)));
+
+            // ── Phase 2: Sequential Fetch of child details ───────────────────────────
+
+            var assessment = await _propertyAssessmentRepo.GetQueryable()
+                .AsNoTracking()
+                .Where(x => x.PropertyId == propertyId && x.IsActive && !x.MarkedForDeletion)
+                .OrderBy(x => x.Id)
+                .FirstOrDefaultAsync(cancellationToken);
+
+            // Gather all property IDs to fetch social attributes from:
+            // 1. Current property (could be partitioned)
+            // 2. Main property (same PropertyNo and WardId, but with no partition) - ONLY if category is Apartment or Industry
+            var targetPropertyIds = new List<int> { propertyId };
+            if (isApartmentOrIndustry && !string.IsNullOrWhiteSpace(property.PropertyNo))
+            {
+                var mainPropertyId = await _propertyRepo.GetQueryable()
+                    .AsNoTracking()
+                    .Where(p => p.WardId == property.WardId
+                             && p.PropertyNo == property.PropertyNo
+                             && (p.PartitionNo == null || p.PartitionNo == "")
+                             && p.IsActive
+                             && !p.MarkedForDeletion)
+                    .Select(p => (int?)p.Id)
+                    .FirstOrDefaultAsync(cancellationToken);
+
+                if (mainPropertyId.HasValue && mainPropertyId.Value != propertyId)
+                {
+                    targetPropertyIds.Add(mainPropertyId.Value);
+                }
+            }
+
+            // Load ALL social attributes for the target property and main property in one query.
+            // Each row maps SocialAttributeCode → typed value (bit/int/decimal/text).
+            // This means ANY attribute from SocialAttributeMaster is available in rule
+            // expressions as  input.HAS_LIFT, input.NO_OF_WELL, input.HAS_SOLAR, etc.
+            // with ZERO code changes when new attributes are added to the master table.
+            var socialDetails = await _propertySocialDetailsRepo.GetQueryable()
+                .AsNoTracking()
+                .Where(psd => psd.PropertyId.HasValue && targetPropertyIds.Contains(psd.PropertyId.Value) && psd.IsActive && psd.SocialAttribute != null)
+                .Select(psd => new
+                {
+                    PropertyId = psd.PropertyId,
+                    SocialAttributeId = psd.SocialAttributeId,
+                    Code = psd.SocialAttribute!.SocialAttributeCode,
+                    DataType = psd.SocialAttribute!.DataType,
+                    BitValue = psd.BitValue,
+                    IntValue = psd.IntValue,
+                    DecimalValue = psd.DecimalValue,
+                    TextValue = psd.TextValue
+                })
+                .ToListAsync(cancellationToken);
+
+            var details = await _propertyDetailsRepo.GetQueryable()
+                .Include(x => x.Floor)
+                .AsNoTracking()
+                .Where(x => x.PropertyId == propertyId && x.IsActive && !x.MarkedForDeletion)
+                .OrderBy(x => x.Id)
+                .ToListAsync(cancellationToken);
+
+            if (!details.Any())
+            {
+                int financeYearForCleanup = financeYear > 0
+                    ? financeYear
+                    : _financeYearProvider.GetCurrentFinanceYear();
+
+                // Only resolve a YearMaster that actually matches the requested finance year —
+                // falling back to an unrelated year's row would make DeactivateExistingRVCalculationsAsync
+                // deactivate TransMast RV records belonging to that other year.
+                var yearMasterForCleanup = await _yearMasterRepo.GetQueryable()
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(
+                        y => y.Year == financeYearForCleanup && y.IsActive,
+                        cancellationToken)
+                    ?? await _yearMasterRepo.GetQueryable()
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(
+                        y => y.Year == financeYearForCleanup,
+                        cancellationToken);
+
+                await _rvCalculationCleanupService.DeactivateExistingRVCalculationsAsync(
+                    propertyId,
+                    financeYearForCleanup,
+                    yearMasterForCleanup?.Id);
+
+                await _unitOfWork.SaveChangesAsync();
+
+                var emptyYearRanges = await _masterDataService.GetActiveYearRangesAsync();
+
+                return new PropertyCalculationContext
+                {
+                    Property = property,
+                    Details = new List<PropertyDetailsEntity>(),
+                    YearRanges = emptyYearRanges,
+                    Parameters = new PropertyCalculationParameters { FinanceYear = financeYearForCleanup }
+                };
+            }
+
+            // Gather active SocialAttributeIds for the property (distinct list)
+            var socialAttributeIds = socialDetails.Select(s => s.SocialAttributeId).Distinct().ToList();
+
+            // Build a flat attribute dictionary: SocialAttributeCode → typed CLR value
+            // Rule expressions can reference these directly: input.HAS_LIFT, input.NO_OF_WELL, etc.
+            var socialAttributeDict = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
+
+            // Sort by PropertyId such that main property comes first, and current property comes last.
+            // This ensures current property's attributes override main property's in case of duplicates.
+            var orderedSocialDetails = socialDetails.OrderBy(s => s.PropertyId == propertyId ? 1 : 0);
+
+            foreach (var attr in orderedSocialDetails)
+            {
+                if (string.IsNullOrWhiteSpace(attr.Code)) continue;
+                object? val = attr.DataType?.ToUpperInvariant() switch
+                {
+                    "BIT" => (object?)(attr.BitValue ?? false),
+                    "INT" => attr.IntValue,
+                    "DECIMAL" => attr.DecimalValue,
+                    "TEXT" => attr.TextValue,
+                    _ => attr.BitValue.HasValue ? attr.BitValue
+                                 : attr.IntValue.HasValue ? (object?)attr.IntValue
+                                 : attr.DecimalValue.HasValue ? attr.DecimalValue
+                                 : attr.TextValue
+                };
+                if (val != null)
+                    socialAttributeDict[attr.Code] = val;
+            }
+
+            // ── Phase 3: Parse construction year ───────────────────────────────────
+            // (ConstructionYear is still required/validated here — it's used elsewhere, e.g.
+            // depreciation calculation — even though year-range resolution below now prefers
+            // AssessmentYear first, same priority as the per-detail resolution.)
+
+            var constructionYear = details[0].ConstructionYear;
+
+            CalculationValidator.CheckCondition(
+                !string.IsNullOrWhiteSpace(constructionYear),
+                $"ConstructionYear not found for PropertyId={propertyId}");
+
+            CalculationValidator.CheckCondition(
+                int.TryParse(constructionYear, out int constructionYearValue),
+                $"Invalid ConstructionYear value '{constructionYear}' for PropertyId={propertyId}");
+
+            // ── Phase 4: Resolve assessment year ranges ────────────────────────────
+            // Note: Assessment year is resolved per-detail during CloneForDetail() using
+            // ResolveYearRangeRVIdForDetail (AssessmentYear only — no ConstructionYear fallback).
+            // This loads all active year ranges for later use there.
+
+            var yearRanges = await _masterDataService.GetActiveYearRangesAsync();
+
+            // Property-level fallback (used only as a last resort if a detail's own AssessmentYear
+            // can't resolve a range): resolved from details[0].AssessmentYear only, no ConstructionYear
+            // fallback. If missing or no range covers it, don't fail the whole request —
+            // ResolveYearRangeRVIdForDetail already treats a missing/zero YearRangeRVId as
+            // "apply zero tax" per detail, so fall back to 0 here too.
+            int? propertyLevelYear = int.TryParse(details[0].AssessmentYear, out int firstDetailAssessmentYear)
+                ? firstDetailAssessmentYear
+                : null;
+
+            var yearRangeId = propertyLevelYear.HasValue
+                ? yearRanges.FirstOrDefault(
+                    x => x.FromYear <= propertyLevelYear.Value && x.ToYear >= propertyLevelYear.Value)?.Id ?? 0
+                : 0;
+
+            if (yearRangeId == 0)
+                _logger.LogWarning(
+                    "Assessment year range not found for AssessmentYear={AssessmentYear} (PropertyId={PropertyId}). " +
+                    "Zero tax will be applied where no per-detail range is found.",
+                    details[0].AssessmentYear, propertyId);
+
+            // ── Phase 5: Child collections (sequential — depend on detail IDs) ─────
+
+            var detailIds = details.Select(d => d.Id).ToList();
+
+            var renters = await _renterRepo.GetQueryable()
+                .AsNoTracking()
+                .Where(x => detailIds.Contains(x.PropertyDetailsId) && x.IsActive && !x.MarkedForDeletion)
+                .ToListAsync(cancellationToken);
+
+            var wingId = property.WingDetailId;
+            int? societyDetailId = null;
+
+            if (wingId.HasValue && wingId.Value > 0)
+            {
+                var wing = await _wingDetailsMastRepo.GetQueryable()
+                    .AsNoTracking()
+                    .Where(w => w.Id == wingId.Value && w.IsActive && !w.MarkedForDeletion)
+                    .FirstOrDefaultAsync(cancellationToken);
+                wingId = wing?.Id;
+                societyDetailId = wing?.SocietyDetailsMastId;
+
+                // Validate that the society resolved from the wing is active and not deleted
+                if (societyDetailId.HasValue)
+                {
+                    var isSocietyValid = await _societyRepo.GetQueryable()
+                        .AsNoTracking()
+                        .AnyAsync(s => s.Id == societyDetailId.Value && s.IsActive && !s.MarkedForDeletion, cancellationToken);
+                    if (!isSocietyValid)
+                    {
+                        societyDetailId = null;
+                    }
+                }
+            }
+
+            if (!societyDetailId.HasValue)
+            {
+                var society = await _societyRepo.GetQueryable()
+                    .AsNoTracking()
+                    .Where(s => s.PropertyId == propertyId && s.IsActive && !s.MarkedForDeletion)
+                    .FirstOrDefaultAsync(cancellationToken);
+                societyDetailId = society?.Id;
+            }
+
+            var certificates = await _propertyCertificateRepo.GetQueryable()
+                .Include(pc => pc.CertificateType)
+                .AsNoTracking()
+                .Where(pc => pc.IsActive && !pc.MarkedForDeletion
+                          && pc.CertificateType != null
+                          && (
+                              (pc.PropertyDetailsId.HasValue && detailIds.Contains(pc.PropertyDetailsId.Value) && (string.IsNullOrEmpty(pc.EntityType) || pc.EntityType == "P"))
+                              || (pc.PropertyId.HasValue && targetPropertyIds.Contains(pc.PropertyId.Value) && (string.IsNullOrEmpty(pc.EntityType) || pc.EntityType == "P"))
+                              || (wingId.HasValue && pc.WingDetailId == wingId.Value && pc.EntityType == "W")
+                              || (societyDetailId.HasValue && pc.SocietyDetailId == societyDetailId.Value && pc.EntityType == "S")
+                          ))
+                .ToListAsync(cancellationToken);
+
+            // ── Phase 6: Assemble and return the context ───────────────────────────
+
+            // Calculate building's max floor sequence number across all related properties in the same building (single optimized query)
+            // Only search related properties in the building if category is Apartment or Industry.
+            // Otherwise, go with the provided propertyId.
+            IQueryable<int> propertyIdsQuery;
+            if (isApartmentOrIndustry && !string.IsNullOrWhiteSpace(property.PropertyNo))
+            {
+                propertyIdsQuery = _propertyRepo.GetQueryable()
+                    .AsNoTracking()
+                    .Where(p => p.WardId == property.WardId
+                             && p.PropertyNo == property.PropertyNo
+                             && p.IsActive
+                             && !p.MarkedForDeletion)
+                    .Select(p => p.Id);
+            }
+            else
+            {
+                propertyIdsQuery = _propertyRepo.GetQueryable()
+                    .AsNoTracking()
+                    .Where(p => p.Id == propertyId)
+                    .Select(p => p.Id);
+            }
+
+            var propertyIds = await propertyIdsQuery.ToListAsync(cancellationToken);
+
+            var buildingFloorDetails = await _propertyDetailsRepo.GetQueryable()
+                .AsNoTracking()
+                .Where(d => propertyIds.Contains(d.PropertyId)
+                          && d.IsActive
+                          && !d.MarkedForDeletion
+                          && d.Floor != null
+                          && d.Floor.IsActive)
+                .Select(d => new
+                {
+                    FloorMasterId = d.FloorId,
+                    SequenceNo = (int?)d.Floor!.SequenceNo,
+                    FloorCode = d.Floor!.FloorCode
+                })
+                .Distinct()
+                .ToListAsync(cancellationToken);
+
+            var maxFloorSequence = buildingFloorDetails.Count > 0
+                ? (buildingFloorDetails.Max(d => d.SequenceNo) ?? 0)
+                : 0;
+
+            var maxFloorMasterId = buildingFloorDetails
+                .OrderByDescending(d => d.SequenceNo ?? int.MinValue)
+                .Select(d => d.FloorMasterId ?? 0)
+                .FirstOrDefault();
+
+            var maxFloorNumber = buildingFloorDetails
+                .Select(f =>
+                {
+                    if (int.TryParse(f.FloorCode, out var floorNumber) && floorNumber > 0)
+                    {
+                        return floorNumber;
+                    }
+
+                    return f.SequenceNo.HasValue && f.SequenceNo.Value >= FirstFloorSequenceThreshold
+                        ? f.SequenceNo.Value - 11
+                        : 0;
+                })
+                .DefaultIfEmpty(0)
+                .Max();
+
+            // Building-wide Rateable Value / Annual Rental Value: same building group (propertyIds)
+            // as maxFloorSequence above, summed across every property in it — not just this single
+            // property's own details. Current-year values are read from RVCalculationResults (this
+            // run's own detail RV isn't persisted yet, so it reflects each property's last completed
+            // calculation — the same "best effort against already-computed amounts" idiom
+            // TaxConditionRuleService.EvaluateAsync already uses for cross-property RV lookups).
+            // Past years fall back to TransMast, which only persists one property-wide RV/ALV row per
+            // finance year (no per-detail breakdown), same as EvaluateAsync's own past-year branch.
+            decimal buildingTotalRateableValue;
+            decimal buildingTotalAnnualRentalValue;
+            decimal siblingTotalRateableValue;
+            decimal siblingTotalAnnualRentalValue;
+            var isCurrentFinanceYearForRv = financeYear == _financeYearProvider.GetCurrentFinanceYear();
+            if (isCurrentFinanceYearForRv)
+            {
+                var rvAlvByDetail = await _rvCalculationResultsRepo.GetQueryable()
+                    .AsNoTracking()
+                    .Where(r => propertyIds.Contains(r.PropertyId) && r.IsActive && !r.MarkedForDeletion)
+                    .GroupBy(r => r.PropertyDetailsId)
+                    .Select(g => new
+                    {
+                        PropertyId = g.Max(x => x.PropertyId),
+                        RV = g.Max(x => x.RateableValue) ?? 0m,
+                        ALV = g.Max(x => x.AnnualRentalValue) ?? 0d
+                    })
+                    .ToListAsync(cancellationToken);
+
+                siblingTotalRateableValue = rvAlvByDetail.Where(x => x.PropertyId != propertyId).Sum(x => x.RV);
+                siblingTotalAnnualRentalValue = rvAlvByDetail.Where(x => x.PropertyId != propertyId).Sum(x => Convert.ToDecimal(x.ALV));
+
+                var targetPersistedRv = rvAlvByDetail.Where(x => x.PropertyId == propertyId).Sum(x => x.RV);
+                var targetPersistedAlv = rvAlvByDetail.Where(x => x.PropertyId == propertyId).Sum(x => Convert.ToDecimal(x.ALV));
+
+                buildingTotalRateableValue = siblingTotalRateableValue + targetPersistedRv;
+                buildingTotalAnnualRentalValue = siblingTotalAnnualRentalValue + targetPersistedAlv;
+            }
+            else
+            {
+                var yearMasterForRv = await _yearMasterRepo.GetQueryable()
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(y => y.Year == financeYear && y.IsActive, cancellationToken);
+
+                if (yearMasterForRv != null)
+                {
+                    var transMastRows = await _transMastRepo.GetQueryable()
+                        .AsNoTracking()
+                        .Where(t => propertyIds.Contains(t.PropertyId)
+                                 && t.FinanceYearId == yearMasterForRv.Id
+                                 && t.IsActive && !t.MarkedForDeletion)
+                        .ToListAsync(cancellationToken);
+
+                    var rvRowsByProperty = transMastRows
+                        .GroupBy(t => t.PropertyId)
+                        .Select(g => g.FirstOrDefault(t => string.Equals(t.CalculationType, "RV", StringComparison.OrdinalIgnoreCase)))
+                        .Where(t => t != null)
+                        .ToList();
+
+                    siblingTotalRateableValue = rvRowsByProperty.Where(t => t!.PropertyId != propertyId).Sum(t => t!.CalculationValue);
+                    siblingTotalAnnualRentalValue = rvRowsByProperty.Where(t => t!.PropertyId != propertyId).Sum(t => t!.CalculationAnnualValue ?? 0m);
+
+                    var targetPersistedRv = rvRowsByProperty.Where(t => t!.PropertyId == propertyId).Sum(t => t!.CalculationValue);
+                    var targetPersistedAlv = rvRowsByProperty.Where(t => t!.PropertyId == propertyId).Sum(t => t!.CalculationAnnualValue ?? 0m);
+
+                    buildingTotalRateableValue = siblingTotalRateableValue + targetPersistedRv;
+                    buildingTotalAnnualRentalValue = siblingTotalAnnualRentalValue + targetPersistedAlv;
+                }
+                else
+                {
+                    siblingTotalRateableValue = 0m;
+                    siblingTotalAnnualRentalValue = 0m;
+                    buildingTotalRateableValue = 0m;
+                    buildingTotalAnnualRentalValue = 0m;
+                }
+            }
+
+            // Pre-compute YearRangeRVId for each detail based on AssessmentYear
+            var detailYearRangeRVIdMap = new Dictionary<int, int>();
+            foreach (var detail in details)
+            {
+                var detailYearRangeRVId = ResolveYearRangeRVIdForDetail(detail, yearRanges, yearRangeId);
+                detailYearRangeRVIdMap[detail.Id] = detailYearRangeRVId;
+            }
+
+            var (rootOc, rootCc, rootEleBill, rootCertificatesByCode) =
+                PropertyCalculationParameters.ResolveCertificates(certificates, null, property.Id, property.WingDetailId, societyDetailId);
+
+            return new PropertyCalculationContext
+            {
+                Property = property,
+                PropertyAssessment = assessment,
+                Details = details,
+                Renters = renters,
+                Certificates = certificates,
+                SocietyDetailId = societyDetailId,
+                YearRanges = yearRanges,
+                DetailYearRangeRVIdMap = detailYearRangeRVIdMap,
+
+                Parameters = new PropertyCalculationParameters
+                {
+                    FinanceYear = financeYear,
+                    ConstructionYearValue = constructionYearValue,
+                    YearRangeRVId = yearRangeId,
+                    SocialAttributeId = socialAttributeIds,
+                    SocialAttributes = socialAttributeDict,
+                    OccupancyCertificate = rootOc,
+                    CommencementCertificate = rootCc,
+                    ElectricBillDate = rootEleBill,
+                    CertificatesByCode = rootCertificatesByCode,
+                    BuildingMaxFloorSequence = maxFloorSequence,
+                    BuildingMaxFloorNumber = maxFloorNumber,
+                    BuildingMaxFloorId = maxFloorMasterId,
+                    SiblingTotalRateableValue = siblingTotalRateableValue,
+                    SiblingTotalAnnualRentalValue = siblingTotalAnnualRentalValue,
+                    BuildingTotalRateableValue = buildingTotalRateableValue,
+                    BuildingTotalAnnualRentalValue = buildingTotalAnnualRentalValue
+                    // Detail and DetailTypeOfUse remain null at the root context level.
+                    // They are populated per-detail by PropertyCalculationContext.CloneForDetail().
+                }
+            };
+        }
+
+        /// <summary>
+        /// Resolves the YearRangeRVId for a specific detail based on its AssessmentYear only.
+        /// ConstructionYear is no longer used as a fallback here — if AssessmentYear is missing
+        /// or doesn't match any range, this returns 0 (NO FALLBACK - will apply 0 tax).
+        /// </summary>
+        private int ResolveYearRangeRVIdForDetail(
+            PropertyDetailsEntity detail,
+            List<AssessmentYearRangeEntity> yearRanges,
+            int propertyLevelYearRangeRVId)
+        {
+            if (!string.IsNullOrWhiteSpace(detail.AssessmentYear) &&
+                int.TryParse(detail.AssessmentYear, out int assessmentYear))
+            {
+                var matchingYearRange = yearRanges.FirstOrDefault(y =>
+                    y.FromYear <= assessmentYear && y.ToYear >= assessmentYear && y.IsActive);
+
+                if (matchingYearRange != null)
+                    return matchingYearRange.Id;
+
+                // ❌ AssessmentYear provided but NOT FOUND in any year range
+                // NO FALLBACK - Return 0 to indicate 0 tax should be applied
+                _logger.LogWarning(
+                    "AssessmentYear={AssessmentYear} not found in any AssessmentYearRangeEntity for DetailId={DetailId}. " +
+                    "Zero tax will be applied.",
+                    detail.AssessmentYear, detail.Id);
+                return 0;  // Signal: 0 tax
+            }
+
+            // No AssessmentYear on this detail — no fallback to ConstructionYear.
+            _logger.LogWarning(
+                "AssessmentYear not found for DetailId={DetailId}. Zero tax will be applied.",
+                detail.Id);
+            return 0;  // Signal: 0 tax
+        }
+    }
+}

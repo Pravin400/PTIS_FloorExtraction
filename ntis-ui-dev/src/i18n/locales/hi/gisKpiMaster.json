@@ -1,0 +1,150 @@
+{
+  "list": {
+    "title": "जीआईएस केपीआई मास्टर",
+    "subtitle": "जीआईएस विश्लेषण और डैशबोर्ड के लिए मुख्य प्रदर्शन संकेतक (KPI) प्रबंधित करें",
+    "buttons": {
+      "add": "जीआईएस केपीआई जोड़ें",
+      "edit": "संपादित करें",
+      "delete": "हटाएं",
+      "manageMapping": "मैपिंग प्रबंधित करें"
+    },
+    "filters": {
+      "show": "दिखाएं",
+      "search": "केपीआई कोड, शीर्षक या आइकन द्वारा खोजें...",
+      "department": "विभाग",
+      "allDepartments": "सभी विभाग"
+    },
+    "table": {
+      "kpiCode": "केपीआई कोड",
+      "defaultTitle": "डिफ़ॉल्ट शीर्षक",
+      "defaultIcon": "डिफ़ॉल्ट आइकन",
+      "defaultColor": "रंग",
+      "mappedDepartment": "मैप किया गया विभाग",
+      "status": "स्थिति",
+      "actions": "कार्रवाई"
+    },
+    "status": {
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय"
+    },
+    "pagination": {
+      "showing": "दिखा रहे हैं",
+      "entries": "प्रविष्टियां"
+    }
+  },
+  "form": {
+    "addTitle": "जीआईएस केपीआई जोड़ें",
+    "editTitle": "जीआईएस केपीआई संपादित करें",
+    "subtitle": "नया जीआईएस केपीआई कॉन्फ़िगरेशन बनाएं",
+    "editSubtitle": "जीआईएस केपीआई कॉन्फ़िगरेशन विवरण अपडेट करें",
+    "fields": {
+      "kpiCode": {
+        "label": "केपीआई कोड",
+        "placeholder": "उदा. TOTAL_ASSETS"
+      },
+      "defaultTitle": {
+        "label": "डिफ़ॉल्ट शीर्षक",
+        "placeholder": "उदा. Total Properties / Assets"
+      },
+      "defaultIcon": {
+        "label": "डिफ़ॉल्ट आइकन",
+        "placeholder": "उदा. building"
+      },
+      "defaultColor": {
+        "label": "डिफ़ॉल्ट रंग",
+        "placeholder": "उदा. #2563EB"
+      }
+    },
+    "validation": {
+      "kpiCodeRequired": "केपीआई कोड आवश्यक है",
+      "kpiCodeMaxLength": "अधिकतम लंबाई 50 वर्ण है",
+      "kpiCodeFormat": "अमान्य प्रारूप। केवल अंग्रेज़ी अक्षर, संख्याएँ और अंडरस्कोर की अनुमति है।",
+      "kpiCodeNumbersOnlyNotAllowed": "कृपया कम से कम एक वर्णमाला वाला मान्य केपीआई कोड दर्ज करें।",
+      "defaultTitleRequired": "डिफ़ॉल्ट शीर्षक आवश्यक है",
+      "defaultTitleMaxLength": "अधिकतम लंबाई 100 वर्ण है",
+      "defaultTitleFormat": "केवल अक्षर, संख्याएँ, रिक्त स्थान और विराम चिह्न की अनुमति है।",
+      "defaultTitleNumbersOnlyNotAllowed": "कृपया कम से कम एक वर्णमाला वाला मान्य शीर्षक दर्ज करें।",
+      "defaultIconRequired": "डिफ़ॉल्ट आइकन आवश्यक है",
+      "defaultIconMaxLength": "अधिकतम लंबाई 50 वर्ण है",
+      "defaultColorRequired": "डिफ़ॉल्ट रंग आवश्यक है",
+      "defaultColorFormat": "कृपया एक मान्य हेक्स रंग कोड दर्ज करें (उदा. #2563EB)",
+      "mustBeActive": "सहेजने के लिए जीआईएस केपीआई सक्रिय होना चाहिए"
+    },
+    "status": {
+      "label": "सक्रिय स्थिति",
+      "description": "जीआईएस केपीआई वर्तमान में है"
+    },
+    "actions": {
+      "cancel": "रद्द करें",
+      "save": "सहेजें",
+      "update": "अपडेट करें"
+    },
+    "presets": "प्रीसेट:"
+  },
+  "mapping": {
+    "drawerTitle": "विभाग में कार्ड मैप करें",
+    "editDrawerTitle": "विभाग मैपिंग संपादित करें",
+    "editDrawerSubtitle": "इस मैपिंग के लिए ओवरराइड और कॉन्फ़िगरेशन अपडेट करें।",
+    "cancel": "रद्द करें",
+    "mapLater": "बाद में मैप करें",
+    "saveAndAddAnother": "सहेजें और दूसरा जोड़ें",
+    "saveMapping": "मैपिंग सहेजें",
+    "saveChanges": "बदलाव सहेजें",
+    "deleteMapping": "मैपिंग हटाएं",
+    "updating": "अपडेट हो रहा है...",
+    "deleting": "हटाया जा रहा है...",
+    "departmentOverrides": "विभाग ओवरराइड (वैकल्पिक)",
+    "editDepartmentOverrides": "विभाग ओवरराइड",
+    "department": "विभाग",
+    "selectDepartment": "विभाग चुनें",
+    "loadingDepartments": "विभाग लोड हो रहे हैं...",
+    "alreadyMapped": "पहले से मैप किया हुआ",
+    "customTitle": "कस्टम शीर्षक",
+    "customIcon": "कस्टम आइकन",
+    "customColor": "कस्टम रंग",
+    "displayOrder": "प्रदर्शन क्रम",
+    "displayOrderPlaceholder": "उदा. 1",
+    "activeStatus": "सक्रिय स्थिति",
+    "statusActiveDesc": "यह कार्ड चयनित विभाग को दिखाई देगा।",
+    "statusInactiveDesc": "यह कार्ड इस विभाग के लिए छिपा रहेगा।",
+    "clickDestinationNotice": "कार्ड क्लिक डेस्टिनेशन के लिए एक नए मैपिंग एपीआई फ़ील्ड की आवश्यकता है।",
+    "mappedDepartments": "मैप किए गए विभाग ({count})",
+    "order": "क्रम: {order}",
+    "useDefaultIcon": "डिफ़ॉल्ट का उपयोग करें ({name})",
+    "useDefaultColor": "डिफ़ॉल्ट का उपयोग करें ({color})",
+    "removeTitle": "विभाग मैपिंग हटाएं",
+    "removeConfirm": "क्या आप वाकई {name} के लिए विभाग मैपिंग हटाना चाहते हैं? यह कार्रवाई पूर्ववत नहीं की जा सकती।",
+    "resetToDefault": "डिफ़ॉल्ट पर रीसेट करें",
+    "colorPlaceholder": "उदा. #DC2626"
+  },
+  "delete": {
+    "confirmTitle": "जीआईएस केपीआई ({code}) हटाएं?",
+    "confirmDescription": "क्या आप वाकई इस जीआईएस केपीआई रिकॉर्ड को हटाना चाहते हैं?",
+    "successMessage": "जीआईएस केपीआई ({code}) सफलतापूर्वक हटाया गया",
+    "errorMessage": "जीआईएस केपीआई ({code}) को हटाया नहीं जा सकता क्योंकि यह अन्य रिकॉर्ड से जुड़ा है।"
+  },
+  "apiErrors": {
+    "duplicateRecord": "इस कोड या शीर्षक के साथ एक जीआईएस केपीआई पहले से मौजूद है।",
+    "validationError": "अमान्य डेटा प्रदान किया गया। कृपया सभी फ़ील्ड जांचें।",
+    "invalidData": "अमान्य डेटा प्रदान किया गया। कृपया सभी फ़ील्ड जांचें।",
+    "notFound": "जीआईएस केपीआई नहीं मिला।",
+    "inUse": "इस जीआईएस केपीआई को निष्क्रिय/हटाया नहीं जा सकता क्योंकि इसे जीआईएस डैशबोर्ड विगेट्स में संदर्भित किया गया है।",
+    "operationFailed": "ऑपरेशन विफल रहा। कृपया बाद में पुनः प्रयास करें।"
+  },
+  "success": {
+    "created": "कोड: {code} के साथ नया जीआईएस केपीआई सफलतापूर्वक बनाया गया",
+    "updated": "कोड: {code} के साथ जीआईएस केपीआई सफलतापूर्वक अपडेट किया गया",
+    "deleted": "कोड: {code} के साथ जीआईएस केपीआई सफलतापूर्वक हटाया गया"
+  },
+  "error": {
+    "title": "सर्वर से कनेक्ट करने में विफल। कृपया बाद में पुनः प्रयास करें।",
+    "description": "जीआईएस केपीआई पृष्ठ लोड करते समय हमें एक त्रुटि का सामना करना पड़ा।",
+    "tryAgain": "पुनः प्रयास करें",
+    "goHome": "होम पर जाएं",
+    "errorId": "त्रुटि आईडी: {id}"
+  },
+  "loading": {
+    "message": "जीआईएस केपीआई मास्टर लोड हो रहा है...",
+    "description": "कृपया प्रतीक्षा करें जब तक हम जीआईएस केपीआई डेटा प्राप्त करते हैं"
+  }
+}

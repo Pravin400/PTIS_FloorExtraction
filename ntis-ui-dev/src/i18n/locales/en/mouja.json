@@ -1,0 +1,104 @@
+{
+  "moujaMaster": {
+    "aliasFallback": {
+      "entity": "Mouja"
+    },
+    "list": {
+      "title": "{mouja} Master",
+      "subtitle": "Manage {mouja} records and their details",
+      "buttons": {
+        "add": "Add {mouja}",
+        "edit": "Edit",
+        "delete": "Delete"
+      },
+      "filters": {
+        "show": "Show",
+        "search": "Search by {mouja} Number or Name..."
+      },
+      "table": {
+        "moujaNo": "{mouja} Number",
+        "moujaName": "{mouja} Name",
+        "status": "Status",
+        "actions": "Actions"
+      },
+      "status": {
+        "active": "Active",
+        "inactive": "Inactive"
+      },
+      "pagination": {
+        "showing": "Showing",
+        "entries": "entries"
+      }
+    },
+    "form": {
+      "addTitle": "Add {mouja}",
+      "editTitle": "Edit {mouja}",
+      "subtitle": "Create new {mouja}",
+      "editSubtitle": "Update {mouja} details",
+      "fields": {
+        "moujaNo": {
+          "label": "{mouja} Number",
+          "placeholder": "e.g. M001"
+        },
+        "moujaName": {
+          "label": "{mouja} Name",
+          "placeholder": "e.g. Akurdi"
+        }
+      },
+      "validation": {
+        "moujaNoRequired": "{mouja} number is required",
+        "moujaNoMaxLength": "Maximum length is 10 characters",
+        "moujaNoFormat": "Invalid format. Only English letters, numbers, dot, and underscore are allowed.",
+        "moujaNoEnglishOnly": "Only English letters, numbers, dot, and underscore are allowed. Marathi/Hindi not supported.",
+        "moujaNoExists": "This {mouja} Number already exists. Please use a different number.",
+        "moujaNameRequired": "{mouja} name is required",
+        "moujaNameMaxLength": "Maximum length is 100 characters",
+        "moujaNameFormat": "Only letters (any language), numbers, spaces, and basic punctuation allowed (,./-()).",
+        "moujaNameExists": "{mouja} name already exists. Please enter a different name.",
+        "mustBeActive": "{mouja} must be active to save"
+      },
+      "status": {
+        "label": "Active Status",
+        "description": "{mouja} is currently"
+      },
+      "actions": {
+        "cancel": "Cancel",
+        "save": "Save",
+        "update": "Update"
+      }
+    },
+    "delete": {
+      "confirmTitle": "Delete {mouja} ({id})?",
+      "confirmDescription": "Are you sure you want to delete this {mouja} record?",
+      "successMessage": "{mouja} ({id}) deleted successfully",
+      "errorMessage": "Cannot delete {mouja} ({id}) because it is linked to other records."
+    },
+    "apiErrors": {
+      "duplicateCode": "{mouja} number already exists. Please use a different number.",
+      "duplicateName": "{mouja} name already exists. Please use a different name.",
+      "duplicateRecord": "Please check {mouja} Number and Name - duplicates not allowed.",
+      "validationError": "Invalid data provided. Please check all fields.",
+      "invalidData": "Invalid data provided. Please check all fields.",
+      "notFound": "{mouja} not found.",
+      "inUse": "Cannot deactivate/delete this {mouja} because it is referenced in other records.",
+      "operationFailed": "Operation failed. Please try again later.",
+      "linkedRecordError": "Cannot modify this {mouja} because it is linked to other records."
+    },
+    "success": {
+      "created": "New {mouja} created successfully with code: {code}",
+      "updated": "{mouja} updated successfully with code: {code}",
+      "deleted": "{mouja} deleted successfully with code: {code}"
+    },
+    "error": {
+      "title": "Failed to connect server. Please try again later.",
+      "description": "We encountered an error while loading the {mouja} page. Please try again.",
+      "tryAgain": "Try Again",
+      "goHome": "Go to Home",
+      "errorId": "Error ID: {id}"
+    },
+    "loading": {
+      "message": "Loading Mouja...",
+      "description": "Please wait while we fetch the mouja data"
+    }
+  }
+}

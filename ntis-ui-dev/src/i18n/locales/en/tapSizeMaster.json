@@ -1,0 +1,105 @@
+{
+  "tapSize": {
+    "title": "Tap Size Master",
+    "description": "Manage tap sizes and their measurements",
+    "searchPlaceholder": "Search tap sizes...",
+    "addButton": "Add Tap Size",
+    "userManualBtn": "User Manual",
+    "userManual": {
+      "title": "Tap Size Master — How It Works",
+      "desc1": "Tap Size Master defines the standard measurements of water taps available.",
+      "desc2": "1. Add tap sizes (e.g. 1/2 Inch, 3/4 Inch) along with their nominal size value and unit.",
+      "desc3": "2. Set the status of each tap size to Active or Inactive.",
+      "desc4": "3. Edit or delete existing tap sizes as needed.",
+      "warning": "Always ensure the tap size is Active if it is currently being used for water billing."
+    },
+    "filters": {
+      "all": "All records",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "table": {
+      "code": "Tap Size Code",
+      "tapSizeCode": "Tap Size Code",
+      "tapSize": "Tap Size",
+      "nominalSizeValue": "Nominal Size Value",
+      "sizeUnit": "Size Unit",
+      "statusName": "Status"
+    },
+    "form": {
+      "tapSizeCode": {
+        "label": "Tap Size Code",
+        "placeholder": "e.g., TAP01"
+      },
+      "tapSize": {
+        "label": "Tap Size",
+        "placeholder": "e.g., 1/2"
+      },
+      "nominalSizeValue": {
+        "label": "Nominal Size Value",
+        "placeholder": "e.g., 0.5"
+      },
+      "sizeUnit": {
+        "label": "Size Unit",
+        "placeholder": "e.g., Inch"
+      },
+      "isActive": {
+        "label": "Active Status"
+      },
+      "activeStatusTitle": "Active Status",
+      "tapStatusTitle": "Tap Status",
+      "activeStatusOn": "Active - Tap Size is enabled",
+      "activeStatusOff": "Inactive - Tap Size is disabled"
+    },
+    "validation": {
+      "tapSizeCodeRequired": "Tap Size Code is required",
+      "tapSizeCodeLength": "Code cannot exceed 20 characters",
+      "codeFormat": "Use only letters, numbers, underscores (_), and dots (.). Cannot start/end with or have consecutive special characters.",
+      "tapSizeRequired": "Tap Size is required",
+      "tapSizeLength": "Tap Size cannot exceed 5 characters",
+      "tapSizeInvalid": "Invalid tap size format (e.g. 1/2 or 1)",
+      "tapSizeFormat": "Use only letters, numbers, spaces, underscores (_), and dots (.). Cannot start/end with or have consecutive special characters.",
+      "nominalSizeValueRequired": "Nominal Size Value is required",
+      "nominalSizeValueInvalid": "Must be a valid number",
+      "sizeUnitRequired": "Size Unit is required",
+      "sizeUnitLength": "Size Unit cannot exceed 20 characters",
+      "descriptionLength": "Description cannot exceed 300 characters",
+      "descriptionFormat": "Only letters, numbers, spaces, and basic punctuation allowed (,./-())."
+    },
+    "confirm": {
+      "deleteTitle": "Delete Tap Size",
+      "deleteDescription": "Are you sure you want to permanently delete this tap size? This action cannot be undone."
+    },
+    "messages": {
+      "createSuccess": "Tap Size created successfully",
+      "updateSuccess": "Tap Size updated successfully",
+      "deleteSuccess": "Tap Size deleted successfully",
+      "createError": "Failed to create tap size",
+      "updateError": "Failed to update tap size",
+      "deleteError": "Failed to delete tap size",
+      "duplicateError": "A record with the same details already exists.",
+      "duplicateCodeError": "Tap Size Code already exists.",
+      "duplicateNameError": "Tap Size already exists."
+    },
+    "drawer": {
+      "addTitle": "Add Tap Size",
+      "editTitle": "Edit Tap Size",
+      "addSubtitle": "Create a new tap size",
+      "editSubtitle": "Update tap size details",
+      "cancel": "Cancel",
+      "save": "Save",
+      "update": "Update"
+    }
+  },
+  "loading": {
+    "message": "Loading Tap Size...",
+    "description": "Please wait while we fetch the tap size data"
+  },
+  "error": {
+    "title": "Failed to connect server. Please try again later.",
+    "description": "We encountered an error while loading the tap size page. Please try again.",
+    "tryAgain": "Try Again",
+    "goHome": "Go to Home",
+    "errorId": "Error ID: {id}"
+  }
+}

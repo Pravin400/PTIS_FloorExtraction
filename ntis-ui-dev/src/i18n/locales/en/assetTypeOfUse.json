@@ -1,0 +1,222 @@
+{
+  "title": "Type of Use Master",
+  "noDataFound": "No data found",
+  "seq": "Seq",
+  "selectIcon": "Select icon",
+  "residential": "Residential",
+  "commercial": "Commercial",
+  "industrial": "Industrial",
+  "nontaxable": "Non-taxable",
+  "subtitle": "Configure Type of Use Groups, Types, and Sub-Types",
+  "errors": {
+    "typeOfUseCodeRequired": "Code is required",
+    "typeOfUseCodeMaxLength": "Type of Use Code maximum length is 10 characters",
+    "typeOfUseCodeFormat": "Invalid code format",
+    "groupCodeRequired": "Group Code is required",
+    "groupCodeMaxLength": "Max 10 characters allowed",
+    "groupCodeFormat": "Invalid code format",
+    "groupNameRequired": "Group Name is required",
+    "groupNameMaxLength": "Max 50 characters allowed",
+    "groupNameFormat": "Invalid name format",
+    "descriptionMaxLength": "Description maximum length is 100 characters",
+    "descriptionFormat": "Invalid description format",
+    "unauthorized": "Unauthorized",
+    "deleteError": "Failed to delete group",
+    "fixErrors": "Please fix validation errors",
+    "mustBeActive": "Must be active to save",
+    "groupIconRequired": "Group Icon is required",
+    "subTypeNameFormat": "Invalid sub-type name format"
+  },
+  "apiErrors": {
+    "duplicateRecord": "Record already exists",
+    "A record with the same details already exists": "A record with the same details already exists.",
+    "AssetTypeOfUse_TypeOfUseCode_Duplicate": "Type of Use Code already exists",
+    "AssetTypeOfUse_Description_Duplicate": "Type of Use Name already exists",
+    "AssetTypeOfUse_TypeOfUseCode_MaxLength": "Type of Use Code maximum length is 10 characters",
+    "AssetSubTypeOfUse_Description_Duplicate": "Sub-Type Description already exists",
+    "AssetTypeOfUseGroup_GroupCode_Duplicate": "Group Code already exists",
+    "AssetTypeOfUseGroup_GroupName_Duplicate": "Group Name already exists",
+    "notFound": "Record not found",
+    "operationFailed": "Operation failed",
+    "TypeOfUseGroup_Code_Required": "Group Code is required",
+    "TypeOfUseGroup_Code_MaxLen_10": "Group Code maximum length is 10 characters",
+    "TypeOfUseGroup_GroupName_Required": "Group Name is required",
+    "TypeOfUseGroup_GroupName_MaxLen_50": "Group Name maximum length is 50 characters",
+    "TypeOfUseGroup_GroupIcon_Required": "Group Icon is required",
+    "TypeOfUseGroup_GroupIcon_MaxLen_50": "Group Icon maximum length is 50 characters",
+    "AssetTypeOfUse_AssetCategoryId_Required": "Asset Category is required",
+    "AssetTypeOfUse_AssetTypeId_Required": "Asset Type is required",
+    "AssetTypeOfUse_TypeOfUseGroupId_Required": "Group is required",
+    "AssetTypeOfUse_TypeOfUseCode_Required": "Type of Use Code is required",
+    "AssetTypeOfUse_TypeOfUseCode_MaxLen_10": "Type of Use Code maximum length is 10 characters",
+    "AssetTypeOfUse_Description_Required": "Type of Use Name is required",
+    "AssetTypeOfUse_Description_MaxLen_100": "Type of Use Name maximum length is 100 characters",
+    "AssetSubTypeOfUse_TypeOfUseId_Required": "Type of Use is required",
+    "AssetSubTypeOfUse_Description_Required": "Sub-Type Description is required",
+    "AssetSubTypeOfUse_Description_MaxLen_100": "Sub-Type Description maximum length is 100 characters",
+    "inUse": "Cannot delete this record because it is referenced in other tables.",
+    "referenceBlocked": {
+      "typeOfUseGroup": {
+        "deleteInUse": "This Type Of Use Group cannot be deleted because it is in use.",
+        "deactivateInUse": "This Type Of Use Group cannot be deactivated because it is in use.",
+        "deleteHasMasters": "This Type Of Use Group cannot be deleted because it has {masters}. Please delete all {masters} for this Type Of Use Group first.",
+        "deactivateHasMasters": "This Type Of Use Group cannot be deactivated because it has {masters}. Please delete all {masters} for this Type Of Use Group first."
+      },
+      "typeOfUse": {
+        "deleteInUse": "This Type Of Use cannot be deleted because it is in use.",
+        "deactivateInUse": "This Type Of Use cannot be deactivated because it is in use.",
+        "deleteHasMasters": "This Type Of Use cannot be deleted because it has {masters}. Please delete all {masters} for this Type Of Use first.",
+        "deactivateHasMasters": "This Type Of Use cannot be deactivated because it has {masters}. Please delete all {masters} for this Type Of Use first."
+      },
+      "subTypeOfUse": {
+        "deleteInUse": "This Sub Type Of Use cannot be deleted because it is in use.",
+        "deactivateInUse": "This Sub Type Of Use cannot be deactivated because it is in use.",
+        "deleteHasMasters": "This Sub Type Of Use cannot be deleted because it has {masters}. Please delete all {masters} for this Sub Type Of Use first.",
+        "deactivateHasMasters": "This Sub Type Of Use cannot be deactivated because it has {masters}. Please delete all {masters} for this Sub Type Of Use first."
+      }
+    },
+    "referenceMasters": {
+      "typeOfUses": "Type Of Uses",
+      "cvRates": "CV Rates",
+      "subTypeOfUses": "Sub Type Of Uses",
+      "useFactors": "Use Factors",
+      "and": "and"
+    }
+  },
+  "messages": {
+    "addingTo": "Adding to {name}",
+    "categoryRequired": "Category is required",
+    "typeRequired": "Type is required",
+    "groupRequired": "Group is required",
+    "descriptionRequired": "Type of Use Name is required",
+    "descriptionMaxLength": "Type of Use Name maximum length is 100 characters",
+    "subTypeNameRequired": "Sub-Type Name is required",
+    "subTypeNameMaxLength": "Sub-Type Name maximum length is 100 characters",
+    "sequenceRequired": "Sequence is required",
+    "sequenceNonNegative": "Sequence must be 0 or greater",
+    "sequenceMaxLimit": "Sequence must be 999 or less",
+    "typeCreated": "Type created successfully",
+    "typeUpdated": "Type updated successfully",
+    "typeDeleted": "Type of Use deleted successfully",
+    "subTypeCreated": "Sub-Type created successfully",
+    "subTypeUpdated": "Sub-Type updated successfully",
+    "subTypeDeleted": "Sub-Type of Use deleted successfully",
+    "groupCreated": "Group created successfully",
+    "groupUpdated": "Group updated successfully",
+    "groupDeleted": "Group deleted successfully",
+    "subTypeNameLabel": "Sub-Type Name"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "toggleDescription": "Toggle the status"
+  },
+  "loading": {
+    "message": "Loading Type of Use data...",
+    "description": "Please wait while we load the information"
+  },
+  "error": {
+    "title": "Failed to load Type of Use data",
+    "description": "We encountered an error while loading the information. Please try again.",
+    "errorId": "Error ID: {id}",
+    "goHome": "Go Home",
+    "tryAgain": "Try Again"
+  },
+  "list": {
+    "selectGroupNotice": "Please select a Use Group from the list to view Types of Use.",
+    "selectTypeNotice": "Please select a Type of Use from the list to view Sub-Types of Use."
+  },
+  "type": {
+    "title": "Types of Use",
+    "searchPlaceholder": "Search Code/Description...",
+    "addButton": "Add Type",
+    "add": "Add Type of Use",
+    "edit": "Edit Type of Use",
+    "options": {
+      "residential": "R - Residential",
+      "commercial": "C - Commercial",
+      "industrial": "I - Industrial",
+      "nontaxable": "N - Non-taxable"
+    },
+    "fields": {
+      "category": "Asset Category",
+      "assetType": "Asset Type",
+      "code": {
+        "label": "Code"
+      },
+      "description": {
+        "label": "Type of Use Name"
+      },
+      "sequence": "Sequence",
+      "type": {
+        "label": "Type"
+      },
+      "typeId": "Type Of Use Code",
+      "useTypeGroup": "Use Type Group",
+      "selectType": "Type is required"
+    },
+    "placeholders": {
+      "typeId": "e.g., RES, COM",
+      "description": "Enter type of use name"
+    },
+    "selectType": "Type is required",
+    "deleteConfirmDescription": "Are you sure you want to delete this type of use?"
+  },
+  "subtype": {
+    "title": "Sub-Types of Use",
+    "searchPlaceholder": "Search Subtype...",
+    "addButton": "Add Sub-Type",
+    "add": "Add Sub-Type of Use",
+    "edit": "Edit Sub-Type of Use",
+    "addSubtitle": "Create a new Sub-Type of Use",
+    "editSubtitle": "Update existing Sub-Type of Use",
+    "fields": {
+      "description": {
+        "label": "Sub-Type Name"
+      },
+      "sequence": {
+        "label": "Sequence"
+      }
+    },
+    "placeholders": {
+      "subTypeEnglish": "Enter sub-type name"
+    },
+    "deleteConfirmDescription": "Are you sure you want to delete this sub-type of use?"
+  },
+  "group": {
+    "allGroups": "All Groups",
+    "title": "Use Groups",
+    "typeOfUseGroups": "Type of Use Groups",
+    "groupsCount": "{count} groups",
+    "codeLabel": "Code: {code}",
+    "addSubtitle": "Create a new Use Group",
+    "add": "Add Use Group",
+    "edit": "Edit Use Group",
+    "editSubtitle": "Update existing Use Group",
+    "deleteConfirmDescription": "Are you sure you want to delete this group?",
+    "form": {
+      "addTitle": "Add Use Group",
+      "editTitle": "Edit Use Group",
+      "subtitle": "Configure Type of Use Groups"
+    },
+    "fields": {
+      "groupId": "Group Code",
+      "status": "Active Status",
+      "code": {
+        "label": "Group Code",
+        "placeholder": "Enter group code"
+      },
+      "name": {
+        "label": "Group Name",
+        "placeholder": "Enter group name"
+      },
+      "icon": {
+        "label": "Group Icon",
+        "placeholder": "Enter group icon (e.g. home, building)"
+      }
+    }
+  },
+  "subType": {
+    "title": "Sub-Types of Use"
+  }
+}

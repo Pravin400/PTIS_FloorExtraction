@@ -1,0 +1,91 @@
+{
+  "remarkMaster": {
+    "loading": {
+      "message": "टिप्पणी डेटा लोड हो रहा है...",
+      "description": "कृपया प्रतीक्षा करें जब तक हम टिप्पणी जानकारी लोड करते हैं"
+    },
+    "error": {
+      "title": "टिप्पणी डेटा लोड करने में विफल",
+      "description": "टिप्पणी जानकारी लोड करते समय हमें एक त्रुटि का सामना करना पड़ा। कृपया पुन: प्रयास करें।",
+      "errorId": "त्रुटि आईडी: {id}",
+      "goHome": "होम पर जाएं",
+      "tryAgain": "पुन: प्रयास करें"
+    },
+    "title": "सामान्य टिप्पणी मास्टर",
+    "subtitle": "सामान्य टिप्पणियों को जोड़ें, संपादित करें और प्रबंधित करें",
+    "buttons": {
+      "add": "टिप्पणी जोड़ें",
+      "update": "अपडेट करें",
+      "save": "सहेजें",
+      "cancel": "रद्द करें"
+    },
+    "table": {
+      "columns": {
+        "srNo": "क्र. सं.",
+        "remarkType": "टिप्पणी का प्रकार",
+        "remark": "टिप्पणी",
+        "status": "स्थिति",
+        "createdDate": "निर्माण तिथि",
+        "actions": "कार्य"
+      }
+    },
+    "form": {
+      "addTitle": "सामान्य टिप्पणी जोड़ें",
+      "addSubtitle": "नई सामान्य टिप्पणी बनाएं",
+      "editTitle": "सामान्य टिप्पणी संपादित करें",
+      "editSubtitle": "सामान्य टिप्पणी विवरण अपडेट करें",
+      "remarkType": "टिप्पणी का प्रकार",
+      "remarkTypePlaceholder": "-- टिप्पणी का प्रकार चुनें --",
+      "remark": "टिप्पणी",
+      "remarkPlaceholder": "टिप्पणी पाठ दर्ज करें...",
+      "status": "स्थिति",
+      "activeStatusTitle": "टिप्पणी स्थिति",
+      "activeStatusOn": "सक्रिय",
+      "activeStatusOff": "निष्क्रिय",
+      "otherRemarkType": "अन्य (Other)",
+      "customRemarkType": "कस्टम टिप्पणी प्रकार",
+      "customRemarkTypePlaceholder": "कस्टम टिप्पणी प्रकार दर्ज करें...",
+      "addNewTypeBtn": "नया टिप्पणी प्रकार जोड़ें",
+      "selectExistingBtn": "मौजूदा प्रकार चुनें",
+      "validation": {
+        "remarkTypeRequired": "कृपया टिप्पणी का प्रकार चुनें।",
+        "remarkRequired": "टिप्पणी आवश्यक है।",
+        "remarkMinLength": "टिप्पणी कम से कम 3 वर्णों की होनी चाहिए।",
+        "remarkMaxLength": "टिप्पणी 300 वर्णों से अधिक नहीं हो सकती।",
+        "remarkSpacesOnly": "टिप्पणी में केवल रिक्त स्थान नहीं हो सकते।",
+        "remarkConsecutiveSpaces": "टिप्पणी में लगातार कई रिक्त स्थान नहीं हो सकते।",
+        "mustBeActive": "नई टिप्पणी सक्रिय होनी चाहिए",
+        "customRemarkTypeRequired": "कृपया कस्टम टिप्पणी प्रकार दर्ज करें।",
+        "customRemarkTypeMinLength": "कस्टम टिप्पणी प्रकार कम से कम 3 वर्णों का होना चाहिए।",
+        "customRemarkTypeMaxLength": "कस्टम टिप्पणी प्रकार 50 वर्णों से अधिक नहीं हो सकता।",
+        "customRemarkTypeSpacesOnly": "कस्टम टिप्पणी प्रकार में केवल रिक्त स्थान नहीं हो सकते।",
+        "customRemarkTypeConsecutiveSpaces": "कस्टम टिप्पणी प्रकार में लगातार कई रिक्त स्थान नहीं हो सकते।",
+        "customRemarkTypeFormat": "केवल अक्षर, संख्या और मूल विराम चिह्न की अनुमति है (विशेष वर्ण केवल बीच में, और केवल एक रिक्त स्थान)",
+        "customRemarkTypeExists": "यह टिप्पणी का प्रकार पहले से मौजूद है।",
+        "remarkFormat": "केवल अक्षर, संख्या और मूल विराम चिह्न की अनुमति है (विशेष वर्ण केवल बीच में, और केवल एक रिक्त स्थान)"
+      }
+    },
+    "filter": {
+      "all": "सभी प्रकार",
+      "survey": "सर्वेक्षण (Survey)",
+      "recovery": "वसूली (Recovery)",
+      "notice": "नोटिस (Notice)",
+      "mobile": "मोबाइल टिप्पणी (Mobile Remark)",
+      "placeholder": "टिप्पणी के प्रकार से फ़िल्टर करें"
+    },
+    "messages": {
+      "addSuccess": "टिप्पणी सफलतापूर्वक जोड़ी गई।",
+      "remarkTypeAddSuccess": "टिप्पणी का प्रकार सफलतापूर्वक जोड़ा गया।",
+      "updateSuccess": "टिप्पणी सफलतापूर्वक अपडेट की गई।",
+      "deleteSuccess": "टिप्पणी सफलतापूर्वक हटा दी गई।",
+      "deleteConfirm": "क्या आप वाकई इस टिप्पणी को हटाना चाहते हैं?",
+      "deleteConfirmDescription": "यह क्रिया पूर्ववत नहीं की जा सकती।"
+    },
+    "apiErrors": {
+      "duplicateRecord": "चुने गए टिप्पणी प्रकार के लिए यह टिप्पणी पहले से मौजूद है।",
+      "notFound": "रिकॉर्ड नहीं मिला",
+      "invalidData": "अमान्य डेटा प्रदान किया गया",
+      "operationFailed": "ऑपरेशन विफल रहा"
+    }
+  }
+}

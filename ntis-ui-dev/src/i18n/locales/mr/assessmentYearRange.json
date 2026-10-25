@@ -1,0 +1,185 @@
+{
+  "shared": {
+    "aliasFallback": {
+      "entity": "मूल्यांकन"
+    },
+    "title": "{assessment} वर्ष श्रेणी",
+    "subtitle": "मालमत्ता कर गणनेसाठी {assessment} वर्ष श्रेणी व्यवस्थापित करा",
+    "tabs": {
+      "rateableValue": "मूल्यांकनीय मूल्य",
+      "capitalValue": "भांडवली मूल्य"
+    }
+  },
+  "rateableValue": {
+    "aliasFallback": {
+      "entity": "मूल्यांकन"
+    },
+    "list": {
+      "title": "{assessment} वर्ष श्रेणी (मूल्यांकनीय मूल्य)",
+      "subtitle": "मूल्यांकनीय मूल्य गणनेसाठी {assessment} वर्ष श्रेणी व्यवस्थापित करा",
+      "buttons": {
+        "add": "वर्ष श्रेणी जोडा",
+        "edit": "संपादित करा",
+        "delete": "हटवा"
+      },
+      "filters": {
+        "search": "वर्षानुसार शोधा..."
+      },
+      "table": {
+        "fromYear": "वर्षापासून",
+        "toYear": "वर्षापर्यंत",
+        "status": "स्थिती"
+      }
+    },
+    "form": {
+      "addTitle": "{assessment} वर्ष श्रेणी जोडा",
+      "editTitle": "{assessment} वर्ष श्रेणी संपादित करा",
+      "subtitle": "नवीन {assessment} वर्ष श्रेणी तयार करा",
+      "editSubtitle": "{assessment} वर्ष श्रेणी तपशील अद्यतनित करा",
+      "fields": {
+        "fromYear": {
+          "label": "वर्षापासून",
+          "placeholder": "उदा. 2020"
+        },
+        "toYear": {
+          "label": "वर्षापर्यंत",
+          "placeholder": "उदा. 2025"
+        }
+      },
+      "validation": {
+        "fromYearRequired": "वर्षापासून आवश्यक आहे",
+        "toYearRequired": "वर्षापर्यंत आवश्यक आहे",
+        "yearFormat": "वर्ष 4 अंकी संख्या असणे आवश्यक आहे",
+        "yearRange": "वर्ष {min} आणि {max} दरम्यान असणे आवश्यक आहे",
+        "fromYearGreaterThanToYear": "वर्षापासून वर्षापर्यंत पेक्षा जास्त असू शकत नाही",
+        "fromYearMustBeLessThanToYear": "वर्षापासून वर्षापर्यंत पेक्षा कमी असणे आवश्यक आहे",
+        "mustBeActive": "जतन करण्यासाठी वर्ष श्रेणी सक्रिय असणे आवश्यक आहे"
+      },
+      "status": {
+        "label": "सक्रिय स्थिती",
+        "description": "वर्ष श्रेणी सध्या"
+      },
+      "actions": {
+        "cancel": "रद्द करा",
+        "save": "जतन करा",
+        "update": "अद्यतनित करा"
+      }
+    },
+    "delete": {
+      "confirmTitle": "वर्ष श्रेणी हटवा?",
+      "confirmDescription": "तुम्हाला नक्की ही {assessment} वर्ष श्रेणी हटवायची आहे का?"
+    },
+    "apiErrors": {
+      "duplicateRecord": "ही वर्ष श्रेणी अस्तित्वात असलेल्या श्रेणीसह ओव्हरलॅप होते. कृपया भिन्न वर्षे वापरा.",
+      "invalidData": "अवैध डेटा प्रदान केला. कृपया सर्व फील्ड तपासा.",
+      "notFound": "{assessment} वर्ष श्रेणी सापडली नाही.",
+      "inUse": "ही वर्ष श्रेणी वापरात असल्याने ती हटवता येत नाही.",
+      "referredInYearRange": "ही {assessment} Year Range दर मास्टरमध्ये संदर्भित असल्याने ती हटवता येत नाही",
+      "cannotDeactivateYearRange": "ही {assessment} Year Range दर मास्टरमध्ये संदर्भित असल्याने ती निष्क्रिय करता येत नाही",
+      "operationFailed": "क्रिया अयशस्वी झाली. कृपया नंतर पुन्हा प्रयत्न करा."
+    },
+    "success": {
+      "created": "वर्ष श्रेणी {fromYear}-{toYear} यशस्वीरित्या तयार केली",
+      "updated": "वर्ष श्रेणी {fromYear}-{toYear} यशस्वीरित्या अद्यतनित केली",
+      "deleted": "वर्ष श्रेणी {fromYear}-{toYear} यशस्वीरित्या हटवली"
+    },
+    "error": {
+      "title": "त्रुटी",
+      "description": "मूल्यांकन वर्ष श्रेणी डेटा लोड करताना काहीतरी चूक झाली.",
+      "errorId": "त्रुटी आयडी: {id}",
+      "goHome": "मुख्यपृष्ठावर जा",
+      "tryAgain": "पुन्हा प्रयत्न करा"
+    },
+    "loading": {
+      "title": "लोड होत आहे",
+      "message": "लोड होत आहे...",
+      "description": "कृपया प्रतीक्षा करा, मूल्यांकन वर्ष श्रेणी डेटा लोड होत आहे"
+    }
+  },
+  "capitalValue": {
+    "aliasFallback": {
+      "entity": "मूल्यांकन"
+    },
+    "list": {
+      "title": "{assessment} वर्ष श्रेणी (भांडवली मूल्य)",
+      "subtitle": "भांडवली मूल्य गणनेसाठी {assessment} वर्ष श्रेणी व्यवस्थापित करा",
+      "buttons": {
+        "add": "वर्ष श्रेणी जोडा",
+        "edit": "संपादित करा",
+        "delete": "हटवा"
+      },
+      "filters": {
+        "search": "वर्षानुसार शोधा..."
+      },
+      "table": {
+        "fromYear": "वर्षापासून",
+        "toYear": "वर्षापर्यंत",
+        "status": "स्थिती"
+      }
+    },
+    "form": {
+      "addTitle": "{assessment} वर्ष श्रेणी जोडा",
+      "editTitle": "{assessment} वर्ष श्रेणी संपादित करा",
+      "subtitle": "नवीन {assessment} वर्ष श्रेणी तयार करा",
+      "editSubtitle": "{assessment} वर्ष श्रेणी तपशील अद्यतनित करा",
+      "fields": {
+        "fromYear": {
+          "label": "वर्षापासून",
+          "placeholder": "उदा. 2020"
+        },
+        "toYear": {
+          "label": "वर्षापर्यंत",
+          "placeholder": "उदा. 2025"
+        }
+      },
+      "validation": {
+        "fromYearRequired": "वर्षापासून आवश्यक आहे",
+        "toYearRequired": "वर्षापर्यंत आवश्यक आहे",
+        "yearFormat": "वर्ष 4 अंकी संख्या असणे आवश्यक आहे",
+        "yearRange": "वर्ष {min} आणि {max} दरम्यान असणे आवश्यक आहे",
+        "fromYearGreaterThanToYear": "वर्षापासून वर्षापर्यंत पेक्षा जास्त असू शकत नाही",
+        "fromYearMustBeLessThanToYear": "वर्षापासून वर्षापर्यंत पेक्षा कमी असणे आवश्यक आहे",
+        "mustBeActive": "जतन करण्यासाठी वर्ष श्रेणी सक्रिय असणे आवश्यक आहे"
+      },
+      "status": {
+        "label": "सक्रिय स्थिती",
+        "description": "वर्ष श्रेणी सध्या"
+      },
+      "actions": {
+        "cancel": "रद्द करा",
+        "save": "जतन करा",
+        "update": "अद्यतनित करा"
+      }
+    },
+    "delete": {
+      "confirmTitle": "वर्ष श्रेणी हटवा?",
+      "confirmDescription": "तुम्हाला नक्की ही {assessment} वर्ष श्रेणी हटवायची आहे का?"
+    },
+    "apiErrors": {
+      "duplicateRecord": "ही वर्ष श्रेणी अस्तित्वात असलेल्या श्रेणीसह ओव्हरलॅप होते. कृपया भिन्न वर्षे वापरा.",
+      "invalidData": "अवैध डेटा प्रदान केला. कृपया सर्व फील्ड तपासा.",
+      "notFound": "{assessment} वर्ष श्रेणी सापडली नाही.",
+      "inUse": "ही वर्ष श्रेणी वापरात असल्याने ती हटवता येत नाही.",
+      "referredInYearRange": "ही {assessment} Year Range CV वय घटक CV मास्टर, मजला घटक CV मास्टर, निसर्ग घटक CV मास्टरमध्ये संदर्भित असल्याने ती हटवता येत नाही",
+      "cannotDeactivateYearRange": "ही {assessment} Year Range CV वय घटक CV मास्टर, मजला घटक CV मास्टर, निसर्ग घटक CV मास्टरमध्ये संदर्भित असल्याने ती निष्क्रिय करता येत नाही",
+      "operationFailed": "क्रिया अयशस्वी झाली. कृपया नंतर पुन्हा प्रयत्न करा."
+    },
+    "success": {
+      "created": "वर्ष श्रेणी {fromYear}-{toYear} यशस्वीरित्या तयार केली",
+      "updated": "वर्ष श्रेणी {fromYear}-{toYear} यशस्वीरित्या अद्यतनित केली",
+      "deleted": "वर्ष श्रेणी {fromYear}-{toYear} यशस्वीरित्या हटवली"
+    },
+    "error": {
+      "title": "त्रुटी",
+      "description": "मूल्यांकन वर्ष श्रेणी डेटा लोड करताना काहीतरी चूक झाली.",
+      "errorId": "त्रुटी आयडी: {id}",
+      "goHome": "मुख्यपृष्ठावर जा",
+      "tryAgain": "पुन्हा प्रयत्न करा"
+    },
+    "loading": {
+      "title": "लोड होत आहे",
+      "message": "लोड होत आहे...",
+      "description": "कृपया प्रतीक्षा करा, मूल्यांकन वर्ष श्रेणी डेटा लोड होत आहे"
+    }
+  }
+}

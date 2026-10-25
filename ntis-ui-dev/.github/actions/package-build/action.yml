@@ -1,0 +1,215 @@
+name: NTIS UI Package Build
+description: Build, package, and upload the NTIS UI artifact.
+
+inputs:
+  version:
+    description: Release version in x.y.z.w format.
+    required: true
+  branch:
+    description: Branch being built.
+    required: false
+    default: main
+  path-mode:
+    description: Upload path mode. Use standalone for repo-local runs and orchestrated for ntis-devops runs.
+    required: false
+    default: standalone
+  branch-env-map:
+    description: JSON mapping of branch names to environment names.
+    required: true
+  package-container-name:
+    description: Azure Blob container name for package uploads.
+    required: true
+  package-connection-string:
+    description: Azure Storage connection string.
+    required: true
+  node-version:
+    description: Node.js version to use.
+    required: false
+    default: 20.x
+
+outputs:
+  version:
+    description: Validated version.
+    value: ${{ steps.version_setup.outputs.version }}
+  artifact-name:
+    description: Generated artifact name.
+    value: ${{ steps.version_setup.outputs.artifact-name }}
+  environment:
+    description: Target environment derived from branch.
+    value: ${{ steps.version_setup.outputs.environment }}
+  branch:
+    description: Branch used for the build.
+    value: ${{ steps.version_setup.outputs.branch }}
+
+runs:
+  using: composite
+  steps:
+    - name: Setup version and validation
+      id: version_setup
+      shell: pwsh
+      run: |
+        $version = '${{ inputs.version }}'
+        $branch = '${{ inputs.branch }}'
+        $branchEnvMap = '${{ inputs.branch-env-map }}' | ConvertFrom-Json
+        $environment = if ($branchEnvMap.PSObject.Properties[$branch]) {
+          $branchEnvMap.$branch
+        } else {
+          'production'
+        }
+
+        if ($version -notmatch '^\d+\.\d+\.\d+\.\d+$') {
+          Write-Error "Invalid version format: $version. Expected: x.y.z.w"
+          exit 1
+        }
+
+        $artifactName = "ntis-ui-$environment-v$version"
+
+        "version=$version" >> $env:GITHUB_OUTPUT
+        "artifact-name=$artifactName" >> $env:GITHUB_OUTPUT
+        "environment=$environment" >> $env:GITHUB_OUTPUT
+        "branch=$branch" >> $env:GITHUB_OUTPUT
+
+        Write-Output "Building NTIS-UI v$version for $environment"
+        Write-Output "Artifact name: $artifactName"
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v6
+      with:
+        node-version: ${{ inputs.node-version }}
+
+    - name: Install dependencies
+      shell: pwsh
+      run: |
+        Write-Output "Installing dependencies..."
+        npm install
+        Write-Output "Dependencies installed"
+
+    - name: Build with Turbopack
+      shell: pwsh
+      env:
+        NEXT_PUBLIC_APP_VERSION: ${{ steps.version_setup.outputs.version }}
+      run: |
+        $version = '${{ steps.version_setup.outputs.version }}'
+        Write-Output "Starting Turbopack build for v$version..."
+        npm run build:production
+        Write-Output "Turbopack build completed successfully"
+
+    - name: Analyze build output
+      shell: pwsh
+      run: |
+        if (Test-Path '.next') {
+          $buildSize = (Get-ChildItem -Path '.next' -Recurse | Measure-Object -Property Length -Sum).Sum
+          $buildSizeMB = [math]::Round($buildSize / 1MB, 2)
+          Write-Output "Build output size: $buildSizeMB MB"
+
+          $staticDir = '.next/static'
+          $serverDir = '.next/server'
+
+          if (Test-Path $staticDir) {
+            $staticFiles = Get-ChildItem -Path $staticDir -File -Recurse | Measure-Object
+            Write-Output "Static files: $($staticFiles.Count)"
+          }
+
+          if (Test-Path $serverDir) {
+            Write-Output "Server-side artifacts generated"
+          }
+        } else {
+          Write-Error "Build failed: .next directory not found"
+          exit 1
+        }
+
+    - name: Create deployment package
+      shell: pwsh
+      run: |
+        $version = '${{ steps.version_setup.outputs.version }}'
+        $deploymentDir = "ntis-ui-v$version"
+
+        Write-Output "Creating deployment package: $deploymentDir"
+        Write-Output "Using Next.js recommended standalone structure..."
+
+        New-Item -ItemType Directory -Path $deploymentDir -Force | Out-Null
+
+        # Copy standalone build as base (includes minimal node_modules and server.js)
+        Copy-Item -Path '.next\standalone\*' -Destination "$deploymentDir" -Recurse
+
+        # Copy static assets (CSS, JS chunks) - required for standalone
+        Copy-Item -Path '.next\static' -Destination "$deploymentDir\.next\static" -Recurse
+
+        # Copy public folder (images, fonts, etc.)
+        Copy-Item -Path 'public' -Destination "$deploymentDir\public" -Recurse
+ 
+        # If standalone created a project subdirectory (e.g. ntis-ui), ensure assets are mirrored there
+        if (Test-Path "$deploymentDir\ntis-ui") {
+          Copy-Item -Path 'public' -Destination "$deploymentDir\ntis-ui\public" -Recurse -Force
+          Copy-Item -Path '.next\static' -Destination "$deploymentDir\ntis-ui\.next\static" -Recurse -Force
+        }
+ 
+        # Verify static files
+        $staticFiles = Get-ChildItem -Path "$deploymentDir\.next\static" -Recurse -File
+        Write-Output "✓ Static files: $($staticFiles.Count)"
+
+        # Verify locale files (included via outputFileTracingIncludes in next.config.ts)
+        $localesPath = "$deploymentDir\src\i18n\locales"
+        if (Test-Path $localesPath) {
+          $localeFiles = Get-ChildItem $localesPath -Recurse -Filter "*.json"
+          Write-Output "✓ Locale files: $($localeFiles.Count)"
+        } else {
+          Write-Warning "Locale files not found - copying manually..."
+          if (Test-Path 'src\i18n\locales') {
+            New-Item -ItemType Directory -Path "$deploymentDir\src\i18n" -Force | Out-Null
+            Copy-Item -Path 'src\i18n\locales' -Destination "$localesPath" -Recurse
+            Write-Output "✓ Locale files copied"
+          }
+        }
+
+        # Copy .env if exists
+        if (Test-Path '.env') {
+          Copy-Item -Path '.env' -Destination "$deploymentDir\.env"
+        }
+
+        # Create package.json with start script
+        @{
+          name = "ntis-ui"
+          version = $version
+          scripts = @{ start = "node server.js" }
+        } | ConvertTo-Json | Set-Content "$deploymentDir\package.json"
+
+        Write-Output "✓ Deployment package created (Next.js standalone standard)"
+
+    - name: Create zip archive
+      shell: pwsh
+      run: |
+        $version = '${{ steps.version_setup.outputs.version }}'
+        $environment = '${{ steps.version_setup.outputs.environment }}'
+        $deploymentDir = "ntis-ui-v$version"
+        $zipFile = "ntis-ui-$environment-v$version.zip"
+
+        Write-Output "Creating zip archive..."
+        Compress-Archive -Path "$deploymentDir/*" -DestinationPath $zipFile -Force
+        $zipSize = [math]::Round((Get-Item $zipFile).Length / 1MB, 2)
+        Write-Output "Created $zipFile ($zipSize MB)"
+
+    - name: Upload to Azure Blob Storage
+      shell: pwsh
+      run: |
+        $version = '${{ steps.version_setup.outputs.version }}'
+        $environment = '${{ steps.version_setup.outputs.environment }}'
+        $pathMode = '${{ inputs.path-mode }}'
+        $containerName = '${{ inputs.package-container-name }}'
+        $connectionString = '${{ inputs.package-connection-string }}'
+        $basePath = if ($pathMode -eq 'orchestrated') { "$environment/$version/ui" } else { "ui/$version" }
+        $zipFile = "ntis-ui-$environment-v$version.zip"
+        $zipBlob = "$basePath/$zipFile".Replace('\\', '/')
+
+        Write-Output "Uploading to Azure Blob Storage..."
+        Write-Output "Container: $containerName"
+        Write-Output "Path: $basePath"
+
+        az storage blob upload `
+          --connection-string "$connectionString" `
+          --container-name "$containerName" `
+          --file $zipFile `
+          --name $zipBlob `
+          --overwrite
+
+        Write-Output "Uploaded: $zipBlob"

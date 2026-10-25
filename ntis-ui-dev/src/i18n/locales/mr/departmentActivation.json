@@ -1,0 +1,47 @@
+{
+  "title": "विभाग सक्रियकरण",
+  "subtitle": "या ULB साठी विभाग आणि त्यांचे उप-मॉड्यूल कॉन्फिगर करा",
+  "searchPlaceholder": "विभाग कोड किंवा नावाने शोधा...",
+  "quickActions": {
+    "activateAll": "सर्व सक्रिय करा",
+    "deactivateAll": "सर्व निष्क्रिय करा"
+  },
+  "stats": {
+    "total": "एकूण विभाग",
+    "active": "सक्रिय",
+    "inactive": "निष्क्रिय"
+  },
+  "card": {
+    "configureSubmodules": "उप-मॉड्यूल कॉन्फिगर करा",
+    "noDescription": "कोणतेही वर्णन दिलेले नाही"
+  },
+  "modal": {
+    "title": "उप-मॉड्यूल कॉन्फिगर करा",
+    "drawerTitle": "{departmentName} - {title}",
+    "modulesLabel": "मॉड्यूल",
+    "modulesSummary": "{activeCount} / {totalCount} {modulesLabel}",
+    "activateAll": "सर्व सक्रिय करा",
+    "deactivateAll": "सर्व निष्क्रिय करा",
+    "saveChanges": "बदल जतन करा",
+    "allSaved": "सर्व बदल जतन झाले",
+    "unsavedHint": "{count, plural, one {# न जतन केलेला बदल} other {# न जतन केलेले बदल}}",
+    "unsavedTitle": "न जतन केलेले बदल रद्द करायचे?",
+    "unsavedMessage": "तुमच्याकडे न जतन केलेले मॉड्यूल सक्रियकरण बदल आहेत. ते रद्द करून बंद करायचे?",
+    "discardChanges": "बदल रद्द करा",
+    "pending": "प्रलंबित",
+    "noModules": "या विभागासाठी कोणतेही मॉड्यूल सापडले नाहीत. प्रथम मॉड्यूल मास्टरमध्ये मॉड्यूल तयार करा."
+  },
+  "messages": {
+    "activateAllSuccess": "सर्व निवडलेले विभाग यशस्वीरित्या सक्रिय केले",
+    "deactivateAllSuccess": "सर्व निवडलेले विभाग यशस्वीरित्या निष्क्रिय केले",
+    "moduleUpdateSuccess": "मॉड्यूल कॉन्फिगरेशन यशस्वीरित्या अपडेट केले",
+    "modulesSaveSuccess": "{count, plural, one {# मॉड्यूल यशस्वीरित्या अपडेट} other {# मॉड्यूल यशस्वीरित्या अपडेट}}",
+    "departmentStatusUpdated": "{departmentName} {status}",
+    "activated": "सक्रिय केले",
+    "deactivated": "निष्क्रिय केले",
+    "departmentUpdateError": "विभाग अपडेट करण्यात अयशस्वी",
+    "moduleUpdateFailed": "मॉड्यूल अपडेट करण्यात अयशस्वी",
+    "bulkUpdateResult": "{successCount} विभाग अपडेट केले, {failCount} अयशस्वी झाले",
+    "moduleBulkUpdateResult": "{successCount} मॉड्यूल अपडेट, {failCount} अयशस्वी"
+  }
+}

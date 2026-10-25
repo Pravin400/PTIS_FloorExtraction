@@ -1,0 +1,128 @@
+{
+  "policyConfiguration": {
+    "aliasFallback": {
+      "category": "Category",
+      "entity": "Policy Configuration"
+    },
+    "list": {
+      "title": "Policy Configuration Master",
+      "subtitle": "Manage system configurations and policy values",
+      "buttons": {
+        "add": "Add Policy",
+        "edit": "Edit"
+      },
+      "filters": {
+        "show": "Show",
+        "search": "Search by Code, {category}",
+        "searching": "Searching...",
+        "recordsFound": "Found {count} records"
+      },
+      "table": {
+        "policyCode": "Policy Code",
+        "category": "{category}",
+        "displayName": "Display Name",
+        "description": "Description",
+        "dataType": "Data Type",
+        "policyValue": "Policy Value",
+        "defaultValue": "Default Value",
+        "unit": "Unit",
+        "status": "Status",
+        "actions": "Actions"
+      }
+    },
+    "form": {
+      "addTitle": "Add Policy Configuration",
+      "editTitle": "Edit Policy Configuration",
+      "subtitle": "Create new policy configuration",
+      "editSubtitle": "Update policy configuration details",
+      "fields": {
+        "policyCode": {
+          "label": "Policy Code",
+          "placeholder": "e.g. PT_TAX_RATE"
+        },
+        "category": {
+          "label": "{category}",
+          "placeholder": "e.g. TAX"
+        },
+        "displayName": {
+          "label": "Display Name",
+          "placeholder": "e.g. Property Tax Rate"
+        },
+        "description": {
+          "label": "Description",
+          "placeholder": "Enter policy description"
+        },
+        "dataType": {
+          "label": "Data Type",
+          "placeholder": "e.g. Number"
+        },
+        "policyValue": {
+          "label": "Policy Value",
+          "placeholder": "e.g. 15"
+        },
+        "defaultValue": {
+          "label": "Default Value",
+          "placeholder": "e.g. 10"
+        },
+        "unit": {
+          "label": "Unit",
+          "placeholder": "e.g. %"
+        },
+        "effectiveFrom": {
+          "label": "Effective From"
+        },
+        "effectiveTo": {
+          "label": "Effective To"
+        }
+      },
+      "validation": {
+        "policyCodeRequired": "Policy Code is required",
+        "categoryRequired": "{category} is required",
+        "displayNameRequired": "Display Name is required",
+        "descriptionRequired": "Description is required",
+        "dataTypeRequired": "Data Type is required",
+        "policyValueRequired": "Policy Value is required",
+        "defaultValueRequired": "Default Value is required",
+        "unitRequired": "Unit is required",
+        "effectiveFromRequired": "Effective From is required",
+        "fixErrors": "Please fix validation errors",
+        "duplicateRecord": "This Policy Code already exists",
+        "duplicateError": "This Policy Code already exists. Please check Policy Code - duplicates not allowed.",
+        "bitInvalid": "Value must be 0 or 1",
+        "intInvalid": "Value must be a whole number with maximum 6 digits (e.g., 123456)",
+        "decimalInvalid": "Value must be a decimal number with max 6 digits before and 2 digits after decimal (e.g., 123456.12)",
+        "varcharMaxLength": "Value must not exceed 40 characters",
+        "dateInvalid": "Value must be a valid date in YYYY-MM-DD format",
+        "timeInvalid": "Value must be a valid time in HH:mm or HH:mm:ss format",
+        "urlInvalid": "Value must be a valid URL (e.g., https://example.com)"
+      },
+      "status": {
+        "label": "Active Status",
+        "active": "Policy is currently active",
+        "inactive": "Policy is currently inactive"
+      },
+      "actions": {
+        "cancel": "Cancel",
+        "save": "Save",
+        "update": "Update"
+      },
+      "messages": {
+        "createSuccess": "Policy Configuration created successfully",
+        "updateSuccess": "Policy Configuration updated successfully",
+        "error": "Unable to save policy configuration. Please try again.",
+        "invalidIdError": "Invalid ID format. ID must be a positive number."
+      }
+    },
+    "error": {
+      "title": "Policy Configuration Error",
+      "description": "An error occurred while loading the policy configuration page. Please try again.",
+      "errorId": "Error ID: {id}",
+      "goHome": "Go Home",
+      "tryAgain": "Try Again"
+    },
+    "loading": {
+      "message": "Loading Policy Configuration...",
+      "description": "Please wait while we fetch the configuration data"
+    }
+  }
+}

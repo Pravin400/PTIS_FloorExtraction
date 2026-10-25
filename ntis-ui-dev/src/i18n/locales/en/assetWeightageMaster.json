@@ -1,0 +1,390 @@
+{
+  "assetWeightageMaster": {
+    "defaults": {
+      "floor": "Floor",
+      "assessment": "Assessment"
+    },
+    "title": "Weightage Master",
+    "subtitle": "Configure CV calculation weightage factors",
+    "tabs": {
+      "floor": "Floor Weightage",
+      "nature": "Nature & Type of Building",
+      "subType": "Use Category",
+      "age": "Age Of Building"
+    },
+    "common": {
+      "buttons": {
+        "create": "Create",
+        "update": "Update",
+        "apply": "Apply",
+        "clear": "Clear",
+        "generateAll": "Generate All",
+        "generating": "Generating...",
+        "updating": "Updating...",
+        "cancel": "Cancel",
+        "add": "Add"
+      },
+      "labels": {
+        "active": "Active",
+        "inactive": "Inactive",
+        "assessmentYear": "Assessment Year",
+        "status": "Status",
+        "statusCurrently": "{name} is currently {status}",
+        "pendingRecordCreates": "{count, plural, =1 {# Pending Record Create} other {# Pending Record Creates}}"
+      },
+      "placeholders": {
+        "selectAssessmentYear": "Select Assessment Year"
+      },
+      "messages": {
+        "createRecordFirst": "Please create the record first before editing or deleting.",
+        "pendingRecordsWarning": "There are pending records. Please click on Generate All button.",
+        "negativeValuesNotAllowed": "Negative values are not allowed",
+        "valueExceedsMax": "Value cannot exceed 999.99",
+        "factorPercentageExceedsMax": "Factor/percentage value must be between 0 and 100",
+        "noChangesToUpdate": "No changes to update for this row",
+        "noChangesDetected": "No changes detected for this row",
+        "recordCreatedSuccess": "Record created successfully",
+        "recordUpdatedSuccess": "Record updated successfully",
+        "createFailed": "Create failed",
+        "updateFailed": "Update failed",
+        "failedToSaveRow": "Failed to update row. Please try again.",
+        "changesDiscarded": "Changes discarded for this row",
+        "assessmentYearRequired": "Please select an Assessment year before applying bulk factor",
+        "validFactorRequired": "Please enter a valid factor value between 0.1 and 100",
+        "inactiveRecordNotEditable": "This record is Inactive. Set it to Active to edit the factor.",
+        "negativeFactorsNotAllowed": "Negative factors are not allowed",
+        "factorApplied": "Applied factor {factor} to {count} record(s)",
+        "noRecordsMatch": "No records match the selected criteria",
+        "noRecordsToUpdate": "No records to update",
+        "bulkOperationSuccess": "Successfully {message}",
+        "bulkOperationPartialSuccess": "{message}",
+        "bulkOperationFailed": "Failed to process records. Check logs.",
+        "noChangesDetectedBulk": "No changes detected",
+        "bulkActionFailed": "Bulk action failed. Please try again.",
+        "recordsGeneratedSuccess": "Successfully generated {count} record(s)",
+        "generationFailed": "Failed to generate records",
+        "generateAllFailed": "Generate All failed. Please try again.",
+        "allClearedInfo": "All changes and filters cleared",
+        "allRecordsExist": "All records for current selections already exist",
+        "created": "created",
+        "updated": "updated",
+        "failed": "failed"
+      }
+    },
+    "error": {
+      "title": "Failed to connect server. Please try again later.",
+      "description": "We encountered an error while loading the weightage master page. Please try again.",
+      "tryAgain": "Try Again",
+      "goHome": "Go to Home",
+      "errorId": "Error ID: {id}"
+    },
+    "loading": {
+      "message": "Loading Weightage Master...",
+      "description": "Please wait while we fetch the weightage factors data"
+    },
+    "floor": {
+      "title": "Floor Factor Master",
+      "columns": {
+        "floorCode": "Floor Code",
+        "description": "Description",
+        "factorWithLift": "Factor (With Lift)",
+        "factorWithoutLift": "Factor (Without Lift)",
+        "assessmentYear": "Assessment Year",
+        "status": "Status",
+        "action": "Action"
+      },
+      "filters": {
+        "assessmentYear": "Assessment Year",
+        "fromFloor": "From Floor",
+        "toFloor": "To Floor",
+        "liftStatus": "Lift Status",
+        "factor": "Factor"
+      },
+      "liftStatusOptions": {
+        "both": "Both",
+        "withLift": "With Lift",
+        "withoutLift": "Without Lift"
+      },
+      "placeholders": {
+        "select": "Select..."
+      },
+      "messages": {
+        "fromFloorGreaterError": "From Floor cannot be greater than To Floor",
+        "noRecordsFound": "No records found",
+        "mandatoryFields": "Fields marked with * are mandatory"
+      },
+      "apiErrors": {
+        "notFound": "Floor Weightage record not found.",
+        "validationError": "Invalid request. Please check the entered values and try again.",
+        "referredInAutoWardEntry": "This Floor Weightage cannot be deleted because it is already used in Capital Value tax calculations. Please remove the dependent records first."
+      },
+      "deleteConfirmation": {
+        "title": "Type Of Floor",
+        "description": "Are you sure you want to delete this record?",
+        "confirmButton": "Delete",
+        "cancelButton": "Cancel",
+        "successMessage": "Record deleted successfully"
+      },
+      "loading": {
+        "message": "Loading Floor Factor Master...",
+        "description": "Please wait while we fetch the records."
+      },
+      "error": {
+        "title": "Failed to connect server. Please try again later.",
+        "description": "An error occurred while loading the floor factor weightage records.",
+        "tryAgain": "Try again",
+        "goHome": "Go back home",
+        "errorId": "Error ID: {id}"
+      }
+    },
+    "nature": {
+      "title": "Nature Factor CV Master",
+      "columns": {
+        "constructionCode": "Construction Code",
+        "description": "Description",
+        "factor": "Factor",
+        "assessmentYear": "Assessment Year",
+        "status": "Status",
+        "action": "Action"
+      },
+      "filters": {
+        "assessmentYear": "Assessment Year",
+        "constructionType": "Construction Type",
+        "factor": "Factor"
+      },
+      "placeholders": {
+        "selectAssessmentYear": "Select Assessment Year",
+        "selectConstructionType": "Select Construction Type",
+        "factor": "0.00"
+      },
+      "messages": {
+        "noRecordsFound": "No records found",
+        "mandatoryFields": "Fields marked with * are mandatory"
+      },
+      "titles": {
+        "editNatureWeightage": "Edit Nature Weightage"
+      },
+      "descriptions": {
+        "updateNatureDetails": "Update nature weightage details"
+      },
+      "loading": {
+        "message": "Loading Nature Factor CV Master...",
+        "description": "Please wait while we fetch the records."
+      },
+      "error": {
+        "title": "Failed to connect server. Please try again later.",
+        "description": "An error occurred while loading the nature factor weightage records.",
+        "tryAgain": "Try again",
+        "goHome": "Go back home",
+        "errorId": "Error ID: {id}"
+      },
+      "errors": {
+        "invalidNatureFactorCVId": "Valid Nature Factor CV ID is required",
+        "fetchFailed": "Failed to fetch nature factor weightage records",
+        "updateFailed": "Failed to update nature factor weightage record",
+        "createFailed": "Failed to create nature factor weightage record",
+        "bulkUpdateFailed": "Failed to bulk update nature factor weightage records",
+        "bulkCreateFailed": "Failed to bulk create nature factor weightage records",
+        "invalidPaginationParameters": "Invalid page request"
+      },
+      "apiErrors": {
+        "notFound": "Construction Type Weightage record not found.",
+        "validationError": "Invalid request. Please check the entered values and try again.",
+        "referredInAutoWardEntry": "This Construction Type Weightage cannot be deleted because it is already used in calculations. Please remove the dependent records first."
+      },
+      "deleteConfirmation": {
+        "title": "Construction Type",
+        "description": "Are you sure you want to delete this record?",
+        "confirmButton": "Delete",
+        "cancelButton": "Cancel",
+        "successMessage": "Record deleted successfully",
+        "deleteFailed": "Failed to delete nature factor weightage record"
+      }
+    },
+    "subType": {
+      "title": "Use Category CV Factor Master",
+      "columns": {
+        "typeOfUseCode": "Type Of Use Code",
+        "typeOfUse": "Type Of Use",
+        "subType": "Sub Type Of Use",
+        "factor": "Factor",
+        "assessmentYear": "Assessment Year",
+        "status": "Status",
+        "action": "Action"
+      },
+      "leftTable": {
+        "typeOfUseCode": "Type Of Use Code",
+        "typeOfUse": "Type Of Use",
+        "status": "Status"
+      },
+      "filters": {
+        "assessmentYear": "Assessment Year",
+        "typeOfUse": "Type Of Use",
+        "factor": "Factor"
+      },
+      "placeholders": {
+        "selectAssessmentYear": "Select Assessment Year",
+        "selectTypeOfUse": "Select Type Of Use",
+        "factor": "0.00"
+      },
+      "messages": {
+        "noSubtypeRecordsFound": "No subtype records found for selected type",
+        "selectTypeOfUsePrompt": "Select a Type of Use from left table or use dropdown filter",
+        "noTypeOfUseRecordsFound": "No Type of Use records found",
+        "mandatoryFields": "Fields marked with * are mandatory"
+      },
+      "titles": {
+        "editTitle": "Edit Sub Type Of Use Weightage"
+      },
+      "descriptions": {
+        "updateSubTypeDetails": "Update Sub Type Of Use weightage details"
+      },
+      "loading": {
+        "message": "Loading Use Category CV Factor Master...",
+        "description": "Please wait while we fetch the records."
+      },
+      "error": {
+        "title": "Failed to connect server. Please try again later.",
+        "description": "An error occurred while loading the use category factor weightage records.",
+        "tryAgain": "Try again",
+        "goHome": "Go back home",
+        "errorId": "Error ID: {id}"
+      },
+      "errors": {
+        "invalidId": "Valid Use Factor CV ID is required",
+        "typeOfUseIdRequired": "Type of Use is required",
+        "yearRangeCVIdRequired": "Assessment Year is required",
+        "factorNegative": "Factor cannot be negative",
+        "fetchFailed": "Failed to fetch Use Factor CV Master records",
+        "updateFailed": "Failed to update Use Factor CV Master",
+        "createFailed": "Failed to create Use Factor CV Master",
+        "bulkUpdateFailed": "Failed to bulk update Use Factor CV Master",
+        "bulkCreateFailed": "Failed to bulk create Use Factor CV Master",
+        "payloadRequired": "Valid payload is required",
+        "invalidPaginationParameters": "Invalid pagination parameters",
+        "fetchTypeOfUseFailed": "Failed to fetch Type of Use records",
+        "deleteFailed": "Failed to delete Use Factor CV Master"
+      },
+      "apiErrors": {
+        "notFound": "Type of Use Weightage record not found.",
+        "validationError": "Invalid request. Please check the entered values and try again.",
+        "referredInAutoWardEntry": "This Type of Use Weightage cannot be deleted because it is already used in Capital Value tax calculations. Please remove the dependent records first."
+      },
+      "deleteConfirmation": {
+        "title": "Type of Use",
+        "description": "Are you sure you want to delete this record?",
+        "confirmButton": "Delete",
+        "cancelButton": "Cancel",
+        "successMessage": "Record deleted successfully"
+      },
+      "edit": {
+        "subTypeStatus": "Sub Type Of Use weightage is currently {status}",
+        "active": "Active",
+        "inactive": "Inactive"
+      }
+    },
+    "age": {
+      "title": "Age Factor Master",
+      "columns": {
+        "constructionType": "Construction Type",
+        "description": "Description",
+        "ageFrom": "Age From",
+        "ageTo": "Age To",
+        "factor": "Factor",
+        "assessmentYear": "Assessment Year",
+        "status": "Status",
+        "action": "Action"
+      },
+      "filters": {
+        "assessmentYear": "Assessment Year",
+        "constructionType": "Construction Type",
+        "ageRange": "Age Range",
+        "factor": "Factor"
+      },
+      "placeholders": {
+        "select": "Select...",
+        "selectRange": "Select Range",
+        "minYear": "e.g. 0",
+        "maxYear": "e.g. 5"
+      },
+      "buttons": {
+        "addAge": "Add Age"
+      },
+      "labels": {
+        "addAgeRange": "Add Age Range",
+        "minYear": "From Year",
+        "maxYear": "To Year",
+        "close": "Close"
+      },
+      "messages": {
+        "selectYearAndRange": "Please select Assessment Year and Age Range before creating record",
+        "recordSavedSuccess": "Record saved successfully",
+        "actionFailed": "Action failed",
+        "failedToSaveRow": "Failed to save row",
+        "provideBothAges": "Please provide both From and To age",
+        "fromAgeGreaterError": "From age cannot be greater than To age",
+        "ageRangeExists": "Age range already exists",
+        "ageRangeOverlap": "Age range {newRange} overlaps with existing range {existingRange}. Please choose a non-overlapping range.",
+        "ageRangeAdded": "Added age range {from} to {to}",
+        "invalidFactorValue": "Invalid factor value",
+        "factorAppliedLocally": "Applied factor {factor} locally to {count} row(s). Click \"Update\" to save.",
+        "noRecordsMatch": "No records match the current selections in the table",
+        "bulkOperationSuccess": "Bulk operation successful",
+        "bulkOperationFailed": "Bulk operation failed",
+        "noConstructionTypes": "No Construction Types available",
+        "assessmentYearMissing": "Assessment Year options are missing",
+        "noAgeRangesAvailable": "No age ranges available. Please add an age range first.",
+        "factorRequiredForGeneration": "Please enter or apply a factor value greater than 0 before generating records.",
+        "allRecordsExist": "All records for current selections already exist",
+        "recordsGeneratedSuccess": "Generated {count} records successfully",
+        "generationFailed": "Generation failed",
+        "errorGeneratingRecords": "An error occurred while generating records"
+      },
+      "loading": {
+        "message": "Loading Age Factor Master...",
+        "description": "Please wait while we fetch the age factor weightage data"
+      },
+      "error": {
+        "title": "Failed to connect server. Please try again later.",
+        "description": "An unexpected error occurred while loading the Age Factor Master page.",
+        "tryAgain": "Try Again",
+        "goHome": "Go Home",
+        "errorId": "Error ID: {id}"
+      },
+      "errors": {
+        "validIdRequired": "Valid Age Factor CV ID is required",
+        "constructionTypeRequired": "Construction Type is required",
+        "yearRangeRequired": "Assessment Year is required",
+        "updateFailed": "Failed to update Age Factor CV Master",
+        "createFailed": "Failed to create Age Factor CV Master",
+        "bulkCreateRequired": "Valid payload with age factors is required for bulk create",
+        "bulkUpdateRequired": "Valid payload with age factors is required for bulk update",
+        "bulkUpdateFailed": "Bulk update Age Factor CV Master failed",
+        "bulkDeleteRequired": "Valid list of IDs is required for bulk delete",
+        "bulkDeleteFailed": "Bulk delete Age Factor CV Master failed",
+        "mandatoryFields": "Fields marked with * are mandatory"
+      },
+      "edit": {
+        "title": "Edit Age Weightage",
+        "description": "Update the details of age weightage",
+        "successMessage": "Age Factor CV Master updated successfully",
+        "errorMessage": "Failed to update Age Factor CV Master",
+        "ageStatus": "Age weightage is currently {status}",
+        "active": "Active",
+        "inactive": "Inactive"
+      },
+      "apiErrors": {
+        "notFound": "Age Weightage record not found.",
+        "validationError": "Invalid request. Please check the entered values and try again.",
+        "referredInAutoWardEntry": "This Age Weightage cannot be deleted because it is already used in Capital Value tax calculations. Please remove the dependent records first."
+      },
+      "deleteConfirmation": {
+        "title": "Construction Type",
+        "description": "Are you sure you want to delete this record?",
+        "confirmButton": "Delete",
+        "cancelButton": "Cancel",
+        "successMessage": "Record deleted successfully"
+      }
+    }
+  }
+}

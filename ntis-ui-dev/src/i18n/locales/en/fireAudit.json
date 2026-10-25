@@ -1,0 +1,949 @@
+{
+  "shell": {
+    "departmentName": "Fire Audit",
+    "systemName": "Fire Audit System",
+    "titleShort": "Fire Audit",
+    "titleFull": "Fire Audit",
+    "cell": "Safer buildings. Connected services.",
+    "staffWorkspace": "Municipal workspace",
+    "citizenServices": "Citizen services",
+    "openNav": "Open navigation",
+    "closeNav": "Close navigation",
+    "navHeader": "This portal",
+    "staffNavHeader": "Workspace",
+    "copyright": "All rights reserved",
+    "footerStaff": "Fire Audit · Municipal workspace",
+    "footerCitizen": "Fire Audit · Citizen services",
+    "footerNote": "Requirements and legal wording resolve from the selected municipality."
+  },
+  "masters": {
+    "kicker": "Configure Masters",
+    "add": "Add",
+    "viewOnly": "This catalog is view only.",
+    "jurisdiction": {
+      "title": "Jurisdiction",
+      "subtitle": "Set the legal wording, issuing authority and validity used by each municipality.",
+      "search": "Search name, code or reference",
+      "searchLabel": "Search records",
+      "empty": "No jurisdiction rules yet",
+      "emptyHint": "Add the rule this council should print on certificates.",
+      "addRule": "Add jurisdiction rule",
+      "contextLabel": "Municipality context",
+      "contextValue": "This council",
+      "scopeLabel": "Scope",
+      "allScopes": "All scopes",
+      "notSet": "Not set",
+      "notDated": "Not dated",
+      "ongoing": "ongoing",
+      "needsAuthority": "Needs authority",
+      "resolvedTitle": "Resolved jurisdiction",
+      "resolvedNote": "The selected rule is the one this council cites.",
+      "showing": "{start}-{end} of {total}",
+      "previous": "Previous",
+      "next": "Next",
+      "filters": {
+        "all": "All",
+        "active": "Active",
+        "inactive": "Inactive",
+        "reset": "Reset"
+      },
+      "status": {
+        "active": "Active",
+        "inactive": "Inactive",
+        "needsSetup": "Needs setup"
+      },
+      "actions": {
+        "view": "View",
+        "edit": "Edit",
+        "deactivate": "Deactivate",
+        "activate": "Activate"
+      },
+      "fields": {
+        "authority": "Issuing authority",
+        "legalBasis": "Legal basis",
+        "auditForm": "Audit report form",
+        "certificateForm": "Certificate form",
+        "validity": "Validity",
+        "effective": "Effective dates",
+        "months": "{count} months"
+      },
+      "form": {
+        "addTitle": "Add municipality jurisdiction rule",
+        "editTitle": "Edit jurisdiction rule",
+        "requiredNote": "Fields marked * are required for this demo.",
+        "scope": "Applies to",
+        "scopePriority": "Municipality rules take priority, followed by state and national rules.",
+        "municipality": "Municipality",
+        "councilNote": "Applies to the council you are signed in to.",
+        "errors": {
+          "authority": "Enter the issuing authority.",
+          "validity": "Enter validity in months.",
+          "stateName": "Enter the state name.",
+          "load": "The jurisdiction rules could not be loaded.",
+          "save": "The jurisdiction rule could not be saved.",
+          "council": "Sign in to a council before saving a municipality rule.",
+          "session": "Your session has expired. Sign in again."
+        },
+        "stateCode": "State code",
+        "stateName": "State name",
+        "actTitle": "Applicable fire services Act",
+        "rulesTitle": "Fire service rules",
+        "municipalActTitle": "Municipal Act",
+        "byeLawTitle": "Municipal bye-law",
+        "sectionRefs": "Legal sections",
+        "authority": "Issuing authority",
+        "legalBasis": "Legal basis",
+        "auditForm": "Audit report form code",
+        "auditFormHint": "Printed on the audit report. It is data, not a universal form name.",
+        "certificateForm": "Certificate form code",
+        "hasOwnFireBrigade": "Municipality has its own fire brigade",
+        "validity": "Certificate validity (months)",
+        "reminderOffsets": "Reminder days before expiry",
+        "reminderHint": "For example: 60, 30, 7 days.",
+        "from": "Valid from",
+        "to": "Valid until",
+        "active": "Active",
+        "save": "Save rule",
+        "summaryTitle": "Rule summary",
+        "sections": {
+          "applies": "Where this rule applies",
+          "legal": "Legal basis",
+          "authority": "Authority and document wording",
+          "validity": "Validity and reminders"
+        }
+      },
+      "columns": {
+        "scope": "Scope",
+        "authority": "Issuing authority",
+        "legalBasis": "Legal basis",
+        "auditForm": "Audit form",
+        "validity": "Validity months",
+        "effective": "Effective",
+        "active": "Status"
+      },
+      "scopes": {
+        "ULB": "This municipality",
+        "State": "State",
+        "National": "National"
+      }
+    },
+    "occupancy": {
+      "title": "Occupancy",
+      "subtitle": "Building use types used by the requirement matrix",
+      "search": "Search occupancy",
+      "empty": "No occupancy rows yet",
+      "columns": {
+        "code": "Code",
+        "name": "Name",
+        "detail": "Parent",
+        "active": "Active"
+      }
+    },
+    "bands": {
+      "title": "Requirement bands",
+      "subtitle": "Height, area, and occupant-load bands for this council",
+      "search": "Search bands",
+      "empty": "No requirement bands yet",
+      "columns": {
+        "code": "Code",
+        "name": "Name",
+        "detail": "Ranges",
+        "active": "Active"
+      }
+    },
+    "checklistItems": {
+      "title": "Checklist catalog",
+      "subtitle": "Fire systems and life-safety items used on one visit",
+      "search": "Search checklist",
+      "empty": "No checklist items yet",
+      "columns": {
+        "code": "Code",
+        "name": "Name",
+        "detail": "Domain",
+        "active": "Active"
+      }
+    },
+    "matrix": {
+      "title": "Requirement matrix",
+      "subtitle": "Which checklist items apply to an occupancy and band",
+      "search": "Search matrix",
+      "empty": "No matrix rows yet",
+      "columns": {
+        "code": "Code",
+        "name": "Occupancy",
+        "detail": "Band",
+        "active": "Active"
+      }
+    },
+    "applicationTypes": {
+      "title": "Application types",
+      "subtitle": "Enabled application kinds for this council",
+      "search": "Search application types",
+      "empty": "No application types yet",
+      "columns": {
+        "code": "Code",
+        "name": "Name",
+        "detail": "Inspection",
+        "active": "Active"
+      }
+    },
+    "documentTypes": {
+      "title": "Document types",
+      "subtitle": "Papers asked for on an application",
+      "search": "Search document types",
+      "empty": "No document types yet",
+      "columns": {
+        "code": "Code",
+        "name": "Name",
+        "detail": "When required",
+        "active": "Active"
+      }
+    },
+    "stations": {
+      "title": "Fire stations",
+      "subtitle": "Stations that can be named on a visit",
+      "search": "Search stations",
+      "empty": "No fire stations yet",
+      "columns": {
+        "code": "Code",
+        "name": "Name",
+        "detail": "Ward",
+        "active": "Active"
+      }
+    },
+    "feeHeads": {
+      "title": "Fee heads",
+      "subtitle": "Named fee obligations shown on the assessment",
+      "search": "Search fee heads",
+      "empty": "No fee heads yet",
+      "columns": {
+        "code": "Code",
+        "name": "Name",
+        "detail": "Obligation",
+        "active": "Active"
+      }
+    },
+    "feeRules": {
+      "title": "Fee rules",
+      "subtitle": "How a fee head is calculated for a given scope",
+      "search": "Search fee rules",
+      "empty": "No fee rules yet",
+      "columns": {
+        "code": "Code",
+        "name": "Head",
+        "detail": "Scope",
+        "active": "Active"
+      }
+    },
+    "statuses": {
+      "title": "Status catalog",
+      "subtitle": "Application statuses in display order",
+      "search": "Search statuses",
+      "empty": "No statuses yet",
+      "columns": {
+        "code": "Code",
+        "name": "Name",
+        "detail": "Terminal",
+        "active": "Active"
+      }
+    }
+  },
+  "error": {
+    "title": "This Fire Audit screen could not be opened",
+    "message": "Try again, or return to the Fire Audit home.",
+    "digest": "Reference {digest}",
+    "tryAgain": "Try again",
+    "home": "Fire Audit home"
+  },
+  "home": {
+    "kicker": "Department",
+    "title": "Fire Audit",
+    "subtitle": "Compliance certificate and audit for this municipality. Staff use the council login. Citizens use the public portal.",
+    "staffHeading": "Staff work",
+    "citizenHeading": "Citizen portal",
+    "mastersHeading": "Configure masters",
+    "openMasters": "Open jurisdiction"
+  },
+  "citizenNav": {
+    "home": "Home",
+    "applications": "Applications",
+    "newApplication": "New application",
+    "signIn": "Sign in",
+    "register": "Register"
+  },
+  "routes": {
+    "clerk": {
+      "title": "Clerk queue",
+      "purpose": "Initial scrutiny, surveyor assignment, and review of the locked inspection report."
+    },
+    "clerkApplication": {
+      "title": "Application {id}",
+      "purpose": "Scrutiny, assignment, and report handoff for this application."
+    },
+    "auditor": {
+      "title": "Officer Verification Dashboard",
+      "purpose": "Officer verification, compliance decisions, and certificate issuance."
+    },
+    "auditorApplication": {
+      "title": "Decision {id}",
+      "purpose": "Compliance decision and certificate issue for this application."
+    },
+    "surveyor": {
+      "title": "Assigned inspections",
+      "purpose": "Visits assigned to the signed-in surveyor."
+    },
+    "surveyorVisit": {
+      "title": "Inspection {id}",
+      "purpose": "Checklist, photos, and location for this visit. Manual entry stays available when the camera or location is missing."
+    },
+    "certificates": {
+      "title": "Certificates",
+      "purpose": "Issued certificates for this municipality."
+    },
+    "verify": {
+      "title": "Certificate check",
+      "purpose": "Public check for certificate {token}."
+    },
+    "citizenHome": {
+      "title": "Your buildings",
+      "purpose": "Premises and applications for the signed-in citizen."
+    },
+    "citizenLogin": {
+      "title": "Citizen sign in",
+      "purpose": "Mobile number and one-time password. This uses the same council account system as staff."
+    },
+    "citizenRegister": {
+      "title": "Citizen registration",
+      "purpose": "Create a citizen account with a mobile number."
+    },
+    "citizenApplications": {
+      "title": "Your applications",
+      "purpose": "Applications filed for your premises."
+    },
+    "citizenNew": {
+      "title": "New application",
+      "purpose": "Premises, occupancy, documents, and the fee assessment. Payment is not collected here."
+    },
+    "citizenApplication": {
+      "title": "Application {id}",
+      "purpose": "Status, timeline, and certificate for this application."
+    }
+  },
+  "auditorDashboard": {
+    "title": "Fire Audit - Officer Verification Dashboard",
+    "recentActivity": "Recent Activity",
+    "activity": {
+      "title": "Recent Activity",
+      "liveFeed": "Live Feed",
+      "tabAll": "All ({count})",
+      "tabToday": "Today ({count})",
+      "tabThisWeek": "This Week ({count})",
+      "noActivity": "No recent actions recorded yet",
+      "noActivityDesc": "All auditor activities like application submission, scrutiny, survey, and forwarding will appear here.",
+      "viewAllActivity": "View All Activity",
+      "refresh": "Refresh",
+      "close": "Close"
+    },
+    "keyOperations": "Key Operations",
+    "applicationsRegistry": "Applications Registry",
+    "applicationPerformanceCharts": "Application Performance Charts",
+    "allApplicationsTab": "All Applications ({count})",
+    "todaysApplicationsTab": "Today's Applications ({count})",
+    "stats": {
+      "title": "Metric Cards",
+      "submitted": "SUBMITTED",
+      "submittedLabel": "Reports Submitted",
+      "pending": "PENDING",
+      "pendingLabel": "Verification Pending",
+      "returned": "RETURNED",
+      "returnedLabel": "Returned for Rectification",
+      "reinspect": "RE-INSPECT",
+      "reinspectLabel": "Re-Inspection Pending",
+      "approved": "APPROVED",
+      "approvedLabel": "Approved Reports",
+      "issued": "ISSUED",
+      "issuedLabel": "Certificates Issued"
+    },
+    "statuses": {
+      "auditorReportSubmitted": "Auditor Report Submitted",
+      "officerVerificationPending": "Officer Verification Pending",
+      "returnedForRectification": "Returned for Rectification",
+      "reInspectionPending": "Re-Inspection Pending",
+      "approved": "Approved",
+      "certificateIssued": "Certificate Issued"
+    },
+    "search": {
+      "title": "Search & Filter Applications",
+      "filters": "Filters",
+      "placeholder": "Search Application No., Building Name, Applicant, Location, Certificate No...",
+      "filterButton": "Filter",
+      "showResults": "Show Results",
+      "showResultsCount": "Show Results ({count})",
+      "resetButton": "Reset",
+      "resetAll": "Reset all",
+      "close": "Close"
+    },
+    "filterFields": {
+      "appType": "Application Type",
+      "allTypes": "All Types",
+      "newAudit": "New Audit",
+      "newFsc": "New FSC",
+      "renewalAudit": "Renewal Audit",
+      "renewal": "Renewal",
+      "periodicAudit": "Periodic Audit",
+      "occupancyType": "Occupancy Type",
+      "allOccupancy": "All Occupancy Types",
+      "business": "Business",
+      "institutional": "Institutional",
+      "mercantile": "Mercantile",
+      "commercial": "Commercial",
+      "residential": "Residential",
+      "healthcare": "Healthcare / Hospital",
+      "educational": "Educational",
+      "assembly": "Assembly",
+      "industrial": "Industrial",
+      "storage": "Storage",
+      "hazardous": "Hazardous",
+      "node": "Node",
+      "allNodes": "All Nodes",
+      "sector": "Sector",
+      "sectorLabel": "Sector {number}",
+      "allSectors": "All Sectors",
+      "ward": "Ward No",
+      "wardLabel": "Ward {number}",
+      "allWards": "All Wards",
+      "appDate": "Application Date",
+      "anyDate": "Any Date",
+      "riskCategory": "Risk Category",
+      "allRisk": "All Risk",
+      "riskHigh": "High Risk",
+      "riskMedium": "Medium Risk",
+      "riskLow": "Low Risk",
+      "riskUnknown": "Unknown Risk",
+      "nodePanvel": "Panvel",
+      "nodeNewPanvel": "New Panvel",
+      "nodeKalamboli": "Kalamboli",
+      "nodeKharghar": "Kharghar",
+      "nodeTaloja": "Taloja",
+      "nodeKamothe": "Kamothe",
+      "sector4": "Sector 4",
+      "sector8": "Sector 8",
+      "sector12": "Sector 12",
+      "sector15": "Sector 15",
+      "sector20": "Sector 20",
+      "sector45": "Sector 45",
+      "ward01": "Ward 01",
+      "ward02": "Ward 02",
+      "ward03": "Ward 03",
+      "ward04": "Ward 04",
+      "ward05": "Ward 05",
+      "ward06": "Ward 06",
+      "dateToday": "Today",
+      "dateThisWeek": "This Week",
+      "dateLast7": "Last 7 Days",
+      "dateLast30": "Last 30 Days",
+      "dateThisMonth": "This Month"
+    },
+    "table": {
+      "title": "Fire Audit Verification Applications",
+      "showingRecords": "Showing {count} records",
+      "btnExport": "Export CSV",
+      "colDocs": "DOCS",
+      "colAction": "ACTION",
+      "btnDocs": "Docs",
+      "btnStartScrutiny": "Start Scrutiny",
+      "btnHistory": "History",
+      "empty": "No applications match the selected filter criteria.",
+      "error": "Failed to load fire audit applications. Please try again.",
+      "retry": "Retry",
+      "defaultSla": "10 wd",
+      "notAvailable": "-",
+      "columns": {
+        "appNo": "APP NO.",
+        "appDate": "APP DATE",
+        "sla": "SLA",
+        "buildingName": "BUILDING NAME",
+        "applicant": "APPLICANT / OWNER",
+        "occupancyType": "OCCUPANCY TYPE",
+        "typeOfUse": "TYPE OF USE",
+        "scoreRisk": "SCORE / RISK",
+        "surveyor": "SURVEYOR",
+        "inspDate": "INSP DATE",
+        "dueDate": "DUE DATE",
+        "deficiencies": "DEFICIENCIES",
+        "status": "STATUS"
+      },
+      "status": {
+        "auditorReportSubmitted": "Auditor Report Submitted",
+        "officerVerificationPending": "Officer Verification Pending",
+        "returnedForRectification": "Returned for Rectification",
+        "reInspectionPending": "Re-Inspection Pending",
+        "approved": "Approved",
+        "certificateIssued": "Certificate Issued"
+      },
+      "risk": {
+        "high": "High",
+        "medium": "Medium",
+        "low": "Low",
+        "unknown": "Unknown"
+      },
+      "appTypes": {
+        "newFsc": "New FSC",
+        "newAudit": "New Audit",
+        "renewal": "Renewal",
+        "renewalAudit": "Renewal Audit",
+        "periodicAudit": "Periodic Audit",
+        "unknown": "Unknown"
+      },
+      "buildingTypes": {
+        "business": "Business",
+        "institutional": "Institutional",
+        "mercantile": "Mercantile",
+        "commercial": "Commercial",
+        "residential": "Residential",
+        "healthcare": "Healthcare / Hospital",
+        "educational": "Educational",
+        "assembly": "Assembly",
+        "industrial": "Industrial",
+        "storage": "Storage",
+        "hazardous": "Hazardous"
+      },
+      "deficienciesCount": "{count} Deficiencies",
+      "fullyCompliant": "Fully Compliant"
+    },
+
+    "charts": {
+      "statusOverviewTitle": "Application Status Overview",
+      "applicationsTrendTitle": "Applications Trend",
+      "filterPeriod": "Filter Period",
+      "total": "Total",
+      "periods": {
+        "thisMonth": "This Month",
+        "lastMonth": "Last Month",
+        "thisQuarter": "This Quarter",
+        "thisYear": "This Year"
+      },
+      "statuses": {
+        "pendingVerification": "Pending Verification",
+        "inspectionCompleted": "Inspection Completed",
+        "readyForDecision": "Ready for Decision",
+        "returned": "Returned",
+        "issuedCertificates": "Issued Certificates",
+        "reInspection": "Re-Inspection"
+      },
+      "trend": {
+        "yAxisLabel": "Number of Applications",
+        "assigned": "Assigned",
+        "verified": "Verified",
+        "issued": "Issued",
+        "months": {
+          "aug": "Aug",
+          "sep": "Sep",
+          "oct": "Oct",
+          "nov": "Nov",
+          "dec": "Dec",
+          "jan": "Jan"
+        }
+      }
+    }
+  },
+  "clerk": {
+    "title": "Clerk Operations Desk",
+    "subtitle": "Intake queue, baseline document verification, fee reconciliation & surveyor scheduling",
+    "metrics": {
+      "allApplications": "All Applications",
+      "scrutinyPending": "Scrutiny Pending",
+      "surveyScheduled": "Survey Scheduled",
+      "reviewForward": "Review & Forward",
+      "compliancePending": "Compliance Pending",
+      "reinspectionCases": "Re-inspection Cases",
+      "certifiedCleared": "Certified & Cleared",
+      "rejectedApplications": "Rejected Applications",
+      "viewAll": "View all",
+      "tagAll": "ALL",
+      "tagPending": "PENDING",
+      "tagScheduled": "SCHEDULED",
+      "tagReview": "REVIEW",
+      "tagCompliance": "COMPLIANCE",
+      "tagReinspect": "RE-INSPECT",
+      "tagCertified": "CERTIFIED",
+      "tagRejected": "REJECTED"
+    },
+    "keyOperations": "Key Operations",
+    "activity": {
+      "title": "Recent Activity",
+      "liveFeed": "Live Feed",
+      "noActivity": "No recent clerk actions recorded yet",
+      "noActivityDesc": "All clerk activities like application submission, scrutiny, survey, forwarding will appear here.",
+      "viewAllActivity": "View All Activity",
+      "tabAll": "All ({count})",
+      "tabToday": "Today ({count})",
+      "tabThisWeek": "This Week ({count})",
+      "refresh": "Refresh",
+      "close": "Close"
+    },
+    "registry": {
+      "heading": "Total applications registry",
+      "tabAll": "All Applications ({count})",
+      "tabToday": "Today's Applications ({count})",
+      "searchPlaceholder": "Search application...",
+      "allOccupancies": "All Occupancies",
+      "btnFilter": "Filter",
+      "advanced": {
+        "filtersTitle": "Filters",
+        "resetAll": "Reset all",
+        "searchLabel": "Search & Filter Applications",
+        "searchPlaceholder": "Search Application No., Building Name, Applicant, Location, Certificate No...",
+        "appType": "Application Type",
+        "occupancyType": "Occupancy Type",
+        "node": "Node",
+        "sector": "Sector",
+        "wardNo": "Ward No",
+        "appDate": "Application Date",
+        "riskCategory": "Risk Category",
+        "btnReset": "Reset",
+        "btnShowResults": "Show Results",
+        "close": "Close",
+        "options": {
+          "appType": {
+            "all": "All Types",
+            "new": "New Compliance",
+            "renewal": "Renewal",
+            "reinspection": "Re-inspection"
+          },
+          "occupancyType": {
+            "all": "All Occupancy Types",
+            "groupA": "Residential (Group A)",
+            "groupE": "Business/IT (Group E)",
+            "groupF": "Commercial (Group F)",
+            "groupG": "Industrial (Group G)"
+          },
+          "node": {
+            "all": "All Nodes",
+            "central": "Central Node",
+            "north": "North Node",
+            "south": "South Node",
+            "east": "East Node",
+            "west": "West Node"
+          },
+          "sector": {
+            "all": "All Sectors",
+            "sec_1": "Sector 1 - 10",
+            "sec_2": "Sector 11 - 20"
+          },
+          "wardNo": {
+            "all": "All Wards",
+            "ward_1": "Ward 01",
+            "ward_2": "Ward 02",
+            "ward_3": "Ward 03"
+          },
+          "appDate": {
+            "all": "Any Date",
+            "today": "Today",
+            "week": "This Week",
+            "month": "This Month"
+          },
+          "riskCategory": {
+            "all": "All Risk",
+            "high": "High Risk",
+            "medium": "Medium Risk",
+            "low": "Low Risk"
+          },
+          "calendar": {
+            "prevMonth": "Previous month",
+            "nextMonth": "Next month",
+            "months": {
+              "jan": "January",
+              "feb": "February",
+              "mar": "March",
+              "apr": "April",
+              "may": "May",
+              "jun": "June",
+              "jul": "July",
+              "aug": "August",
+              "sep": "September",
+              "oct": "October",
+              "nov": "November",
+              "dec": "December"
+            },
+            "weekdays": {
+              "mo": "Mo",
+              "tu": "Tu",
+              "we": "We",
+              "th": "Th",
+              "fr": "Fr",
+              "sa": "Sa",
+              "su": "Su"
+            }
+          }
+        }
+      }
+    },
+    "table": {
+      "title": "Applications",
+      "subtitle": "List of fire audit applications submitted by citizens",
+      "btnExport": "Export",
+      "colAppNo": "Application No.",
+      "colBuilding": "Building & Application",
+      "colCouncilCode": "Council Code",
+      "colSubmission": "Date of Submission",
+      "colSubmissionTime": "Submission Time",
+      "colSla": "SLA",
+      "colOccupancy": "Occupancy Type",
+      "colApplicant": "Applicant Name",
+      "colStatus": "Status",
+      "colDocs": "Docs",
+      "colAction": "Actions",
+      "btnHistory": "History",
+      "btnDocs": "Docs",
+      "btnStartScrutiny": "Start Scrutiny",
+      "noRecordsFound": "No applications found in the queue",
+      "tryDifferentFilter": "Applications submitted by citizens will appear here."
+    }
+  },
+  "clerk": {
+    "title": "Clerk Operations Desk",
+    "metrics": {
+      "allApplications": "All Applications",
+      "scrutinyPending": "Scrutiny Pending",
+      "surveyScheduled": "Survey Scheduled",
+      "reviewForward": "Review & Forward",
+      "compliancePending": "Compliance Pending",
+      "reinspectionCases": "Re-inspection Cases",
+      "certifiedCleared": "Certified & Cleared",
+      "rejectedApplications": "Rejected Applications",
+      "viewAll": "View all",
+      "tagAll": "ALL",
+      "tagPending": "PENDING",
+      "tagScheduled": "SCHEDULED",
+      "tagReview": "REVIEW",
+      "tagCompliance": "COMPLIANCE",
+      "tagReinspect": "RE-INSPECT",
+      "tagCertified": "CERTIFIED",
+      "tagRejected": "REJECTED"
+    },
+    "keyOperations": "Key Operations",
+    "activity": {
+      "title": "Recent Activity",
+      "liveFeed": "Live Feed",
+      "noActivity": "No recent clerk actions recorded yet",
+      "noActivityDesc": "All clerk activities like application submission, scrutiny, survey, forwarding will appear here.",
+      "viewAllActivity": "View All Activity",
+      "tabAll": "All ({count})",
+      "tabToday": "Today ({count})",
+      "tabThisWeek": "This Week ({count})",
+      "refresh": "Refresh",
+      "close": "Close"
+    },
+    "registry": {
+      "heading": "Total applications registry",
+      "tabAll": "All Applications ({count})",
+      "tabToday": "Today's Applications ({count})",
+      "searchPlaceholder": "Search application...",
+      "allOccupancies": "All Occupancies",
+      "btnFilter": "Filter",
+      "clearStatusFilter": "Clear status filter",
+      "advanced": {
+        "filtersTitle": "Filters",
+        "resetAll": "Reset all",
+        "searchLabel": "Search & Filter Applications",
+        "searchPlaceholder": "Search Application No., Building Name, Applicant, Location, Certificate No...",
+        "appType": "Application Type",
+        "occupancyType": "Occupancy Type",
+        "node": "Node",
+        "sector": "Sector",
+        "wardNo": "Ward No",
+        "appDate": "Application Date",
+        "riskCategory": "Risk Category",
+        "btnReset": "Reset",
+        "btnShowResults": "Show Results",
+        "close": "Close",
+        "options": {
+          "appType": {
+            "all": "All Types",
+            "new": "New Compliance",
+            "renewal": "Renewal",
+            "reinspection": "Re-inspection"
+          },
+          "occupancyType": {
+            "all": "All Occupancy Types",
+            "groupA": "Residential (Group A)",
+            "groupE": "Business/IT (Group E)",
+            "groupF": "Commercial (Group F)",
+            "groupG": "Industrial (Group G)"
+          },
+          "node": {
+            "all": "All Nodes",
+            "central": "Central Node",
+            "north": "North Node",
+            "south": "South Node",
+            "east": "East Node",
+            "west": "West Node"
+          },
+          "sector": {
+            "all": "All Sectors",
+            "sec_1": "Sector 1 - 10",
+            "sec_2": "Sector 11 - 20"
+          },
+          "wardNo": {
+            "all": "All Wards",
+            "ward_1": "Ward 01",
+            "ward_2": "Ward 02",
+            "ward_3": "Ward 03"
+          },
+          "appDate": {
+            "all": "Any Date",
+            "today": "Today",
+            "week": "This Week",
+            "month": "This Month"
+          },
+          "riskCategory": {
+            "all": "All Risk",
+            "high": "High Risk",
+            "medium": "Medium Risk",
+            "low": "Low Risk"
+          },
+          "calendar": {
+            "prevMonth": "Previous month",
+            "nextMonth": "Next month",
+            "months": {
+              "jan": "January",
+              "feb": "February",
+              "mar": "March",
+              "apr": "April",
+              "may": "May",
+              "jun": "June",
+              "jul": "July",
+              "aug": "August",
+              "sep": "September",
+              "oct": "October",
+              "nov": "November",
+              "dec": "December"
+            },
+            "weekdays": {
+              "mo": "Mo",
+              "tu": "Tu",
+              "we": "We",
+              "th": "Th",
+              "fr": "Fr",
+              "sa": "Sa",
+              "su": "Su"
+            }
+          }
+        }
+      }
+    },
+    "table": {
+      "title": "Applications",
+      "subtitle": "List of fire audit applications submitted by citizens",
+      "btnExport": "Export",
+      "colAppNo": "Application No.",
+      "colBuilding": "Building & Application",
+      "colCouncilCode": "Council Code",
+      "colSubmission": "Date of Submission",
+      "colSubmissionTime": "Submission Time",
+      "colSla": "SLA",
+      "colOccupancy": "Occupancy Type",
+      "colApplicant": "Applicant Name",
+      "colStatus": "Status",
+      "colDocs": "Docs",
+      "colAction": "Actions",
+      "btnHistory": "History",
+      "btnDocs": "Docs",
+      "btnStartScrutiny": "Start Scrutiny",
+      "noRecordsFound": "No applications found in the queue",
+      "tryDifferentFilter": "Applications submitted by citizens will appear here.",
+      "showingEntries": "Showing {count} of {total} total entries",
+      "slaCompleted": "Completed"
+    },
+    "actions": {
+      "expedite": "Expedite & Assign",
+      "viewRejection": "View Rejection",
+      "viewSchedule": "View Schedule",
+      "verifyReport": "Verify Report",
+      "viewNotice": "View Notice",
+      "trackCfo": "Track CFO Approval",
+      "startScrutiny": "Start Scrutiny"
+    },
+    "modal": {
+      "title": "Proceed Application",
+      "cancel": "Cancel",
+      "detailsTitle": "Application Details (In Short)",
+      "journeyTitle": "Application Journey",
+      "journeySub": "Step-by-Step Process Tracking",
+      "btnExpedite": "Expedite & Assign →",
+      "btnViewRejection": "View Rejection Notice →",
+      "btnViewSchedule": "View Schedule →",
+      "btnVerifyReport": "Verify Report →",
+      "btnViewNotice": "View 15-Day Notice →",
+      "btnTrackCfo": "Track CFO Approval →",
+      "btnStartScrutiny": "Start Scrutiny →",
+      "labels": {
+        "appNoDate": "Application No & Date",
+        "applicantOwner": "Applicant / Owner",
+        "buildingName": "Building Name",
+        "addressLocation": "Address & Location",
+        "occupancyType": "Building & Occupancy Type",
+        "complianceRisk": "Compliance Score & Risk",
+        "assignedOfficer": "Assigned Auditor / Officer",
+        "deficienciesStatus": "Deficiencies Status"
+      },
+      "steps": {
+        "submitted": "Submitted",
+        "scrutinyPending": "Scrutiny Pending",
+        "slaOverdue": "SLA Overdue",
+        "withClerk": "With Clerk",
+        "surveyInspection": "Survey Inspection",
+        "fieldAudit": "Field Audit",
+        "rejected": "Rejected",
+        "deficienciesFound": "Deficiencies Found",
+        "cfoApproval": "CFO Approval",
+        "pendingSignoff": "Pending Sign-off",
+        "finalClearance": "Final Clearance"
+      }
+    }
+  },
+  "citizen": {
+    "auth": {
+      "signInTitle": "Citizen Sign In",
+      "registerTitle": "Citizen Registration",
+      "signInSubtitle": "Access your Fire Compliance account using your mobile number.",
+      "registerSubtitle": "Create your Fire Compliance account using your mobile number.",
+      "otpSubtitle": "Enter the 6-digit verification code sent to +91 {mobileNumber}",
+      "digitAriaLabel": "Digit {index}",
+      "fullNameLabel": "Full Name",
+      "fullNamePlaceholder": "Enter your full name",
+      "mobileNumberLabel": "Mobile Number",
+      "mobileNumberPlaceholder": "Enter 10-digit mobile number",
+      "btnSendOtp": "Send OTP",
+      "btnSendingOtp": "Sending OTP...",
+      "btnVerifySignIn": "Verify & Sign In",
+      "btnResendOtp": "Resend OTP",
+      "resendCountdown": "Resend in {seconds}s",
+      "changeMobile": "Change mobile",
+      "newCitizenPrompt": "New citizen or building?",
+      "createAccountLink": "Create a new account →",
+      "createAccountNowLink": "Create a new account now →",
+      "alreadyRegisteredPrompt": "Already registered?",
+      "signInMobileLink": "Sign in with Mobile →",
+      "signInNumberLink": "Sign in with this number →",
+      "signedInSuccessTitle": "Signed In Successfully",
+      "signedInSuccessDesc": "Redirecting to your Citizen Fire Compliance account...",
+      "registeredSuccessTitle": "Registration Completed",
+      "registeredSuccessDesc": "Your Fire Compliance account has been created. Redirecting to citizen dashboard...",
+      "errFullName": "Please enter your full name",
+      "errValidMobile": "Please enter a valid 10-digit mobile number",
+      "errMobilePrefix": "Mobile number must start with 6, 7, 8, or 9",
+      "errNotRegistered": "This mobile number is not registered. Please create a new account.",
+      "errAlreadyRegistered": "This mobile number is already registered. Please sign in instead.",
+      "errOtpIncomplete": "Please enter the complete 6-digit verification code",
+      "errOtpInvalid": "Invalid verification code. Please enter the correct OTP.",
+      "errOtpInvalidRetry": "Invalid verification code. Please try again.",
+      "errOtpSendFailed": "Failed to send OTP. Please try again.",
+      "errOtpResendFailed": "Failed to resend OTP",
+      "errOtpVerifyFailed": "Failed to verify OTP. Please try again.",
+      "errGenericSend": "Failed to send verification code.",
+      "otpVerifySuccess": "Verification successful!"
+    }
+  }
+}

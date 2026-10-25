@@ -1,0 +1,163 @@
+{
+  "billingPeriodMaster": {
+    "moduleTitle": "Billing Period Master",
+    "title": "Billing Periods",
+    "subtitle": "Operational bill cycle calendar including generation, due dates, grace and penalty windows.",
+    "searchPlaceholder": "Search by Billing Frequency...",
+    "addTitle": "Add Billing Period",
+    "editTitle": "Edit Billing Period",
+    "addSubtitle": "Create a new billing period record",
+    "editSubtitle": "Update billing period details",
+    "table": {
+      "periodCode": "Period Code",
+      "financialYear": "Financial Year",
+      "billingFrequency": "Billing Frequency",
+      "periodFrom": "Period From",
+      "periodTo": "Period To",
+      "billGenerationDate": "Bill Generation Date",
+      "dueDate": "Due Date",
+      "graceDays": "Grace Days",
+      "currentPenalty": "Current Penalty",
+      "pendingPenalty": "Pending Penalty",
+      "to": "to",
+      "sequenceNo": "Sequence No.",
+      "currentPenaltyStartDate": "Current Penalty Start",
+      "currentPenaltyEndDate": "Current Penalty End",
+      "pendingPenaltyStartDate": "Pending Penalty Start",
+      "pendingPenaltyEndDate": "Pending Penalty End",
+      "isReadingApprovalRequired": "Reading Approval Required",
+      "status": "Status",
+      "isActive": "Active",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "statusOptions": {
+      "open": "Open",
+      "closed": "Closed",
+      "draft": "Draft"
+    },
+    "form": {
+      "enabled": "Enabled",
+      "disabled": "Disabled",
+      "saveRecord": "Save record",
+      "updateRecord": "Update record",
+      "periodCode": {
+        "label": "Period Code",
+        "placeholder": "e.g., 2026-Q1"
+      },
+      "sequenceNo": {
+        "label": "Sequence No.",
+        "placeholder": "e.g., 1"
+      },
+      "financialYear": {
+        "label": "Financial Year",
+        "placeholder": "Select financial year"
+      },
+      "billingFrequency": {
+        "label": "Billing Frequency",
+        "placeholder": "Select billing frequency"
+      },
+      "periodFrom": {
+        "label": "Period From",
+        "placeholder": "mm/dd/yyyy"
+      },
+      "periodTo": {
+        "label": "Period To",
+        "placeholder": "mm/dd/yyyy"
+      },
+      "billGenerationDate": {
+        "label": "Bill Generation Date",
+        "placeholder": "mm/dd/yyyy"
+      },
+      "dueDate": {
+        "label": "Due Date",
+        "placeholder": "mm/dd/yyyy"
+      },
+      "graceDays": {
+        "label": "Grace Days",
+        "placeholder": "e.g., 10"
+      },
+      "status": {
+        "label": "Status"
+      },
+      "readingApproval": {
+        "label": "Reading Approval Required"
+      },
+      "activeStatusTitle": "Status",
+      "activeStatusOn": "Active - Billing period is enabled",
+      "activeStatusOff": "Inactive - Billing period is disabled",
+      "creatingPeriodStatus": "Creating Period {current} of {total} ({remaining} period(s) remaining for this financial year)"
+    },
+    "validation": {
+      "billingPeriodCodeRequired": "Period Code is required",
+      "billingPeriodCodeLength": "Period Code cannot exceed {count} characters",
+      "financialYearRequired": "Financial Year is required",
+      "billingFrequencyRequired": "Billing Frequency is required",
+      "periodFromDateRequired": "Period From Date is required",
+      "periodFromDateInvalid": "Period From Date is not a valid date",
+      "periodToDateRequired": "Period To Date is required",
+      "periodToDateInvalid": "Period To Date is not a valid date",
+      "periodToDateAfterFromDate": "Period To Date must be after Period From Date",
+      "periodFromDateMustMatchYearStart": "First Period 'Period From' date must match the Financial Year start date ({date})",
+      "periodToDateMustMatchYearEnd": "Final Period 'Period To' date must match the Financial Year end date ({date})",
+      "periodFromNotBeforeYearStart": "'Period From' date cannot be before Financial Year start date ({date})",
+      "periodToNotAfterYearEnd": "'Period To' date cannot exceed the Financial Year end date ({date})",
+      "billGenerationDateInvalid": "Bill Generation Date is not a valid date",
+      "billGenerationNotBeforePeriodFrom": "Bill Generation Date cannot be earlier than Period From Date ({date})",
+      "billGenerationNotAfterDueDate": "Bill Generation Date cannot be later than Due Date ({date})",
+      "dueDateRequired": "Due Date is required",
+      "dueDateInvalid": "Due Date is not a valid date",
+      "dueDateAfterPeriodTo": "Due Date must be after Period To Date",
+      "dueDateMaxDays": "Due Date cannot exceed {count} days from Period To Date",
+      "dueDateMaxOneMonth": "Due Date must be within one month of Period To Date",
+      "currentPenaltyStartMustMatchPeriodFrom": "Current Penalty Start Date must match Period From Date ({date})",
+      "currentPenaltyEndMustMatchPeriodTo": "Current Penalty End Date must match Period To Date ({date})",
+      "currentPenaltyStartAfterDueDate": "Current Penalty Start Date must be after Due Date",
+      "currentPenaltyStartNotAfterEnd": "Current Penalty Start Date cannot be after Current Penalty End Date",
+      "currentPenaltyEndAfterStart": "Current Penalty End Date cannot be before Current Penalty Start Date",
+      "pendingPenaltyStartNotBeforeCurrentPenaltyEnd": "Pending Penalty Start Date must be after Current Penalty End Date ({date})",
+      "pendingPenaltyStartNotAfterEnd": "Pending Penalty Start Date cannot be after Pending Penalty End Date",
+      "pendingPenaltyEndAfterStart": "Pending Penalty End Date cannot be before Pending Penalty Start Date",
+      "graceDaysMismatch": "Grace Days mismatch with Due Date",
+      "graceDaysRequired": "Grace Days is required",
+      "graceDaysPositive": "Grace Days must be a positive number",
+      "graceDaysMax": "Grace Days cannot exceed {count} days",
+      "maxPeriodsReached": "All {count} periods for this billing frequency have already been created for the selected financial year.",
+      "validationFailed": "Validation failed. Please correct the errors"
+    },
+    "errors": {
+      "noMutationAction": "No mutation action provided",
+      "noDeleteAction": "Delete action not available",
+      "unexpectedError": "An unexpected error occurred",
+      "fetchListFailed": "Failed to fetch billing periods",
+      "fetchItemFailed": "Failed to fetch billing period",
+      "notFound": "Billing period not found",
+      "createFailed": "Failed to create billing period",
+      "updateFailed": "Failed to update billing period",
+      "deleteFailed": "Failed to delete billing period"
+    },
+    "confirm": {
+      "deleteTitle": "Delete Billing Period",
+      "deleteDescription": "Are you sure you want to permanently delete this billing period? This action cannot be undone."
+    },
+    "messages": {
+      "createSuccess": "Billing period created successfully",
+      "updateSuccess": "Billing period updated successfully",
+      "deleteSuccess": "Billing period deleted successfully",
+      "createFailed": "Failed to create billing period",
+      "updateFailed": "Failed to update billing period",
+      "deleteFailed": "Failed to delete billing period"
+    },
+    "error": {
+      "title": "Failed to connect server. Please try again later.",
+      "description": "We encountered an error while loading the billing period page. Please try again.",
+      "tryAgain": "Try Again",
+      "goHome": "Go to Home",
+      "errorId": "Error ID: {id}"
+    },
+    "loading": {
+      "message": "Loading Billing Periods...",
+      "description": "Please wait while we fetch the billing period data"
+    }
+  }
+}

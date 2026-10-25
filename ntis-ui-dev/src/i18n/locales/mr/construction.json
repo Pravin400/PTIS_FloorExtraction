@@ -1,0 +1,136 @@
+{
+  "constructionType": {
+    "aliasFallback": {
+      "entity": "बांधकाम प्रकार"
+    },
+    "list": {
+      "title": "{constructionType} मास्टर",
+      "subtitle": "{constructionType} आणि त्यांचे वर्गीकरण व्यवस्थापित करा",
+      "buttons": {
+        "add": "{constructionType} जोडा",
+        "edit": "संपादन",
+        "delete": "हटवा"
+      },
+      "filters": {
+        "show": "दाखवा",
+        "search": "{constructionType} किंवा वर्णनाने शोधा..."
+      },
+      "table": {
+        "constructionCode": "{constructionType}",
+        "descriptionEnglish": "इंग्रजी वर्णन",
+        "description": "प्रादेशिक वर्णन",
+        "searchKey": "शोध की",
+        "searchSequence": "शोध क्रम",
+        "status": "स्थिती",
+        "actions": "क्रिया"
+      },
+      "status": {
+        "active": "सक्रिय",
+        "inactive": "निष्क्रिय"
+      },
+      "pagination": {
+        "showing": "दाखवत आहे",
+        "entries": "नोंदी"
+      }
+    },
+    "form": {
+      "addTitle": "नवीन {constructionType} जोडा",
+      "editTitle": "{constructionType} संपादित करा",
+      "subtitle": "नवीन {constructionType} तयार करा",
+      "editSubtitle": "{constructionType} तपशील अद्यतन करा",
+      "fields": {
+        "constructionId": {
+          "label": "बांधकाम ID"
+        },
+        "constructionCode": {
+          "label": "{constructionType}",
+          "placeholder": "उदा. A"
+        },
+        "descriptionEnglish": {
+          "label": "इंग्रजी वर्णन",
+          "placeholder": "उदा. RCC {constructionType}"
+        },
+        "description": {
+          "label": "प्रादेशिक वर्णन",
+          "placeholder": "प्रादेशिक वर्णन"
+        },
+        "searchSequence": {
+          "label": "शोध क्रम"
+        },
+        "searchKey": {
+          "label": "शोध की",
+          "placeholder": "उदा. 7"
+        }
+      },
+      "validation": {
+        "constructionCodeRequired": "{constructionType} आवश्यक आहे",
+        "constructionCodeMaxLength": "कमाल लांबी 7 वर्ण आहे",
+        "constructionCodeFormat": "फक्त इंग्रजी अक्षरे, संख्या आणि अंडरस्कोर (_) वर्णांना परवानगी आहे",
+        "constructionCodeEnglishOnly": "फक्त इंग्रजी अक्षरे, संख्या आणि अंडरस्कोर (_) ला परवानगी आहे. मराठी/हिंदी समर्थित नाही.",
+        "constructionCodeExists": "हा {constructionType} आधीच अस्तित्वात आहे. कृपया वेगळा प्रकार वापरा.",
+        "descriptionEnglishRequired": "इंग्रजी वर्णन आवश्यक आहे",
+        "descriptionEnglishMaxLength": "कमाल लांबी 100 वर्ण आहे",
+        "descriptionEnglishFormat": "फक्त इंग्रजी अक्षरे, संख्या, रिक्त स्थाने आणि मूलभूत विरामचिन्हांना परवानगी आहे (,./-()).",
+        "descriptionEnglishExists": "इंग्रजी वर्णन आधीच अस्तित्वात आहे. कृपया वेगळे वर्णन प्रविष्ट करा.",
+        "descriptionRequired": "वर्णन आवश्यक आहे",
+        "descriptionMaxLength": "कमाल लांबी 100 वर्ण आहे",
+        "descriptionFormat": "फक्त अक्षरे (कोणतीही भाषा), संख्या, रिक्त स्थाने आणि मूलभूत विरामचिन्हांना परवानगी आहे (,./-()).",
+        "descriptionExists": "वर्णन आधीच अस्तित्वात आहे. कृपया वेगळे वर्णन प्रविष्ट करा.",
+        "idRequiredForUpdate": "अपडेटसाठी {constructionType} आयडी आवश्यक आहे",
+        "validIdRequired": "वैध {constructionType} आयडी आवश्यक आहे",
+        "searchKeyRequired": "शोध की आवश्यक आहे",
+        "searchKeyMaxLength": "कमाल लांबी 20 वर्ण आहे",
+        "searchKeyFormat": "केवळ अक्षर, संख्या आणि + - वर्ण अनुमत आहेत",
+        "sequenceInvalid": "शोध क्रम 0 किंवा अधिक असावा",
+        "mustBeActive": "{constructionType} जतन करण्यासाठी सक्रिय असणे आवश्यक आहे",
+        "constructionCodeNumbersOnlyNotAllowed": "कृपया किमान एक अक्षर असलेला वैध {constructionType} प्रविष्ट करा.",
+        "descriptionNumbersOnlyNotAllowed": "कृपया किमान एक अक्षर असलेले वैध वर्णन प्रविष्ट करा.",
+        "descriptionEnglishNumbersOnlyNotAllowed": "कृपया किमान एक अक्षर असलेले वैध इंग्रजी वर्णन प्रविष्ट करा."
+      },
+      "status": {
+        "label": "सक्रिय स्थिती",
+        "description": "हा {constructionType} सध्या"
+      },
+      "actions": {
+        "cancel": "रद्द करा",
+        "save": "जतन करा",
+        "update": "अद्यतन करा"
+      }
+    },
+    "delete": {
+      "confirmTitle": "{constructionType} ({id}) हटवा?",
+      "confirmDescription": "तुम्हाला खात्री आहे की तुम्ही हा {constructionType} रेकॉर्ड हटवू इच्छिता?",
+      "successMessage": "{constructionType} ({id}) यशस्वीरित्या हटवले",
+      "errorMessage": "{constructionType} ({id}) हटवू शकत नाही कारण तो इतर रेकॉर्डशी जोडलेला आहे."
+    },
+    "apiErrors": {
+      "linkedRecordError": "{constructionType} हटवू शकत नाही कारण तो इतर रेकॉर्डशी जोडलेला आहे.",
+      "duplicateCode": "बांधकाम कोड आधीच अस्तित्वात आहे. कृपया वेगळा कोड वापरा.",
+      "duplicateDescription": "वर्णन आधीच अस्तित्वात आहे. कृपया वेगळे वर्णन वापरा.",
+      "duplicateRecord": "कृपया {constructionType} आणि वर्णन तपासा - डुप्लिकेट परवानगी नाही.",
+      "invalidData": "अवैध डेटा प्रदान केला आहे. कृपया सर्व फील्ड तपासा.",
+      "notFound": "{constructionType} सापडले नाही.",
+      "inUse": "{constructionType} निष्क्रिय/हटवू शकत नाही कारण ते खालील ठिकाणी संदर्भित आहे: दर, वय घटक, निसर्ग घटक, मालमत्ता तपशील, घसारा मास्टर",
+      "updateError": "अपडेट करण्यात अयशस्वी",
+      "validationError": "कृपया सबमिट करण्यापूर्वी सर्व प्रमाणीकरण त्रुटी दुरुस्त करा",
+      "apiValidationFailed": "प्रमाणीकरण अयशस्वी. कृपया तुमचे इनपुट तपासा.",
+      "operationFailed": "ऑपरेशन अयशस्वी. कृपया पुन्हा प्रयत्न करा."
+    },
+    "success": {
+      "created": "नवीन {constructionType} कोडसह यशस्वीरित्या तयार केला: {code}",
+      "updated": "{constructionType} कोडसह यशस्वीरित्या अद्यतन केला: {code}",
+      "deleted": "{constructionType} कोडसह यशस्वीरित्या हटवला: {code}"
+    },
+    "error": {
+      "title": "सर्व्हरशी कनेक्ट करता आले नाही. कृपया नंतर पुन्हा प्रयत्न करा.",
+      "description": "बांधकाम प्रकार पृष्ठ लोड करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+      "tryAgain": "पुन्हा प्रयत्न करा",
+      "goHome": "होमवर जा",
+      "errorId": "त्रुटी आयडी: {id}"
+    },
+    "loading": {
+      "message": "बांधकाम प्रकार लोड होत आहे...",
+      "description": "कृपया थांबा जोपर्यंत आम्ही बांधकाम प्रकार डेटा लोड करतो"
+    }
+  }
+}

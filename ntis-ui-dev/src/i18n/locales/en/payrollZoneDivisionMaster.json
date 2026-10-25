@@ -1,0 +1,93 @@
+{
+  "title": "Zone / Office Master",
+  "subtitle": "Manage municipal zone offices, division establishments, and regional locations",
+  "buttons": {
+    "add": "Add Zone / Office"
+  },
+  "filters": {
+    "searchPlaceholder": "Search offices by code, name, address...",
+    "status": "Filter by status"
+  },
+  "table": {
+    "columns": {
+      "officeCode": "Office Code",
+      "officeName": "Office Name",
+      "officeNameRegional": "Office Name (Regional)",
+      "address": "Address",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "actions": {
+      "editAria": "Edit {name}",
+      "deleteAria": "Delete {name}"
+    }
+  },
+  "drawer": {
+    "addTitle": "Add New Zone / Office",
+    "editTitle": "Edit Zone / Office",
+    "addSubtitle": "Create a new municipal administrative office establishment",
+    "editSubtitle": "Update administrative office establishment details",
+    "sectionTitle": "Administrative Office Information",
+    "mandatoryFields": "* Mandatory Fields",
+    "labels": {
+      "officeCode": "Office Code",
+      "officeName": "Office Name",
+      "officeNameRegional": "Office Name (Regional)",
+      "address": "Address",
+      "status": "Status"
+    },
+    "placeholders": {
+      "officeCode": "e.g. DIV-EAST",
+      "officeName": "e.g. East Division Administrative Office",
+      "officeNameRegional": "उदा. पूर्व विभाग प्रशासकीय कार्यालय",
+      "address": "e.g. Near Shivaji Statue, Old Agra Road, Sector 3..."
+    },
+    "buttons": {
+      "create": "Create Office",
+      "update": "Update Office",
+      "cancel": "Cancel"
+    },
+    "validation": {
+      "officeCodeRequired": "Office Code is required.",
+      "officeCodeMinLength": "Office Code must be at least 3 characters",
+      "officeCodeMaxLength": "Office code must not exceed 20 characters",
+      "officeCodeFormat": "Code must contain only letters, numbers, hyphens, and underscores",
+      "officeNameRequired": "Office Name is required.",
+      "officeNameMinLength": "Office name must be at least 3 characters",
+      "officeNameMaxLength": "Office name must not exceed 100 characters",
+      "officeNameFormat": "Office Name can only contain letters, numbers, spaces, and valid punctuation (. - / & ())",
+      "officeNameRegionalRequired": "Office Name (Regional) is required.",
+      "officeNameRegionalMinLength": "Office name (Regional) must be at least 2 characters",
+      "officeNameRegionalMaxLength": "Office name (Regional) must not exceed 100 characters",
+      "officeNameRegionalFormat": "Office Name (Regional) can only contain valid characters and punctuation (. - / & ())",
+      "addressRequired": "Physical Address is required.",
+      "addressMinLength": "Physical address must be at least 5 characters",
+      "addressMaxLength": "Physical address must not exceed 250 characters",
+      "codeUnique": "This Office Code already exists. Codes must be unique.",
+      "officeNameDuplicate": "This office name already exists."
+    }
+  },
+  "deleteModal": {
+    "title": "Delete Zone / Office",
+    "description": "Are you sure you want to delete \"{name}\"? This action cannot be undone.",
+    "inUse": "\"{name}\" is currently linked to employees or departments and cannot be deleted.",
+    "confirm": "Delete",
+    "cancel": "Cancel"
+  },
+  "messages": {
+    "createSuccess": "Zone / Office created successfully",
+    "createFailed": "Failed to create zone office",
+    "updateSuccess": "Zone / Office updated successfully",
+    "updateFailed": "Failed to update zone office",
+    "deleteSuccess": "Zone / Office deleted successfully",
+    "deleteFailed": "Failed to delete zone office",
+    "invalidId": "Invalid ID"
+  },
+  "apiErrors": {
+    "duplicate": "Zone / Office with this code or name already exists.",
+    "notFound": "Zone / Office record was not found.",
+    "inUse": "\"{name}\" is currently linked to employees or departments and cannot be deleted.",
+    "invalidData": "Invalid office data provided.",
+    "serverError": "Internal server error. Please try again later."
+  }
+}

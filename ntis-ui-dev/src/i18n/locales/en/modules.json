@@ -1,0 +1,19 @@
+{
+  "bajarParwana": {
+    "title": "Market Permit Application",
+    "description": "Apply for market permit online"
+  },
+  "birthDeath": {
+    "title": "Certificate Application",
+    "description": "Apply for birth and death certificates"
+  },
+  "propertyTax": {
+    "title": "Property Search",
+    "detailsTitle": "Property Details",
+    "description": "Search and manage property tax"
+  },
+  "waterTax": {
+    "title": "Water Tax Dashboard",
+    "description": "Manage water tax payments"
+  }
+}

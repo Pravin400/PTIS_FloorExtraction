@@ -1,0 +1,19 @@
+{
+  "welcomeTo": "Welcome to {name}",
+  "smartGovernance": "Empowering Smart Governance!",
+  "securityPurpose": "All operations are logged and monitored for security purposes.",
+  "cards": {
+    "exploreMenu": {
+      "title": "Explore Menu",
+      "description": "Use the sidebar navigation menu on the left to access all screens, processes, and tools allocated for this module."
+    },
+    "secureAccess": {
+      "title": "Secure Access",
+      "description": "Your actions are tracked securely. Access level is dynamically optimized based on your system role and ULB rules."
+    },
+    "support": {
+      "title": "Support",
+      "description": "Need help? Refer to the administration guides or contact support for general inquiries regarding configurations."
+    }
+  }
+}

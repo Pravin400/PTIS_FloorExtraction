@@ -1,0 +1,197 @@
+{
+  "pageTitle": "संपत्ति कर रिपोर्ट इंजन",
+  "pageSubtitle": "रिपोर्ट प्रकार चुनें और आवश्यक फ़िल्टर निर्दिष्ट करें, फिर PDF डाउनलोड करने के लिए 'रिपोर्ट प्राप्त करें' पर क्लिक करें।",
+  "navigation": {
+    "reportAdmin": "रिपोर्ट प्रशासन",
+    "reportDesigner": "रिपोर्ट डिज़ाइनर",
+    "addNewReport": "नई रिपोर्ट जोड़ें",
+    "importReport": "रिपोर्ट इम्पोर्ट करें"
+  },
+  "fields": {
+    "reportType": "रिपोर्ट प्रकार"
+  },
+  "buttons": {
+    "generate": "रिपोर्ट प्राप्त करें",
+    "reset": "फ़िल्टर रीसेट करें"
+  },
+  "placeholders": {
+    "selectReport": "एक रिपोर्ट चुनें…",
+    "selectZone": "एक क्षेत्र चुनें…",
+    "selectWard": "एक वार्ड चुनें…",
+    "selectProperty": "एक संपत्ति चुनें…",
+    "selectPartition": "एक विभाजन चुनें…",
+    "pendingZone": "पहले एक क्षेत्र चुनें",
+    "pendingWard": "पहले एक वार्ड चुनें",
+    "pendingProperty": "पहले एक संपत्ति चुनें"
+  },
+  "validation": {
+    "reportRequired": "कृपया एक रिपोर्ट प्रकार चुनें।",
+    "fieldRequired": "{label} आवश्यक है।",
+    "dateRangeInvalid": "समाप्ति तिथि, प्रारंभ तिथि के बाद या उसके बराबर होनी चाहिए।"
+  },
+  "status": {
+    "queued": "रिपोर्ट कतार में है। तैयार हो रही है — तैयार होते ही डाउनलोड अपने आप शुरू हो जाएगा।"
+  },
+  "success": {
+    "downloaded": "रिपोर्ट सफलतापूर्वक डाउनलोड हुई।"
+  },
+  "errors": {
+    "generationFailed": "रिपोर्ट बनाने में विफल। कृपया पुनः प्रयास करें।",
+    "loadFailed": "रिपोर्ट डेटा लोड करने में विफल। कृपया पृष्ठ रीफ्रेश करें।"
+  },
+  "jobs": {
+    "title": "मेरी रिपोर्ट्स",
+    "refresh": "रीफ्रेश करें",
+    "empty": "अभी तक कोई रिपोर्ट नहीं। ऊपर एक सबमिट करें और वह यहाँ दिखाई देगी।",
+    "download": "डाउनलोड",
+    "preview": "पूर्वावलोकन",
+    "previewTitle": "रिपोर्ट पूर्वावलोकन",
+    "columns": {
+      "report": "रिपोर्ट का नाम",
+      "status": "स्थिति",
+      "requested": "अनुरोध किया गया",
+      "completed": "पूर्ण",
+      "actions": "क्रियाएँ"
+    },
+    "statuses": {
+      "pending": "लंबित",
+      "processing": "प्रक्रियाधीन",
+      "completed": "पूर्ण",
+      "failed": "विफल",
+      "cancelled": "रद्द",
+      "retrying": "पुनः प्रयास"
+    }
+  },
+  "proTip": {
+    "title": "सुझाव",
+    "body": "बड़ी तिथि सीमाओं या वार्ड-स्तरीय रिपोर्ट के लिए, PDF तैयार होने पर स्वचालित रूप से डाउनलोड होगी।"
+  },
+  "loading": {
+    "message": "रिपोर्ट विकल्प लोड हो रहे हैं…",
+    "description": "उपलब्ध रिपोर्ट लाते समय कृपया प्रतीक्षा करें।"
+  },
+  "error": {
+    "title": "कुछ गलत हुआ",
+    "description": "रिपोर्ट पृष्ठ लोड करने में त्रुटि हुई।",
+    "errorId": "त्रुटि ID: {id}",
+    "goHome": "होम पर जाएं",
+    "tryAgain": "पुनः प्रयास करें"
+  },
+  "workspace": {
+    "steps": {
+      "selectCategory": "श्रेणी चुनें",
+      "selectReport": "रिपोर्ट चुनें",
+      "setParameters": "मापदंड सेट करें",
+      "generateReport": "रिपोर्ट तैयार करें"
+    },
+    "categories": {
+      "assessment": "मूल्यांकन",
+      "amc": "एएमसी",
+      "transaction": "लेनदेन",
+      "approval": "अनुमोदन",
+      "discount": "छूट",
+      "others": "अन्य"
+    },
+    "reportsCount": "{count} रिपोर्ट्स",
+    "tabs": {
+      "generateReport": "रिपोर्ट बनाएं",
+      "myReports": "रिपोर्ट डाउनलोड करें"
+    },
+    "toast": {
+      "generatedSuccess": "रिपोर्ट सफलतापूर्वक तैयार हुई!",
+      "generationFailed": "रिपोर्ट तैयार करने में विफल.",
+      "generatingPreview": "सुरक्षित पूर्वावलोकन तैयार हो रहा है...",
+      "preparingDocument": "दस्तावेज़ पूर्वावलोकन तैयार हो रहा है..."
+    },
+    "emptyState": {
+      "title": "ऊपर से कोई श्रेणी चुनें",
+      "subtitle": "उपलब्ध रिपोर्ट देखने के लिए रिपोर्ट प्रकार चुनें"
+    },
+    "noReportsFound": "इस श्रेणी के लिए कोई रिपोर्ट नहीं मिली।",
+    "reportsHeader": "{category} रिपोर्ट्स",
+    "configureParameters": "मापदंड कॉन्फ़िगर करें",
+    "generating": {
+      "title": "रिपोर्ट तैयार की जा रही है",
+      "subtitle": "कृपया प्रतीक्षा करें, आपकी रिपोर्ट तैयार की जा रही है...",
+      "cancel": "रद्द करें"
+    },
+    "preview": {
+      "title": "रिपोर्ट पूर्वावलोकन",
+      "downloadPdf": "PDF",
+      "idLabel": "आईडी: {id}"
+    },
+    "confirm": {
+      "title": "रिपोर्ट निर्माण",
+      "description": "आपकी रिपोर्ट तैयार की जा रही है। आप इसे 'Download Report' टैब से डाउनलोड कर सकते हैं।",
+      "btnGo": "खोलें",
+      "btnClose": "बंद करें"
+    }
+  },
+  "params": {
+    "emptyState": "मापदंड कॉन्फ़िगर करने के लिए सूची से रिपोर्ट चुनें",
+    "financialYear": "वित्तीय वर्ष",
+    "zoneNo": "क्षेत्र संख्या",
+    "wardNo": "वार्ड संख्या",
+    "propertySelection": "संपत्ति चयन",
+    "propertyNo": "संपत्ति संख्या",
+    "fromPropertyToProperty": "संपत्ति से संपत्ति तक",
+    "fromProperty": "संपत्ति से",
+    "toProperty": "संपत्ति तक",
+    "selectYear": "वर्ष चुनें",
+    "selectZone": "क्षेत्र चुनें",
+    "selectWard": "वार्ड चुनें",
+    "selectProperty": "संपत्ति चुनें",
+    "selectStartProperty": "प्रारंभिक संपत्ति चुनें",
+    "selectEndProperty": "अंतिम संपत्ति चुनें",
+    "loading": "लोड हो रहा है...",
+    "selectZoneFirst": "पहले क्षेत्र चुनें",
+    "selectWardFirst": "पहले वार्ड चुनें",
+    "selectMode": "मोड चुनें",
+    "wardWise": "वार्ड के अनुसार",
+    "fromToProperty": "से - तक संपत्ति",
+    "individualProperty": "व्यक्तिगत संपत्ति",
+    "propertyDescription": "संपत्ति विवरण",
+    "selectDescription": "विवरण चुनें",
+    "assessmentType": "मूल्यांकन प्रकार",
+    "selectAssessmentType": "मूल्यांकन प्रकार चुनें",
+    "propertyDemand": "संपत्ति मांग",
+    "greaterThan": "से अधिक",
+    "lessThan": "से कम",
+    "top": "शीर्ष",
+    "enterAmount": "राशि दर्ज करें",
+    "eg1": "उदा. 1",
+    "eg10": "उदा. 10",
+    "egPropertyNo": "उदा. 101 या 101-A1",
+    "propertiesSelected": "संपत्तियां चुनी गईं",
+    "viewEdit": "देखें / संपादित करें",
+    "notice119Title": "धारा 119 नोटिस",
+    "notice119Help": "संपत्ति का दायरा और नोटिस की तारीखें चुनें। नगर परिषद का नाम, पता, लोगो और संपत्ति विवरण डेटाबेस से लिए जाएंगे।",
+    "noticeDate": "नोटिस दिनांक",
+    "objectionLastDate": "आपत्ति की अंतिम तारीख",
+    "showProperties": "संपत्तियां देखें",
+    "validation": {
+      "financialYearRequired": "वित्तीय वर्ष आवश्यक है।",
+      "zoneRequired": "क्षेत्र आवश्यक है।",
+      "wardRequired": "वार्ड आवश्यक है।",
+      "fillAllRequired": "कृपया सभी आवश्यक फ़ील्ड भरें।",
+      "networkError": "नेटवर्क त्रुटि। कृपया पुनः प्रयास करें।",
+      "failedToQueue": "रिपोर्ट को कतार में डालने में विफल"
+    },
+
+    "reportQueued": "रिपोर्ट \"{name}\" का अनुरोध सफलतापूर्वक सबमिट किया गया।",
+    "buttons": {
+      "reset": "रीसेट करें",
+      "generate": "रिपोर्ट तैयार करें",
+      "queuing": "कतार में डाल रहा है..."
+    }
+  },
+  "generationForm": {
+    "loadingParameters": "मापदंड लोड हो रहे हैं...",
+    "failedToLoadParameters": "API से मापदंड लोड करने में विफल:",
+    "noParametersDefined": "{report} के लिए कोई मापदंड परिभाषित नहीं हैं।",
+    "back": "पीछे",
+    "selectPreviousFirst": "पहले पिछला फ़ील्ड चुनें",
+    "loading": "लोड हो रहा है...",
+    "select": "चुनें..."
+  }
+}

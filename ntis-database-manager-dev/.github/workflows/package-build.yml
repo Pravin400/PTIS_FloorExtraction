@@ -1,0 +1,78 @@
+﻿name: Package Build - NTIS Database Manager
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Release version (e.g., 1.2.3.4)
+        required: true
+        type: string
+      branch:
+        description: Branch to build from
+        required: false
+        type: choice
+        options:
+          - main
+          - qa
+          - dev
+        default: main
+
+env:
+  RELEASE_VERSION: ${{ github.event.inputs.version }}
+  TARGET_BRANCH: ${{ github.event.inputs.branch || 'main' }}
+
+jobs:
+  build-database-manager:
+    name: Build Database Manager
+    runs-on: [self-hosted, package]
+    outputs:
+      version: ${{ steps.package-build.outputs.version }}
+      artifact-name: ${{ steps.package-build.outputs.artifact-name }}
+      environment: ${{ steps.package-build.outputs.environment }}
+      branch: ${{ steps.package-build.outputs.branch }}
+    steps:
+      - name: Checkout NTIS Database Manager
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ env.TARGET_BRANCH }}
+
+      - name: Run package build action
+        id: package-build
+        uses: ./.github/actions/package-build
+        with:
+          version: ${{ env.RELEASE_VERSION }}
+          branch: ${{ env.TARGET_BRANCH }}
+          path-mode: standalone
+          branch-env-map: ${{ vars.BRANCH_ENV_MAP }}
+          package-container-name: ${{ vars.PACKAGE_CONTAINER_NAME }}
+          package-connection-string: ${{ secrets.PACKAGE_CONNECTION_STRING }}
+
+  build-summary:
+    name: Build Summary
+    runs-on: [self-hosted, package]
+    needs: build-database-manager
+    if: always()
+    steps:
+      - name: Summarize build results
+        shell: pwsh
+        run: |
+          $version = '${{ needs.build-database-manager.outputs.version }}'
+          $buildStatus = '${{ needs.build-database-manager.result }}'
+
+          Write-Output "Database Manager Build Summary"
+          Write-Output "=============================="
+          Write-Output "Version: v$version"
+          Write-Output "Environment: ${{ needs.build-database-manager.outputs.environment }}"
+          Write-Output "Build Tool: .NET 10 SDK"
+          Write-Output "Build Status: $buildStatus"
+          Write-Output "Artifact: ${{ needs.build-database-manager.outputs.artifact-name }}"
+          Write-Output ""
+
+          if ($buildStatus -eq 'success') {
+            Write-Output "Database Manager build completed successfully"
+            Write-Output "Build artifacts ready for deployment"
+            Write-Output "Framework-dependent build (requires .NET 10 runtime)"
+          } else {
+            Write-Warning "Database Manager build encountered issues"
+            Write-Output "Please check the build logs for details"
+          }

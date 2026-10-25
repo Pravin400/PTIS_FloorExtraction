@@ -1,0 +1,111 @@
+{
+  "aliasFallback": {
+    "module": "मॉड्यूल",
+    "department": "विभाग",
+    "moduleCode": "मॉड्यूल कोड",
+    "moduleName": "मॉड्यूलचे नाव",
+    "localName": "स्थानिक नाव",
+    "description": "वर्णन"
+  },
+  "title": "{module} मास्टर",
+  "subtitle": "{department}ांतर्गत ॲप्लिकेशन {module}्स आणि त्यांचे पदानुक्रमित कॉन्फिगरेशन व्यवस्थापित करा",
+  "addLabel": "{module} जोडा",
+  "stats": {
+    "totalModules": "एकूण {module}",
+    "active": "सक्रिय",
+    "inactive": "निष्क्रिय"
+  },
+  "filters": {
+    "searchPlaceholder": "मॉड्यूलच्या नावाने शोधा..."
+  },
+  "table": {
+    "code": "मॉड्यूल कोड",
+    "name": "मॉड्यूल आणि विभाग",
+    "localName": "स्थानिक नाव",
+    "description": "वर्णन",
+    "status": "स्थिती"
+  },
+  "aria": {
+    "editModule": "{name} संपादित करा",
+    "deleteModule": "{name} हटवा"
+  },
+  "drawer": {
+    "addTitle": "नवीन {module} जोडा",
+    "editTitle": "{module} तपशील संपादित करा",
+    "subtitle": "{module} तपशील कॉन्फिगर करण्यासाठी आवश्यक माहिती भरा",
+    "sections": {
+      "basicDetails": "{module} मूलभूत तपशील"
+    },
+    "labels": {
+      "status": "स्थिती"
+    },
+    "footer": {
+      "adding": "नवीन {module} जोडले जात आहे",
+      "editing": "संपादन: {moduleName}"
+    },
+    "buttons": {
+      "save": "{module} जतन करा",
+      "update": "{module} अपडेट करा"
+    }
+  },
+  "form": {
+    "fields": {
+      "departmentId": "विभाग",
+      "moduleCode": "मॉड्यूल कोड",
+      "moduleCodePlaceholder": "मॉड्यूल कोड प्रविष्ट करा",
+      "moduleName": "मॉड्यूलचे नाव",
+      "moduleNamePlaceholder": "मॉड्यूलचे नाव प्रविष्ट करा",
+      "moduleNameLocal": "स्थानिक नाव",
+      "moduleNameLocalPlaceholder": "स्थानिक नाव प्रविष्ट करा",
+      "moduleIcon": "आयकॉन क्लास",
+      "moduleIconPlaceholder": "उदा. briefcase, home",
+      "moduleLabel": "मॉड्यूल लेबल",
+      "moduleLabelPlaceholder": "मॉड्यूल लेबल प्रविष्ट करा",
+      "moduleDescription": "वर्णन",
+      "moduleDescriptionPlaceholder": "मॉड्यूलचे वर्णन प्रविष्ट करा",
+      "isActive": "सक्रिय आहे"
+    }
+  },
+  "messages": {
+    "createSuccess": "{module} यशस्वीरित्या तयार केले",
+    "createFailed": "{module} तयार करण्यात अयशस्वी",
+    "updateSuccess": "{module} यशस्वीरित्या अपडेट केले",
+    "updateFailed": "{module} अपडेट करण्यात अयशस्वी",
+    "deleteSuccess": "{module} यशस्वीरित्या हटवले",
+    "deleteFailed": "{module} हटवण्यात अयशस्वी",
+    "fetchFailed": "{module} डेटा मिळवण्यात अयशस्वी",
+    "unauthorizedToken": "अनधिकृत: टोकन कालबाह्य किंवा अवैध आहे",
+    "errorOccurred": "काहीतरी चुकीचे घडले",
+    "processingError": "तुमची विनंती प्रक्रिया करताना एक त्रुटी आली.",
+    "validationError": "कृपया फॉर्ममधील त्रुटी दुरुस्त करा"
+  },
+  "confirm": {
+    "deleteTitle": "{module} ({moduleName}) हटवायचे?",
+    "deleteDescription": "तुम्हाला खात्री आहे की तुम्हाला हे {module} रेकॉर्ड हटवायचे आहे? ही कृती पूर्ववत केली जाऊ शकत नाही."
+  },
+  "validation": {
+    "departmentIdRequired": "विभाग आवश्यक आहे",
+    "moduleCodeRequired": "मॉड्यूल कोड आवश्यक आहे",
+    "moduleCodeLength": "मॉड्यूल कोड {count} अक्षरांपेक्षा जास्त नसावा",
+    "moduleCodeFormat": "मॉड्यूल कोडमध्ये फक्त अक्षरे, अंक आणि अंडरस्कोअर असावेत",
+    "moduleNameRequired": "मॉड्यूलचे नाव आवश्यक आहे",
+    "moduleNameLength": "मॉड्यूलचे नाव {count} अक्षरांपेक्षा जास्त नसावा",
+    "moduleNameLocalLength": "स्थानिक नाव {count} अक्षरांपेक्षा जास्त नसावा",
+    "moduleIconLength": "आयकॉन क्लास {count} अक्षरांपेक्षा जास्त नसावा",
+    "moduleLabelLength": "मॉड्यूल लेबल {count} अक्षरांपेक्षा जास्त नसावा",
+    "moduleDescriptionLength": "वर्णन {count} अक्षरांपेक्षा जास्त नसावे",
+    "moduleCodeExists": "मॉड्यूल कोड आधीच अस्तित्वात आहे",
+    "moduleNameExists": "मॉड्यूलचे नाव आधीच अस्तित्वात आहे"
+  },
+  "error": {
+    "title": "काहीतरी चुकीचे घडले",
+    "description": "मॉड्यूल मास्टर पेज लोड करताना आम्हाला एरर आली. कृपया पुन्हा प्रयत्न करा.",
+    "tryAgain": "पुन्हा प्रयत्न करा",
+    "goHome": "होमवर जा",
+    "errorId": "एरर आयडी: {id}"
+  },
+  "loading": {
+    "message": "Loading Module Master...",
+    "description": "कृपया प्रतीक्षा करा आम्ही मॉड्यूल मास्टर डेटा मिळवत आहोत"
+  }
+}

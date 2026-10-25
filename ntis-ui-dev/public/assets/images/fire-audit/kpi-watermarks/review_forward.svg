@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Review dossier -->
+  <rect x="16" y="18" width="54" height="68" rx="8" fill="#F5F3FF" fill-opacity="0.8" stroke="#7C3AED" stroke-width="2.5"/>
+  <rect x="25" y="28" width="22" height="4" rx="2" fill="#7C3AED"/>
+  <rect x="25" y="38" width="34" height="3" rx="1.5" fill="#A78BFA"/>
+  <rect x="25" y="46" width="28" height="3" rx="1.5" fill="#A78BFA"/>
+  <rect x="25" y="54" width="32" height="3" rx="1.5" fill="#A78BFA"/>
+  <!-- Forward Arrow Circle -->
+  <circle cx="68" cy="68" r="20" fill="#7C3AED" stroke="#FFFFFF" stroke-width="2.5"/>
+  <path d="M60 68h15m-5-5l5 5-5 5" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

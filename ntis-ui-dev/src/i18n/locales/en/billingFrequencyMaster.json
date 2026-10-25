@@ -1,0 +1,123 @@
+{
+  "billingFrequencyMaster": {
+    "moduleTitle": "Billing Frequency Master",
+    "title": "Billing Frequencies",
+    "subtitle": "Monthly, quarterly, half-yearly, annual or custom billing cadence.",
+    "searchPlaceholder": "Search by Billing Frequency...",
+    "addTitle": "Add Billing Frequency",
+    "editTitle": "Edit Billing Frequency",
+    "addSubtitle": "Create a new billing frequency record",
+    "editSubtitle": "Update billing frequency details",
+    "table": {
+      "billingFrequency": "Billing Frequency",
+      "code": "Billing Frequency Code",
+      "periodsPerYear": "Periods Per Year",
+      "sequenceNo": "Sequence No.",
+      "description": "Description",
+      "status": "Status",
+      "isActive": "Active",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "filters": {
+      "all": "All records",
+      "active": "Active only",
+      "inactive": "Inactive only"
+    },
+    "form": {
+      "enabled": "Enabled",
+      "disabled": "Disabled",
+      "saveRecord": "Save record",
+      "updateRecord": "Update record",
+      "billingFrequency": {
+        "label": "Billing Frequency",
+        "placeholder": "e.g., Monthly"
+      },
+      "code": {
+        "label": "Billing Frequency Code",
+        "placeholder": "e.g., MONTHLY"
+      },
+      "periodsPerYear": {
+        "label": "Periods Per Year",
+        "placeholder": "e.g., 12"
+      },
+      "sequenceNo": {
+        "label": "Sequence No.",
+        "placeholder": "e.g., 1"
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "Enter brief description"
+      },
+      "activeStatusTitle": "Status",
+      "activeStatusOn": "Active - Billing frequency is enabled",
+      "activeStatusOff": "Inactive - Billing frequency is disabled"
+    },
+    "validation": {
+      "billingFrequencyRequired": "Billing Frequency is required",
+      "billingFrequencyLength": "Billing Frequency cannot exceed {count} characters",
+      "codeRequired": "Billing Frequency Code is required",
+      "codeLength": "Billing Frequency Code cannot exceed {count} characters",
+      "periodsPerYearRequired": "Periods Per Year must be a valid number greater than 0 and less than or equal to 12",
+      "duplicateBillingFrequency": "This Billing Frequency already exists.",
+      "duplicatePeriodsPerYear": "This Periods Per Year already exists.",
+      "duplicateEntry": "This Billing Frequency or Periods Per Year already exists.",
+      "descriptionRequired": "Description is required",
+      "descriptionLength": "Description cannot exceed {count} characters",
+      "validationFailed": "Validation failed. Please correct the errors"
+    },
+    "errors": {
+      "noMutationAction": "No mutation action provided",
+      "noDeleteAction": "Delete action not available",
+      "unexpectedError": "An unexpected error occurred",
+      "fetchListFailed": "Failed to fetch billing frequencies",
+      "fetchItemFailed": "Failed to fetch billing frequency",
+      "notFound": "Billing frequency not found",
+      "createFailed": "Failed to create billing frequency",
+      "updateFailed": "Failed to update billing frequency",
+      "deleteFailed": "Failed to delete billing frequency"
+    },
+    "confirm": {
+      "deleteTitle": "Delete Billing Frequency",
+      "deleteDescription": "Are you sure you want to permanently delete this billing frequency? This action cannot be undone."
+    },
+    "messages": {
+      "createSuccess": "Billing frequency created successfully",
+      "updateSuccess": "Billing frequency updated successfully",
+      "deleteSuccess": "Billing frequency deleted successfully",
+      "createFailed": "Failed to create billing frequency",
+      "updateFailed": "Failed to update billing frequency",
+      "deleteFailed": "Failed to delete billing frequency"
+    },
+    "error": {
+      "title": "Failed to connect server. Please try again later.",
+      "description": "We encountered an error while loading the billing frequency page. Please try again.",
+      "tryAgain": "Try Again",
+      "goHome": "Go to Home",
+      "errorId": "Error ID: {id}"
+    },
+    "loading": {
+      "message": "Loading Billing Frequencies...",
+      "description": "Please wait while we fetch the billing frequency data"
+    },
+    "billingConfiguration": {
+      "title": "Billing Configuration",
+      "subtitle": "Manage billing periods and billing frequencies for property tax billing cycle.",
+      "tabs": {
+        "billingFrequencies": "Billing Frequencies",
+        "billingPeriods": "Billing Periods"
+      },
+      "loading": {
+        "message": "Loading Billing Configuration...",
+        "description": "Please wait while we fetch the billing configuration data"
+      },
+      "error": {
+        "title": "Failed to connect server. Please try again later.",
+        "description": "We encountered an error while loading the billing configuration. Please try again.",
+        "tryAgain": "Try Again",
+        "goHome": "Go to Home",
+        "errorId": "Error ID: {id}"
+      }
+    }
+  }
+}

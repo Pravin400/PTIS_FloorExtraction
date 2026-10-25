@@ -1,0 +1,98 @@
+{
+  "connectionType": {
+    "title": "Connection Type Master",
+    "description": "Manage connection types and descriptions",
+    "searchPlaceholder": "Search connection types...",
+    "addButton": "Add Connection Type",
+    "userManualBtn": "User Manual",
+    "userManual": {
+      "title": "Connection Type Master — How It Works",
+      "desc1": "Connection Type Master defines the categories of water connections available for billing.",
+      "desc2": "1. Add connection types (e.g. Residential, Commercial) along with their unique codes.",
+      "desc3": "2. Set the status of each connection type to Active or Inactive.",
+      "desc4": "3. Edit or delete existing connection types as needed.",
+      "warning": "Always ensure the connection type is Active if it is currently being used for water billing."
+    },
+    "filters": {
+      "all": "All records",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "table": {
+      "code": "Connection Type Code",
+      "connectionTypeCode": "Connection Type Code",
+      "connectionType": "Connection Type",
+      "description": "Description",
+      "statusName": "Status"
+    },
+    "form": {
+      "connectionTypeCode": {
+        "label": "Connection Type Code",
+        "placeholder": "e.g., RES"
+      },
+      "connectionType": {
+        "label": "Connection Type",
+        "placeholder": "e.g., Residential"
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "e.g., Standard home connection"
+      },
+      "isActive": {
+        "label": "Active Status"
+      },
+      "activeStatusTitle": "Active Status",
+      "connectionStatusTitle": "Connection Status",
+      "activeStatusOn": "Active - Connection is enabled",
+      "activeStatusOff": "Inactive - Connection is disabled"
+    },
+    "validation": {
+      "connectionTypeCodeRequired": "Connection Type Code is required",
+      "connectionTypeCodeLength": "Code cannot exceed 20 characters",
+      "connectionTypeRequired": "Connection Type is required",
+      "connectionTypeLength": "Connection Type cannot exceed 50 characters",
+      "descriptionRequired": "Description is required",
+      "descriptionLength": "Description cannot exceed 300 characters",
+      "descriptionFormat": "Only letters, numbers, spaces, and basic punctuation allowed (,./-()).",
+      "codeFormat": "Use only English letters, numbers, and underscores (_). The code cannot start or end with an underscore.",
+      "connectionTypeFormat": "Only letters and a single space between words are allowed.",
+      "codeNumbersOnlyNotAllowed": "Please enter a valid code containing at least one alphabet.",
+      "connectionTypeNumbersOnlyNotAllowed": "Please enter a valid connection type containing at least one alphabet."
+    },
+    "confirm": {
+      "deleteTitle": "Delete Connection Type",
+      "deleteDescription": "Are you sure you want to permanently delete this connection type? This action cannot be undone."
+    },
+    "messages": {
+      "createSuccess": "Connection Type created successfully",
+      "updateSuccess": "Connection Type updated successfully",
+      "deleteSuccess": "Connection Type deleted successfully",
+      "createError": "Failed to create connection type",
+      "updateError": "Failed to update connection type",
+      "deleteError": "Failed to delete connection type",
+      "duplicateError": "A record with the same details already exists.",
+      "duplicateCodeError": "Connection Type Code already exists.",
+      "duplicateNameError": "Connection Type already exists."
+    },
+    "drawer": {
+      "addTitle": "Add Connection Type",
+      "editTitle": "Edit Connection Type",
+      "addSubtitle": "Create a new connection type",
+      "editSubtitle": "Update connection type details",
+      "cancel": "Cancel",
+      "save": "Save",
+      "update": "Update"
+    }
+  },
+  "loading": {
+    "message": "Loading Connection Type...",
+    "description": "Please wait while we fetch the connection type data"
+  },
+  "error": {
+    "title": "Failed to connect server. Please try again later.",
+    "description": "We encountered an error while loading the connection type page. Please try again.",
+    "tryAgain": "Try Again",
+    "goHome": "Go to Home",
+    "errorId": "Error ID: {id}"
+  }
+}

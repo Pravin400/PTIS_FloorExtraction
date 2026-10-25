@@ -1,0 +1,120 @@
+{
+  "taxZone": {
+    "aliasFallback": {
+      "taxZone": "कर क्षेत्र",
+      "taxZones": "कर क्षेत्रों",
+      "ward": "वार्ड"
+    },
+    "list": {
+      "title": "{zone} मास्टर",
+      "subtitle": "{tax_zones} और उनके {ward_no}-वार कॉन्फ़िगरेशन का प्रबंधन करें",
+      "tabs": {
+        "taxZone": "कर क्षेत्र",
+        "taxZoning": "कर जोनिंग"
+      },
+      "buttons": {
+        "add": "{zone} जोड़ें",
+        "edit": "संपादित करें",
+        "delete": "हटाएं"
+      },
+
+      "filters": {
+        "show": "दिखाएं",
+        "search": "{zone} संख्या, {zone} प्रकार या टिप्पणी से खोजें...",
+        "searching": "खोज रहे हैं...",
+        "recordsFound": "{count} रिकॉर्ड मिले"
+      },
+
+      "table": {
+        "zoneNo": "{zone} नं.",
+        "zoneType": "{zone} प्रकार",
+        "remark": "{zone} विवरण",
+        "status": "स्थिति",
+        "actions": "कार्रवाई"
+      }
+    },
+
+    "form": {
+      "addTitle": "नया {zone} जोड़ें",
+      "editTitle": "{zone} संपादित करें",
+      "subtitle": "नया {zone} बनाएँ",
+      "editSubtitle": "{zone} विवरण अपडेट करें",
+
+      "fields": {
+        "zoneNo": {
+          "label": "{zone} नं.",
+          "placeholder": "उदा. 1 या Z"
+        },
+        "zoneType": {
+          "label": "{zone} प्रकार",
+          "placeholder": "उदा. आवासीय"
+        },
+        "remark": {
+          "label": "{zone} विवरण",
+          "placeholder": "{zone} विवरण दर्ज करें"
+        }
+      },
+
+      "validation": {
+        "zoneNoRequired": "{zone} नं. आवश्यक है",
+        "zoneNoAllZeros": "{zone} नं. केवल शून्य नहीं हो सकती",
+        "zoneNoMax": "अधिकतम लंबाई 10 वर्ण है",
+        "zoneNoFormat": "केवल अक्षर, संख्याएं और अंडरस्कोर अनुमत हैं (अंडरस्कोर केवल बीच में)",
+        "zoneNoExists": "डुप्लिकेट क्षेत्र संख्या अनुमत नहीं है",
+        "zoneTypeRequired": "{zone} प्रकार आवश्यक है",
+        "zoneTypeAllZeros": "{zone} प्रकार केवल शून्य नहीं हो सकता",
+        "zoneTypeFormat": "केवल अक्षर, संख्याएं और बुनियादी विराम चिह्न अनुमत हैं (विशेष वर्ण केवल बीच में, केवल एकल स्थान)",
+        "zoneTypeExists": "डुप्लिकेट क्षेत्र प्रकार अनुमत नहीं है",
+        "remarkRequired": "{zone} विवरण आवश्यक है",
+        "remarkAllZeros": "टिप्पणी केवल शून्य नहीं हो सकती",
+        "remarkFormat": "केवल अक्षर, संख्याएं और बुनियादी विराम चिह्न अनुमत हैं (विशेष वर्ण केवल बीच में, केवल एकल स्थान)",
+        "fixErrors": "कृपया त्रुटियों को ठीक करें",
+        "duplicateError": "कृपया {zone} नं. और {zone} प्रकार जांचें - डुप्लिकेट अनुमति नहीं है।",
+        "zoneTypeMax": "अधिकतम लंबई 15 वर्ण है",
+        "remarkMax": "अधिकतम लंबई 15 वर्ण है"
+
+      },
+
+      "status": {
+        "label": "सक्रिय स्थिति",
+        "active": "{zone} वर्तमान में सक्रिय है",
+        "inactive": "{zone} वर्तमान में निष्क्रिय है"
+      },
+
+      "note": {
+        "mandatory": "* चिह्नित फ़ील्ड अनिवार्य हैं"
+      },
+
+      "actions": {
+        "cancel": "रद्द करें",
+        "save": "सहेजें",
+        "update": "अपडेट करें"
+      },
+
+      "messages": {
+        "createSuccess": "{zone} सफलतापूर्वक बनाया गया",
+        "updateSuccess": "{zone} सफलतापूर्वक अपडेट किया गया",
+        "error": "{zone} को हटाया/निष्क्रिय नहीं किया जा सकता क्योंकि यह उपयोग में है",
+        "invalidIdError": "अमान्य ID प्रारूप। ID एक सकारात्मक संख्या होनी चाहिए।"
+      }
+    },
+
+    "delete": {
+      "success": "{zone} सफलतापूर्वक हटाया गया",
+      "error": "{zone} हटाया नहीं जा सकता क्योंकि यह उपयोग में है"
+    },
+
+    "error": {
+      "title": "कर क्षेत्र त्रुटि",
+      "description": "कर क्षेत्र पृष्ठ लोड करते समय एक त्रुटि हुई। कृपया पुनः प्रयास करें।",
+      "errorId": "त्रुटि ID: {id}",
+      "goHome": "होम जाएं",
+      "tryAgain": "पुनः प्रयास करें"
+    },
+
+    "loading": {
+      "message": "कर क्षेत्र लोड हो रहा है...",
+      "description": "कृपया प्रतीक्षा करें जब तक हम कर क्षेत्र डेटा लाते हैं"
+    }
+  }
+}

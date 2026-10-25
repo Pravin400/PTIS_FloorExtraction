@@ -1,0 +1,249 @@
+{
+    "aliasFallback": {
+        "ward": "वार्ड",
+        "wards": "वार्ड्स",
+        "division": "विभाग",
+        "category": "वर्ग",
+        "propertyNo": "मालमत्ता क्र.",
+        "user": "वापरकर्ता"
+    },
+    "propertyMediaHeader": {
+        "propertyMediaHeaderTitle": "फोटो, प्लॅन आणि दस्तऐवज",
+        "uploadDownload": "अपलोड / डाउनलोड",
+        "auditTrail": "ऑडिट ट्रेल"
+    },
+    "summaryCards": {
+        "totalProperties": "एकूण मालमत्ता",
+        "buildingPhotoAvailable": "इमारतीचा फोटो उपलब्ध",
+        "buildingPlanAvailable": "इमारतीचा प्लॅन उपलब्ध",
+        "surveyFormAvailable": "सर्वेक्षण फॉर्म उपलब्ध",
+        "structures": "संरचना",
+        "units": "युनिट्स"
+    },
+    "gapAnalysis": {
+        "header": {
+            "title": "गॅप विश्लेषण",
+            "filter": "फिल्टर",
+            "excel": "एक्सेल",
+            "pdf": "पीडीएफ"
+        },
+        "summaryCards": {
+            "buildingPhotoMissing": "इमारतीचा फोटो गहाळ",
+            "buildingPlanMissing": "इमारतीचा प्लॅन गहाळ",
+            "surveyFormMissing": "सर्वेक्षण फॉर्म गहाळ",
+            "applicable": "लागू",
+            "available": "उपलब्ध",
+            "missing": "गहाळ"
+        },
+        "categories": {
+            "photo": "फोटो",
+            "plan": "प्लॅन",
+            "document": "दस्तऐवज"
+        }
+    },
+    "detailedCoverageHeader": {
+        "title": "तपशीलवार व्याप्ती",
+        "allItems": "सर्व बाबी",
+        "showAll": "सर्व दाखवा",
+        "view": "पहा",
+        "horizontal": "हॉरिझॉन्टल",
+        "vertical": "व्हर्टिकल",
+        "searchPlaceholder": "शोधा..."
+    },
+    "detailedCoverageTable": {
+        "columns": {
+            "category": "वर्गवारी",
+            "typeSubtype": "प्रकार / उपप्रकार",
+            "requirement": "आवश्यकता",
+            "applicable": "लागू",
+            "available": "उपलब्ध",
+            "missing": "गहाळ",
+            "coverage": "व्याप्ती",
+            "action": "कृती"
+        },
+        "buttons": {
+            "view": "पहा"
+        }
+    },
+    "propertyMediaViewDrawer": {
+        "title": "इमारतीचा फोटो — गॅप मालमत्ता यादी",
+        "subtitle": "निवडलेली नोंद नसलेली मालमत्ता",
+        "filter": "फिल्टर",
+        "excel": "एक्सेल",
+        "pdf": "पीडीएफ",
+        "workflowStageLabel": "वर्कफ्लो टप्पा",
+        "divisionLabel": "प्रभाग",
+        "wardLabel": "वॉर्ड",
+        "propertyTypeLabel": "मालमत्ता प्रकार",
+        "search": "शोधा",
+        "searchPlaceholder": "मालमत्ता / मालक",
+        "placeholders": {
+            "selectStage": "टप्पा निवडा",
+            "selectDivision": "प्रभाग निवडा",
+            "selectWard": "वॉर्ड निवडा",
+            "selectPropertyType": "मालमत्ता प्रकार निवडा",
+            "loading": "लोड होत आहे..."
+        },
+        "summary": {
+            "gapRecords": "गॅप नोंदी",
+            "division": "प्रभाग",
+            "ward": "वॉर्ड",
+            "propertyType": "मालमत्ता प्रकार",
+            "all": "सर्व"
+        },
+        "table": {
+            "propertyNumber": "मालमत्ता क्रमांक",
+            "division": "प्रभाग",
+            "ward": "वॉर्ड",
+            "ownerName": "मालकाचे नाव",
+            "propertyType": "मालमत्ता प्रकार",
+            "missingType": "गहाळ प्रकार",
+            "workflowStatus": "वर्कफ्लो स्थिती",
+            "lastUpdatedDate": "शेवटचे अद्यतन दिनांक",
+            "noRecords": "कोणत्याही नोंदी आढळल्या नाहीत"
+        }
+    },
+    "uploadDownloadDrawer": {
+        "title": "अपलोड / डाउनलोड",
+        "uploadTab": "अपलोड",
+        "downloadTab": "डाउनलोड",
+        "uploadButton": "अपलोड करा",
+        "downloadButton": "डाउनलोड करा",
+        "confirmUploadTitle": "मालमत्ता मीडिया अपलोड करा",
+        "confirmUploadDescription": "तुम्हाला खात्री आहे की तुम्ही मीडिया फाइल्स अपलोड करू इच्छिता?",
+        "chooseWhatToUpload": "काय अपलोड करायचे ते निवडा",
+        "chooseWhatToDownload": "काय डाउनलोड करायचे ते निवडा",
+        "categoryLabel": "वर्गवारी",
+        "categoryPlaceholder": "वर्गवारी निवडा",
+        "subCategoryPlaceholder": "उप-वर्गवारी निवडा",
+        "documentTypeLabel": "दस्तऐवजाचा प्रकार",
+        "photoSubtypeLabel": "फोटोचा उपप्रकार",
+        "planTypeLabel": "प्लॅनचा प्रकार",
+        "downloadContentLabel": "डाउनलोड सामग्री",
+        "downloadContentPlaceholder": "डाउनलोड सामग्री निवडा",
+        "packageLabel": "पॅकेज",
+        "packagePlaceholder": "पॅकेज निवडा",
+        "autoMapNotePrefix": "स्वयं-नकाशा:",
+        "autoMapNoteText": "पुनर्नामित केलेल्या फाइल नावांवरून {propertyNo} वाचला जातो.",
+        "browse": "ब्राउझ करा",
+        "noFilesSelected": "कोणत्याही फायली निवडले नाहीत",
+        "filesSelected": "{count} फाईल्स निवडल्या",
+        "documentTypeNotePrefix": "दस्तऐवजाचा प्रकार:",
+        "documentTypeNoteText": "निवड निवडलेल्या मालमत्तेच्या व्याप्तीला लागू होते.",
+        "propertyFilter": {
+            "title": "मालमत्ता फिल्टर",
+            "optional": "पर्यायी",
+            "filter": "फिल्टर",
+            "filterActive": "फिल्टर सक्रिय",
+            "noFilter": "फिल्टर नाही",
+            "divisionLabel": "विभाग",
+            "divisionPlaceholder": "विभाग निवडा",
+            "divisionFirstPlaceholder": "प्रथम विभाग निवडा",
+            "wardLabel": "प्रभाग",
+            "wardPlaceholder": "प्रभाग निवडा",
+            "propertyFromLabel": "{propertyNo} पासून",
+            "propertyToLabel": "{propertyNo} पर्यंत",
+            "propertyFromFirstPlaceholder": "प्रथम मालमत्ता क्र. पासून निवडा",
+            "loading": "लोड होत आहे...",
+            "sameFromToScope": "समान पासून आणि पर्यंत = एकल मालमत्ता व्याप्ती."
+        },
+        "totalMatchedRecords": "एकूण जुळलेल्या नोंदी",
+        "totalUnmatchedRecords": "एकूण न जुळलेल्या नोंदी",
+        "matched": "जुळलेले",
+        "unmatched": "न जुळलेले",
+        "uploadCountLabel": "अपलोड संख्या",
+        "uploadCountPlaceholder": "अपलोड संख्या प्रविष्ट करा",
+        "selectFilesServerTitle": "सर्व्हरवरून फायली निवडा",
+        "selectFilesServerSubtitle": "सर्व्हरवर उपलब्ध असलेल्या अस्तित्वातील फायली निवडा आणि त्या अपलोड करा.",
+        "selectFilesDeviceTitle": "आपल्या डिव्हाइसवरून फायली निवडा",
+        "selectFilesDeviceSubtitle": "अपलोड करण्यापूर्वी पूर्वावलोकन आणि जुळणी करण्यासाठी आपल्या स्थानिक स्टोरेजमधून फायली निवडा.",
+        "fromDeviceTab": "आपल्या डिव्हाइसवरून",
+        "fromServerTab": "सर्व्हरवरून",
+        "localUploadButton": "लोड करा",
+        "noFilesSelectedError": "कृपया अपलोड करण्यासाठी किमान एक फाइल निवडा",
+        "filesUploadedSuccessfully": "{count} यशस्वीरित्या अपलोड केल्या",
+        "filesMatchedSummary": "{total} पैकी {matched} फाइल(ली) जुळल्या",
+        "table": {
+            "columns": {
+                "fileName": "फाइलचे नाव",
+                "propertyDetails": "मालमत्ता तपशील",
+                "matchStatus": "जुळणी स्थिती"
+            }
+        },
+        "validation": {
+            "categoryRequired": "कृपया वर्गवारी निवडा",
+            "subCategoryRequired": "कृपया उप-वर्गवारी निवडा",
+            "uploadCountRequired": "कृपया अपलोड संख्या प्रविष्ट करा",
+            "uploadCountNumeric": "अपलोड संख्या एक वैध अंक असणे आवश्यक आहे आणि 0 ने सुरू होऊ शकत नाही",
+            "uploadCountMin": "अपलोड संख्या किमान {min} असणे आवश्यक आहे",
+            "uploadCountMax": "अपलोड संख्या {max} पेक्षा जास्त असू शकत नाही",
+            "downloadContentRequired": "कृपया डाउनलोड सामग्री निवडा",
+            "packageRequired": "कृपया पॅकेज निवडा",
+            "photoTypeAndCategoryRequired": "प्रतिमा डाउनलोड करण्यासाठी फोटो प्रकार आणि वर्गवारी आवश्यक आहे.",
+            "maxFilesExceeded": "तुम्ही १० पेक्षा जास्त फायली निवडू शकत नाही",
+            "maxFileSizeExceeded": "एकूण फाइल आकार २०MB पेक्षा कमी असणे आवश्यक आहे"
+        },
+        "success": {
+            "uploaded": "फायली यशस्वीरित्या अपलोड झाल्या",
+            "uploadInProgress": "अपलोड सुरू आहे. फाइल्सवर प्रक्रिया होईपर्यंत कृपया प्रतीक्षा करा...",
+            "downloadStarted": "डाउनलोड यशस्वीरित्या सुरू झाले",
+            "downloadCompleted": "मिडिया फाइल्स यशस्वीरित्या डाउनलोड झाल्या"
+        },
+        "status": {
+            "completed": "अपलोड कार्य {jobCode} यशस्वीरित्या पूर्ण झाले!",
+            "failed": "अपलोड कार्य {jobCode} अयशस्वी झाले. कृपया क्रियाकलाप नोंदी तपासा.",
+            "cancelled": "अपलोड कार्य {jobCode} रद्द करण्यात आले.",
+            "timeout": "अपलोड कार्य {jobCode} ला अपेक्षेपेक्षा जास्त वेळ लागत आहे. कृपया क्रियाकलाप नोंदी तपासा.",
+            "statusCheckFailed": "अपलोड कार्य स्थिती पडताळण्यात अक्षम. कृपया क्रियाकलाप नोंदी तपासा."
+        },
+        "apiErrors": {
+            "duplicateMedia": "डुप्लिकेट फाइल किंवा मीडिया आधीच अस्तित्वात आहे",
+            "notFound": "विनंती केलेला मीडिया सापडला नाही",
+            "operationFailed": "क्रिया अयशस्वी झाली. कृपया पुन्हा प्रयत्न करा.",
+            "invalidPhotoType": "वैध फोटो प्रकार आवश्यक आहे",
+            "invalidUploadCount": "वैध अपलोड संख्या आवश्यक आहे",
+            "failedToExecute": "स्थानिक मीडिया आयात कार्यान्वित करण्यात अयशस्वी",
+            "payloadTooLarge": "एकूण फाइल आकार खूप मोठा आहे.",
+            "uploadInterruptedOrTooLarge": "एकूण फाइल आकार खूप मोठा आहे किंवा कनेक्शनमध्ये व्यत्यय आला.",
+            "noImagesFound": "निवडलेल्या निकषांशी जुळणाऱ्या कोणत्याही प्रतिमा आढळल्या नाहीत. कृपया आपले फिल्टर बदला आणि पुन्हा प्रयत्न करा.",
+            "storageFilesMissing": "{count} प्रतिमा नोंदी आढळल्या, परंतु स्टोरेजमधून प्रत्यक्ष फाइल्स मिळवता आल्या नाहीत. कृपया प्रशासकाशी संपर्क साधा.",
+            "storageFilesMissingGeneric": "प्रतिमा नोंदी अस्तित्वात आहेत, परंतु स्टोरेजमधून प्रत्यक्ष फाइल्स मिळवता आल्या नाहीत. कृपया प्रशासकाशी संपर्क साधा.",
+            "downloadFailed": "प्रतिमा संग्रह डाउनलोड करण्यात अयशस्वी. कृपया पुन्हा प्रयत्न करा."
+        }
+    },
+    "auditTrailDrawer": {
+        "title": "ऑडिट ट्रेल",
+        "excel": "एक्सेल",
+        "pdf": "पीडीएफ",
+        "table": {
+            "columns": {
+                "dateTime": "दिनांक आणि वेळ",
+                "user": "वापरकर्ता",
+                "action": "कृती",
+                "category": "वर्गवारी",
+                "result": "निकाल"
+            },
+            "uploaded": "अपलोड केले",
+            "uploadedCount": "{count} अपलोड केले",
+            "noRecords": "कोणतीही नोंद सापडली नाही"
+        }
+    },
+    "error": {
+        "title": "सर्व्हरशी कनेक्ट करण्यात अयशस्वी. कृपया नंतर पुन्हा प्रयत्न करा.",
+        "description": "मालमत्ता मीडिया पृष्ठ लोड करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+        "tryAgain": "पुन्हा प्रयत्न करा",
+        "goHome": "मुख्यपृष्ठावर जा",
+        "errorId": "त्रुटी आयडी: {id}"
+    },
+    "loading": {
+        "message": "मालमत्ता मीडिया लोड होत आहे...",
+        "description": "कृपया आम्ही मालमत्ता मीडिया डेटा मिळवत असताना प्रतीक्षा करा"
+    },
+    "export": {
+        "excelStarted": "एक्सेल निर्यात होत आहे, कृपया प्रतीक्षा करा...",
+        "pdfStarted": "पीडीएफ निर्यात होत आहे, कृपया प्रतीक्षा करा...",
+        "excelSuccess": "एक्सेल यशस्वीरित्या डाउनलोड झाले",
+        "pdfSuccess": "पीडीएफ यशस्वीरित्या डाउनलोड झाले",
+        "failed": "फाइल निर्यात करण्यात अयशस्वी. कृपया पुन्हा प्रयत्न करा."
+    }
+}

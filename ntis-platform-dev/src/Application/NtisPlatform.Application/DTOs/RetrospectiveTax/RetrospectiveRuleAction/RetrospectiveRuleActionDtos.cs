@@ -1,0 +1,133 @@
+using System.ComponentModel.DataAnnotations;
+using NtisPlatform.Core.Constants;
+
+namespace NtisPlatform.Application.DTOs.RetrospectiveTax.RetrospectiveRuleAction;
+
+public class RetrospectiveRuleActionDto : BaseDtos
+{
+    public int RuleId { get; set; }
+    public string TaxStartMode { get; set; } = string.Empty;
+    public int? StartEvidenceTypeId { get; set; }
+    public int? OffsetMonths { get; set; }
+    public string RetrospectiveLimitType { get; set; } = string.Empty;
+    public int? MaximumYears { get; set; }
+    public DateTime? CutoffDate { get; set; }
+    public string TaxCalculationMode { get; set; } = string.Empty;
+    public decimal TaxMultiplier { get; set; }
+    public int? SplitStartEvidenceTypeId { get; set; }
+    public int? SplitEndEvidenceTypeId { get; set; }
+    public decimal? SplitMultiplier { get; set; }
+    public decimal? AfterSplitMultiplier { get; set; }
+    public string RateMode { get; set; } = string.Empty;
+}
+
+public class CreateRetrospectiveRuleActionDto : CreateBaseDtos
+{
+    [Range(1, int.MaxValue, ErrorMessage = "RetrospectiveRuleAction_RuleId_Invalid")]
+    public int RuleId { get; set; }
+
+    /// <summary>
+    /// Get valid choices (with display labels and which extra field each needs) from
+    /// GET api/RetrospectiveRuleAction/tax-start-modes.
+    /// </summary>
+    [Required(ErrorMessage = "RetrospectiveRuleAction_TaxStartMode_Required")]
+    [StringLength(50, ErrorMessage = "RetrospectiveRuleAction_TaxStartMode_MaxLen_50")]
+    public string TaxStartMode { get; set; } = string.Empty;
+
+    /// <summary>
+    /// "Use date" field. Get valid choices from GET api/RetrospectiveRuleAction/use-date-options
+    /// (DB-driven: every active evidence type + a synthetic "Cutoff date" option). Leave null and
+    /// set TaxStartMode = "FIXED_CUTOFF" when the user picks "Cutoff date".
+    /// </summary>
+    public int? StartEvidenceTypeId { get; set; }
+    public int? OffsetMonths { get; set; }
+
+    /// <summary>
+    /// Get valid choices (with display labels and which extra field each needs) from
+    /// GET api/RetrospectiveRuleAction/retrospective-limit-types.
+    /// </summary>
+    [Required(ErrorMessage = "RetrospectiveRuleAction_RetrospectiveLimitType_Required")]
+    [StringLength(50, ErrorMessage = "RetrospectiveRuleAction_RetrospectiveLimitType_MaxLen_50")]
+    public string RetrospectiveLimitType { get; set; } = string.Empty;
+
+    public int? MaximumYears { get; set; }
+    public DateTime? CutoffDate { get; set; }
+
+    /// <summary>
+    /// Get valid choices (with display labels and which extra field each needs) from
+    /// GET api/RetrospectiveRuleAction/tax-calculation-modes.
+    /// </summary>
+    [Required(ErrorMessage = "RetrospectiveRuleAction_TaxCalculationMode_Required")]
+    [StringLength(30, ErrorMessage = "RetrospectiveRuleAction_TaxCalculationMode_MaxLen_30")]
+    public string TaxCalculationMode { get; set; } = RetrospectiveTaxCalculationModes.SingleMultiplier;
+
+    public decimal TaxMultiplier { get; set; } = 1.00m;
+
+    public int? SplitStartEvidenceTypeId { get; set; }
+    public int? SplitEndEvidenceTypeId { get; set; }
+    public decimal? SplitMultiplier { get; set; }
+    public decimal? AfterSplitMultiplier { get; set; }
+
+    /// <summary>
+    /// Get valid choices from GET api/RetrospectiveRuleAction/rate-modes.
+    /// </summary>
+    [Required(ErrorMessage = "RetrospectiveRuleAction_RateMode_Required")]
+    [StringLength(20, ErrorMessage = "RetrospectiveRuleAction_RateMode_MaxLen_20")]
+    public string RateMode { get; set; } = RetrospectiveRateModes.YearWise;
+}
+
+public class UpdateRetrospectiveRuleActionDto : UpdateBaseDtos
+{
+    [Range(1, int.MaxValue, ErrorMessage = "RetrospectiveRuleAction_RuleId_Invalid")]
+    public int RuleId { get; set; }
+
+    /// <summary>
+    /// Get valid choices (with display labels and which extra field each needs) from
+    /// GET api/RetrospectiveRuleAction/tax-start-modes.
+    /// </summary>
+    [Required(ErrorMessage = "RetrospectiveRuleAction_TaxStartMode_Required")]
+    [StringLength(50, ErrorMessage = "RetrospectiveRuleAction_TaxStartMode_MaxLen_50")]
+    public string TaxStartMode { get; set; } = string.Empty;
+
+    /// <summary>
+    /// "Use date" field. Get valid choices from GET api/RetrospectiveRuleAction/use-date-options
+    /// (DB-driven: every active evidence type + a synthetic "Cutoff date" option). Leave null and
+    /// set TaxStartMode = "FIXED_CUTOFF" when the user picks "Cutoff date".
+    /// </summary>
+    public int? StartEvidenceTypeId { get; set; }
+    public int? OffsetMonths { get; set; }
+
+    /// <summary>
+    /// Get valid choices (with display labels and which extra field each needs) from
+    /// GET api/RetrospectiveRuleAction/retrospective-limit-types.
+    /// </summary>
+    [Required(ErrorMessage = "RetrospectiveRuleAction_RetrospectiveLimitType_Required")]
+    [StringLength(50, ErrorMessage = "RetrospectiveRuleAction_RetrospectiveLimitType_MaxLen_50")]
+    public string RetrospectiveLimitType { get; set; } = string.Empty;
+
+    public int? MaximumYears { get; set; }
+    public DateTime? CutoffDate { get; set; }
+
+    /// <summary>
+    /// Get valid choices (with display labels and which extra field each needs) from
+    /// GET api/RetrospectiveRuleAction/tax-calculation-modes. Leave it out to keep the action's current mode: an omitted value
+    /// is never read as SINGLE, which would silently turn a CC_THEN_OC_MERGE action into a single-multiplier one.
+    /// </summary>
+    [StringLength(30, ErrorMessage = "RetrospectiveRuleAction_TaxCalculationMode_MaxLen_30")]
+    public string? TaxCalculationMode { get; set; }
+
+    public decimal TaxMultiplier { get; set; }
+
+    public int? SplitStartEvidenceTypeId { get; set; }
+    public int? SplitEndEvidenceTypeId { get; set; }
+    public decimal? SplitMultiplier { get; set; }
+    public decimal? AfterSplitMultiplier { get; set; }
+
+    /// <summary>
+    /// Get valid choices from GET api/RetrospectiveRuleAction/rate-modes. Leave it out to keep the action's current rate
+    /// basis: an omitted value is never read as YEAR_WISE, which would silently move a CURRENT_YEAR action (the PCM-* and
+    /// FUR-* rules are) to each year's own historical rate.
+    /// </summary>
+    [StringLength(20, ErrorMessage = "RetrospectiveRuleAction_RateMode_MaxLen_20")]
+    public string? RateMode { get; set; }
+}

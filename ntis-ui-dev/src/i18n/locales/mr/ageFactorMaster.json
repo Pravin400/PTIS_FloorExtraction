@@ -1,0 +1,109 @@
+{
+  "ageFactorMaster": {
+    "defaults": {
+      "assessment": "मूल्यांकन",
+      "constructionType": "बांधकाम प्रकार"
+    },
+    "title": "वय घटक मास्टर",
+    "columns": {
+      "constructionType": "{constructionType}",
+      "description": "वर्णन",
+      "ageFrom": "वय पासून",
+      "ageTo": "वय पर्यंत",
+      "factor": "घटक",
+      "assessmentYear": "{assessment} वर्ष",
+      "status": "स्थिती",
+      "action": "कृती"
+    },
+    "filters": {
+      "assessmentYear": "{assessment} वर्ष",
+      "constructionType": "{constructionType}",
+      "ageRange": "वय मर्यादा",
+      "factor": "घटक"
+    },
+    "placeholders": {
+      "select": "निवडा...",
+      "selectRange": "मर्यादा निवडा",
+      "minYear": "उदा. 0",
+      "maxYear": "उदा. 5"
+    },
+    "buttons": {
+      "addAge": "वय जोडा"
+    },
+    "labels": {
+      "addAgeRange": "वय मर्यादा जोडा",
+      "minYear": "वय पासून",
+      "maxYear": "वय पर्यंत",
+      "close": "बंद करा"
+    },
+    "messages": {
+      "selectYearAndRange": "कृपया नोंद तयार करण्यापूर्वी {assessment} वर्ष आणि वय मर्यादा निवडा",
+      "recordSavedSuccess": "नोंद यशस्वीरित्या जतन केली",
+      "actionFailed": "कृती अयशस्वी",
+      "failedToSaveRow": "ओळ जतन करण्यात अयशस्वी",
+      "provideBothAges": "कृपया वय पासून आणि वय पर्यंत दोन्ही प्रदान करा",
+      "fromAgeGreaterError": "वय पासून, वय पर्यंत पेक्षा जास्त असू शकत नाही",
+      "ageRangeExists": "वय मर्यादा आधीच अस्तित्वात आहे",
+      "ageRangeOverlap": "वय मर्यादा {newRange} विद्यमान मर्यादा {existingRange} सोबत ओव्हरलॅप करते. कृपया नॉन-ओव्हरलॅपिंग मर्यादा निवडा.",
+      "ageRangeAdded": "{from} ते {to} वय मर्यादा जोडली",
+      "invalidFactorValue": "अवैध घटक मूल्य",
+      "factorAppliedLocally": "घटक {factor} स्थानिकरित्या {count} ओळी(ओळींना) लागू केला. जतन करण्यासाठी \"अद्यतनित करा\" वर क्लिक करा.",
+      "noRecordsMatch": "सारणीतील वर्तमान निवडीशी कोणतीही नोंद जुळत नाही",
+      "bulkOperationSuccess": "मोठ्या प्रमाणात ऑपरेशन यशस्वी",
+      "bulkOperationFailed": "मोठ्या प्रमाणात ऑपरेशन अयशस्वी",
+      "noConstructionTypes": "कोणतेही {constructionType} उपलब्ध नाहीत",
+      "assessmentYearMissing": "{assessment} वर्ष पर्याय गहाळ आहेत",
+      "noAgeRangesAvailable": "कोणतीही वय श्रेणी उपलब्ध नाही. कृपया प्रथम वय श्रेणी जोडा.",
+      "factorRequiredForGeneration": "कृपया नोंदी तयार करण्यापूर्वी 0 पेक्षा जास्त फॅक्टर मूल्य प्रविष्ट करा किंवा लागू करा.",
+      "allRecordsExist": "वर्तमान निवडीसाठी सर्व नोंदी आधीच अस्तित्वात आहेत",
+      "recordsGeneratedSuccess": "{count} नोंदी यशस्वीरित्या तयार केल्या",
+      "generationFailed": "निर्मिती अयशस्वी",
+      "errorGeneratingRecords": "नोंदी तयार करताना एक त्रुटी आली"
+    },
+    "loading": {
+      "message": "वय घटक मास्टर लोड होत आहे...",
+      "description": "आम्ही वय घटक भार डेटा प्राप्त करत असताना कृपया प्रतीक्षा करा"
+    },
+    "error": {
+      "title": "सर्व्हरशी कनेक्ट करता आले नाही. कृपया नंतर पुन्हा प्रयत्न करा.",
+      "description": "वय घटक मास्टर लोड करताना एक अनपेक्षित त्रुटी आली.",
+      "tryAgain": "पुन्हा प्रयत्न करा",
+      "goHome": "मुख्यपृष्ठावर जा",
+      "errorId": "त्रुटी आयडी"
+    },
+    "errors": {
+      "validIdRequired": "वैध वय घटक सीव्ही आयडी आवश्यक आहे",
+      "constructionTypeRequired": "{constructionType} आयडी आवश्यक आहे",
+      "yearRangeRequired": "{assessment} वर्ष श्रेणी आयडी आवश्यक आहे",
+      "updateFailed": "वय घटक सीव्ही मास्टर अद्यतनित करण्यात अयशस्वी",
+      "createFailed": "वय घटक सीव्ही मास्टर तयार करण्यात अयशस्वी",
+      "bulkCreateRequired": "घाऊक निर्मितीसाठी वय घटकांसह वैध पेलोड आवश्यक आहे",
+      "bulkUpdateRequired": "घाऊक अद्यतनासाठी वय घटकांसह वैध पेलोड आवश्यक आहे",
+      "bulkUpdateFailed": "घाऊक अद्यतन वय घटक सीव्ही मास्टर अयशस्वी झाले",
+      "bulkDeleteRequired": "घाऊक हटवण्यासाठी आयडीची वैध सूची आवश्यक आहे",
+      "bulkDeleteFailed": "घाऊक हटवणे वय घटक सीव्ही मास्टर अयशस्वी झाले",
+      "mandatoryFields": " * चिन्हांकित केलेली फील्ड अनिवार्य आहेत"
+    },
+    "edit": {
+      "title": "वय भारांक संपादित करा",
+      "description": "वय भारांकाचे तपशील अद्यतनित करा",
+      "successMessage": "वय घटक सीव्ही मास्टर यशस्वीरित्या अद्यतनित केले",
+      "errorMessage": "वय घटक सीव्ही मास्टर अद्यतनित करण्यात अयशस्वी",
+      "ageStatus": "वय भारांक सध्या {status} आहे",
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय"
+    },
+    "apiErrors": {
+      "notFound": "वय वेटेज नोंद सापडली नाही.",
+      "validationError": "अवैध विनंती. कृपया प्रविष्ट केलेली मूल्ये तपासा आणि पुन्हा प्रयत्न करा.",
+      "referredInAutoWardEntry": "हे वय वेटेज हटवता येणार नाही कारण ते आधीच कॅपिटल व्हॅल्यू कर गणनेत वापरले जात आहे. कृपया प्रथम संबंधित नोंदी हटवा."
+    },
+    "deleteConfirmation": {
+      "title": "{constructionType}",
+      "description": "तुम्हाला खात्री आहे की तुम्ही ही नोंद हटवू इच्छिता?",
+      "confirmButton": "हटवा",
+      "cancelButton": "रद्द करा",
+      "successMessage": "नोंद यशस्वीरित्या हटवली"
+    }
+  }
+}

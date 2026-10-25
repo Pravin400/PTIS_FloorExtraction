@@ -1,0 +1,170 @@
+{
+  "configuration": {
+    "header": {
+      "title": "Configuration Master",
+      "subtitle": "Asset and Inventory Condition Management",
+      "totalMasters": "Total Masters"
+    },
+    "tabs": {
+      "masterData": "Master Data",
+      "screenMaster": "Screen Master",
+      "screenFieldsMaster": "Screen Fields Master"
+    },
+    "masterData": {
+      "title": "Master Data",
+      "records": "Master Records",
+      "addNew": "Add New {name}",
+      "searchPlaceholder": "Search master records...",
+      "stats": {
+        "master": "Master Types",
+        "shown": "Shown",
+        "active": "Active"
+      },
+      "groupFilter": {
+        "categoriesTitle": "Categories",
+        "itemNamesTitle": "Item Names"
+      },
+      "form": {
+        "addTitle": "Add New {name}",
+        "editTitle": "Edit {name}",
+        "createSubtitle": "Create a new record",
+        "updateSubtitle": "Update existing record",
+        "labels": {
+          "name": "Name",
+          "conditionType": "Condition Category",
+          "category": "Category",
+          "categoryName": "Category Name",
+          "description": "Description",
+          "conditionFactor": "Condition Factor",
+          "displayOrder": "Display Order",
+          "status": "Status",
+          "active": "Active",
+          "inactive": "Inactive"
+        },
+        "placeholders": {
+          "name": "Enter name",
+          "conditionType": "Select condition category",
+          "category": "Select category",
+          "description": "Enter description",
+          "conditionFactor": "Enter condition factor",
+          "displayOrder": "Enter display order"
+        },
+        "buttons": {
+          "save": "Save",
+          "update": "Update",
+          "cancel": "Cancel"
+        },
+        "validation": {
+          "duplicateRecord": "This record already exists. Please check and try again."
+        },
+        "errors": {
+          "fillRequired": "Please fill in all required fields.",
+          "conditionTypeRequired": "Condition Category is required.",
+          "nameRequired": "Condition name is required.",
+          "categoryRequired": "Category is required.",
+          "duplicateName": "Condition name must be unique.",
+          "englishOnly": "Please enter Condition Name in English only.",
+          "noSpecialCharacters": "Please use only letters, numbers, and spaces.",
+          "maxLength": "Please enter no more than the allowed number of characters.",
+          "conditionFactorRequired": "Condition factor is required.",
+          "conditionFactorInvalid": "Condition factor must be a valid number.",
+          "conditionFactorRange": "Condition factor must be between 0 and 1.",
+          "displayOrderRequired": "Display order is required.",
+          "displayOrderInvalid": "Display order must be an integer greater than or equal to 1.",
+          "apiActionsNotConfigured": "API actions are not configured.",
+          "saveFailed": "Failed to save record",
+          "deleteFailed": "Failed to delete record",
+          "unexpected": "An unexpected error occurred",
+          "codeRequired": "Code is required",
+          "codeAllZeros": "Code cannot be all zeros",
+          "codeMax": "Code exceeds maximum length",
+          "codeFormat": "Invalid format (only alphanumeric and hyphens allowed)",
+          "codeTooLong15": "Code cannot exceed 15 characters",
+          "codeInvalidChars": "Code contains invalid characters",
+          "codeDuplicate": "This code already exists",
+          "nameAllZeros": "Name cannot be all zeros",
+          "nameMax": "Name exceeds maximum length",
+          "nameFormat": "Invalid format for name",
+          "nameTooLong50": "Name cannot exceed 50 characters",
+          "nameInvalidChars": "Name contains invalid characters",
+          "nameDuplicate": "This name already exists",
+          "descriptionAllZeros": "Description cannot be all zeros",
+          "descriptionFormat": "Invalid format for description",
+          "descriptionTooLong": "Description cannot exceed 500 characters",
+          "descInvalidChars": "Description contains invalid characters"
+        }
+      },
+      "error": {
+        "title": "Data Loading Failed",
+        "description": "An error occurred while loading master data records. Please check your connection or try again.",
+        "categoryTitle": "Category Loading Failed",
+        "categoryDescription": "An error occurred while loading Asset Categories. Please check your connection or try again.",
+        "typeTitle": "Type Loading Failed",
+        "typeDescription": "An error occurred while loading Asset Types. Please try again.",
+        "reload": "Reload Page",
+        "tryAgain": "Try Again",
+        "goHome": "Go Home"
+      }
+    }
+  },
+  "masterNames": {
+    "asset-type-master": "Asset Type",
+    "asset-category-master": "Asset Category",
+    "inventory-category-master": "Inventory Category",
+    "inventory-model-master": "Inventory Model",
+    "inventory-name-master": "Inventory Item Name",
+    "inventory-condition-master": "Asset Condition Master"
+  },
+  "apiErrors": {
+    "referenceBlocked": {
+      "condition": {
+        "deleteInUse": "This Condition cannot be deleted because it is in use.",
+        "deactivateInUse": "This Condition cannot be deactivated because it is in use."
+      }
+    }
+  },
+  "list": {
+    "title": "Inventory Condition",
+    "subtitle": "CardinalMind Master Data Management System",
+    "buttons": {
+      "add": "Add New Inventory Condition",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "filters": {
+      "show": "Show",
+      "search": "Search inventory condition...",
+      "label": "Filters",
+      "conditionCategoryAll": "Condition Category: All",
+      "categoryAll": "Category: All",
+      "statusAll": "Status: All",
+      "reset": "Reset",
+      "export": "Export",
+      "asset": "Asset",
+      "inventory": "Inventory"
+    },
+    "table": {
+      "conditionCategory": "Condition Category",
+      "name": "Name",
+      "description": "Description",
+      "conditionFactor": "Condition Factor",
+      "category": "Category",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    }
+  },
+  "stats": {
+    "totalConditions": "Total Conditions",
+    "totalConditionsSub": "All configured conditions",
+    "activeConditions": "Active Conditions",
+    "activeConditionsSub": "Currently active",
+    "avgConditionFactor": "Avg. Condition Factor",
+    "avgConditionFactorSub": "Across all conditions",
+    "categories": "Categories",
+    "categoriesSub": "Condition categories"
+  }
+}

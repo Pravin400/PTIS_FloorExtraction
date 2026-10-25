@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Calendar Body -->
+  <rect x="15" y="20" width="70" height="66" rx="10" fill="#FFFFFF" fill-opacity="0.92" stroke="#0284C7" stroke-width="2.5"/>
+  <!-- Header Bar -->
+  <path d="M15 30c0-5.5 4.5-10 10-10h50c5.5 0 10 4.5 10 10v8H15v-8z" fill="#0284C7"/>
+  <!-- Spiral Binders -->
+  <rect x="30" y="14" width="6" height="12" rx="3" fill="#0369A1"/>
+  <rect x="64" y="14" width="6" height="12" rx="3" fill="#0369A1"/>
+  <!-- Date display "24" -->
+  <text x="24" y="66" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="800" fill="#0369A1">24</text>
+  <!-- Clock Badge -->
+  <circle cx="68" cy="66" r="16" fill="#38BDF8" stroke="#0284C7" stroke-width="2"/>
+  <circle cx="68" cy="66" r="13" fill="#FFFFFF"/>
+  <path d="M68 59v7l5 3" stroke="#0284C7" stroke-width="2.2" stroke-linecap="round"/>
+</svg>

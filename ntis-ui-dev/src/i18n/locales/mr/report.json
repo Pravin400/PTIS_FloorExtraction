@@ -1,0 +1,196 @@
+{
+  "pageTitle": "मालमत्ता कर अहवाल इंजिन",
+  "pageSubtitle": "अहवालाचा प्रकार निवडा आणि आवश्यक फिल्टर निर्दिष्ट करा, नंतर PDF डाउनलोड करण्यासाठी 'अहवाल मिळवा' वर क्लिक करा।",
+  "navigation": {
+    "reportAdmin": "अहवाल प्रशासन",
+    "reportDesigner": "अहवाल डिझायनर",
+    "addNewReport": "नवीन अहवाल जोडा",
+    "importReport": "अहवाल इम्पोर्ट करा"
+  },
+  "fields": {
+    "reportType": "अहवालाचा प्रकार"
+  },
+  "buttons": {
+    "generate": "अहवाल मिळवा",
+    "reset": "फिल्टर रीसेट करा"
+  },
+  "placeholders": {
+    "selectReport": "अहवाल निवडा…",
+    "selectZone": "क्षेत्र निवडा…",
+    "selectWard": "वॉर्ड निवडा…",
+    "selectProperty": "मालमत्ता निवडा…",
+    "selectPartition": "विभाजन निवडा…",
+    "pendingZone": "आधी क्षेत्र निवडा",
+    "pendingWard": "आधी वॉर्ड निवडा",
+    "pendingProperty": "आधी मालमत्ता निवडा"
+  },
+  "validation": {
+    "reportRequired": "कृपया अहवालाचा प्रकार निवडा.",
+    "fieldRequired": "{label} आवश्यक आहे.",
+    "dateRangeInvalid": "समाप्ती तारीख प्रारंभ तारखेनंतर किंवा त्याच दिवशी असावी."
+  },
+  "status": {
+    "queued": "अहवाल रांगेत आहे. तयार होत आहे — तयार होताच डाउनलोड आपोआप सुरू होईल."
+  },
+  "success": {
+    "downloaded": "अहवाल यशस्वीरित्या डाउनलोड झाला."
+  },
+  "errors": {
+    "generationFailed": "अहवाल तयार करण्यात अपयश. कृपया पुन्हा प्रयत्न करा.",
+    "loadFailed": "अहवाल डेटा लोड करण्यात अपयश. कृपया पृष्ठ रीफ्रेश करा."
+  },
+  "jobs": {
+    "title": "माझे अहवाल",
+    "refresh": "रिफ्रेश करा",
+    "empty": "अद्याप कोणताही अहवाल नाही. वर एक सबमिट करा आणि तो येथे दिसेल.",
+    "download": "डाउनलोड",
+    "preview": "पूर्वावलोकन",
+    "previewTitle": "अहवाल पूर्वावलोकन",
+    "columns": {
+      "report": "अहवालाचे नाव",
+      "status": "स्थिती",
+      "requested": "विनंती केली",
+      "completed": "पूर्ण",
+      "actions": "क्रिया"
+    },
+    "statuses": {
+      "pending": "प्रलंबित",
+      "processing": "प्रक्रियेत",
+      "completed": "पूर्ण",
+      "failed": "अयशस्वी",
+      "cancelled": "रद्द",
+      "retrying": "पुन्हा प्रयत्न"
+    }
+  },
+  "proTip": {
+    "title": "सूचना",
+    "body": "मोठ्या तारखांच्या श्रेणी किंवा वॉर्ड-स्तरीय अहवालांसाठी, PDF तयार झाल्यावर आपोआप डाउनलोड होईल."
+  },
+  "loading": {
+    "message": "अहवाल पर्याय लोड होत आहेत…",
+    "description": "उपलब्ध अहवाल आणत असताना कृपया प्रतीक्षा करा."
+  },
+  "error": {
+    "title": "काहीतरी चूक झाली",
+    "description": "अहवाल पृष्ठ लोड करताना त्रुटी आली.",
+    "errorId": "त्रुटी ID: {id}",
+    "goHome": "मुख्यपृष्ठावर जा",
+    "tryAgain": "पुन्हा प्रयत्न करा"
+  },
+  "workspace": {
+    "steps": {
+      "selectCategory": "श्रेणी निवडा",
+      "selectReport": "अहवाल निवडा",
+      "setParameters": "मापदंड सेट करा",
+      "generateReport": "अहवाल तयार करा"
+    },
+    "categories": {
+      "assessment": "मूल्यांकन",
+      "amc": "एएमसी",
+      "transaction": "व्यवहार",
+      "approval": "मंजुरी",
+      "discount": "सूट",
+      "others": "इतर"
+    },
+    "reportsCount": "{count} अहवाल",
+    "tabs": {
+      "generateReport": "अहवाल तयार करा",
+      "myReports": "अहवाल डाउनलोड करा"
+    },
+    "toast": {
+      "generatedSuccess": "अहवाल यशस्वीरित्या तयार झाला!",
+      "generationFailed": "अहवाल तयार करण्यात अपयश.",
+      "generatingPreview": "सुरक्षित पूर्वावलोकन तयार होत आहे...",
+      "preparingDocument": "दस्तऐवज पूर्वावलोकन तयार होत आहे..."
+    },
+    "emptyState": {
+      "title": "वरील श्रेणी निवडा",
+      "subtitle": "उपलब्ध अहवाल पाहण्यासाठी अहवाल प्रकार निवडा"
+    },
+    "noReportsFound": "या श्रेणीसाठी कोणताही अहवाल आढळला नाही.",
+    "reportsHeader": "{category} अहवाल",
+    "configureParameters": "मापदंड कॉन्फिगर करा",
+    "generating": {
+      "title": "अहवाल तयार केला जात आहे",
+      "subtitle": "कृपया प्रतीक्षा करा, तुमचा अहवाल तयार केला जात आहे...",
+      "cancel": "रद्द करा"
+    },
+    "preview": {
+      "title": "अहवाल पूर्वावलोकन",
+      "downloadPdf": "PDF",
+      "idLabel": "आयडी: {id}"
+    },
+    "confirm": {
+      "title": "अहवाल निर्मिती",
+      "description": "तुमचा अहवाल तयार केला जात आहे. तुम्ही 'Download Report' टॅबवरून तो डाउनलोड करू शकता.",
+      "btnGo": "उघडा",
+      "btnClose": "बंद करा"
+    }
+  },
+  "params": {
+    "emptyState": "मापदंड कॉन्फिगर करण्यासाठी यादीतून अहवाल निवडा",
+    "financialYear": "आर्थिक वर्ष",
+    "zoneNo": "क्षेत्र क्र.",
+    "wardNo": "वॉर्ड क्र.",
+    "propertySelection": "मालमत्ता निवड",
+    "propertyNo": "मालमत्ता क्र.",
+    "fromPropertyToProperty": "मालमत्ता क्र. पासून ते पर्यंत",
+    "fromProperty": "पासून मालमत्ता",
+    "toProperty": "पर्यंत मालमत्ता",
+    "selectYear": "वर्ष निवडा",
+    "selectZone": "क्षेत्र निवडा",
+    "selectWard": "वॉर्ड निवडा",
+    "selectProperty": "मालमत्ता निवडा",
+    "selectStartProperty": "प्रारंभ मालमत्ता निवडा",
+    "selectEndProperty": "समाप्ती मालमत्ता निवडा",
+    "loading": "लोड होत आहे...",
+    "selectZoneFirst": "आधी क्षेत्र निवडा",
+    "selectWardFirst": "आधी वॉर्ड निवडा",
+    "selectMode": "मोड निवडा",
+    "wardWise": "वॉर्ड नुसार",
+    "fromToProperty": "पासून - पर्यंत मालमत्ता",
+    "individualProperty": "वैयक्तिक मालमत्ता",
+    "propertyDescription": "मालमत्तेचे वर्णन",
+    "selectDescription": "वर्णन निवडा",
+    "assessmentType": "मूल्यांकनाचा प्रकार",
+    "selectAssessmentType": "मूल्यांकनाचा प्रकार निवडा",
+    "propertyDemand": "मालमत्तेची मागणी",
+    "greaterThan": "पेक्षा जास्त",
+    "lessThan": "पेक्षा कमी",
+    "top": "शीर्ष",
+    "enterAmount": "रक्कम प्रविष्ट करा",
+    "eg1": "उदा. 1",
+    "eg10": "उदा. 10",
+    "egPropertyNo": "उदा. 101 किंवा 101-A1",
+    "propertiesSelected": "मालमत्ता निवडल्या",
+    "viewEdit": "पहा / संपादित करा",
+    "notice119Title": "कलम ११९ नोटीस",
+    "notice119Help": "मालमत्ता व्याप्ती व नोटीसच्या तारखा निवडा. नगरपरिषदेचे नाव, पत्ता, लोगो आणि मालमत्ता तपशील डेटाबेसमधून घेतले जातील.",
+    "noticeDate": "नोटीस दिनांक",
+    "objectionLastDate": "हरकतीची अंतिम तारीख",
+    "showProperties": "मालमत्ता पहा",
+    "validation": {
+      "financialYearRequired": "आर्थिक वर्ष आवश्यक आहे.",
+      "zoneRequired": "क्षेत्र आवश्यक आहे.",
+      "wardRequired": "वॉर्ड आवश्यक आहे.",
+      "fillAllRequired": "कृपया सर्व आवश्यक फील्ड भरा.",
+      "networkError": "नेटवर्क त्रुटी. कृपया पुन्हा प्रयत्न करा.",
+      "failedToQueue": "अहवाल रांगेत टाकण्यात अपयश"
+    },
+    "reportQueued": "अहवाल \"{name}\" ची विनंती यशस्वीरित्या सबमिट केली गेली.",
+    "buttons": {
+      "reset": "रीसेट करा",
+      "generate": "अहवाल तयार करा",
+      "queuing": "रांगेत टाकत आहे..."
+    }
+  },
+  "generationForm": {
+    "loadingParameters": "मापदंड लोड होत आहेत...",
+    "failedToLoadParameters": "API मधून मापदंड लोड करण्यात अपयश:",
+    "noParametersDefined": "{report} साठी कोणतेही मापदंड परिभाषित केलेले नाहीत.",
+    "back": "मागे",
+    "selectPreviousFirst": "प्रथम मागील फील्ड निवडा",
+    "loading": "लोड होत आहे...",
+    "select": "निवडा..."
+  }
+}

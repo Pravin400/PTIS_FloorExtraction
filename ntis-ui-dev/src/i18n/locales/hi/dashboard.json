@@ -1,0 +1,27 @@
+{
+  "title": "डैशबोर्ड",
+  "subtitle": "संचालन और वास्तविक समय की स्थिति का अवलोकन",
+  "stats": {
+    "totalRoutes": "कुल मार्ग",
+    "activeVehicles": "सक्रिय वाहन",
+    "activeRoutes": "सक्रिय मार्ग",
+    "delayed": "विलंबित"
+  },
+  "table": {
+    "columns": {
+      "route": "मार्ग",
+      "status": "स्थिति",
+      "vehicles": "वाहन",
+      "lastUpdate": "अंतिम अपडेट",
+      "actions": "कार्रवाई"
+    },
+    "title": "मार्ग"
+  },
+  "form": {
+    "title": "नया मार्ग जोड़ें",
+    "routeName": "मार्ग का नाम",
+    "routePlaceholder": "उदाहरण: उत्तर मार्ग ई",
+    "statusLabel": "स्थिति",
+    "vehiclesLabel": "वाहनों की संख्या"
+  }
+}

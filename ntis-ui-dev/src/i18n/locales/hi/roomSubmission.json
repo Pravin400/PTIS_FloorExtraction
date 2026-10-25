@@ -1,0 +1,22 @@
+{
+  "roomSubmission": {
+    "validation": {
+      "enterRoomNumber": "कृपया कक्ष संख्या दर्ज करें।",
+      "roomTypeRequired": "कृपया कक्ष का प्रकार चुनें।",
+      "selectShapeOrEnterArea": "कृपया कक्ष का आकार चुनें या क्षेत्र दर्ज करें।",
+      "enterValidDimensions": "कृपया चयनित आकार के लिए मान्य माप दर्ज करें।"
+    },
+    "input": {
+      "shapes": {
+        "select": "आकार चुनें",
+        "rectangle": "आयताकार",
+        "square": "वर्ग",
+        "triangle": "त्रिभुज",
+        "trapezoid": "समलंब",
+        "circle": "वृत्त",
+        "semiCircle": "अर्धवृत्त",
+        "quarterCircle": "चतुर्थांश वृत्त"
+      }
+    }
+  }
+}

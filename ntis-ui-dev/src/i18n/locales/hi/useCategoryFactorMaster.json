@@ -1,0 +1,91 @@
+{
+  "useCategoryFactorMaster": {
+    "defaults": {
+      "assessment": "मूल्यांकन",
+      "typeOfUse": "उपयोग का प्रकार",
+      "subTypeOfUse": "उपयोग का उप-प्रकार",
+      "use": "उपयोग",
+      "category": "श्रेणी"
+    },
+    "title": "{use} {category} CV कारक मास्टर",
+    "columns": {
+      "typeOfUseCode": "{typeOfUse} कोड",
+      "typeOfUse": "{typeOfUse}",
+      "subType": "{subTypeOfUse}",
+      "factor": "कारक",
+      "assessmentYear": "{assessment} वर्ष",
+      "status": "स्थिति",
+      "action": "कार्य"
+    },
+    "leftTable": {
+      "typeOfUseCode": "{typeOfUse} कोड",
+      "typeOfUse": "{typeOfUse}",
+      "status": "स्थिति"
+    },
+    "filters": {
+      "assessmentYear": "{assessment} वर्ष",
+      "typeOfUse": "{typeOfUse}",
+      "factor": "कारक"
+    },
+    "placeholders": {
+      "selectAssessmentYear": "{assessment} वर्ष चुनें",
+      "selectTypeOfUse": "{typeOfUse} चुनें",
+      "factor": "0.00"
+    },
+    "messages": {
+      "noSubtypeRecordsFound": "चयनित प्रकार के लिए कोई उप-प्रकार रिकॉर्ड नहीं मिला",
+      "selectTypeOfUsePrompt": "बाईं तालिका से {typeOfUse} चुनें या ड्रॉपडाउन फ़िल्टर का उपयोग करें",
+      "noTypeOfUseRecordsFound": "{typeOfUse} के कोई रिकॉर्ड नहीं मिले",
+      "mandatoryFields": "* के साथ चिह्नित फ़ील्ड अनिवार्य हैं"
+    },
+    "titles": {
+      "editTitle": "{subTypeOfUse} भारांक संपादित करें"
+    },
+    "descriptions": {
+      "updateSubTypeDetails": "{subTypeOfUse} भारांक का विवरण अपडेट करें"
+    },
+    "loading": {
+      "message": "{use} {category} CV कारक मास्टर लोड हो रहा है...",
+      "description": "कृपया प्रतीक्षा करें जब तक हम रिकॉर्ड प्राप्त करते हैं।"
+    },
+    "error": {
+      "title": "किसी कारण सर्वर से कनेक्ट नहीं कर सके। कृपया बाद में पुनः प्रयास करें।",
+      "description": "{use} {category} कारक वेटेज रिकॉर्ड लोड करते समय एक त्रुटि हुई।",
+      "tryAgain": "पुनः प्रयास करें",
+      "goHome": "वापस घर जाएं",
+      "errorId": "त्रुटि ID: {id}"
+    },
+    "errors": {
+      "invalidId": "मान्य {use} कारक सीवी आईडी आवश्यक है",
+      "typeOfUseIdRequired": "{typeOfUse} आवश्यक है",
+      "yearRangeCVIdRequired": "{assessment} वर्ष आवश्यक है",
+      "factorNegative": "कारक नकारात्मक नहीं हो सकता",
+      "fetchFailed": "{use} कारक सीवी मास्टर रिकॉर्ड प्राप्त करने में विफल",
+      "updateFailed": "{use} कारक सीवी मास्टर को अपडेट करने में विफल",
+      "createFailed": "{use} कारक सीवी मास्टर बनाने में विफल",
+      "bulkUpdateFailed": "{use} कारक सीवी मास्टर को थोक में अपडेट करने में विफल",
+      "bulkCreateFailed": "{use} कारक सीवी मास्टर को थोक में बनाने में विफल",
+      "payloadRequired": "मान्य पेलोड आवश्यक है",
+      "invalidPaginationParameters": "अमान्य पृष्ठांकन पैरामीटर",
+      "fetchTypeOfUseFailed": "{typeOfUse} रिकॉर्ड प्राप्त करने में विफल",
+      "deleteFailed": "{use} कारक रिकॉर्ड को हटाने में विफल"
+    },
+    "apiErrors": {
+      "notFound": "{typeOfUse} वेटेज रिकॉर्ड नहीं मिला।",
+      "validationError": "अमान्य अनुरोध। कृपया दर्ज किए गए मान जांचें और पुनः प्रयास करें।",
+      "referredInAutoWardEntry": "इस {typeOfUse} वेटेज को हटाया नहीं जा सकता क्योंकि यह पहले से ही कैपिटल वैल्यू कर गणना में उपयोग किया जा रहा है। कृपया पहले संबंधित रिकॉर्ड हटाएं।"
+    },
+    "deleteConfirmation": {
+      "title": "{typeOfUse}",
+      "description": "क्या आप वाकई इस रिकॉर्ड को हटाना चाहते हैं?",
+      "confirmButton": "हटाएं",
+      "cancelButton": "रद्द करें",
+      "successMessage": "रिकॉर्ड सफलतापूर्वक हटा दिया गया"
+    },
+    "edit": {
+      "subTypeStatus": "{subTypeOfUse} भारांक वर्तमान में {status} है",
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय"
+    }
+  }
+}

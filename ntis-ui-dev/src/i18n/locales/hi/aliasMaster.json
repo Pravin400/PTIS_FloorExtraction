@@ -1,0 +1,92 @@
+{
+  "title": "उपनाम मास्टर",
+  "subtitle": "फ़ील्ड उपनाम और उनके बहुभाषी प्रदर्शन लेबल प्रबंधित करें",
+  "searchPlaceholder": "उपनाम रिकॉर्ड खोजें...",
+  "add": "उपनाम जोड़ें",
+  "edit": "उपनाम संपादित करें",
+  "delete": "उपनाम हटाएं",
+  "actions": "कार्रवाई",
+  "keyName": "कुंजी नाम",
+  "labelName": "लेबल नाम",
+  "englishName": "अंग्रेजी नाम",
+  "regionalName": "क्षेत्रीय नाम",
+  "hindiName": "हिंदी नाम",
+  "status": "स्थिति",
+  "active": "सक्रिय",
+  "inactive": "निष्क्रिय",
+  "deleteConfirm": "क्या आप वाकई इस उपनाम रिकॉर्ड को हटाना चाहते हैं?",
+  "stats": {
+    "total": "कुल कुंजी",
+    "active": "सक्रिय कुंजी",
+    "inactive": "निष्क्रिय कुंजी"
+  },
+  "form": {
+    "addTitle": "नया उपनाम जोड़ें",
+    "editTitle": "उपनाम संपादित करें",
+    "addSubtitle": "एक नई फ़ील्ड उपनाम कॉन्फ़िगरेशन बनाएं",
+    "editSubtitle": "मौजूदा फ़ील्ड उपनाम कॉन्फ़िगरेशन अपडेट करें",
+    "subtitle": "एक नई फ़ील्ड उपनाम कॉन्फ़िगरेशन बनाएं",
+    "actions": {
+      "save": "उपनाम बनाएं",
+      "update": "उपनाम अपडेट करें",
+      "cancel": "रद्द करें"
+    },
+    "fields": {
+      "keyName": {
+        "label": "कुंजी नाम",
+        "placeholder": "उदा. BuildingType"
+      },
+      "labelName": {
+        "label": "लेबल नाम",
+        "placeholder": "उदा. Building Type"
+      },
+      "englishName": {
+        "label": "अंग्रेजी नाम",
+        "placeholder": "उदा. Building Type"
+      },
+      "regionalName": {
+        "label": "क्षेत्रीय नाम",
+        "placeholder": "उदा. इमारत प्रकार"
+      },
+      "hindiName": {
+        "label": "हिंदी नाम",
+        "placeholder": "उदा. भवन प्रकार"
+      }
+    },
+    "status": {
+      "label": "स्थिति",
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय",
+      "description": "उपनाम वर्तमान में"
+    },
+    "validation": {
+      "keyNameRequired": "कुंजी नाम आवश्यक है",
+      "keyNameFormat": "कुंजी नाम में अमान्य वर्ण हैं",
+      "keyNameMaxLength": "कुंजी नाम {count} अक्षरों से अधिक नहीं हो सकता",
+      "labelNameRequired": "लेबल नाम आवश्यक है",
+      "labelNameFormat": "लेबल नाम में अमान्य वर्ण हैं",
+      "labelNameMaxLength": "लेबल नाम {count} अक्षरों से अधिक नहीं हो सकता",
+      "englishNameMaxLength": "अंग्रेजी नाम {count} अक्षरों से अधिक नहीं हो सकता",
+      "regionalNameMaxLength": "क्षेत्रीय नाम {count} अक्षरों से अधिक नहीं हो सकता",
+      "hindiNameMaxLength": "हिंदी नाम {count} अक्षरों से अधिक नहीं हो सकता",
+      "fixErrors": "कृपया सत्यापन त्रुटियां ठीक करें",
+      "mandatoryNotice": "<b>*</b> से चिह्नित फ़ील्ड अनिवार्य हैं"
+    },
+    "messages": {
+      "createSuccess": "उपनाम सफलतापूर्वक बनाया गया",
+      "updateSuccess": "उपनाम सफलतापूर्वक अपडेट किया गया",
+      "deleteSuccess": "उपनाम सफलतापूर्वक हटाया गया",
+      "activateSuccess": "उपनाम सफलतापूर्वक सक्रिय किया गया",
+      "deactivateSuccess": "उपनाम सफलतापूर्वक निष्क्रिय किया गया",
+      "error": "उपनाम सहेजने में असमर्थ",
+      "duplicate": "यह रिकॉर्ड पहले से मौजूद है"
+    }
+  },
+  "error": {
+    "title": "उपनाम डेटा लोड करने में विफल",
+    "description": "उपनाम जानकारी लोड करते समय हमें एक त्रुटि का सामना करना पड़ा। कृपया पुनः प्रयास करें।",
+    "errorId": "त्रुटि आईडी: {id}",
+    "goHome": "होम पर जाएं",
+    "tryAgain": "पुनः प्रयास करें"
+  }
+}

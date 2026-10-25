@@ -1,0 +1,214 @@
+{
+  "configuration": {
+    "header": {
+      "title": "Inventory Category Master",
+      "subtitle": "Centralized Master Data Management System",
+      "totalMasters": "Total Masters"
+    },
+    "tabs": {
+      "masterData": "Master Data",
+      "screenMaster": "Screen Master",
+      "screenFieldsMaster": "Screen Fields Master"
+    },
+    "masterData": {
+      "title": "Master Data",
+      "records": "Master Records",
+      "addNew": "Add New {name}",
+      "searchPlaceholder": "Search master records...",
+      "stats": {
+        "master": "Master Types",
+        "shown": "Shown",
+        "active": "Active"
+      },
+      "groupFilter": {
+        "categoriesTitle": "Categories",
+        "itemNamesTitle": "Item Names"
+      },
+      "form": {
+        "addTitle": "Add New {name}",
+        "editTitle": "Edit {name}",
+        "createSubtitle": "Create a new record",
+        "updateSubtitle": "Update existing record",
+        "labels": {
+          "code": "Code",
+          "name": "Name",
+          "category": "Asset Category",
+          "assetCategory": "Asset Category",
+          "itemName": "Item Name",
+          "description": "Description",
+          "depreciationRate": "Depreciation Rate",
+          "displayOrder": "Display Order",
+          "status": "Status",
+          "active": "Active",
+          "inactive": "Inactive"
+        },
+        "placeholders": {
+          "code": "Enter code",
+          "name": "Enter name",
+          "category": "Select category",
+          "itemName": "Select item name",
+          "description": "Enter description",
+          "depreciationRate": "Enter depreciation rate",
+          "displayOrder": "Enter display order"
+        },
+        "buttons": {
+          "save": "Save",
+          "update": "Update",
+          "cancel": "Cancel"
+        },
+        "validation": {
+          "groupRequired": "Asset Category is required",
+          "codeRequired": "Code is required",
+          "codeAllZeros": "Code cannot be all zeros",
+          "codeMax": "Code exceeds maximum length",
+          "codeFormat": "Invalid format (only alphanumeric and hyphens allowed)",
+          "nameRequired": "Name is required",
+          "nameAllZeros": "Name cannot be all zeros",
+          "nameMax": "Name exceeds maximum length",
+          "nameFormat": "Invalid format for name",
+          "descriptionAllZeros": "Description cannot be all zeros",
+          "descriptionFormat": "Invalid format for description",
+          "fixErrors": "Please fix all validation errors before submitting",
+          "duplicateRecord": "Inventory Category already exists. Duplicates not allowed.",
+          "duplicateError": "A duplicate record was found"
+        },
+        "messages": {
+          "createSuccess": "Record created successfully",
+          "updateSuccess": "Record updated successfully",
+          "invalidIdError": "Invalid record ID",
+          "error": "An unexpected error occurred"
+        },
+        "apiErrors": {
+          "referenceBlocked": {
+            "inventoryCategory": {
+              "deleteInUse": "This Inventory Category cannot be deleted because it is in use.",
+              "deactivateInUse": "This Inventory Category cannot be deactivated because it is in use.",
+              "deleteHasMasters": "This Inventory Category cannot be deleted because it has {masters}. Please delete all {masters} for this Inventory Category first.",
+              "deactivateHasMasters": "This Inventory Category cannot be deactivated because it has {masters}. Please delete all {masters} for this Inventory Category first."
+            }
+          },
+          "referenceMasters": {
+            "inventoryNames": "Inventory Names",
+            "inventoryConditions": "Inventory Conditions",
+            "and": "and"
+          }
+        },
+        "errors": {
+          "duplicateRecord": "Inventory Category already exists. Duplicates not allowed.",
+          "fillRequired": "Please fill in all required fields.",
+          "group": "Asset Category is required.",
+          "codeRequired": "Code is required.",
+          "codeFormat": "Code may contain only letters, numbers, and hyphens (-).",
+          "duplicateCode": "Inventory Category Code already exists.",
+          "nameRequired": "Category name is required.",
+          "duplicateName": "Inventory Category Name already exists.",
+          "englishOnly": "Please enter Category Name in English only.",
+          "noSpecialCharacters": "Please use only letters, numbers, and spaces for Category Name.",
+          "descriptionRequired": "Description is required.",
+          "maxLength": "Please enter no more than the allowed number of characters.",
+          "depreciationRateRequired": "Depreciation rate is required.",
+          "depreciationRateInvalid": "Depreciation rate must be a valid number.",
+          "depreciationRateRange": "Depreciation rate must be between 0 and 1.",
+          "displayOrderRequired": "Display order is required.",
+          "apiActionsNotConfigured": "API actions are not configured.",
+          "saveFailed": "Failed to save record",
+          "deleteFailed": "Failed to delete record",
+          "unexpected": "An unexpected error occurred",
+          "codeAllZeros": "Code cannot be all zeros",
+          "codeMax": "Code exceeds maximum length",
+          "codeTooLong15": "Code cannot exceed 15 characters",
+          "codeInvalidChars": "Code contains invalid characters",
+          "codeDuplicate": "Inventory Category Code already exists.",
+          "nameAllZeros": "Name cannot be all zeros",
+          "nameMax": "Name exceeds maximum length",
+          "nameFormat": "Invalid format for name",
+          "nameTooLong50": "Name cannot exceed 50 characters",
+          "nameInvalidChars": "Name contains invalid characters",
+          "nameDuplicate": "Inventory Category Name already exists.",
+          "descriptionAllZeros": "Description cannot be all zeros",
+          "descriptionFormat": "Invalid format for description",
+          "descriptionTooLong": "Description cannot exceed 500 characters",
+          "descInvalidChars": "Description contains invalid characters"
+        }
+      },
+      "error": {
+        "title": "Data Loading Failed",
+        "description": "An error occurred while loading master data records. Please check your connection or try again.",
+        "categoryTitle": "Category Loading Failed",
+        "categoryDescription": "An error occurred while loading Asset Categories. Please check your connection or try again.",
+        "typeTitle": "Type Loading Failed",
+        "typeDescription": "An error occurred while loading Asset Types. Please try again.",
+        "reload": "Reload Page",
+        "tryAgain": "Try Again",
+        "goHome": "Go Home"
+      }
+    }
+  },
+  "masterNames": {
+    "asset-category-master": "Asset Category",
+    "asset-type-master": "Asset Type",
+    "inventory-category-master": "Inventory Category",
+    "inventory-model-master": "Inventory Model",
+    "inventory-name-master": "Inventory Item Name",
+    "inventory-condition-master": "Inventory Condition"
+  },
+  "apiErrors": {
+    "referenceBlocked": {
+      "inventoryCategory": {
+        "deleteInUse": "This Inventory Category cannot be deleted because it is in use.",
+        "deactivateInUse": "This Inventory Category cannot be deactivated because it is in use.",
+        "deleteHasMasters": "This Inventory Category cannot be deleted because it has {masters}. Please delete all {masters} for this Inventory Category first.",
+        "deactivateHasMasters": "This Inventory Category cannot be deactivated because it has {masters}. Please delete all {masters} for this Inventory Category first."
+      }
+    },
+    "referenceMasters": {
+      "inventoryNames": "Inventory Names",
+      "inventoryConditions": "Inventory Conditions",
+      "and": "and"
+    }
+  },
+  "pageTitle": "Inventory Category",
+  "pageSubtitle": "Manage and organize inventory categories",
+  "addInventoryCategory": "Add Inventory Category",
+  "stats": {
+    "totalCategory": "TOTAL INVENTORY CATEGORY",
+    "allCategorySubtext": "All inventory categories",
+    "totalAssetCategory": "TOTAL ASSET CATEGORY",
+    "assetCategoryLinked": "Asset categories linked",
+    "activeCategories": "ACTIVE CATEGORIES",
+    "currentlyActive": "Currently active",
+    "depreciationRate": "DEPRECIATION RATE",
+    "avgDepreciationRate": "Average depreciation rate"
+  },
+  "filters": {
+    "title": "Filters",
+    "inventoryCategoryAll": "Inventory Category: All",
+    "assetCategoryAll": "Asset Category: All",
+    "statusAll": "Status: All",
+    "active": "Active",
+    "inactive": "Inactive",
+    "searchPlaceholder": "Search by code or name...",
+    "reset": "Reset",
+    "export": "Export"
+  },
+  "columns": {
+    "code": "Code",
+    "inventoryCategory": "Inventory Category",
+    "assetCategory": "Asset Category",
+    "depreciationRate": "Depreciation Rate",
+    "status": "Status"
+  },
+  "excel": {
+    "srNo": "Sr. No.",
+    "exportSuccess": "Inventory categories exported to Excel successfully!",
+    "exportError": "Failed to export inventory categories",
+    "noData": "No data to export",
+    "resetSuccess": "Filters reset"
+  },
+  "categories": {
+    "buildings": "Buildings",
+    "landAndPlots": "Land & Plots",
+    "movableAssets": "Movable Assets",
+    "infrastructure": "Infrastructure"
+  }
+}

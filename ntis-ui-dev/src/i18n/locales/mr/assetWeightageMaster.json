@@ -1,0 +1,390 @@
+{
+  "assetWeightageMaster": {
+    "defaults": {
+      "floor": "मजला",
+      "assessment": "मूल्यांकन"
+    },
+    "title": "भारांकन मास्टर",
+    "subtitle": "CV गणना भारांकन घटक कॉन्फिगर करा",
+    "tabs": {
+      "floor": "मजला भारांकन",
+      "nature": "इमारतीचा प्रकार आणि स्वरूप",
+      "subType": "वापर श्रेणी",
+      "age": "इमारतीचे वय"
+    },
+    "common": {
+      "buttons": {
+        "create": "तयार करा",
+        "update": "अद्यतनित करा",
+        "apply": "लागू करा",
+        "clear": "साफ करा",
+        "generateAll": "सर्व तयार करा",
+        "generating": "तयार होत आहे...",
+        "updating": "अद्यतनित होत आहे...",
+        "cancel": "रद्द करा",
+        "add": "जोडा"
+      },
+      "labels": {
+        "active": "सक्रिय",
+        "inactive": "निष्क्रिय",
+        "assessmentYear": "मूल्यांकन वर्ष",
+        "status": "स्थिती",
+        "statusCurrently": "{name} सध्या {status} आहे",
+        "pendingRecordCreates": "{count} प्रलंबित नोंदी तयार करणे"
+      },
+      "placeholders": {
+        "selectAssessmentYear": "मूल्यांकन वर्ष निवडा"
+      },
+      "messages": {
+        "createRecordFirst": "संपादन किंवा हटवण्यापूर्वी कृपया प्रथम नोंद तयार करा.",
+        "pendingRecordsWarning": "प्रलंबित नोंदी आहेत. कृपया सर्व तयार करा बटणावर क्लिक करा.",
+        "negativeValuesNotAllowed": "ऋण मूल्यांना परवानगी नाही",
+        "valueExceedsMax": "मूल्य 999.99 पेक्षा जास्त असू शकत नाही",
+        "factorPercentageExceedsMax": "फॅक्टर/टक्केवारी मूल्य 0 ते 100 दरम्यान असणे आवश्यक आहे",
+        "noChangesToUpdate": "या ओळीसाठी अद्यतनित करण्यासाठी कोणतेही बदल नाहीत",
+        "noChangesDetected": "या ओळीसाठी कोणतेही बदल आढळले नाहीत",
+        "recordCreatedSuccess": "नोंद यशस्वीरित्या तयार केली",
+        "recordUpdatedSuccess": "नोंद यशस्वीरित्या अद्यतनित केली",
+        "createFailed": "तयार करणे अयशस्वी",
+        "updateFailed": "अद्यतनित करणे अयशस्वी",
+        "failedToSaveRow": "ओळ अद्यतनित करण्यात अयशस्वी. कृपया पुन्हा प्रयत्न करा.",
+        "changesDiscarded": "या ओळीसाठी बदल रद्द केले",
+        "assessmentYearRequired": "मोठ्या प्रमाणात घटक लागू करण्यापूर्वी कृपया मूल्यांकन वर्ष निवडा",
+        "validFactorRequired": "कृपया 0.1 ते 100 दरम्यान वैध घटक मूल्य प्रविष्ट करा",
+        "inactiveRecordNotEditable": "ही नोंद निष्क्रिय आहे. फॅक्टर संपादित करण्यासाठी ते सक्रिय वर सेट करा.",
+        "negativeFactorsNotAllowed": "ऋण घटकांना परवानगी नाही",
+        "factorApplied": "{count} नोंदी(नोंदींना) घटक {factor} लागू केला",
+        "noRecordsMatch": "निवडलेल्या निकषांशी कोणतीही नोंद जुळत नाही",
+        "noRecordsToUpdate": "अद्यतनित करण्यासाठी कोणत्याही नोंदी नाहीत",
+        "bulkOperationSuccess": "यशस्वीरित्या {message}",
+        "bulkOperationPartialSuccess": "{message}",
+        "bulkOperationFailed": "नोंदी प्रक्रिया करण्यात अयशस्वी. तपासा.",
+        "noChangesDetectedBulk": "कोणतेही बदल आढळले नाहीत",
+        "bulkActionFailed": "मोठ्या प्रमाणात कृती अयशस्वी. कृपया पुन्हा प्रयत्न करा.",
+        "recordsGeneratedSuccess": "यशस्वीरित्या {count} नोंदी तयार केल्या",
+        "generationFailed": "नोंदी तयार करण्यात अयशस्वी",
+        "generateAllFailed": "सर्व तयार करणे अयशस्वी. कृपया पुन्हा प्रयत्न करा.",
+        "allClearedInfo": "सर्व बदल आणि फिल्टर साफ केले",
+        "allRecordsExist": "सध्याच्या निवडींसाठी सर्व नोंदी आधीच अस्तित्वात आहेत",
+        "created": "तयार केले",
+        "updated": "अद्यतनित केले",
+        "failed": "अयशस्वी"
+      }
+    },
+    "error": {
+      "title": "सर्व्हरशी कनेक्ट करता आले नाही. कृपया नंतर पुन्हा प्रयत्न करा.",
+      "description": "भारांकन मास्टर पेज लोड करताना आम्हाला त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+      "tryAgain": "पुन्हा प्रयत्न करा",
+      "goHome": "होमवर जा",
+      "errorId": "त्रुटी आयडी: {id}"
+    },
+    "loading": {
+      "message": "भारांकन मास्टर लोड होत आहे...",
+      "description": "आम्ही भारांकन घटक डेटा मिळवत असताना कृपया प्रतीक्षा करा"
+    },
+    "floor": {
+      "title": "मजला घटक मास्टर",
+      "columns": {
+        "floorCode": "मजला कोड",
+        "description": "वर्णन",
+        "factorWithLift": "घटक (लिफ्टसह)",
+        "factorWithoutLift": "घटक (लिफ्टशिवाय)",
+        "assessmentYear": "मूल्यांकन वर्ष",
+        "status": "स्थिती",
+        "action": "कृती"
+      },
+      "filters": {
+        "assessmentYear": "मूल्यांकन वर्ष",
+        "fromFloor": "मजला पासून",
+        "toFloor": "मजला पर्यंत",
+        "liftStatus": "लिफ्ट स्थिती",
+        "factor": "घटक"
+      },
+      "liftStatusOptions": {
+        "both": "दोन्ही",
+        "withLift": "लिफ्टसह",
+        "withoutLift": "लिफ्टशिवाय"
+      },
+      "placeholders": {
+        "select": "निवडा..."
+      },
+      "messages": {
+        "fromFloorGreaterError": "मजला पासून, मजला पर्यंत पेक्षा जास्त असू शकत नाही",
+        "noRecordsFound": "कोणत्याही नोंदी आढळल्या नाहीत",
+        "mandatoryFields": "* ने चिन्हांकित फील्ड अनिवार्य आहेत"
+      },
+      "apiErrors": {
+        "notFound": "फ्लोर वेटेज नोंद सापडली नाही.",
+        "validationError": "अवैध विनंती. कृपया प्रविष्ट केलेली मूल्ये तपासा आणि पुन्हा प्रयत्न करा.",
+        "referredInAutoWardEntry": "हे मजला वेटेज हटवता येणार नाही कारण ते आधीच वापरात आहे. कृपया प्रथम संबंधित नोंदी हटवा."
+      },
+      "deleteConfirmation": {
+        "title": "मजला प्रकार",
+        "description": "तुम्हाला खात्री आहे की तुम्ही ही नोंद हटवू इच्छिता?",
+        "confirmButton": "हटवा",
+        "cancelButton": "रद्द करा",
+        "successMessage": "नोंद यशस्वीरित्या हटवली"
+      },
+      "loading": {
+        "message": "मजला घटक मास्टर लोड होत आहे...",
+        "description": "आम्ही रेकॉर्ड मिळेपर्यंत कृपया प्रतीक्षा करा."
+      },
+      "error": {
+        "title": "सर्व्हरशी कनेक्ट करता आले नाही. कृपया नंतर पुन्हा प्रयत्न करा.",
+        "description": "मजला घटक वेटेज रेकॉर्ड लोड करताना त्रुटी आली.",
+        "tryAgain": "पुन्हा प्रयत्न करा",
+        "goHome": "घरी परत जा",
+        "errorId": "त्रुटी आयडी: {id}"
+      }
+    },
+    "nature": {
+      "title": "निसर्ग घटक CV मास्टर",
+      "columns": {
+        "constructionCode": "बांधकाम कोड",
+        "description": "वर्णन",
+        "factor": "घटक",
+        "assessmentYear": "मूल्यांकन वर्ष",
+        "status": "स्थिती",
+        "action": "कृती"
+      },
+      "filters": {
+        "assessmentYear": "मूल्यांकन वर्ष",
+        "constructionType": "बांधकाम प्रकार",
+        "factor": "घटक"
+      },
+      "placeholders": {
+        "selectAssessmentYear": "मूल्यांकन वर्ष निवडा",
+        "selectConstructionType": "बांधकाम प्रकार निवडा",
+        "factor": "0.00"
+      },
+      "messages": {
+        "noRecordsFound": "कोणत्याही नोंदी आढळल्या नाहीत",
+        "mandatoryFields": "* ने चिन्हांकित फील्ड अनिवार्य आहेत"
+      },
+      "titles": {
+        "editNatureWeightage": "निसर्ग वेटेज संपादित करा"
+      },
+      "descriptions": {
+        "updateNatureDetails": "निसर्ग वेटेज तपशील अपडेट करा"
+      },
+      "loading": {
+        "message": "निसर्ग घटक CV मास्टर लोड होत आहे...",
+        "description": "आम्ही रेकॉर्ड मिळेपर्यंत कृपया प्रतीक्षा करा."
+      },
+      "error": {
+        "title": "सर्व्हरशी कनेक्ट करता आले नाही. कृपया नंतर पुन्हा प्रयत्न करा.",
+        "description": "निसर्ग घटक वेटेज रेकॉर्ड लोड करताना त्रुटी आली.",
+        "tryAgain": "पुन्हा प्रयत्न करा",
+        "goHome": "घरी परत जा",
+        "errorId": "त्रुटी आयडी: {id}"
+      },
+      "errors": {
+        "invalidNatureFactorCVId": "वैध निसर्ग घटक CV आयडी आवश्यक आहे",
+        "fetchFailed": "निसर्ग घटक वेटेज रेकॉर्ड आणण्यात अयशस्वी",
+        "updateFailed": "निसर्ग घटक वेटेज रेकॉर्ड अपडेट करण्यात अयशस्वी",
+        "createFailed": "निसर्ग घटक वेटेज रेकॉर्ड तयार करण्यात अयशस्वी",
+        "bulkUpdateFailed": "निसर्ग घटक वेटेज रेकॉर्ड बल्क अपडेट करण्यात अयशस्वी",
+        "bulkCreateFailed": "निसर्ग घटक वेटेज रेकॉर्ड बल्क तयार करण्यात अयशस्वी",
+        "invalidPaginationParameters": "अवैध पृष्ठ विनंती"
+      },
+      "apiErrors": {
+        "notFound": "बांधकाम प्रकार वेटेज नोंद सापडली नाही.",
+        "validationError": "अवैध विनंती. कृपया प्रविष्ट केलेली मूल्ये तपासा आणि पुन्हा प्रयत्न करा.",
+        "referredInAutoWardEntry": "हे बांधकाम प्रकार वेटेज हटवता येणार नाही कारण ते आधीच वापरात आहे."
+      },
+      "deleteConfirmation": {
+        "title": "बांधकाम प्रकार",
+        "description": "तुम्हाला खात्री आहे की तुम्ही ही नोंद हटवू इच्छिता?",
+        "confirmButton": "हटवा",
+        "cancelButton": "रद्द करा",
+        "successMessage": "नोंद यशस्वीरित्या हटवली",
+        "deleteFailed": "निसर्ग घटक भार नोंद हटवण्यात अयशस्वी"
+      }
+    },
+    "subType": {
+      "title": "वापर श्रेणी CV घटक मास्टर",
+      "columns": {
+        "typeOfUseCode": "वापराचा प्रकार कोड",
+        "typeOfUse": "वापराचा प्रकार",
+        "subType": "वापराचा उपप्रकार",
+        "factor": "घटक",
+        "assessmentYear": "मूल्यांकन वर्ष",
+        "status": "स्थिती",
+        "action": "कृती"
+      },
+      "leftTable": {
+        "typeOfUseCode": "वापराचा प्रकार कोड",
+        "typeOfUse": "वापराचा प्रकार",
+        "status": "स्थिती"
+      },
+      "filters": {
+        "assessmentYear": "मूल्यांकन वर्ष",
+        "typeOfUse": "वापराचा प्रकार",
+        "factor": "घटक"
+      },
+      "placeholders": {
+        "selectAssessmentYear": "मूल्यांकन वर्ष निवडा",
+        "selectTypeOfUse": "वापराचा प्रकार निवडा",
+        "factor": "0.00"
+      },
+      "messages": {
+        "noSubtypeRecordsFound": "निवडलेल्या प्रकारासाठी कोणत्याही उप-प्रकार नोंदी आढळल्या नाहीत",
+        "selectTypeOfUsePrompt": "डाव्या सारणीतून वापराचा प्रकार निवडा किंवा ड्रॉपडाउन फिल्टर वापरा",
+        "noTypeOfUseRecordsFound": "वापराचा प्रकार कोणत्याही नोंदी आढळल्या नाहीत",
+        "mandatoryFields": "* चिन्हांकित केलेली फील्ड अनिवार्य आहेत"
+      },
+      "titles": {
+        "editTitle": "वापराचा उपप्रकार भारांक संपादित करा"
+      },
+      "descriptions": {
+        "updateSubTypeDetails": "वापराचा उपप्रकार भारांकाचे तपशील अद्यतनित करा"
+      },
+      "loading": {
+        "message": "वापर श्रेणी CV घटक मास्टर लोड होत आहे...",
+        "description": "कृपया आम्ही रेकॉर्ड मिळेपर्यंत प्रतीक्षा करा."
+      },
+      "error": {
+        "title": "सर्व्हरशी कनेक्ट करता आले नाही. कृपया नंतर पुन्हा प्रयत्न करा.",
+        "description": "वापर श्रेणी घटक वेटेज रेकॉर्ड लोड करताना त्रुटी आली.",
+        "tryAgain": "पुन्हा प्रयत्न करा",
+        "goHome": "घरी परत जा",
+        "errorId": "त्रुटी आयडी: {id}"
+      },
+      "errors": {
+        "invalidId": "वैध वापर घटक CV ID आवश्यक आहे",
+        "typeOfUseIdRequired": "वापराचा प्रकार आवश्यक आहे",
+        "yearRangeCVIdRequired": "मूल्यांकन वर्ष आवश्यक आहे",
+        "factorNegative": "घटक नकारात्मक असू शकत नाही",
+        "fetchFailed": "वापर घटक CV मास्टर रेकॉर्ड मिळवण्यात अयशस्वी",
+        "updateFailed": "वापर घटक CV मास्टर अपडेट करण्यात अयशस्वी",
+        "createFailed": "वापर घटक CV मास्टर तयार करण्यात अयशस्वी",
+        "bulkUpdateFailed": "वापर घटक CV मास्टर मोठ्या प्रमाणात अपडेट करण्यात अयशस्वी",
+        "bulkCreateFailed": "वापर घटक CV मास्टर मोठ्या प्रमाणात तयार करण्यात अयशस्वी",
+        "payloadRequired": "वैध पेलोड आवश्यक आहे",
+        "invalidPaginationParameters": "अवैध पृष्ठ पॅरामीटर्स",
+        "fetchTypeOfUseFailed": "वापराचा प्रकार रेकॉर्ड मिळवण्यात अयशस्वी",
+        "deleteFailed": "वापर घटक रेकॉर्ड हटवण्यात अयशस्वी"
+      },
+      "apiErrors": {
+        "notFound": "वापराचा प्रकार वेटेज नोंद सापडली नाही.",
+        "validationError": "अवैध विनंती. कृपया प्रविष्ट केलेली मूल्ये तपासा आणि पुन्हा प्रयत्न करा.",
+        "referredInAutoWardEntry": "हे वापराचा प्रकार वेटेज हटवता येणार नाही कारण ते आधीच वापरात आहे."
+      },
+      "deleteConfirmation": {
+        "title": "वापराचा प्रकार",
+        "description": "तुम्हाला खात्री आहे की तुम्ही हे रेकॉर्ड हटवू इच्छिता?",
+        "confirmButton": "हटवा",
+        "cancelButton": "रद्द करा",
+        "successMessage": "रेकॉर्ड यशस्वीरित्या हटवले"
+      },
+      "edit": {
+        "subTypeStatus": "वापराचा उपप्रकार भारांक सध्या {status} आहे",
+        "active": "सक्रिय",
+        "inactive": "निष्क्रिय"
+      }
+    },
+    "age": {
+      "title": "वय घटक मास्टर",
+      "columns": {
+        "constructionType": "बांधकाम प्रकार",
+        "description": "वर्णन",
+        "ageFrom": "वय पासून",
+        "ageTo": "वय पर्यंत",
+        "factor": "घटक",
+        "assessmentYear": "मूल्यांकन वर्ष",
+        "status": "स्थिती",
+        "action": "कृती"
+      },
+      "filters": {
+        "assessmentYear": "मूल्यांकन वर्ष",
+        "constructionType": "बांधकाम प्रकार",
+        "ageRange": "वय मर्यादा",
+        "factor": "घटक"
+      },
+      "placeholders": {
+        "select": "निवडा...",
+        "selectRange": "मर्यादा निवडा",
+        "minYear": "उदा. 0",
+        "maxYear": "उदा. 5"
+      },
+      "buttons": {
+        "addAge": "वय जोडा"
+      },
+      "labels": {
+        "addAgeRange": "वय मर्यादा जोडा",
+        "minYear": "वय पासून",
+        "maxYear": "वय पर्यंत",
+        "close": "बंद करा"
+      },
+      "messages": {
+        "selectYearAndRange": "कृपया नोंद तयार करण्यापूर्वी मूल्यांकन वर्ष आणि वय मर्यादा निवडा",
+        "recordSavedSuccess": "नोंद यशस्वीरित्या जतन केली",
+        "actionFailed": "कृती अयशस्वी",
+        "failedToSaveRow": "ओळ जतन करण्यात अयशस्वी",
+        "provideBothAges": "कृपया वय पासून आणि वय पर्यंत दोन्ही प्रदान करा",
+        "fromAgeGreaterError": "वय पासून, वय पर्यंत पेक्षा जास्त असू शकत नाही",
+        "ageRangeExists": "वय मर्यादा आधीच अस्तित्वात आहे",
+        "ageRangeOverlap": "वय मर्यादा {newRange} विद्यमान मर्यादा {existingRange} सोबत ओव्हरलॅप करते. कृपया नॉन-ओव्हरलॅपिंग मर्यादा निवडा.",
+        "ageRangeAdded": "{from} ते {to} वय मर्यादा जोडली",
+        "invalidFactorValue": "अवैध घटक मूल्य",
+        "factorAppliedLocally": "घटक {factor} स्थानिकरित्या {count} ओळी(ओळींना) लागू केला. जतन करण्यासाठी \"अद्यतनित करा\" वर क्लिक करा.",
+        "noRecordsMatch": "सारणीतील वर्तमान निवडीशी कोणतीही नोंद जुळत नाही",
+        "bulkOperationSuccess": "मोठ्या प्रमाणात ऑपरेशन यशस्वी",
+        "bulkOperationFailed": "मोठ्या प्रमाणात ऑपरेशन अयशस्वी",
+        "noConstructionTypes": "कोणतेही बांधकाम प्रकार उपलब्ध नाहीत",
+        "assessmentYearMissing": "मूल्यांकन वर्ष पर्याय गहाळ आहेत",
+        "noAgeRangesAvailable": "कोणतीही वय श्रेणी उपलब्ध नाही. कृपया प्रथम वय श्रेणी जोडा.",
+        "factorRequiredForGeneration": "कृपया नोंदी तयार करण्यापूर्वी 0 पेक्षा जास्त फॅक्टर मूल्य प्रविष्ट करा किंवा लागू करा.",
+        "allRecordsExist": "वर्तमान निवडीसाठी सर्व नोंदी आधीच अस्तित्वात आहेत",
+        "recordsGeneratedSuccess": "{count} नोंदी यशस्वीरित्या तयार केल्या",
+        "generationFailed": "निर्मिती अयशस्वी",
+        "errorGeneratingRecords": "नोंदी तयार करताना एक त्रुटी आली"
+      },
+      "loading": {
+        "message": "वय घटक मास्टर लोड होत आहे...",
+        "description": "आम्ही वय घटक भार डेटा प्राप्त करत असताना कृपया प्रतीक्षा करा"
+      },
+      "error": {
+        "title": "सर्व्हरशी कनेक्ट करता आले नाही. कृपया नंतर पुन्हा प्रयत्न करा.",
+        "description": "वय घटक मास्टर लोड करताना एक अनपेक्षित त्रुटी आली.",
+        "tryAgain": "पुन्हा प्रयत्न करा",
+        "goHome": "मुख्यपृष्ठावर जा",
+        "errorId": "त्रुटी आयडी: {id}"
+      },
+      "errors": {
+        "validIdRequired": "वैध वय घटक सीव्ही आयडी आवश्यक आहे",
+        "constructionTypeRequired": "बांधकाम प्रकार आयडी आवश्यक आहे",
+        "yearRangeRequired": "मूल्यांकन वर्ष श्रेणी आयडी आवश्यक आहे",
+        "updateFailed": "वय घटक सीव्ही मास्टर अद्यतनित करण्यात अयशस्वी",
+        "createFailed": "वय घटक सीव्ही मास्टर तयार करण्यात अयशस्वी",
+        "bulkCreateRequired": "घाऊक निर्मितीसाठी वय घटकांसह वैध पेलोड आवश्यक आहे",
+        "bulkUpdateRequired": "घाऊक अद्यतनासाठी वय घटकांसह वैध पेलोड आवश्यक आहे",
+        "bulkUpdateFailed": "घाऊक अद्यतन वय घटक सीव्ही मास्टर अयशस्वी झाले",
+        "bulkDeleteRequired": "घाऊक हटवण्यासाठी आयडीची वैध सूची आवश्यक आहे",
+        "bulkDeleteFailed": "घाऊक हटवणे वय घटक सीव्ही मास्टर अयशस्वी झाले",
+        "mandatoryFields": " * चिन्हांकित केलेली फील्ड अनिवार्य आहेत"
+      },
+      "edit": {
+        "title": "वय भारांक संपादित करा",
+        "description": "वय भारांकाचे तपशील अद्यतनित करा",
+        "successMessage": "वय घटक सीव्ही मास्टर यशस्वीरित्या अद्यतनित केले",
+        "errorMessage": "वय घटक सीव्ही मास्टर अद्यतनित करण्यात अयशस्वी",
+        "ageStatus": "वय भारांक सध्या {status} आहे",
+        "active": "सक्रिय",
+        "inactive": "निष्क्रिय"
+      },
+      "apiErrors": {
+        "notFound": "वय वेटेज नोंद सापडली नाही.",
+        "validationError": "अवैध विनंती. कृपया प्रविष्ट केलेली मूल्ये तपासा आणि पुन्हा प्रयत्न करा.",
+        "referredInAutoWardEntry": "हे वय वेटेज हटवता येणार नाही कारण ते आधीच कॅपिटल व्हॅल्यू कर गणनेत वापरले जात आहे. कृपया प्रथम संबंधित नोंदी हटवा."
+      },
+      "deleteConfirmation": {
+        "title": "बांधकाम प्रकार",
+        "description": "तुम्हाला खात्री आहे की तुम्ही ही नोंद हटवू इच्छिता?",
+        "confirmButton": "हटवा",
+        "cancelButton": "रद्द करा",
+        "successMessage": "नोंद यशस्वीरित्या हटवली"
+      }
+    }
+  }
+}

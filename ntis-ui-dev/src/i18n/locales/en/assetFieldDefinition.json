@@ -1,0 +1,178 @@
+{
+  "list": {
+    "title": "Asset Field Definition Master",
+    "subtitle": "Manage custom dynamic field definitions for asset categories and types",
+    "buttons": {
+      "add": "Add Field Definition",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "filters": {
+      "show": "Show",
+      "search": "Search by Field Code, Name, or Label..."
+    },
+    "table": {
+      "fieldCode": "Field Code",
+      "fieldName": "Field Name",
+      "fieldLabel": "Field Label",
+      "fieldType": "Field Type",
+      "fieldGroup": "Field Group",
+      "assetCategoryAndType": "Category / Type",
+      "isRequired": "Is Required",
+      "displayOrder": "Display Order",
+      "viewOptions": "View Options",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    }
+  },
+  "errors": {
+    "duplicateFieldCode": "Field Code already exists for this Asset Category and Type",
+    "duplicateFieldName": "Field Name already exists for this Asset Category and Type",
+    "duplicate": "Field definition already exists for this Asset Category and Type"
+  },
+  "optionsDrawer": {
+    "title": "Field Options",
+    "subtitle": "Configured dropdown, radio, or checkbox options for this field",
+    "seqNo": "Seq No.",
+    "optionValue": "Option Value",
+    "totalOptions": "Total Options",
+    "noOptions": "No options available for this field"
+  },
+  "form": {
+    "addTitle": "Add Asset Field Definition",
+    "editTitle": "Edit Asset Field Definition",
+    "subtitle": "Define a new dynamic field attribute for assets",
+    "editSubtitle": "Update asset field definition details",
+    "sections": {
+      "generalConfig": "General Config",
+      "scopeAndCategory": "Scope & Category"
+    },
+    "fields": {
+      "fieldCode": {
+        "label": "Field Code",
+        "placeholder": "e.g. TOTAL_FLOORS"
+      },
+      "fieldName": {
+        "label": "Field Name",
+        "placeholder": "e.g. Total Floors"
+      },
+      "fieldLabel": {
+        "label": "Field Label",
+        "placeholder": "e.g. Number of Floors"
+      },
+      "fieldType": {
+        "label": "Field Type",
+        "placeholder": "Select Field Type"
+      },
+      "fieldTypeOptions": {
+        "text": "Text Input",
+        "textarea": "Text Area",
+        "number": "Number Input",
+        "date": "Date Picker",
+        "radio": "Radio Buttons",
+        "checkbox": "Checkbox",
+        "select": "Select / Dropdown"
+      },
+      "fieldOptions": {
+        "label": "Options (Comma Separated)",
+        "placeholder": "e.g. Yes, No, Maybe",
+        "description": "Enter options separated by commas in your desired display sequence"
+      },
+      "fieldGroup": {
+        "label": "Field Group",
+        "placeholder": "e.g. Building Specifications"
+      },
+      "fieldGroupSelectLabel": "Select Group",
+      "fieldGroupSelectPlaceholder": "Select existing group...",
+      "displayOrder": {
+        "label": "Display Order"
+      },
+      "assetCategoryId": {
+        "label": "Asset Category",
+        "placeholder": "Select Asset Category"
+      },
+      "assetTypeId": {
+        "label": "Asset Type",
+        "placeholder": "Select Asset Type"
+      },
+      "isRequired": {
+        "label": "Field Required",
+        "description": "Mark if this field is mandatory during asset data entry"
+      }
+    },
+    "validation": {
+      "fieldCodeRequired": "Field code is required",
+      "fieldCodeMaxLength": "Maximum length is {count} characters",
+      "fieldCodeAllZeros": "Field Code cannot be all zeros",
+      "fieldCodeFormat": "Only uppercase letters, digits, spaces, hyphens, and underscores allowed",
+      "fieldNameRequired": "Field name is required",
+      "fieldNameMaxLength": "Maximum length is 100 characters",
+      "fieldNameAllZeros": "Field Name cannot be all zeros",
+      "fieldNameFormat": "Field Name must contain letters and spaces only",
+      "fieldLabelRequired": "Field label is required",
+      "fieldLabelMaxLength": "Maximum length is 100 characters",
+      "fieldLabelAllZeros": "Field Label cannot be all zeros",
+      "fieldLabelFormat": "Field Label must contain letters and spaces only",
+      "fieldGroupRequired": "Field group is required",
+      "fieldGroupMaxLength": "Maximum length is 100 characters",
+      "fieldGroupAllZeros": "Field Group cannot be all zeros",
+      "fieldGroupFormat": "Field Group must contain letters and spaces only",
+      "fieldTypeRequired": "Field type is required",
+      "optionsJsonRequired": "Options are required for checkbox, radio, and select field types",
+      "optionsJsonMaxLength": "Maximum length for options is {count} characters",
+      "optionsJsonFormat": "Options must be comma-separated letters or numbers (e.g. Male, Female)",
+      "displayOrderInvalid": "Display order must be greater than 0",
+      "displayOrderRequired": "Display order is required",
+      "mustBeActive": "Asset Field Definition must be active to save",
+      "assetCategoryRequired": "Asset Category is required",
+      "assetTypeRequired": "Asset Type is required"
+    },
+    "status": {
+      "label": "Active Status",
+      "description": "Asset field definition is currently"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "save": "Save",
+      "update": "Update"
+    }
+  },
+  "delete": {
+    "confirmDescription": "Are you sure you want to delete this asset field definition?"
+  },
+  "apiErrors": {
+    "duplicateRecord": "Please check Field Code - duplicates not allowed.",
+    "AssetFieldDefinition_FieldCode_Duplicate": "Asset Field Definition Code already exists",
+    "AssetFieldDefinition_FieldCode_Invalid": "Field Code contains invalid characters",
+    "notFound": "Asset field definition not found.",
+    "operationFailed": "Operation failed. Please try again later.",
+    "referenceBlocked": {
+      "assetFieldDefinition": {
+        "deleteInUse": "This Asset Field Definition cannot be deleted because it is in use.",
+        "deactivateInUse": "This Asset Field Definition cannot be deactivated because it is in use."
+      }
+    }
+  },
+  "success": {
+    "created": "New asset field definition created successfully: {code}",
+    "updated": "Asset field definition updated successfully: {code}",
+    "deleted": "Asset field definition deleted successfully: {code}"
+  },
+  "loading": {
+    "message": "Loading asset field definition data...",
+    "description": "Please wait while we load field definition details"
+  },
+  "error": {
+    "title": "Failed to load asset field definition data",
+    "description": "We encountered an error while loading field definition details. Please try again.",
+    "errorId": "Error ID: {id}",
+    "goHome": "Go Home",
+    "tryAgain": "Try Again"
+  },
+  "yes": "Yes",
+  "no": "No"
+}

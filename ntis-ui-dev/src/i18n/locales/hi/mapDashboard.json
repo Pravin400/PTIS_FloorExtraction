@@ -1,0 +1,54 @@
+{
+  "title": "यूएलबी संपदा प्रबंधन डैशबोर्ड",
+  "ulbListTitle": "शहरी स्थानीय निकाय",
+  "clearFilterTooltip": "सभी जिले दिखाएं",
+  "comingSoonToast": "{city} के लिए संपत्ति प्रबंधन प्रणाली जल्द आ रही है!",
+  "tabs": {
+    "municipalCorporations": "नगर निगम",
+    "municipalCouncils": "नगर पालिका",
+    "nagarPanchayats": "नगर पंचायत"
+  },
+  "table": {
+    "columns": {
+      "name": "नाम",
+      "totalAssets": "कुल संपत्ति",
+      "buildings": "भवन",
+      "land": "भूमि",
+      "infra": "अवस्थापना",
+      "movable": "चल संपत्ति",
+      "valueCr": "मूल्य (करोड़)",
+      "action": "पोर्टल"
+    },
+    "openButton": "खोलें",
+    "totalCount": "कुल: {count}",
+    "allDistricts": "सभी जिले",
+    "noULBs": "इस जिले में कोई {type} नहीं है"
+  },
+  "cards": {
+    "totalUlbs": "कुल यूएलबी",
+    "totalAssets": "कुल संपत्ति",
+    "buildingAssets": "भवन संपत्ति",
+    "landAssets": "भूमि संपत्ति",
+    "infrastructureAssets": "अवस्थापना संपत्ति",
+    "movableAssets": "चल संपत्ति",
+    "assetValuation": "संपत्ति मूल्यांकन",
+    "revenueAnnual": "राजस्व (वार्षिक)",
+    "monetization": "मौद्रीकरण",
+    "encroachment": "अतिक्रमण"
+  },
+  "map": {
+    "backToStateMap": "राज्य मानचित्र पर वापस जाएं",
+    "visitMunicipalPortal": "नगर पालिका संपत्ति पोर्टल पर जाएं"
+  },
+  "loading": {
+    "message": "डैशबोर्ड डेटा लोड हो रहा है...",
+    "description": "कृपया प्रतीक्षा करें, हम मानचित्र डैशबोर्ड जानकारी लोड कर रहे हैं"
+  },
+  "error": {
+    "title": "डैशबोर्ड डेटा लोड करने में विफल",
+    "description": "मानचित्र डैशबोर्ड लोड करते समय एक त्रुटि हुई। कृपया पुनः प्रयास करें।",
+    "errorId": "त्रुटि आईडी: {id}",
+    "goHome": "होम पर जाएं",
+    "tryAgain": "पुनः प्रयास करें"
+  }
+}

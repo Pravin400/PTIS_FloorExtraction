@@ -1,0 +1,22 @@
+{
+  "roomSubmission": {
+    "validation": {
+      "enterRoomNumber": "कृपया कक्ष क्रमांक प्रविष्ट करा.",
+      "roomTypeRequired": "कृपया कक्षाचा प्रकार निवडा.",
+      "selectShapeOrEnterArea": "कृपया कक्षाचा आकार निवडा किंवा क्षेत्र प्रविष्ट करा.",
+      "enterValidDimensions": "निवडलेल्या आकारासाठी वैध माप प्रविष्ट करा."
+    },
+    "input": {
+      "shapes": {
+        "select": "आकार निवडा",
+        "rectangle": "आयताकृती",
+        "square": "चौरस",
+        "triangle": "त्रिकोण",
+        "trapezoid": "समांतर चतुर्भुज",
+        "circle": "वृत्त",
+        "semiCircle": "अर्धवृत्त",
+        "quarterCircle": "चतुर्थांश वृत्त"
+      }
+    }
+  }
+}

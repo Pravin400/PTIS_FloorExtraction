@@ -1,0 +1,288 @@
+{
+  "floor": {
+    "loading": {
+      "message": "मजला डेटा लोड होत आहे...",
+      "description": "कृपया प्रतीक्षा करा आम्ही मजला माहिती लोड करत आहोत"
+    },
+    "error": {
+      "title": "मजला डेटा लोड करण्यात अयशस्वी",
+      "description": "मजला माहिती लोड करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+      "errorId": "त्रुटी आयडी: {id}",
+      "goHome": "मुख्यपृष्ठावर जा",
+      "tryAgain": "पुन्हा प्रयत्न करा"
+    },
+    "floor": "मजला",
+    "aliasFallback": {
+      "floor": "मजला",
+      "floors": "मजले"
+    },
+    "title": "{floor} मास्टर व्यवस्थापन",
+    "delete": {
+      "confirmTitle": "मजला हटवा",
+      "confirmDescription": "आपण हा {floor} हटवू इच्छिता? ही क्रिया पूर्ववत करता येणार नाही."
+    },
+    "subtitle": "{floor} माहिती जोडा, संपादित करा आणि व्यवस्थापित करा",
+    "tableTitle": "मजला यादी",
+    "search": {
+      "placeholder": "{floor} कोड किंवा वर्णनाने शोधा..."
+    },
+    "buttons": {
+      "add": "{floor} जोडा"
+    },
+    "tabs": {
+      "floor": "मजला",
+      "subfloor": "उप-{floor}"
+    },
+    "form": {
+      "title": "मजला तपशील",
+      "addTitle": "नवीन {floor} जोडा",
+      "addSubtitle": "नवीन {floor} नोंद तयार करा",
+      "editTitle": "{floor} संपादित करा",
+      "editSubtitle": "{floor} माहिती अपडेट करा",
+      "entryMode": "{floor} तयार करण्याचा मोड निवडा",
+      "singleFloor": "एकल {floor}",
+      "floorRange": "{floor} श्रेणी",
+      "floorCode": "{floor} कोड",
+      "floorCodePlaceholder": "उदा., GF, 1F, 2F",
+      "floorCodePattern": "फक्त अक्षरे, संख्या, /, _, - मजला कोडसाठी परवानगी आहे",
+      "floorName": "मजलाचे नाव",
+      "floorNamePlaceholder": "उदा., तळमजला, पहिला मजला, तळघर",
+      "floorNameEnglish": "इंग्रजी वर्णन",
+      "floorNameEnglishPlaceholder": "इंग्रजी वर्णन प्रविष्ट करा",
+      "descriptionEnglish": "इंग्रजी वर्णन",
+      "descriptionEnglishPlaceholder": "इंग्रजी वर्णन प्रविष्ट करा",
+      "regionalName": "प्रादेशिक वर्णन",
+      "regionalNamePlaceholder": "प्रादेशिक वर्णन प्रविष्ट करा",
+      "floorNumber": "मजला क्रमांक",
+      "floorNumberPlaceholder": "उदा., 0, 1, 2, -1",
+      "sequenceNo": "क्रम क्रमांक",
+      "sequenceNoPlaceholder": "क्रम क्रमांक प्रविष्ट करा",
+      "description": "प्रादेशिक वर्णन",
+      "descriptionPlaceholder": "प्रादेशिक वर्णन प्रविष्ट करा",
+      "searchPlaceholder": "आयडी किंवा {floor} नावाने शोधा...",
+      "status": "स्थिती",
+      "isActive": "सक्रिय",
+      "activeStatusTitle": "{floor} स्थिती",
+      "activeStatusOn": "हा मजला सध्या सक्रिय आहे",
+      "activeStatusOff": "हा मजला सध्या निष्क्रिय आहे",
+      "range": {
+        "title": "मजला श्रेणी",
+        "start": "सुरू",
+        "end": "शेवट",
+        "startPlaceholder": "1",
+        "endPlaceholder": "10"
+      },
+      "englishName": {
+        "title": "इंग्रजी नाव",
+        "prefix": "पूर्वसर्ग",
+        "prefixPlaceholder": "FL",
+        "suffix": "प्रत्यय",
+        "suffixPlaceholder": "FL"
+      },
+      "regionalNameSection": {
+        "title": "प्रादेशिक नाव",
+        "prefix": "पूर्वसर्ग",
+        "prefixPlaceholder": "FL",
+        "suffix": "प्रत्यय",
+        "suffixPlaceholder": "FL"
+      },
+      "autoGenerateSubFloor": "उप-मजला स्वयंचलितपणे तयार करा",
+      "autoGenerateSubFloorDesc": "श्रेणीत प्रत्येक मजल्यासाठी एक उप-मजला तयार करतो",
+      "rangeExample": "उदाहरण: श्रेणी 1-5 तयार करते 1F, 2F, 3F, 4F, 5F",
+      "validation": {
+        "codeRequired": "कोड आवश्यक आहे",
+        "codeFormat": "कोडमध्ये फक्त अक्षरे, संख्या आणि अंडरस्कोर असू शकतात (सुरुवात/शेवटी नाही)",
+        "codeMaxLength": "कोड {count} वर्णांपेक्षा जास्त असू शकत नाही",
+        "descriptionRequired": "वर्णन आवश्यक आहे",
+        "descriptionEnglishRequired": "इंग्रजी वर्णन आवश्यक आहे",
+        "descriptionEnglishAllZeros": "इंग्रजी वर्णन सर्व शून्य असू शकत नाही",
+        "descriptionFormat": "वर्णनात अवैध वर्ण किंवा स्वरूपन आहे",
+        "descriptionMaxLength": "वर्णन {count} वर्णांपेक्षा जास्त असू शकत नाही",
+        "englishOnly": "फक्त इंग्रजी भाषेतील अक्षरे अनुज्ञेय आहेत",
+        "sequenceNoRequired": "अनुक्रम क्रमांक आवश्यक आहे",
+        "mustBeActive": "नवीन मजला सक्रिय असणे आवश्यक आहे",
+        "rangeStartRequired": "सुरू मूल्य आवश्यक आहे",
+        "rangeEndRequired": "शेवट मूल्य आवश्यक आहे",
+        "rangeStartMinValue": "सुरू मूल्य किमान 1 असावे",
+        "rangeEndMinValue": "शेवट मूल्य किमान 1 असावे",
+        "rangeStartLessThanEnd": "सुरू शेवटपेक्षा कमी किंवा समान असावे",
+        "rangeMaxValue": "मूल्य {count} पेक्षा जास्त असू शकत नाही",
+        "rangeMaxCount": "एका वेळी {count} पेक्षा जास्त मजले जोडता येत नाहीत",
+        "flatGenerationGroupRequired": "फ्लॅट जनरेशन प्रकार आवश्यक आहे",
+        "flatGenerationSeqRequired": "फ्लॅट जनरेशन अनुक्रम आवश्यक आहे"
+      },
+      "flatGenerationGroup": "फ्लॅट जनरेशन प्रकार",
+      "flatGenerationGroupPlaceholder": "फ्लॅट जनरेशन प्रकार निवडा",
+      "flatGenerationSeq": "फ्लॅट जनरेशन अनुक्रम",
+      "flatGenerationSeqPlaceholder": "अनुक्रम प्रविष्ट करा"
+    },
+    "table": {
+      "columns": {
+        "srNo": "अ. क्र.",
+        "floorCode": "{floor} संकेतांक",
+        "floorName": "मजलाचे नाव",
+        "descriptionEnglish": "इंग्रजी वर्णन",
+        "descriptionRegional": "प्रादेशिक वर्णन",
+        "floorNumber": "मजला क्रमांक",
+        "description": "प्रादेशिक वर्णन",
+        "sequenceNo": "क्रम क्रमांक",
+        "status": "स्थिती",
+        "actions": "क्रिया"
+      },
+      "pagination": {
+        "showing": "दाखवत आहे",
+        "entries": "{total} प्रविष्ट्यांपैकी"
+      }
+    },
+    "messages": {
+      "createRangeSuccess": "{count} {floors} यशस्वीरित्या तयार केले गेले",
+      "addSuccess": "मजला यशस्वीरित्या जोडला गेला",
+      "createSuccess": "{floor} यशस्वीरित्या तयार केला गेला",
+      "updateSuccess": "{floor} यशस्वीरित्या अपडेट केला गेला",
+      "deleteSuccess": "{floor} यशस्वीरित्या हटवला गेला",
+      "deleteFailed": "मजला हटवण्यात अयशस्वी. कृपया पुन्हा प्रयत्न करा.",
+      "deleteInUse": "खालील ठिकाणी वापरल्यामुळे हा मजला निष्क्रिय/हटवता येत नाही:\nवेटेज मास्टर, मालमत्ता तपशील (Weightage Master, Property Details).\n\nकृपया प्रथम अवलंबून असलेले रेकॉर्ड हटवा.",
+      "deleteConfirm": "तुम्हाला खात्री आहे की तुम्ही हा मजला हटवू इच्छिता?",
+      "noFloors": "कोणतेही मजले उपलब्ध नाहीत. सुरू करण्यासाठी नवीन मजला जोडा.",
+      "validFloorIdRequired": "वैध मजला आयडी आवश्यक आहे"
+    },
+    "validation": {
+      "floorIdPattern": "फक्त अक्षरे, संख्या, /, _, - याची परवानगी आहे",
+      "duplicateFloorCode": "मजला संकेतांक आधीपासूनच अस्तित्वात आहे",
+      "maxFloorGteSequence": "कमाल मजला >= क्रम क्रमांक असायला पाहिजे",
+      "duplicateSequenceNo": "या मजल्याचा क्रमांक आधीपासूनच अस्तित्वात आहे",
+      "mustBeNumber": "वैध संख्या असणे आवश्यक आहे",
+      "required": "हे फील्ड आवश्यक आहे"
+    },
+    "apiErrors": {
+      "duplicateRecord": "रेकॉर्ड आधीच अस्तित्वात आहे",
+      "invalidData": "अवैध डेटा प्रदान केला आहे",
+      "notFound": "रेकॉर्ड सापडला नाही",
+      "operationFailed": "ऑपरेशन अयशस्वी",
+      "inUse": "खालील ठिकाणी वापरल्यामुळे हा {floor} निष्क्रिय/हटवता येत नाही:\nवेटेज मास्टर, मालमत्ता तपशील (Weightage Master, Property Details).\n\nकृपया प्रथम अवलंबून असलेले रेकॉर्ड हटवा."
+    },
+    "note": {
+      "mandatory": "* चिन्हांकित फील्ड अनिवार्य आहेत"
+    }
+  },
+  "subfloor": {
+    "loading": {
+      "message": "उप-मजला डेटा लोड होत आहे...",
+      "description": "कृपया प्रतीक्षा करा आम्ही उप-मजला माहिती लोड करत आहोत"
+    },
+    "error": {
+      "title": "उप-मजला डेटा लोड करण्यात अयशस्वी",
+      "description": "उप-मजला माहिती लोड करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+      "errorId": "त्रुटी आयडी: {id}",
+      "goHome": "मुख्यपृष्ठावर जा",
+      "tryAgain": "पुन्हा प्रयत्न करा"
+    },
+    "aliasFallback": {
+      "floor": "मजला"
+    },
+    "delete": {
+      "confirmTitle": "उप-{floor} हटवा",
+      "confirmDescription": "तुम्हाला हा उप-{floor} हटवायचा आहे का? ही क्रिया पूर्ववत करता येणार नाही."
+    },
+    "title": "उप-मजला मास्टर व्यवस्थापन",
+    "subtitle": "उप-मजला श्रेणी जोडा, संपादित करा आणि व्यवस्थापित करा",
+    "tableTitle": "उप-मजला यादी",
+    "search": {
+      "placeholder": "कोड किंवा वर्णनाने शोधा..."
+    },
+    "buttons": {
+      "add": "उप-{floor} जोडा"
+    },
+    "tabs": {
+      "floor": "मजला",
+      "subfloor": "उप-{floor}"
+    },
+    "form": {
+      "title": "उप-मजला तपशील",
+      "addTitle": "उप-{floor} जोडा",
+      "addSubtitle": "नवीन उप-{floor} तयार करा",
+      "editTitle": "उप-{floor} संपादित करा",
+      "editSubtitle": "उप-{floor} तपशील अपडेट करा",
+      "subFloorId": "उप-मजला आयडी",
+      "subFloorIdPlaceholder": "उदा., SF01, SF02",
+      "descriptionEnglish": "इंग्रजी वर्णन",
+      "descriptionEnglishPlaceholder": "इंग्रजी वर्णन प्रविष्ट करा",
+      "descriptionRegional": "प्रादेशिक वर्णन",
+      "descriptionRegionalPlaceholder": "प्रादेशिक वर्णन प्रविष्ट करा",
+      "searchPlaceholder": "आयडी किंवा वर्णनाने शोधा...",
+      "activeStatusTitle": "सक्रिय स्थिती",
+      "activeStatusOn": "सध्या सक्षम आहे",
+      "activeStatusOff": "सध्या अक्षम आहे",
+      "code": "उप-{floor} संकेतांक",
+      "codePlaceholder": "उदा., SF01, SF02",
+      "description": "प्रादेशिक वर्णन",
+      "descriptionPlaceholder": "प्रादेशिक वर्णन प्रविष्ट करा",
+      "sequenceNo": "क्रम क्रमांक",
+      "sequenceNoPlaceholder": "क्रम क्रमांक प्रविष्ट करा",
+      "validation": {
+        "codeRequired": "संकेतांक आवश्यक आहे",
+        "codeFormat": "संकेतांकमध्ये फक्त अक्षरे, संख्या आणि अंडरस्कोर असू शकतात (सुरुवात/शेवटी नाही)",
+        "codeMaxLength": "संकेतांक {count} वर्णांपेक्षा जास्त असू शकत नाही",
+        "descriptionRequired": "वर्णन आवश्यक आहे",
+        "descriptionEnglishRequired": "इंग्रजी वर्णन आवश्यक आहे",
+        "descriptionEnglishAllZeros": "इंग्रजी वर्णन सर्व शून्य असू शकत नाही",
+        "descriptionFormat": "वर्णनात अवैध वर्ण किंवा स्वरूपन आहे",
+        "descriptionMaxLength": "वर्णन {count} वर्णांपेक्षा जास्त असू शकत नाही",
+        "englishOnly": "फक्त इंग्रजी भाषेतील अक्षरे अनुज्ञेय आहेत",
+        "sequenceNoRequired": "अनुक्रम क्रमांक आवश्यक आहे",
+        "mustBeActive": "नवीन उप-मजला सक्रिय असणे आवश्यक आहे"
+      }
+    },
+    "table": {
+      "columns": {
+        "srNo": "अ. क्र.",
+        "subFloorId": "उप-{floor} आयडी",
+        "descriptionEnglish": "इंग्रजी वर्णन",
+        "descriptionRegional": "प्रादेशिक वर्णन",
+        "status": "स्थिती",
+        "actions": "क्रिया",
+        "subFloorCode": "उप-{floor} संकेतांक",
+        "subFloorDescription": "प्रादेशिक वर्णन",
+        "sequenceNo": "क्रम क्रमांक"
+      },
+      "pagination": {
+        "showing": "दाखवत आहे",
+        "entries": "{total} प्रविष्ट्यांपैकी"
+      }
+    },
+    "messages": {
+      "addSuccess": "उप-मजला यशस्वीरित्या जोडला गेला",
+      "createSuccess": "उप-{floor} यशस्वीरित्या तयार केला गेला",
+      "updateSuccess": "उप-{floor} यशस्वीरित्या अपडेट केला गेला",
+      "deleteSuccess": "उप-{floor} यशस्वीरित्या हटवला गेला",
+      "deleteFailed": "उप-{floor} हटवण्यात अयशस्वी. कृपया पुन्हा प्रयत्न करा.",
+      "deleteInUse": "हा उप-{floor} वापरात असल्यामुळे तुम्ही तो हटवू शकत नाही.",
+      "deleteConfirm": "तुम्हाला खात्री आहे की तुम्ही हा उप-मजला हटवू इच्छिता?",
+      "noSubFloors": "कोणतेही उप-मजला उपलब्ध नाहीत. सुरू करण्यासाठी नवीन उप-मजला जोडा.",
+      "validSubFloorIdRequired": "वैध उप-मजला आयडी आवश्यक आहे"
+    },
+    "validation": {
+      "subFloorIdPattern": "फक्त अक्षरे, संख्या, /, _, - याची परवानगी आहे",
+      "duplicateSubFloorId": "डुप्लिकेट उप-मजला आयडीची परवानगी नाही",
+      "maxChars": "जास्तीत जास्त {count} अक्षरे अनुमत आहेत",
+      "mustBeNumber": "कृपया वैध संख्या टाका",
+      "duplicateCode": "उप-मजला संकेतांक आधीपासूनच अस्तित्वात आहे",
+      "required": "हे फील्ड आवश्यक आहे"
+    },
+    "apiErrors": {
+      "duplicateRecord": "नोंद आधीच अस्तित्वात आहे",
+      "invalidData": "अवैध डेटा प्रदान केला आहे",
+      "notFound": "नोंद सापडली नाही",
+      "operationFailed": "ऑपरेशन अयशस्वी",
+      "referencedIn": "{tables} तक्त्यात वापरलेले असल्याने हा उप-{floor} निष्क्रिय किंवा डिलीट करता येत नाही."
+    },
+    "note": {
+      "mandatory": "* चिन्हांकित फील्ड अनिवार्य आहेत"
+    },
+    "sequenceWarningTitle": "मजला अनुक्रम चेतावणी",
+    "doYouWantToProceed": "तुम्हाला तरीही पुढे जायचे आहे का?",
+    "proceedAnyway": "तरीही पुढे जा",
+    "sequenceGapDetected": "मजला अनुक्रम तफावत आढळली: {currLabel} हे अनुक्रमात नाही. {prevLabel} नंतर आवश्यक मजला क्रमांक ({missingNo}) गहाळ आहे.",
+    "sequenceMustStartGround": "मजला अनुक्रम तळमजल्यापासून (0) सुरू होणे आवश्यक आहे. {firstLabel} च्या आधी तळमजला गहाळ आहे."
+  }
+}

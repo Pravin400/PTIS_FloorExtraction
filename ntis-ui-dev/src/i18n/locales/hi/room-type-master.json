@@ -1,0 +1,37 @@
+{
+  "table": {
+    "columns": {
+      "roomTypeCode": "कमरा प्रकार कोड",
+      "roomTypeName": "कमरा प्रकार नाम",
+      "description": "विवरण",
+      "assetType": "परिसंपत्ति प्रकार",
+      "status": "स्थिति"
+    }
+  },
+  "form": {
+    "addTitle": "नया कमरा प्रकार जोड़ें",
+    "editTitle": "कमरा प्रकार संपादित करें",
+    "createSubtitle": "एक नया कमरा प्रकार कॉन्फ़िगरेशन बनाएं",
+    "updateSubtitle": "मौजूदा कमरा प्रकार कॉन्फ़िगरेशन अपडेट करें",
+    "labels": {
+      "status": "स्थिति",
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय",
+      "roomTypeCode": "कमरा प्रकार कोड",
+      "roomTypeName": "कमरा प्रकार नाम",
+      "description": "विवरण",
+      "assetType": "परिसंपत्ति प्रकार"
+    },
+    "placeholders": {
+      "roomTypeCode": "जैसे, DELUXE",
+      "roomTypeName": "जैसे, डीलक्स कमरा",
+      "description": "विवरण दर्ज करें",
+      "assetType": "परिसंपत्ति प्रकार चुनें"
+    },
+    "buttons": {
+      "save": "सहेजें",
+      "update": "अपडेट करें",
+      "cancel": "रद्द करें"
+    }
+  }
+}

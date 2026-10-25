@@ -1,0 +1,139 @@
+{
+  "title": "Department Master",
+  "subtitle": "Manage payroll departments and their organizational configurations",
+  "list": {
+    "title": "Department Master",
+    "subtitle": "Manage payroll departments and their organizational configurations",
+    "buttons": {
+      "add": "Add Department",
+      "edit": "Edit",
+      "delete": "Delete",
+      "editTitle": "Edit Department",
+      "deleteTitle": "Delete Department"
+    },
+    "filters": {
+      "show": "Show",
+      "searchPlaceholder": "Search departments...",
+      "allStatus": "All Status",
+      "status": "Select Status"
+    },
+    "table": {
+      "departmentCode": "Department Code",
+      "departmentName": "Department Name",
+      "departmentNameLocal": "Department Name (Regional)",
+      "departmentDescription": "Description",
+      "status": "Status",
+      "actions": "Actions"
+    }
+  },
+  "form": {
+    "title": {
+      "add": "Add New Department",
+      "edit": "Edit Department"
+    },
+    "subtitle": {
+      "add": "Configure new department details",
+      "edit": "Update existing department configuration"
+    },
+    "mandatoryFields": "* Mandatory Fields",
+    "fields": {
+      "departmentCode": "Department Code",
+      "departmentCodePlaceholder": "e.g. DEPT-EDU",
+      "departmentName": "Department Name",
+      "departmentNamePlaceholder": "e.g. Education",
+      "departmentNameLocal": "Department Name (Regional)",
+      "departmentNameLocalPlaceholder": "उदा. शिक्षण विभाग",
+      "departmentDescription": "Description",
+      "departmentDescriptionPlaceholder": "Brief description of the department's scope, duties, and responsibilities...",
+      "status": "Status",
+      "isActive": "Is Active",
+      "statusText": "Department is currently {status}"
+    },
+    "buttons": {
+      "add": "Add Department",
+      "save": "Create Department",
+      "cancel": "Cancel",
+      "update": "Update Department"
+    },
+    "validation": {
+      "departmentCodeRequired": "Department Code is required.",
+      "departmentCodeMaxLength": "Department code must not exceed 20 characters",
+      "departmentCodeFormat": "Code must contain only letters, numbers, underscores, and hyphens",
+      "departmentNameRequired": "Department Name is required.",
+      "departmentNameMinLength": "Department name must be at least 5 characters",
+      "departmentNameMaxLength": "Department name must not exceed 100 characters",
+      "departmentNameFormat": "Department Name can only contain letters, spaces, and valid punctuation (. - / & ())",
+      "departmentNameMarathiRequired": "Department Name (Regional) is required.",
+      "departmentNameMarathiMinLength": "Department name (Regional) must be at least 5 characters",
+      "departmentNameMarathiMaxLength": "Department name (Regional) must not exceed 100 characters",
+      "departmentNameMarathiFormat": "Department Name (Regional) can only contain valid characters and punctuation (. - / & ())",
+      "descriptionMaxLength": "Description must not exceed 250 characters",
+      "codeUnique": "This Department Code already exists. Codes must be unique."
+    }
+  },
+  "delete": {
+    "confirmTitle": "Delete Department",
+    "confirmDescription": "Are you sure you want to delete \"{name}\"? This action cannot be undone.",
+    "deleteInUse": "\"{name}\" is currently linked to employee or organizational records and cannot be deleted.",
+    "success": "\"{name}\" removed successfully."
+  },
+  "stats": {
+    "total": "Total Departments",
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "success": {
+    "created": "Department created successfully",
+    "updated": "Department updated successfully",
+    "deleted": "Department deleted successfully"
+  },
+  "errors": {
+    "createFailed": "Failed to create department master",
+    "updateFailed": "Failed to update department master",
+    "deleteFailed": "Failed to delete department master"
+  },
+  "nav": {
+    "header": "Establishment Masters",
+    "comingSoon": "Coming Soon",
+    "Departments": {
+      "title": "Department Master",
+      "subtitle": "Departments & Structure"
+    },
+    "Designations": {
+      "title": "Designation Master",
+      "subtitle": "Posts & Hierarchy"
+    },
+    "EmpClasses": {
+      "title": "Employee Class Master",
+      "subtitle": "Cadres & Classification"
+    },
+    "EmpStatuses": {
+      "title": "Employee Status Master",
+      "subtitle": "Employment Statuses"
+    },
+    "EmpTypes": {
+      "title": "Employee Type Master",
+      "subtitle": "Service Terms & Types"
+    },
+    "Qualifications": {
+      "title": "Qualification Master",
+      "subtitle": "Education & Credentials"
+    },
+    "ZoneDivisions": {
+      "title": "Zone / Office Master",
+      "subtitle": "Offices & Locations"
+    },
+    "Years": {
+      "title": "Year Master",
+      "subtitle": "Payroll Financial Years"
+    },
+    "Banks": {
+      "title": "Bank Master",
+      "subtitle": "Bank Records & Information"
+    },
+    "GRs": {
+      "title": "GR Master",
+      "subtitle": "Resolutions & Orders"
+    }
+  }
+}

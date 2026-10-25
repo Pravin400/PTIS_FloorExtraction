@@ -1,0 +1,50 @@
+{
+  "header": {
+    "title": "पीएमसी अग्निशमन विभाग",
+    "subtitle": "अग्नि सर्वेक्षण पोर्टल",
+    "syncButton": "निरीक्षण सिंक करें",
+    "syncTitle": "सिंक करें"
+  },
+  "sidebar": {
+    "menuTitle": "मेनू",
+    "home": "होम",
+    "inspections": "निरीक्षण",
+    "history": "इतिहास",
+    "profile": "प्रोफ़ाइल",
+    "backToDashboard": "डैशबोर्ड पर वापस जाएं"
+  },
+  "error": {
+    "title": "सर्वेक्षण कार्यक्षेत्र त्रुटि",
+    "message": "सर्वेक्षण डैशबोर्ड लोड करने में असमर्थ। कृपया कार्यक्षेत्र को पुनः लोड करने का प्रयास करें।",
+    "retry": "पुनः प्रयास करें"
+  },
+  "kpi": {
+    "assigned": "आवंटित",
+    "dueToday": "आज देय",
+    "overdue": "अतिदेय",
+    "pending": "लंबित",
+    "reInspection": "पुनर्निरीक्षण",
+    "completed": "पूर्ण"
+  },
+  "map": {
+    "wardBadge": "पुणे मनपा अग्निशमन विभाग",
+    "layerDefault": "डिफ़ॉल्ट",
+    "layerSatellite": "सैटेलाइट",
+    "layerTerrain": "टेरेन",
+    "siteContact": "साइट संपर्क",
+    "callNow": "कॉल करें",
+    "navigate": "नेविगेट",
+    "startAudit": "निरीक्षण शुरू करें",
+    "resumeAudit": "निरीक्षण जारी रखें",
+    "viewDetails": "विवरण देखें",
+    "scheduled": "निर्धारित",
+    "overdueBy": "अतिदेय",
+    "cycle1": "साइकिल १ • पहला दौरा",
+    "cycle2": "साइकिल २ • पुनर्निरीक्षण",
+    "noInspections": "इस स्थिति से मेल खाने वाला कोई निरीक्षण नहीं है।",
+    "showingAll": "सभी निरीक्षण प्रदर्शित",
+    "activeFilter": "फ़िल्टर: {status}",
+    "occupancy": "उपयोग: {code}",
+    "loadingMap": "सर्वेयर मानचित्र लोड हो रहा है..."
+  }
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Ribbon tails -->
+  <path d="M38 68l-8 22 14-6 10 6-4-22" fill="#059669"/>
+  <path d="M62 68l8 22-14-6-10 6 4-22" fill="#10B981"/>
+  <!-- Rosette Star / Outer Ring -->
+  <circle cx="50" cy="46" r="30" fill="#ECFDF5" stroke="#059669" stroke-width="3"/>
+  <circle cx="50" cy="46" r="23" fill="#10B981"/>
+  <!-- White Checkmark -->
+  <path d="M41 46l6 6 13-13" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

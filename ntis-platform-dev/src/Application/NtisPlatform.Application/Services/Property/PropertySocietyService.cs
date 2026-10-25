@@ -1,0 +1,211 @@
+using NtisPlatform.Application.Exceptions;
+using NtisPlatform.Application.Interfaces.Property;
+using NtisPlatform.Core.Entities;
+using NtisPlatform.Core.Interfaces;
+using NtisPlatform.Core.Interfaces.Property;
+using NtisPlatform.Core.Models;
+
+namespace NtisPlatform.Application.Services.Property;
+
+/// <summary>
+/// Implementation of the "Residential Society and Wing Registration" use-case for the Property aggregate.
+/// Owns: aggregate-invariant enforcement, Wing FK validation, the get-or-create society decision
+/// (including the parent-id fallback lookup to prevent duplicate rows in legacy data), the full
+/// transaction boundary around the two-save create-then-link flow, and the "empty DTO when society
+/// is missing" decision.
+/// Persistence is delegated to <see cref="IPropertySocietyRepository"/>, master checks to
+/// <see cref="IMasterRepository"/>, saving / transactions to <see cref="IUnitOfWork"/>, and
+/// aggregate invariants to <see cref="IPropertyMutationInvariantPolicy"/>.
+/// </summary>
+public class PropertySocietyService : IPropertySocietyService
+{
+    private readonly IPropertySocietyRepository _repository;
+    private readonly IMasterRepository _masterRepository;
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IPropertyMutationInvariantPolicy _invariantPolicy;
+
+    public PropertySocietyService(
+        IPropertySocietyRepository repository,
+        IMasterRepository masterRepository,
+        IUnitOfWork unitOfWork,
+        IPropertyMutationInvariantPolicy invariantPolicy)
+    {
+        _repository = repository;
+        _masterRepository = masterRepository;
+        _unitOfWork = unitOfWork;
+        _invariantPolicy = invariantPolicy;
+    }
+
+    public async Task<PropertySocietyDetailsDto?> GetSocietyDetailsAsync(
+        int propertyId,
+        CancellationToken cancellationToken = default)
+    {
+        // Repository returns null for two distinct cases:
+        //   (a) property not found  → service propagates null → controller returns 404.
+        //   (b) property found but no society yet → service returns an empty DTO.
+        var result = await _repository.GetSocietyDetailsAsync(propertyId, cancellationToken);
+        if (result != null) return result;
+
+        // Distinguish the two null cases.
+        if (!await _repository.PropertyExistsAsync(propertyId, cancellationToken))
+            return null; // (a) property not found
+
+        // (b) Property exists, society row not yet created → return an empty projection.
+        return new PropertySocietyDetailsDto { PropertyId = propertyId, SocietyDetailId = null };
+    }
+
+    public async Task<PropertySocietyDetailsDto?> UpdateSocietyDetailsAsync(
+        int propertyId,
+        UpdatePropertySocietyDetailsDto dto,
+        CancellationToken cancellationToken = default)
+    {
+        // A missing property is reported as null (→ 404).
+        var property = await _repository.GetActivePropertyAsync(propertyId, cancellationToken);
+        if (property == null) return null;
+
+        // Enforce all Property aggregate write invariants before any state change.
+        await _invariantPolicy.EnforceAsync(property, cancellationToken);
+
+        // Wing FK validation (business rule; message preserved for the API contract).
+        if (dto.WingId.HasValue && !await _masterRepository.WingExistsAsync(dto.WingId.Value, cancellationToken))
+            throw new PropertyValidationException($"Wing with ID {dto.WingId.Value} does not exist or is inactive.");
+
+        // Single timestamp: consistent across all entity fields in this operation.
+        var now = DateTime.Now;
+
+        await _unitOfWork.BeginTransactionAsync(cancellationToken);
+        try
+        {
+            // ── Locate the existing society child row ────────────────────────────────
+            // Looked up by PropertyId (the reverse FK) — PropertyMast no longer carries a
+            // forward SocietyDetailId FK, so this is the only lookup path.
+            var society = await _repository.GetSocietyByPropertyIdAsync(propertyId, cancellationToken);
+
+            // Still nothing → create a new row.
+            bool isNew = society == null;
+            if (isNew)
+            {
+                society = new SocietyDetailsEntity
+                {
+                    PropertyId = propertyId,
+                    IsActive = true,
+                    CreatedDate = now
+                };
+                _repository.AddSociety(society);
+            }
+
+            // ── Apply all editable fields in one place ───────────────────────────────
+            // society is guaranteed non-null here: either it was found above or we just created it.
+            ApplySocietyFields(society!, dto, now);
+
+            var wingNameChanged = false;
+            WingDetailsMastEntity? wingMast = null;
+            if (dto.WingId.HasValue || !string.IsNullOrWhiteSpace(dto.WingName))
+            {
+                wingMast = property.WingDetailId.HasValue
+                    ? await _repository.GetWingDetailsMastByIdAsync(property.WingDetailId.Value, cancellationToken)
+                    : await _repository.GetWingDetailsMastBySocietyIdAsync(society!.Id, cancellationToken);
+
+                if (wingMast != null)
+                {
+                    if (dto.WingId.HasValue) wingMast.WingMasterId = dto.WingId.Value;
+                    if (!string.IsNullOrWhiteSpace(dto.WingName))
+                    {
+                        var trimmedWingName = dto.WingName.Trim();
+                        wingNameChanged = wingMast.WingName != trimmedWingName;
+                        wingMast.WingName = trimmedWingName;
+                    }
+                    wingMast.UpdatedDate = now;
+                    if (!property.WingDetailId.HasValue)
+                    {
+                        property.WingDetailId = wingMast.Id;
+                    }
+                }
+                else if (dto.WingId.HasValue)
+                {
+                    // WingMasterId is a required FK -- only create a new row when we actually
+                    // have a valid master id. WingName-only with no existing row has nothing
+                    // sensible to link to, so it's a no-op rather than writing WingMasterId=0.
+                    wingMast = new WingDetailsMastEntity
+                    {
+                        SocietyDetailsMastId = society!.Id,
+                        WingMasterId = dto.WingId.Value,
+                        WingName = dto.WingName?.Trim(),
+                        IsActive = true,
+                        CreatedDate = now
+                    };
+                    _repository.AddWingDetailsMast(wingMast);
+                    wingNameChanged = !string.IsNullOrWhiteSpace(dto.WingName);
+                }
+            }
+
+            // ── Save: flushes the insert (assigns DB-generated PK) and updates ───────
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+            if (wingMast != null && !property.WingDetailId.HasValue)
+            {
+                property.WingDetailId = wingMast.Id;
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+            }
+
+            // Cascade updated society address or wing name to child flats
+            var hasAddressUpdate = dto.SocietyAddress != null || dto.SocietyAddressEnglish != null;
+            if (hasAddressUpdate || wingNameChanged)
+            {
+                await _repository.CascadeSocietyAddressToFlatsAsync(
+                    propertyId,
+                    society!.Id,
+                    society.SocietyAddress,
+                    society.SocietyAddressEnglish,
+                    property.UpdatedBy,
+                    now,
+                    cancellationToken);
+
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+            }
+
+            await _unitOfWork.CommitTransactionAsync(cancellationToken);
+        }
+        catch
+        {
+            await _unitOfWork.RollbackTransactionAsync(cancellationToken);
+            throw;
+        }
+
+        // Re-read via the read path (AsNoTracking projection) after the transaction commits.
+        return await _repository.GetSocietyDetailsAsync(propertyId, cancellationToken)
+               ?? new PropertySocietyDetailsDto { PropertyId = propertyId, SocietyDetailId = null };
+    }
+
+    // ── Private helpers ──────────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// Copies every editable society field from the DTO onto the entity in a single place.
+    /// Using one <paramref name="now"/> value guarantees a consistent timestamp across all
+    /// fields within the same operation.
+    /// </summary>
+    private static void ApplySocietyFields(
+        SocietyDetailsEntity society,
+        UpdatePropertySocietyDetailsDto dto,
+        DateTime now)
+    {
+        society.SocietyName = dto.SocietyName;
+        society.SocietyAddress = dto.SocietyAddress;
+        society.SecretaryName = dto.SecretaryName;
+        society.ManagerName = dto.ManagerName;
+        society.LandOwnerName = dto.LandOwnerName;
+        society.BuilderName = dto.BuilderName;
+        society.SocietyNameEnglish = dto.SocietyNameEnglish;
+        society.SocietyAddressEnglish = dto.SocietyAddressEnglish;
+        society.SecretaryNameEnglish = dto.SecretaryNameEnglish;
+        society.ManagerNameEnglish = dto.ManagerNameEnglish;
+        society.LandOwnerNameEnglish = dto.LandOwnerNameEnglish;
+        society.BuilderNameEnglish = dto.BuilderNameEnglish;
+        society.ManagerMobileNo = dto.ManagerMobileNo;
+        society.SecretaryMobileNo = dto.SecretaryMobileNo;
+        society.SocietyEmailId = dto.SocietyEmailId;
+        society.SecretaryEmailId = dto.SecretaryEmailId;
+        society.ManagerEmailId = dto.ManagerEmailId;
+        society.UpdatedDate = now;
+    }
+}

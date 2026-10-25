@@ -1,0 +1,33 @@
+using NtisPlatform.Core.Interfaces;
+﻿using NtisPlatform.Core.Entities.Master;
+
+namespace NtisPlatform.Core.Entities;
+
+public class PropertySocialDetailsEntity : BaseEntity, IHardDeletable
+{
+    public int? PropertyId { get; set; }
+    public int SocialAttributeId { get; set; }
+
+    public int? WingDetailId { get; set; }
+    public int? SocietyDetailId { get; set; }
+
+    public bool? BitValue { get; set; }
+    public int? IntValue { get; set; }
+    public decimal? DecimalValue { get; set; }
+    public string? TextValue { get; set; }
+    public DateTime? DateValue { get; set; }
+    public int? DocumentBindingId { get; set; }
+    public string? Remark { get; set; }
+    public string? EntityType { get; set; }
+    // Navigation property
+    public virtual PropertyEntity? PropertyMast { get; set; }
+    public SocialAttributeEntity? SocialAttribute { get; set; }
+    public DocumentBindingEntity? DocumentBinding { get; set; }
+    public WingDetailsMastEntity? WingDetailsMast { get; set; }
+    public SocietyDetailsEntity? SocietyDetailsMast { get; set; }
+    public virtual ICollection<PropertySocialDocumentEntity>? PropertySocialDocuments { get; set; }
+
+    // IHardDeletable implementation
+    public bool MarkedForDeletion { get; set; }
+    public DateTime? MarkedForDeletionDate { get; set; }
+}

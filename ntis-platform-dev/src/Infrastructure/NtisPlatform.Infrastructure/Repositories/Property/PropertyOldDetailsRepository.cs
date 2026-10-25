@@ -1,0 +1,279 @@
+using Microsoft.EntityFrameworkCore;
+using NtisPlatform.Core.Entities;
+using NtisPlatform.Core.Interfaces;
+using NtisPlatform.Core.Interfaces.Property;
+using NtisPlatform.Core.Models;
+using NtisPlatform.Infrastructure.Data;
+
+namespace NtisPlatform.Infrastructure.Repositories.Property;
+
+/// <summary>
+/// Data-access implementation for the Property "Old Details" tab (queries, staged inserts and the
+/// old-taxes write transaction). Split across partial files per sub-section: this file covers old
+/// property details; <c>PropertyOldDetailsRepository.OldTaxesAndFloor.cs</c> covers old taxes and old floor.
+/// </summary>
+public partial class PropertyOldDetailsRepository : PropertyRepositoryBase, IPropertyOldDetailsRepository
+{
+    private readonly IUnitOfWork _unitOfWork;
+
+    public PropertyOldDetailsRepository(ApplicationDbContext context, IUnitOfWork unitOfWork)
+        : base(context)
+    {
+        _unitOfWork = unitOfWork;
+    }
+
+    // ---- Old Property Details sub-section ----
+
+    public async Task<PropertyOldDetailsDto?> GetOldDetailsAsync(int propertyId, CancellationToken cancellationToken = default)
+    {
+        // Step 1: Get property if it exists
+        var property = await _context.PropertyMast
+            .AsNoTracking()
+            .FirstOrDefaultAsync(p => p.Id == propertyId && p.IsActive && !p.MarkedForDeletion, cancellationToken);
+
+        if (property == null)
+            return null;
+
+        // Step 2: Resolve all mapped old property IDs via PropertyMapDetail. PropertyEntity.PropertyMastOldId
+        // is [NotMapped] (DB column dropped) so there is no longer a legacy-FK fallback to fall back to.
+        var mappedOldPropertyIds = await _context.PropertyMapDetails
+            .AsNoTracking()
+            .Where(pmd => pmd.PropertyIdNew == propertyId && pmd.IsActive && pmd.IsCurrent && pmd.Status == "ACTIVE")
+            .Select(pmd => pmd.PropertyIdOld)
+            .Where(id => id != null)
+            .Distinct()
+            .ToListAsync(cancellationToken);
+
+        var oldPropertyIds = mappedOldPropertyIds
+            .Where(id => id.HasValue)
+            .Select(id => id!.Value)
+            .ToList();
+
+        if (!oldPropertyIds.Any())
+            return new PropertyOldDetailsDto { PropertyId = propertyId, OldSubZoneNo = property.SubZoneNo };
+
+        // Step 3: Fetch PropertyMastOld data
+        var pmoList = await _context.PropertyMastOld
+            .AsNoTracking()
+            .Where(x => oldPropertyIds.Contains(x.Id) && x.IsActive && !x.MarkedForDeletion)
+            .ToListAsync(cancellationToken);
+
+        // Step 4: Fetch PropertyDetailsOld data
+        var pdoList = await _context.PropertyDetailsOld
+            .AsNoTracking()
+            .Where(x => oldPropertyIds.Contains(x.PropertyMastOldId) && x.IsActive && !x.MarkedForDeletion)
+            .ToListAsync(cancellationToken);
+
+        // Step 5: Perform sums for OldRV, OldALV, OldTotalTax, OldGeneralTax, and OldConstructionArea
+        double totalOldRV = 0;
+        double totalOldALV = 0;
+        double totalOldGeneralTax = 0;
+        double totalOldConstructionArea = 0;
+
+        foreach (var pmo in pmoList)
+        {
+            totalOldRV += pmo.OldRV ?? 0;
+            totalOldALV += pmo.OldALV ?? 0;
+            totalOldConstructionArea += pmo.OldConstructionArea ?? 0;
+            totalOldGeneralTax += pmo.OldGeneralTax ?? 0;
+        }
+
+        // Fetch the old total tax dynamically from TransMastOld grouped by PropertyMastOldId in a single aggregate query
+        var taxTotalByProperty = await _context.TransMastOld
+            .AsNoTracking()
+            .Where(tmo => oldPropertyIds.Contains(tmo.PropertyMastOldId)
+                && tmo.IsActive
+                && !tmo.MarkedForDeletion
+                && tmo.TaxMaster != null
+                && tmo.TaxMaster.TaxCode.Trim().ToUpper() == "TAXTOTAL")
+            .GroupBy(tmo => tmo.PropertyMastOldId)
+            .Select(g => new
+            {
+                PropertyMastOldId = g.Key,
+                TotalTax = (double)g.Sum(tmo => tmo.TaxAmount)
+            })
+            .ToDictionaryAsync(x => x.PropertyMastOldId, x => x.TotalTax, cancellationToken);
+
+        double totalOldTotalTax = pmoList.Sum(pmo =>
+            taxTotalByProperty.TryGetValue(pmo.Id, out var txAmount)
+                ? txAmount
+                : (pmo.OldTotalTax ?? 0));
+
+        // Sum carpet area columns from PDO
+        double totalOldCarpetAreaSqFeet = pdoList.Sum(x => x.OldCarpetAreaSqFeet ?? 0);
+        double totalOldCarpetAreaSqMeter = pdoList.Sum(x => x.OldCarpetAreaSqMeter ?? 0);
+
+        // Step 6: Process distinct comma-separated values for PMO properties
+        var oldWardNoList = pmoList.Select(x => x.OldWardNo?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldPropertyNoList = pmoList.Select(x => x.OldPropertyNo?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldPartitionNoList = pmoList.Select(x => x.OldPartitionNo?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldEgovNoList = pmoList.Select(x => x.OldEgovNo?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldPlotAreaList = pmoList.Where(x => x.OldPlotArea.HasValue).Select(x => Math.Round(x.OldPlotArea!.Value, 2).ToString()).Distinct().ToList();
+        var oldPlotNoList = pmoList.Select(x => x.OldPlotNo?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldZoneNoList = pmoList.Select(x => x.OldZoneNo?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldCSNList = pmoList.Select(x => x.OldCSN?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldOwnerNameList = pmoList.Select(x => x.OldOwnerName?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldOccupierNameList = pmoList.Select(x => x.OldOccupierName?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldAddressList = pmoList.Select(x => x.OldAddress?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldOwnerNameEnglishList = pmoList.Select(x => x.OldOwnerNameEnglish?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldOccupierNameEnglishList = pmoList.Select(x => x.OldOccupierNameEnglish?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldAddressEnglishList = pmoList.Select(x => x.OldAddressEnglish?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldUseTypeList = pmoList.Select(x => x.OldUseType?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldFlatOrShopNumberList = pmoList.Select(x => x.OldFlatOrShopNumber?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldWingList = pmoList.Select(x => x.OldWing?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldMobileNoList = pmoList.Select(x => x.OldMobileNo?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldSocietyNameList = pmoList.Select(x => x.OldSocietyName?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldEmailIdList = pmoList.Select(x => x.OldEmailId?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldAssessmentDate = pmoList.OrderByDescending(x => x.Id).FirstOrDefault(x => x.OldAssessmentDate.HasValue)?.OldAssessmentDate;
+
+        double totalOldParkingAreaSqFt = pmoList.Sum(x => x.OldParkingAreaSqFt ?? 0);
+        double totalOldParkingAreaSqMtr = pmoList.Sum(x => x.OldParkingAreaSqMtr ?? 0);
+        int? oldPropertyTypeId = pmoList.OrderByDescending(x => x.Id).FirstOrDefault(x => x.OldPropertyTypeId.HasValue)?.OldPropertyTypeId;
+        int? oldFloorId = pdoList.OrderByDescending(x => x.Id).FirstOrDefault(x => x.OldFloorId.HasValue)?.OldFloorId;
+
+        // Step 7: Process distinct comma-separated values for PDO properties
+        var oldConstructionYearList = pdoList.Select(x => x.OldConstructionYear?.Trim()).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+        var oldConstructionTypeIdList = pdoList.Select(x => x.OldConstructionTypeId.ToString()).Distinct().ToList();
+        var oldTypeOfUseIdList = pdoList.Select(x => x.OldTypeOfUseId.ToString()).Distinct().ToList();
+
+        // Build and return DTO
+        return new PropertyOldDetailsDto
+        {
+            PropertyId = propertyId,
+            OldWardNo = oldWardNoList.Any() ? string.Join(", ", oldWardNoList) : null,
+            OldPropertyNo = oldPropertyNoList.Any() ? string.Join(", ", oldPropertyNoList) : null,
+            OldPartitionNo = oldPartitionNoList.Any() ? string.Join(", ", oldPartitionNoList) : null,
+            OldEgovNo = oldEgovNoList.Any() ? string.Join(", ", oldEgovNoList) : null,
+            OldPlotArea = oldPlotAreaList.Any() ? string.Join(", ", oldPlotAreaList) : null,
+            OldPlotNo = oldPlotNoList.Any() ? string.Join(", ", oldPlotNoList) : null,
+            OldRV = Math.Round(totalOldRV, 2),
+            OldALV = Math.Round(totalOldALV, 2),
+            OldTotalTax = Math.Round(totalOldTotalTax, 2),
+            OldZoneNo = oldZoneNoList.Any() ? string.Join(", ", oldZoneNoList) : null,
+            OldGeneralTax = Math.Round(totalOldGeneralTax, 2),
+            OldCSN = oldCSNList.Any() ? string.Join(", ", oldCSNList) : null,
+            OldConstructionArea = Math.Round(totalOldConstructionArea, 2),
+            OldConstructionYear = oldConstructionYearList.Any() ? string.Join(", ", oldConstructionYearList) : null,
+            OldCarpetAreaSqFeet = Math.Round(totalOldCarpetAreaSqFeet, 2),
+            OldCarpetAreaSqMeter = Math.Round(totalOldCarpetAreaSqMeter, 2),
+            OldConstructionTypeId = oldConstructionTypeIdList.Any() ? string.Join(", ", oldConstructionTypeIdList) : null,
+            OldTypeOfUseId = oldTypeOfUseIdList.Any() ? string.Join(", ", oldTypeOfUseIdList) : null,
+            OldFloorId = oldFloorId,
+            OldPropertyTypeId = oldPropertyTypeId,
+            OldSubZoneNo = null,
+            OldOwnerName = oldOwnerNameList.Any() ? string.Join(", ", oldOwnerNameList) : null,
+            OldOccupierName = oldOccupierNameList.Any() ? string.Join(", ", oldOccupierNameList) : null,
+            OldAddress = oldAddressList.Any() ? string.Join(", ", oldAddressList) : null,
+            OldOwnerNameEnglish = oldOwnerNameEnglishList.Any() ? string.Join(", ", oldOwnerNameEnglishList) : null,
+            OldOccupierNameEnglish = oldOccupierNameEnglishList.Any() ? string.Join(", ", oldOccupierNameEnglishList) : null,
+            OldAddressEnglish = oldAddressEnglishList.Any() ? string.Join(", ", oldAddressEnglishList) : null,
+            OldUseType = oldUseTypeList.Any() ? string.Join(", ", oldUseTypeList) : null,
+            OldAssessmentDate = oldAssessmentDate?.ToString("yyyy-MM-dd"),
+            OldFlatOrShopNumber = oldFlatOrShopNumberList.Any() ? string.Join(", ", oldFlatOrShopNumberList) : null,
+            OldWing = oldWingList.Any() ? string.Join(", ", oldWingList) : null,
+            OldMobileNo = oldMobileNoList.Any() ? string.Join(", ", oldMobileNoList) : null,
+            OldSocietyName = oldSocietyNameList.Any() ? string.Join(", ", oldSocietyNameList) : null,
+            OldEmailId = oldEmailIdList.Any() ? string.Join(", ", oldEmailIdList) : null,
+            OldParkingAreaSqFt = Math.Round(totalOldParkingAreaSqFt, 2),
+            OldParkingAreaSqMtr = Math.Round(totalOldParkingAreaSqMtr, 2),
+            NoOfOldToilets = pmoList.OrderByDescending(x => x.Id).FirstOrDefault(x => x.NoOfOldToilets.HasValue)?.NoOfOldToilets,
+            OldTotalRooms = pmoList.OrderByDescending(x => x.Id).FirstOrDefault(x => x.OldTotalRooms.HasValue)?.OldTotalRooms
+        };
+    }
+
+    public async Task<PropertyTabHeaderInfoDto?> GetTabHeaderInfoAsync(int propertyId, CancellationToken cancellationToken = default)
+    {
+        // PropertyEntity.PropertyMastOldId is [NotMapped] (DB column dropped) - resolve the mapped
+        // old property via PropertyMapDetail instead (most-recent active mapping, matching the old
+        // scalar-FK semantics of "at most one").
+        var mappedOldPropertyId = await _context.PropertyMapDetails
+            .AsNoTracking()
+            .Where(m => m.PropertyIdNew == propertyId && m.IsActive && m.IsCurrent && m.Status == "ACTIVE" && m.PropertyIdOld != null)
+            .OrderByDescending(m => m.CreatedDate)
+            .Select(m => m.PropertyIdOld)
+            .FirstOrDefaultAsync(cancellationToken);
+
+        var result = await (from p in _context.PropertyMast.AsNoTracking()
+                            where p.Id == propertyId && p.IsActive && !p.MarkedForDeletion
+
+                            join pas in _context.PropertyAssessmentStatuses.AsNoTracking() on p.PropertyAssessmentStatusId equals pas.Id into pasJoin
+                            from pas in pasJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+                            join pmo in _context.PropertyMastOld.AsNoTracking() on mappedOldPropertyId equals (int?)pmo.Id into pmoJoin
+                            from pmo in pmoJoin.Where(x => x.IsActive && !x.MarkedForDeletion).DefaultIfEmpty()
+
+                            join pc in _context.PropertyCategoryMaster.AsNoTracking() on p.CategoryId equals pc.Id into categoryJoin
+                            from pc in categoryJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+                            join pt in _context.PropertyTypeMasters.AsNoTracking() on p.PropertyTypeId equals pt.Id into typeJoin
+                            from pt in typeJoin.Where(x => x.IsActive).DefaultIfEmpty()
+
+                            select new PropertyTabHeaderInfoDto
+                            {
+                                PropertyId = p.Id,
+                                StatusName = pas != null ? pas.StatusName : null,
+                                OldWardNo = pmo != null ? pmo.OldWardNo : null,
+                                OldPropertyNo = pmo != null ? pmo.OldPropertyNo : null,
+                                OldPartitionNo = pmo != null ? pmo.OldPartitionNo : null,
+                                Description = pt != null ? pt.PropertyDescription : null,
+                                Type = p.Type ?? (pt != null ? pt.Type : null),
+                                Category = pc != null ? pc.PropertyCategoryName : null,
+                                UPICId = p.UPICId,
+                                OwnerName = p.OwnerName ?? p.OwnerNameEnglish,
+                                Address = p.Address ?? p.AddressEnglish,
+                                IsCombined = _context.CombinePropertyHistory.Any(c => c.SourcePropertyId == p.Id && c.IsActive)
+                            })
+                           .FirstOrDefaultAsync(cancellationToken);
+
+        if (result != null)
+        {
+            var firstDetail = await _context.PropertyDetails
+                .AsNoTracking()
+                .Where(x => x.PropertyId == propertyId && x.IsActive && !x.MarkedForDeletion)
+                .OrderBy(x => x.Id)
+                .Select(x => x.TypeOfUseId)
+                .FirstOrDefaultAsync(cancellationToken);
+
+            if (firstDetail > 0)
+            {
+                result.TypeOfUse = await _context.TypeOfUse
+                    .AsNoTracking()
+                    .Where(x => x.Id == firstDetail && x.IsActive)
+                    .Select(x => x.Description)
+                    .FirstOrDefaultAsync(cancellationToken);
+            }
+        }
+
+        return result;
+    }
+
+    public async Task AddPropertyMastOldAsync(PropertyMastOldEntity entity, CancellationToken cancellationToken = default)
+    {
+        await _context.PropertyMastOld.AddAsync(entity, cancellationToken);
+    }
+
+    public async Task<PropertyMastOldEntity?> GetPropertyMastOldByIdAsync(int propertyMastOldId, CancellationToken cancellationToken = default)
+    {
+        return await _context.PropertyMastOld.FindAsync(new object[] { propertyMastOldId }, cancellationToken);
+    }
+
+    public async Task<int> GetFirstOldDetailsIdAsync(int propertyMastOldId, CancellationToken cancellationToken = default)
+    {
+        return await _context.PropertyDetailsOld
+            .AsNoTracking()
+            .Where(x => x.PropertyMastOldId == propertyMastOldId && x.IsActive && !x.MarkedForDeletion)
+            .OrderBy(x => x.Id)
+            .Select(x => x.Id)
+            .FirstOrDefaultAsync(cancellationToken);
+    }
+
+    public async Task<PropertyDetailsOldEntity?> GetOldDetailsByIdAsync(int oldDetailsId, CancellationToken cancellationToken = default)
+    {
+        return await _context.PropertyDetailsOld.FindAsync(new object[] { oldDetailsId }, cancellationToken);
+    }
+
+    public async Task AddOldDetailsAsync(PropertyDetailsOldEntity entity, CancellationToken cancellationToken = default)
+    {
+        await _context.PropertyDetailsOld.AddAsync(entity, cancellationToken);
+    }
+}

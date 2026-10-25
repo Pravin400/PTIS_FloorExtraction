@@ -1,0 +1,248 @@
+{
+    "aliasFallback": {
+        "ward": "Ward",
+        "wards": "Wards",
+        "division": "Division",
+        "category": "Category",
+        "propertyNo": "Property No.",
+        "user": "User"
+    },
+    "propertyMediaHeader": {
+        "propertyMediaHeaderTitle": "Photos, Plans & Documents",
+        "uploadDownload": "Upload / Download",
+        "auditTrail": "Audit Trail"
+    },
+    "summaryCards": {
+        "totalProperties": "Total Properties",
+        "buildingPhotoAvailable": "Building Photo Available",
+        "buildingPlanAvailable": "Building Plan Available",
+        "surveyFormAvailable": "Survey Form Available",
+        "structures": "Structures",
+        "units": "Units"
+    },
+    "gapAnalysis": {
+        "header": {
+            "title": "Gap Analysis",
+            "filter": "Filter",
+            "excel": "Excel",
+            "pdf": "PDF"
+        },
+        "summaryCards": {
+            "buildingPhotoMissing": "Building Photo Missing",
+            "buildingPlanMissing": "Building Plan Missing",
+            "surveyFormMissing": "Survey Form Missing",
+            "applicable": "Applicable",
+            "available": "Available",
+            "missing": "Missing"
+        },
+        "categories": {
+            "photo": "Photo",
+            "plan": "Plan",
+            "document": "Document"
+        }
+    },
+    "detailedCoverageHeader": {
+        "title": "Detailed Coverage",
+        "allItems": "All Items",
+        "showAll": "Show All",
+        "view": "View",
+        "horizontal": "Horizontal",
+        "searchPlaceholder": "Search..."
+    },
+    "detailedCoverageTable": {
+        "columns": {
+            "category": "Category",
+            "typeSubtype": "Type / Subtype",
+            "requirement": "Requirement",
+            "applicable": "Applicable",
+            "available": "Available",
+            "missing": "Missing",
+            "coverage": "Coverage",
+            "action": "Action"
+        },
+        "buttons": {
+            "view": "View"
+        }
+    },
+    "propertyMediaViewDrawer": {
+        "title": "Building Photo — Gap Property List",
+        "subtitle": "Properties are missing from the selected record",
+        "filter": "Filter",
+        "excel": "Excel",
+        "pdf": "PDF",
+        "workflowStageLabel": "Workflow Stage",
+        "divisionLabel": "Division",
+        "wardLabel": "Ward",
+        "propertyTypeLabel": "Property Type",
+        "search": "Search",
+        "searchPlaceholder": "Property / Owner",
+        "placeholders": {
+            "selectStage": "Select Stage",
+            "selectDivision": "Select Division",
+            "selectWard": "Select Ward",
+            "selectPropertyType": "Select Property Type",
+            "loading": "Loading..."
+        },
+        "summary": {
+            "gapRecords": "Gap Records",
+            "division": "Division",
+            "ward": "Ward",
+            "propertyType": "Property Type",
+            "all": "All"
+        },
+        "table": {
+            "propertyNumber": "Property No.",
+            "division": "Division",
+            "ward": "Ward",
+            "ownerName": "Owner Name",
+            "propertyType": "Property Type",
+            "missingType": "Missing Type",
+            "workflowStatus": "Workflow Status",
+            "lastUpdatedDate": "Last Updated Date",
+            "noRecords": "No records found"
+        }
+    },
+    "uploadDownloadDrawer": {
+        "title": "Upload / Download",
+        "uploadTab": "Upload",
+        "downloadTab": "Download",
+        "uploadButton": "Upload",
+        "downloadButton": "Download",
+        "confirmUploadTitle": "Upload Property Media",
+        "confirmUploadDescription": "Are you sure you want to upload the media files?",
+        "chooseWhatToUpload": "Choose What to Upload",
+        "chooseWhatToDownload": "Choose What to Download",
+        "categoryLabel": "Category",
+        "categoryPlaceholder": "Select a category",
+        "subCategoryPlaceholder": "Select a sub-category",
+        "documentTypeLabel": "Document Type",
+        "photoSubtypeLabel": "Photo Subtype",
+        "planTypeLabel": "Plan Type",
+        "downloadContentLabel": "Download Content",
+        "downloadContentPlaceholder": "Select download content",
+        "packageLabel": "Package",
+        "packagePlaceholder": "Select a package",
+        "autoMapNotePrefix": "Auto-map:",
+        "autoMapNoteText": "{propertyNo} is read from renamed filenames.",
+        "browse": "Browse",
+        "noFilesSelected": "No files selected",
+        "filesSelected": "{count} files selected",
+        "documentTypeNotePrefix": "Document Type:",
+        "documentTypeNoteText": "selection applies to the chosen property scope.",
+        "propertyFilter": {
+            "title": "Property Filter",
+            "optional": "Optional",
+            "filter": "Filter",
+            "filterActive": "Filter active",
+            "noFilter": "No filter",
+            "divisionLabel": "Division",
+            "divisionPlaceholder": "Select Division",
+            "divisionFirstPlaceholder": "Select Division First",
+            "wardLabel": "Ward",
+            "wardPlaceholder": "Select Ward",
+            "propertyFromLabel": "{propertyNo} From",
+            "propertyToLabel": "{propertyNo} To",
+            "propertyFromFirstPlaceholder": "Select Property From First",
+            "loading": "Loading...",
+            "sameFromToScope": "Same From & To = single property scope."
+        },
+        "totalMatchedRecords": "Total Matched Records",
+        "totalUnmatchedRecords": "Total Unmatched Records",
+        "matched": "Matched",
+        "unmatched": "Unmatched",
+        "uploadCountLabel": "Upload Count",
+        "uploadCountPlaceholder": "Enter upload count",
+        "selectFilesServerTitle": "Select Files from Server",
+        "selectFilesServerSubtitle": "Choose existing files available on the server and upload them.",
+        "selectFilesDeviceTitle": "Select Files from Your Device",
+        "selectFilesDeviceSubtitle": "Choose files from your local storage to preview and match before uploading.",
+        "fromDeviceTab": "From Your Device",
+        "fromServerTab": "From Server",
+        "localUploadButton": "Load",
+        "noFilesSelectedError": "Please select at least one file to upload",
+        "filesUploadedSuccessfully": "{count} files uploaded successfully for matching",
+        "filesMatchedSummary": "{matched} of {total} file(s) matched",
+        "table": {
+            "columns": {
+                "fileName": "File Name",
+                "propertyDetails": "Property Details",
+                "matchStatus": "Match Status"
+            }
+        },
+        "validation": {
+            "categoryRequired": "Please select a category",
+            "subCategoryRequired": "Please select a sub-category",
+            "uploadCountRequired": "Please enter upload count",
+            "uploadCountNumeric": "Upload count must be a valid number and cannot start with 0",
+            "uploadCountMin": "Upload count must be at least {min}",
+            "uploadCountMax": "Upload count cannot exceed {max}",
+            "downloadContentRequired": "Please select download content",
+            "packageRequired": "Please select a package",
+            "photoTypeAndCategoryRequired": "Photo type and Category are required to download images.",
+            "maxFilesExceeded": "You cannot select more than 10 files",
+            "maxFileSizeExceeded": "Total file size should be less than 20MB"
+        },
+        "success": {
+            "uploaded": "Files uploaded successfully",
+            "uploadInProgress": "Upload in progress. Please wait while files are being processed...",
+            "downloadStarted": "Download started successfully",
+            "downloadCompleted": "Media files downloaded successfully"
+        },
+        "status": {
+            "completed": "Upload job {jobCode} completed successfully!",
+            "failed": "Upload job {jobCode} failed. Please check Activity Logs.",
+            "cancelled": "Upload job {jobCode} was cancelled.",
+            "timeout": "Upload job {jobCode} is taking longer than expected. Please check Activity Logs.",
+            "statusCheckFailed": "Unable to verify upload job status. Please check Activity Logs."
+        },
+        "apiErrors": {
+            "duplicateMedia": "Duplicate file or media already exists",
+            "notFound": "Requested media not found",
+            "operationFailed": "Operation failed. Please try again.",
+            "invalidPhotoType": "Valid Photo Type is required",
+            "invalidUploadCount": "Valid upload count is required",
+            "failedToExecute": "Failed to execute local media import",
+            "payloadTooLarge": "Total file size is too large.",
+            "uploadInterruptedOrTooLarge": "Total file size is too large or connection was interrupted.",
+            "noImagesFound": "No images found matching the selected criteria. Please adjust your filters and try again.",
+            "storageFilesMissing": "Found {count} image record(s), but physical files could not be retrieved from storage. Please contact the administrator.",
+            "storageFilesMissingGeneric": "Image records exist, but physical files could not be retrieved from storage. Please contact the administrator.",
+            "downloadFailed": "Failed to download image archive. Please try again."
+        }
+    },
+    "auditTrailDrawer": {
+        "title": "Audit Trail",
+        "excel": "Excel",
+        "pdf": "PDF",
+        "table": {
+            "columns": {
+                "dateTime": "Date And Time",
+                "user": "User",
+                "action": "Action",
+                "category": "Category",
+                "result": "Result"
+            },
+            "uploaded": "uploaded",
+            "uploadedCount": "{count} uploaded",
+            "noRecords": "No records found"
+        }
+    },
+    "error": {
+        "title": "Failed to connect server. Please try again later.",
+        "description": "We encountered an error while loading the property media page. Please try again.",
+        "tryAgain": "Try Again",
+        "goHome": "Go to Home",
+        "errorId": "Error ID: {id}"
+    },
+    "loading": {
+        "message": "Loading Property Media...",
+        "description": "Please wait while we fetch the property media data"
+    },
+    "export": {
+        "excelStarted": "Exporting Excel, please wait...",
+        "pdfStarted": "Exporting PDF, please wait...",
+        "excelSuccess": "Excel downloaded successfully",
+        "pdfSuccess": "PDF downloaded successfully",
+        "failed": "Failed to export file. Please try again."
+    }
+}

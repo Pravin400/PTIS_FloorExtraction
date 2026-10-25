@@ -1,0 +1,419 @@
+{
+  "loading": {
+    "message": "Loading Property Tax Operations...",
+    "description": "Please wait while we initialize property tax operations"
+  },
+  "title": "Property Tax Operations",
+  "subtitle": "Post, reverse, import, and monitor property tax transactions",
+  "buttons": {
+    "guidelines": "Guidelines",
+    "userManual": "User Manual",
+    "auditTrail": "Audit Trail"
+  },
+  "stats": {
+    "financeYear": "Finance Year",
+    "totalProperties": "Total Properties",
+    "transmastProperties": "Already Taxed",
+    "eligibleRecords": "Pending Properties",
+    "skippedLocked": "Skipped / Locked",
+    "runningJobs": "Running Jobs"
+  },
+  "permissions": {
+    "title": "User Permission",
+    "allowedMessage": "Allowed for Calculate Property Tax."
+  },
+  "tabs": {
+    "excelComingSoon": "Excel Import functionality coming soon",
+    "auditComingSoon": "Audit & Monitor functionality coming soon",
+    "manualSelection": "Manual Selection",
+    "excelImport": "Excel Import",
+    "auditMonitor": "Audit & Monitor"
+  },
+  "scopeSelection": {
+    "title": "1. Scope Selection",
+    "subtitle": "Choose scope. Only relevant fields appear below.",
+    "scopes": {
+      "allProperties": "All Properties",
+      "allPropertiesDesc": "Entire corporation",
+      "zoneNode": "Zone / Node",
+      "zoneNodeDesc": "Zone-wise selection",
+      "wardSector": "Ward / Sector",
+      "wardSectorDesc": "Multi ward selection",
+      "buildingWise": "Building Wise",
+      "buildingWiseDesc": "Building level",
+      "propertyWise": "Property Wise",
+      "propertyWiseDesc": "Selected properties",
+      "propertyRange": "Property Range",
+      "propertyRangeDesc": "From-to property range",
+      "masterDataChange": "Master Data Change",
+      "masterDataChangeDesc": "Properties needing recalculation"
+    },
+    "zoneNodeSelect": "Zone / Node",
+    "zoneNodeSelectPlaceholder": "Select Zone / Node",
+    "propertyType": "Property Type",
+    "propertyTypePlaceholder": "All Types",
+    "eligibleProperties": "Eligible Properties"
+  },
+  "executionValidation": {
+    "title": "EXECUTION VALIDATION",
+    "tags": {
+      "financeYear": "Finance Year",
+      "scope": "Scope",
+      "eligibleRecords": "Eligible Records",
+      "permission": "Permission"
+    },
+    "readyRecords": "Ready Records",
+    "eligibleRecordsSub": "eligible records",
+    "reviewExecute": "Review & Execute",
+    "requiresConfirmation": "Requires final confirmation"
+  },
+  "validateEligibility": {
+    "title": "2. Validate Eligibility",
+    "subtitle": "Allowed actions based on user permission, finance year and selected scope.",
+    "actions": {
+      "addTax": "Add Tax",
+      "addTaxDesc": "Eligible for selected FY and scope",
+      "quarterlyAdd": "Quarterly Add",
+      "quarterlyAddDesc": "Eligible when quarter is selected",
+      "removeTax": "Remove Tax",
+      "removeTaxDesc": "Requires senior confirmation",
+      "quarterlyRemove": "Quarterly Remove",
+      "quarterlyRemoveDesc": "Requires approval note"
+    },
+    "status": {
+      "allowed": "Allowed",
+      "restricted": "Restricted"
+    },
+    "infoNote": "Select allowed operation here. Final decision summary will be shown only after clicking Review & Execute."
+  },
+  "progressPanel": {
+    "title": "Processing Job",
+    "processing": "Processing Job...",
+    "completed": "Completed",
+    "inProgress": "In Progress",
+    "cancelJob": "Cancel Job",
+    "exportLog": "Export Log",
+    "propertiesProcessed": "Properties Processed: {processed} / {total}",
+    "expandListNotice": "Expand the list below to see the status of each property calculation.",
+    "stats": {
+      "total": "Total",
+      "processed": "Processed",
+      "added": "Added",
+      "failed": "Failed",
+      "pending": "Pending"
+    },
+    "columns": {
+      "zone": "Zone",
+      "propertyNo": "Property No.",
+      "owner": "Owner",
+      "taxHead": "Tax Head",
+      "amount": "Amount",
+      "status": "Status",
+      "message": "Message"
+    },
+    "status": {
+      "failed": "Failed",
+      "added": "Added",
+      "pending": "Pending",
+      "skipped": "Skipped"
+    }
+  },
+  "reviewModal": {
+    "title": "Final Confirmation",
+    "warningPrefix": "You are about to",
+    "action": "Add Tax",
+    "warningSuffix": "for {count} properties",
+    "cancel": "Cancel",
+    "preview": "Preview",
+    "proceed": "Proceed & Start Execution",
+    "scheduleExecutionButton": "Schedule Execution",
+    "operation": "Operation",
+    "backgroundNotice": "This operation will run in the background. You can monitor the progress in the 'Audit & Monitor' tab.",
+    "forceRecalculate": "Force recalculate",
+    "forceRecalculateHint": "Ignore cached values and recompute from scratch for every selected property",
+    "masterDataNotice": "Recalculates taxes for all properties flagged due to master data changes in FY {financeYear}."
+  },
+  "dynamicFields": {
+    "labels": {
+      "zoneNode": "Zone / Node",
+      "wardSector": "Ward / Sector",
+      "propertyType": "Property Type",
+      "building": "Building",
+      "searchProperty": "Search Property",
+      "assessmentStatus": "Assessment Status",
+      "fromPropertyNo": "From Property No.",
+      "toPropertyNo": "To Property No."
+    },
+    "placeholders": {
+      "selectZoneNode": "Select Zone / Node",
+      "selectWardSector": "Select Ward / Sector",
+      "allTypes": "All Types",
+      "selectBuilding": "Select Building",
+      "searchByUPIC": "Search by UPIC ID / Mobile No",
+      "selectPropertyType": "Select Property Type",
+      "selectAssessmentStatus": "Select Assessment Status",
+      "noOptionsAvailable": "No options available",
+      "selectPropertyNo": "Select property no."
+    },
+    "calculateEligible": "Calculate Eligible Properties",
+    "calculateRange": "Calculate Range",
+    "rangeWarningTitle": "Select a specific property number range",
+    "rangeWarningDesc": "Range will be calculated only between the selected From Property and To Property. Zone/Ward duplication is avoided on this screen.",
+    "internalValidationNotice": "System will internally validate zone, ward and property sequence during preview.",
+    "headerTitle": {
+      "property": "PROPERTY WISE — SEARCH AND ADD SPECIFIC PROPERTIES",
+      "range": "PROPERTY RANGE — ENTER FROM PROPERTY NO. AND TO PROPERTY NO.",
+      "select": "SELECT"
+    }
+  },
+  "Skip_AlreadyProcessed": "Already Processed",
+  "Skip_PropertyLocked": "Property is locked",
+  "Skip_PropertyDetailsMissing": "Property Details are missing",
+  "Skip_PendingVerification": "Pending Verification",
+  "Skip_InvalidScope": "Invalid Scope",
+  "Skip_PermissionRestricted": "Permission Restricted",
+  "Skip_ApprovalRequired": "Approval Required",
+  "Skip_RateNotFound": "Rate not configured",
+  "Skip_TaxPercentageMissing": "Tax percentage not configured",
+  "excel": {
+    "total": "total: {count}",
+    "eligible": "eligible: {count}",
+    "skipped": "skipped: {count}",
+    "verifyColumns": "Verify columns based on scope.",
+    "scopeLabel": "Scope:"
+  },
+  "excelGuide": {
+    "title": "Excel Import Guide",
+    "description": "To upload properties in bulk, first download the Excel template containing the system requirements. Modify the sheet with your property details, then upload it using the dropzone.",
+    "step1": "Download the dynamic Excel spreadsheet template.",
+    "step2": "Fill in details based on requirements. Match Zone/Ward names.",
+    "step3": "Drag & drop the spreadsheet to validate eligibility.",
+    "downloadTemplate": "Download Template"
+  },
+  "uploader": {
+    "removeFile": "Remove File",
+    "uploadAnother": "Upload Another",
+    "dragDrop": "Drag and drop Excel file here",
+    "clickBrowse": "or click to browse from device",
+    "sizeSupport": ".xlsx / .xls files up to 10 MB are supported",
+    "browseFile": "Browse File",
+    "previewTitle": "Eligibility Validation Preview",
+    "previewSubtitle": "Review the columns and rows imported from the Excel spreadsheet"
+  },
+  "preview": {
+    "title": "Operation Preview",
+    "subtitle": "Review selected records and their eligibility before executing the operation",
+    "close": "Close",
+    "totalSelected": "Total Selected",
+    "eligible": "Pending",
+    "skipped": "Skipped",
+    "alreadyTaxed": "Already Taxed",
+    "requiresApproval": "Requires Approval",
+    "columns": {
+      "zone": "Zone",
+      "propertyNo": "Property No",
+      "owner": "Owner",
+      "status": "Status",
+      "skipReason": "Skip Reason"
+    },
+    "status": {
+      "eligible": "Eligible",
+      "skipped": "Skipped"
+    }
+  },
+  "skipReasons": {
+    "AlreadyProcessed": "Taxes are already calculated for this property for the selected finance year",
+    "DetailsMissing": "Property details not found for one or more properties",
+    "PropertyLocked": "Property is locked",
+    "RateNotFound": "Rate not configured for one or more property details",
+    "TaxPercentageMissing": "Tax percentage not configured for one or more property details",
+    "CVRateMappingNotFound": "No CSN rate mapping found for this property (Capital Value)",
+    "CVRateNotFound": "Rate not configured for one or more property details (Capital Value)",
+    "CVTaxPercentageMissing": "Tax percentage not configured for one or more property details (Capital Value)",
+    "detailsMissingPrefix": "Property details not found: ",
+    "detailsMissingSuffix": " missing",
+    "fields": {
+      "floorType": "Floor type",
+      "constructionType": "Construction type",
+      "carpetArea": "Carpet area",
+      "builtupArea": "Built-up area",
+      "typeOfUse": "Type of use",
+      "assessmentYear": "Assessment year"
+    }
+  },
+  "error": {
+    "title": "Failed to connect server. Please try again later.",
+    "description": "We encountered an error while loading the property tax operations page. Please try again.",
+    "tryAgain": "Try Again",
+    "goHome": "Go to Home",
+    "errorId": "Error ID: {id}"
+  },
+  "guidelines": {
+    "title": "Guidelines",
+    "step1": "Select Finance Year first.",
+    "step2": "Select scope and preview eligible records.",
+    "step3": "Restricted operations require approval.",
+    "step4": "Always use Review & Execute before final processing."
+  },
+  "userManual": {
+    "title": "User Manual",
+    "desc1": "This screen supports Add Tax operation",
+    "desc2": "Use the scope cards to switch between All Properties, Zone, Ward, Building, Property and Range modes."
+  },
+  "confirmations": {
+    "overrideAlreadyTaxed": {
+      "title": "Already Taxed Properties Found",
+      "confirmText": "Yes"
+    }
+  },
+  "messages": {
+    "invalidPropertySearch": "Please enter valid UPIC ID/Mobile No",
+    "skippedCount": "{count} properties were skipped / Locked.",
+    "alreadyTaxedCount": "{count} properties already have tax calculated for this finance year. Do you want to recalculate the taxes?",
+    "selectedTimeInPast": "Selected time is in the past. Please choose a future time.",
+    "timeReset": "Time reset to {time} to ensure it is in the future.",
+    "selectTimeRequired": "Please select a time.",
+    "scheduledTimeInPast": "Scheduled time must be in the future.",
+    "fillRequiredFields": "Please fill all the required fields before calculating.",
+    "executionStarted": "Execution started successfully. Job Code: {jobId}",
+    "jobScheduled": "Job scheduled successfully. Job Code: {jobId}",
+    "executionCompleted": "Execution completed successfully. Job Code: {jobId}",
+    "failedExecute": "Failed to execute operation.",
+    "errorExecution": "Error occurred during execution.",
+    "failedPreview": "Failed to load preview data.",
+    "errorPreview": "Error occurred during preview.",
+    "templateDownloaded": "Excel template downloaded successfully",
+    "failedTemplateDownload": "Failed to download Excel template",
+    "invalidFileFormat": "Invalid file format. Please upload .xlsx or .xls file.",
+    "fileTooLarge": "File size exceeds 10 MB limit.",
+    "emptyExcelSheet": "The Excel sheet is empty",
+    "uploadSuccess": "Uploaded successfully. Auto-detected scope: {scope}",
+    "invalidExcelTemplate": "Please upload correct excel as per template.",
+    "invalidWardPropertyData": "Please upload valid wards & properties in excel.",
+    "failedParseExcel": "Failed to parse Excel file",
+    "eligibleCalculated": "Eligible properties calculated successfully",
+    "failedFetchCalculation": "Failed to fetch calculation results",
+    "errorCalculating": "Error occurred while calculating eligible properties",
+    "scheduledJobStarted": "Scheduled job {jobId} has started executing.",
+    "invalidRange": "The 'To property' must be greater than the 'From property'. Please select a valid range.",
+    "exportSuccess": "Export completed successfully",
+    "exportCompleted": "Export completed successfully",
+    "exportingStarted": "Export download started...",
+    "exportingDownloading": "Export downloading, please wait...",
+    "exportFailed": "Failed to export properties",
+    "previewExportInProgress": "Exporting preview ({downloadType})...",
+    "previewExportSuccess": "Preview export ({downloadType}) completed successfully.",
+    "previewExportFailed": "Failed to download preview export file."
+  },
+  "schedule": {
+    "title": "Schedule Job Execution",
+    "subtitle": "Specify execution date and time (only today or tomorrow allowed)",
+    "back": "Back",
+    "submit": "Submit Schedule",
+    "selectDate": "Select Date",
+    "selectTime": "Select Time"
+  },
+  "audit": {
+    "stats": {
+      "totalJobs": "Total Jobs",
+      "totalJobsSub": "All bulk tax operations",
+      "completed": "Completed Jobs",
+      "completedSub": "Successfully processed",
+      "running": "Running Jobs",
+      "runningSub": "Currently executing",
+      "failed": "Failed Jobs",
+      "failedSub": "Require review"
+    },
+    "filters": {
+      "allJobs": "All Jobs",
+      "searchJobId": "Search Job ID",
+      "searchPlaceholder": "Search Job ID",
+      "status": "Status",
+      "date": "Date"
+    },
+    "status": {
+      "all": "All Status",
+      "completed": "Completed",
+      "inProgress": "InProgress",
+      "pending": "Pending",
+      "scheduled": "Scheduled",
+      "failed": "Failed"
+    },
+    "buttons": {
+      "applyFilter": "Apply Filter",
+      "resetFilters": "Refresh",
+      "syncData": "Sync/Refresh data",
+      "viewDetails": "View"
+    },
+    "columns": {
+      "action": "Action",
+      "jobId": "Job ID",
+      "dateTime": "Date & Time",
+      "operation": "Operation",
+      "doneBy": "Done By",
+      "scope": "Scope",
+      "startTime": "Start Time",
+      "completeTime": "Complete Time",
+      "duration": "Duration",
+      "records": "Records",
+      "status": "Status",
+      "remarks": "Remarks"
+    },
+    "detailColumns": {
+      "propertyNo": "Property No",
+      "propertyNoUpicId": "Property No / UPIC ID",
+      "owner": "Owner",
+      "taxHeadAmount": "Tax Head / Amount",
+      "status": "Status",
+      "message": "Message"
+    },
+    "jobDetail": {
+      "title": "Job Logs: {jobId}",
+      "operationLabel": "Operation:",
+      "doneByLabel": "Done By:",
+      "durationLabel": "Duration:",
+      "financialYearLabel": "Financial Year:",
+      "loadingText": "Loading job properties..."
+    },
+    "emptyState": {
+      "noData": "No data available"
+    }
+  },
+  "inactiveFinanceYear": {
+    "title": "Operation Restricted",
+    "message": "For finance year \"{financeYear}\" you cannot do add taxes.",
+    "subtext": "Please select current finance year to perform tax operation."
+  },
+  "masterDataChange": {
+    "banner": "Master data changed ({remarkSummary}) — {count} properties may need tax recalculation",
+    "defaultRemark": "Master Data",
+    "viewProperties": "View Properties",
+    "modalTitle": "Properties Flagged for Recalculation",
+    "modalSubtitle": "{count} properties may need tax recalculation due to a master data change",
+    "alertTitle": "Master Data Changes Detected – Tax Recalculation Pending",
+    "alertDescription": "{count} properties have pending tax recalculation flags due to master table changes.",
+    "scheduled": "Scheduled",
+    "proceedExecution": "Proceed Execution",
+    "exporting": "Exporting...",
+    "exportAffectedProperties": "Export Affected Properties (CSV)",
+    "selectFinanceYearExportError": "Please select a finance year before exporting.",
+    "exportActionUnavailable": "Export action is not available.",
+    "exportingCsvToast": "Exporting master data affected properties CSV...",
+    "exportSuccessToast": "Export download completed successfully!",
+    "exportFailedToast": "Failed to export master data changes CSV",
+    "exportCsv": "Export CSV",
+    "exportingDownloading": "Export downloading, please wait...",
+    "exportCompleted": "Export download completed",
+    "exportFailed": "Failed to export properties",
+    "columns": {
+      "zone": "Zone",
+      "ward": "Ward",
+      "propertyNo": "Property No",
+      "partitionNo": "Partition No",
+      "upicId": "UPIC ID",
+      "owner": "Owner",
+      "remark": "Remark",
+      "flaggedAt": "Flagged At"
+    }
+  }
+}

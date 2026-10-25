@@ -1,0 +1,173 @@
+{
+  "title": "मालमत्ता लॉक करा",
+  "subtitle": "निवडलेल्या श्रेणीमधील मालमत्तांचे गट लॉक किंवा अनलॉक करण्यासाठी प्रशासकीय नियंत्रण उपयुक्तता.",
+  "common": {
+    "loading": "लोड होत आहे..."
+  },
+  "defaults": {
+    "zone": "झोन / नोड",
+    "ward": "प्रभाग / सेक्टर",
+    "propertyNo": "मालमत्ता क्र.",
+    "partition": "विभाजन"
+  },
+  "scopeSelectionCard": {
+    "title": "1. स्कोप निवड",
+    "subtitle": "स्कोप निवडा. फक्त संबंधित फील्ड खाली दिसतील.",
+    "options": {
+      "zone": {
+        "label": "{zone}",
+        "sublabel": "{zone}नुसार निवड"
+      },
+      "ward": {
+        "label": "{ward}",
+        "sublabel": "मल्टी {ward} निवड"
+      },
+      "building": {
+        "label": "इमारतीनुसार",
+        "sublabel": "इमारत पातळी"
+      },
+      "propertyRange": {
+        "label": "मालमत्ता श्रेणी",
+        "sublabel": "मालमत्ता श्रेणी (पासून-पर्यंत)"
+      },
+      "excelUpload": {
+        "label": "एक्सेल अपलोड",
+        "sublabel": "एक्सेलद्वारे शोध"
+      }
+    }
+  },
+  "selectPropertyCard": {
+    "title": "मालमत्ता निवडा",
+    "zone": "{zone}",
+    "selectZone": "{zone} निवडा",
+    "propertyNo": "{propertyNo}",
+    "selectProperties": "मालमत्ता निवडा",
+    "wardNo": "{ward} क्र.",
+    "selectWard": "{ward} निवडा",
+    "fromProperty": "मालमत्ता क्र. पासून",
+    "selectStartRange": "सुरुवातीची श्रेणी निवडा",
+    "toProperty": "मालमत्ता क्र. पर्यंत",
+    "selectEndRange": "शेवटची श्रेणी निवडा",
+    "showButton": "दाखवा",
+    "clearButton": "साफ करा",
+    "mandatoryBanner": "* चिन्हांकित फील्ड अनिवार्य आहेत",
+    "uploadExcel": "एक्सेल अपलोड करा",
+    "downloadTemplate": "टेंम्पलेट डाउनलोड करा",
+    "searchDataByExcel": "एक्सेलद्वारे डेटा शोधा",
+    "dragDropText": "येथे एक्सेल फाईल (.xlsx, .xls) ड्रॅग आणि ड्रॉप करा, किंवा ब्राऊज करण्यासाठी क्लिक करा",
+    "rowsParsed": "फाईल मधून {count} पंक्ती पार्स केल्या",
+    "invalidFile": "अवैध फाईल. कृपया .xlsx किंवा .xls फाईल अपलोड करा.",
+    "wrongExcelUploaded": "चुकीची एक्सेल फाईल अपलोड केली.",
+    "missingColumns": "एक्सेलमध्ये ZoneNo, WardNo, आणि PropertyNo कॉलम असणे आवश्यक आहे.",
+    "noDataInFile": "अपलोड केलेल्या फाईलमध्ये कोणताही डेटा आढळला नाही.",
+    "tooManyRows": "एक्सेलमध्ये जास्त पंक्ती आहेत. कमाल मर्यादा {max} आहे.",
+    "duplicatesRemoved": "{count} डुप्लिकेट पंक्ती काढल्या.",
+    "excelUploadRequired": "कृपया प्रथम एक्सेल फाईल अपलोड करा.",
+    "fileSelected": "{name} निवडले",
+    "removeFile": "फाईल काढा"
+  },
+  "screenSelectionCard": {
+    "title": "स्क्रीन निवड",
+    "selectedCount": "{count} निवडले",
+    "noScreens": "निवडण्यासाठी कोणतीही स्क्रीन उपलब्ध नाही.",
+    "searchPlaceholder": "कोड किंवा वर्णनाद्वारे शोधा",
+    "typeOfUse": "सर्व प्रकार",
+    "selectAll": "सर्व निवडा",
+    "clearAll": "सर्व साफ करा",
+    "helperText": "लॉक/अनलॉक करण्यासाठी लागू स्क्रीन कोड निवडा",
+    "allTypes": "सर्व प्रकार"
+  },
+  "resultsTable": {
+    "title": "बल्क ऑपरेशन्स ({count} मालमत्ता निवडल्या)",
+    "propertyMasterTitle": "",
+    "lockButton": "निवडलेल्या स्क्रीन लॉक करा",
+    "unlockButton": "निवडलेल्या स्क्रीन अनलॉक करा",
+    "searchPropertyPlaceholder": "{propertyNo} किंवा {partition} क्रमांकाद्वारे शोधा...",
+    "searchButton": "शोधा",
+    "placeholderText": "कृपया {ward} आणि मालमत्ता श्रेणी निवडा, नंतर मालमत्ता पाहण्यासाठी \"दाखवा\" वर क्लिक करा.",
+    "noResultsFound": "कोणतीही मालमत्ता आढळली नाही.",
+    "columns": {
+      "propertyDetail": "{propertyNo}",
+      "screenNames": "स्क्रीनचे नाव",
+      "status": "स्थिती",
+      "lockUnlock": "लॉक/अनलॉक",
+      "actions": "कृती"
+    },
+    "status": {
+      "locked": "लॉक केलेले",
+      "unlocked": "अनलॉक केलेले",
+      "none": "काहीही नाही"
+    },
+    "actions": {
+      "manage": "व्यवस्थापित करा"
+    }
+  },
+  "manageModal": {
+    "title": "लॉक्स व्यवस्थापित करा: {propertyNo}",
+    "description": "या मालमत्तेसाठी कोणते मॉड्युल्स किंवा स्क्रीन लॉक करावेत ते निवडा. चिन्हांकित स्क्रीन वापरकर्त्यांना संपादन किंवा सबमिशन करण्यापासून रोखतील.",
+    "cancel": "रद्द करा",
+    "saveChanges": "बदल जतन करा"
+  },
+  "messages": {
+    "screenRequired": "कृपया स्क्रीन निवड कार्डमधून किमान एक स्क्रीन निवडा.",
+    "lockConfirmTitle": "मालमत्ता लॉक करा",
+    "unlockConfirmTitle": "मालमत्ता अनलॉक करा",
+    "lockConfirmDescription": "तुम्हाला मालमत्ता {propertyNo} साठी निवडलेल्या स्क्रीन लॉक करायच्या आहेत का?",
+    "unlockConfirmDescription": "तुम्हाला मालमत्ता {propertyNo} साठी निवडलेल्या स्क्रीन अनलॉक करायच्या आहेत का?",
+    "lockButtonText": "लॉक करा",
+    "unlockButtonText": "अनलॉक करा",
+    "lockText": "लॉक",
+    "unlockText": "अनलॉक",
+    "propertySuccess": "मालमत्ता यशस्वीरित्या {action} केली.",
+    "operationFailed": "कृती अयशस्वी.",
+    "unexpectedError": "त्रुटी आली.",
+    "saveSuccess": "लॉक सेटिंग्ज यशस्वीरित्या अपडेट केल्या.",
+    "savePartialFailed": "काही लॉक कॉन्फिगरेशन अपडेट करण्यात अयशस्वी.",
+    "saveFailed": "लॉक्स अपडेट करण्यात अयशस्वी.",
+    "selectPropertyRequired": "कृपया टेबलमधून किमान एक मालमत्ता निवडा.",
+    "selectScreenRequired": "लॉक/अनलॉक करण्यासाठी कृपया किमान एक स्क्रीन निवडा.",
+    "selectZoneRequired": "कृपया एक {zone} निवडा",
+    "selectWardRequired": "कृपया एक {ward} निवडा",
+    "selectWardAndPropertyRequired": "कृपया एक {ward} आणि किमान एक मालमत्ता निवडा",
+    "selectPropertyDropdownRequired": "कृपया किमान एक मालमत्ता निवडा",
+    "selectFromToPropertyRequired": "कृपया मालमत्ता क्र. पासून आणि मालमत्ता क्र. पर्यंत निवडा",
+    "bulkLockTitle": "मालमत्ता बल्क लॉक करा",
+    "bulkUnlockTitle": "मालमत्ता बल्क अनलॉक करा",
+    "bulkConfirmDescription": "तुम्हाला खात्री आहे की तुम्ही निवडलेल्या {propertyCount, plural, =1 {1 मालमत्तेसाठी} other {# मालमत्तांसाठी}} निवडलेली स्क्रीन {action} करायची आहे?",
+    "bulkConfirmDescriptionRange": "तुम्हाला खात्री आहे की तुम्ही मालमत्ता {fromProperty} ते {toProperty} मधील {propertyCount} मालमत्तांसाठी निवडलेली स्क्रीन {action} करायची आहे?",
+    "alreadyLockedIgnored": "(ज्या मालमत्ता आधीपासून लॉक आहेत त्यांच्याकडे दुर्लक्ष केले जाईल)",
+    "alreadyUnlockedIgnored": "(ज्या मालमत्ता आधीपासून अनलॉक आहेत त्यांच्याकडे दुर्लक्ष केले जाईल)",
+    "exactLockedIgnored": "({ignoredCount} आधीपासून लॉक असलेल्या {ignoredCount, plural, =1 {मालमत्तेकडे} other {मालमत्तांकडे}} दुर्लक्ष केले जाईल)",
+    "exactUnlockedIgnored": "({ignoredCount} आधीपासून अनलॉक असलेल्या {ignoredCount, plural, =1 {मालमत्तेकडे} other {मालमत्तांकडे}} दुर्लक्ष केले जाईल)",
+    "bulkConfirmDescriptionScope": "तुम्हाला खात्री आहे का की तुम्ही निवडलेल्या स्कोपसाठी (अंदाजे <highlight>{propertyCount}</highlight> मालमत्ता) निवडलेल्या {screenCount} स्क्रीन्स <warning>{action}</warning> करू इच्छिता? या मोठ्या प्रमाणातील अपडेट प्रक्रियेमुळे मोठ्या संख्येने रेकॉर्ड्स बदलले जातात आणि ती पूर्ण होण्यासाठी अनेक मिनिटे लागू शकतात. कृपया विंडो बंद करू नका.",
+    "bulkLockUnlockConfirmation": "तुम्ही <highlight>{propertyCount}</highlight> मालमत्ता <warning>{action}</warning> करणार आहात. या मोठ्या प्रमाणातील प्रक्रियेला काही मिनिटे लागू शकतात.\nकृपया प्रक्रिया पूर्ण होईपर्यंत हे पेज चालू ठेवा.\nपुढे जाण्यासाठी, <warning>{action}</warning> वर क्लिक करा. रद्द करण्यासाठी, <highlight>रद्द</highlight> वर क्लिक करा.",
+    "bulkSuccessmsg": "घाऊक ऑपरेशन पूर्ण झाले.",
+    "bulkSuccessLock": "{count, plural, =1 {1 मालमत्ता लॉक करण्यात आली.} other {# मालमत्ता लॉक करण्यात आल्या.}}",
+    "bulkSuccessUnlock": "{count, plural, =1 {1 मालमत्ता अनलॉक करण्यात आली.} other {# मालमत्ता अनलॉक करण्यात आल्या.}}",
+    "wrongScreenSelectedLock": "निवडलेली स्क्रीन या मालमत्तेसाठी आधीच लॉक केलेली आहे.",
+    "wrongScreenSelectedUnlock": "निवडलेली स्क्रीन या मालमत्तेसाठी लॉक केलेली नाही.",
+    "bulkFailed": "घाऊक ऑपरेशन अयशस्वी.",
+    "unexpectedErrorBulk": "घाऊक ऑपरेशन दरम्यान अनपेक्षित त्रुटी आली.",
+    "noPropertiesFoundFilters": "कोणतीही मालमत्ता आढळली नाही.",
+    "noPropertiesSelectedExclusions": "वगळणे लागू केल्यानंतर कोणतीही मालमत्ता निवडली नाही.",
+    "atLeastOnePropertyRequired": "किमान एक मालमत्ता निवडणे आवश्यक आहे.",
+    "processingTitle": "विनंतीवर प्रक्रिया सुरू आहे",
+    "processingMessage": "कृपया प्रतीक्षा करा, मालमत्ता अपडेट केल्या जात आहेत. यास काही क्षण लागू शकतात...",
+    "clearedFilters": "सर्व फिल्टर्स साफ केले.",
+    "validationError": "कृपया सर्व आवश्यक फील्ड भरा ({ward} क्र., मालमत्ता क्र. पासून आणि मालमत्ता क्र. पर्यंत).",
+    "fetchSuccess": "मालमत्ता यशस्वीरित्या प्राप्त झाल्या.",
+    "fetchNoResults": "कोणतीही मालमत्ता आढळली नाही.",
+    "fetchFailed": "मालमत्ता लोड करण्यात अयशस्वी.",
+    "fetchWardsError": "{wards} प्राप्त करण्यात त्रुटी:",
+    "excelDuplicatesNotice": "एक्सेल फाईलमध्ये {count} डुप्लिकेट {count, plural, =1 {नोंद आढळली} other {नोंदी आढळल्या}}. प्रत्येक मालमत्ता फक्त एकदाच दाखवली जात आहे.",
+    "searchValidationError": "कृपया शोधण्यासाठी मूल्य प्रविष्ट करा.",
+    "validationGreaterProperty": "मालमत्ता क्र. पर्यंत, मालमत्ता क्र. पासून पेक्षा मोठा असणे आवश्यक आहे."
+  },
+  "error": {
+    "title": "सर्व्हरशी कनेक्ट करण्यात अयशस्वी. कृपया नंतर पुन्हा प्रयत्न करा.",
+    "description": "मालमत्ता लॉक आणि अनलॉक पृष्ठ लोड करताना आम्हाला एक त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+    "errorId": "त्रुटि आयडी: {id}",
+    "goHome": "मुख्यपृष्ठावर जा",
+    "tryAgain": "पुन्हा प्रयत्न करा"
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "title": "पश्चलक्षी नियम पुस्तकालय",
+  "subtitle": "निगम-विशिष्ट नियमों की समीक्षा, तुलना और विन्यास करें।",
+  "exportJson": "JSON निर्यात करें",
+  "corporations": {
+    "all": "सभी निगम",
+    "thane": "ठाणे नगर निगम",
+    "pune": "पुणे नगर निगम",
+    "mumbai": "मुंबई नगर निगम"
+  },
+  "stats": {
+    "importedRules": "आयातित नियम",
+    "readyActive": "तैयार / सक्रिय",
+    "needReview": "समीक्षा की आवश्यकता",
+    "lookbackGuardrail": "वैधानिक लुक-बैक गार्डरेल",
+    "years": "वर्ष"
+  },
+  "defaultDateRules": {
+    "title": "डिफ़ॉल्ट तिथि नियम",
+    "subtitle": "उन मामलों के लिए डिफ़ॉल्ट अधिभोग तिथि नियम परिभाषित करें जहां वास्तविक अधिभोग तिथि उपलब्ध नहीं है।",
+    "defaultBadge": "डिफ़ॉल्ट",
+    "columns": {
+      "priority": "प्राथमिकता",
+      "ruleName": "नियम का नाम",
+      "appliesTo": "लागू होता है",
+      "condition": "शर्त",
+      "defaultDateLogic": "डिफ़ॉल्ट तिथि तर्क",
+      "effectiveFrom": "से प्रभावी",
+      "status": "स्थिति",
+      "actions": "कार्रवाई"
+    },
+    "noRules": "कोई डिफ़ॉल्ट तिथि नियम कॉन्फ़िगर नहीं किया गया है।",
+    "showing": "{total} में से {start} से {end} नियम दिखा रहा है"
+  },
+  "ruleLibrary": {
+    "title": "निगम नियम पुस्तकालय",
+    "subtitle": "इसके स्रोत शब्दों का निरीक्षण करने या इसे बिल्डर में खोलने के लिए एक नियम चुनें।",
+    "createRule": "नियम बनाएं",
+    "searchPlaceholder": "नियम, साक्ष्य या परिणाम खोजें...",
+    "statuses": {
+      "all": "सभी स्थितियां",
+      "active": "सक्रिय",
+      "review": "समीक्षा",
+      "draft": "प्रारूप",
+      "inactive": "निष्क्रिय"
+    },
+    "evidenceFilters": {
+      "all": "सभी साक्ष्य",
+      "authorized": "अधिकृत: OC या CC उपलब्ध",
+      "unauthorized": "अनधिकृत: OC और CC अनुपलब्ध"
+    },
+    "columns": {
+      "rule": "नियम",
+      "condition": "शर्त",
+      "startLogic": "प्रारंभिक तर्क",
+      "commonTaxation": "सामान्य कराधान",
+      "unauthorizedPenalty": "अनधिकृत जुर्माना",
+      "status": "स्थिति",
+      "actions": "कार्रवाई"
+    },
+    "noRules": "आपके फ़िल्टर से मेल खाने वाले कोई पश्चलक्षी नियम नहीं मिले।",
+    "buttons": {
+      "view": "देखें",
+      "edit": "संपादित करें"
+    }
+  },
+  "builder": {
+    "title": "पश्चलक्षी नियम कॉन्फ़िगर करें",
+    "subtitle": "कराधान सेट करें, साक्ष्य शर्तें परिभाषित करें और परिणामी कार्रवाई चुनें।",
+    "pills": {
+      "taxation": "कराधान",
+      "conditions": "शर्तें",
+      "actions": "कार्रवाई"
+    },
+    "taxation": {
+      "title": "कराधान दर और प्रतिशत",
+      "subtitle": "चयनित निगम के तहत सभी नियमों के लिए सामान्य।",
+      "configured": "कॉन्फ़िगर किया गया",
+      "rateLabel": "कराधान दर",
+      "percentageLabel": "कर प्रतिशत",
+      "saveButton": "कराधान सहेजें",
+      "updateTaxation": "कराधान अद्यतन करें",
+      "rateOptions": {
+        "currentYear": "सभी वर्षों के लिए चालू वर्ष की दर",
+        "historical": "प्रत्येक वर्ष के लिए ऐतिहासिक दर"
+      },
+      "percentageOptions": {
+        "currentYear": "सभी वर्षों के लिए चालू वर्ष का प्रतिशत",
+        "slabBased": "स्लैब आधारित प्रतिशत"
+      }
+    },
+    "conditions": {
+      "title": "शर्तें",
+      "subtitle": "परिभाषित करें कि यह नियम कब लागू होता है।",
+      "badge": "जब",
+      "ruleNameLabel": "नियम का नाम",
+      "ruleNamePlaceholder": "जैसे OC छह वर्ष से पुराना",
+      "evidenceStateHeader": "इस नियम के लिए साक्ष्य स्थिति चुनें:",
+      "evidenceStateHelp": "प्रत्येक साक्ष्य वस्तु को केवल एक तरफ चुनें।",
+      "availableEvidence": "उपलब्ध साक्ष्य",
+      "availableHelp": "चयनित रिकॉर्ड मौजूद होना चाहिए।",
+      "unavailableEvidence": "अनुपलब्ध साक्ष्य",
+      "unavailableHelp": "चयनित रिकॉर्ड अनुपलब्ध होना चाहिए।",
+      "selectedCount": "{count} चयनित",
+      "mutuallyExclusiveNotice": "साक्ष्य चयन परस्पर अनन्य हैं।",
+      "compareDatesLabel": "साक्ष्य तिथियों की तुलना करें",
+      "authorizedConstruction": "अधिकृत निर्माण",
+      "unauthorizedConstruction": "अनधिकृत निर्माण",
+      "authorizedDescription": "OC या CC उपलब्ध है।",
+      "unauthorizedDescription": "OC और CC दोनों अनुपलब्ध हैं।",
+      "authorizedBadge": "अधिकृत",
+      "unauthorizedBadge": "अनधिकृत",
+      "compareOptions": {
+        "olderThanAllowed": "अनुमत अवधि से पुरानी OC तिथि",
+        "withinAllowed": "अनुमत अवधि के भीतर OC तिथि",
+        "noComparison": "तिथि तुलना की आवश्यकता नहीं"
+      }
+    },
+    "actions": {
+      "title": "कार्रवाई",
+      "subtitle": "पश्चलक्षी कर और अनधिकृत निर्माण जुर्माना सेट करें।",
+      "badge": "तब",
+      "retrospectiveTaxTitle": "पश्चलक्षी कर",
+      "retrospectiveTaxSubtitle": "प्रारंभ, सीमा और गुणक चुनें।",
+      "taxStartsFromLabel": "कर यहाँ से शुरू होता है",
+      "useDateLabel": "उपयोग तिथि",
+      "monthsAfterLabel": "महीनों के बाद",
+      "earliestAllowedDateLabel": "सबसे पहले की अनुमत तिथि",
+      "taxStartsFromOptions": {
+        "selectedEvidenceDate": "चयनित साक्ष्य तिथि",
+        "afterSpecifiedMonths": "निर्दिष्ट महीनों के बाद",
+        "maxLookback": "अधिकतम लुक-बैक तिथि",
+        "fromOc": "OC तिथि से",
+        "fixedCutoff": "निश्चित कटऑफ तिथि"
+      },
+      "limitLabel": "पश्चलक्षी सीमा",
+      "limitOptions": {
+        "earliestChargeable": "सबसे पहले की प्रभार्य तिथि",
+        "noLimit": "कोई अतिरिक्त निगम सीमा नहीं",
+        "maxYears": "अधिकतम वर्ष"
+      },
+      "maxYearsLabel": "अधिकतम वर्ष",
+      "maxYearsPlaceholder": "उदाहरण: 6",
+      "taxCalcLabel": "कर की गणना",
+      "taxCalcOptions": {
+        "oneMultiplier": "संपूर्ण अवधि के लिए एक गुणक",
+        "differentMultiplier": "दो तिथियों के बीच भिन्न गुणक"
+      },
+      "multiplierLabel": "कर गुणक",
+      "splitPeriodTitle": "विभाजित-अवधि कर गुणक",
+      "higherRateStartsFromLabel": "उच्च दर यहाँ से शुरू होती है",
+      "higherRateContinuesUpToLabel": "उच्च दर यहाँ तक जारी रहती है",
+      "duringPeriodLabel": "अवधि के दौरान गुणक",
+      "afterPeriodLabel": "अवधि के बाद गुणक",
+      "splitExampleText": "उदाहरण: CC और OC के बीच 1.5x दर; OC के बाद 1x दर लागू होगी।",
+      "taxationUsedNotice": "उपयोग किया गया कराधान: सभी वर्षों के लिए चालू वर्ष दर; सभी वर्षों के लिए चालू वर्ष प्रतिशत।",
+      "unauthorizedPenaltyTitle": "अनधिकृत निर्माण जुर्माना",
+      "unauthorizedPenaltySubtitle": "केवल तभी दिखाया जाता है जब OC और CC दोनों अनुपलब्ध हों।",
+      "authorizedNotice": "अधिकृत निर्माण - OC या CC उपलब्ध",
+      "authorizedHelp": "कोई जुर्माना नहीं लागू होता है।",
+      "unauthorizedNotice": "अनधिकृत निर्माण - OC और CC अनुपलब्ध",
+      "unauthorizedHelp": "अधिनियम के अनुसार जुर्माना जोड़ा जाएगा।",
+      "summaryTitle": "नियम का सारांश",
+      "summaryWhen": "जब",
+      "summaryTax": "कर",
+      "summaryPenalty": "जुर्माना",
+      "summaryAvailable": "{evidence} उपलब्ध; {compareDate}",
+      "summaryTaxDetail": "रोलिंग {years}-वर्षीय सीमा से शुरू करें; अधिकतम {years} वर्ष; कर = {multiplier}।",
+      "summaryNotApplicable": "लागू नहीं",
+      "summaryApplyPenalty": "अधिनियम के अनुसार जुर्माना लागू करें"
+    },
+    "footer": {
+      "reviewText": "नियम की समीक्षा करें, फिर सहेजें या प्रकाशित करें।",
+      "testRule": "परीक्षण नियम",
+      "saveDraft": "सहेजें",
+      "update": "अद्यतन करें",
+      "publishRule": "नियम प्रकाशित करें"
+    }
+  },
+  "confirm": {
+    "updateTitle": "नियम अद्यतन की पुष्टि करें",
+    "createTitle": "नियम निर्माण की पुष्टि करें",
+    "deleteTitle": "नियम हटाने की पुष्टि करें",
+    "updateDescription": "क्या आप निश्चित रूप से पश्चलक्षी नियम \"{name}\" को सहेजना और अद्यतन करना चाहते हैं?",
+    "createDescription": "क्या आप निश्चित रूप से पश्चलक्षी नियम \"{name}\" को बनाना और प्रकाशित करना चाहते हैं?",
+    "deleteDescription": "क्या आप निश्चित रूप से नियम \"{name}\" को हटाना चाहते हैं? यह प्रक्रिया वापस नहीं की जा सकती।",
+    "updateConfirm": "हाँ, अद्यतन करें",
+    "createConfirm": "हाँ, बनाएँ",
+    "deleteConfirm": "हाँ, हटाएँ",
+    "cancel": "रद्द करें"
+  },
+  "notifications": {
+    "updateSuccess": "✅ नियम सफलतापूर्वक अद्यतन किया गया!",
+    "createSuccess": "✅ नियम सफलतापूर्वक बनाया और सहेजा गया!",
+    "draftSuccess": "✅ नियम सहेजा गया और पोस्ट किया गया!",
+    "taxSuccess": "✅ कराधान नीति सफलतापूर्वक सहेजी गई!"
+  },
+  "loading": {
+    "message": "पश्चलक्षी नियम पुस्तकालय लोड हो रहा है...",
+    "description": "कृपया प्रतीक्षा करें जब तक हम कॉन्फ़िगरेशन नियम प्राप्त करते हैं।"
+  },
+  "error": {
+    "title": "पश्चलक्षी नियम पुस्तकालय लोड करने में विफल",
+    "description": "नियम कॉन्फ़िगरेशन लोड करते समय एक अप्रत्याशित त्रुटि हुई।",
+    "goHome": "वापस जाएं",
+    "tryAgain": "पुनः प्रयास करें",
+    "errorId": "त्रुटि आईडी: {id}"
+  },
+  "validation": {
+    "ruleTitleRequired": "नियम का शीर्षक आवश्यक है",
+    "ruleTitleMin": "नियम का शीर्षक कम से कम 3 अक्षरों का होना चाहिए",
+    "ruleTitleMax": "नियम का शीर्षक 100 अक्षरों से अधिक नहीं हो सकता",
+    "ruleCodeRequired": "नियम कोड आवश्यक है",
+    "ruleCodeInvalid": "नियम कोड में केवल अल्फ़ान्यूमेरिक वर्ण और हाइफन होने चाहिए",
+    "compareEvidenceDatesSelect": "कृपया एक वैध तुलना विकल्प चुनें",
+    "taxStartsFromSelect": "कृपया एक वैध कर प्रारंभ विकल्प चुनें",
+    "retrospectiveLimitSelect": "कृपया एक वैध सीमा विकल्प चुनें",
+    "taxCalculationSelect": "कृपया एक वैध कर गणना विकल्प चुनें",
+    "maxYearsRequired": "\"अधिकतम वर्ष\" सीमा चुने जाने पर अधिकतम वर्ष आवश्यक है",
+    "maxYearsPositive": "अधिकतम वर्ष एक धनात्मक संख्या होनी चाहिए",
+    "maxYearsLimit": "अधिकतम लुक-बैक सीमा 100 वर्षों से अधिक नहीं हो सकती",
+    "taxMultiplierRequired": "कर गुणक आवश्यक है",
+    "taxMultiplierNegative": "कर गुणक नकारात्मक नहीं हो सकता"
+  }
+}

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 40 530 718" width="530" height="718" style="background-color:#ffffff; font-family:Arial, sans-serif;">
+  <rect x="10" y="40" width="530" height="718" fill="#ffffff"/>
+  <line x1="50" y1="200" x2="50" y2="550" stroke="#008000" stroke-width="5" stroke-linecap="square"/>
+  <line x1="50" y1="200" x2="500" y2="200" stroke="#008000" stroke-width="5" stroke-linecap="square"/>
+  <line x1="500" y1="200" x2="500" y2="550" stroke="#008000" stroke-width="5" stroke-linecap="square"/>
+  <line x1="500" y1="550" x2="350" y2="550" stroke="#008000" stroke-width="5" stroke-linecap="square"/>
+  <line x1="200" y1="400" x2="350" y2="400" stroke="#008000" stroke-width="5" stroke-linecap="square"/>
+  <line x1="50" y1="550" x2="200" y2="550" stroke="#008000" stroke-width="5" stroke-linecap="square"/>
+  <line x1="200" y1="300" x2="200" y2="550" stroke="#008000" stroke-width="5" stroke-linecap="square"/>
+  <line x1="350" y1="350" x2="500" y2="350" stroke="#008000" stroke-width="5" stroke-linecap="square"/>
+  <line x1="350" y1="200" x2="350" y2="550" stroke="#008000" stroke-width="5" stroke-linecap="square"/>
+  <line x1="250" y1="200" x2="250" y2="300" stroke="#008000" stroke-width="5" stroke-linecap="square"/>
+  <line x1="250" y1="300" x2="50" y2="300" stroke="#008000" stroke-width="5" stroke-linecap="square"/>
+  <text x="80" y="96" font-size="16" font-weight="bold" fill="#000000">
+    <tspan x="80" dy="0">THANE-MM1-85-1-(AREA IN MTR)</tspan>
+  </text>
+  <text x="50" y="614" font-size="16" font-weight="bold" fill="#000000">
+    <tspan x="50" dy="0">OWNER: The Holder</tspan>
+  </text>
+  <text x="50" y="684" font-size="16" font-weight="bold" fill="#000000">
+    <tspan x="50" dy="0">OCCUPIER: The Holder</tspan>
+  </text>
+  <text x="118.89577916457125" y="410.04672114820863" font-size="16" font-weight="bold" fill="#000000">
+    <tspan x="118.89577916457125" dy="0">HALL</tspan>
+    <tspan x="118.89577916457125" dy="20">8*10</tspan>
+  </text>
+  <text x="218.41020041344143" y="335.47877992126774" font-size="16" font-weight="bold" fill="#000000">
+    <tspan x="218.41020041344143" dy="0">BED_ROOM_1</tspan>
+    <tspan x="218.41020041344143" dy="20">10*10</tspan>
+  </text>
+  <text x="100.06423121952491" y="251.30679560093174" font-size="16" font-weight="bold" fill="#000000">
+    <tspan x="100.06423121952491" dy="0">KITCHEN</tspan>
+    <tspan x="100.06423121952491" dy="20">6*10</tspan>
+  </text>
+  <text x="371.413914773928" y="247.10578482758297" font-size="16" font-weight="bold" fill="#000000">
+    <tspan x="371.413914773928" dy="0">BED_ROOM_2</tspan>
+    <tspan x="371.413914773928" dy="20">9*9</tspan>
+  </text>
+  <text x="374.5646728539396" y="426.69899538824336" font-size="16" font-weight="bold" fill="#000000">
+    <tspan x="374.5646728539396" dy="0">BED_ROOM_3</tspan>
+    <tspan x="374.5646728539396" dy="20">10*9</tspan>
+  </text>
+</svg>

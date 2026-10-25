@@ -1,0 +1,75 @@
+{
+  "title": "Reading Sources",
+  "subtitle": "Where a meter reading originated: field, AMR/AMI, citizen, import or estimation.",
+  "actionLabel": "Add Reading Source",
+  "searchPlaceholder": "Search records...",
+  "rowsPerPage": "Rows per page:",
+  "showingEntries": "Showing {start} to {end} of {total} entries",
+  "table": {
+    "code": "Reading Source Code",
+    "name": "Reading Source",
+    "status": "Status",
+    "action": "ACTION"
+  },
+  "drawer": {
+    "addTitle": "Add Reading Source",
+    "editTitle": "Edit Reading Source",
+    "addSubtitle": "Configure new source classification for meter reading entries",
+    "editSubtitle": "Update meter reading source details and operational status",
+    "statusToggle": {
+      "title": "Status",
+      "description": "Enable or disable this reading source across the system ({status})",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "labels": {
+      "code": "Reading Source Code",
+      "name": "Reading Source"
+    },
+    "placeholders": {
+      "code": "e.g. FIELD, AMR, IMPORT",
+      "name": "e.g. Field Inspection, AMR System"
+    },
+    "mandatoryNote": "Fields marked with an asterisk (*) are mandatory. Please provide valid inputs.",
+    "buttons": {
+      "cancel": "Cancel",
+      "save": "Save Reading Source",
+      "update": "Update Reading Source"
+    }
+  },
+  "messages": {
+    "createSuccess": "Reading Source created successfully",
+    "updateSuccess": "Reading Source updated successfully",
+    "deleteSuccess": "Reading Source deleted successfully",
+    "duplicateRecord": "Record with this code or source name already exists. Please use unique values.",
+    "notFound": "Reading source record not found.",
+    "invalidData": "Invalid data provided. Please check all fields.",
+    "operationFailed": "Operation failed",
+    "deleteFailed": "Failed to delete record"
+  },
+  "confirm": {
+    "deleteTitle": "Reading Source: {code}",
+    "deleteDescription": "Are you sure you want to delete this Reading Source record?"
+  },
+  "validation": {
+    "codeRequired": "Reading Source Code is required.",
+    "codeMinLength": "Reading Source Code must be at least 2 characters long.",
+    "codeMaxLength": "Reading Source Code cannot exceed 20 characters.",
+    "codeInvalid": "Only letters and numbers are allowed (A-Z, 0-9). Special characters and spaces are not allowed.",
+    "nameRequired": "Reading Source is required.",
+    "nameMinLength": "Reading Source must be at least 2 characters long.",
+    "nameMaxLength": "Reading Source cannot exceed 100 characters.",
+    "nameInvalid": "Special characters are not allowed in Reading Source."
+  },
+  "error": {
+    "title": "Failed to connect server. Please try again later.",
+    "description": "We encountered an error while loading the reading source page. Please try again.",
+    "tryAgain": "Try Again",
+    "goHome": "Go to Home",
+    "errorId": "Error ID: {id}"
+  },
+  "loading": {
+    "message": "Loading Reading Sources...",
+    "description": "Please wait while we fetch the reading source records"
+  }
+}

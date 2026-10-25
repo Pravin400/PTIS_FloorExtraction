@@ -1,0 +1,50 @@
+{
+  "header": {
+    "title": "PMC Fire Department",
+    "subtitle": "Fire Survey Portal",
+    "syncButton": "Sync Inspection",
+    "syncTitle": "Open sync queue"
+  },
+  "sidebar": {
+    "menuTitle": "Menu",
+    "home": "Home",
+    "inspections": "Inspections",
+    "history": "History",
+    "profile": "Profile",
+    "backToDashboard": "Back to Dashboard"
+  },
+  "error": {
+    "title": "Survey Workspace Error",
+    "message": "Unable to load the survey dashboard. Please try reloading the workspace.",
+    "retry": "Retry"
+  },
+  "kpi": {
+    "assigned": "Assigned",
+    "dueToday": "Due Today",
+    "overdue": "Overdue",
+    "pending": "Pending",
+    "reInspection": "Re-inspection",
+    "completed": "Completed"
+  },
+  "map": {
+    "wardBadge": "PMC Fire & Emergency Services",
+    "layerDefault": "Default",
+    "layerSatellite": "Satellite",
+    "layerTerrain": "Terrain",
+    "siteContact": "Site Contact",
+    "callNow": "Call Contact",
+    "navigate": "Navigate",
+    "startAudit": "Start Inspection",
+    "resumeAudit": "Resume Inspection",
+    "viewDetails": "View Details",
+    "scheduled": "Scheduled",
+    "overdueBy": "Overdue",
+    "cycle1": "Cycle 1 • Initial Visit",
+    "cycle2": "Cycle 2 • Re-Inspection",
+    "noInspections": "No inspections matching this status.",
+    "showingAll": "Showing all inspections",
+    "activeFilter": "Filtered by: {status}",
+    "occupancy": "Occ: {code}",
+    "loadingMap": "Loading surveyor map..."
+  }
+}
