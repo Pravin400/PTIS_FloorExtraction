@@ -479,15 +479,25 @@ export async function extractRoomsFromFloorPlanAction(params: {
 
         if (propId) {
             try {
-                const { photoPlanService } = await import('@/lib/api/ptis/photoplan/photoplan.service');
+                const { photoPlanService, invalidatePhotoPlanCache } = await import('@/lib/api/ptis/photoplan/photoplan.service');
+                // Always invalidate cache so latest uploaded/changed plan is immediately retrieved
+                invalidatePhotoPlanCache(propId);
                 const photosRes = await photoPlanService.getPhotosByProperty(propId);
 
                 if (photosRes.success && Array.isArray(photosRes.data)) {
-                    const planPhoto = photosRes.data.find((p) =>
+                    // Filter for all plan photos
+                    const planPhotos = photosRes.data.filter((p) =>
                         p.photoTypeId === 5 ||
+                        p.photoTypeCode === 'PROPERTY_PLAN' ||
+                        p.photoTypeCode === 'PHOTO_PLAN' ||
                         p.photoTypeCode === 'PLAN' ||
                         p.photoTypeName?.toLowerCase().includes('plan')
                     );
+
+                    // Sort descending by propertyPhotoId so the most recent plan is used
+                    planPhotos.sort((a, b) => (b.propertyPhotoId || 0) - (a.propertyPhotoId || 0));
+
+                    const planPhoto = planPhotos[0];
                     if (planPhoto && planPhoto.documentGuid) {
                         planDocumentGuid = String(planPhoto.documentGuid);
                         planFileName = planPhoto.fileName || 'plan.svg';
@@ -553,12 +563,11 @@ export async function extractRoomsFromFloorPlanAction(params: {
             planName = `${params.wardNo || 'MM13'}-${params.propertyNo || '31'}`;
         }
 
+        // Only search candidates for THIS specific property and partition (do NOT cross-pollinate with other partitions)
         const planCandidates = Array.from(new Set([
             planName,
-            cleanPart ? `${params.wardNo || 'MM13'}-${cleanPart[0]}-${params.propertyNo || '31'}-1` : null,
-            `${params.wardNo || 'MM13'}-A-${params.propertyNo || '31'}-1`,
-            `${params.wardNo || 'MM13'}-${params.propertyNo || '31'}-${cleanPart || 'A1'}`,
-            `${params.wardNo || 'MM13'}-${params.propertyNo || '31'}`
+            cleanPart ? `${params.wardNo || 'MM13'}-${params.propertyNo || '31'}-${cleanPart}` : null,
+            cleanPart ? `${params.wardNo || 'MM13'}-${cleanPart}-${params.propertyNo || '31'}` : null
         ].filter((p): p is string => Boolean(p))));
 
         const authRes = await fetch('https://apiptisplanapp.tabamc.in/api/auth/login', {
