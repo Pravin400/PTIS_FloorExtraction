@@ -121,4 +121,4 @@ Desktop.ini
 # Antigravity agents & local tooling scripts
 # ------------------------------------------------------------
 .agents/
-scripts/
+!scripts/dev-with-extraction.js

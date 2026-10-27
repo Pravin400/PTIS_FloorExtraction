@@ -235,6 +235,7 @@ export interface EditSidebarProps {
     floorData: FloorResponse[];
     constructionTypeData: ConstructionTypeResponse[];
     useData: TypeOfUseApiItem[];
+    openPlotCategoryData?: TypeOfUseApiItem[];
     subTypeData: SubTypeOfUseResponse[];
     subFloorData: SubFloorResponse[];
     roomTypeData?: RoomTypeResponse[];

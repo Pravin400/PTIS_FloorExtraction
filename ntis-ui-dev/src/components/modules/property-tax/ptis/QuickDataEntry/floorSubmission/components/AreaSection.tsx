@@ -50,7 +50,7 @@ export const AreaSection: React.FC<AreaSectionProps & { selectedFloorType?: 'Con
     setIsExtractingRooms(true);
     try {
       const res = await extractRoomsFromFloorPlanAction({
-        propertyId: effPropertyId,
+        propertyId: effPropertyId || '',
         wardNo: effWardNo,
         propertyNo: effPropertyNo,
         partitionNo: effPartitionNo,

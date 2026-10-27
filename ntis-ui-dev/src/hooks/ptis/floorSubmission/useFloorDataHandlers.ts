@@ -157,7 +157,9 @@ export const useFloorDataHandlers = (params: {
       const enteredArea = parseFloat(Number(enteredFloorAreaSqM || 0).toFixed(2));
       const diffArea = parseFloat(Math.max(0, enteredArea - availArea).toFixed(2));
 
-      const headerMsg = getSafeTranslation('floor.floorAreaExceeded', `Floor Built-up Area cannot exceed the available remaining area (${availArea} Sq.M).`, { area: String(availArea) });
+      const headerMsg = availArea <= 0
+        ? getSafeTranslation('floor.noPlotAreaRemaining', 'Floor Built-up Area cannot be added because Total Plot Area is 0. Please enter the plot dimensions (Length & Width) and click "Add Area" above first.')
+        : getSafeTranslation('floor.floorAreaExceeded', `Floor Built-up Area cannot exceed the available remaining area (${availArea} Sq.M).`, { area: String(availArea) });
       const plotAreaLbl = getSafeTranslation('floor.plotAreaLabel', 'Plot Area:');
       const utilizedOpenLbl = getSafeTranslation('floor.alreadyUtilizedOpenSpaceAreaLabel', 'Already Utilized Open Space Area:');
       const enteredFloorLbl = getSafeTranslation('floor.enteredFloorBuiltupAreaLabel', 'Entered Floor Built-up Area:');

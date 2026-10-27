@@ -127,17 +127,34 @@ export async function getTypeOfUseData(propertyTypeId?: string | number): Promis
 export async function getOpenPlotCategoryData(): Promise<TypeOfUseApiItem[]> {
     const cached = getCachedLookup<TypeOfUseApiItem[]>("OpenPlotCategory");
     if (cached) return cached;
-    const rawItems = await fetchItems<TypeOfUseApiItem & { id?: string | number; ID?: string | number }>(
-        "/TypeOfUse?TypeOfUseCategoryId=4&pageNumber=1&pageSize=-1",
-        "Failed to fetch open plot categories"
-    );
-    const result = rawItems.map(item => ({
-        ...item,
-        typeOfUseId: item.typeOfUseId || Number(item.id || item.ID || 0),
-        typeOfUseCategoryId: item.typeOfUseCategoryId !== undefined && item.typeOfUseCategoryId !== null ? item.typeOfUseCategoryId : 4
-    }));
-    setCachedLookup("OpenPlotCategory", result);
-    return result;
+    try {
+        const rawItems = await fetchItems<TypeOfUseApiItem & { id?: string | number; ID?: string | number }>(
+            "/TypeOfUse?TypeOfUseCategoryId=4&pageNumber=1&pageSize=-1",
+            "Failed to fetch open plot categories"
+        );
+        const result = rawItems.map(item => ({
+            ...item,
+            typeOfUseId: item.typeOfUseId || Number(item.id || item.ID || 0),
+            typeOfUseCategoryId: item.typeOfUseCategoryId !== undefined && item.typeOfUseCategoryId !== null ? item.typeOfUseCategoryId : 4
+        }));
+        if (result.length > 0) {
+            setCachedLookup("OpenPlotCategory", result);
+            return result;
+        }
+    } catch (e) {
+        console.warn('Error fetching open plot categories from API:', e);
+    }
+
+    const fallback: TypeOfUseApiItem[] = [
+        { id: 120, typeOfUseId: 120, typeOfUseCode: 'OP', description: 'खुला भूखंड', typeOfUseCategoryId: 4, typeOfUseGroupId: 5, type: 'R', isActive: true },
+        { id: 121, typeOfUseId: 121, typeOfUseCode: 'OPC', description: 'खुला भूखंड अनिवासी', typeOfUseCategoryId: 4, typeOfUseGroupId: 11039, type: 'C', isActive: true },
+        { id: 122, typeOfUseId: 122, typeOfUseCode: 'OPI', description: 'खुला भूखंड औद्योगिक', typeOfUseCategoryId: 4, typeOfUseGroupId: 11040, type: 'I', isActive: true },
+        { id: 123, typeOfUseId: 123, typeOfUseCode: 'OPF', description: 'खुला भूखंड शेती', typeOfUseCategoryId: 4, typeOfUseGroupId: 11041, type: 'R', isActive: true },
+        { id: 124, typeOfUseId: 124, typeOfUseCode: 'OPN', description: 'करमुक्त', typeOfUseCategoryId: 4, typeOfUseGroupId: 11041, type: 'N', isActive: true },
+        { id: 126, typeOfUseId: 126, typeOfUseCode: 'OPR', description: 'खुला भूखंड निवासी', typeOfUseCategoryId: 4, typeOfUseGroupId: 2, type: 'C', isActive: true },
+    ] as unknown as TypeOfUseApiItem[];
+    setCachedLookup("OpenPlotCategory", fallback);
+    return fallback;
 }
 
 /**

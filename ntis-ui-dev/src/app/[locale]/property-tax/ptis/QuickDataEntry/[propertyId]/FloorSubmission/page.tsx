@@ -5,7 +5,8 @@ import { FloorResponse, ConstructionTypeResponse, TypeOfUseApiItem, SubFloorResp
 import { FloorData, RoomTypeResponse } from '@/types/room-details.types';
 import { PropertyBasicDetailsApiItem } from '@/types/property-basic-details.types';
 import { normalizeObjectResponse, normalizeArrayResponse, normalizeWrappedResponse, } from '@/lib/utils/action-response-helpers';
-import { getFloorDataAction, getConstructionTypeDataAction, getTypeOfUseDataAction, getSubFloorDataAction, getSubTypeOfUseDataAction, getRoomTypeDataAction, getQuickDataEntryAction, getPropertyByDetailsAction, getFloorByIdAction, getFloorSubmissionsByOwnerAction, getPropertyBasicDetailsAction, } from './actions';
+import { getFloorDataAction, getConstructionTypeDataAction, getTypeOfUseDataAction,
+    getOpenPlotCategoryDataAction, getSubFloorDataAction, getSubTypeOfUseDataAction, getRoomTypeDataAction, getQuickDataEntryAction, getPropertyByDetailsAction, getFloorByIdAction, getFloorSubmissionsByOwnerAction, getPropertyBasicDetailsAction, } from './actions';
 import { getPropertyBasicDetails } from '@/lib/api/ptis/propertybasicdetails/property-basic-details.service';
 
 // Force dynamic rendering — this page relies on per-request search params.
@@ -137,6 +138,7 @@ export default async function FloorSubmissionPage({
         roomTypeDataResult,
         floorDetailRaw,
         initialFloorsRaw,
+        openPlotCategoryResult,
     ] = await Promise.all([
         getFloorDataAction(),
         getConstructionTypeDataAction(),
@@ -146,6 +148,7 @@ export default async function FloorSubmissionPage({
         getRoomTypeDataAction(),
         (floorId && floorId !== 'new') ? getFloorByIdAction(floorId) : Promise.resolve(null),
         (targetOwnerId && targetOwnerId !== 'new') ? getFloorSubmissionsByOwnerAction(targetOwnerId) : Promise.resolve([]),
+        getOpenPlotCategoryDataAction(),
     ]);
 
     /** 
@@ -178,6 +181,7 @@ export default async function FloorSubmissionPage({
     const subFloorData = checkResult<SubFloorResponse>(subFloorDataResult, 'Sub-floor data');
     let subTypeData = checkResult<SubTypeOfUseResponse>(subTypeDataResult, 'Sub-usage types');
     const roomTypeData = checkResult<RoomTypeResponse>(roomTypeDataResult, 'Room types');
+    const openPlotCategoryData = checkResult<TypeOfUseApiItem>(openPlotCategoryResult, 'Open plot categories');
 
     // ── Resolve property data & ID ──────────────────────────────────────────
     if (propertyBasicDetails && initialPropertyData) {
@@ -278,6 +282,7 @@ export default async function FloorSubmissionPage({
                 floorData={floorData}
                 constructionTypeData={constructionTypeData}
                 useData={useData}
+                openPlotCategoryData={openPlotCategoryData}
                 subFloorData={subFloorData}
                 subTypeData={subTypeData}
                 wardNo={wardNo}

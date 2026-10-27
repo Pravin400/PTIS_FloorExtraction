@@ -13,7 +13,8 @@ import { RoomSubmissionModal, PlotAreaCalculator, SubmissionOverlayLoader, Submi
 import { LoadingPage } from '@/components/common';
 import { convertSqMToSqFt } from '@/lib/utils/RoomSubmission/conversions';
 import { RoomAPIResponse, FloorData } from '@/types/room-details.types';
-import { submitFloorSubmissionNoRedirectAction, updateFloorSubmissionNoRedirectAction } from '@/app/[locale]/property-tax/ptis/QuickDataEntry/[propertyId]/FloorSubmission/actions';
+import { submitFloorSubmissionNoRedirectAction, updateFloorSubmissionNoRedirectAction,
+  getOpenPlotCategoryDataAction } from '@/app/[locale]/property-tax/ptis/QuickDataEntry/[propertyId]/FloorSubmission/actions';
 import { useQdeSaveTracker } from '@/hooks/ptis/QuickDataEntry/useQdeSaveTracker';
 
 import { validateOpenPlotForm } from '@/lib/validations/validateOpenPlotForm';
@@ -78,9 +79,34 @@ const FloorSubmission: React.FC<EditSidebarProps> = (props) => {
   const { markChangesSaved } = useQdeSaveTracker(props.initialPropertyID);
   const [isAddingArea, setIsAddingArea] = React.useState(false);
 
+  const [asyncOpenPlotCategories, setAsyncOpenPlotCategories] = React.useState<OpenPlotCategoryItem[]>([]);
+
   const openPlotCategoryOptions = React.useMemo(() => {
-    return filterOpenPlotCategories(props.useData);
-  }, [props.useData]);
+    if (props.openPlotCategoryData && props.openPlotCategoryData.length > 0) {
+      const filtered = filterOpenPlotCategories(props.openPlotCategoryData);
+      if (filtered.length > 0) return filtered;
+    }
+    if (asyncOpenPlotCategories.length > 0) {
+      return asyncOpenPlotCategories;
+    }
+    const fromUseData = filterOpenPlotCategories(props.useData);
+    if (fromUseData.length > 0) return fromUseData;
+    return [];
+  }, [props.openPlotCategoryData, asyncOpenPlotCategories, props.useData]);
+
+  // Client-side auto-fetch if list is still empty
+  React.useEffect(() => {
+    if (openPlotCategoryOptions.length === 0) {
+      getOpenPlotCategoryDataAction().then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          const mapped = filterOpenPlotCategories(data as any);
+          if (mapped.length > 0) {
+            setAsyncOpenPlotCategories(mapped);
+          }
+        }
+      }).catch((err) => console.warn('Could not fetch open plot categories:', err));
+    }
+  }, [openPlotCategoryOptions.length]);
 
   const [selectedOpenPlotCategory, setSelectedOpenPlotCategory] = React.useState<OpenPlotCategoryItem | null>(null);
 

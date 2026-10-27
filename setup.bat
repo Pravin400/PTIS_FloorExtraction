@@ -16,7 +16,7 @@ if not exist ".venv\Scripts\python.exe" (
 if exist ".venv\Scripts\python.exe" (
     echo Installing Python dependencies from requirements.txt...
     ".venv\Scripts\python.exe" -m pip install --upgrade pip
-    ".venv\Scripts\python.exe" -m pip install -r requirements.txt
+    ".venv\Scripts\python.exe" -m pip install --ignore-requires-python -r requirements.txt
     echo [OK] Python AI Extraction Service ready.
 ) else (
     echo [WARNING] Could not create virtual environment. Please ensure Python 3.10+ is installed and added to PATH.

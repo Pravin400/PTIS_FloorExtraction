@@ -77,8 +77,10 @@ async function authJsonRequest<T>(
   const timeout = getAppConfig().api.timeout;
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), timeout);
-  const baseUrl = getAuthApiBaseUrl();
-  const path = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+  const rawBase = getAuthApiBaseUrl();
+  const baseUrl = rawBase.replace(/\/api\/?$/, '');
+  const cleanEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+  const path = cleanEndpoint.startsWith('/api/') ? cleanEndpoint : `/api${cleanEndpoint}`;
   const url = `${baseUrl}${path}`;
 
   try {

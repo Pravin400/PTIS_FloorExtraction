@@ -10,6 +10,7 @@ import {
     getFloorSubmissionsByOwner,
     getFloorData,
     getTypeOfUseData,
+    getOpenPlotCategoryData,
     getConstructionTypeData,
     getSubTypeOfUseData,
     getSubFloorData,
@@ -163,9 +164,9 @@ export async function getTypeOfUseDataAction(propertyTypeId?: string | number) {
     }
 }
 
-export async function getOpenPlotCategoryDataAction(propertyTypeId?: string | number) {
+export async function getOpenPlotCategoryDataAction(_propertyTypeId?: string | number) {
     try {
-        return await getTypeOfUseData(propertyTypeId);
+        return await getOpenPlotCategoryData();
     } catch (_error) {
         return { success: false, error: "quickDataEntry.floorSubmission.errors.fetchUsageTypes" };
     }
@@ -474,6 +475,24 @@ export async function extractRoomsFromFloorPlanAction(params: {
 
         // 2. Otherwise retrieve the saved plan for this property
         const propId = Number(params.propertyId);
+        let effWardNo = params.wardNo?.trim();
+        let effPropertyNo = params.propertyNo?.trim();
+        let effPartitionNo = params.partitionNo?.trim();
+
+        // If ward or property number are missing from query parameters, resolve from property basic details
+        if ((!effWardNo || !effPropertyNo) && propId) {
+            try {
+                const basic = await getPropertyBasicDetails(propId);
+                if (basic) {
+                    effWardNo = effWardNo || (basic.wardNo ? String(basic.wardNo) : undefined);
+                    effPropertyNo = effPropertyNo || (basic.propertyNo ? String(basic.propertyNo) : undefined);
+                    effPartitionNo = effPartitionNo || (basic.partitionNo ? String(basic.partitionNo) : undefined);
+                }
+            } catch (basicErr) {
+                console.warn('Could not retrieve basic details for property in extraction action:', basicErr);
+            }
+        }
+
         let planDocumentGuid: string | null = null;
         let planFileName: string | null = null;
 
@@ -485,8 +504,9 @@ export async function extractRoomsFromFloorPlanAction(params: {
                 const photosRes = await photoPlanService.getPhotosByProperty(propId);
 
                 if (photosRes.success && Array.isArray(photosRes.data)) {
-                    // Filter for all plan photos
+                    // Filter for all plan photos (Property Plan in PTIS is photoTypeId 13 or photoTypeCode PROPERTY_PLAN)
                     const planPhotos = photosRes.data.filter((p) =>
+                        p.photoTypeId === 13 ||
                         p.photoTypeId === 5 ||
                         p.photoTypeCode === 'PROPERTY_PLAN' ||
                         p.photoTypeCode === 'PHOTO_PLAN' ||
@@ -510,72 +530,171 @@ export async function extractRoomsFromFloorPlanAction(params: {
 
         // If found in PTIS Document storage, fetch it
         if (planDocumentGuid) {
-            const backendBaseUrl = process.env.NEXT_PUBLIC_API_URL || process.env.API_BASE_URL || 'https://localhost:7293';
+            // Attempt 1: Authenticated document service
             try {
-                const docRes = await fetch(`${backendBaseUrl}/api/documents/${planDocumentGuid}/view`, {
-                    cache: 'no-store',
-                    headers: { 'Accept': '*/*' },
-                });
-                if (docRes.ok) {
-                    const contentType = docRes.headers.get('content-type') || '';
-                    if (contentType.includes('svg') || (planFileName && planFileName.endsWith('.svg'))) {
-                        const svgText = await docRes.text();
-                        const extractRes = await fetch(`${extractionServiceUrl}/api/extract-rooms-json`, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ svg_content: svgText, measurement_unit: params.measurementUnit })
-                        });
-                        if (extractRes.ok) {
-                            const data: ExtractionResponseDto = await extractRes.json();
-                            return { success: true, data };
-                        }
-                    } else {
-                        const buffer = await docRes.arrayBuffer();
-                        const base64 = Buffer.from(buffer).toString('base64');
-                        const extractRes = await fetch(`${extractionServiceUrl}/api/extract-rooms-json`, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ image_base64: base64, measurement_unit: params.measurementUnit })
-                        });
-                        if (extractRes.ok) {
-                            const data: ExtractionResponseDto = await extractRes.json();
-                            return { success: true, data };
-                        } else {
-                            const errBody = await extractRes.text();
-                            return { success: false, error: `Extraction error on uploaded photo: ${errBody}` };
-                        }
+                const { getDocument } = await import('@/lib/api/document.service');
+                const docResult = await getDocument(planDocumentGuid, 'view');
+                if (docResult && docResult.buffer) {
+                    const buffer = Buffer.from(docResult.buffer);
+                    const isSvg = (docResult.contentType && docResult.contentType.includes('svg')) ||
+                                  (planFileName && planFileName.toLowerCase().endsWith('.svg')) ||
+                                  buffer.toString('utf-8', 0, 100).includes('<svg');
+
+                    const payload = isSvg
+                        ? { svg_content: buffer.toString('utf-8'), measurement_unit: params.measurementUnit }
+                        : { image_base64: buffer.toString('base64'), measurement_unit: params.measurementUnit };
+
+                    const extractRes = await fetch(`${extractionServiceUrl}/api/extract-rooms-json`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload),
+                        cache: 'no-store'
+                    });
+                    if (extractRes.ok) {
+                        const data: ExtractionResponseDto = await extractRes.json();
+                        return { success: true, data };
                     }
                 }
             } catch (docErr) {
-                console.warn('Could not fetch from document storage directly:', docErr);
-                return { success: false, error: 'Could not fetch uploaded plan photo from document storage.' };
+                console.warn('Could not fetch via document service directly, trying local uploads folder:', docErr);
+            }
+
+            // Attempt 2: Direct local disk lookup in Uploads folder
+            try {
+                const fs = await import('fs');
+                const path = await import('path');
+                const candidateDirs = [
+                    path.resolve(process.cwd(), '../ntis-platform-dev/src/Presentation/NtisPlatform.Api/Uploads'),
+                    path.resolve(process.cwd(), 'ntis-platform-dev/src/Presentation/NtisPlatform.Api/Uploads'),
+                    'C:\\Users\\Pravin.Tambe\\Videos\\PTIS_FloorExtraction\\ntis-platform-dev\\src\\Presentation\\NtisPlatform.Api\\Uploads',
+                ];
+                for (const dir of candidateDirs) {
+                    if (fs.existsSync(dir)) {
+                        const files = fs.readdirSync(dir);
+                        const cleanGuid = planDocumentGuid.replace(/-/g, '').toLowerCase();
+                        const cleanFileName = (planFileName || '').toLowerCase();
+                        const match = files.find(f => {
+                            const fl = f.toLowerCase();
+                            if (cleanFileName && fl.endsWith(cleanFileName)) return true;
+                            if (cleanGuid && fl.includes(cleanGuid)) return true;
+                            return false;
+                        });
+                        if (match) {
+                            const filePath = path.join(dir, match);
+                            const fileBuffer = fs.readFileSync(filePath);
+                            const isSvg = match.toLowerCase().endsWith('.svg') || fileBuffer.toString('utf-8', 0, 100).includes('<svg');
+                            const payload = isSvg
+                                ? { svg_content: fileBuffer.toString('utf-8'), measurement_unit: params.measurementUnit }
+                                : { image_base64: fileBuffer.toString('base64'), measurement_unit: params.measurementUnit };
+
+                            const extractRes = await fetch(`${extractionServiceUrl}/api/extract-rooms-json`, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(payload),
+                                cache: 'no-store'
+                            });
+                            if (extractRes.ok) {
+                                const data: ExtractionResponseDto = await extractRes.json();
+                                return { success: true, data };
+                            }
+                        }
+                    }
+                }
+            } catch (diskErr) {
+                console.warn('Local disk uploads fallback failed:', diskErr);
             }
         }
 
-        // 3. Fallback: Fetch directly from CAD drawing tool only if wardNo and propertyNo are provided
-        if (!params.wardNo || !params.propertyNo) {
-            return { success: false, error: "No floor plan drawing or photo found for this property. Please upload a plan photo first." };
+        // Attempt 2b: Local disk search by ward and property number if physical file exists in Uploads
+        if (effWardNo && effPropertyNo) {
+            try {
+                const fs = await import('fs');
+                const path = await import('path');
+                const candidateDirs = [
+                    path.resolve(process.cwd(), '../ntis-platform-dev/src/Presentation/NtisPlatform.Api/Uploads'),
+                    path.resolve(process.cwd(), 'ntis-platform-dev/src/Presentation/NtisPlatform.Api/Uploads'),
+                    'C:\\Users\\Pravin.Tambe\\Videos\\PTIS_FloorExtraction\\ntis-platform-dev\\src\\Presentation\\NtisPlatform.Api\\Uploads',
+                ];
+                const cleanPart = (effPartitionNo || '').replace(/^[^\w]+/, '').toLowerCase();
+                const wardLower = effWardNo.toLowerCase();
+                const propLower = effPropertyNo.toLowerCase();
+
+                for (const dir of candidateDirs) {
+                    if (fs.existsSync(dir)) {
+                        const files = fs.readdirSync(dir);
+                        const match = files.find(f => {
+                            const fl = f.toLowerCase();
+                            if (!fl.endsWith('.svg') && !fl.endsWith('.png') && !fl.endsWith('.jpg') && !fl.endsWith('.jpeg')) return false;
+                            const matchesWardProp = fl.includes(wardLower) && fl.includes(propLower);
+                            if (!matchesWardProp) return false;
+                            if (cleanPart && !fl.includes(cleanPart)) return false;
+                            return true;
+                        });
+                        if (match) {
+                            const filePath = path.join(dir, match);
+                            const fileBuffer = fs.readFileSync(filePath);
+                            const isSvg = match.toLowerCase().endsWith('.svg') || fileBuffer.toString('utf-8', 0, 100).includes('<svg');
+                            const payload = isSvg
+                                ? { svg_content: fileBuffer.toString('utf-8'), measurement_unit: params.measurementUnit }
+                                : { image_base64: fileBuffer.toString('base64'), measurement_unit: params.measurementUnit };
+
+                            const extractRes = await fetch(`${extractionServiceUrl}/api/extract-rooms-json`, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(payload),
+                                cache: 'no-store'
+                            });
+                            if (extractRes.ok) {
+                                const data: ExtractionResponseDto = await extractRes.json();
+                                return { success: true, data };
+                            }
+                        }
+                    }
+                }
+            } catch (err) {
+                console.warn('Local disk matching by ward/property failed:', err);
+            }
+        }
+
+        // 3. Fallback: Fetch directly from CAD drawing tool only if effWardNo and effPropertyNo are provided
+        if (!effWardNo || !effPropertyNo) {
+            return { success: false, error: "No floor plan drawing or photo found for this property. Please draw or upload a plan first." };
         }
 
         const councilName = process.env.NEXT_PUBLIC_COUNCIL_NAME || 'THANE_survey';
-        let planName = '';
-        const cleanPart = params.partitionNo?.trim() || '';
+        const cleanPart = (effPartitionNo || '').replace(/^[^\w]+/, '').trim();
+        const letterMatch = cleanPart ? cleanPart.match(/^([A-Za-z]+)(\d+)?$/) : null;
+        const partLetters = letterMatch ? letterMatch[1] : cleanPart;
+        const partDigits = letterMatch && letterMatch[2] ? letterMatch[2] : '1';
+
+        let defaultPlanName = '';
         if (cleanPart && cleanPart !== '-' && cleanPart !== '0') {
-            const letterMatch = cleanPart.match(/^([A-Za-z]+)(\d+)?$/);
             if (letterMatch) {
-                planName = `${params.wardNo}-${letterMatch[1]}-${params.propertyNo}-${letterMatch[2] || '1'}`;
+                defaultPlanName = `${effWardNo}-${letterMatch[1]}-${effPropertyNo}-${letterMatch[2] || '1'}`;
             } else {
-                planName = `${params.wardNo}-${cleanPart}-${params.propertyNo}`;
+                defaultPlanName = `${effWardNo}-${cleanPart}-${effPropertyNo}`;
             }
         } else {
-            planName = `${params.wardNo}-${params.propertyNo}`;
+            defaultPlanName = `${effWardNo}-${effPropertyNo}`;
         }
 
-        // Only search candidates for THIS specific property and partition
+        // Search candidates for THIS specific property and partition:
+        // Priority 1: ${wardNo}-A-${propertyNo}-${cleanPart} (e.g. KL7-A-273-AM1)
+        // Priority 2: ${wardNo}-${propertyNo}-${cleanPart} (e.g. KL7-273-AM1)
+        // Priority 3: ${wardNo}-${cleanPart}-${propertyNo} (e.g. KL7-AM1-273)
+        // Priority 4: ${wardNo}-${letters}-${propertyNo}-${digits} (e.g. KL7-AM-273-1)
+        // Priority 5: defaultPlanName
+        // Priority 6: ${wardNo}-${propertyNo} (e.g. KL7-273)
+        // Priority 7: planFileName without extension (e.g. KL7-A-273-AM1)
         const planCandidates = Array.from(new Set([
-            planName,
-            cleanPart ? `${params.wardNo}-${params.propertyNo}-${cleanPart}` : null,
-            cleanPart ? `${params.wardNo}-${cleanPart}-${params.propertyNo}` : null
+            cleanPart ? `${effWardNo}-A-${effPropertyNo}-${cleanPart}` : null,
+            cleanPart ? `${effWardNo}-${effPropertyNo}-${cleanPart}` : null,
+            cleanPart ? `${effWardNo}-${cleanPart}-${effPropertyNo}` : null,
+            letterMatch ? `${effWardNo}-${partLetters}-${effPropertyNo}-${partDigits}` : null,
+            defaultPlanName,
+            `${effWardNo}-${effPropertyNo}`,
+            cleanPart ? `${effWardNo}-A-${effPropertyNo}` : null,
+            planFileName ? planFileName.replace(/\.[^/.]+$/, '') : null
         ].filter((p): p is string => Boolean(p))));
 
         const authRes = await fetch('https://apiptisplanapp.tabamc.in/api/auth/login', {
@@ -651,7 +770,11 @@ export async function extractRoomsFromFloorPlanAction(params: {
                         if (a.position && a.text) {
                             const lines = String(a.text).split('\n');
                             svg += `<text x="${a.position.x}" y="${a.position.y}">\n`;
-                            lines.forEach((l, idx) => { svg += `<tspan x="${a.position.x}" dy="${idx === 0 ? 0 : 20}">${l}</tspan>\n`; });
+                            const posX = a.position?.x ?? 0;
+                            lines.forEach((l, idx) => {
+                                const escaped = l.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                                svg += `<tspan x="${posX}" dy="${idx === 0 ? 0 : 20}">${escaped}</tspan>\n`;
+                            });
                             svg += `</text>\n`;
                         }
                     });
@@ -669,7 +792,6 @@ export async function extractRoomsFromFloorPlanAction(params: {
                 }
             }
         }
-
         return { success: false, error: "No floor plan drawing or photo found for this property. Please draw or upload a plan first." };
     } catch (error) {
         return { success: false, error: error instanceof Error ? error.message : "Failed to extract rooms from floor plan" };

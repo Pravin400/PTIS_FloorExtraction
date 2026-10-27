@@ -42,7 +42,7 @@ export function usePlotAreaCalculator({
   selectedFloorType = 'Construction',
   openPlotCategories,
   selectedOpenPlotCategory,
-  propertyTypeId,
+  propertyTypeId: _propertyTypeId,
 }: UsePlotAreaCalculatorParams) {
   const [length, setLength] = useState<string>(() =>
     initialPlotArea?.length != null ? String(initialPlotArea.length) : ''
@@ -169,7 +169,7 @@ export function usePlotAreaCalculator({
     if (isCategoryLoading) return;
     setIsCategoryLoading(true);
     try {
-      const data = await getOpenPlotCategoryDataAction(propertyTypeId);
+      const data = await getOpenPlotCategoryDataAction();
       if (Array.isArray(data) && data.length > 0) {
         const mapped = filterOpenPlotCategories(data);
         if (mapped.length > 0) {
@@ -181,7 +181,14 @@ export function usePlotAreaCalculator({
     } finally {
       setIsCategoryLoading(false);
     }
-  }, [isCategoryLoading, propertyTypeId]);
+  }, [isCategoryLoading]);
+
+  // Automatically ensure categories are loaded on mount if empty
+  useEffect(() => {
+    if (!categories || categories.length === 0) {
+      handleOpenPlotCategoryFocus();
+    }
+  }, [categories, handleOpenPlotCategoryFocus]);
 
   const categoryList = useMemo(
     () => (categories?.length ? categories : (openPlotCategories?.length ? openPlotCategories : [])),

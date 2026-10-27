@@ -196,8 +196,11 @@ class ApiClient {
 
     try {
       const headers = await this.getAuthHeaders(options, skipAuth);
-      const baseUrl = this.getBaseUrl();
-      const url = `${baseUrl.replace(/\/$/, '')}/${endpoint.replace(/^\//, '')}`;
+      const rawBase = this.getBaseUrl();
+      const baseUrl = rawBase.replace(/\/api\/?$/, '');
+      const cleanEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+      const path = cleanEndpoint.startsWith('/api/') ? cleanEndpoint : `/api${cleanEndpoint}`;
+      const url = `${baseUrl}${path}`;
       const cleanHeaders: Record<string, string> = {};
       Object.entries(headers).forEach(([k, v]) => (cleanHeaders[k] = String(v).replace(/[^\x00-\x7F]/g, '')));
 

@@ -1042,7 +1042,7 @@ public static class ServiceCollectionExtensions
         {
             options.AddPolicy("AllowAll", policy =>
             {
-                policy.WithOrigins("http://localhost:3000", "https://localhost:3000")
+                policy.SetIsOriginAllowed(_ => true)
                       .AllowAnyMethod()
                       .AllowAnyHeader();
                 // Note: AllowCredentials removed - tokens are sent in Authorization header only
@@ -1051,7 +1051,7 @@ public static class ServiceCollectionExtensions
             // SignalR hub CORS: needs AllowCredentials for the HTTP negotiation handshake.
             options.AddPolicy("HubCors", policy =>
             {
-                policy.WithOrigins("http://localhost:3000", "https://localhost:3000")
+                policy.SetIsOriginAllowed(_ => true)
                       .AllowAnyMethod()
                       .AllowAnyHeader()
                       .AllowCredentials();

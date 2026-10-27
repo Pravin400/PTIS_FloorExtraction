@@ -2779,13 +2779,13 @@ public class ApplicationDbContext : DbContext
             entity.ToTable("RoomWiseSubmissionDetails", "PTIS");
 
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.LengthMtr).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.WidthMtr).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.AreaSqMtr).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.HeightMtr).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.Base1Mtr).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.Base2Mtr).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.TotalAreaSqMtr).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
+            entity.Property(e => e.LengthMtr);
+            entity.Property(e => e.WidthMtr);
+            entity.Property(e => e.AreaSqMtr);
+            entity.Property(e => e.HeightMtr);
+            entity.Property(e => e.Base1Mtr);
+            entity.Property(e => e.Base2Mtr);
+            entity.Property(e => e.TotalAreaSqMtr);
             entity.Property(e => e.Shape).HasMaxLength(100);
             entity.Property(e => e.RoomNo).HasMaxLength(50);
             entity.Property(e => e.RoomTypeId);
@@ -2827,12 +2827,12 @@ public class ApplicationDbContext : DbContext
             entity.HasKey(e => e.Id);
             entity.Property(e => e.Id).ValueGeneratedOnAdd();
             entity.Property(e => e.RoomWiseSubmissionId).IsRequired();
-            entity.Property(e => e.LengthMtr).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.WidthMtr).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.AreaSqMtr).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.HeightMtr).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.Base1Mtr).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.Base2Mtr).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
+            entity.Property(e => e.LengthMtr);
+            entity.Property(e => e.WidthMtr);
+            entity.Property(e => e.AreaSqMtr);
+            entity.Property(e => e.HeightMtr);
+            entity.Property(e => e.Base1Mtr);
+            entity.Property(e => e.Base2Mtr);
             entity.Property(e => e.IsOffset).HasDefaultValue(false);
             entity.Property(e => e.Shape).HasMaxLength(25);
             entity.Property(e => e.MarkedForDeletion).IsRequired().HasDefaultValue(false);
@@ -3060,10 +3060,10 @@ public class ApplicationDbContext : DbContext
             entity.HasKey(e => e.Id);
             entity.Property(e => e.Id).ValueGeneratedOnAdd();
             entity.Property(e => e.Id).IsRequired();
-            entity.Property(e => e.CarpetAreaSqMeter).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.BuiltupAreaSqMeter).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.CarpetAreaSqFeet).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.BuiltupAreaSqFeet).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
+            entity.Property(e => e.CarpetAreaSqMeter);
+            entity.Property(e => e.BuiltupAreaSqMeter);
+            entity.Property(e => e.CarpetAreaSqFeet);
+            entity.Property(e => e.BuiltupAreaSqFeet);
             entity.Property(e => e.ConstructionYear).HasColumnType("varchar(4)");
             entity.Property(e => e.AssessmentYear).HasColumnType("nvarchar(4)");
             entity.Property(e => e.IsOpenPlot);
@@ -3659,19 +3659,19 @@ public class ApplicationDbContext : DbContext
             entity.Property(e => e.OldPartitionNo).HasMaxLength(10);
             entity.Property(e => e.OldEgovNo).HasMaxLength(10);
             entity.Property(e => e.OldPropertyTypeId);
-            entity.Property(e => e.OldALV).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.OldRV).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.OldGeneralTax).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.OldTotalTax).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
+            entity.Property(e => e.OldALV);
+            entity.Property(e => e.OldRV);
+            entity.Property(e => e.OldGeneralTax);
+            entity.Property(e => e.OldTotalTax);
             entity.Property(e => e.OldZoneNo).HasMaxLength(20);
             entity.Property(e => e.OldPlotNo).HasMaxLength(20);
             entity.Property(e => e.OldCSN).HasMaxLength(30);
-            entity.Property(e => e.OldPlotArea).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
+            entity.Property(e => e.OldPlotArea);
             entity.Property(e => e.OldAssessmentYear);
             entity.Property(e => e.OldFloor).HasMaxLength(10);
             entity.Property(e => e.OldConstructionTypeOfUseId).HasMaxLength(7);
             entity.Property(e => e.OldUseType).HasMaxLength(100);
-            entity.Property(e => e.OldConstructionArea).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
+            entity.Property(e => e.OldConstructionArea);
             entity.Property(e => e.OldConstructionYear)
                 .HasConversion(
                     v => v != null ? (int?)Convert.ToInt32(v) : null,
@@ -3686,8 +3686,8 @@ public class ApplicationDbContext : DbContext
             entity.Property(e => e.OldTotalRooms);
             entity.Property(e => e.OldSocietyName).HasMaxLength(300);
             entity.Property(e => e.OldEmailId).HasMaxLength(100);
-            entity.Property(e => e.OldParkingAreaSqFt).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.OldParkingAreaSqMtr).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
+            entity.Property(e => e.OldParkingAreaSqFt);
+            entity.Property(e => e.OldParkingAreaSqMtr);
             entity.Property(e => e.OldAssessmentDate);
             entity.Property(e => e.OldFlatOrShopNumber).HasMaxLength(50);
             entity.Property(e => e.OldWing).HasMaxLength(20);
@@ -3715,10 +3715,10 @@ public class ApplicationDbContext : DbContext
             entity.Property(e => e.OldConstructionTypeId);
             entity.Property(e => e.OldTypeOfUseId);
             entity.Property(e => e.OldSubTypeOfUseId);
-            entity.Property(e => e.OldCarpetAreaSqMeter).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.OldCarpetAreaSqFeet).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.OldBuiltupAreaSqMeter).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.OldBuiltupAreaSqFeet).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
+            entity.Property(e => e.OldCarpetAreaSqMeter);
+            entity.Property(e => e.OldCarpetAreaSqFeet);
+            entity.Property(e => e.OldBuiltupAreaSqMeter);
+            entity.Property(e => e.OldBuiltupAreaSqFeet);
             entity.Property(e => e.MarkedForDeletion).IsRequired().HasDefaultValue(false);
             entity.Property(e => e.MarkedForDeletionDate).HasColumnType("datetime");
             entity.Property(e => e.IsActive).IsRequired().HasDefaultValue(true);
@@ -4019,13 +4019,13 @@ public class ApplicationDbContext : DbContext
 
             // These columns are SQL `float` in the live PTIS.RVCalculationResults table
             // (confirmed against the table DDL) - mapped as CLR double, not decimal, to match.
-            entity.Property(e => e.MonthlyRate).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.YearlyRate).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.YearlyRent).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.AnnualRentalValue).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.TotalAreaSqMtr).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.RAreaSqMtr).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.CAreaSqlMtr).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
+            entity.Property(e => e.MonthlyRate);
+            entity.Property(e => e.YearlyRate);
+            entity.Property(e => e.YearlyRent);
+            entity.Property(e => e.AnnualRentalValue);
+            entity.Property(e => e.TotalAreaSqMtr);
+            entity.Property(e => e.RAreaSqMtr);
+            entity.Property(e => e.CAreaSqlMtr);
 
             entity.Property(e => e.Depreciation).HasColumnType("decimal(18,2)");
             entity.Property(e => e.Maintenance).HasColumnType("decimal(18,2)");
@@ -4945,13 +4945,13 @@ public class ApplicationDbContext : DbContext
             entity.HasKey(e => e.Id);
             entity.Property(e => e.Id).ValueGeneratedOnAdd();
             entity.Property(e => e.PropertyDetailsId).IsRequired();
-            entity.Property(e => e.RentMonthly).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
-            entity.Property(e => e.FinalYearlyRent).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
+            entity.Property(e => e.RentMonthly);
+            entity.Property(e => e.FinalYearlyRent);
             entity.Property(e => e.FinancialYear).HasColumnType("nvarchar(4)");
             entity.Property(e => e.DurationFrom).HasColumnType("datetime");
             entity.Property(e => e.DurationTo).HasColumnType("datetime");
             entity.Property(e => e.TaxLiability).HasColumnType("nvarchar(20)");
-            entity.Property(e => e.NonCalculateRentMonthly).HasConversion(v => v.HasValue ? (decimal?)v.Value : null, v => v.HasValue ? (double?)v.Value : null).HasColumnType("decimal(18,4)");
+            entity.Property(e => e.NonCalculateRentMonthly);
             entity.Property(e => e.RenterNameEnglish).HasColumnType("nvarchar(500)");
             entity.Property(e => e.RenterName).HasColumnType("nvarchar(500)");
             entity.Property(e => e.AgreementDate).HasColumnType("datetime");

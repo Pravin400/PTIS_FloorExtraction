@@ -9,6 +9,7 @@ namespace NtisPlatform.Api.Controllers.Master;
 
 [ApiController]
 [Route("api/[controller]")]
+[Route("[controller]")]
 [Authorize]
 public class DataEntryController : ControllerBase
 {

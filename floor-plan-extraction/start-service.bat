@@ -13,3 +13,6 @@ if exist ".venv\Scripts\python.exe" (
     echo Virtual environment not found, using system Python...
     python main.py
 )
+pause
+pause
+

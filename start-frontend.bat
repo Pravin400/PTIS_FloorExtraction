@@ -5,9 +5,10 @@ echo ========================================================
 echo         Starting NTIS Platform Frontend UI
 echo ========================================================
 echo.
+echo Local URL:   http://localhost:3000
+echo Network URL: http://192.168.2.67:3000
+echo.
 cd /d "%~dp0ntis-ui-dev"
 
-echo Starting Next.js Dev Server on http://localhost:3000 ...
-echo.
 npm run dev
 pause

@@ -163,10 +163,29 @@ UNIT_PATTERN_METER = re.compile(r'\b(?:AREA\s+IN\s+MTR|MTR|METER|METRE|SQ\.?M|SQ
 UNIT_PATTERN_FEET = re.compile(r'\b(?:AREA\s+IN\s+FT|FEET|FOOT|SQ\.?FT|SQFT)\b', re.IGNORECASE)
 
 KNOWN_ROOM_NAMES = [
-    "HALL", "DINING", "BEDROOM", "BED", "STORE_ROOM", "STORE",
-    "KITCHEN", "KIT", "BATHROOM", "BATH", "B+W", "B", "TOILET", "WC", "W", "BALCONY",
-    "GALL", "TERRACE", "LIVING", "LIVING_ROOM", "BED_ROOM", "POOJA", "PASS", "ATM", "GAB"
+    "STORE_ROOM", "LIVING_ROOM", "BED_ROOM", "BATHROOM", "BALCONY", "BEDROOM", "KITCHEN",
+    "DINING", "TERRACE", "LIVING", "TOILET", "STORE", "POOJA", "HALL", "BATH", "PASS",
+    "B+W", "ATM", "GAB", "KIT", "BED", "WC", "B", "W"
 ]
+
+IGNORE_TEXT_PATTERNS = [
+    "OWNER", "ARCHITECT", "CLIENT", "PROJECT", "DRAWING", "SCALE", "DATE",
+    "SIGN", "TITLE", "NORTH", "SURVEY", "AREA IN", "SQ.M", "SQ.FT", "MTR"
+]
+
+def match_room_name(text: str) -> Optional[str]:
+    up = text.upper().strip()
+    if not up:
+        return None
+    for ig in IGNORE_TEXT_PATTERNS:
+        if ig in up:
+            return None
+    up_norm = up.replace(' ', '_')
+    for kr in KNOWN_ROOM_NAMES:
+        pattern = r'(?<![A-Z0-9])' + re.escape(kr) + r'(?![A-Z0-9])'
+        if re.search(pattern, up_norm):
+            return kr
+    return None
 
 def parse_svg_elements(svg_text: str) -> (List[Dict[str, Any]], str):
     """
@@ -196,11 +215,9 @@ def parse_svg_elements(svg_text: str) -> (List[Dict[str, Any]], str):
             if dim_match:
                 block_dims = dim_match.groups()
             else:
-                up = line.upper().replace(' ', '_')
-                for kr in KNOWN_ROOM_NAMES:
-                    if kr in up:
-                        block_room_name = kr
-                        break
+                matched = match_room_name(line)
+                if matched:
+                    block_room_name = matched
 
         if block_room_name or block_dims:
             items.append({
@@ -256,6 +273,11 @@ def extract_rooms_with_vision(image_bytes: bytes, preferred_unit: Optional[str] 
     Uses Gemini Multimodal Vision API to parse floor plans, especially phone-captured screen photos.
     Automatically rotates through primary and fallback API keys.
     """
+    cfg = get_gemini_config()
+    keys = [k for k in [cfg.get("api_key"), cfg.get("fallback_key")] if k]
+    if not keys:
+        logger.info("No Gemini API key configured. Skipping vision extraction and falling back to local OCR.")
+        return None
     # Optimize image resolution (max 1600px) to ensure fast transmission and prompt response
     try:
         from PIL import Image as PILImage
@@ -607,11 +629,7 @@ def process_floor_plan(
         curr_text = curr["text"].strip()
 
         dim_match = DIMENSION_PATTERN.search(curr_text)
-        name_match = None
-        for kr in KNOWN_ROOM_NAMES:
-            if kr in curr_text.upper():
-                name_match = kr
-                break
+        name_match = match_room_name(curr_text)
 
         if name_match and dim_match:
             room_candidates.append({
