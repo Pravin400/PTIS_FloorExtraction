@@ -540,34 +540,42 @@ export async function extractRoomsFromFloorPlanAction(params: {
                         if (extractRes.ok) {
                             const data: ExtractionResponseDto = await extractRes.json();
                             return { success: true, data };
+                        } else {
+                            const errBody = await extractRes.text();
+                            return { success: false, error: `Extraction error on uploaded photo: ${errBody}` };
                         }
                     }
                 }
             } catch (docErr) {
-                console.warn('Could not fetch from document storage directly, falling back to CAD service:', docErr);
+                console.warn('Could not fetch from document storage directly:', docErr);
+                return { success: false, error: 'Could not fetch uploaded plan photo from document storage.' };
             }
         }
 
-        // 3. Fallback: Fetch directly from CAD drawing tool
+        // 3. Fallback: Fetch directly from CAD drawing tool only if wardNo and propertyNo are provided
+        if (!params.wardNo || !params.propertyNo) {
+            return { success: false, error: "No floor plan drawing or photo found for this property. Please upload a plan photo first." };
+        }
+
         const councilName = process.env.NEXT_PUBLIC_COUNCIL_NAME || 'THANE_survey';
         let planName = '';
         const cleanPart = params.partitionNo?.trim() || '';
         if (cleanPart && cleanPart !== '-' && cleanPart !== '0') {
             const letterMatch = cleanPart.match(/^([A-Za-z]+)(\d+)?$/);
             if (letterMatch) {
-                planName = `${params.wardNo || 'MM13'}-${letterMatch[1]}-${params.propertyNo || '31'}-${letterMatch[2] || '1'}`;
+                planName = `${params.wardNo}-${letterMatch[1]}-${params.propertyNo}-${letterMatch[2] || '1'}`;
             } else {
-                planName = `${params.wardNo || 'MM13'}-${cleanPart}-${params.propertyNo || '31'}`;
+                planName = `${params.wardNo}-${cleanPart}-${params.propertyNo}`;
             }
         } else {
-            planName = `${params.wardNo || 'MM13'}-${params.propertyNo || '31'}`;
+            planName = `${params.wardNo}-${params.propertyNo}`;
         }
 
-        // Only search candidates for THIS specific property and partition (do NOT cross-pollinate with other partitions)
+        // Only search candidates for THIS specific property and partition
         const planCandidates = Array.from(new Set([
             planName,
-            cleanPart ? `${params.wardNo || 'MM13'}-${params.propertyNo || '31'}-${cleanPart}` : null,
-            cleanPart ? `${params.wardNo || 'MM13'}-${cleanPart}-${params.propertyNo || '31'}` : null
+            cleanPart ? `${params.wardNo}-${params.propertyNo}-${cleanPart}` : null,
+            cleanPart ? `${params.wardNo}-${cleanPart}-${params.propertyNo}` : null
         ].filter((p): p is string => Boolean(p))));
 
         const authRes = await fetch('https://apiptisplanapp.tabamc.in/api/auth/login', {

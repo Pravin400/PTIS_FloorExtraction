@@ -1,23 +1,26 @@
+import os
 import io
 import re
 import math
+import json
 import base64
 import logging
 from typing import List, Optional, Dict, Any
+from pathlib import Path
 from fastapi import FastAPI, File, UploadFile, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import numpy as np
 import cv2
-from PIL import Image
+import requests
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("floor-plan-extraction")
 
 app = FastAPI(
     title="PTIS AI Floor-Plan Extraction Service",
-    description="Isolated extraction service for detecting rooms, boundaries, labels, and dimensions from floor plan images.",
-    version="1.0.0"
+    description="Multimodal AI extraction service for detecting rooms, boundaries, labels, and dimensions from CAD drawings and phone-captured floor plan photos.",
+    version="2.0.0"
 )
 
 app.add_middleware(
@@ -27,6 +30,48 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# ----------------- Configuration & Keys -----------------
+
+def get_gemini_config() -> Dict[str, str]:
+    """
+    Retrieves Gemini Vision API keys and model configuration from:
+    1. Environment variables
+    2. ../ntis-platform-dev/src/Presentation/NtisPlatform.Api/appsettings.json
+    3. Production defaults
+    """
+    api_key = os.environ.get("GEMINI_API_KEY")
+    fallback_key = os.environ.get("GEMINI_FALLBACK_API_KEY")
+    model = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash-lite")
+
+    if not api_key or not fallback_key:
+        appsettings_paths = [
+            Path(__file__).parent.parent / "ntis-platform-dev" / "src" / "Presentation" / "NtisPlatform.Api" / "appsettings.json",
+            Path(__file__).parent / "appsettings.json"
+        ]
+        for p in appsettings_paths:
+            if p.exists():
+                try:
+                    with open(p, "r", encoding="utf-8") as f:
+                        cfg = json.load(f)
+                        gemini_section = cfg.get("Gemini", {})
+                        if not api_key:
+                            api_key = gemini_section.get("ApiKey")
+                        if not fallback_key:
+                            fallback_key = gemini_section.get("FallbackApiKey")
+                        if not model:
+                            model = gemini_section.get("Model", "gemini-3.5-flash-lite")
+                        break
+                except Exception as ex:
+                    logger.warning(f"Could not load Gemini config from {p}: {ex}")
+
+    return {
+        "api_key": api_key or "",
+        "fallback_key": fallback_key or "",
+        "model": model or "gemini-3.5-flash-lite",
+        "base_url": "https://generativelanguage.googleapis.com/v1beta/models/"
+    }
+
 
 # ----------------- Data Models -----------------
 
@@ -40,7 +85,7 @@ class ExtractedRoom(BaseModel):
     detected_dimensions: Optional[str] = None
     measurement_unit: str = "m"
     area: Optional[float] = None
-    area_source: str = "explicit_dimensions"  # explicit_dimensions | contour_geometry | estimated
+    area_source: str = "explicit_dimensions"  # explicit_dimensions | ai_vision | contour_geometry | estimated
     confidence: float = 0.95
     needs_review: bool = False
     bounding_box: Optional[Dict[str, int]] = None
@@ -69,33 +114,46 @@ ROOM_TYPE_MAPPINGS = {
     "DINING_ROOM": "Dining",
     "BEDROOM": "Bedroom",
     "BED_ROOM": "Bedroom",
+    "BED": "Bedroom",
     "MASTER_BEDROOM": "Bedroom",
     "STORE": "Store Room",
     "STORE_ROOM": "Store Room",
     "KITCHEN": "Kitchen",
+    "KIT": "Kitchen",
     "BATH": "Bathroom",
     "BATHROOM": "Bathroom",
+    "B+W": "Bathroom",
+    "B+WC": "Bathroom",
+    "B": "Bathroom",
     "TOILET": "Toilet",
     "WC": "Toilet",
+    "W": "Toilet",
     "BALCONY": "Balcony",
+    "GALLERY": "Balcony",
+    "GALL": "Balcony",
     "TERRACE": "Terrace",
-    "POOJA": "Rooms",
     "PASSAGE": "Rooms",
+    "PASS": "Rooms",
+    "POOJA": "Rooms",
     "OFFICE": "Rooms",
+    "ATM": "Rooms",
+    "GAB": "Rooms",
+    "GAS/MAS": "Rooms",
     "ROOM": "Rooms",
+    "CLOSE": "Rooms",
+    "CB": "Rooms",
 }
 
 def normalize_room_type(name: str) -> str:
     clean = re.sub(r'[^A-Za-z0-9_]', '', name.strip().upper())
     for key, mapped in ROOM_TYPE_MAPPINGS.items():
-        if key in clean:
+        if key == clean or key in clean:
             return mapped
     return "Rooms"
 
 
 # ----------------- OCR & SVG Text Parsers -----------------
 
-# Regex for dimensions: 10*10, 10'15, 12x13, 12X13, 5*7, 10.5x12.5, etc.
 DIMENSION_PATTERN = re.compile(
     r'(\d+(?:\.\d+)?)\s*[*xX×\'’]\s*(\d+(?:\.\d+)?)',
     re.IGNORECASE
@@ -105,9 +163,9 @@ UNIT_PATTERN_METER = re.compile(r'\b(?:AREA\s+IN\s+MTR|MTR|METER|METRE|SQ\.?M|SQ
 UNIT_PATTERN_FEET = re.compile(r'\b(?:AREA\s+IN\s+FT|FEET|FOOT|SQ\.?FT|SQFT)\b', re.IGNORECASE)
 
 KNOWN_ROOM_NAMES = [
-    "HALL", "DINING", "BEDROOM", "STORE_ROOM", "STORE",
-    "KITCHEN", "BATHROOM", "BATH", "TOILET", "WC", "BALCONY",
-    "TERRACE", "LIVING", "LIVING_ROOM", "BED_ROOM", "POOJA"
+    "HALL", "DINING", "BEDROOM", "BED", "STORE_ROOM", "STORE",
+    "KITCHEN", "KIT", "BATHROOM", "BATH", "B+W", "B", "TOILET", "WC", "W", "BALCONY",
+    "GALL", "TERRACE", "LIVING", "LIVING_ROOM", "BED_ROOM", "POOJA", "PASS", "ATM", "GAB"
 ]
 
 def parse_svg_elements(svg_text: str) -> (List[Dict[str, Any]], str):
@@ -121,7 +179,6 @@ def parse_svg_elements(svg_text: str) -> (List[Dict[str, Any]], str):
     elif UNIT_PATTERN_METER.search(svg_text):
         unit = "m"
 
-    # Match <text ...> ... <tspan ...>NAME</tspan> ... <tspan>DIM</tspan> ... </text>
     text_blocks = re.findall(r'<text\b[^>]*>(.*?)</text>', svg_text, re.DOTALL | re.IGNORECASE)
     for block in text_blocks:
         tspans = re.findall(r'<tspan\b[^>]*>(.*?)</tspan>', block, re.DOTALL | re.IGNORECASE)
@@ -155,20 +212,249 @@ def parse_svg_elements(svg_text: str) -> (List[Dict[str, Any]], str):
     return items, unit
 
 
+# ----------------- Multimodal AI Vision Extraction -----------------
+
+VISION_PROMPT = """Analyze this architectural floor plan image.
+Note: The image may be a clean digital CAD drawing, an architectural blueprint, or a photo captured by a mobile phone from a computer monitor screen (which may exhibit moire pattern, screen glare, green CAD text, or camera tilt).
+
+Carefully identify the CAD floor plan area and extract all distinct rooms, spaces, and compartments (e.g. HALL, BEDROOM / BED, KITCHEN / KIT, BATH / B, TOILET / WC / W, BATH+WC / B+W, PASSAGE / PASS, BALCONY / GALLERY / GALL, TERRACE, OFFICE, ATM, GAB, GAS/MAS, etc.).
+
+For each room/space:
+1. Extract the room name/label as written in the CAD plan.
+2. Extract the length and width dimensions (in meters or feet as indicated by the plan, e.g. from '(AREA IN MTR)' -> 'm').
+3. If dimensions are shown in format 'Length X Width' (e.g. '3.0 X 5.0' or '2.8 X 2.0'):
+   - length = max(dim1, dim2)
+   - width = min(dim1, dim2)
+   - area = round(length * width, 2)
+   - detected_dimensions = 'Length*Width' (e.g. '5.0*3.0')
+4. If a room has single wall dimension tags or irregular shape, extract whatever dimensions are visible. If dimensions are not listed, set length, width, area to null.
+5. Identify the measurement unit: 'm' (if 'AREA IN MTR' or metric) or 'ft'. Default to 'm'.
+
+Return ONLY valid JSON matching this schema:
+{
+  "rooms_detected": <total count of rooms/spaces found>,
+  "measurement_unit": "m",
+  "rooms": [
+    {
+      "room_number": 1,
+      "room_name": "<exact label, e.g. HALL, BED, KIT, B, W, B+W, etc.>",
+      "room_type": "<Hall|Bedroom|Kitchen|Bathroom|Toilet|Rooms|Terrace|Balcony>",
+      "shape": "Rectangle",
+      "length": <float or null>,
+      "width": <float or null>,
+      "detected_dimensions": "<string, e.g. 5.0*3.0 or null>",
+      "area": <float or null>,
+      "confidence": 0.95,
+      "needs_review": false
+    }
+  ]
+}
+"""
+
+def extract_rooms_with_vision(image_bytes: bytes, preferred_unit: Optional[str] = None) -> Optional[ExtractionResponse]:
+    """
+    Uses Gemini Multimodal Vision API to parse floor plans, especially phone-captured screen photos.
+    Automatically rotates through primary and fallback API keys.
+    """
+    # Optimize image resolution (max 1600px) to ensure fast transmission and prompt response
+    try:
+        from PIL import Image as PILImage
+        img = PILImage.open(io.BytesIO(image_bytes))
+        max_dim = 1600
+        if max(img.width, img.height) > max_dim:
+            ratio = max_dim / float(max(img.width, img.height))
+            new_w = int(img.width * ratio)
+            new_h = int(img.height * ratio)
+            img = img.resize((new_w, new_h), PILImage.Resampling.LANCZOS)
+            buf = io.BytesIO()
+            img.save(buf, format="JPEG", quality=88)
+            image_bytes = buf.getvalue()
+    except Exception as ex:
+        logger.debug(f"Image resize skipped: {ex}")
+
+    # Base64 encode image
+    b64_img = base64.b64encode(image_bytes).decode("utf-8")
+
+    # Detect mime type from header
+    mime_type = "image/jpeg"
+    if image_bytes.startswith(b"\x89PNG\r\n\x1a\n"):
+        mime_type = "image/png"
+    elif image_bytes.startswith(b"RIFF") and b"WEBP" in image_bytes[:16]:
+        mime_type = "image/webp"
+
+    payload = {
+        "contents": [{
+            "parts": [
+                {"text": VISION_PROMPT},
+                {"inline_data": {"mime_type": mime_type, "data": b64_img}}
+            ]
+        }],
+        "generationConfig": {
+            "response_mime_type": "application/json",
+            "temperature": 0.1
+        }
+    }
+
+    for key_idx, key in enumerate(keys):
+        if not key:
+            continue
+        url = f"{cfg['base_url']}{cfg['model']}:generateContent?key={key}"
+        try:
+            logger.info(f"Sending floor plan to Gemini Vision ({cfg['model']}, key #{key_idx + 1})...")
+            resp = requests.post(url, json=payload, timeout=28)
+            if resp.status_code == 200:
+                resp_json = resp.json()
+                candidates = resp_json.get("candidates", [])
+                if candidates and candidates[0].get("content", {}).get("parts"):
+                    raw_text = candidates[0]["content"]["parts"][0].get("text", "").strip()
+                    parsed = json.loads(raw_text)
+
+                    unit = preferred_unit or parsed.get("measurement_unit") or "m"
+                    rooms_list = []
+                    raw_rooms = parsed.get("rooms", [])
+
+                    for idx, r in enumerate(raw_rooms, start=1):
+                        r_name = str(r.get("room_name") or f"ROOM_{idx}").strip()
+                        r_type = r.get("room_type") or normalize_room_type(r_name)
+
+                        len_val = r.get("length")
+                        wid_val = r.get("width")
+                        area_val = r.get("area")
+                        dim_str = r.get("detected_dimensions")
+
+                        try:
+                            l = float(len_val) if len_val is not None else None
+                            w = float(wid_val) if wid_val is not None else None
+                            if l is not None and w is not None:
+                                length = max(l, w)
+                                width = min(l, w)
+                                area = round(length * width, 2)
+                                shape = "Square" if math.isclose(length, width, rel_tol=1e-3) else "Rectangle"
+                                dim_str = dim_str or f"{length}*{width}"
+                            else:
+                                length, width = l, w
+                                area = float(area_val) if area_val is not None else None
+                                shape = r.get("shape", "Rectangle")
+                        except Exception:
+                            length, width, area = None, None, None
+                            shape = "Rectangle"
+
+                        rooms_list.append(ExtractedRoom(
+                            room_number=idx,
+                            room_name=r_name,
+                            room_type=r_type,
+                            shape=shape,
+                            length=length,
+                            width=width,
+                            detected_dimensions=dim_str,
+                            measurement_unit=unit,
+                            area=area,
+                            area_source="ai_vision",
+                            confidence=float(r.get("confidence", 0.95)),
+                            needs_review=bool(r.get("needs_review", False))
+                        ))
+
+                    total_detected = len(rooms_list)
+                    logger.info(f"Gemini Vision successfully extracted {total_detected} rooms.")
+                    return ExtractionResponse(
+                        success=True,
+                        rooms_detected=total_detected,
+                        measurement_unit=unit,
+                        rooms=rooms_list,
+                        message=f"AI Vision extracted {total_detected} rooms successfully from floor plan."
+                    )
+            else:
+                logger.warning(f"Gemini Vision key #{key_idx + 1} returned {resp.status_code}: {resp.text[:200]}")
+        except Exception as e:
+            logger.warning(f"Error calling Gemini Vision with key #{key_idx + 1}: {e}")
+
+    return None
+
+
+# ----------------- Local RapidOCR Fallback Engine -----------------
+
+_rapid_ocr = None
+
+def get_rapid_ocr_engine():
+    global _rapid_ocr
+    if _rapid_ocr is not None:
+        return _rapid_ocr
+    try:
+        from rapidocr_onnxruntime import RapidOCR
+        _rapid_ocr = RapidOCR()
+        logger.info("Initialized RapidOCR successfully.")
+        return _rapid_ocr
+    except Exception as e:
+        logger.warning(f"RapidOCR not available: {e}")
+        return None
+
+
+def run_local_ocr(image_rgb: np.ndarray) -> List[Dict[str, Any]]:
+    """
+    Runs RapidOCR with image preprocessing for green CAD text.
+    """
+    engine = get_rapid_ocr_engine()
+    if engine is None:
+        return []
+
+    results = []
+    try:
+        # Run 1: On standard RGB image
+        ocr_res, _ = engine(image_rgb)
+        if ocr_res:
+            for item in ocr_res:
+                box, text, conf = item[0], item[1], item[2]
+                xs = [pt[0] for pt in box]
+                ys = [pt[1] for pt in box]
+                results.append({
+                    "text": text,
+                    "confidence": float(conf),
+                    "x": int(min(xs)),
+                    "y": int(min(ys)),
+                    "w": int(max(xs) - min(xs)),
+                    "h": int(max(ys) - min(ys))
+                })
+
+        # Run 2: If few results, enhance green CAD text
+        if len(results) < 2:
+            hsv = cv2.cvtColor(image_rgb, cv2.COLOR_RGB2HSV)
+            # CAD green text mask
+            lower_green = np.array([30, 40, 40])
+            upper_green = np.array([90, 255, 255])
+            mask = cv2.inRange(hsv, lower_green, upper_green)
+            green_boosted = cv2.bitwise_and(image_rgb, image_rgb, mask=mask)
+            green_ocr, _ = engine(green_boosted)
+            if green_ocr:
+                for item in green_ocr:
+                    box, text, conf = item[0], item[1], item[2]
+                    xs = [pt[0] for pt in box]
+                    ys = [pt[1] for pt in box]
+                    results.append({
+                        "text": text,
+                        "confidence": float(conf),
+                        "x": int(min(xs)),
+                        "y": int(min(ys)),
+                        "w": int(max(xs) - min(xs)),
+                        "h": int(max(ys) - min(ys))
+                    })
+    except Exception as err:
+        logger.error(f"Error during RapidOCR execution: {err}")
+
+    return results
+
+
 def detect_contours_and_boxes(image_bgr: np.ndarray) -> List[Dict[str, Any]]:
     """
-    Uses OpenCV to preprocess the floor plan, detect room walls, contours, and bounding boxes.
+    Uses OpenCV to preprocess floor plan and detect enclosed room regions.
     """
     gray = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2GRAY)
     h, w = gray.shape
 
-    # Apply adaptive thresholding to detect lines/walls
     blur = cv2.GaussianBlur(gray, (5, 5), 0)
     thresh = cv2.adaptiveThreshold(
         blur, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 11, 2
     )
 
-    # Detect horizontal and vertical lines (walls)
     kernel_len = max(w, h) // 40
     ver_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (1, kernel_len))
     hor_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (kernel_len, 1))
@@ -179,118 +465,28 @@ def detect_contours_and_boxes(image_bgr: np.ndarray) -> List[Dict[str, Any]]:
     horizontal_lines = cv2.erode(thresh, hor_kernel, iterations=1)
     horizontal_lines = cv2.dilate(horizontal_lines, hor_kernel, iterations=2)
 
-    # Combine walls
     walls_mask = cv2.add(vertical_lines, horizontal_lines)
-
-    # Dilate slightly to close small gaps in corners
     close_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
     walls_closed = cv2.dilate(walls_mask, close_kernel, iterations=2)
 
-    # Find room contours inside walls
     contours, _ = cv2.findContours(walls_closed, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-
     room_boxes = []
     total_area = h * w
 
     for cnt in contours:
         x, y, rw, rh = cv2.boundingRect(cnt)
         box_area = rw * rh
-        # Filter out whole-canvas border and tiny noise contours
         if (box_area > 0.01 * total_area) and (box_area < 0.85 * total_area) and (rw > 30 and rh > 30):
-            # Approximate polygon to check if rectangular
-            peri = cv2.arcLength(cnt, True)
-            approx = cv2.approxPolyDP(cnt, 0.04 * peri, True)
-            is_rect = len(approx) == 4 or (0.8 <= (cv2.contourArea(cnt) / box_area) <= 1.05)
-
             room_boxes.append({
                 "x": int(x),
                 "y": int(y),
                 "width": int(rw),
                 "height": int(rh),
-                "area": float(box_area),
-                "is_rectangular": bool(is_rect)
+                "area": float(box_area)
             })
 
-    # Sort boxes top-to-bottom, left-to-right
     room_boxes = sorted(room_boxes, key=lambda b: (b["y"] // 50, b["x"]))
     return room_boxes
-
-
-# OCR Engine Wrapper with graceful fallbacks
-_ocr_engine = None
-
-def get_ocr_engine():
-    global _ocr_engine
-    if _ocr_engine is not None:
-        return _ocr_engine
-
-    try:
-        from paddleocr import PaddleOCR
-        _ocr_engine = PaddleOCR(use_angle_cls=False, lang='en', show_log=False)
-        logger.info("Initialized PaddleOCR successfully.")
-        return _ocr_engine
-    except Exception as e:
-        logger.warning(f"PaddleOCR not available ({e}). Trying EasyOCR / Fallback OCR...")
-
-    try:
-        import easyocr
-        _ocr_engine = easyocr.Reader(['en'], gpu=False)
-        logger.info("Initialized EasyOCR successfully.")
-        return _ocr_engine
-    except Exception as e:
-        logger.warning(f"EasyOCR not available ({e}). Running OpenCV-based heuristic text extraction.")
-
-    return None
-
-
-def run_ocr(image_rgb: np.ndarray) -> List[Dict[str, Any]]:
-    """
-    Runs available OCR engine and returns detected text boxes with bounding coordinates.
-    """
-    engine = get_ocr_engine()
-    results = []
-
-    if engine is None:
-        return results
-
-    try:
-        # Check if PaddleOCR
-        if hasattr(engine, 'ocr'):
-            ocr_res = engine.ocr(image_rgb, cls=False)
-            if ocr_res and len(ocr_res) > 0 and ocr_res[0]:
-                for line in ocr_res[0]:
-                    box = line[0]  # [[x1,y1], [x2,y2], [x3,y3], [x4,y4]]
-                    text = line[1][0]
-                    conf = float(line[1][1])
-                    xs = [pt[0] for pt in box]
-                    ys = [pt[1] for pt in box]
-                    results.append({
-                        "text": text,
-                        "confidence": conf,
-                        "x": min(xs),
-                        "y": min(ys),
-                        "w": max(xs) - min(xs),
-                        "h": max(ys) - min(ys)
-                    })
-        # Check if EasyOCR
-        elif hasattr(engine, 'readtext'):
-            easy_res = engine.readtext(image_rgb)
-            for item in easy_res:
-                box, text, conf = item
-                xs = [pt[0] for pt in box]
-                ys = [pt[1] for pt in box]
-                results.append({
-                    "text": text,
-                    "confidence": float(conf),
-                    "x": min(xs),
-                    "y": min(ys),
-                    "w": max(xs) - min(xs),
-                    "h": max(ys) - min(ys)
-                })
-    except Exception as err:
-        logger.error(f"Error during OCR execution: {err}")
-
-    return results
 
 
 # ----------------- Pipeline Orchestrator -----------------
@@ -304,13 +500,10 @@ def process_floor_plan(
     extracted_rooms: List[ExtractedRoom] = []
     detected_unit = preferred_unit or "m"
 
-    # 1. First priority: If SVG vector content is provided, parse directly for 100% precision
+    # 1. First priority: Direct SVG vector parsing
     if svg_string and ("<svg" in svg_string):
         svg_items, svg_unit = parse_svg_elements(svg_string)
-        if preferred_unit:
-            detected_unit = preferred_unit
-        else:
-            detected_unit = svg_unit
+        detected_unit = preferred_unit or svg_unit
 
         room_idx = 1
         for item in svg_items:
@@ -368,34 +561,36 @@ def process_floor_plan(
                 message="Extracted successfully from vector plan data."
             )
 
-    # 2. Image Pipeline (Raster/PNG/JPEG)
+    # 2. Image Pipeline (Raster/JPEG/PNG/phone photo)
     if not image_bytes:
         raise HTTPException(status_code=400, detail="No valid image data or SVG provided for extraction.")
 
-    # Decode image to numpy array
+    # Check if raw bytes was actually an SVG
+    try:
+        potential_svg = image_bytes.decode('utf-8', errors='ignore')
+        if "<svg" in potential_svg:
+            return process_floor_plan(svg_string=potential_svg, preferred_unit=preferred_unit)
+    except Exception:
+        pass
+
+    # A. PRIMARY: Try Multimodal AI Vision
+    # Handles phone-captured photos, screen moire patterns, green CAD text, and angles
+    vision_response = extract_rooms_with_vision(image_bytes, preferred_unit=preferred_unit)
+    if vision_response and vision_response.rooms_detected > 0:
+        return vision_response
+
+    # B. SECONDARY FALLBACK: Local RapidOCR + OpenCV
+    logger.info("Falling back to local RapidOCR + OpenCV extraction...")
     nparr = np.frombuffer(image_bytes, np.uint8)
     image_bgr = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     if image_bgr is None:
-        # Check if it was an SVG file uploaded as bytes
-        try:
-            potential_svg = image_bytes.decode('utf-8', errors='ignore')
-            if "<svg" in potential_svg:
-                return process_floor_plan(svg_string=potential_svg, preferred_unit=preferred_unit)
-        except Exception:
-            pass
         raise HTTPException(status_code=400, detail="Unable to decode image file format.")
 
     image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
-
-    # A. Detect Contours & Enclosed Rooms with OpenCV
     contour_boxes = detect_contours_and_boxes(image_bgr)
-    logger.info(f"OpenCV detected {len(contour_boxes)} potential room bounding regions.")
+    ocr_detections = run_local_ocr(image_rgb)
+    logger.info(f"Local RapidOCR detected {len(ocr_detections)} text elements.")
 
-    # B. Run OCR for labels and dimensions
-    ocr_detections = run_ocr(image_rgb)
-    logger.info(f"OCR detected {len(ocr_detections)} text elements.")
-
-    # Parse OCR detections for dimensions, labels, and units
     detected_texts = [d["text"].strip() for d in ocr_detections]
     full_text = " ".join(detected_texts)
 
@@ -405,14 +600,12 @@ def process_floor_plan(
         elif UNIT_PATTERN_METER.search(full_text):
             detected_unit = "m"
 
-    # Group OCR text into (Name, Dimensions)
     room_candidates: List[Dict[str, Any]] = []
     i = 0
     while i < len(ocr_detections):
         curr = ocr_detections[i]
         curr_text = curr["text"].strip()
 
-        # Check if current line has both name and dimension (e.g., "HALL 10*10")
         dim_match = DIMENSION_PATTERN.search(curr_text)
         name_match = None
         for kr in KNOWN_ROOM_NAMES:
@@ -430,7 +623,6 @@ def process_floor_plan(
             i += 1
             continue
 
-        # Check if name is on current line and dimension on next line
         if name_match:
             next_dim = None
             dim_str = None
@@ -440,7 +632,7 @@ def process_floor_plan(
                 if dm:
                     next_dim = dm.groups()
                     dim_str = f"{dm.group(1)}*{dm.group(2)}"
-                    i += 1  # Skip next line since consumed
+                    i += 1
 
             room_candidates.append({
                 "name": name_match,
@@ -451,7 +643,6 @@ def process_floor_plan(
             i += 1
             continue
 
-        # Standalone dimension without recognized room name
         if dim_match:
             room_candidates.append({
                 "name": f"ROOM_{len(room_candidates) + 1}",
@@ -462,7 +653,6 @@ def process_floor_plan(
 
         i += 1
 
-    # C. Correlate OCR candidates with OpenCV room contours
     room_num = 1
     for cand in room_candidates:
         r_name = cand["name"]
@@ -490,7 +680,6 @@ def process_floor_plan(
             needs_review = True
             area_src = "undetermined"
 
-        # Find enclosing contour box if any
         matching_box = None
         cx, cy = cand["x"], cand["y"]
         for b in contour_boxes:
@@ -524,9 +713,8 @@ def process_floor_plan(
         ))
         room_num += 1
 
-    # If OCR did not detect text but OpenCV found clear room regions
     if not extracted_rooms and contour_boxes:
-        warnings.append("No explicit text dimensions found via OCR; detected room regions from image geometry.")
+        warnings.append("No explicit text dimensions found; detected room regions from image geometry.")
         for b in contour_boxes:
             extracted_rooms.append(ExtractedRoom(
                 room_number=room_num,
@@ -551,7 +739,7 @@ def process_floor_plan(
         measurement_unit=detected_unit,
         rooms=extracted_rooms,
         warnings=warnings,
-        message=f"Successfully extracted {len(extracted_rooms)} rooms."
+        message=f"Extracted {len(extracted_rooms)} rooms via local fallback engine."
     )
 
 
@@ -562,15 +750,18 @@ def read_root():
     return {
         "service": "PTIS AI Floor-Plan Extraction Service",
         "status": "online",
-        "version": "1.0.0",
+        "version": "2.0.0",
+        "engines": ["gemini-3.5-flash-lite", "rapidocr-onnxruntime", "opencv", "svg-vector"],
         "docs_url": "/docs"
     }
 
 @app.get("/health")
 def health_check():
+    cfg = get_gemini_config()
     return {
         "status": "healthy",
-        "ocr_engine": "paddleocr" if _ocr_engine is not None else "ready"
+        "vision_ai": "active" if bool(cfg.get("api_key")) else "unconfigured",
+        "ocr_engine": "rapidocr"
     }
 
 @app.post("/api/extract-rooms", response_model=ExtractionResponse)
