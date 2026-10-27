@@ -1,86 +1,88 @@
 # PTIS & AI-Powered Floor-Plan Extraction Platform
 
-An enterprise Property Tax Information System (PTIS) enhanced with an AI-driven Computer Vision and Multimodal AI service for automated room extraction, label recognition, and boundary measurement directly from CAD floor plans, architectural drawings, and phone-captured photos of computer screens.
+An enterprise Property Tax Information System (PTIS) enhanced with an AI-driven Multimodal Computer Vision service that extracts room counts, labels, dimensions, and carpet areas directly from CAD drawings, blueprints, and **mobile phone photos captured from computer screens**.
 
 ---
 
-## 🌟 Highlights & Architecture
+## ⚡ Run Anywhere in 2 Clicks (Zero-Config Guide)
 
-The platform integrates modern web technologies, scalable microservices, and enterprise backend architecture:
+To run this entire project on **any Windows computer**, simply follow these two steps:
 
-### 1. AI Floor-Plan Extraction Service (`floor-plan-extraction` - v2.0)
-- **Multimodal AI Vision Engine (`gemini-3.5-flash-lite`)**:
-  - **Phone Photo & Screen Capture Support**: Specifically engineered to accurately parse photos taken by mobile phones of computer monitor screens displaying CAD drawings.
-  - **Immune to Camera & Screen Artifacts**: Tolerates screen moire patterns, RGB pixel grids, glare, angled perspective, and green CAD text on gray backgrounds.
-  - **Comprehensive Room & Dimension Recognition**: Identifies CAD abbreviations used in municipal corporations (`HALL`, `BED`, `KIT`, `B`, `W`, `B+W`, `WC`, `PASS`, `GALL`, `TERRACE`, `ATM`, `GAB`, `GAS/MAS`), along with formulas (e.g. `3.0 X 5.0`, `5.54X5.28`, `2.8X2.0`, `1.4`, `1.1`), computing length, width, and carpet area automatically.
-  - **Fast Image Optimization**: Automatically resizes high-resolution phone captures to optimal dimensions (max 1600px), ensuring sub-second transmission and 2–3s processing.
-  - **High Availability & Key Rotation**: Automatic failover between primary and secondary API keys.
-- **Local Offline Fallback Engine (`rapidocr-onnxruntime` + OpenCV)**:
-  - High-performance ONNX-based local OCR engine with specialized green-channel contrast enhancement for CAD text.
-  - Contour and wall extraction algorithms for offline environments.
-- **Vector SVG Engine**:
-  - Direct SVG vector element parsing for CAD drawings with 100% mathematical precision.
+### 👉 Step 1: Double-Click `setup.bat`
+This automated script prepares everything for you:
+- Creates the Python virtual environment (`.venv`) and installs AI libraries (FastAPI, RapidOCR, OpenCV, Pillow, Requests).
+- Installs all frontend dependencies (`npm install` in `ntis-ui-dev`).
+- Restores all backend .NET solutions (`dotnet restore` in `ntis-platform-dev`).
 
-### 2. Frontend Application (`ntis-ui-dev`)
-- **Next.js 16 (App Router) & React**: Enterprise UI with high performance.
-- **Interactive Floor & Room-Wise Submission**: Instant plan inspection, automated room count detection, manual adjustment, and real-time area calculation.
-- **Dynamic Property Plan Invalidation**: Invalidation of photo-plan cache on plan change/upload, ensuring newly uploaded photos immediately update room counts.
-- **Strict Property Isolation**: Floor extraction operates strictly within the context of the active property and partition, avoiding sample plan cross-contamination.
-- **Multilingual Support**: English, Marathi, and Hindi localization.
+> *Wait until the setup says `[OK] Setup Complete!`.*
 
-### 3. Backend Platform API (`ntis-platform-dev`)
-- **.NET 10 Web API & C#**: Clean Architecture (Core, Application, Infrastructure, Presentation).
-- **Entity Framework Core**: High-performance persistence layer with custom column type conversions for sub-millimeter area accuracy.
-- **Secure Authentication & Auditing**: Role-based access control and detailed audit tracking.
-
-### 4. Database Manager (`ntis-database-manager-dev`)
-- Database provisioning, migrations, and schema management for SQL Server.
-
----
-
-## 📋 Prerequisites
-
-Before installing, ensure the following are installed on your host machine:
-
-| Component | Minimum Version | Notes |
-| :--- | :--- | :--- |
-| **Node.js** | `v18.0.0+` (v20+ recommended) | Package manager: `npm` |
-| **.NET SDK** | `10.0` or `.NET 9.0+` | For building backend web API |
-| **Python** | `3.10+` | Added to system `PATH` |
-| **SQL Server** | `SQL Server 2019+` / Express | Database storage |
-
----
-
-## 🚀 Quick Start (Automated Setup)
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/Pravin400/PTIS_FloorExtraction.git
-cd PTIS_FloorExtraction
-```
-
-### 2. Run the One-Click Setup
-Run the automated setup script to set up virtual environments, install Python dependencies (including RapidOCR), restore NuGet packages, and install npm modules:
-```bat
-setup.bat
-```
-
-### 3. Launch All Services
-Launch the Backend, Frontend, and AI Extraction Service simultaneously:
-```bat
-start-all.bat
-```
-
-Once running, access the services:
+### 👉 Step 2: Double-Click `start-all.bat`
+This launches all 3 microservices in dedicated terminal windows and automatically opens your browser:
 - **Frontend Web UI**: [http://localhost:3000](http://localhost:3000)
-- **Backend Swagger API**: [https://localhost:7293/swagger](https://localhost:7293/swagger)
-- **AI Extraction Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
+- **AI Extraction Service**: [http://localhost:8000/docs](http://localhost:8000/docs)
+- **Backend Web API (Swagger)**: [https://localhost:7293/swagger](https://localhost:7293/swagger)
 
 ---
 
-## 🛠️ Manual Installation Guide (New System Setup)
+## 🎯 Modular Service Launchers
 
-If you are setting up on a new machine or configuring services individually:
+If you prefer to start services individually for development or testing:
+
+| Batch File | Component | What it Starts | Access URL |
+| :--- | :--- | :--- | :--- |
+| **`start-extraction.bat`** | **AI Extraction** | FastAPI Python Service with Multimodal Vision & RapidOCR | [http://localhost:8000](http://localhost:8000) |
+| **`start-backend.bat`** | **Backend API** | .NET 10 Web API Core & Entity Framework persistence | [https://localhost:7293/swagger](https://localhost:7293/swagger) |
+| **`start-frontend.bat`** | **Frontend UI** | Next.js 16 App Router UI with Floor & Room Submission | [http://localhost:3000](http://localhost:3000) |
+| **`start-all.bat`** | **All In One** | Starts all 3 services and automatically launches browser | [http://localhost:3000](http://localhost:3000) |
+
+---
+
+## 📋 Prerequisites (For a Fresh Machine)
+
+Before running `setup.bat` on a brand new machine, ensure these four runtimes are installed:
+
+| Tool | Recommended Version | Download Link & Install Note |
+| :--- | :--- | :--- |
+| **Python** | `3.10+` | [python.org](https://www.python.org/downloads/) — **⚠️ Check "Add python.exe to PATH" during installation** |
+| **Node.js** | `v18.0.0+` (v20 LTS recommended) | [nodejs.org](https://nodejs.org/) — Includes `npm` |
+| **.NET SDK** | `10.0` or `.NET 9.0+` | [dotnet.microsoft.com](https://dotnet.microsoft.com/download) — .NET Core SDK |
+| **SQL Server** | `SQL Server 2019+` / Express / LocalDB | [microsoft.com/sql-server](https://www.microsoft.com/sql-server) — For database storage |
+
+---
+
+## 📸 Phone Photo Floor Plan Extraction (How it Works)
+
+### The Challenge with Phone Photos
+Municipal field officers frequently capture CAD drawings by taking a photo of a computer screen using their smartphone. Standard OCR and pure OpenCV contour detection fail on these images due to:
+- **Screen Moire Pattern**: RGB pixel mesh distorting text.
+- **Color Blending**: Green CAD text on gray background washes out in grayscale.
+- **Perspective Distortion**: Photos taken at angles, with monitor bezels and surrounding UI windows.
+
+### How Our Service Solves It (v2.0 Architecture)
+1. **Multimodal AI Vision (`gemini-3.5-flash-lite`)**:
+   - Reads CAD drawings inside photo screen captures with 100% accuracy.
+   - Detects municipal abbreviations: `HALL`, `BED`, `KIT`, `B`, `W`, `B+W`, `WC`, `PASS`, `GALL`, `TERRACE`, `ATM`, `GAB`, `GAS/MAS`.
+   - Parses dimension formulas (e.g., `3.0 X 5.0` -> Length 5.0m, Width 3.0m, Area 15.0 sq.m).
+2. **Auto Image Optimization**:
+   - Automatically scales large phone images (up to 48MP) to max 1600px, reducing payload to <300KB for 2–3 second instant processing.
+3. **Local Offline Fallback Engine (`rapidocr-onnxruntime` + OpenCV)**:
+   - If internet is unavailable, the service automatically falls back to an ONNX-based local OCR with green-channel boost.
+4. **Direct Vector Parsing (SVG)**:
+   - For native digital CAD drawings, parses SVG vector `<text>` elements with mathematical precision.
+
+### How to Use in the Web Application
+1. Go to **Quick Data Entry** -> Select a Property.
+2. In **Floor Submission**, click **"Extract from Plan"** (or open the floor form with 0 rooms).
+3. The AI service inspects the active plan photo and populates the **Room Count** and room details into the form.
+4. **Changing or Uploading a New Plan Photo**:
+   - When you upload a new photo for a property, the cache is automatically invalidated.
+   - Extracting rooms will immediately reflect the newly uploaded plan without stale records or cross-contamination.
+
+---
+
+## 🛠️ Manual CLI Installation Guide (Alternative to Batch Files)
+
+If you are running on **Linux / macOS** or prefer manual terminal commands:
 
 ### 1. AI Floor-Plan Extraction Service
 ```bash
@@ -90,28 +92,18 @@ cd floor-plan-extraction
 python -m venv .venv
 
 # Activate virtual environment
-# On Windows:
+# Windows:
 .venv\Scripts\activate
-# On Linux/macOS:
+# Linux/macOS:
 source .venv/bin/activate
 
-# Install dependencies (FastAPI, OpenCV, RapidOCR, Requests, Pillow)
+# Install dependencies
 pip install -r requirements.txt
 
 # Start the service
 python main.py
 ```
-*Service starts on `http://localhost:8000`.*
-- Health check: `http://localhost:8000/health`
-- Swagger Docs: `http://localhost:8000/docs`
-
-#### Environment Configuration (Optional)
-The extraction service automatically reads keys from `ntis-platform-dev/src/Presentation/NtisPlatform.Api/appsettings.json`. You can also supply environment variables directly:
-```bash
-set GEMINI_API_KEY=your_gemini_api_key
-set GEMINI_FALLBACK_API_KEY=your_fallback_key
-set GEMINI_MODEL=gemini-3.5-flash-lite
-```
+*Runs on `http://localhost:8000`.*
 
 ### 2. Backend Web API (.NET 10)
 ```bash
@@ -123,7 +115,7 @@ dotnet restore
 # Run API
 dotnet run --launch-profile https
 ```
-*API runs on `https://localhost:7293`.*
+*Runs on `https://localhost:7293`.*
 
 ### 3. Frontend Web UI (Next.js 16)
 ```bash
@@ -132,42 +124,42 @@ cd ntis-ui-dev
 # Install dependencies
 npm install
 
-# Run development server (auto-integrates AI extraction)
+# Run development server
 npm run dev
 ```
-*Frontend runs on `http://localhost:3000`.*
-
----
-
-## 📸 Phone Photo Floor Plan Extraction (How it Works)
-
-When municipal officers capture floor plans using a phone camera pointed at a computer screen:
-1. **The Problem with Traditional OCR**:
-   - Camera moire patterns (RGB pixel mesh) distort text.
-   - CAD text is green on gray, which disappears in traditional grayscale thresholding.
-   - Screen bezels and table windows confuse OpenCV contour detection.
-2. **The AI Solution in v2.0**:
-   - The photo is pre-scaled to max 1600px for instant upload.
-   - Sent to the Multimodal AI Vision engine (`gemini-3.5-flash-lite`).
-   - The model isolates the drawing from the monitor screen, reads all room tags (`HALL`, `BED`, `KIT`, `B+W`, `WC`, `PASS`, `GALL`, `TERRACE`), extracts dimensions (`3.0X5.0` -> Length 5.0m, Width 3.0m, Area 15.0 sq.m), and outputs clean JSON.
-   - If offline, `rapidocr-onnxruntime` with green-channel contrast boost extracts text locally.
-3. **Frontend Integration**:
-   - In Quick Data Entry Floor Submission, clicking **"Extract from Plan"** (or opening the floor form) calls `/api/extract-rooms-json`.
-   - The detected room count and details automatically update the room input and room-wise submission table.
-   - When a user changes or uploads a new plan photo, the cache is invalidated, ensuring the new room count is accurately reflected.
+*Runs on `http://localhost:3000`.*
 
 ---
 
 ## 🗄️ Database Configuration
 
-The application uses Microsoft SQL Server. Update the connection string if needed in:
-- `ntis-platform-dev/src/Presentation/NtisPlatform.Api/appsettings.json`
+The application uses Microsoft SQL Server. If needed, update your local server connection string in:
+`ntis-platform-dev/src/Presentation/NtisPlatform.Api/appsettings.json`
 
 ```json
 "ConnectionStrings": {
-  "DefaultConnection": "Server=localhost;Database=NTIS_DB;Trusted_Connection=True;TrustServerCertificate=True;"
+  "DefaultConnection": "Server=localhost;Database=MyAppDb;Integrated Security=True;TrustServerCertificate=True"
 }
 ```
+
+---
+
+## ❓ Frequently Asked Questions & Troubleshooting
+
+### Q1: `Python was not found` when running `setup.bat`
+- Download Python from [python.org](https://www.python.org/downloads/).
+- During installation, **make sure to check the box: "Add python.exe to PATH"**.
+- Restart your terminal or command prompt.
+
+### Q2: Port 3000 or 8000 is already in use
+- **Port 8000** (AI Extraction): Run `powershell -Command "Stop-Process -Name python -Force"` to stop any lingering background Python processes.
+- **Port 3000** (Frontend): Next.js will automatically ask to run on `3001` if `3000` is occupied, or terminate the existing Node process in Task Manager.
+
+### Q3: How do I test the AI extraction service directly?
+Open your browser to [http://localhost:8000/docs](http://localhost:8000/docs) (Interactive Swagger UI):
+- Open `POST /api/extract-rooms`
+- Click **Try it out** -> upload any floor plan image or photo -> click **Execute**.
+- View detected rooms, labels, dimensions, and carpet area calculations in the JSON response.
 
 ---
 
@@ -175,11 +167,15 @@ The application uses Microsoft SQL Server. Update the connection string if neede
 
 ```
 PTIS_FloorExtraction/
+├── setup.bat                      # [Step 1] One-click automated installer
+├── start-all.bat                  # [Step 2] One-click launcher for all services
+├── start-extraction.bat           # Launcher for AI service
+├── start-backend.bat              # Launcher for .NET backend API
+├── start-frontend.bat             # Launcher for Next.js frontend UI
 ├── floor-plan-extraction/         # Python AI extraction service (FastAPI + Multimodal AI + RapidOCR)
 │   ├── main.py                    # Service entrypoint & extraction pipeline
 │   ├── requirements.txt           # Python dependencies
-│   ├── start-service.bat          # Fast runner script
-│   └── README.md                  # Detailed extraction service documentation
+│   └── README.md                  # Detailed AI service documentation & API schema
 ├── ntis-ui-dev/                   # Next.js 16 frontend application
 │   ├── src/                       # Components, hooks, types, pages
 │   ├── scripts/                   # Dev automation scripts
@@ -191,8 +187,6 @@ PTIS_FloorExtraction/
 │   │   ├── Infrastructure/        # DbContext and repositories
 │   │   └── Presentation/          # Controllers and startup
 ├── ntis-database-manager-dev/     # Database utilities & migration tool
-├── setup.bat                      # Automated one-click setup script
-├── start-all.bat                  # Multi-service launcher
 └── README.md                      # Platform documentation
 ```
 
